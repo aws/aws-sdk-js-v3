@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetIpamResourceCidrsRequest, GetIpamResourceCidrsResult } from "../models/models_5";
+import {
+  GetIpamResourceCidrsRequest,
+  GetIpamResourceCidrsRequestFilterSensitiveLog,
+  GetIpamResourceCidrsResult,
+  GetIpamResourceCidrsResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2GetIpamResourceCidrsCommand,
   serializeAws_ec2GetIpamResourceCidrsCommand,
@@ -72,8 +77,8 @@ export class GetIpamResourceCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIpamResourceCidrsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIpamResourceCidrsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIpamResourceCidrsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetIpamResourceCidrsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

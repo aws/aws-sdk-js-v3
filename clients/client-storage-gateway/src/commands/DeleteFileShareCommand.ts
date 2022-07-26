@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteFileShareInput, DeleteFileShareOutput } from "../models/models_0";
+import {
+  DeleteFileShareInput,
+  DeleteFileShareInputFilterSensitiveLog,
+  DeleteFileShareOutput,
+  DeleteFileShareOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFileShareCommand,
   serializeAws_json1_1DeleteFileShareCommand,
@@ -73,8 +78,8 @@ export class DeleteFileShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFileShareInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFileShareOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFileShareInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFileShareOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

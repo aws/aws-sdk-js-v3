@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { CreateIntegrationAssociationRequest, CreateIntegrationAssociationResponse } from "../models/models_0";
+import {
+  CreateIntegrationAssociationRequest,
+  CreateIntegrationAssociationRequestFilterSensitiveLog,
+  CreateIntegrationAssociationResponse,
+  CreateIntegrationAssociationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateIntegrationAssociationCommand,
   serializeAws_restJson1CreateIntegrationAssociationCommand,
@@ -74,8 +79,8 @@ export class CreateIntegrationAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIntegrationAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateIntegrationAssociationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateIntegrationAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateIntegrationAssociationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

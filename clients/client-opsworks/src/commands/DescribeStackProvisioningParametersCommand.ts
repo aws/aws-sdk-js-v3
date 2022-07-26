@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeStackProvisioningParametersRequest,
+  DescribeStackProvisioningParametersRequestFilterSensitiveLog,
   DescribeStackProvisioningParametersResult,
+  DescribeStackProvisioningParametersResultFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
@@ -82,8 +84,8 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStackProvisioningParametersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStackProvisioningParametersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeStackProvisioningParametersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeStackProvisioningParametersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

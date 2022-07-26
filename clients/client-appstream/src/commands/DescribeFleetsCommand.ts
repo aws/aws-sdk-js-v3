@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_0";
+import {
+  DescribeFleetsRequest,
+  DescribeFleetsRequestFilterSensitiveLog,
+  DescribeFleetsResult,
+  DescribeFleetsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFleetsCommand,
   serializeAws_json1_1DescribeFleetsCommand,
@@ -72,8 +77,8 @@ export class DescribeFleetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFleetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFleetsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteInsightRequest, DeleteInsightResponse } from "../models/models_1";
+import {
+  DeleteInsightRequest,
+  DeleteInsightRequestFilterSensitiveLog,
+  DeleteInsightResponse,
+  DeleteInsightResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteInsightCommand,
   serializeAws_restJson1DeleteInsightCommand,
@@ -72,8 +77,8 @@ export class DeleteInsightCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInsightRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInsightResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInsightRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInsightResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

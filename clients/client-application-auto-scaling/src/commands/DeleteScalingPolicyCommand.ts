@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import { DeleteScalingPolicyRequest, DeleteScalingPolicyResponse } from "../models/models_0";
+import {
+  DeleteScalingPolicyRequest,
+  DeleteScalingPolicyRequestFilterSensitiveLog,
+  DeleteScalingPolicyResponse,
+  DeleteScalingPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteScalingPolicyCommand,
   serializeAws_json1_1DeleteScalingPolicyCommand,
@@ -81,8 +86,8 @@ export class DeleteScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScalingPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScalingPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteScalingPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteScalingPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

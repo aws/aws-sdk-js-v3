@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTableRequest, CreateTableResponse } from "../models/models_0";
+import {
+  CreateTableRequest,
+  CreateTableRequestFilterSensitiveLog,
+  CreateTableResponse,
+  CreateTableResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CreateTableCommand,
   serializeAws_json1_0CreateTableCommand,
@@ -84,8 +89,8 @@ export class CreateTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTableRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTableRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTableResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

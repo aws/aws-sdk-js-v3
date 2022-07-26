@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteEdgeDeploymentStageRequest } from "../models/models_1";
+import {
+  DeleteEdgeDeploymentStageRequest,
+  DeleteEdgeDeploymentStageRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteEdgeDeploymentStageCommand,
   serializeAws_json1_1DeleteEdgeDeploymentStageCommand,
@@ -72,7 +75,7 @@ export class DeleteEdgeDeploymentStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEdgeDeploymentStageRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEdgeDeploymentStageRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

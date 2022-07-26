@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0";
+import {
+  DescribeBackupsRequest,
+  DescribeBackupsRequestFilterSensitiveLog,
+  DescribeBackupsResponse,
+  DescribeBackupsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1DescribeBackupsCommand,
@@ -82,8 +87,8 @@ export class DescribeBackupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBackupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBackupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBackupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBackupsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

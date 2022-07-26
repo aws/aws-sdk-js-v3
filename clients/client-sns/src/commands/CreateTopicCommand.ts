@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTopicInput, CreateTopicResponse } from "../models/models_0";
+import {
+  CreateTopicInput,
+  CreateTopicInputFilterSensitiveLog,
+  CreateTopicResponse,
+  CreateTopicResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryCreateTopicCommand, serializeAws_queryCreateTopicCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -73,8 +78,8 @@ export class CreateTopicCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTopicInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTopicResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTopicInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTopicResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

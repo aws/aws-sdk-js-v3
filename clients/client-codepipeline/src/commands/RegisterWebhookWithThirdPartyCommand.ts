@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { RegisterWebhookWithThirdPartyInput, RegisterWebhookWithThirdPartyOutput } from "../models/models_0";
+import {
+  RegisterWebhookWithThirdPartyInput,
+  RegisterWebhookWithThirdPartyInputFilterSensitiveLog,
+  RegisterWebhookWithThirdPartyOutput,
+  RegisterWebhookWithThirdPartyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand,
   serializeAws_json1_1RegisterWebhookWithThirdPartyCommand,
@@ -75,8 +80,8 @@ export class RegisterWebhookWithThirdPartyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterWebhookWithThirdPartyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterWebhookWithThirdPartyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterWebhookWithThirdPartyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterWebhookWithThirdPartyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

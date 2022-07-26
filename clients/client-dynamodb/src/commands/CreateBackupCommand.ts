@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { CreateBackupInput, CreateBackupOutput } from "../models/models_0";
+import {
+  CreateBackupInput,
+  CreateBackupInputFilterSensitiveLog,
+  CreateBackupOutput,
+  CreateBackupOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CreateBackupCommand,
   serializeAws_json1_0CreateBackupCommand,
@@ -101,8 +106,8 @@ export class CreateBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackupInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBackupInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateBackupOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

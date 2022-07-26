@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { GetDataRetrievalPolicyInput, GetDataRetrievalPolicyOutput } from "../models/models_0";
+import {
+  GetDataRetrievalPolicyInput,
+  GetDataRetrievalPolicyInputFilterSensitiveLog,
+  GetDataRetrievalPolicyOutput,
+  GetDataRetrievalPolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDataRetrievalPolicyCommand,
   serializeAws_restJson1GetDataRetrievalPolicyCommand,
@@ -74,8 +79,8 @@ export class GetDataRetrievalPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataRetrievalPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDataRetrievalPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDataRetrievalPolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDataRetrievalPolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { UpdateEndpointGroupRequest, UpdateEndpointGroupResponse } from "../models/models_0";
+import {
+  UpdateEndpointGroupRequest,
+  UpdateEndpointGroupRequestFilterSensitiveLog,
+  UpdateEndpointGroupResponse,
+  UpdateEndpointGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateEndpointGroupCommand,
   serializeAws_json1_1UpdateEndpointGroupCommand,
@@ -76,8 +81,8 @@ export class UpdateEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEndpointGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEndpointGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

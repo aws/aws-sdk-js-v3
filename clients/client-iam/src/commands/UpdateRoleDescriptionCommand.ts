@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateRoleDescriptionRequest, UpdateRoleDescriptionResponse } from "../models/models_1";
+import {
+  UpdateRoleDescriptionRequest,
+  UpdateRoleDescriptionRequestFilterSensitiveLog,
+  UpdateRoleDescriptionResponse,
+  UpdateRoleDescriptionResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryUpdateRoleDescriptionCommand,
   serializeAws_queryUpdateRoleDescriptionCommand,
@@ -74,8 +79,8 @@ export class UpdateRoleDescriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoleDescriptionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoleDescriptionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRoleDescriptionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRoleDescriptionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

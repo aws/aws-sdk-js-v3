@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { CreateVirtualNodeInput, CreateVirtualNodeOutput } from "../models/models_0";
+import {
+  CreateVirtualNodeInput,
+  CreateVirtualNodeInputFilterSensitiveLog,
+  CreateVirtualNodeOutput,
+  CreateVirtualNodeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateVirtualNodeCommand,
   serializeAws_restJson1CreateVirtualNodeCommand,
@@ -95,8 +100,8 @@ export class CreateVirtualNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVirtualNodeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateVirtualNodeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVirtualNodeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateVirtualNodeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

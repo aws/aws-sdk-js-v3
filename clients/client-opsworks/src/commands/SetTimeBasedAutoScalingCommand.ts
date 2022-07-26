@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetTimeBasedAutoScalingRequest } from "../models/models_0";
+import { SetTimeBasedAutoScalingRequest, SetTimeBasedAutoScalingRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1SetTimeBasedAutoScalingCommand,
@@ -79,7 +79,7 @@ export class SetTimeBasedAutoScalingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTimeBasedAutoScalingRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: SetTimeBasedAutoScalingRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DeleteEndpointRequest, DeleteEndpointResponse } from "../models/models_0";
+import {
+  DeleteEndpointRequest,
+  DeleteEndpointRequestFilterSensitiveLog,
+  DeleteEndpointResponse,
+  DeleteEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEndpointCommand,
   serializeAws_json1_1DeleteEndpointCommand,
@@ -74,8 +79,8 @@ export class DeleteEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

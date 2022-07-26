@@ -15,7 +15,9 @@ import {
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import {
   AddApplicationReferenceDataSourceRequest,
+  AddApplicationReferenceDataSourceRequestFilterSensitiveLog,
   AddApplicationReferenceDataSourceResponse,
+  AddApplicationReferenceDataSourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AddApplicationReferenceDataSourceCommand,
@@ -90,8 +92,8 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationReferenceDataSourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationReferenceDataSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddApplicationReferenceDataSourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddApplicationReferenceDataSourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

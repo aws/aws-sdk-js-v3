@@ -56,15 +56,6 @@ export interface AntipatternSeveritySummary {
   count?: number;
 }
 
-export namespace AntipatternSeveritySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AntipatternSeveritySummary): any => ({
-    ...obj,
-  });
-}
-
 export enum ApplicationComponentCriteria {
   APP_NAME = "APP_NAME",
   APP_TYPE = "APP_TYPE",
@@ -96,15 +87,6 @@ export interface S3Object {
   s3key?: string;
 }
 
-export namespace S3Object {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Object): any => ({
-    ...obj,
-  });
-}
-
 export enum AppType {
   IIS = "IIS",
   dotNetFramework = "DotNetFramework",
@@ -126,15 +108,6 @@ export interface DatabaseConfigDetail {
    *     </p>
    */
   secretName?: string;
-}
-
-export namespace DatabaseConfigDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatabaseConfigDetail): any => ({
-    ...obj,
-  });
 }
 
 export enum InclusionStatus {
@@ -209,15 +182,6 @@ export interface TransformationTool {
   tranformationToolInstallationLink?: string;
 }
 
-export namespace TransformationTool {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransformationTool): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Contains a recommendation set.
@@ -244,15 +208,6 @@ export interface RecommendationSet {
    *     </p>
    */
   strategy?: Strategy | string;
-}
-
-export namespace RecommendationSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationSet): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceSubType {
@@ -287,15 +242,6 @@ export interface SourceCodeRepository {
    *     </p>
    */
   versionControlType?: string;
-}
-
-export namespace SourceCodeRepository {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceCodeRepository): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -401,15 +347,6 @@ export interface ApplicationComponentDetail {
   moreServerAssociationExists?: boolean;
 }
 
-export namespace ApplicationComponentDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationComponentDetail): any => ({
-    ...obj,
-  });
-}
-
 export enum StrategyRecommendation {
   NOT_RECOMMENDED = "notRecommended",
   RECOMMENDED = "recommended",
@@ -437,15 +374,6 @@ export interface ApplicationComponentStrategy {
   isPreferred?: boolean;
 }
 
-export namespace ApplicationComponentStrategy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationComponentStrategy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Contains the summary of application components.
@@ -467,15 +395,6 @@ export interface ApplicationComponentSummary {
   count?: number;
 }
 
-export namespace ApplicationComponentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationComponentSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum AwsManagedTargetDestination {
   AWS_ELASTIC_BEANSTALK = "AWS Elastic BeanStalk",
   AWS_FARGATE = "AWS Fargate",
@@ -494,15 +413,6 @@ export interface AwsManagedResources {
    *     </p>
    */
   targetDestination: (AwsManagedTargetDestination | string)[] | undefined;
-}
-
-export namespace AwsManagedResources {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsManagedResources): any => ({
-    ...obj,
-  });
 }
 
 export enum NoPreferenceTargetDestination {
@@ -528,15 +438,6 @@ export interface NoManagementPreference {
   targetDestination: (NoPreferenceTargetDestination | string)[] | undefined;
 }
 
-export namespace NoManagementPreference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoManagementPreference): any => ({
-    ...obj,
-  });
-}
-
 export enum SelfManageTargetDestination {
   AMAZON_ELASTIC_CLOUD_COMPUTE = "Amazon Elastic Cloud Compute (EC2)",
   AMAZON_ELASTIC_CONTAINER_SERVICE = "Amazon Elastic Container Service (ECS)",
@@ -552,15 +453,6 @@ export interface SelfManageResources {
    * <p> Self-managed resources target destination. </p>
    */
   targetDestination: (SelfManageTargetDestination | string)[] | undefined;
-}
-
-export namespace SelfManageResources {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelfManageResources): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -631,19 +523,6 @@ export namespace ManagementPreference {
     if (value.noPreference !== undefined) return visitor.noPreference(value.noPreference);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagementPreference): any => {
-    if (obj.awsManagedResources !== undefined)
-      return { awsManagedResources: AwsManagedResources.filterSensitiveLog(obj.awsManagedResources) };
-    if (obj.selfManageResources !== undefined)
-      return { selfManageResources: SelfManageResources.filterSensitiveLog(obj.selfManageResources) };
-    if (obj.noPreference !== undefined)
-      return { noPreference: NoManagementPreference.filterSensitiveLog(obj.noPreference) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -658,18 +537,6 @@ export interface ApplicationPreferences {
    *     </p>
    */
   managementPreference?: ManagementPreference;
-}
-
-export namespace ApplicationPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationPreferences): any => ({
-    ...obj,
-    ...(obj.managementPreference && {
-      managementPreference: ManagementPreference.filterSensitiveLog(obj.managementPreference),
-    }),
-  });
 }
 
 export enum AssessmentStatus {
@@ -700,15 +567,6 @@ export interface StrategySummary {
   count?: number;
 }
 
-export namespace StrategySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StrategySummary): any => ({
-    ...obj,
-  });
-}
-
 export enum ServerOsType {
   amazonLinux = "AmazonLinux",
   endOfSupportWindowsServer = "EndOfSupportWindowsServer",
@@ -736,15 +594,6 @@ export interface ServerSummary {
    *     </p>
    */
   count?: number;
-}
-
-export namespace ServerSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -817,15 +666,6 @@ export interface AssessmentSummary {
   lastAnalyzedTimestamp?: Date;
 }
 
-export namespace AssessmentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Object containing details about applications as defined in Application Discovery Service.
@@ -847,29 +687,11 @@ export interface AssociatedApplication {
   id?: string;
 }
 
-export namespace AssociatedApplication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatedApplication): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApplicationComponentDetailsRequest {
   /**
    * <p> The ID of the application component. The ID is unique within an AWS account.</p>
    */
   applicationComponentId: string | undefined;
-}
-
-export namespace GetApplicationComponentDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationComponentDetailsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetApplicationComponentDetailsResponse {
@@ -893,15 +715,6 @@ export interface GetApplicationComponentDetailsResponse {
    * <p> A list of the IDs of the servers on which the application component is running. </p>
    */
   associatedServerIds?: string[];
-}
-
-export namespace GetApplicationComponentDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationComponentDetailsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -968,15 +781,6 @@ export interface GetApplicationComponentStrategiesRequest {
   applicationComponentId: string | undefined;
 }
 
-export namespace GetApplicationComponentStrategiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationComponentStrategiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApplicationComponentStrategiesResponse {
   /**
    * <p> A list of application component strategy recommendations. </p>
@@ -984,29 +788,11 @@ export interface GetApplicationComponentStrategiesResponse {
   applicationComponentStrategies?: ApplicationComponentStrategy[];
 }
 
-export namespace GetApplicationComponentStrategiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationComponentStrategiesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssessmentRequest {
   /**
    * <p> The <code>assessmentid</code> returned by <a>StartAssessment</a>.</p>
    */
   id: string | undefined;
-}
-
-export namespace GetAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssessmentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1049,15 +835,6 @@ export interface DataCollectionDetails {
   completionTime?: Date;
 }
 
-export namespace DataCollectionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataCollectionDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssessmentResponse {
   /**
    * <p> The ID for the specific assessment task. </p>
@@ -1070,30 +847,12 @@ export interface GetAssessmentResponse {
   dataCollectionDetails?: DataCollectionDetails;
 }
 
-export namespace GetAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssessmentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImportFileTaskRequest {
   /**
    * <p> The ID of the import file task. This ID is returned in the response of
    *       <a>StartImportFileTask</a>. </p>
    */
   id: string | undefined;
-}
-
-export namespace GetImportFileTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImportFileTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ImportFileTaskStatus {
@@ -1165,15 +924,6 @@ export interface GetImportFileTaskResponse {
   importName?: string;
 }
 
-export namespace GetImportFileTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImportFileTaskResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The request body isn't valid. </p>
  */
@@ -1194,15 +944,6 @@ export class ValidationException extends __BaseException {
 }
 
 export interface GetPortfolioPreferencesRequest {}
-
-export namespace GetPortfolioPreferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPortfolioPreferencesRequest): any => ({
-    ...obj,
-  });
-}
 
 export enum DatabaseManagementPreference {
   AWS_MANAGED = "AWS-managed",
@@ -1237,15 +978,6 @@ export interface Heterogeneous {
   targetDatabaseEngine: (HeterogeneousTargetDatabaseEngine | string)[] | undefined;
 }
 
-export namespace Heterogeneous {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Heterogeneous): any => ({
-    ...obj,
-  });
-}
-
 export enum HomogeneousTargetDatabaseEngine {
   NONE_SPECIFIED = "None specified",
 }
@@ -1262,15 +994,6 @@ export interface Homogeneous {
    *     </p>
    */
   targetDatabaseEngine?: (HomogeneousTargetDatabaseEngine | string)[];
-}
-
-export namespace Homogeneous {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Homogeneous): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetDatabaseEngine {
@@ -1297,15 +1020,6 @@ export interface NoDatabaseMigrationPreference {
    *     </p>
    */
   targetDatabaseEngine: (TargetDatabaseEngine | string)[] | undefined;
-}
-
-export namespace NoDatabaseMigrationPreference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoDatabaseMigrationPreference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1374,17 +1088,6 @@ export namespace DatabaseMigrationPreference {
     if (value.noPreference !== undefined) return visitor.noPreference(value.noPreference);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatabaseMigrationPreference): any => {
-    if (obj.heterogeneous !== undefined) return { heterogeneous: Heterogeneous.filterSensitiveLog(obj.heterogeneous) };
-    if (obj.homogeneous !== undefined) return { homogeneous: Homogeneous.filterSensitiveLog(obj.homogeneous) };
-    if (obj.noPreference !== undefined)
-      return { noPreference: NoDatabaseMigrationPreference.filterSensitiveLog(obj.noPreference) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -1405,18 +1108,6 @@ export interface DatabasePreferences {
    *     </p>
    */
   databaseMigrationPreference?: DatabaseMigrationPreference;
-}
-
-export namespace DatabasePreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatabasePreferences): any => ({
-    ...obj,
-    ...(obj.databaseMigrationPreference && {
-      databaseMigrationPreference: DatabaseMigrationPreference.filterSensitiveLog(obj.databaseMigrationPreference),
-    }),
-  });
 }
 
 /**
@@ -1454,15 +1145,6 @@ export interface BusinessGoals {
   licenseCostReduction?: number;
 }
 
-export namespace BusinessGoals {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BusinessGoals): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Rank of business goals based on priority.
@@ -1475,15 +1157,6 @@ export interface PrioritizeBusinessGoals {
    *     </p>
    */
   businessGoals?: BusinessGoals;
-}
-
-export namespace PrioritizeBusinessGoals {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrioritizeBusinessGoals): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPortfolioPreferencesResponse {
@@ -1503,31 +1176,7 @@ export interface GetPortfolioPreferencesResponse {
   databasePreferences?: DatabasePreferences;
 }
 
-export namespace GetPortfolioPreferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPortfolioPreferencesResponse): any => ({
-    ...obj,
-    ...(obj.applicationPreferences && {
-      applicationPreferences: ApplicationPreferences.filterSensitiveLog(obj.applicationPreferences),
-    }),
-    ...(obj.databasePreferences && {
-      databasePreferences: DatabasePreferences.filterSensitiveLog(obj.databasePreferences),
-    }),
-  });
-}
-
 export interface GetPortfolioSummaryRequest {}
-
-export namespace GetPortfolioSummaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPortfolioSummaryRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetPortfolioSummaryResponse {
   /**
@@ -1537,30 +1186,12 @@ export interface GetPortfolioSummaryResponse {
   assessmentSummary?: AssessmentSummary;
 }
 
-export namespace GetPortfolioSummaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPortfolioSummaryResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecommendationReportDetailsRequest {
   /**
    * <p> The recommendation report generation task <code>id</code> returned by
    *       <a>StartRecommendationReportGeneration</a>. </p>
    */
   id: string | undefined;
-}
-
-export namespace GetRecommendationReportDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationReportDetailsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RecommendationReportStatus {
@@ -1618,15 +1249,6 @@ export interface RecommendationReportDetails {
   s3Keys?: string[];
 }
 
-export namespace RecommendationReportDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationReportDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecommendationReportDetailsResponse {
   /**
    * <p> The ID of the recommendation report generation task. See the response of <a>StartRecommendationReportGeneration</a>. </p>
@@ -1637,15 +1259,6 @@ export interface GetRecommendationReportDetailsResponse {
    * <p> Detailed information about the recommendation report. </p>
    */
   recommendationReportDetails?: RecommendationReportDetails;
-}
-
-export namespace GetRecommendationReportDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationReportDetailsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetServerDetailsRequest {
@@ -1665,15 +1278,6 @@ export interface GetServerDetailsRequest {
    * <p> The maximum number of items to include in the response. The maximum value is 100. </p>
    */
   maxResults?: number;
-}
-
-export namespace GetServerDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServerDetailsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RunTimeAssessmentStatus {
@@ -1721,15 +1325,6 @@ export interface NetworkInfo {
   netMask: string | undefined;
 }
 
-export namespace NetworkInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInfo): any => ({
-    ...obj,
-  });
-}
-
 export enum OSType {
   LINUX = "LINUX",
   WINDOWS = "WINDOWS",
@@ -1754,15 +1349,6 @@ export interface OSInfo {
    *     </p>
    */
   version?: string;
-}
-
-export namespace OSInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OSInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1798,15 +1384,6 @@ export interface SystemInfo {
    *     </p>
    */
   cpuArchitecture?: string;
-}
-
-export namespace SystemInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SystemInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1880,15 +1457,6 @@ export interface ServerDetail {
   lastAnalyzedTimestamp?: Date;
 }
 
-export namespace ServerDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServerDetailsResponse {
   /**
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
@@ -1907,29 +1475,11 @@ export interface GetServerDetailsResponse {
   associatedApplications?: AssociatedApplication[];
 }
 
-export namespace GetServerDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServerDetailsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServerStrategiesRequest {
   /**
    * <p> The ID of the server. </p>
    */
   serverId: string | undefined;
-}
-
-export namespace GetServerStrategiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServerStrategiesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1958,29 +1508,11 @@ export interface ServerStrategy {
   isPreferred?: boolean;
 }
 
-export namespace ServerStrategy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerStrategy): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServerStrategiesResponse {
   /**
    * <p> A list of strategy recommendations for the server. </p>
    */
   serverStrategies?: ServerStrategy[];
-}
-
-export namespace GetServerStrategiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServerStrategiesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum GroupName {
@@ -2006,15 +1538,6 @@ export interface Group {
    *     </p>
    */
   value?: string;
-}
-
-export namespace Group {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj,
-  });
 }
 
 export enum SortOrder {
@@ -2060,15 +1583,6 @@ export interface ListApplicationComponentsRequest {
   maxResults?: number;
 }
 
-export namespace ListApplicationComponentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationComponentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationComponentsResponse {
   /**
    * <p> The list of application components with detailed information about each component.
@@ -2080,15 +1594,6 @@ export interface ListApplicationComponentsResponse {
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListApplicationComponentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationComponentsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2124,15 +1629,6 @@ export interface ListCollectorsRequest {
    * <p> The maximum number of items to include in the response. The maximum value is 100. </p>
    */
   maxResults?: number;
-}
-
-export namespace ListCollectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCollectorsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CollectorHealth {
@@ -2196,15 +1692,6 @@ export interface Collector {
   lastActivityTimeStamp?: string;
 }
 
-export namespace Collector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Collector): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCollectorsResponse {
   /**
    * <p> The list of all the installed collectors. </p>
@@ -2215,15 +1702,6 @@ export interface ListCollectorsResponse {
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListCollectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCollectorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListImportFileTaskRequest {
@@ -2238,15 +1716,6 @@ export interface ListImportFileTaskRequest {
    * <p> The total number of items to return. The maximum value is 100. </p>
    */
   maxResults?: number;
-}
-
-export namespace ListImportFileTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImportFileTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2310,15 +1779,6 @@ export interface ImportFileTaskInformation {
   importName?: string;
 }
 
-export namespace ImportFileTaskInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportFileTaskInformation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListImportFileTaskResponse {
   /**
    * <p> Lists information about the files you import.</p>
@@ -2329,15 +1789,6 @@ export interface ListImportFileTaskResponse {
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListImportFileTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImportFileTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ServerCriteria {
@@ -2386,15 +1837,6 @@ export interface ListServersRequest {
   maxResults?: number;
 }
 
-export namespace ListServersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServersResponse {
   /**
    * <p> The list of servers with detailed information about each server. </p>
@@ -2405,15 +1847,6 @@ export interface ListServersResponse {
    * <p> The token you use to retrieve the next set of results, or null if there are no more results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListServersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServersResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2455,31 +1888,7 @@ export interface PutPortfolioPreferencesRequest {
   databasePreferences?: DatabasePreferences;
 }
 
-export namespace PutPortfolioPreferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPortfolioPreferencesRequest): any => ({
-    ...obj,
-    ...(obj.applicationPreferences && {
-      applicationPreferences: ApplicationPreferences.filterSensitiveLog(obj.applicationPreferences),
-    }),
-    ...(obj.databasePreferences && {
-      databasePreferences: DatabasePreferences.filterSensitiveLog(obj.databasePreferences),
-    }),
-  });
-}
-
 export interface PutPortfolioPreferencesResponse {}
-
-export namespace PutPortfolioPreferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPortfolioPreferencesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The AWS account has reached its quota of imports. Contact AWS Support to increase the
@@ -2519,15 +1928,6 @@ export interface StartAssessmentRequest {
   s3bucketForReportData?: string;
 }
 
-export namespace StartAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAssessmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartAssessmentResponse {
   /**
    * <p>
@@ -2535,15 +1935,6 @@ export interface StartAssessmentResponse {
    *     </p>
    */
   assessmentId?: string;
-}
-
-export namespace StartAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAssessmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DataSourceType {
@@ -2587,29 +1978,11 @@ export interface StartImportFileTaskRequest {
   s3bucketForReportData?: string;
 }
 
-export namespace StartImportFileTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImportFileTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartImportFileTaskResponse {
   /**
    * <p> The ID for a specific import task. The ID is unique within an AWS account. </p>
    */
   id?: string;
-}
-
-export namespace StartImportFileTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImportFileTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum OutputFormat {
@@ -2629,29 +2002,11 @@ export interface StartRecommendationReportGenerationRequest {
   groupIdFilter?: Group[];
 }
 
-export namespace StartRecommendationReportGenerationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRecommendationReportGenerationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartRecommendationReportGenerationResponse {
   /**
    * <p> The ID of the recommendation report generation task. </p>
    */
   id?: string;
-}
-
-export namespace StartRecommendationReportGenerationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRecommendationReportGenerationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopAssessmentRequest {
@@ -2661,25 +2016,7 @@ export interface StopAssessmentRequest {
   assessmentId: string | undefined;
 }
 
-export namespace StopAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAssessmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopAssessmentResponse {}
-
-export namespace StopAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAssessmentResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum VersionControl {
   GITHUB = "GITHUB",
@@ -2712,15 +2049,6 @@ export interface SourceCode {
    *     </p>
    */
   location?: string;
-}
-
-export namespace SourceCode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceCode): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2758,15 +2086,6 @@ export interface StrategyOption {
   isPreferred?: boolean;
 }
 
-export namespace StrategyOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StrategyOption): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApplicationComponentConfigRequest {
   /**
    * <p> The ID of the application component. The ID is unique within an AWS account. </p>
@@ -2795,26 +2114,7 @@ export interface UpdateApplicationComponentConfigRequest {
   secretsManagerKey?: string;
 }
 
-export namespace UpdateApplicationComponentConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationComponentConfigRequest): any => ({
-    ...obj,
-    ...(obj.secretsManagerKey && { secretsManagerKey: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateApplicationComponentConfigResponse {}
-
-export namespace UpdateApplicationComponentConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationComponentConfigResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateServerConfigRequest {
   /**
@@ -2828,22 +2128,592 @@ export interface UpdateServerConfigRequest {
   strategyOption?: StrategyOption;
 }
 
-export namespace UpdateServerConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServerConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateServerConfigResponse {}
 
-export namespace UpdateServerConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServerConfigResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AntipatternSeveritySummaryFilterSensitiveLog = (obj: AntipatternSeveritySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseConfigDetailFilterSensitiveLog = (obj: DatabaseConfigDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransformationToolFilterSensitiveLog = (obj: TransformationTool): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationSetFilterSensitiveLog = (obj: RecommendationSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceCodeRepositoryFilterSensitiveLog = (obj: SourceCodeRepository): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationComponentDetailFilterSensitiveLog = (obj: ApplicationComponentDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationComponentStrategyFilterSensitiveLog = (obj: ApplicationComponentStrategy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationComponentSummaryFilterSensitiveLog = (obj: ApplicationComponentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsManagedResourcesFilterSensitiveLog = (obj: AwsManagedResources): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoManagementPreferenceFilterSensitiveLog = (obj: NoManagementPreference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelfManageResourcesFilterSensitiveLog = (obj: SelfManageResources): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagementPreferenceFilterSensitiveLog = (obj: ManagementPreference): any => {
+  if (obj.awsManagedResources !== undefined)
+    return { awsManagedResources: AwsManagedResourcesFilterSensitiveLog(obj.awsManagedResources) };
+  if (obj.selfManageResources !== undefined)
+    return { selfManageResources: SelfManageResourcesFilterSensitiveLog(obj.selfManageResources) };
+  if (obj.noPreference !== undefined)
+    return { noPreference: NoManagementPreferenceFilterSensitiveLog(obj.noPreference) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ApplicationPreferencesFilterSensitiveLog = (obj: ApplicationPreferences): any => ({
+  ...obj,
+  ...(obj.managementPreference && {
+    managementPreference: ManagementPreferenceFilterSensitiveLog(obj.managementPreference),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StrategySummaryFilterSensitiveLog = (obj: StrategySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerSummaryFilterSensitiveLog = (obj: ServerSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentSummaryFilterSensitiveLog = (obj: AssessmentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatedApplicationFilterSensitiveLog = (obj: AssociatedApplication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationComponentDetailsRequestFilterSensitiveLog = (
+  obj: GetApplicationComponentDetailsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationComponentDetailsResponseFilterSensitiveLog = (
+  obj: GetApplicationComponentDetailsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationComponentStrategiesRequestFilterSensitiveLog = (
+  obj: GetApplicationComponentStrategiesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationComponentStrategiesResponseFilterSensitiveLog = (
+  obj: GetApplicationComponentStrategiesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentRequestFilterSensitiveLog = (obj: GetAssessmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataCollectionDetailsFilterSensitiveLog = (obj: DataCollectionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentResponseFilterSensitiveLog = (obj: GetAssessmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImportFileTaskRequestFilterSensitiveLog = (obj: GetImportFileTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImportFileTaskResponseFilterSensitiveLog = (obj: GetImportFileTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPortfolioPreferencesRequestFilterSensitiveLog = (obj: GetPortfolioPreferencesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HeterogeneousFilterSensitiveLog = (obj: Heterogeneous): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HomogeneousFilterSensitiveLog = (obj: Homogeneous): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoDatabaseMigrationPreferenceFilterSensitiveLog = (obj: NoDatabaseMigrationPreference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseMigrationPreferenceFilterSensitiveLog = (obj: DatabaseMigrationPreference): any => {
+  if (obj.heterogeneous !== undefined) return { heterogeneous: HeterogeneousFilterSensitiveLog(obj.heterogeneous) };
+  if (obj.homogeneous !== undefined) return { homogeneous: HomogeneousFilterSensitiveLog(obj.homogeneous) };
+  if (obj.noPreference !== undefined)
+    return { noPreference: NoDatabaseMigrationPreferenceFilterSensitiveLog(obj.noPreference) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const DatabasePreferencesFilterSensitiveLog = (obj: DatabasePreferences): any => ({
+  ...obj,
+  ...(obj.databaseMigrationPreference && {
+    databaseMigrationPreference: DatabaseMigrationPreferenceFilterSensitiveLog(obj.databaseMigrationPreference),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BusinessGoalsFilterSensitiveLog = (obj: BusinessGoals): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrioritizeBusinessGoalsFilterSensitiveLog = (obj: PrioritizeBusinessGoals): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPortfolioPreferencesResponseFilterSensitiveLog = (obj: GetPortfolioPreferencesResponse): any => ({
+  ...obj,
+  ...(obj.applicationPreferences && {
+    applicationPreferences: ApplicationPreferencesFilterSensitiveLog(obj.applicationPreferences),
+  }),
+  ...(obj.databasePreferences && {
+    databasePreferences: DatabasePreferencesFilterSensitiveLog(obj.databasePreferences),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetPortfolioSummaryRequestFilterSensitiveLog = (obj: GetPortfolioSummaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPortfolioSummaryResponseFilterSensitiveLog = (obj: GetPortfolioSummaryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationReportDetailsRequestFilterSensitiveLog = (
+  obj: GetRecommendationReportDetailsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationReportDetailsFilterSensitiveLog = (obj: RecommendationReportDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationReportDetailsResponseFilterSensitiveLog = (
+  obj: GetRecommendationReportDetailsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServerDetailsRequestFilterSensitiveLog = (obj: GetServerDetailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInfoFilterSensitiveLog = (obj: NetworkInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OSInfoFilterSensitiveLog = (obj: OSInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SystemInfoFilterSensitiveLog = (obj: SystemInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerDetailFilterSensitiveLog = (obj: ServerDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServerDetailsResponseFilterSensitiveLog = (obj: GetServerDetailsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServerStrategiesRequestFilterSensitiveLog = (obj: GetServerStrategiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerStrategyFilterSensitiveLog = (obj: ServerStrategy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServerStrategiesResponseFilterSensitiveLog = (obj: GetServerStrategiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupFilterSensitiveLog = (obj: Group): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationComponentsRequestFilterSensitiveLog = (obj: ListApplicationComponentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationComponentsResponseFilterSensitiveLog = (obj: ListApplicationComponentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCollectorsRequestFilterSensitiveLog = (obj: ListCollectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CollectorFilterSensitiveLog = (obj: Collector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCollectorsResponseFilterSensitiveLog = (obj: ListCollectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportFileTaskRequestFilterSensitiveLog = (obj: ListImportFileTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportFileTaskInformationFilterSensitiveLog = (obj: ImportFileTaskInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportFileTaskResponseFilterSensitiveLog = (obj: ListImportFileTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServersRequestFilterSensitiveLog = (obj: ListServersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServersResponseFilterSensitiveLog = (obj: ListServersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPortfolioPreferencesRequestFilterSensitiveLog = (obj: PutPortfolioPreferencesRequest): any => ({
+  ...obj,
+  ...(obj.applicationPreferences && {
+    applicationPreferences: ApplicationPreferencesFilterSensitiveLog(obj.applicationPreferences),
+  }),
+  ...(obj.databasePreferences && {
+    databasePreferences: DatabasePreferencesFilterSensitiveLog(obj.databasePreferences),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PutPortfolioPreferencesResponseFilterSensitiveLog = (obj: PutPortfolioPreferencesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAssessmentRequestFilterSensitiveLog = (obj: StartAssessmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAssessmentResponseFilterSensitiveLog = (obj: StartAssessmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImportFileTaskRequestFilterSensitiveLog = (obj: StartImportFileTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImportFileTaskResponseFilterSensitiveLog = (obj: StartImportFileTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRecommendationReportGenerationRequestFilterSensitiveLog = (
+  obj: StartRecommendationReportGenerationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRecommendationReportGenerationResponseFilterSensitiveLog = (
+  obj: StartRecommendationReportGenerationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopAssessmentRequestFilterSensitiveLog = (obj: StopAssessmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopAssessmentResponseFilterSensitiveLog = (obj: StopAssessmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceCodeFilterSensitiveLog = (obj: SourceCode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StrategyOptionFilterSensitiveLog = (obj: StrategyOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationComponentConfigRequestFilterSensitiveLog = (
+  obj: UpdateApplicationComponentConfigRequest
+): any => ({
+  ...obj,
+  ...(obj.secretsManagerKey && { secretsManagerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationComponentConfigResponseFilterSensitiveLog = (
+  obj: UpdateApplicationComponentConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServerConfigRequestFilterSensitiveLog = (obj: UpdateServerConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServerConfigResponseFilterSensitiveLog = (obj: UpdateServerConfigResponse): any => ({
+  ...obj,
+});

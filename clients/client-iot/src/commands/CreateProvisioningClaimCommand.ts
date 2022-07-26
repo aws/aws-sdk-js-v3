@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateProvisioningClaimRequest, CreateProvisioningClaimResponse } from "../models/models_0";
+import {
+  CreateProvisioningClaimRequest,
+  CreateProvisioningClaimRequestFilterSensitiveLog,
+  CreateProvisioningClaimResponse,
+  CreateProvisioningClaimResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProvisioningClaimCommand,
   serializeAws_restJson1CreateProvisioningClaimCommand,
@@ -73,8 +78,8 @@ export class CreateProvisioningClaimCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProvisioningClaimRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateProvisioningClaimResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProvisioningClaimRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateProvisioningClaimResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

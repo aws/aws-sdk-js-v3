@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutEventsRequest, PutEventsResponse } from "../models/models_1";
+import {
+  PutEventsRequest,
+  PutEventsRequestFilterSensitiveLog,
+  PutEventsResponse,
+  PutEventsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1PutEventsCommand,
@@ -72,8 +77,8 @@ export class PutEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEventsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEventsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutEventsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

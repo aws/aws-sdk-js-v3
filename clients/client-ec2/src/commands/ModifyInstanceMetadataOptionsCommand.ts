@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstanceMetadataOptionsRequest, ModifyInstanceMetadataOptionsResult } from "../models/models_5";
+import {
+  ModifyInstanceMetadataOptionsRequest,
+  ModifyInstanceMetadataOptionsRequestFilterSensitiveLog,
+  ModifyInstanceMetadataOptionsResult,
+  ModifyInstanceMetadataOptionsResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyInstanceMetadataOptionsCommand,
   serializeAws_ec2ModifyInstanceMetadataOptionsCommand,
@@ -80,8 +85,8 @@ export class ModifyInstanceMetadataOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceMetadataOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceMetadataOptionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyInstanceMetadataOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyInstanceMetadataOptionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

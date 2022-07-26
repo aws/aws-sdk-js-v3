@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ListKeysRequest, ListKeysResponse } from "../models/models_0";
+import {
+  ListKeysRequest,
+  ListKeysRequestFilterSensitiveLog,
+  ListKeysResponse,
+  ListKeysResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListKeysCommand, serializeAws_json1_1ListKeysCommand } from "../protocols/Aws_json1_1";
 
 export interface ListKeysCommandInput extends ListKeysRequest {}
@@ -95,8 +100,8 @@ export class ListKeysCommand extends $Command<ListKeysCommandInput, ListKeysComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKeysRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListKeysResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListKeysRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListKeysResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

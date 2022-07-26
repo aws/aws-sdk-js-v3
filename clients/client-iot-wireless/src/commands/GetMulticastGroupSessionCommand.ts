@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { GetMulticastGroupSessionRequest, GetMulticastGroupSessionResponse } from "../models/models_0";
+import {
+  GetMulticastGroupSessionRequest,
+  GetMulticastGroupSessionRequestFilterSensitiveLog,
+  GetMulticastGroupSessionResponse,
+  GetMulticastGroupSessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMulticastGroupSessionCommand,
   serializeAws_restJson1GetMulticastGroupSessionCommand,
@@ -72,8 +77,8 @@ export class GetMulticastGroupSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMulticastGroupSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMulticastGroupSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMulticastGroupSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMulticastGroupSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

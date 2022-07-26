@@ -15,7 +15,9 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   ExportAutoScalingGroupRecommendationsRequest,
+  ExportAutoScalingGroupRecommendationsRequestFilterSensitiveLog,
   ExportAutoScalingGroupRecommendationsResponse,
+  ExportAutoScalingGroupRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand,
@@ -83,8 +85,8 @@ export class ExportAutoScalingGroupRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportAutoScalingGroupRecommendationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportAutoScalingGroupRecommendationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportAutoScalingGroupRecommendationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportAutoScalingGroupRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

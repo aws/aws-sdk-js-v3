@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopStreamingSessionRequest, StopStreamingSessionResponse } from "../models/models_0";
+import {
+  StopStreamingSessionRequest,
+  StopStreamingSessionRequestFilterSensitiveLog,
+  StopStreamingSessionResponse,
+  StopStreamingSessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1StopStreamingSessionCommand,
@@ -73,8 +78,8 @@ export class StopStreamingSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStreamingSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopStreamingSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopStreamingSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopStreamingSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

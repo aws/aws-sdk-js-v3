@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { CreateBackupSelectionInput, CreateBackupSelectionOutput } from "../models/models_0";
+import {
+  CreateBackupSelectionInput,
+  CreateBackupSelectionInputFilterSensitiveLog,
+  CreateBackupSelectionOutput,
+  CreateBackupSelectionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBackupSelectionCommand,
   serializeAws_restJson1CreateBackupSelectionCommand,
@@ -73,8 +78,8 @@ export class CreateBackupSelectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackupSelectionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupSelectionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBackupSelectionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateBackupSelectionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

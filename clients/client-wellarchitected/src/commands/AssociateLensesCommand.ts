@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateLensesInput } from "../models/models_0";
+import { AssociateLensesInput, AssociateLensesInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateLensesCommand,
   serializeAws_restJson1AssociateLensesCommand,
@@ -82,7 +82,7 @@ export class AssociateLensesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateLensesInput.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateLensesInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

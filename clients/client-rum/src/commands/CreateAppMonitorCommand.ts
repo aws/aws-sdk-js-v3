@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateAppMonitorRequest, CreateAppMonitorResponse } from "../models/models_0";
+import {
+  CreateAppMonitorRequest,
+  CreateAppMonitorRequestFilterSensitiveLog,
+  CreateAppMonitorResponse,
+  CreateAppMonitorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAppMonitorCommand,
   serializeAws_restJson1CreateAppMonitorCommand,
@@ -80,8 +85,8 @@ export class CreateAppMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppMonitorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppMonitorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAppMonitorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAppMonitorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

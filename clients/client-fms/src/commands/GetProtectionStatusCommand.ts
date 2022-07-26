@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { GetProtectionStatusRequest, GetProtectionStatusResponse } from "../models/models_0";
+import {
+  GetProtectionStatusRequest,
+  GetProtectionStatusRequestFilterSensitiveLog,
+  GetProtectionStatusResponse,
+  GetProtectionStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetProtectionStatusCommand,
   serializeAws_json1_1GetProtectionStatusCommand,
@@ -73,8 +78,8 @@ export class GetProtectionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProtectionStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetProtectionStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetProtectionStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetProtectionStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

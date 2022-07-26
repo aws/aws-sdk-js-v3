@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeInstanceAttributeRequest, DescribeInstanceAttributeResponse } from "../models/models_0";
+import {
+  DescribeInstanceAttributeRequest,
+  DescribeInstanceAttributeRequestFilterSensitiveLog,
+  DescribeInstanceAttributeResponse,
+  DescribeInstanceAttributeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeInstanceAttributeCommand,
   serializeAws_restJson1DescribeInstanceAttributeCommand,
@@ -73,8 +78,8 @@ export class DescribeInstanceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstanceAttributeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstanceAttributeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInstanceAttributeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstanceAttributeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

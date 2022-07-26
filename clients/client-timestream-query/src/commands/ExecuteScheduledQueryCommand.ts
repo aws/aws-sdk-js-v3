@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ExecuteScheduledQueryRequest } from "../models/models_0";
+import { ExecuteScheduledQueryRequest, ExecuteScheduledQueryRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0ExecuteScheduledQueryCommand,
   serializeAws_json1_0ExecuteScheduledQueryCommand,
@@ -76,7 +76,7 @@ export class ExecuteScheduledQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteScheduledQueryRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ExecuteScheduledQueryRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

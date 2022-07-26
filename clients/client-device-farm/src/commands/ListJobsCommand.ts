@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListJobsRequest, ListJobsResult } from "../models/models_0";
+import {
+  ListJobsRequest,
+  ListJobsRequestFilterSensitiveLog,
+  ListJobsResult,
+  ListJobsResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListJobsCommand, serializeAws_json1_1ListJobsCommand } from "../protocols/Aws_json1_1";
 
 export interface ListJobsCommandInput extends ListJobsRequest {}
@@ -69,8 +74,8 @@ export class ListJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListJobsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListJobsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListJobsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

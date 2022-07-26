@@ -61,15 +61,6 @@ export interface AccessKeyLastUsed {
   serviceName?: string;
 }
 
-export namespace AccessKeyLastUsed {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessKeyLastUsed): any => ({
-    ...obj,
-  });
-}
-
 export enum StatusType {
   Active = "Active",
   Inactive = "Inactive",
@@ -129,16 +120,6 @@ export interface AccessKey {
   lastUsed?: AccessKeyLastUsed;
 }
 
-export namespace AccessKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessKey): any => ({
-    ...obj,
-    ...(obj.accessKeyId && { accessKeyId: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Describes an Amazon Lightsail instance that has access to a Lightsail bucket.</p>
  */
@@ -152,15 +133,6 @@ export interface ResourceReceivingAccess {
    * <p>The Lightsail resource type (for example, <code>Instance</code>).</p>
    */
   resourceType?: string;
-}
-
-export namespace ResourceReceivingAccess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceReceivingAccess): any => ({
-    ...obj,
-  });
 }
 
 export enum AccessType {
@@ -218,15 +190,6 @@ export interface AccessRules {
    *       using the <code>private</code> ACL.</p>
    */
   allowPublicOverrides?: boolean;
-}
-
-export namespace AccessRules {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessRules): any => ({
-    ...obj,
-  });
 }
 
 export enum BPAStatusMessage {
@@ -347,15 +310,6 @@ export interface AccountLevelBpaSync {
   bpaImpactsLightsail?: boolean;
 }
 
-export namespace AccountLevelBpaSync {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountLevelBpaSync): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lightsail throws this exception when an account is still in the setup in progress
  *       state.</p>
@@ -413,15 +367,6 @@ export interface AddOn {
    *       after.</p>
    */
   nextSnapshotTimeOfDay?: string;
-}
-
-export namespace AddOn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddOn): any => ({
-    ...obj,
-  });
 }
 
 export enum AddOnType {
@@ -483,15 +428,6 @@ export interface AutoSnapshotAddOnRequest {
   snapshotTimeOfDay?: string;
 }
 
-export namespace AutoSnapshotAddOnRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoSnapshotAddOnRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a request to enable, modify, or disable an add-on for an Amazon Lightsail
  *       resource.</p>
@@ -512,15 +448,6 @@ export interface AddOnRequest {
    *       snapshot add-on.</p>
    */
   autoSnapshotAddOnRequest?: AutoSnapshotAddOnRequest;
-}
-
-export namespace AddOnRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddOnRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ComparisonOperator {
@@ -566,15 +493,6 @@ export interface ResourceLocation {
    * <p>The AWS Region name.</p>
    */
   regionName?: RegionName | string;
-}
-
-export namespace ResourceLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLocation): any => ({
-    ...obj,
-  });
 }
 
 export enum MetricName {
@@ -651,15 +569,6 @@ export interface MonitoredResourceInfo {
    *       that can currently be monitored by alarms.</p>
    */
   resourceType?: ResourceType | string;
-}
-
-export namespace MonitoredResourceInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoredResourceInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum AlarmState {
@@ -894,29 +803,11 @@ export interface Alarm {
   notificationEnabled?: boolean;
 }
 
-export namespace Alarm {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alarm): any => ({
-    ...obj,
-  });
-}
-
 export interface AllocateStaticIpRequest {
   /**
    * <p>The name of the static IP address.</p>
    */
   staticIpName: string | undefined;
-}
-
-export namespace AllocateStaticIpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllocateStaticIpRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum OperationType {
@@ -1075,30 +966,12 @@ export interface Operation {
   errorDetails?: string;
 }
 
-export namespace Operation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Operation): any => ({
-    ...obj,
-  });
-}
-
 export interface AllocateStaticIpResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace AllocateStaticIpResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllocateStaticIpResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1258,30 +1131,12 @@ export interface AttachCertificateToDistributionRequest {
   certificateName: string | undefined;
 }
 
-export namespace AttachCertificateToDistributionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachCertificateToDistributionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachCertificateToDistributionResult {
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
    *       timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace AttachCertificateToDistributionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachCertificateToDistributionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachDiskRequest {
@@ -1301,30 +1156,12 @@ export interface AttachDiskRequest {
   diskPath: string | undefined;
 }
 
-export namespace AttachDiskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachDiskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachDiskResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace AttachDiskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachDiskResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1343,15 +1180,6 @@ export interface AttachedDisk {
   sizeInGb?: number;
 }
 
-export namespace AttachedDisk {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachedDisk): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a block storage disk mapping.</p>
  */
@@ -1366,15 +1194,6 @@ export interface DiskMap {
    * <p>The new disk name (e.g., <code>my-new-disk</code>).</p>
    */
   newDiskName?: string;
-}
-
-export namespace DiskMap {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskMap): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachInstancesToLoadBalancerRequest {
@@ -1395,30 +1214,12 @@ export interface AttachInstancesToLoadBalancerRequest {
   instanceNames: string[] | undefined;
 }
 
-export namespace AttachInstancesToLoadBalancerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachInstancesToLoadBalancerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachInstancesToLoadBalancerResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace AttachInstancesToLoadBalancerResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachInstancesToLoadBalancerResult): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachLoadBalancerTlsCertificateRequest {
@@ -1434,15 +1235,6 @@ export interface AttachLoadBalancerTlsCertificateRequest {
   certificateName: string | undefined;
 }
 
-export namespace AttachLoadBalancerTlsCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachLoadBalancerTlsCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachLoadBalancerTlsCertificateResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -1451,15 +1243,6 @@ export interface AttachLoadBalancerTlsCertificateResult {
    *       the certificate and use it for another purpose.</p>
    */
   operations?: Operation[];
-}
-
-export namespace AttachLoadBalancerTlsCertificateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachLoadBalancerTlsCertificateResult): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachStaticIpRequest {
@@ -1474,30 +1257,12 @@ export interface AttachStaticIpRequest {
   instanceName: string | undefined;
 }
 
-export namespace AttachStaticIpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachStaticIpRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachStaticIpResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace AttachStaticIpResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachStaticIpResult): any => ({
-    ...obj,
-  });
 }
 
 export enum AutoSnapshotStatus {
@@ -1533,15 +1298,6 @@ export interface AutoSnapshotDetails {
   fromAttachedDisks?: AttachedDisk[];
 }
 
-export namespace AutoSnapshotDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoSnapshotDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an Availability Zone.</p>
  */
@@ -1556,15 +1312,6 @@ export interface AvailabilityZone {
    * <p>The state of the Availability Zone.</p>
    */
   state?: string;
-}
-
-export namespace AvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj,
-  });
 }
 
 export enum BehaviorEnum {
@@ -1656,15 +1403,6 @@ export interface Blueprint {
   platform?: InstancePlatform | string;
 }
 
-export namespace Blueprint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Blueprint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the access log configuration for a bucket in the Amazon Lightsail object storage
  *       service.</p>
@@ -1703,15 +1441,6 @@ export interface BucketAccessLogConfig {
   prefix?: string;
 }
 
-export namespace BucketAccessLogConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketAccessLogConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the state of an Amazon Lightsail bucket.</p>
  */
@@ -1741,15 +1470,6 @@ export interface BucketState {
   message?: string;
 }
 
-export namespace BucketState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a tag key and optional value assigned to an Amazon Lightsail resource.</p>
  *          <p>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
@@ -1768,15 +1488,6 @@ export interface Tag {
    *       following characters: + - = . _ : / @</p>
    */
   value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1903,15 +1614,6 @@ export interface Bucket {
   accessLogConfig?: BucketAccessLogConfig;
 }
 
-export namespace Bucket {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Bucket): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the specifications of a bundle that can be applied to an Amazon Lightsail
  *       bucket.</p>
@@ -1949,15 +1651,6 @@ export interface BucketBundle {
    * <p>Indicates whether the bundle is active. Use for a new or existing bucket.</p>
    */
   isActive?: boolean;
-}
-
-export namespace BucketBundle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketBundle): any => ({
-    ...obj,
-  });
 }
 
 export enum BucketMetricName {
@@ -2033,15 +1726,6 @@ export interface Bundle {
   supportedPlatforms?: (InstancePlatform | string)[];
 }
 
-export namespace Bundle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Bundle): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
@@ -2075,15 +1759,6 @@ export interface CacheBehavior {
    *          </ul>
    */
   behavior?: BehaviorEnum | string;
-}
-
-export namespace CacheBehavior {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheBehavior): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2169,15 +1844,6 @@ export interface CacheBehaviorPerPath {
   behavior?: BehaviorEnum | string;
 }
 
-export namespace CacheBehaviorPerPath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheBehaviorPerPath): any => ({
-    ...obj,
-  });
-}
-
 export enum ForwardValues {
   all = "all",
   allowList = "allow-list",
@@ -2203,15 +1869,6 @@ export interface CookieObject {
    * <p>The specific cookies to forward to your distribution's origin.</p>
    */
   cookiesAllowList?: string[];
-}
-
-export namespace CookieObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CookieObject): any => ({
-    ...obj,
-  });
 }
 
 export enum HeaderEnum {
@@ -2280,15 +1937,6 @@ export interface HeaderObject {
   headersAllowList?: (HeaderEnum | string)[];
 }
 
-export namespace HeaderObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HeaderObject): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the query string parameters that an Amazon Lightsail content delivery network
  *       (CDN) distribution to bases caching on.</p>
@@ -2310,15 +1958,6 @@ export interface QueryStringObject {
    *       parameter.</p>
    */
   queryStringsAllowList?: string[];
-}
-
-export namespace QueryStringObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStringObject): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2424,15 +2063,6 @@ export interface CacheSettings {
   forwardedQueryStrings?: QueryStringObject;
 }
 
-export namespace CacheSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the domain name system (DNS) records to add to your domain's DNS to validate it
  *       for an Amazon Lightsail certificate.</p>
@@ -2454,15 +2084,6 @@ export interface ResourceRecord {
   value?: string;
 }
 
-export namespace ResourceRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceRecord): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the domain validation records of an Amazon Lightsail SSL/TLS certificate.</p>
  */
@@ -2478,15 +2099,6 @@ export interface DomainValidationRecord {
    *       the certificate.</p>
    */
   resourceRecord?: ResourceRecord;
-}
-
-export namespace DomainValidationRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainValidationRecord): any => ({
-    ...obj,
-  });
 }
 
 export enum RenewalStatus {
@@ -2557,15 +2169,6 @@ export interface RenewalSummary {
    * <p>The timestamp when the certificate was last updated.</p>
    */
   updatedAt?: Date;
-}
-
-export namespace RenewalSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenewalSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum CertificateStatus {
@@ -2763,15 +2366,6 @@ export interface Certificate {
   supportCode?: string;
 }
 
-export namespace Certificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Certificate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an Amazon Lightsail SSL/TLS certificate.</p>
  */
@@ -2801,15 +2395,6 @@ export interface CertificateSummary {
    *       Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CertificateSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum NetworkProtocol {
@@ -2954,15 +2539,6 @@ export interface PortInfo {
   cidrListAliases?: string[];
 }
 
-export namespace PortInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface CloseInstancePublicPortsRequest {
   /**
    * <p>An object to describe the ports to close for the specified instance.</p>
@@ -2975,30 +2551,12 @@ export interface CloseInstancePublicPortsRequest {
   instanceName: string | undefined;
 }
 
-export namespace CloseInstancePublicPortsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloseInstancePublicPortsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CloseInstancePublicPortsResult {
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
    *       timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace CloseInstancePublicPortsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloseInstancePublicPortsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3014,15 +2572,6 @@ export interface DestinationInfo {
    * <p>The destination service of the record.</p>
    */
   service?: string;
-}
-
-export namespace DestinationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum CloudFormationStackRecordSourceType {
@@ -3048,15 +2597,6 @@ export interface CloudFormationStackRecordSourceInfo {
    * <p>The Amazon Resource Name (ARN) of the export snapshot record.</p>
    */
   arn?: string;
-}
-
-export namespace CloudFormationStackRecordSourceInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFormationStackRecordSourceInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum RecordState {
@@ -3114,15 +2654,6 @@ export interface CloudFormationStackRecord {
    *       Resource Name (ARN) of the AWS CloudFormation stack.</p>
    */
   destinationInfo?: DestinationInfo;
-}
-
-export namespace CloudFormationStackRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFormationStackRecord): any => ({
-    ...obj,
-  });
 }
 
 export enum ContactMethodStatus {
@@ -3202,15 +2733,6 @@ export interface ContactMethod {
   supportCode?: string;
 }
 
-export namespace ContactMethod {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactMethod): any => ({
-    ...obj,
-  });
-}
-
 export enum ContactMethodVerificationProtocol {
   Email = "Email",
 }
@@ -3261,15 +2783,6 @@ export interface Container {
   ports?: Record<string, ContainerServiceProtocol | string>;
 }
 
-export namespace Container {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Container): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a container image that is registered to an Amazon Lightsail container
  *       service.</p>
@@ -3289,15 +2802,6 @@ export interface ContainerImage {
    * <p>The timestamp when the container image was created.</p>
    */
   createdAt?: Date;
-}
-
-export namespace ContainerImage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerImage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3343,15 +2847,6 @@ export interface ContainerServiceHealthCheckConfig {
   successCodes?: string;
 }
 
-export namespace ContainerServiceHealthCheckConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServiceHealthCheckConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the public endpoint configuration of a deployment of an Amazon Lightsail
  *       container service.</p>
@@ -3372,15 +2867,6 @@ export interface ContainerServiceEndpoint {
    * <p>An object that describes the health check configuration of the container.</p>
    */
   healthCheck?: ContainerServiceHealthCheckConfig;
-}
-
-export namespace ContainerServiceEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServiceEndpoint): any => ({
-    ...obj,
-  });
 }
 
 export enum ContainerServiceDeploymentState {
@@ -3449,15 +2935,6 @@ export interface ContainerServiceDeployment {
   createdAt?: Date;
 }
 
-export namespace ContainerServiceDeployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServiceDeployment): any => ({
-    ...obj,
-  });
-}
-
 export enum ContainerServicePowerName {
   large = "large",
   medium = "medium",
@@ -3489,15 +2966,6 @@ export interface ContainerServiceECRImagePullerRole {
   principalArn?: string;
 }
 
-export namespace ContainerServiceECRImagePullerRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServiceECRImagePullerRole): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the configuration for an Amazon Lightsail container service to
  *       access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
@@ -3512,15 +2980,6 @@ export interface PrivateRegistryAccess {
    *       listed.</p>
    */
   ecrImagePullerRole?: ContainerServiceECRImagePullerRole;
-}
-
-export namespace PrivateRegistryAccess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateRegistryAccess): any => ({
-    ...obj,
-  });
 }
 
 export enum ContainerServiceState {
@@ -3622,15 +3081,6 @@ export interface ContainerServiceStateDetail {
    *          </note>
    */
   message?: string;
-}
-
-export namespace ContainerServiceStateDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServiceStateDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3814,15 +3264,6 @@ export interface ContainerService {
   privateRegistryAccess?: PrivateRegistryAccess;
 }
 
-export namespace ContainerService {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerService): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the settings of a public endpoint for an Amazon Lightsail container
  *       service.</p>
@@ -3844,15 +3285,6 @@ export interface EndpointRequest {
   healthCheck?: ContainerServiceHealthCheckConfig;
 }
 
-export namespace EndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a container deployment configuration of an Amazon Lightsail container
  *       service.</p>
@@ -3872,15 +3304,6 @@ export interface ContainerServiceDeploymentRequest {
   publicEndpoint?: EndpointRequest;
 }
 
-export namespace ContainerServiceDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServiceDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a request to activate or deactivate the role that you can use to grant an
  *         Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.</p>
@@ -3898,15 +3321,6 @@ export interface ContainerServiceECRImagePullerRoleRequest {
   isActive?: boolean;
 }
 
-export namespace ContainerServiceECRImagePullerRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServiceECRImagePullerRoleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the log events of a container of an Amazon Lightsail container service.</p>
  */
@@ -3920,15 +3334,6 @@ export interface ContainerServiceLogEvent {
    * <p>The message of the container service log event.</p>
    */
   message?: string;
-}
-
-export namespace ContainerServiceLogEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServiceLogEvent): any => ({
-    ...obj,
-  });
 }
 
 export enum ContainerServiceMetricName {
@@ -3976,15 +3381,6 @@ export interface ContainerServicePower {
   isActive?: boolean;
 }
 
-export namespace ContainerServicePower {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServicePower): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the login information for the container image registry of an Amazon Lightsail
  *       account.</p>
@@ -4018,29 +3414,11 @@ export interface ContainerServiceRegistryLogin {
   registry?: string;
 }
 
-export namespace ContainerServiceRegistryLogin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServiceRegistryLogin): any => ({
-    ...obj,
-  });
-}
-
 export interface ContainerServicesListResult {
   /**
    * <p>An array of objects that describe one or more container services.</p>
    */
   containerServices?: ContainerService[];
-}
-
-export namespace ContainerServicesListResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerServicesListResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CopySnapshotRequest {
@@ -4120,30 +3498,12 @@ export interface CopySnapshotRequest {
   sourceRegion: RegionName | string | undefined;
 }
 
-export namespace CopySnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopySnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CopySnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CopySnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopySnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBucketRequest {
@@ -4187,15 +3547,6 @@ export interface CreateBucketRequest {
   enableObjectVersioning?: boolean;
 }
 
-export namespace CreateBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBucketRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBucketResult {
   /**
    * <p>An object that describes the bucket that is created.</p>
@@ -4209,29 +3560,11 @@ export interface CreateBucketResult {
   operations?: Operation[];
 }
 
-export namespace CreateBucketResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBucketResult): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBucketAccessKeyRequest {
   /**
    * <p>The name of the bucket that the new access key will belong to, and grant access to.</p>
    */
   bucketName: string | undefined;
-}
-
-export namespace CreateBucketAccessKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBucketAccessKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBucketAccessKeyResult {
@@ -4245,16 +3578,6 @@ export interface CreateBucketAccessKeyResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateBucketAccessKeyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBucketAccessKeyResult): any => ({
-    ...obj,
-    ...(obj.accessKey && { accessKey: AccessKey.filterSensitiveLog(obj.accessKey) }),
-  });
 }
 
 export interface CreateCertificateRequest {
@@ -4284,15 +3607,6 @@ export interface CreateCertificateRequest {
   tags?: Tag[];
 }
 
-export namespace CreateCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCertificateResult {
   /**
    * <p>An object that describes the certificate created.</p>
@@ -4304,15 +3618,6 @@ export interface CreateCertificateResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateCertificateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCertificateResult): any => ({
-    ...obj,
-  });
 }
 
 export enum PortInfoSourceType {
@@ -4398,15 +3703,6 @@ export interface InstanceEntry {
   availabilityZone: string | undefined;
 }
 
-export namespace InstanceEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCloudFormationStackRequest {
   /**
    * <p>An array of parameters that will be used to create the new Amazon EC2 instance. You can only
@@ -4416,30 +3712,12 @@ export interface CreateCloudFormationStackRequest {
   instances: InstanceEntry[] | undefined;
 }
 
-export namespace CreateCloudFormationStackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCloudFormationStackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCloudFormationStackResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateCloudFormationStackResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCloudFormationStackResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateContactMethodRequest {
@@ -4487,30 +3765,12 @@ export interface CreateContactMethodRequest {
   contactEndpoint: string | undefined;
 }
 
-export namespace CreateContactMethodRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactMethodRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContactMethodResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateContactMethodResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContactMethodResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4526,15 +3786,6 @@ export interface PrivateRegistryAccessRequest {
    *         (Amazon ECR) private repositories.</p>
    */
   ecrImagePullerRole?: ContainerServiceECRImagePullerRoleRequest;
-}
-
-export namespace PrivateRegistryAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateRegistryAccessRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateContainerServiceRequest {
@@ -4645,29 +3896,11 @@ export interface CreateContainerServiceRequest {
   privateRegistryAccess?: PrivateRegistryAccessRequest;
 }
 
-export namespace CreateContainerServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContainerServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContainerServiceResult {
   /**
    * <p>An object that describes a container service.</p>
    */
   containerService?: ContainerService;
-}
-
-export namespace CreateContainerServiceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContainerServiceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateContainerServiceDeploymentRequest {
@@ -4689,15 +3922,6 @@ export interface CreateContainerServiceDeploymentRequest {
   publicEndpoint?: EndpointRequest;
 }
 
-export namespace CreateContainerServiceDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContainerServiceDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContainerServiceDeploymentResult {
   /**
    * <p>An object that describes a container service.</p>
@@ -4705,25 +3929,7 @@ export interface CreateContainerServiceDeploymentResult {
   containerService?: ContainerService;
 }
 
-export namespace CreateContainerServiceDeploymentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContainerServiceDeploymentResult): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContainerServiceRegistryLoginRequest {}
-
-export namespace CreateContainerServiceRegistryLoginRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContainerServiceRegistryLoginRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateContainerServiceRegistryLoginResult {
   /**
@@ -4731,15 +3937,6 @@ export interface CreateContainerServiceRegistryLoginResult {
    *       Lightsail account.</p>
    */
   registryLogin?: ContainerServiceRegistryLogin;
-}
-
-export namespace CreateContainerServiceRegistryLoginResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContainerServiceRegistryLoginResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDiskRequest {
@@ -4774,30 +3971,12 @@ export interface CreateDiskRequest {
   addOns?: AddOnRequest[];
 }
 
-export namespace CreateDiskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDiskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDiskResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateDiskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDiskResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDiskFromSnapshotRequest {
@@ -4902,30 +4081,12 @@ export interface CreateDiskFromSnapshotRequest {
   useLatestRestorableAutoSnapshot?: boolean;
 }
 
-export namespace CreateDiskFromSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDiskFromSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDiskFromSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateDiskFromSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDiskFromSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDiskSnapshotRequest {
@@ -4963,30 +4124,12 @@ export interface CreateDiskSnapshotRequest {
   tags?: Tag[];
 }
 
-export namespace CreateDiskSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDiskSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDiskSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateDiskSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDiskSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export enum IpAddressType {
@@ -5022,15 +4165,6 @@ export interface InputOrigin {
    *       with your origin to pull content.</p>
    */
   protocolPolicy?: OriginProtocolPolicyEnum | string;
-}
-
-export namespace InputOrigin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputOrigin): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDistributionRequest {
@@ -5087,15 +4221,6 @@ export interface CreateDistributionRequest {
   tags?: Tag[];
 }
 
-export namespace CreateDistributionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDistributionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
@@ -5124,15 +4249,6 @@ export interface Origin {
    *       with your origin to pull content.</p>
    */
   protocolPolicy?: OriginProtocolPolicyEnum | string;
-}
-
-export namespace Origin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Origin): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5257,15 +4373,6 @@ export interface LightsailDistribution {
   tags?: Tag[];
 }
 
-export namespace LightsailDistribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LightsailDistribution): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDistributionResult {
   /**
    * <p>An object that describes the distribution created.</p>
@@ -5277,15 +4384,6 @@ export interface CreateDistributionResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace CreateDistributionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDistributionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDomainRequest {
@@ -5307,30 +4405,12 @@ export interface CreateDomainRequest {
   tags?: Tag[];
 }
 
-export namespace CreateDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDomainResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace CreateDomainResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5429,15 +4509,6 @@ export interface DomainEntry {
   options?: Record<string, string>;
 }
 
-export namespace DomainEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDomainEntryRequest {
   /**
    * <p>The domain name (e.g., <code>example.com</code>) for which you want to create the domain
@@ -5451,30 +4522,12 @@ export interface CreateDomainEntryRequest {
   domainEntry: DomainEntry | undefined;
 }
 
-export namespace CreateDomainEntryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainEntryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDomainEntryResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace CreateDomainEntryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainEntryResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateInstancesRequest {
@@ -5565,30 +4618,12 @@ export interface CreateInstancesRequest {
   ipAddressType?: IpAddressType | string;
 }
 
-export namespace CreateInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateInstancesResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstancesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateInstancesFromSnapshotRequest {
@@ -5728,30 +4763,12 @@ export interface CreateInstancesFromSnapshotRequest {
   useLatestRestorableAutoSnapshot?: boolean;
 }
 
-export namespace CreateInstancesFromSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstancesFromSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateInstancesFromSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateInstancesFromSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstancesFromSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateInstanceSnapshotRequest {
@@ -5772,30 +4789,12 @@ export interface CreateInstanceSnapshotRequest {
   tags?: Tag[];
 }
 
-export namespace CreateInstanceSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateInstanceSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateInstanceSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateKeyPairRequest {
@@ -5809,15 +4808,6 @@ export interface CreateKeyPairRequest {
    *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeyPairRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5869,15 +4859,6 @@ export interface KeyPair {
   fingerprint?: string;
 }
 
-export namespace KeyPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyPair): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateKeyPairResult {
   /**
    * <p>An array of key-value pairs containing information about the new key pair you just
@@ -5900,15 +4881,6 @@ export interface CreateKeyPairResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace CreateKeyPairResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeyPairResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLoadBalancerRequest {
@@ -5981,30 +4953,12 @@ export interface CreateLoadBalancerRequest {
   tlsPolicyName?: string;
 }
 
-export namespace CreateLoadBalancerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoadBalancerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLoadBalancerResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateLoadBalancerResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoadBalancerResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLoadBalancerTlsCertificateRequest {
@@ -6042,30 +4996,12 @@ export interface CreateLoadBalancerTlsCertificateRequest {
   tags?: Tag[];
 }
 
-export namespace CreateLoadBalancerTlsCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoadBalancerTlsCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLoadBalancerTlsCertificateResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateLoadBalancerTlsCertificateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLoadBalancerTlsCertificateResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRelationalDatabaseRequest {
@@ -6286,31 +5222,12 @@ export interface CreateRelationalDatabaseRequest {
   tags?: Tag[];
 }
 
-export namespace CreateRelationalDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRelationalDatabaseRequest): any => ({
-    ...obj,
-    ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateRelationalDatabaseResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRelationalDatabaseResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRelationalDatabaseFromSnapshotRequest {
@@ -6405,30 +5322,12 @@ export interface CreateRelationalDatabaseFromSnapshotRequest {
   tags?: Tag[];
 }
 
-export namespace CreateRelationalDatabaseFromSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRelationalDatabaseFromSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRelationalDatabaseFromSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateRelationalDatabaseFromSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRelationalDatabaseFromSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRelationalDatabaseSnapshotRequest {
@@ -6458,30 +5357,12 @@ export interface CreateRelationalDatabaseSnapshotRequest {
   tags?: Tag[];
 }
 
-export namespace CreateRelationalDatabaseSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRelationalDatabaseSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRelationalDatabaseSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace CreateRelationalDatabaseSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRelationalDatabaseSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAlarmRequest {
@@ -6491,30 +5372,12 @@ export interface DeleteAlarmRequest {
   alarmName: string | undefined;
 }
 
-export namespace DeleteAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlarmRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAlarmResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteAlarmResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlarmResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAutoSnapshotRequest {
@@ -6532,30 +5395,12 @@ export interface DeleteAutoSnapshotRequest {
   date: string | undefined;
 }
 
-export namespace DeleteAutoSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAutoSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAutoSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteAutoSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAutoSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBucketRequest {
@@ -6594,30 +5439,12 @@ export interface DeleteBucketRequest {
   forceDelete?: boolean;
 }
 
-export namespace DeleteBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBucketResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteBucketResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBucketAccessKeyRequest {
@@ -6635,30 +5462,12 @@ export interface DeleteBucketAccessKeyRequest {
   accessKeyId: string | undefined;
 }
 
-export namespace DeleteBucketAccessKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketAccessKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBucketAccessKeyResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteBucketAccessKeyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketAccessKeyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCertificateRequest {
@@ -6670,30 +5479,12 @@ export interface DeleteCertificateRequest {
   certificateName: string | undefined;
 }
 
-export namespace DeleteCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCertificateResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteCertificateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCertificateResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteContactMethodRequest {
@@ -6709,30 +5500,12 @@ export interface DeleteContactMethodRequest {
   protocol: ContactProtocol | string | undefined;
 }
 
-export namespace DeleteContactMethodRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactMethodRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContactMethodResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteContactMethodResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContactMethodResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteContainerImageRequest {
@@ -6758,25 +5531,7 @@ export interface DeleteContainerImageRequest {
   image: string | undefined;
 }
 
-export namespace DeleteContainerImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContainerImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContainerImageResult {}
-
-export namespace DeleteContainerImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContainerImageResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteContainerServiceRequest {
   /**
@@ -6785,25 +5540,7 @@ export interface DeleteContainerServiceRequest {
   serviceName: string | undefined;
 }
 
-export namespace DeleteContainerServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContainerServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContainerServiceResult {}
-
-export namespace DeleteContainerServiceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContainerServiceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDiskRequest {
   /**
@@ -6817,30 +5554,12 @@ export interface DeleteDiskRequest {
   forceDeleteAddOns?: boolean;
 }
 
-export namespace DeleteDiskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDiskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDiskResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteDiskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDiskResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDiskSnapshotRequest {
@@ -6851,30 +5570,12 @@ export interface DeleteDiskSnapshotRequest {
   diskSnapshotName: string | undefined;
 }
 
-export namespace DeleteDiskSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDiskSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDiskSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteDiskSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDiskSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDistributionRequest {
@@ -6886,30 +5587,12 @@ export interface DeleteDistributionRequest {
   distributionName?: string;
 }
 
-export namespace DeleteDistributionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDistributionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDistributionResult {
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
    *       timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace DeleteDistributionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDistributionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDomainRequest {
@@ -6919,30 +5602,12 @@ export interface DeleteDomainRequest {
   domainName: string | undefined;
 }
 
-export namespace DeleteDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDomainResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace DeleteDomainResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDomainEntryRequest {
@@ -6957,30 +5622,12 @@ export interface DeleteDomainEntryRequest {
   domainEntry: DomainEntry | undefined;
 }
 
-export namespace DeleteDomainEntryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainEntryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDomainEntryResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace DeleteDomainEntryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainEntryResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteInstanceRequest {
@@ -6995,30 +5642,12 @@ export interface DeleteInstanceRequest {
   forceDeleteAddOns?: boolean;
 }
 
-export namespace DeleteInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInstanceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstanceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteInstanceSnapshotRequest {
@@ -7028,30 +5657,12 @@ export interface DeleteInstanceSnapshotRequest {
   instanceSnapshotName: string | undefined;
 }
 
-export namespace DeleteInstanceSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstanceSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInstanceSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteInstanceSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstanceSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteKeyPairRequest {
@@ -7070,15 +5681,6 @@ export interface DeleteKeyPairRequest {
   expectedFingerprint?: string;
 }
 
-export namespace DeleteKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKeyPairRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteKeyPairResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -7087,29 +5689,11 @@ export interface DeleteKeyPairResult {
   operation?: Operation;
 }
 
-export namespace DeleteKeyPairResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKeyPairResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteKnownHostKeysRequest {
   /**
    * <p>The name of the instance for which you want to reset the host key or certificate.</p>
    */
   instanceName: string | undefined;
-}
-
-export namespace DeleteKnownHostKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKnownHostKeysRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteKnownHostKeysResult {
@@ -7120,29 +5704,11 @@ export interface DeleteKnownHostKeysResult {
   operations?: Operation[];
 }
 
-export namespace DeleteKnownHostKeysResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKnownHostKeysResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLoadBalancerRequest {
   /**
    * <p>The name of the load balancer you want to delete.</p>
    */
   loadBalancerName: string | undefined;
-}
-
-export namespace DeleteLoadBalancerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoadBalancerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteLoadBalancerResult {
@@ -7151,15 +5717,6 @@ export interface DeleteLoadBalancerResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteLoadBalancerResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoadBalancerResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteLoadBalancerTlsCertificateRequest {
@@ -7182,30 +5739,12 @@ export interface DeleteLoadBalancerTlsCertificateRequest {
   force?: boolean;
 }
 
-export namespace DeleteLoadBalancerTlsCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoadBalancerTlsCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLoadBalancerTlsCertificateResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteLoadBalancerTlsCertificateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoadBalancerTlsCertificateResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRelationalDatabaseRequest {
@@ -7245,30 +5784,12 @@ export interface DeleteRelationalDatabaseRequest {
   finalRelationalDatabaseSnapshotName?: string;
 }
 
-export namespace DeleteRelationalDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRelationalDatabaseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteRelationalDatabaseResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRelationalDatabaseResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRelationalDatabaseSnapshotRequest {
@@ -7278,30 +5799,12 @@ export interface DeleteRelationalDatabaseSnapshotRequest {
   relationalDatabaseSnapshotName: string | undefined;
 }
 
-export namespace DeleteRelationalDatabaseSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRelationalDatabaseSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRelationalDatabaseSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DeleteRelationalDatabaseSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRelationalDatabaseSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DetachCertificateFromDistributionRequest {
@@ -7313,30 +5816,12 @@ export interface DetachCertificateFromDistributionRequest {
   distributionName: string | undefined;
 }
 
-export namespace DetachCertificateFromDistributionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachCertificateFromDistributionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachCertificateFromDistributionResult {
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
    *       timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace DetachCertificateFromDistributionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachCertificateFromDistributionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DetachDiskRequest {
@@ -7347,30 +5832,12 @@ export interface DetachDiskRequest {
   diskName: string | undefined;
 }
 
-export namespace DetachDiskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachDiskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachDiskResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DetachDiskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachDiskResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DetachInstancesFromLoadBalancerRequest {
@@ -7386,30 +5853,12 @@ export interface DetachInstancesFromLoadBalancerRequest {
   instanceNames: string[] | undefined;
 }
 
-export namespace DetachInstancesFromLoadBalancerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachInstancesFromLoadBalancerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachInstancesFromLoadBalancerResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DetachInstancesFromLoadBalancerResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachInstancesFromLoadBalancerResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DetachStaticIpRequest {
@@ -7419,30 +5868,12 @@ export interface DetachStaticIpRequest {
   staticIpName: string | undefined;
 }
 
-export namespace DetachStaticIpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachStaticIpRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachStaticIpResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DetachStaticIpResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachStaticIpResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DisableAddOnRequest {
@@ -7457,30 +5888,12 @@ export interface DisableAddOnRequest {
   resourceName: string | undefined;
 }
 
-export namespace DisableAddOnRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableAddOnRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableAddOnResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace DisableAddOnResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableAddOnResult): any => ({
-    ...obj,
-  });
 }
 
 export enum DiskState {
@@ -7598,15 +6011,6 @@ export interface Disk {
   gbInUse?: number;
 }
 
-export namespace Disk {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Disk): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a disk.</p>
  */
@@ -7631,15 +6035,6 @@ export interface DiskInfo {
    *       loaded on it).</p>
    */
   isSystemDisk?: boolean;
-}
-
-export namespace DiskInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum DiskSnapshotState {
@@ -7736,15 +6131,6 @@ export interface DiskSnapshot {
   isFromAutoSnapshot?: boolean;
 }
 
-export namespace DiskSnapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskSnapshot): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a disk snapshot.</p>
  */
@@ -7753,15 +6139,6 @@ export interface DiskSnapshotInfo {
    * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
    */
   sizeInGb?: number;
-}
-
-export namespace DiskSnapshotInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskSnapshotInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7793,15 +6170,6 @@ export interface DistributionBundle {
    *       distribution.</p>
    */
   isActive?: boolean;
-}
-
-export namespace DistributionBundle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DistributionBundle): any => ({
-    ...obj,
-  });
 }
 
 export enum DistributionMetricName {
@@ -7862,25 +6230,7 @@ export interface Domain {
   domainEntries?: DomainEntry[];
 }
 
-export namespace Domain {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Domain): any => ({
-    ...obj,
-  });
-}
-
 export interface DownloadDefaultKeyPairRequest {}
-
-export namespace DownloadDefaultKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DownloadDefaultKeyPairRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DownloadDefaultKeyPairResult {
   /**
@@ -7899,15 +6249,6 @@ export interface DownloadDefaultKeyPairResult {
   createdAt?: Date;
 }
 
-export namespace DownloadDefaultKeyPairResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DownloadDefaultKeyPairResult): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableAddOnRequest {
   /**
    * <p>The name of the source resource for which to enable or modify the add-on.</p>
@@ -7920,30 +6261,12 @@ export interface EnableAddOnRequest {
   addOnRequest: AddOnRequest | undefined;
 }
 
-export namespace EnableAddOnRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAddOnRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableAddOnResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace EnableAddOnResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAddOnResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ExportSnapshotRequest {
@@ -7953,30 +6276,12 @@ export interface ExportSnapshotRequest {
   sourceSnapshotName: string | undefined;
 }
 
-export namespace ExportSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportSnapshotResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace ExportSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7998,15 +6303,6 @@ export interface InstanceSnapshotInfo {
    * <p>A list of objects describing the disks that were attached to the source instance.</p>
    */
   fromDiskInfo?: DiskInfo[];
-}
-
-export namespace InstanceSnapshotInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceSnapshotInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum ExportSnapshotRecordSourceType {
@@ -8060,15 +6356,6 @@ export interface ExportSnapshotRecordSourceInfo {
   diskSnapshotInfo?: DiskSnapshotInfo;
 }
 
-export namespace ExportSnapshotRecordSourceInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSnapshotRecordSourceInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an export snapshot record.</p>
  */
@@ -8114,15 +6401,6 @@ export interface ExportSnapshotRecord {
   destinationInfo?: DestinationInfo;
 }
 
-export namespace ExportSnapshotRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSnapshotRecord): any => ({
-    ...obj,
-  });
-}
-
 export interface GetActiveNamesRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -8131,15 +6409,6 @@ export interface GetActiveNamesRequest {
    *       page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetActiveNamesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetActiveNamesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetActiveNamesResult {
@@ -8155,15 +6424,6 @@ export interface GetActiveNamesResult {
    *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
-}
-
-export namespace GetActiveNamesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetActiveNamesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAlarmsRequest {
@@ -8189,15 +6449,6 @@ export interface GetAlarmsRequest {
   monitoredResourceName?: string;
 }
 
-export namespace GetAlarmsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAlarmsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAlarmsResult {
   /**
    * <p>An array of objects that describe the alarms.</p>
@@ -8213,30 +6464,12 @@ export interface GetAlarmsResult {
   nextPageToken?: string;
 }
 
-export namespace GetAlarmsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAlarmsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAutoSnapshotsRequest {
   /**
    * <p>The name of the source instance or disk from which to get automatic snapshot
    *       information.</p>
    */
   resourceName: string | undefined;
-}
-
-export namespace GetAutoSnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAutoSnapshotsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAutoSnapshotsResult {
@@ -8257,15 +6490,6 @@ export interface GetAutoSnapshotsResult {
   autoSnapshots?: AutoSnapshotDetails[];
 }
 
-export namespace GetAutoSnapshotsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAutoSnapshotsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBlueprintsRequest {
   /**
    * <p>A Boolean value that indicates whether to include inactive (unavailable) blueprints in the
@@ -8280,15 +6504,6 @@ export interface GetBlueprintsRequest {
    *       page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetBlueprintsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBlueprintsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBlueprintsResult {
@@ -8307,15 +6522,6 @@ export interface GetBlueprintsResult {
   nextPageToken?: string;
 }
 
-export namespace GetBlueprintsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBlueprintsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketAccessKeysRequest {
   /**
    * <p>The name of the bucket for which to return access keys.</p>
@@ -8323,30 +6529,11 @@ export interface GetBucketAccessKeysRequest {
   bucketName: string | undefined;
 }
 
-export namespace GetBucketAccessKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketAccessKeysRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketAccessKeysResult {
   /**
    * <p>An object that describes the access keys for the specified bucket.</p>
    */
   accessKeys?: AccessKey[];
-}
-
-export namespace GetBucketAccessKeysResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketAccessKeysResult): any => ({
-    ...obj,
-    ...(obj.accessKeys && { accessKeys: obj.accessKeys.map((item) => AccessKey.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface GetBucketBundlesRequest {
@@ -8357,29 +6544,11 @@ export interface GetBucketBundlesRequest {
   includeInactive?: boolean;
 }
 
-export namespace GetBucketBundlesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketBundlesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketBundlesResult {
   /**
    * <p>An object that describes bucket bundles.</p>
    */
   bundles?: BucketBundle[];
-}
-
-export namespace GetBucketBundlesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketBundlesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketMetricDataRequest {
@@ -8490,15 +6659,6 @@ export interface GetBucketMetricDataRequest {
   unit: MetricUnit | string | undefined;
 }
 
-export namespace GetBucketMetricDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketMetricDataRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the metric data point.</p>
  */
@@ -8539,15 +6699,6 @@ export interface MetricDatapoint {
   unit?: MetricUnit | string;
 }
 
-export namespace MetricDatapoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDatapoint): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
@@ -8558,15 +6709,6 @@ export interface GetBucketMetricDataResult {
    * <p>An array of objects that describe the metric data returned.</p>
    */
   metricData?: MetricDatapoint[];
-}
-
-export namespace GetBucketMetricDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketMetricDataResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketsRequest {
@@ -8595,15 +6737,6 @@ export interface GetBucketsRequest {
   includeConnectedResources?: boolean;
 }
 
-export namespace GetBucketsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketsResult {
   /**
    * <p>An array of objects that describe buckets.</p>
@@ -8629,15 +6762,6 @@ export interface GetBucketsResult {
   accountLevelBpaSync?: AccountLevelBpaSync;
 }
 
-export namespace GetBucketsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBundlesRequest {
   /**
    * <p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the
@@ -8654,15 +6778,6 @@ export interface GetBundlesRequest {
   pageToken?: string;
 }
 
-export namespace GetBundlesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBundlesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBundlesResult {
   /**
    * <p>An array of key-value pairs that contains information about the available bundles.</p>
@@ -8676,15 +6791,6 @@ export interface GetBundlesResult {
    *       specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
-}
-
-export namespace GetBundlesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBundlesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCertificatesRequest {
@@ -8713,29 +6819,11 @@ export interface GetCertificatesRequest {
   certificateName?: string;
 }
 
-export namespace GetCertificatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCertificatesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCertificatesResult {
   /**
    * <p>An object that describes certificates.</p>
    */
   certificates?: CertificateSummary[];
-}
-
-export namespace GetCertificatesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCertificatesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCloudFormationStackRecordsRequest {
@@ -8746,15 +6834,6 @@ export interface GetCloudFormationStackRecordsRequest {
    *       as the page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetCloudFormationStackRecordsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCloudFormationStackRecordsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCloudFormationStackRecordsResult {
@@ -8773,15 +6852,6 @@ export interface GetCloudFormationStackRecordsResult {
   nextPageToken?: string;
 }
 
-export namespace GetCloudFormationStackRecordsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCloudFormationStackRecordsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContactMethodsRequest {
   /**
    * <p>The protocols used to send notifications, such as <code>Email</code>, or <code>SMS</code>
@@ -8792,15 +6862,6 @@ export interface GetContactMethodsRequest {
   protocols?: (ContactProtocol | string)[];
 }
 
-export namespace GetContactMethodsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactMethodsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContactMethodsResult {
   /**
    * <p>An array of objects that describe the contact methods.</p>
@@ -8808,25 +6869,7 @@ export interface GetContactMethodsResult {
   contactMethods?: ContactMethod[];
 }
 
-export namespace GetContactMethodsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactMethodsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContainerAPIMetadataRequest {}
-
-export namespace GetContainerAPIMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerAPIMetadataRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetContainerAPIMetadataResult {
   /**
@@ -8836,29 +6879,11 @@ export interface GetContainerAPIMetadataResult {
   metadata?: Record<string, string>[];
 }
 
-export namespace GetContainerAPIMetadataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerAPIMetadataResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContainerImagesRequest {
   /**
    * <p>The name of the container service for which to return registered container images.</p>
    */
   serviceName: string | undefined;
-}
-
-export namespace GetContainerImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerImagesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContainerImagesResult {
@@ -8867,15 +6892,6 @@ export interface GetContainerImagesResult {
    *       service.</p>
    */
   containerImages?: ContainerImage[];
-}
-
-export namespace GetContainerImagesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerImagesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContainerLogRequest {
@@ -8972,15 +6988,6 @@ export interface GetContainerLogRequest {
   pageToken?: string;
 }
 
-export namespace GetContainerLogRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerLogRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContainerLogResult {
   /**
    * <p>An array of objects that describe the log events of a container.</p>
@@ -8998,15 +7005,6 @@ export interface GetContainerLogResult {
   nextPageToken?: string;
 }
 
-export namespace GetContainerLogResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerLogResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContainerServiceDeploymentsRequest {
   /**
    * <p>The name of the container service for which to return deployments.</p>
@@ -9014,29 +7012,11 @@ export interface GetContainerServiceDeploymentsRequest {
   serviceName: string | undefined;
 }
 
-export namespace GetContainerServiceDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerServiceDeploymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContainerServiceDeploymentsResult {
   /**
    * <p>An array of objects that describe deployments for a container service.</p>
    */
   deployments?: ContainerServiceDeployment[];
-}
-
-export namespace GetContainerServiceDeploymentsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerServiceDeploymentsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContainerServiceMetricDataRequest {
@@ -9131,15 +7111,6 @@ export interface GetContainerServiceMetricDataRequest {
   statistics: (MetricStatistic | string)[] | undefined;
 }
 
-export namespace GetContainerServiceMetricDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerServiceMetricDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContainerServiceMetricDataResult {
   /**
    * <p>The name of the metric returned. </p>
@@ -9152,25 +7123,7 @@ export interface GetContainerServiceMetricDataResult {
   metricData?: MetricDatapoint[];
 }
 
-export namespace GetContainerServiceMetricDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerServiceMetricDataResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContainerServicePowersRequest {}
-
-export namespace GetContainerServicePowersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerServicePowersRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetContainerServicePowersResult {
   /**
@@ -9178,15 +7131,6 @@ export interface GetContainerServicePowersResult {
    *       service.</p>
    */
   powers?: ContainerServicePower[];
-}
-
-export namespace GetContainerServicePowersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerServicePowersResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContainerServicesRequest {
@@ -9198,15 +7142,6 @@ export interface GetContainerServicesRequest {
   serviceName?: string;
 }
 
-export namespace GetContainerServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerServicesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDiskRequest {
   /**
    * <p>The name of the disk (e.g., <code>my-disk</code>).</p>
@@ -9214,29 +7149,11 @@ export interface GetDiskRequest {
   diskName: string | undefined;
 }
 
-export namespace GetDiskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDiskResult {
   /**
    * <p>An object containing information about the disk.</p>
    */
   disk?: Disk;
-}
-
-export namespace GetDiskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiskResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDisksRequest {
@@ -9247,15 +7164,6 @@ export interface GetDisksRequest {
    *       in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetDisksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDisksRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDisksResult {
@@ -9273,15 +7181,6 @@ export interface GetDisksResult {
   nextPageToken?: string;
 }
 
-export namespace GetDisksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDisksResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDiskSnapshotRequest {
   /**
    * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>
@@ -9289,29 +7188,11 @@ export interface GetDiskSnapshotRequest {
   diskSnapshotName: string | undefined;
 }
 
-export namespace GetDiskSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiskSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDiskSnapshotResult {
   /**
    * <p>An object containing information about the disk snapshot.</p>
    */
   diskSnapshot?: DiskSnapshot;
-}
-
-export namespace GetDiskSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiskSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDiskSnapshotsRequest {
@@ -9322,15 +7203,6 @@ export interface GetDiskSnapshotsRequest {
    *       page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetDiskSnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiskSnapshotsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDiskSnapshotsResult {
@@ -9348,40 +7220,13 @@ export interface GetDiskSnapshotsResult {
   nextPageToken?: string;
 }
 
-export namespace GetDiskSnapshotsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiskSnapshotsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDistributionBundlesRequest {}
-
-export namespace GetDistributionBundlesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionBundlesRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetDistributionBundlesResult {
   /**
    * <p>An object that describes a distribution bundle.</p>
    */
   bundles?: DistributionBundle[];
-}
-
-export namespace GetDistributionBundlesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionBundlesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDistributionLatestCacheResetRequest {
@@ -9396,15 +7241,6 @@ export interface GetDistributionLatestCacheResetRequest {
   distributionName?: string;
 }
 
-export namespace GetDistributionLatestCacheResetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionLatestCacheResetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDistributionLatestCacheResetResult {
   /**
    * <p>The status of the last cache reset.</p>
@@ -9416,15 +7252,6 @@ export interface GetDistributionLatestCacheResetResult {
    *       format.</p>
    */
   createTime?: Date;
-}
-
-export namespace GetDistributionLatestCacheResetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionLatestCacheResetResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDistributionMetricDataRequest {
@@ -9599,15 +7426,6 @@ export interface GetDistributionMetricDataRequest {
   statistics: (MetricStatistic | string)[] | undefined;
 }
 
-export namespace GetDistributionMetricDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionMetricDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDistributionMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
@@ -9618,15 +7436,6 @@ export interface GetDistributionMetricDataResult {
    * <p>An array of objects that describe the metric data returned.</p>
    */
   metricData?: MetricDatapoint[];
-}
-
-export namespace GetDistributionMetricDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionMetricDataResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDistributionsRequest {
@@ -9647,15 +7456,6 @@ export interface GetDistributionsRequest {
   pageToken?: string;
 }
 
-export namespace GetDistributionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDistributionsResult {
   /**
    * <p>An array of objects that describe your distributions.</p>
@@ -9671,15 +7471,6 @@ export interface GetDistributionsResult {
   nextPageToken?: string;
 }
 
-export namespace GetDistributionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDomainRequest {
   /**
    * <p>The domain name for which your want to return information about.</p>
@@ -9687,29 +7478,11 @@ export interface GetDomainRequest {
   domainName: string | undefined;
 }
 
-export namespace GetDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDomainResult {
   /**
    * <p>An array of key-value pairs containing information about your get domain request.</p>
    */
   domain?: Domain;
-}
-
-export namespace GetDomainResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDomainsRequest {
@@ -9720,15 +7493,6 @@ export interface GetDomainsRequest {
    *       token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDomainsResult {
@@ -9747,11 +7511,1817 @@ export interface GetDomainsResult {
   nextPageToken?: string;
 }
 
-export namespace GetDomainsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainsResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccessKeyLastUsedFilterSensitiveLog = (obj: AccessKeyLastUsed): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessKeyFilterSensitiveLog = (obj: AccessKey): any => ({
+  ...obj,
+  ...(obj.accessKeyId && { accessKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResourceReceivingAccessFilterSensitiveLog = (obj: ResourceReceivingAccess): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessRulesFilterSensitiveLog = (obj: AccessRules): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountLevelBpaSyncFilterSensitiveLog = (obj: AccountLevelBpaSync): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddOnFilterSensitiveLog = (obj: AddOn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoSnapshotAddOnRequestFilterSensitiveLog = (obj: AutoSnapshotAddOnRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddOnRequestFilterSensitiveLog = (obj: AddOnRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceLocationFilterSensitiveLog = (obj: ResourceLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitoredResourceInfoFilterSensitiveLog = (obj: MonitoredResourceInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllocateStaticIpRequestFilterSensitiveLog = (obj: AllocateStaticIpRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperationFilterSensitiveLog = (obj: Operation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllocateStaticIpResultFilterSensitiveLog = (obj: AllocateStaticIpResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachCertificateToDistributionRequestFilterSensitiveLog = (
+  obj: AttachCertificateToDistributionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachCertificateToDistributionResultFilterSensitiveLog = (
+  obj: AttachCertificateToDistributionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachDiskRequestFilterSensitiveLog = (obj: AttachDiskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachDiskResultFilterSensitiveLog = (obj: AttachDiskResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachedDiskFilterSensitiveLog = (obj: AttachedDisk): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiskMapFilterSensitiveLog = (obj: DiskMap): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachInstancesToLoadBalancerRequestFilterSensitiveLog = (
+  obj: AttachInstancesToLoadBalancerRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachInstancesToLoadBalancerResultFilterSensitiveLog = (
+  obj: AttachInstancesToLoadBalancerResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachLoadBalancerTlsCertificateRequestFilterSensitiveLog = (
+  obj: AttachLoadBalancerTlsCertificateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachLoadBalancerTlsCertificateResultFilterSensitiveLog = (
+  obj: AttachLoadBalancerTlsCertificateResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachStaticIpRequestFilterSensitiveLog = (obj: AttachStaticIpRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachStaticIpResultFilterSensitiveLog = (obj: AttachStaticIpResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoSnapshotDetailsFilterSensitiveLog = (obj: AutoSnapshotDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlueprintFilterSensitiveLog = (obj: Blueprint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BucketAccessLogConfigFilterSensitiveLog = (obj: BucketAccessLogConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BucketStateFilterSensitiveLog = (obj: BucketState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BucketFilterSensitiveLog = (obj: Bucket): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BucketBundleFilterSensitiveLog = (obj: BucketBundle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BundleFilterSensitiveLog = (obj: Bundle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheBehaviorFilterSensitiveLog = (obj: CacheBehavior): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheBehaviorPerPathFilterSensitiveLog = (obj: CacheBehaviorPerPath): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CookieObjectFilterSensitiveLog = (obj: CookieObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HeaderObjectFilterSensitiveLog = (obj: HeaderObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryStringObjectFilterSensitiveLog = (obj: QueryStringObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheSettingsFilterSensitiveLog = (obj: CacheSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceRecordFilterSensitiveLog = (obj: ResourceRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainValidationRecordFilterSensitiveLog = (obj: DomainValidationRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RenewalSummaryFilterSensitiveLog = (obj: RenewalSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateSummaryFilterSensitiveLog = (obj: CertificateSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortInfoFilterSensitiveLog = (obj: PortInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloseInstancePublicPortsRequestFilterSensitiveLog = (obj: CloseInstancePublicPortsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloseInstancePublicPortsResultFilterSensitiveLog = (obj: CloseInstancePublicPortsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationInfoFilterSensitiveLog = (obj: DestinationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFormationStackRecordSourceInfoFilterSensitiveLog = (
+  obj: CloudFormationStackRecordSourceInfo
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFormationStackRecordFilterSensitiveLog = (obj: CloudFormationStackRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactMethodFilterSensitiveLog = (obj: ContactMethod): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerFilterSensitiveLog = (obj: Container): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerImageFilterSensitiveLog = (obj: ContainerImage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServiceHealthCheckConfigFilterSensitiveLog = (obj: ContainerServiceHealthCheckConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServiceEndpointFilterSensitiveLog = (obj: ContainerServiceEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServiceDeploymentFilterSensitiveLog = (obj: ContainerServiceDeployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServiceECRImagePullerRoleFilterSensitiveLog = (obj: ContainerServiceECRImagePullerRole): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrivateRegistryAccessFilterSensitiveLog = (obj: PrivateRegistryAccess): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServiceStateDetailFilterSensitiveLog = (obj: ContainerServiceStateDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServiceFilterSensitiveLog = (obj: ContainerService): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointRequestFilterSensitiveLog = (obj: EndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServiceDeploymentRequestFilterSensitiveLog = (obj: ContainerServiceDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServiceECRImagePullerRoleRequestFilterSensitiveLog = (
+  obj: ContainerServiceECRImagePullerRoleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServiceLogEventFilterSensitiveLog = (obj: ContainerServiceLogEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServicePowerFilterSensitiveLog = (obj: ContainerServicePower): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServiceRegistryLoginFilterSensitiveLog = (obj: ContainerServiceRegistryLogin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerServicesListResultFilterSensitiveLog = (obj: ContainerServicesListResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopySnapshotRequestFilterSensitiveLog = (obj: CopySnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopySnapshotResultFilterSensitiveLog = (obj: CopySnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBucketRequestFilterSensitiveLog = (obj: CreateBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBucketResultFilterSensitiveLog = (obj: CreateBucketResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBucketAccessKeyRequestFilterSensitiveLog = (obj: CreateBucketAccessKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBucketAccessKeyResultFilterSensitiveLog = (obj: CreateBucketAccessKeyResult): any => ({
+  ...obj,
+  ...(obj.accessKey && { accessKey: AccessKeyFilterSensitiveLog(obj.accessKey) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCertificateRequestFilterSensitiveLog = (obj: CreateCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCertificateResultFilterSensitiveLog = (obj: CreateCertificateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceEntryFilterSensitiveLog = (obj: InstanceEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCloudFormationStackRequestFilterSensitiveLog = (obj: CreateCloudFormationStackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCloudFormationStackResultFilterSensitiveLog = (obj: CreateCloudFormationStackResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContactMethodRequestFilterSensitiveLog = (obj: CreateContactMethodRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContactMethodResultFilterSensitiveLog = (obj: CreateContactMethodResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrivateRegistryAccessRequestFilterSensitiveLog = (obj: PrivateRegistryAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerServiceRequestFilterSensitiveLog = (obj: CreateContainerServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerServiceResultFilterSensitiveLog = (obj: CreateContainerServiceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerServiceDeploymentRequestFilterSensitiveLog = (
+  obj: CreateContainerServiceDeploymentRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerServiceDeploymentResultFilterSensitiveLog = (
+  obj: CreateContainerServiceDeploymentResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerServiceRegistryLoginRequestFilterSensitiveLog = (
+  obj: CreateContainerServiceRegistryLoginRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerServiceRegistryLoginResultFilterSensitiveLog = (
+  obj: CreateContainerServiceRegistryLoginResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDiskRequestFilterSensitiveLog = (obj: CreateDiskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDiskResultFilterSensitiveLog = (obj: CreateDiskResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDiskFromSnapshotRequestFilterSensitiveLog = (obj: CreateDiskFromSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDiskFromSnapshotResultFilterSensitiveLog = (obj: CreateDiskFromSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDiskSnapshotRequestFilterSensitiveLog = (obj: CreateDiskSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDiskSnapshotResultFilterSensitiveLog = (obj: CreateDiskSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputOriginFilterSensitiveLog = (obj: InputOrigin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDistributionRequestFilterSensitiveLog = (obj: CreateDistributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginFilterSensitiveLog = (obj: Origin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LightsailDistributionFilterSensitiveLog = (obj: LightsailDistribution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDistributionResultFilterSensitiveLog = (obj: CreateDistributionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainResultFilterSensitiveLog = (obj: CreateDomainResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainEntryFilterSensitiveLog = (obj: DomainEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainEntryRequestFilterSensitiveLog = (obj: CreateDomainEntryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainEntryResultFilterSensitiveLog = (obj: CreateDomainEntryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInstancesRequestFilterSensitiveLog = (obj: CreateInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInstancesResultFilterSensitiveLog = (obj: CreateInstancesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInstancesFromSnapshotRequestFilterSensitiveLog = (obj: CreateInstancesFromSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInstancesFromSnapshotResultFilterSensitiveLog = (obj: CreateInstancesFromSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInstanceSnapshotRequestFilterSensitiveLog = (obj: CreateInstanceSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInstanceSnapshotResultFilterSensitiveLog = (obj: CreateInstanceSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyPairRequestFilterSensitiveLog = (obj: CreateKeyPairRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyPairFilterSensitiveLog = (obj: KeyPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyPairResultFilterSensitiveLog = (obj: CreateKeyPairResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoadBalancerRequestFilterSensitiveLog = (obj: CreateLoadBalancerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoadBalancerResultFilterSensitiveLog = (obj: CreateLoadBalancerResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoadBalancerTlsCertificateRequestFilterSensitiveLog = (
+  obj: CreateLoadBalancerTlsCertificateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLoadBalancerTlsCertificateResultFilterSensitiveLog = (
+  obj: CreateLoadBalancerTlsCertificateResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRelationalDatabaseRequestFilterSensitiveLog = (obj: CreateRelationalDatabaseRequest): any => ({
+  ...obj,
+  ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateRelationalDatabaseResultFilterSensitiveLog = (obj: CreateRelationalDatabaseResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRelationalDatabaseFromSnapshotRequestFilterSensitiveLog = (
+  obj: CreateRelationalDatabaseFromSnapshotRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRelationalDatabaseFromSnapshotResultFilterSensitiveLog = (
+  obj: CreateRelationalDatabaseFromSnapshotResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRelationalDatabaseSnapshotRequestFilterSensitiveLog = (
+  obj: CreateRelationalDatabaseSnapshotRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRelationalDatabaseSnapshotResultFilterSensitiveLog = (
+  obj: CreateRelationalDatabaseSnapshotResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAlarmRequestFilterSensitiveLog = (obj: DeleteAlarmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAlarmResultFilterSensitiveLog = (obj: DeleteAlarmResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAutoSnapshotRequestFilterSensitiveLog = (obj: DeleteAutoSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAutoSnapshotResultFilterSensitiveLog = (obj: DeleteAutoSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketRequestFilterSensitiveLog = (obj: DeleteBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketResultFilterSensitiveLog = (obj: DeleteBucketResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketAccessKeyRequestFilterSensitiveLog = (obj: DeleteBucketAccessKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketAccessKeyResultFilterSensitiveLog = (obj: DeleteBucketAccessKeyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCertificateRequestFilterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCertificateResultFilterSensitiveLog = (obj: DeleteCertificateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactMethodRequestFilterSensitiveLog = (obj: DeleteContactMethodRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContactMethodResultFilterSensitiveLog = (obj: DeleteContactMethodResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContainerImageRequestFilterSensitiveLog = (obj: DeleteContainerImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContainerImageResultFilterSensitiveLog = (obj: DeleteContainerImageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContainerServiceRequestFilterSensitiveLog = (obj: DeleteContainerServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContainerServiceResultFilterSensitiveLog = (obj: DeleteContainerServiceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDiskRequestFilterSensitiveLog = (obj: DeleteDiskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDiskResultFilterSensitiveLog = (obj: DeleteDiskResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDiskSnapshotRequestFilterSensitiveLog = (obj: DeleteDiskSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDiskSnapshotResultFilterSensitiveLog = (obj: DeleteDiskSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDistributionRequestFilterSensitiveLog = (obj: DeleteDistributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDistributionResultFilterSensitiveLog = (obj: DeleteDistributionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainResultFilterSensitiveLog = (obj: DeleteDomainResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainEntryRequestFilterSensitiveLog = (obj: DeleteDomainEntryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainEntryResultFilterSensitiveLog = (obj: DeleteDomainEntryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInstanceRequestFilterSensitiveLog = (obj: DeleteInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInstanceResultFilterSensitiveLog = (obj: DeleteInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInstanceSnapshotRequestFilterSensitiveLog = (obj: DeleteInstanceSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInstanceSnapshotResultFilterSensitiveLog = (obj: DeleteInstanceSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeyPairRequestFilterSensitiveLog = (obj: DeleteKeyPairRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeyPairResultFilterSensitiveLog = (obj: DeleteKeyPairResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKnownHostKeysRequestFilterSensitiveLog = (obj: DeleteKnownHostKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKnownHostKeysResultFilterSensitiveLog = (obj: DeleteKnownHostKeysResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoadBalancerRequestFilterSensitiveLog = (obj: DeleteLoadBalancerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoadBalancerResultFilterSensitiveLog = (obj: DeleteLoadBalancerResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoadBalancerTlsCertificateRequestFilterSensitiveLog = (
+  obj: DeleteLoadBalancerTlsCertificateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoadBalancerTlsCertificateResultFilterSensitiveLog = (
+  obj: DeleteLoadBalancerTlsCertificateResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRelationalDatabaseRequestFilterSensitiveLog = (obj: DeleteRelationalDatabaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRelationalDatabaseResultFilterSensitiveLog = (obj: DeleteRelationalDatabaseResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRelationalDatabaseSnapshotRequestFilterSensitiveLog = (
+  obj: DeleteRelationalDatabaseSnapshotRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRelationalDatabaseSnapshotResultFilterSensitiveLog = (
+  obj: DeleteRelationalDatabaseSnapshotResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachCertificateFromDistributionRequestFilterSensitiveLog = (
+  obj: DetachCertificateFromDistributionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachCertificateFromDistributionResultFilterSensitiveLog = (
+  obj: DetachCertificateFromDistributionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachDiskRequestFilterSensitiveLog = (obj: DetachDiskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachDiskResultFilterSensitiveLog = (obj: DetachDiskResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachInstancesFromLoadBalancerRequestFilterSensitiveLog = (
+  obj: DetachInstancesFromLoadBalancerRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachInstancesFromLoadBalancerResultFilterSensitiveLog = (
+  obj: DetachInstancesFromLoadBalancerResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachStaticIpRequestFilterSensitiveLog = (obj: DetachStaticIpRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachStaticIpResultFilterSensitiveLog = (obj: DetachStaticIpResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableAddOnRequestFilterSensitiveLog = (obj: DisableAddOnRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableAddOnResultFilterSensitiveLog = (obj: DisableAddOnResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiskFilterSensitiveLog = (obj: Disk): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiskInfoFilterSensitiveLog = (obj: DiskInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiskSnapshotFilterSensitiveLog = (obj: DiskSnapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiskSnapshotInfoFilterSensitiveLog = (obj: DiskSnapshotInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DistributionBundleFilterSensitiveLog = (obj: DistributionBundle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainFilterSensitiveLog = (obj: Domain): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DownloadDefaultKeyPairRequestFilterSensitiveLog = (obj: DownloadDefaultKeyPairRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DownloadDefaultKeyPairResultFilterSensitiveLog = (obj: DownloadDefaultKeyPairResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableAddOnRequestFilterSensitiveLog = (obj: EnableAddOnRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableAddOnResultFilterSensitiveLog = (obj: EnableAddOnResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportSnapshotRequestFilterSensitiveLog = (obj: ExportSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportSnapshotResultFilterSensitiveLog = (obj: ExportSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceSnapshotInfoFilterSensitiveLog = (obj: InstanceSnapshotInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportSnapshotRecordSourceInfoFilterSensitiveLog = (obj: ExportSnapshotRecordSourceInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportSnapshotRecordFilterSensitiveLog = (obj: ExportSnapshotRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetActiveNamesRequestFilterSensitiveLog = (obj: GetActiveNamesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetActiveNamesResultFilterSensitiveLog = (obj: GetActiveNamesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAlarmsRequestFilterSensitiveLog = (obj: GetAlarmsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAlarmsResultFilterSensitiveLog = (obj: GetAlarmsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAutoSnapshotsRequestFilterSensitiveLog = (obj: GetAutoSnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAutoSnapshotsResultFilterSensitiveLog = (obj: GetAutoSnapshotsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBlueprintsRequestFilterSensitiveLog = (obj: GetBlueprintsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBlueprintsResultFilterSensitiveLog = (obj: GetBlueprintsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketAccessKeysRequestFilterSensitiveLog = (obj: GetBucketAccessKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketAccessKeysResultFilterSensitiveLog = (obj: GetBucketAccessKeysResult): any => ({
+  ...obj,
+  ...(obj.accessKeys && { accessKeys: obj.accessKeys.map((item) => AccessKeyFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketBundlesRequestFilterSensitiveLog = (obj: GetBucketBundlesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketBundlesResultFilterSensitiveLog = (obj: GetBucketBundlesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketMetricDataRequestFilterSensitiveLog = (obj: GetBucketMetricDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDatapointFilterSensitiveLog = (obj: MetricDatapoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketMetricDataResultFilterSensitiveLog = (obj: GetBucketMetricDataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketsRequestFilterSensitiveLog = (obj: GetBucketsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketsResultFilterSensitiveLog = (obj: GetBucketsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBundlesRequestFilterSensitiveLog = (obj: GetBundlesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBundlesResultFilterSensitiveLog = (obj: GetBundlesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCertificatesRequestFilterSensitiveLog = (obj: GetCertificatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCertificatesResultFilterSensitiveLog = (obj: GetCertificatesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCloudFormationStackRecordsRequestFilterSensitiveLog = (
+  obj: GetCloudFormationStackRecordsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCloudFormationStackRecordsResultFilterSensitiveLog = (
+  obj: GetCloudFormationStackRecordsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactMethodsRequestFilterSensitiveLog = (obj: GetContactMethodsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContactMethodsResultFilterSensitiveLog = (obj: GetContactMethodsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerAPIMetadataRequestFilterSensitiveLog = (obj: GetContainerAPIMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerAPIMetadataResultFilterSensitiveLog = (obj: GetContainerAPIMetadataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerImagesRequestFilterSensitiveLog = (obj: GetContainerImagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerImagesResultFilterSensitiveLog = (obj: GetContainerImagesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerLogRequestFilterSensitiveLog = (obj: GetContainerLogRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerLogResultFilterSensitiveLog = (obj: GetContainerLogResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerServiceDeploymentsRequestFilterSensitiveLog = (
+  obj: GetContainerServiceDeploymentsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerServiceDeploymentsResultFilterSensitiveLog = (
+  obj: GetContainerServiceDeploymentsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerServiceMetricDataRequestFilterSensitiveLog = (
+  obj: GetContainerServiceMetricDataRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerServiceMetricDataResultFilterSensitiveLog = (
+  obj: GetContainerServiceMetricDataResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerServicePowersRequestFilterSensitiveLog = (obj: GetContainerServicePowersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerServicePowersResultFilterSensitiveLog = (obj: GetContainerServicePowersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerServicesRequestFilterSensitiveLog = (obj: GetContainerServicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskRequestFilterSensitiveLog = (obj: GetDiskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskResultFilterSensitiveLog = (obj: GetDiskResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDisksRequestFilterSensitiveLog = (obj: GetDisksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDisksResultFilterSensitiveLog = (obj: GetDisksResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskSnapshotRequestFilterSensitiveLog = (obj: GetDiskSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskSnapshotResultFilterSensitiveLog = (obj: GetDiskSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskSnapshotsRequestFilterSensitiveLog = (obj: GetDiskSnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiskSnapshotsResultFilterSensitiveLog = (obj: GetDiskSnapshotsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionBundlesRequestFilterSensitiveLog = (obj: GetDistributionBundlesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionBundlesResultFilterSensitiveLog = (obj: GetDistributionBundlesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionLatestCacheResetRequestFilterSensitiveLog = (
+  obj: GetDistributionLatestCacheResetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionLatestCacheResetResultFilterSensitiveLog = (
+  obj: GetDistributionLatestCacheResetResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionMetricDataRequestFilterSensitiveLog = (obj: GetDistributionMetricDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionMetricDataResultFilterSensitiveLog = (obj: GetDistributionMetricDataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionsRequestFilterSensitiveLog = (obj: GetDistributionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionsResultFilterSensitiveLog = (obj: GetDistributionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainRequestFilterSensitiveLog = (obj: GetDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainResultFilterSensitiveLog = (obj: GetDomainResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainsRequestFilterSensitiveLog = (obj: GetDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainsResultFilterSensitiveLog = (obj: GetDomainsResult): any => ({
+  ...obj,
+});

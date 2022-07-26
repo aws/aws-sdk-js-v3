@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult } from "../models/models_0";
+import {
+  AddSourceIdentifierToSubscriptionMessage,
+  AddSourceIdentifierToSubscriptionMessageFilterSensitiveLog,
+  AddSourceIdentifierToSubscriptionResult,
+  AddSourceIdentifierToSubscriptionResultFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryAddSourceIdentifierToSubscriptionCommand,
@@ -74,8 +79,8 @@ export class AddSourceIdentifierToSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddSourceIdentifierToSubscriptionMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: AddSourceIdentifierToSubscriptionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AddSourceIdentifierToSubscriptionMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: AddSourceIdentifierToSubscriptionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

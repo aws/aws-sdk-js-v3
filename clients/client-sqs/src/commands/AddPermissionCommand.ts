@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddPermissionRequest } from "../models/models_0";
+import { AddPermissionRequest, AddPermissionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryAddPermissionCommand,
   serializeAws_queryAddPermissionCommand,
@@ -111,7 +111,7 @@ export class AddPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddPermissionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AddPermissionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

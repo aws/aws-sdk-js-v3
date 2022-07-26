@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import { DeleteAssetRequest, DeleteAssetResponse } from "../models/models_0";
+import {
+  DeleteAssetRequest,
+  DeleteAssetRequestFilterSensitiveLog,
+  DeleteAssetResponse,
+  DeleteAssetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAssetCommand,
   serializeAws_restJson1DeleteAssetCommand,
@@ -72,8 +77,8 @@ export class DeleteAssetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAssetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAssetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAssetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAssetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

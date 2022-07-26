@@ -39,17 +39,6 @@ export interface AppInstance {
   Metadata?: string;
 }
 
-export namespace AppInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppInstance): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The details of a user.</p>
  */
@@ -63,16 +52,6 @@ export interface Identity {
    * <p>The name in an Identity.</p>
    */
   Name?: string;
-}
-
-export namespace Identity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Identity): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -95,16 +74,6 @@ export interface AppInstanceAdmin {
   CreatedTimestamp?: Date;
 }
 
-export namespace AppInstanceAdmin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppInstanceAdmin): any => ({
-    ...obj,
-    ...(obj.Admin && { Admin: Identity.filterSensitiveLog(obj.Admin) }),
-  });
-}
-
 /**
  * <p>Summary of the details of an <code>AppInstanceAdmin</code>.</p>
  */
@@ -113,16 +82,6 @@ export interface AppInstanceAdminSummary {
    * <p>The details of the <code>AppInstanceAdmin</code>.</p>
    */
   Admin?: Identity;
-}
-
-export namespace AppInstanceAdminSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppInstanceAdminSummary): any => ({
-    ...obj,
-    ...(obj.Admin && { Admin: Identity.filterSensitiveLog(obj.Admin) }),
-  });
 }
 
 /**
@@ -145,17 +104,6 @@ export interface AppInstanceSummary {
   Metadata?: string;
 }
 
-export namespace AppInstanceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppInstanceSummary): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The details of the retention settings for a channel.</p>
  */
@@ -166,15 +114,6 @@ export interface ChannelRetentionSettings {
   RetentionDays?: number;
 }
 
-export namespace ChannelRetentionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelRetentionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details of the data-retention settings for an <code>AppInstance</code>.</p>
  */
@@ -183,15 +122,6 @@ export interface AppInstanceRetentionSettings {
    * <p>The length of time in days to retain the messages in a channel.</p>
    */
   ChannelRetentionSettings?: ChannelRetentionSettings;
-}
-
-export namespace AppInstanceRetentionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppInstanceRetentionSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -224,17 +154,6 @@ export interface AppInstanceUser {
   LastUpdatedTimestamp?: Date;
 }
 
-export namespace AppInstanceUser {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppInstanceUser): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The attributes of an <code>Endpoint</code>.</p>
  */
@@ -248,17 +167,6 @@ export interface EndpointAttributes {
    * <p>The VOIP device token for the APNS and APNS_SANDBOX endpoint types.</p>
    */
   VoipDeviceToken?: string;
-}
-
-export namespace EndpointAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointAttributes): any => ({
-    ...obj,
-    ...(obj.DeviceToken && { DeviceToken: SENSITIVE_STRING }),
-    ...(obj.VoipDeviceToken && { VoipDeviceToken: SENSITIVE_STRING }),
-  });
 }
 
 export enum EndpointStatus {
@@ -304,15 +212,6 @@ export interface EndpointState {
    * <p>The reason for the <code>EndpointStatus</code>.</p>
    */
   StatusReason?: EndpointStatusReason | string;
-}
-
-export namespace EndpointState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointState): any => ({
-    ...obj,
-  });
 }
 
 export enum AppInstanceUserEndpointType {
@@ -397,22 +296,6 @@ export interface AppInstanceUserEndpoint {
   EndpointState?: EndpointState;
 }
 
-export namespace AppInstanceUserEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppInstanceUserEndpoint): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
-    ...(obj.EndpointAttributes && {
-      EndpointAttributes: EndpointAttributes.filterSensitiveLog(obj.EndpointAttributes),
-    }),
-  });
-}
-
 /**
  * <p>Summary of the details of an <code>AppInstanceUserEndpoint</code>.</p>
  */
@@ -449,18 +332,6 @@ export interface AppInstanceUserEndpointSummary {
   EndpointState?: EndpointState;
 }
 
-export namespace AppInstanceUserEndpointSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppInstanceUserEndpointSummary): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Summary of the details of an <code>AppInstanceUser</code>.</p>
  */
@@ -479,17 +350,6 @@ export interface AppInstanceUserSummary {
    * <p>The metadata of the <code>AppInstanceUser</code>.</p>
    */
   Metadata?: string;
-}
-
-export namespace AppInstanceUserSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppInstanceUserSummary): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  });
 }
 
 export enum ErrorCode {
@@ -572,17 +432,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-    ...(obj.Key && { Key: SENSITIVE_STRING }),
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateAppInstanceRequest {
   /**
    * <p>The name of the <code>AppInstance</code>.</p>
@@ -605,33 +454,11 @@ export interface CreateAppInstanceRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateAppInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppInstanceRequest): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateAppInstanceResponse {
   /**
    * <p>The Amazon Resource Number (ARN) of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
-}
-
-export namespace CreateAppInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppInstanceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -784,15 +611,6 @@ export interface CreateAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
-export namespace CreateAppInstanceAdminRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppInstanceAdminRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAppInstanceAdminResponse {
   /**
    * <p>The name and ARN of the admin for the <code>AppInstance</code>.</p>
@@ -803,16 +621,6 @@ export interface CreateAppInstanceAdminResponse {
    * <p>The ARN of the of the admin for the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
-}
-
-export namespace CreateAppInstanceAdminResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppInstanceAdminResponse): any => ({
-    ...obj,
-    ...(obj.AppInstanceAdmin && { AppInstanceAdmin: Identity.filterSensitiveLog(obj.AppInstanceAdmin) }),
-  });
 }
 
 export interface CreateAppInstanceUserRequest {
@@ -847,20 +655,6 @@ export interface CreateAppInstanceUserRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateAppInstanceUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppInstanceUserRequest): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserId && { AppInstanceUserId: SENSITIVE_STRING }),
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateAppInstanceUserResponse {
   /**
    * <p>The user's ARN.</p>
@@ -868,29 +662,11 @@ export interface CreateAppInstanceUserResponse {
   AppInstanceUserArn?: string;
 }
 
-export namespace CreateAppInstanceUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppInstanceUserResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
-}
-
-export namespace DeleteAppInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAppInstanceAdminRequest {
@@ -905,29 +681,11 @@ export interface DeleteAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
-export namespace DeleteAppInstanceAdminRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppInstanceAdminRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppInstanceUserRequest {
   /**
    * <p>The ARN of the user request being deleted.</p>
    */
   AppInstanceUserArn: string | undefined;
-}
-
-export namespace DeleteAppInstanceUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppInstanceUserRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterAppInstanceUserEndpointRequest {
@@ -942,31 +700,11 @@ export interface DeregisterAppInstanceUserEndpointRequest {
   EndpointId: string | undefined;
 }
 
-export namespace DeregisterAppInstanceUserEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterAppInstanceUserEndpointRequest): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
-}
-
-export namespace DescribeAppInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAppInstanceResponse {
@@ -975,16 +713,6 @@ export interface DescribeAppInstanceResponse {
    *             <code>AppInstance</code>. All timestamps use epoch milliseconds.</p>
    */
   AppInstance?: AppInstance;
-}
-
-export namespace DescribeAppInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppInstanceResponse): any => ({
-    ...obj,
-    ...(obj.AppInstance && { AppInstance: AppInstance.filterSensitiveLog(obj.AppInstance) }),
-  });
 }
 
 export interface DescribeAppInstanceAdminRequest {
@@ -999,15 +727,6 @@ export interface DescribeAppInstanceAdminRequest {
   AppInstanceArn: string | undefined;
 }
 
-export namespace DescribeAppInstanceAdminRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppInstanceAdminRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAppInstanceAdminResponse {
   /**
    * <p>The ARN and name of the <code>AppInstanceUser</code>, the ARN of the
@@ -1017,16 +736,6 @@ export interface DescribeAppInstanceAdminResponse {
   AppInstanceAdmin?: AppInstanceAdmin;
 }
 
-export namespace DescribeAppInstanceAdminResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppInstanceAdminResponse): any => ({
-    ...obj,
-    ...(obj.AppInstanceAdmin && { AppInstanceAdmin: AppInstanceAdmin.filterSensitiveLog(obj.AppInstanceAdmin) }),
-  });
-}
-
 export interface DescribeAppInstanceUserRequest {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1034,30 +743,11 @@ export interface DescribeAppInstanceUserRequest {
   AppInstanceUserArn: string | undefined;
 }
 
-export namespace DescribeAppInstanceUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppInstanceUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAppInstanceUserResponse {
   /**
    * <p>The name of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUser?: AppInstanceUser;
-}
-
-export namespace DescribeAppInstanceUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppInstanceUserResponse): any => ({
-    ...obj,
-    ...(obj.AppInstanceUser && { AppInstanceUser: AppInstanceUser.filterSensitiveLog(obj.AppInstanceUser) }),
-  });
 }
 
 export interface DescribeAppInstanceUserEndpointRequest {
@@ -1072,17 +762,6 @@ export interface DescribeAppInstanceUserEndpointRequest {
   EndpointId: string | undefined;
 }
 
-export namespace DescribeAppInstanceUserEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppInstanceUserEndpointRequest): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeAppInstanceUserEndpointResponse {
   /**
    * <p>The full details of an <code>AppInstanceUserEndpoint</code>: the <code>AppInstanceUserArn</code>, ID, name, type, resource ARN, attributes,
@@ -1091,32 +770,11 @@ export interface DescribeAppInstanceUserEndpointResponse {
   AppInstanceUserEndpoint?: AppInstanceUserEndpoint;
 }
 
-export namespace DescribeAppInstanceUserEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppInstanceUserEndpointResponse): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserEndpoint && {
-      AppInstanceUserEndpoint: AppInstanceUserEndpoint.filterSensitiveLog(obj.AppInstanceUserEndpoint),
-    }),
-  });
-}
-
 export interface GetAppInstanceRetentionSettingsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn: string | undefined;
-}
-
-export namespace GetAppInstanceRetentionSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppInstanceRetentionSettingsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAppInstanceRetentionSettingsResponse {
@@ -1130,15 +788,6 @@ export interface GetAppInstanceRetentionSettingsResponse {
    *          Seconds.</p>
    */
   InitiateDeletionTimestamp?: Date;
-}
-
-export namespace GetAppInstanceRetentionSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppInstanceRetentionSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAppInstanceAdminsRequest {
@@ -1159,16 +808,6 @@ export interface ListAppInstanceAdminsRequest {
   NextToken?: string;
 }
 
-export namespace ListAppInstanceAdminsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppInstanceAdminsRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListAppInstanceAdminsResponse {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -1187,19 +826,6 @@ export interface ListAppInstanceAdminsResponse {
   NextToken?: string;
 }
 
-export namespace ListAppInstanceAdminsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppInstanceAdminsResponse): any => ({
-    ...obj,
-    ...(obj.AppInstanceAdmins && {
-      AppInstanceAdmins: obj.AppInstanceAdmins.map((item) => AppInstanceAdminSummary.filterSensitiveLog(item)),
-    }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListAppInstancesRequest {
   /**
    * <p>The maximum number of <code>AppInstance</code>s that you want to return.</p>
@@ -1213,16 +839,6 @@ export interface ListAppInstancesRequest {
   NextToken?: string;
 }
 
-export namespace ListAppInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppInstancesRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListAppInstancesResponse {
   /**
    * <p>The information for each <code>AppInstance</code>.</p>
@@ -1234,19 +850,6 @@ export interface ListAppInstancesResponse {
    *             <code>AppInstance</code>s is reached.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAppInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppInstancesResponse): any => ({
-    ...obj,
-    ...(obj.AppInstances && {
-      AppInstances: obj.AppInstances.map((item) => AppInstanceSummary.filterSensitiveLog(item)),
-    }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListAppInstanceUserEndpointsRequest {
@@ -1266,17 +869,6 @@ export interface ListAppInstanceUserEndpointsRequest {
   NextToken?: string;
 }
 
-export namespace ListAppInstanceUserEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppInstanceUserEndpointsRequest): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListAppInstanceUserEndpointsResponse {
   /**
    * <p>The information for each requested <code>AppInstanceUserEndpoint</code>.</p>
@@ -1287,21 +879,6 @@ export interface ListAppInstanceUserEndpointsResponse {
    * <p>The token passed by previous API calls until all requested endpoints are returned.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAppInstanceUserEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppInstanceUserEndpointsResponse): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserEndpoints && {
-      AppInstanceUserEndpoints: obj.AppInstanceUserEndpoints.map((item) =>
-        AppInstanceUserEndpointSummary.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListAppInstanceUsersRequest {
@@ -1321,16 +898,6 @@ export interface ListAppInstanceUsersRequest {
   NextToken?: string;
 }
 
-export namespace ListAppInstanceUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppInstanceUsersRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListAppInstanceUsersResponse {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -1348,19 +915,6 @@ export interface ListAppInstanceUsersResponse {
   NextToken?: string;
 }
 
-export namespace ListAppInstanceUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppInstanceUsersResponse): any => ({
-    ...obj,
-    ...(obj.AppInstanceUsers && {
-      AppInstanceUsers: obj.AppInstanceUsers.map((item) => AppInstanceUserSummary.filterSensitiveLog(item)),
-    }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -1368,30 +922,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tag key-value pairs.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface PutAppInstanceRetentionSettingsRequest {
@@ -1406,15 +941,6 @@ export interface PutAppInstanceRetentionSettingsRequest {
   AppInstanceRetentionSettings: AppInstanceRetentionSettings | undefined;
 }
 
-export namespace PutAppInstanceRetentionSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAppInstanceRetentionSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAppInstanceRetentionSettingsResponse {
   /**
    * <p>The time in days to retain data. Data type: number.</p>
@@ -1425,15 +951,6 @@ export interface PutAppInstanceRetentionSettingsResponse {
    * <p>The time at which the API deletes data.</p>
    */
   InitiateDeletionTimestamp?: Date;
-}
-
-export namespace PutAppInstanceRetentionSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAppInstanceRetentionSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterAppInstanceUserEndpointRequest {
@@ -1489,22 +1006,6 @@ export interface RegisterAppInstanceUserEndpointRequest {
   AllowMessages?: AllowMessages | string;
 }
 
-export namespace RegisterAppInstanceUserEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterAppInstanceUserEndpointRequest): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
-    ...(obj.EndpointAttributes && {
-      EndpointAttributes: EndpointAttributes.filterSensitiveLog(obj.EndpointAttributes),
-    }),
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface RegisterAppInstanceUserEndpointResponse {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1515,17 +1016,6 @@ export interface RegisterAppInstanceUserEndpointResponse {
    * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
    */
   EndpointId?: string;
-}
-
-export namespace RegisterAppInstanceUserEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterAppInstanceUserEndpointResponse): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
-  });
 }
 
 export interface TagResourceRequest {
@@ -1540,16 +1030,6 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -1560,16 +1040,6 @@ export interface UntagResourceRequest {
    * <p>The tag keys.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdateAppInstanceRequest {
@@ -1589,31 +1059,11 @@ export interface UpdateAppInstanceRequest {
   Metadata: string | undefined;
 }
 
-export namespace UpdateAppInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppInstanceRequest): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateAppInstanceResponse {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
    */
   AppInstanceArn?: string;
-}
-
-export namespace UpdateAppInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppInstanceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAppInstanceUserRequest {
@@ -1633,31 +1083,11 @@ export interface UpdateAppInstanceUserRequest {
   Metadata: string | undefined;
 }
 
-export namespace UpdateAppInstanceUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppInstanceUserRequest): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateAppInstanceUserResponse {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
    */
   AppInstanceUserArn?: string;
-}
-
-export namespace UpdateAppInstanceUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppInstanceUserResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAppInstanceUserEndpointRequest {
@@ -1683,18 +1113,6 @@ export interface UpdateAppInstanceUserEndpointRequest {
   AllowMessages?: AllowMessages | string;
 }
 
-export namespace UpdateAppInstanceUserEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppInstanceUserEndpointRequest): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateAppInstanceUserEndpointResponse {
   /**
    * <p>The ARN of the <code>AppInstanceUser</code>.</p>
@@ -1707,13 +1125,503 @@ export interface UpdateAppInstanceUserEndpointResponse {
   EndpointId?: string;
 }
 
-export namespace UpdateAppInstanceUserEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppInstanceUserEndpointResponse): any => ({
-    ...obj,
-    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
-    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const AppInstanceFilterSensitiveLog = (obj: AppInstance): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IdentityFilterSensitiveLog = (obj: Identity): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AppInstanceAdminFilterSensitiveLog = (obj: AppInstanceAdmin): any => ({
+  ...obj,
+  ...(obj.Admin && { Admin: IdentityFilterSensitiveLog(obj.Admin) }),
+});
+
+/**
+ * @internal
+ */
+export const AppInstanceAdminSummaryFilterSensitiveLog = (obj: AppInstanceAdminSummary): any => ({
+  ...obj,
+  ...(obj.Admin && { Admin: IdentityFilterSensitiveLog(obj.Admin) }),
+});
+
+/**
+ * @internal
+ */
+export const AppInstanceSummaryFilterSensitiveLog = (obj: AppInstanceSummary): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelRetentionSettingsFilterSensitiveLog = (obj: ChannelRetentionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppInstanceRetentionSettingsFilterSensitiveLog = (obj: AppInstanceRetentionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppInstanceUserFilterSensitiveLog = (obj: AppInstanceUser): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EndpointAttributesFilterSensitiveLog = (obj: EndpointAttributes): any => ({
+  ...obj,
+  ...(obj.DeviceToken && { DeviceToken: SENSITIVE_STRING }),
+  ...(obj.VoipDeviceToken && { VoipDeviceToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EndpointStateFilterSensitiveLog = (obj: EndpointState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppInstanceUserEndpointFilterSensitiveLog = (obj: AppInstanceUserEndpoint): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
+  ...(obj.EndpointAttributes && { EndpointAttributes: EndpointAttributesFilterSensitiveLog(obj.EndpointAttributes) }),
+});
+
+/**
+ * @internal
+ */
+export const AppInstanceUserEndpointSummaryFilterSensitiveLog = (obj: AppInstanceUserEndpointSummary): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AppInstanceUserSummaryFilterSensitiveLog = (obj: AppInstanceUserSummary): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAppInstanceRequestFilterSensitiveLog = (obj: CreateAppInstanceRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAppInstanceResponseFilterSensitiveLog = (obj: CreateAppInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAppInstanceAdminRequestFilterSensitiveLog = (obj: CreateAppInstanceAdminRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAppInstanceAdminResponseFilterSensitiveLog = (obj: CreateAppInstanceAdminResponse): any => ({
+  ...obj,
+  ...(obj.AppInstanceAdmin && { AppInstanceAdmin: IdentityFilterSensitiveLog(obj.AppInstanceAdmin) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAppInstanceUserRequestFilterSensitiveLog = (obj: CreateAppInstanceUserRequest): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserId && { AppInstanceUserId: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAppInstanceUserResponseFilterSensitiveLog = (obj: CreateAppInstanceUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppInstanceRequestFilterSensitiveLog = (obj: DeleteAppInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppInstanceAdminRequestFilterSensitiveLog = (obj: DeleteAppInstanceAdminRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppInstanceUserRequestFilterSensitiveLog = (obj: DeleteAppInstanceUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog = (
+  obj: DeregisterAppInstanceUserEndpointRequest
+): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppInstanceRequestFilterSensitiveLog = (obj: DescribeAppInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppInstanceResponseFilterSensitiveLog = (obj: DescribeAppInstanceResponse): any => ({
+  ...obj,
+  ...(obj.AppInstance && { AppInstance: AppInstanceFilterSensitiveLog(obj.AppInstance) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppInstanceAdminRequestFilterSensitiveLog = (obj: DescribeAppInstanceAdminRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppInstanceAdminResponseFilterSensitiveLog = (obj: DescribeAppInstanceAdminResponse): any => ({
+  ...obj,
+  ...(obj.AppInstanceAdmin && { AppInstanceAdmin: AppInstanceAdminFilterSensitiveLog(obj.AppInstanceAdmin) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppInstanceUserRequestFilterSensitiveLog = (obj: DescribeAppInstanceUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppInstanceUserResponseFilterSensitiveLog = (obj: DescribeAppInstanceUserResponse): any => ({
+  ...obj,
+  ...(obj.AppInstanceUser && { AppInstanceUser: AppInstanceUserFilterSensitiveLog(obj.AppInstanceUser) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppInstanceUserEndpointRequestFilterSensitiveLog = (
+  obj: DescribeAppInstanceUserEndpointRequest
+): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppInstanceUserEndpointResponseFilterSensitiveLog = (
+  obj: DescribeAppInstanceUserEndpointResponse
+): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserEndpoint && {
+    AppInstanceUserEndpoint: AppInstanceUserEndpointFilterSensitiveLog(obj.AppInstanceUserEndpoint),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetAppInstanceRetentionSettingsRequestFilterSensitiveLog = (
+  obj: GetAppInstanceRetentionSettingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppInstanceRetentionSettingsResponseFilterSensitiveLog = (
+  obj: GetAppInstanceRetentionSettingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstanceAdminsRequestFilterSensitiveLog = (obj: ListAppInstanceAdminsRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstanceAdminsResponseFilterSensitiveLog = (obj: ListAppInstanceAdminsResponse): any => ({
+  ...obj,
+  ...(obj.AppInstanceAdmins && {
+    AppInstanceAdmins: obj.AppInstanceAdmins.map((item) => AppInstanceAdminSummaryFilterSensitiveLog(item)),
+  }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstancesRequestFilterSensitiveLog = (obj: ListAppInstancesRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstancesResponseFilterSensitiveLog = (obj: ListAppInstancesResponse): any => ({
+  ...obj,
+  ...(obj.AppInstances && { AppInstances: obj.AppInstances.map((item) => AppInstanceSummaryFilterSensitiveLog(item)) }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstanceUserEndpointsRequestFilterSensitiveLog = (
+  obj: ListAppInstanceUserEndpointsRequest
+): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstanceUserEndpointsResponseFilterSensitiveLog = (
+  obj: ListAppInstanceUserEndpointsResponse
+): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserEndpoints && {
+    AppInstanceUserEndpoints: obj.AppInstanceUserEndpoints.map((item) =>
+      AppInstanceUserEndpointSummaryFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstanceUsersRequestFilterSensitiveLog = (obj: ListAppInstanceUsersRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAppInstanceUsersResponseFilterSensitiveLog = (obj: ListAppInstanceUsersResponse): any => ({
+  ...obj,
+  ...(obj.AppInstanceUsers && {
+    AppInstanceUsers: obj.AppInstanceUsers.map((item) => AppInstanceUserSummaryFilterSensitiveLog(item)),
+  }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PutAppInstanceRetentionSettingsRequestFilterSensitiveLog = (
+  obj: PutAppInstanceRetentionSettingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAppInstanceRetentionSettingsResponseFilterSensitiveLog = (
+  obj: PutAppInstanceRetentionSettingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterAppInstanceUserEndpointRequestFilterSensitiveLog = (
+  obj: RegisterAppInstanceUserEndpointRequest
+): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
+  ...(obj.EndpointAttributes && { EndpointAttributes: EndpointAttributesFilterSensitiveLog(obj.EndpointAttributes) }),
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterAppInstanceUserEndpointResponseFilterSensitiveLog = (
+  obj: RegisterAppInstanceUserEndpointResponse
+): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppInstanceRequestFilterSensitiveLog = (obj: UpdateAppInstanceRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppInstanceResponseFilterSensitiveLog = (obj: UpdateAppInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppInstanceUserRequestFilterSensitiveLog = (obj: UpdateAppInstanceUserRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppInstanceUserResponseFilterSensitiveLog = (obj: UpdateAppInstanceUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppInstanceUserEndpointRequestFilterSensitiveLog = (
+  obj: UpdateAppInstanceUserEndpointRequest
+): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppInstanceUserEndpointResponseFilterSensitiveLog = (
+  obj: UpdateAppInstanceUserEndpointResponse
+): any => ({
+  ...obj,
+  ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+  ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+});

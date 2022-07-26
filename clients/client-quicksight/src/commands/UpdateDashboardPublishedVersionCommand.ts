@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDashboardPublishedVersionRequest, UpdateDashboardPublishedVersionResponse } from "../models/models_1";
+import {
+  UpdateDashboardPublishedVersionRequest,
+  UpdateDashboardPublishedVersionRequestFilterSensitiveLog,
+  UpdateDashboardPublishedVersionResponse,
+  UpdateDashboardPublishedVersionResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateDashboardPublishedVersionCommand,
   serializeAws_restJson1UpdateDashboardPublishedVersionCommand,
@@ -74,8 +79,8 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDashboardPublishedVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDashboardPublishedVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDashboardPublishedVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDashboardPublishedVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

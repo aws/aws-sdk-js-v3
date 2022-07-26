@@ -14,7 +14,9 @@ import {
 
 import {
   PutEmailIdentityConfigurationSetAttributesRequest,
+  PutEmailIdentityConfigurationSetAttributesRequestFilterSensitiveLog,
   PutEmailIdentityConfigurationSetAttributesResponse,
+  PutEmailIdentityConfigurationSetAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutEmailIdentityConfigurationSetAttributesCommand,
@@ -81,8 +83,8 @@ export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailIdentityConfigurationSetAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailIdentityConfigurationSetAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEmailIdentityConfigurationSetAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutEmailIdentityConfigurationSetAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

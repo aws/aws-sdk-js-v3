@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteSecurityProfileRequest, DeleteSecurityProfileResponse } from "../models/models_1";
+import {
+  DeleteSecurityProfileRequest,
+  DeleteSecurityProfileRequestFilterSensitiveLog,
+  DeleteSecurityProfileResponse,
+  DeleteSecurityProfileResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteSecurityProfileCommand,
   serializeAws_restJson1DeleteSecurityProfileCommand,
@@ -73,8 +78,8 @@ export class DeleteSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecurityProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSecurityProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSecurityProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSecurityProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

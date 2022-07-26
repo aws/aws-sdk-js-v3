@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteKnowledgeBaseRequest, DeleteKnowledgeBaseResponse } from "../models/models_0";
+import {
+  DeleteKnowledgeBaseRequest,
+  DeleteKnowledgeBaseRequestFilterSensitiveLog,
+  DeleteKnowledgeBaseResponse,
+  DeleteKnowledgeBaseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteKnowledgeBaseCommand,
   serializeAws_restJson1DeleteKnowledgeBaseCommand,
@@ -79,8 +84,8 @@ export class DeleteKnowledgeBaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKnowledgeBaseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteKnowledgeBaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteKnowledgeBaseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteKnowledgeBaseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

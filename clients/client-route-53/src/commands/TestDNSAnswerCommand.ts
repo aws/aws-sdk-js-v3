@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TestDNSAnswerRequest, TestDNSAnswerResponse } from "../models/models_0";
+import {
+  TestDNSAnswerRequest,
+  TestDNSAnswerRequestFilterSensitiveLog,
+  TestDNSAnswerResponse,
+  TestDNSAnswerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlTestDNSAnswerCommand,
   serializeAws_restXmlTestDNSAnswerCommand,
@@ -77,8 +82,8 @@ export class TestDNSAnswerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestDNSAnswerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestDNSAnswerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestDNSAnswerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestDNSAnswerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

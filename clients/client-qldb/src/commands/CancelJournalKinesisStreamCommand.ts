@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelJournalKinesisStreamRequest, CancelJournalKinesisStreamResponse } from "../models/models_0";
+import {
+  CancelJournalKinesisStreamRequest,
+  CancelJournalKinesisStreamRequestFilterSensitiveLog,
+  CancelJournalKinesisStreamResponse,
+  CancelJournalKinesisStreamResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CancelJournalKinesisStreamCommand,
   serializeAws_restJson1CancelJournalKinesisStreamCommand,
@@ -76,8 +81,8 @@ export class CancelJournalKinesisStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJournalKinesisStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelJournalKinesisStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelJournalKinesisStreamRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelJournalKinesisStreamResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

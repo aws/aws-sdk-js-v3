@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateNodeRequest, AssociateNodeResponse } from "../models/models_0";
+import {
+  AssociateNodeRequest,
+  AssociateNodeRequestFilterSensitiveLog,
+  AssociateNodeResponse,
+  AssociateNodeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1AssociateNodeCommand,
@@ -88,8 +93,8 @@ export class AssociateNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateNodeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateNodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateNodeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateNodeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

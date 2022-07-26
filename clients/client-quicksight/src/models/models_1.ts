@@ -22,7 +22,9 @@ import {
   DataSetUsageConfiguration,
   DataSource,
   DataSourceCredentials,
+  DataSourceFilterSensitiveLog,
   DataSourceParameters,
+  DataSourceParametersFilterSensitiveLog,
   FieldFolder,
   FilterOperator,
   FolderType,
@@ -31,12 +33,15 @@ import {
   Ingestion,
   LinkSharingConfiguration,
   LogicalTable,
+  LogicalTableFilterSensitiveLog,
   NamespaceInfoV2,
   PhysicalTable,
+  PhysicalTableFilterSensitiveLog,
   ResourcePermission,
   ResourceStatus,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
+  RowLevelPermissionTagConfigurationFilterSensitiveLog,
   SslProperties,
   Tag,
   TemplateAlias,
@@ -95,15 +100,6 @@ export interface ThemeVersion {
   Status?: ResourceStatus | string;
 }
 
-export namespace ThemeVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a theme.</p>
  */
@@ -145,15 +141,6 @@ export interface Theme {
   Type?: ThemeType | string;
 }
 
-export namespace Theme {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Theme): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeThemeResponse {
   /**
    * <p>The information about the theme that you are describing.</p>
@@ -169,15 +156,6 @@ export interface DescribeThemeResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace DescribeThemeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeThemeAliasRequest {
@@ -198,15 +176,6 @@ export interface DescribeThemeAliasRequest {
   AliasName: string | undefined;
 }
 
-export namespace DescribeThemeAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemeAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeThemeAliasResponse {
   /**
    * <p>Information about the theme alias.</p>
@@ -224,15 +193,6 @@ export interface DescribeThemeAliasResponse {
   RequestId?: string;
 }
 
-export namespace DescribeThemeAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemeAliasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeThemePermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
@@ -243,15 +203,6 @@ export interface DescribeThemePermissionsRequest {
    * <p>The ID for the theme that you want to describe permissions for.</p>
    */
   ThemeId: string | undefined;
-}
-
-export namespace DescribeThemePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemePermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeThemePermissionsResponse {
@@ -281,15 +232,6 @@ export interface DescribeThemePermissionsResponse {
   Status?: number;
 }
 
-export namespace DescribeThemePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemePermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserRequest {
   /**
    * <p>The name of the user that you want to describe.</p>
@@ -306,15 +248,6 @@ export interface DescribeUserRequest {
    * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
    */
   Namespace: string | undefined;
-}
-
-export namespace DescribeUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum IdentityType {
@@ -432,15 +365,6 @@ export interface User {
   ExternalLoginId?: string;
 }
 
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserResponse {
   /**
    * <p>The user name.</p>
@@ -456,15 +380,6 @@ export interface DescribeUserResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace DescribeUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -519,15 +434,6 @@ export interface MemberIdArnPair {
   MemberArn?: string;
 }
 
-export namespace MemberIdArnPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberIdArnPair): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A filter to use to search a Amazon QuickSight folder.</p>
  */
@@ -546,15 +452,6 @@ export interface FolderSearchFilter {
    * <p>The value of the named item (in this example, <code>PARENT_FOLDER_ARN</code>), that you want to use as a filter. For example, <code>"Value": "arn:aws:quicksight:us-east-1:1:folder/folderId"</code>.</p>
    */
   Value?: string;
-}
-
-export namespace FolderSearchFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FolderSearchFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -592,15 +489,6 @@ export interface FolderSummary {
   LastUpdatedTime?: Date;
 }
 
-export namespace FolderSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FolderSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The key-value pair used for the row-level security tags feature.</p>
  */
@@ -614,16 +502,6 @@ export interface SessionTag {
    * <p>The value that you want to assign the tag.</p>
    */
   Value: string | undefined;
-}
-
-export namespace SessionTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionTag): any => ({
-    ...obj,
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
 }
 
 export interface GenerateEmbedUrlForAnonymousUserRequest {
@@ -665,16 +543,6 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
   AllowedDomains?: string[];
 }
 
-export namespace GenerateEmbedUrlForAnonymousUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateEmbedUrlForAnonymousUserRequest): any => ({
-    ...obj,
-    ...(obj.SessionTags && { SessionTags: obj.SessionTags.map((item) => SessionTag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface GenerateEmbedUrlForAnonymousUserResponse {
   /**
    * <p>The embed URL for the dashboard.</p>
@@ -690,16 +558,6 @@ export interface GenerateEmbedUrlForAnonymousUserResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId: string | undefined;
-}
-
-export namespace GenerateEmbedUrlForAnonymousUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateEmbedUrlForAnonymousUserResponse): any => ({
-    ...obj,
-    ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -774,15 +632,6 @@ export interface RegisteredUserDashboardEmbeddingConfiguration {
   InitialDashboardId: string | undefined;
 }
 
-export namespace RegisteredUserDashboardEmbeddingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisteredUserDashboardEmbeddingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the Q search bar embedding experience.</p>
  */
@@ -796,15 +645,6 @@ export interface RegisteredUserQSearchBarEmbeddingConfiguration {
    *       are allowed to select other topics from the available ones in the list.</p>
    */
   InitialTopicId?: string;
-}
-
-export namespace RegisteredUserQSearchBarEmbeddingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisteredUserQSearchBarEmbeddingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -846,15 +686,6 @@ export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
    *          </ul>
    */
   InitialPath?: string;
-}
-
-export namespace RegisteredUserQuickSightConsoleEmbeddingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisteredUserQuickSightConsoleEmbeddingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -913,15 +744,6 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
   QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration;
 }
 
-export namespace RegisteredUserEmbeddingExperienceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisteredUserEmbeddingExperienceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateEmbedUrlForRegisteredUserRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the dashboard that you're embedding.</p>
@@ -950,15 +772,6 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
   AllowedDomains?: string[];
 }
 
-export namespace GenerateEmbedUrlForRegisteredUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateEmbedUrlForRegisteredUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateEmbedUrlForRegisteredUserResponse {
   /**
    * <p>The embed URL for the Amazon QuickSight dashboard or console.</p>
@@ -974,16 +787,6 @@ export interface GenerateEmbedUrlForRegisteredUserResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId: string | undefined;
-}
-
-export namespace GenerateEmbedUrlForRegisteredUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateEmbedUrlForRegisteredUserResponse): any => ({
-    ...obj,
-    ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1092,15 +895,6 @@ export interface GetDashboardEmbedUrlRequest {
   AdditionalDashboardIds?: string[];
 }
 
-export namespace GetDashboardEmbedUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDashboardEmbedUrlRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output returned from the <code>GetDashboardEmbedUrl</code> operation.</p>
  */
@@ -1122,16 +916,6 @@ export interface GetDashboardEmbedUrlResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace GetDashboardEmbedUrlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDashboardEmbedUrlResponse): any => ({
-    ...obj,
-    ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1233,15 +1017,6 @@ export interface GetSessionEmbedUrlRequest {
   UserArn?: string;
 }
 
-export namespace GetSessionEmbedUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionEmbedUrlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSessionEmbedUrlResponse {
   /**
    * <p>A single-use URL that you can put into your server-side web page to embed your
@@ -1260,16 +1035,6 @@ export interface GetSessionEmbedUrlResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace GetSessionEmbedUrlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
-    ...obj,
-    ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
-  });
 }
 
 export enum GroupFilterAttribute {
@@ -1304,15 +1069,6 @@ export interface GroupSearchFilter {
   Value: string | undefined;
 }
 
-export namespace GroupSearchFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupSearchFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>IAM policy assignment summary.</p>
  */
@@ -1326,15 +1082,6 @@ export interface IAMPolicyAssignmentSummary {
    * <p>Assignment status.</p>
    */
   AssignmentStatus?: AssignmentStatus | string;
-}
-
-export namespace IAMPolicyAssignmentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IAMPolicyAssignmentSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAnalysesRequest {
@@ -1352,15 +1099,6 @@ export interface ListAnalysesRequest {
    * <p>The maximum number of results to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListAnalysesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnalysesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAnalysesResponse {
@@ -1385,15 +1123,6 @@ export interface ListAnalysesResponse {
   RequestId?: string;
 }
 
-export namespace ListAnalysesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnalysesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDashboardsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboards that you're
@@ -1410,15 +1139,6 @@ export interface ListDashboardsRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDashboardsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDashboardsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDashboardsResponse {
@@ -1444,15 +1164,6 @@ export interface ListDashboardsResponse {
   RequestId?: string;
 }
 
-export namespace ListDashboardsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDashboardsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDashboardVersionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're listing versions
@@ -1474,15 +1185,6 @@ export interface ListDashboardVersionsRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDashboardVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDashboardVersionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDashboardVersionsResponse {
@@ -1507,15 +1209,6 @@ export interface ListDashboardVersionsResponse {
   RequestId?: string;
 }
 
-export namespace ListDashboardVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDashboardVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataSetsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -1531,15 +1224,6 @@ export interface ListDataSetsRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDataSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDataSetsResponse {
@@ -1564,15 +1248,6 @@ export interface ListDataSetsResponse {
   Status?: number;
 }
 
-export namespace ListDataSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSetsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataSourcesRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -1588,15 +1263,6 @@ export interface ListDataSourcesRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDataSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDataSourcesResponse {
@@ -1621,16 +1287,6 @@ export interface ListDataSourcesResponse {
   Status?: number;
 }
 
-export namespace ListDataSourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
-    ...obj,
-    ...(obj.DataSources && { DataSources: obj.DataSources.map((item) => DataSource.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface ListFolderMembersRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -1651,15 +1307,6 @@ export interface ListFolderMembersRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListFolderMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFolderMembersRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFolderMembersResponse {
@@ -1684,15 +1331,6 @@ export interface ListFolderMembersResponse {
   RequestId?: string;
 }
 
-export namespace ListFolderMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFolderMembersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFoldersRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -1708,15 +1346,6 @@ export interface ListFoldersRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListFoldersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFoldersRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFoldersResponse {
@@ -1739,15 +1368,6 @@ export interface ListFoldersResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace ListFoldersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFoldersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupMembershipsRequest {
@@ -1778,15 +1398,6 @@ export interface ListGroupMembershipsRequest {
   Namespace: string | undefined;
 }
 
-export namespace ListGroupMembershipsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupMembershipsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupMembershipsResponse {
   /**
    * <p>The list of the members of the group.</p>
@@ -1807,15 +1418,6 @@ export interface ListGroupMembershipsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace ListGroupMembershipsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupMembershipsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupsRequest {
@@ -1841,15 +1443,6 @@ export interface ListGroupsRequest {
   Namespace: string | undefined;
 }
 
-export namespace ListGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupsResponse {
   /**
    * <p>The list of the groups.</p>
@@ -1870,15 +1463,6 @@ export interface ListGroupsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace ListGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIAMPolicyAssignmentsRequest {
@@ -1908,15 +1492,6 @@ export interface ListIAMPolicyAssignmentsRequest {
   MaxResults?: number;
 }
 
-export namespace ListIAMPolicyAssignmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIAMPolicyAssignmentsResponse {
   /**
    * <p>Information describing the IAM policy assignments.</p>
@@ -1937,15 +1512,6 @@ export interface ListIAMPolicyAssignmentsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace ListIAMPolicyAssignmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIAMPolicyAssignmentsForUserRequest {
@@ -1975,15 +1541,6 @@ export interface ListIAMPolicyAssignmentsForUserRequest {
   Namespace: string | undefined;
 }
 
-export namespace ListIAMPolicyAssignmentsForUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsForUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIAMPolicyAssignmentsForUserResponse {
   /**
    * <p>The active assignments for this user.</p>
@@ -2004,15 +1561,6 @@ export interface ListIAMPolicyAssignmentsForUserResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace ListIAMPolicyAssignmentsForUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIAMPolicyAssignmentsForUserResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIngestionsRequest {
@@ -2037,15 +1585,6 @@ export interface ListIngestionsRequest {
   MaxResults?: number;
 }
 
-export namespace ListIngestionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIngestionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIngestionsResponse {
   /**
    * <p>A list of the ingestions.</p>
@@ -2068,15 +1607,6 @@ export interface ListIngestionsResponse {
   Status?: number;
 }
 
-export namespace ListIngestionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIngestionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNamespacesRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespaces that you want to list.</p>
@@ -2092,15 +1622,6 @@ export interface ListNamespacesRequest {
    * <p>The maximum number of results to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListNamespacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNamespacesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListNamespacesResponse {
@@ -2127,29 +1648,11 @@ export interface ListNamespacesResponse {
   Status?: number;
 }
 
-export namespace ListNamespacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNamespacesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want a list of tags for.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -2168,15 +1671,6 @@ export interface ListTagsForResourceResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTemplateAliasesRequest {
@@ -2201,15 +1695,6 @@ export interface ListTemplateAliasesRequest {
   MaxResults?: number;
 }
 
-export namespace ListTemplateAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplateAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTemplateAliasesResponse {
   /**
    * <p>A structure containing the list of the template's aliases.</p>
@@ -2232,15 +1717,6 @@ export interface ListTemplateAliasesResponse {
   NextToken?: string;
 }
 
-export namespace ListTemplateAliasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplateAliasesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTemplatesRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
@@ -2256,15 +1732,6 @@ export interface ListTemplatesRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2302,15 +1769,6 @@ export interface TemplateSummary {
   LastUpdatedTime?: Date;
 }
 
-export namespace TemplateSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTemplatesResponse {
   /**
    * <p>A structure containing information about the templates in the list.</p>
@@ -2333,15 +1791,6 @@ export interface ListTemplatesResponse {
   RequestId?: string;
 }
 
-export namespace ListTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTemplateVersionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the templates that you're listing.</p>
@@ -2362,15 +1811,6 @@ export interface ListTemplateVersionsRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListTemplateVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplateVersionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2403,15 +1843,6 @@ export interface TemplateVersionSummary {
   Description?: string;
 }
 
-export namespace TemplateVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTemplateVersionsResponse {
   /**
    * <p>A structure containing a list of all the versions of the specified template.</p>
@@ -2432,15 +1863,6 @@ export interface ListTemplateVersionsResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace ListTemplateVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplateVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListThemeAliasesRequest {
@@ -2465,15 +1887,6 @@ export interface ListThemeAliasesRequest {
   MaxResults?: number;
 }
 
-export namespace ListThemeAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThemeAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListThemeAliasesResponse {
   /**
    * <p>A structure containing the list of the theme's aliases.</p>
@@ -2494,15 +1907,6 @@ export interface ListThemeAliasesResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListThemeAliasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThemeAliasesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListThemesRequest {
@@ -2541,15 +1945,6 @@ export interface ListThemesRequest {
   Type?: ThemeType | string;
 }
 
-export namespace ListThemesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThemesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The theme summary.</p>
  */
@@ -2585,15 +1980,6 @@ export interface ThemeSummary {
   LastUpdatedTime?: Date;
 }
 
-export namespace ThemeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListThemesResponse {
   /**
    * <p>Information about the themes in the list.</p>
@@ -2616,15 +2002,6 @@ export interface ListThemesResponse {
   RequestId?: string;
 }
 
-export namespace ListThemesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThemesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListThemeVersionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
@@ -2645,15 +2022,6 @@ export interface ListThemeVersionsRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListThemeVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThemeVersionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2686,15 +2054,6 @@ export interface ThemeVersionSummary {
   Status?: ResourceStatus | string;
 }
 
-export namespace ThemeVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListThemeVersionsResponse {
   /**
    * <p>A structure containing a list of all the versions of the specified theme.</p>
@@ -2715,15 +2074,6 @@ export interface ListThemeVersionsResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace ListThemeVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThemeVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUserGroupsRequest {
@@ -2754,15 +2104,6 @@ export interface ListUserGroupsRequest {
   MaxResults?: number;
 }
 
-export namespace ListUserGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUserGroupsResponse {
   /**
    * <p>The list of groups the user is a member of.</p>
@@ -2783,15 +2124,6 @@ export interface ListUserGroupsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace ListUserGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUserGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUsersRequest {
@@ -2817,15 +2149,6 @@ export interface ListUsersRequest {
   Namespace: string | undefined;
 }
 
-export namespace ListUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUsersResponse {
   /**
    * <p>The list of users.</p>
@@ -2846,15 +2169,6 @@ export interface ListUsersResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace ListUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterUserRequest {
@@ -3007,15 +2321,6 @@ export interface RegisterUserRequest {
   ExternalLoginId?: string;
 }
 
-export namespace RegisterUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterUserResponse {
   /**
    * <p>The user's user name.</p>
@@ -3039,15 +2344,6 @@ export interface RegisterUserResponse {
   Status?: number;
 }
 
-export namespace RegisterUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterUserResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis.</p>
@@ -3058,15 +2354,6 @@ export interface RestoreAnalysisRequest {
    * <p>The ID of the analysis that you're restoring.</p>
    */
   AnalysisId: string | undefined;
-}
-
-export namespace RestoreAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreAnalysisRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreAnalysisResponse {
@@ -3092,15 +2379,6 @@ export interface RestoreAnalysisResponse {
   RequestId?: string;
 }
 
-export namespace RestoreAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreAnalysisResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchAnalysesRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analyses that you're searching
@@ -3124,15 +2402,6 @@ export interface SearchAnalysesRequest {
   MaxResults?: number;
 }
 
-export namespace SearchAnalysesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchAnalysesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchAnalysesResponse {
   /**
    * <p>Metadata describing the analyses that you searched for.</p>
@@ -3154,15 +2423,6 @@ export interface SearchAnalysesResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace SearchAnalysesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchAnalysesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchDashboardsRequest {
@@ -3191,15 +2451,6 @@ export interface SearchDashboardsRequest {
   MaxResults?: number;
 }
 
-export namespace SearchDashboardsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchDashboardsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchDashboardsResponse {
   /**
    * <p>The list of dashboards owned by the user specified in <code>Filters</code> in your
@@ -3221,15 +2472,6 @@ export interface SearchDashboardsResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace SearchDashboardsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchDashboardsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchFoldersRequest {
@@ -3254,15 +2496,6 @@ export interface SearchFoldersRequest {
   MaxResults?: number;
 }
 
-export namespace SearchFoldersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchFoldersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchFoldersResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -3283,15 +2516,6 @@ export interface SearchFoldersResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace SearchFoldersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchFoldersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchGroupsRequest {
@@ -3322,15 +2546,6 @@ export interface SearchGroupsRequest {
   Filters: GroupSearchFilter[] | undefined;
 }
 
-export namespace SearchGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchGroupsResponse {
   /**
    * <p>A list of groups in a specified namespace that match the filters you set in your <code>SearchGroups</code> request.</p>
@@ -3353,15 +2568,6 @@ export interface SearchGroupsResponse {
   Status?: number;
 }
 
-export namespace SearchGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
@@ -3372,15 +2578,6 @@ export interface TagResourceRequest {
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
    */
   Tags: Tag[] | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceResponse {
@@ -3395,15 +2592,6 @@ export interface TagResourceResponse {
   Status?: number;
 }
 
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to untag.</p>
@@ -3416,15 +2604,6 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -3435,15 +2614,6 @@ export interface UntagResourceResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAccountCustomizationRequest {
@@ -3462,15 +2632,6 @@ export interface UpdateAccountCustomizationRequest {
    * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
    */
   AccountCustomization: AccountCustomization | undefined;
-}
-
-export namespace UpdateAccountCustomizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccountCustomizationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAccountCustomizationResponse {
@@ -3506,15 +2667,6 @@ export interface UpdateAccountCustomizationResponse {
   Status?: number;
 }
 
-export namespace UpdateAccountCustomizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccountCustomizationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAccountSettingsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight settings that you want to
@@ -3538,15 +2690,6 @@ export interface UpdateAccountSettingsRequest {
   NotificationEmail?: string;
 }
 
-export namespace UpdateAccountSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccountSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAccountSettingsResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -3557,15 +2700,6 @@ export interface UpdateAccountSettingsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace UpdateAccountSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccountSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAnalysisRequest {
@@ -3606,15 +2740,6 @@ export interface UpdateAnalysisRequest {
   ThemeArn?: string;
 }
 
-export namespace UpdateAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAnalysisResponse {
   /**
    * <p>The ARN of the analysis that you're updating.</p>
@@ -3640,15 +2765,6 @@ export interface UpdateAnalysisResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace UpdateAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnalysisResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAnalysisPermissionsRequest {
@@ -3677,15 +2793,6 @@ export interface UpdateAnalysisPermissionsRequest {
   RevokePermissions?: ResourcePermission[];
 }
 
-export namespace UpdateAnalysisPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnalysisPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAnalysisPermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the analysis that you updated.</p>
@@ -3712,15 +2819,6 @@ export interface UpdateAnalysisPermissionsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace UpdateAnalysisPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnalysisPermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDashboardRequest {
@@ -3806,15 +2904,6 @@ export interface UpdateDashboardRequest {
   ThemeArn?: string;
 }
 
-export namespace UpdateDashboardRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDashboardRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDashboardResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -3845,15 +2934,6 @@ export interface UpdateDashboardResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace UpdateDashboardResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDashboardResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDashboardPermissionsRequest {
@@ -3889,15 +2969,6 @@ export interface UpdateDashboardPermissionsRequest {
   RevokeLinkPermissions?: ResourcePermission[];
 }
 
-export namespace UpdateDashboardPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDashboardPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDashboardPermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
@@ -3930,15 +3001,6 @@ export interface UpdateDashboardPermissionsResponse {
   LinkSharingConfiguration?: LinkSharingConfiguration;
 }
 
-export namespace UpdateDashboardPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDashboardPermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDashboardPublishedVersionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -3955,15 +3017,6 @@ export interface UpdateDashboardPublishedVersionRequest {
    * <p>The version number of the dashboard.</p>
    */
   VersionNumber: number | undefined;
-}
-
-export namespace UpdateDashboardPublishedVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDashboardPublishedVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDashboardPublishedVersionResponse {
@@ -3986,15 +3039,6 @@ export interface UpdateDashboardPublishedVersionResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace UpdateDashboardPublishedVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDashboardPublishedVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDataSetRequest {
@@ -4062,38 +3106,6 @@ export interface UpdateDataSetRequest {
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
-export namespace UpdateDataSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
-    ...obj,
-    ...(obj.PhysicalTableMap && {
-      PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-        (acc: any, [key, value]: [string, PhysicalTable]) => ({
-          ...acc,
-          [key]: PhysicalTable.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-    ...(obj.LogicalTableMap && {
-      LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-        (acc: any, [key, value]: [string, LogicalTable]) => ({
-          ...acc,
-          [key]: LogicalTable.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-    ...(obj.RowLevelPermissionTagConfiguration && {
-      RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfiguration.filterSensitiveLog(
-        obj.RowLevelPermissionTagConfiguration
-      ),
-    }),
-  });
-}
-
 export interface UpdateDataSetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -4128,15 +3140,6 @@ export interface UpdateDataSetResponse {
   Status?: number;
 }
 
-export namespace UpdateDataSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDataSetPermissionsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -4160,15 +3163,6 @@ export interface UpdateDataSetPermissionsRequest {
   RevokePermissions?: ResourcePermission[];
 }
 
-export namespace UpdateDataSetPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSetPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDataSetPermissionsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -4190,15 +3184,6 @@ export interface UpdateDataSetPermissionsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace UpdateDataSetPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSetPermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDataSourceRequest {
@@ -4241,19 +3226,6 @@ export interface UpdateDataSourceRequest {
   SslProperties?: SslProperties;
 }
 
-export namespace UpdateDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
-    ...obj,
-    ...(obj.DataSourceParameters && {
-      DataSourceParameters: DataSourceParameters.filterSensitiveLog(obj.DataSourceParameters),
-    }),
-    ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateDataSourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -4281,15 +3253,6 @@ export interface UpdateDataSourceResponse {
   Status?: number;
 }
 
-export namespace UpdateDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDataSourcePermissionsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -4310,15 +3273,6 @@ export interface UpdateDataSourcePermissionsRequest {
    * <p>A list of resource permissions that you want to revoke on the data source.</p>
    */
   RevokePermissions?: ResourcePermission[];
-}
-
-export namespace UpdateDataSourcePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSourcePermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDataSourcePermissionsResponse {
@@ -4343,15 +3297,6 @@ export interface UpdateDataSourcePermissionsResponse {
   Status?: number;
 }
 
-export namespace UpdateDataSourcePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSourcePermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
@@ -4367,15 +3312,6 @@ export interface UpdateFolderRequest {
    * <p>The name of the folder.</p>
    */
   Name: string | undefined;
-}
-
-export namespace UpdateFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFolderRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFolderResponse {
@@ -4400,15 +3336,6 @@ export interface UpdateFolderResponse {
   RequestId?: string;
 }
 
-export namespace UpdateFolderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFolderResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFolderPermissionsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder to update.</p>
@@ -4429,15 +3356,6 @@ export interface UpdateFolderPermissionsRequest {
    * <p>The permissions that you want to revoke from a resource.</p>
    */
   RevokePermissions?: ResourcePermission[];
-}
-
-export namespace UpdateFolderPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFolderPermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFolderPermissionsResponse {
@@ -4467,15 +3385,6 @@ export interface UpdateFolderPermissionsResponse {
   RequestId?: string;
 }
 
-export namespace UpdateFolderPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFolderPermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGroupRequest {
   /**
    * <p>The name of the group that you want to update.</p>
@@ -4499,15 +3408,6 @@ export interface UpdateGroupRequest {
   Namespace: string | undefined;
 }
 
-export namespace UpdateGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGroupResponse {
   /**
    * <p>The name of the group.</p>
@@ -4523,15 +3423,6 @@ export interface UpdateGroupResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace UpdateGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateIAMPolicyAssignmentRequest {
@@ -4581,15 +3472,6 @@ export interface UpdateIAMPolicyAssignmentRequest {
    * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy to.</p>
    */
   Identities?: Record<string, string[]>;
-}
-
-export namespace UpdateIAMPolicyAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIAMPolicyAssignmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateIAMPolicyAssignmentResponse {
@@ -4646,15 +3528,6 @@ export interface UpdateIAMPolicyAssignmentResponse {
   Status?: number;
 }
 
-export namespace UpdateIAMPolicyAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIAMPolicyAssignmentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateIpRestrictionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
@@ -4670,15 +3543,6 @@ export interface UpdateIpRestrictionRequest {
    * <p>A value that specifies whether IP rules are turned on.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace UpdateIpRestrictionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIpRestrictionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateIpRestrictionResponse {
@@ -4698,15 +3562,6 @@ export interface UpdateIpRestrictionResponse {
   Status?: number;
 }
 
-export namespace UpdateIpRestrictionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIpRestrictionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePublicSharingSettingsRequest {
   /**
    * <p>The Amazon Web Services account ID associated with your Amazon QuickSight subscription.</p>
@@ -4719,15 +3574,6 @@ export interface UpdatePublicSharingSettingsRequest {
   PublicSharingEnabled?: boolean;
 }
 
-export namespace UpdatePublicSharingSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePublicSharingSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePublicSharingSettingsResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -4738,15 +3584,6 @@ export interface UpdatePublicSharingSettingsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace UpdatePublicSharingSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePublicSharingSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTemplateRequest {
@@ -4788,15 +3625,6 @@ export interface UpdateTemplateRequest {
   Name?: string;
 }
 
-export namespace UpdateTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTemplateResponse {
   /**
    * <p>The ID for the template.</p>
@@ -4829,15 +3657,6 @@ export interface UpdateTemplateResponse {
   RequestId?: string;
 }
 
-export namespace UpdateTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTemplateAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template alias that you're updating.</p>
@@ -4863,15 +3682,6 @@ export interface UpdateTemplateAliasRequest {
   TemplateVersionNumber: number | undefined;
 }
 
-export namespace UpdateTemplateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTemplateAliasResponse {
   /**
    * <p>The template alias.</p>
@@ -4887,15 +3697,6 @@ export interface UpdateTemplateAliasResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace UpdateTemplateAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateAliasResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTemplatePermissionsRequest {
@@ -4918,15 +3719,6 @@ export interface UpdateTemplatePermissionsRequest {
    * <p>A list of resource permissions to be revoked from the template. </p>
    */
   RevokePermissions?: ResourcePermission[];
-}
-
-export namespace UpdateTemplatePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplatePermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTemplatePermissionsResponse {
@@ -4954,15 +3746,6 @@ export interface UpdateTemplatePermissionsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace UpdateTemplatePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplatePermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateThemeRequest {
@@ -5000,15 +3783,6 @@ export interface UpdateThemeRequest {
   Configuration?: ThemeConfiguration;
 }
 
-export namespace UpdateThemeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThemeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateThemeResponse {
   /**
    * <p>The ID for the theme.</p>
@@ -5041,15 +3815,6 @@ export interface UpdateThemeResponse {
   RequestId?: string;
 }
 
-export namespace UpdateThemeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThemeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateThemeAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme alias that you're updating.</p>
@@ -5072,15 +3837,6 @@ export interface UpdateThemeAliasRequest {
   ThemeVersionNumber: number | undefined;
 }
 
-export namespace UpdateThemeAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThemeAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateThemeAliasResponse {
   /**
    * <p>Information about the theme alias.</p>
@@ -5096,15 +3852,6 @@ export interface UpdateThemeAliasResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace UpdateThemeAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThemeAliasResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateThemePermissionsRequest {
@@ -5127,15 +3874,6 @@ export interface UpdateThemePermissionsRequest {
    * <p>A list of resource permissions to be revoked from the theme.</p>
    */
   RevokePermissions?: ResourcePermission[];
-}
-
-export namespace UpdateThemePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThemePermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateThemePermissionsResponse {
@@ -5163,15 +3901,6 @@ export interface UpdateThemePermissionsResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace UpdateThemePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateThemePermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateUserRequest {
@@ -5293,15 +4022,6 @@ export interface UpdateUserRequest {
   ExternalLoginId?: string;
 }
 
-export namespace UpdateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateUserResponse {
   /**
    * <p>The Amazon QuickSight user.</p>
@@ -5319,11 +4039,1044 @@ export interface UpdateUserResponse {
   Status?: number;
 }
 
-export namespace UpdateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ThemeVersionFilterSensitiveLog = (obj: ThemeVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThemeFilterSensitiveLog = (obj: Theme): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeThemeResponseFilterSensitiveLog = (obj: DescribeThemeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeThemeAliasRequestFilterSensitiveLog = (obj: DescribeThemeAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeThemeAliasResponseFilterSensitiveLog = (obj: DescribeThemeAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeThemePermissionsRequestFilterSensitiveLog = (obj: DescribeThemePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeThemePermissionsResponseFilterSensitiveLog = (obj: DescribeThemePermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberIdArnPairFilterSensitiveLog = (obj: MemberIdArnPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FolderSearchFilterFilterSensitiveLog = (obj: FolderSearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FolderSummaryFilterSensitiveLog = (obj: FolderSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionTagFilterSensitiveLog = (obj: SessionTag): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GenerateEmbedUrlForAnonymousUserRequestFilterSensitiveLog = (
+  obj: GenerateEmbedUrlForAnonymousUserRequest
+): any => ({
+  ...obj,
+  ...(obj.SessionTags && { SessionTags: obj.SessionTags.map((item) => SessionTagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GenerateEmbedUrlForAnonymousUserResponseFilterSensitiveLog = (
+  obj: GenerateEmbedUrlForAnonymousUserResponse
+): any => ({
+  ...obj,
+  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegisteredUserDashboardEmbeddingConfigurationFilterSensitiveLog = (
+  obj: RegisteredUserDashboardEmbeddingConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisteredUserQSearchBarEmbeddingConfigurationFilterSensitiveLog = (
+  obj: RegisteredUserQSearchBarEmbeddingConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisteredUserQuickSightConsoleEmbeddingConfigurationFilterSensitiveLog = (
+  obj: RegisteredUserQuickSightConsoleEmbeddingConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisteredUserEmbeddingExperienceConfigurationFilterSensitiveLog = (
+  obj: RegisteredUserEmbeddingExperienceConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog = (
+  obj: GenerateEmbedUrlForRegisteredUserRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog = (
+  obj: GenerateEmbedUrlForRegisteredUserResponse
+): any => ({
+  ...obj,
+  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDashboardEmbedUrlRequestFilterSensitiveLog = (obj: GetDashboardEmbedUrlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDashboardEmbedUrlResponseFilterSensitiveLog = (obj: GetDashboardEmbedUrlResponse): any => ({
+  ...obj,
+  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetSessionEmbedUrlRequestFilterSensitiveLog = (obj: GetSessionEmbedUrlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSessionEmbedUrlResponseFilterSensitiveLog = (obj: GetSessionEmbedUrlResponse): any => ({
+  ...obj,
+  ...(obj.EmbedUrl && { EmbedUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GroupSearchFilterFilterSensitiveLog = (obj: GroupSearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IAMPolicyAssignmentSummaryFilterSensitiveLog = (obj: IAMPolicyAssignmentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnalysesRequestFilterSensitiveLog = (obj: ListAnalysesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnalysesResponseFilterSensitiveLog = (obj: ListAnalysesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDashboardsRequestFilterSensitiveLog = (obj: ListDashboardsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDashboardsResponseFilterSensitiveLog = (obj: ListDashboardsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDashboardVersionsRequestFilterSensitiveLog = (obj: ListDashboardVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDashboardVersionsResponseFilterSensitiveLog = (obj: ListDashboardVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSetsRequestFilterSensitiveLog = (obj: ListDataSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSetsResponseFilterSensitiveLog = (obj: ListDataSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSourcesRequestFilterSensitiveLog = (obj: ListDataSourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataSourcesResponseFilterSensitiveLog = (obj: ListDataSourcesResponse): any => ({
+  ...obj,
+  ...(obj.DataSources && { DataSources: obj.DataSources.map((item) => DataSourceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListFolderMembersRequestFilterSensitiveLog = (obj: ListFolderMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFolderMembersResponseFilterSensitiveLog = (obj: ListFolderMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFoldersRequestFilterSensitiveLog = (obj: ListFoldersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFoldersResponseFilterSensitiveLog = (obj: ListFoldersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupMembershipsRequestFilterSensitiveLog = (obj: ListGroupMembershipsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupMembershipsResponseFilterSensitiveLog = (obj: ListGroupMembershipsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsRequestFilterSensitiveLog = (obj: ListGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsResponseFilterSensitiveLog = (obj: ListGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIAMPolicyAssignmentsRequestFilterSensitiveLog = (obj: ListIAMPolicyAssignmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIAMPolicyAssignmentsResponseFilterSensitiveLog = (obj: ListIAMPolicyAssignmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIAMPolicyAssignmentsForUserRequestFilterSensitiveLog = (
+  obj: ListIAMPolicyAssignmentsForUserRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIAMPolicyAssignmentsForUserResponseFilterSensitiveLog = (
+  obj: ListIAMPolicyAssignmentsForUserResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIngestionsRequestFilterSensitiveLog = (obj: ListIngestionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIngestionsResponseFilterSensitiveLog = (obj: ListIngestionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNamespacesRequestFilterSensitiveLog = (obj: ListNamespacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNamespacesResponseFilterSensitiveLog = (obj: ListNamespacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplateAliasesRequestFilterSensitiveLog = (obj: ListTemplateAliasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplateAliasesResponseFilterSensitiveLog = (obj: ListTemplateAliasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplatesRequestFilterSensitiveLog = (obj: ListTemplatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateSummaryFilterSensitiveLog = (obj: TemplateSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplatesResponseFilterSensitiveLog = (obj: ListTemplatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplateVersionsRequestFilterSensitiveLog = (obj: ListTemplateVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateVersionSummaryFilterSensitiveLog = (obj: TemplateVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplateVersionsResponseFilterSensitiveLog = (obj: ListTemplateVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThemeAliasesRequestFilterSensitiveLog = (obj: ListThemeAliasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThemeAliasesResponseFilterSensitiveLog = (obj: ListThemeAliasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThemesRequestFilterSensitiveLog = (obj: ListThemesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThemeSummaryFilterSensitiveLog = (obj: ThemeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThemesResponseFilterSensitiveLog = (obj: ListThemesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThemeVersionsRequestFilterSensitiveLog = (obj: ListThemeVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThemeVersionSummaryFilterSensitiveLog = (obj: ThemeVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListThemeVersionsResponseFilterSensitiveLog = (obj: ListThemeVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUserGroupsRequestFilterSensitiveLog = (obj: ListUserGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUserGroupsResponseFilterSensitiveLog = (obj: ListUserGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterUserRequestFilterSensitiveLog = (obj: RegisterUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterUserResponseFilterSensitiveLog = (obj: RegisterUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreAnalysisRequestFilterSensitiveLog = (obj: RestoreAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreAnalysisResponseFilterSensitiveLog = (obj: RestoreAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchAnalysesRequestFilterSensitiveLog = (obj: SearchAnalysesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchAnalysesResponseFilterSensitiveLog = (obj: SearchAnalysesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDashboardsRequestFilterSensitiveLog = (obj: SearchDashboardsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDashboardsResponseFilterSensitiveLog = (obj: SearchDashboardsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchFoldersRequestFilterSensitiveLog = (obj: SearchFoldersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchFoldersResponseFilterSensitiveLog = (obj: SearchFoldersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchGroupsRequestFilterSensitiveLog = (obj: SearchGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchGroupsResponseFilterSensitiveLog = (obj: SearchGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountCustomizationRequestFilterSensitiveLog = (obj: UpdateAccountCustomizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountCustomizationResponseFilterSensitiveLog = (obj: UpdateAccountCustomizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountSettingsRequestFilterSensitiveLog = (obj: UpdateAccountSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountSettingsResponseFilterSensitiveLog = (obj: UpdateAccountSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnalysisRequestFilterSensitiveLog = (obj: UpdateAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnalysisResponseFilterSensitiveLog = (obj: UpdateAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnalysisPermissionsRequestFilterSensitiveLog = (obj: UpdateAnalysisPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnalysisPermissionsResponseFilterSensitiveLog = (obj: UpdateAnalysisPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDashboardRequestFilterSensitiveLog = (obj: UpdateDashboardRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDashboardResponseFilterSensitiveLog = (obj: UpdateDashboardResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDashboardPermissionsRequestFilterSensitiveLog = (obj: UpdateDashboardPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDashboardPermissionsResponseFilterSensitiveLog = (obj: UpdateDashboardPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDashboardPublishedVersionRequestFilterSensitiveLog = (
+  obj: UpdateDashboardPublishedVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDashboardPublishedVersionResponseFilterSensitiveLog = (
+  obj: UpdateDashboardPublishedVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSetRequestFilterSensitiveLog = (obj: UpdateDataSetRequest): any => ({
+  ...obj,
+  ...(obj.PhysicalTableMap && {
+    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+      (acc: any, [key, value]: [string, PhysicalTable]) => ({
+        ...acc,
+        [key]: PhysicalTableFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+  ...(obj.LogicalTableMap && {
+    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+      (acc: any, [key, value]: [string, LogicalTable]) => ({
+        ...acc,
+        [key]: LogicalTableFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+  ...(obj.RowLevelPermissionTagConfiguration && {
+    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
+      obj.RowLevelPermissionTagConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSetResponseFilterSensitiveLog = (obj: UpdateDataSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSetPermissionsRequestFilterSensitiveLog = (obj: UpdateDataSetPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSetPermissionsResponseFilterSensitiveLog = (obj: UpdateDataSetPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSourceRequestFilterSensitiveLog = (obj: UpdateDataSourceRequest): any => ({
+  ...obj,
+  ...(obj.DataSourceParameters && {
+    DataSourceParameters: DataSourceParametersFilterSensitiveLog(obj.DataSourceParameters),
+  }),
+  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSourceResponseFilterSensitiveLog = (obj: UpdateDataSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSourcePermissionsRequestFilterSensitiveLog = (obj: UpdateDataSourcePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSourcePermissionsResponseFilterSensitiveLog = (
+  obj: UpdateDataSourcePermissionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFolderRequestFilterSensitiveLog = (obj: UpdateFolderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFolderResponseFilterSensitiveLog = (obj: UpdateFolderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFolderPermissionsRequestFilterSensitiveLog = (obj: UpdateFolderPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFolderPermissionsResponseFilterSensitiveLog = (obj: UpdateFolderPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupRequestFilterSensitiveLog = (obj: UpdateGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGroupResponseFilterSensitiveLog = (obj: UpdateGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIAMPolicyAssignmentRequestFilterSensitiveLog = (obj: UpdateIAMPolicyAssignmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIAMPolicyAssignmentResponseFilterSensitiveLog = (obj: UpdateIAMPolicyAssignmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIpRestrictionRequestFilterSensitiveLog = (obj: UpdateIpRestrictionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIpRestrictionResponseFilterSensitiveLog = (obj: UpdateIpRestrictionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePublicSharingSettingsRequestFilterSensitiveLog = (obj: UpdatePublicSharingSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePublicSharingSettingsResponseFilterSensitiveLog = (
+  obj: UpdatePublicSharingSettingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplateRequestFilterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplateResponseFilterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplateAliasRequestFilterSensitiveLog = (obj: UpdateTemplateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplateAliasResponseFilterSensitiveLog = (obj: UpdateTemplateAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplatePermissionsRequestFilterSensitiveLog = (obj: UpdateTemplatePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplatePermissionsResponseFilterSensitiveLog = (obj: UpdateTemplatePermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThemeRequestFilterSensitiveLog = (obj: UpdateThemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThemeResponseFilterSensitiveLog = (obj: UpdateThemeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThemeAliasRequestFilterSensitiveLog = (obj: UpdateThemeAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThemeAliasResponseFilterSensitiveLog = (obj: UpdateThemeAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThemePermissionsRequestFilterSensitiveLog = (obj: UpdateThemePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateThemePermissionsResponseFilterSensitiveLog = (obj: UpdateThemePermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
+  ...obj,
+});

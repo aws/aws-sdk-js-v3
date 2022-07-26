@@ -14,7 +14,9 @@ import {
 
 import {
   GenerateEmbedUrlForRegisteredUserRequest,
+  GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog,
   GenerateEmbedUrlForRegisteredUserResponse,
+  GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1GenerateEmbedUrlForRegisteredUserCommand,
@@ -97,8 +99,8 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateEmbedUrlForRegisteredUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GenerateEmbedUrlForRegisteredUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

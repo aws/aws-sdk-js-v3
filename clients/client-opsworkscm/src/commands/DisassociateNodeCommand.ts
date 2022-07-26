@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateNodeRequest, DisassociateNodeResponse } from "../models/models_0";
+import {
+  DisassociateNodeRequest,
+  DisassociateNodeRequestFilterSensitiveLog,
+  DisassociateNodeResponse,
+  DisassociateNodeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1DisassociateNodeCommand,
@@ -79,8 +84,8 @@ export class DisassociateNodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateNodeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateNodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateNodeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateNodeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

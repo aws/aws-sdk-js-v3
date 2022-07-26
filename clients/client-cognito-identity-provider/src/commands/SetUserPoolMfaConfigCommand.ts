@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/models_0";
+import {
+  SetUserPoolMfaConfigRequest,
+  SetUserPoolMfaConfigRequestFilterSensitiveLog,
+  SetUserPoolMfaConfigResponse,
+  SetUserPoolMfaConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SetUserPoolMfaConfigCommand,
   serializeAws_json1_1SetUserPoolMfaConfigCommand,
@@ -96,8 +101,8 @@ export class SetUserPoolMfaConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetUserPoolMfaConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SetUserPoolMfaConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetUserPoolMfaConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SetUserPoolMfaConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

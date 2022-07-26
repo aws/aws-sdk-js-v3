@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StreamingTraitsWithMediaTypeInputOutput } from "../models/models_0";
+import {
+  StreamingTraitsWithMediaTypeInputOutput,
+  StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StreamingTraitsWithMediaTypeCommand,
   serializeAws_restJson1StreamingTraitsWithMediaTypeCommand,
@@ -86,8 +89,8 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StreamingTraitsWithMediaTypeInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: StreamingTraitsWithMediaTypeInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

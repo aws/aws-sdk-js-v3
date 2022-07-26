@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { CreateACLRequest, CreateACLResponse } from "../models/models_0";
+import {
+  CreateACLRequest,
+  CreateACLRequestFilterSensitiveLog,
+  CreateACLResponse,
+  CreateACLResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1CreateACLCommand, serializeAws_json1_1CreateACLCommand } from "../protocols/Aws_json1_1";
 
 export interface CreateACLCommandInput extends CreateACLRequest {}
@@ -69,8 +74,8 @@ export class CreateACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateACLRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateACLResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateACLRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateACLResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

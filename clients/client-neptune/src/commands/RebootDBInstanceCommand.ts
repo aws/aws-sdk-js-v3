@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_0";
+import {
+  RebootDBInstanceMessage,
+  RebootDBInstanceMessageFilterSensitiveLog,
+  RebootDBInstanceResult,
+  RebootDBInstanceResultFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryRebootDBInstanceCommand,
@@ -76,8 +81,8 @@ export class RebootDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootDBInstanceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RebootDBInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootDBInstanceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RebootDBInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

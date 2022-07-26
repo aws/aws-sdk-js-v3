@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DeleteCacheSecurityGroupMessage } from "../models/models_0";
+import { DeleteCacheSecurityGroupMessage, DeleteCacheSecurityGroupMessageFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteCacheSecurityGroupCommand,
   serializeAws_queryDeleteCacheSecurityGroupCommand,
@@ -75,7 +75,7 @@ export class DeleteCacheSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCacheSecurityGroupMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCacheSecurityGroupMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

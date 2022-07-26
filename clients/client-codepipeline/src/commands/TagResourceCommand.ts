@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { TagResourceInput, TagResourceOutput } from "../models/models_0";
+import {
+  TagResourceInput,
+  TagResourceInputFilterSensitiveLog,
+  TagResourceOutput,
+  TagResourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1TagResourceCommand,
   serializeAws_json1_1TagResourceCommand,
@@ -73,8 +78,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: TagResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateMilestoneInput, CreateMilestoneOutput } from "../models/models_0";
+import {
+  CreateMilestoneInput,
+  CreateMilestoneInputFilterSensitiveLog,
+  CreateMilestoneOutput,
+  CreateMilestoneOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMilestoneCommand,
   serializeAws_restJson1CreateMilestoneCommand,
@@ -72,8 +77,8 @@ export class CreateMilestoneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMilestoneInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateMilestoneOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMilestoneInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateMilestoneOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

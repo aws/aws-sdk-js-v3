@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeHsmConfigurationsMessage, HsmConfigurationMessage } from "../models/models_1";
+import {
+  DescribeHsmConfigurationsMessage,
+  DescribeHsmConfigurationsMessageFilterSensitiveLog,
+  HsmConfigurationMessage,
+  HsmConfigurationMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDescribeHsmConfigurationsCommand,
   serializeAws_queryDescribeHsmConfigurationsCommand,
@@ -82,8 +87,8 @@ export class DescribeHsmConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHsmConfigurationsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: HsmConfigurationMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeHsmConfigurationsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: HsmConfigurationMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

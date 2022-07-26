@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { GetAccessTokenRequest, GetAccessTokenResponse } from "../models/models_0";
+import {
+  GetAccessTokenRequest,
+  GetAccessTokenRequestFilterSensitiveLog,
+  GetAccessTokenResponse,
+  GetAccessTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetAccessTokenCommand,
   serializeAws_json1_1GetAccessTokenCommand,
@@ -73,8 +78,8 @@ export class GetAccessTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccessTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAccessTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

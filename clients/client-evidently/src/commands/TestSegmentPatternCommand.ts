@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { TestSegmentPatternRequest, TestSegmentPatternResponse } from "../models/models_0";
+import {
+  TestSegmentPatternRequest,
+  TestSegmentPatternRequestFilterSensitiveLog,
+  TestSegmentPatternResponse,
+  TestSegmentPatternResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1TestSegmentPatternCommand,
   serializeAws_restJson1TestSegmentPatternCommand,
@@ -73,8 +78,8 @@ export class TestSegmentPatternCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestSegmentPatternRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestSegmentPatternResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestSegmentPatternRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestSegmentPatternResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

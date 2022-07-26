@@ -15,7 +15,9 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   DeleteReplicationConfigurationTemplateRequest,
+  DeleteReplicationConfigurationTemplateRequestFilterSensitiveLog,
   DeleteReplicationConfigurationTemplateResponse,
+  DeleteReplicationConfigurationTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteReplicationConfigurationTemplateCommand,
@@ -78,8 +80,8 @@ export class DeleteReplicationConfigurationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationConfigurationTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationConfigurationTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteReplicationConfigurationTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReplicationConfigurationTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

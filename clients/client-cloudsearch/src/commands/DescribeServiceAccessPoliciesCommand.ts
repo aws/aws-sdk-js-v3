@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DescribeServiceAccessPoliciesRequest, DescribeServiceAccessPoliciesResponse } from "../models/models_0";
+import {
+  DescribeServiceAccessPoliciesRequest,
+  DescribeServiceAccessPoliciesRequestFilterSensitiveLog,
+  DescribeServiceAccessPoliciesResponse,
+  DescribeServiceAccessPoliciesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeServiceAccessPoliciesCommand,
   serializeAws_queryDescribeServiceAccessPoliciesCommand,
@@ -75,8 +80,8 @@ export class DescribeServiceAccessPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServiceAccessPoliciesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeServiceAccessPoliciesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeServiceAccessPoliciesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeServiceAccessPoliciesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

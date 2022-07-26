@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DescribeAuditFindingRequest, DescribeAuditFindingResponse } from "../models/models_1";
+import {
+  DescribeAuditFindingRequest,
+  DescribeAuditFindingRequestFilterSensitiveLog,
+  DescribeAuditFindingResponse,
+  DescribeAuditFindingResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeAuditFindingCommand,
   serializeAws_restJson1DescribeAuditFindingCommand,
@@ -77,8 +82,8 @@ export class DescribeAuditFindingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAuditFindingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAuditFindingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAuditFindingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAuditFindingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

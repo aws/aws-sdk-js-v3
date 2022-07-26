@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { ImportKeyPairRequest, ImportKeyPairResult } from "../models/models_1";
+import {
+  ImportKeyPairRequest,
+  ImportKeyPairRequestFilterSensitiveLog,
+  ImportKeyPairResult,
+  ImportKeyPairResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ImportKeyPairCommand,
   serializeAws_json1_1ImportKeyPairCommand,
@@ -72,8 +77,8 @@ export class ImportKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportKeyPairRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportKeyPairResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportKeyPairRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportKeyPairResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

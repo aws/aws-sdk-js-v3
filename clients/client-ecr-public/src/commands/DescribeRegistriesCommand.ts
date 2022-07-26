@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import { DescribeRegistriesRequest, DescribeRegistriesResponse } from "../models/models_0";
+import {
+  DescribeRegistriesRequest,
+  DescribeRegistriesRequestFilterSensitiveLog,
+  DescribeRegistriesResponse,
+  DescribeRegistriesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeRegistriesCommand,
   serializeAws_json1_1DescribeRegistriesCommand,
@@ -72,8 +77,8 @@ export class DescribeRegistriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRegistriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRegistriesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRegistriesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRegistriesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

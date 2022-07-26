@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { MergePullRequestByThreeWayInput, MergePullRequestByThreeWayOutput } from "../models/models_1";
+import {
+  MergePullRequestByThreeWayInput,
+  MergePullRequestByThreeWayInputFilterSensitiveLog,
+  MergePullRequestByThreeWayOutput,
+  MergePullRequestByThreeWayOutputFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1MergePullRequestByThreeWayCommand,
   serializeAws_json1_1MergePullRequestByThreeWayCommand,
@@ -73,8 +78,8 @@ export class MergePullRequestByThreeWayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergePullRequestByThreeWayInput.filterSensitiveLog,
-      outputFilterSensitiveLog: MergePullRequestByThreeWayOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: MergePullRequestByThreeWayInputFilterSensitiveLog,
+      outputFilterSensitiveLog: MergePullRequestByThreeWayOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

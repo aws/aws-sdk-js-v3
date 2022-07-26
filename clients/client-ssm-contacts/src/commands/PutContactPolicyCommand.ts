@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutContactPolicyRequest, PutContactPolicyResult } from "../models/models_0";
+import {
+  PutContactPolicyRequest,
+  PutContactPolicyRequestFilterSensitiveLog,
+  PutContactPolicyResult,
+  PutContactPolicyResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutContactPolicyCommand,
   serializeAws_json1_1PutContactPolicyCommand,
@@ -74,8 +79,8 @@ export class PutContactPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutContactPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutContactPolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutContactPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutContactPolicyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

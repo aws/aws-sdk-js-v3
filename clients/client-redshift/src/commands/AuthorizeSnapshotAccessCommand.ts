@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AuthorizeSnapshotAccessMessage, AuthorizeSnapshotAccessResult } from "../models/models_0";
+import {
+  AuthorizeSnapshotAccessMessage,
+  AuthorizeSnapshotAccessMessageFilterSensitiveLog,
+  AuthorizeSnapshotAccessResult,
+  AuthorizeSnapshotAccessResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryAuthorizeSnapshotAccessCommand,
   serializeAws_queryAuthorizeSnapshotAccessCommand,
@@ -77,8 +82,8 @@ export class AuthorizeSnapshotAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeSnapshotAccessMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeSnapshotAccessResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AuthorizeSnapshotAccessMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: AuthorizeSnapshotAccessResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteGameServerGroupInput, DeleteGameServerGroupOutput } from "../models/models_0";
+import {
+  DeleteGameServerGroupInput,
+  DeleteGameServerGroupInputFilterSensitiveLog,
+  DeleteGameServerGroupOutput,
+  DeleteGameServerGroupOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGameServerGroupCommand,
   serializeAws_json1_1DeleteGameServerGroupCommand,
@@ -119,8 +124,8 @@ export class DeleteGameServerGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGameServerGroupInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGameServerGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGameServerGroupInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGameServerGroupOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

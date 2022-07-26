@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateVolumeFromBackupRequest, CreateVolumeFromBackupResponse } from "../models/models_0";
+import {
+  CreateVolumeFromBackupRequest,
+  CreateVolumeFromBackupRequestFilterSensitiveLog,
+  CreateVolumeFromBackupResponse,
+  CreateVolumeFromBackupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateVolumeFromBackupCommand,
   serializeAws_json1_1CreateVolumeFromBackupCommand,
@@ -73,8 +78,8 @@ export class CreateVolumeFromBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVolumeFromBackupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateVolumeFromBackupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVolumeFromBackupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateVolumeFromBackupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

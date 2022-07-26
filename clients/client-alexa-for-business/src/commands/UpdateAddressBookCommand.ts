@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { UpdateAddressBookRequest, UpdateAddressBookResponse } from "../models/models_0";
+import {
+  UpdateAddressBookRequest,
+  UpdateAddressBookRequestFilterSensitiveLog,
+  UpdateAddressBookResponse,
+  UpdateAddressBookResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAddressBookCommand,
   serializeAws_json1_1UpdateAddressBookCommand,
@@ -72,8 +77,8 @@ export class UpdateAddressBookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAddressBookRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAddressBookResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAddressBookRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAddressBookResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

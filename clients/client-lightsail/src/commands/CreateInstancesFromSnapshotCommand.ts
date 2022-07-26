@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { CreateInstancesFromSnapshotRequest, CreateInstancesFromSnapshotResult } from "../models/models_0";
+import {
+  CreateInstancesFromSnapshotRequest,
+  CreateInstancesFromSnapshotRequestFilterSensitiveLog,
+  CreateInstancesFromSnapshotResult,
+  CreateInstancesFromSnapshotResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateInstancesFromSnapshotCommand,
   serializeAws_json1_1CreateInstancesFromSnapshotCommand,
@@ -76,8 +81,8 @@ export class CreateInstancesFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInstancesFromSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateInstancesFromSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateInstancesFromSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateInstancesFromSnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

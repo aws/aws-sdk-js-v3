@@ -15,7 +15,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SelectObjectContentOutput, SelectObjectContentRequest } from "../models/models_1";
+import {
+  SelectObjectContentOutput,
+  SelectObjectContentOutputFilterSensitiveLog,
+  SelectObjectContentRequest,
+  SelectObjectContentRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlSelectObjectContentCommand,
   serializeAws_restXmlSelectObjectContentCommand,
@@ -194,8 +199,8 @@ export class SelectObjectContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SelectObjectContentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SelectObjectContentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SelectObjectContentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SelectObjectContentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

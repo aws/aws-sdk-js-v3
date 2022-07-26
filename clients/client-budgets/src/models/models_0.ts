@@ -47,15 +47,6 @@ export interface ActionThreshold {
   ActionThresholdType: ThresholdType | string | undefined;
 }
 
-export namespace ActionThreshold {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionThreshold): any => ({
-    ...obj,
-  });
-}
-
 export enum ActionType {
   IAM = "APPLY_IAM_POLICY",
   SCP = "APPLY_SCP_POLICY",
@@ -92,15 +83,6 @@ export interface IamActionDefinition {
   Users?: string[];
 }
 
-export namespace IamActionDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IamActionDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service control policies (SCP) action definition details. </p>
  */
@@ -114,15 +96,6 @@ export interface ScpActionDefinition {
    * <p>A list of target IDs. </p>
    */
   TargetIds: string[] | undefined;
-}
-
-export namespace ScpActionDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScpActionDefinition): any => ({
-    ...obj,
-  });
 }
 
 export enum ActionSubType {
@@ -150,15 +123,6 @@ export interface SsmActionDefinition {
   InstanceIds: string[] | undefined;
 }
 
-export namespace SsmActionDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SsmActionDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies all of the type-specific parameters. </p>
  */
@@ -177,15 +141,6 @@ export interface Definition {
    * <p>The Amazon Web Services Systems Manager (SSM) action definition details. </p>
    */
   SsmActionDefinition?: SsmActionDefinition;
-}
-
-export namespace Definition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Definition): any => ({
-    ...obj,
-  });
 }
 
 export enum NotificationType {
@@ -236,16 +191,6 @@ export interface Subscriber {
    * 		       <p>When you create a subscriber, the value of <code>Address</code> can't contain line breaks.</p>
    */
   Address: string | undefined;
-}
-
-export namespace Subscriber {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subscriber): any => ({
-    ...obj,
-    ...(obj.Address && { Address: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -305,16 +250,6 @@ export interface Action {
   Subscribers: Subscriber[] | undefined;
 }
 
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>The description of the details for the event. </p>
  */
@@ -328,16 +263,6 @@ export interface ActionHistoryDetails {
    * <p>The budget action resource. </p>
    */
   Action: Action | undefined;
-}
-
-export namespace ActionHistoryDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionHistoryDetails): any => ({
-    ...obj,
-    ...(obj.Action && { Action: Action.filterSensitiveLog(obj.Action) }),
-  });
 }
 
 export enum EventType {
@@ -372,18 +297,6 @@ export interface ActionHistory {
    * <p>The description of the details for the event. </p>
    */
   ActionHistoryDetails: ActionHistoryDetails | undefined;
-}
-
-export namespace ActionHistory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionHistory): any => ({
-    ...obj,
-    ...(obj.ActionHistoryDetails && {
-      ActionHistoryDetails: ActionHistoryDetails.filterSensitiveLog(obj.ActionHistoryDetails),
-    }),
-  });
 }
 
 export enum AutoAdjustType {
@@ -422,15 +335,6 @@ export interface HistoricalOptions {
   LookBackAvailablePeriods?: number;
 }
 
-export namespace HistoricalOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HistoricalOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters that determine the budget amount for an auto-adjusting budget.</p>
  */
@@ -449,15 +353,6 @@ export interface AutoAdjustData {
    * <p>The last time that your budget was auto-adjusted.</p>
    */
   LastAutoAdjustTime?: Date;
-}
-
-export namespace AutoAdjustData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoAdjustData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -489,15 +384,6 @@ export interface Spend {
   Unit: string | undefined;
 }
 
-export namespace Spend {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Spend): any => ({
-    ...obj,
-  });
-}
-
 export enum BudgetType {
   Cost = "COST",
   RICoverage = "RI_COVERAGE",
@@ -527,15 +413,6 @@ export interface CalculatedSpend {
    * 			use.</p>
    */
   ForecastedSpend?: Spend;
-}
-
-export namespace CalculatedSpend {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculatedSpend): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -613,15 +490,6 @@ export interface CostTypes {
   UseAmortized?: boolean;
 }
 
-export namespace CostTypes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostTypes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The period of time that's covered by a budget. The period has a start date and an end date.
  * 			The start date must come before the end date. There are no restrictions on the end date. </p>
@@ -640,15 +508,6 @@ export interface TimePeriod {
    * 				<code>UpdateBudget</code> operation.</p>
    */
   End?: Date;
-}
-
-export namespace TimePeriod {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimePeriod): any => ({
-    ...obj,
-  });
 }
 
 export enum TimeUnit {
@@ -784,15 +643,6 @@ export interface Budget {
   AutoAdjustData?: AutoAdjustData;
 }
 
-export namespace Budget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Budget): any => ({
-    ...obj,
-  });
-}
-
 export enum ComparisonOperator {
   EQUAL_TO = "EQUAL_TO",
   GREATER_THAN = "GREATER_THAN",
@@ -858,15 +708,6 @@ export interface Notification {
   NotificationState?: NotificationState | string;
 }
 
-export namespace Notification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Notification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A notification with subscribers. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
  */
@@ -880,16 +721,6 @@ export interface NotificationWithSubscribers {
    * <p>A list of subscribers who are subscribed to this notification.</p>
    */
   Subscribers: Subscriber[] | undefined;
-}
-
-export namespace NotificationWithSubscribers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationWithSubscribers): any => ({
-    ...obj,
-    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -912,28 +743,10 @@ export interface CreateBudgetRequest {
   NotificationsWithSubscribers?: NotificationWithSubscribers[];
 }
 
-export namespace CreateBudgetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBudgetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Response of CreateBudget </p>
  */
 export interface CreateBudgetResponse {}
-
-export namespace CreateBudgetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBudgetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You've exceeded the notification or subscriber limit.</p>
@@ -1110,16 +923,6 @@ export interface CreateBudgetActionRequest {
   Subscribers: Subscriber[] | undefined;
 }
 
-export namespace CreateBudgetActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBudgetActionRequest): any => ({
-    ...obj,
-    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1137,15 +940,6 @@ export interface CreateBudgetActionResponse {
    *       </p>
    */
   ActionId: string | undefined;
-}
-
-export namespace CreateBudgetActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBudgetActionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1197,29 +991,10 @@ export interface CreateNotificationRequest {
   Subscribers: Subscriber[] | undefined;
 }
 
-export namespace CreateNotificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNotificationRequest): any => ({
-    ...obj,
-    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p> Response of CreateNotification </p>
  */
 export interface CreateNotificationResponse {}
-
-export namespace CreateNotificationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNotificationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> Request of CreateSubscriber </p>
@@ -1246,29 +1021,10 @@ export interface CreateSubscriberRequest {
   Subscriber: Subscriber | undefined;
 }
 
-export namespace CreateSubscriberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSubscriberRequest): any => ({
-    ...obj,
-    ...(obj.Subscriber && { Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber) }),
-  });
-}
-
 /**
  * <p> Response of CreateSubscriber </p>
  */
 export interface CreateSubscriberResponse {}
-
-export namespace CreateSubscriberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSubscriberResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> Request of DeleteBudget </p>
@@ -1285,28 +1041,10 @@ export interface DeleteBudgetRequest {
   BudgetName: string | undefined;
 }
 
-export namespace DeleteBudgetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBudgetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Response of DeleteBudget </p>
  */
 export interface DeleteBudgetResponse {}
-
-export namespace DeleteBudgetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBudgetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteBudgetActionRequest {
   /**
@@ -1327,15 +1065,6 @@ export interface DeleteBudgetActionRequest {
   ActionId: string | undefined;
 }
 
-export namespace DeleteBudgetActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBudgetActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1351,16 +1080,6 @@ export interface DeleteBudgetActionResponse {
    * <p>A budget action resource. </p>
    */
   Action: Action | undefined;
-}
-
-export namespace DeleteBudgetActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBudgetActionResponse): any => ({
-    ...obj,
-    ...(obj.Action && { Action: Action.filterSensitiveLog(obj.Action) }),
-  });
 }
 
 /**
@@ -1408,28 +1127,10 @@ export interface DeleteNotificationRequest {
   Notification: Notification | undefined;
 }
 
-export namespace DeleteNotificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNotificationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Response of DeleteNotification </p>
  */
 export interface DeleteNotificationResponse {}
-
-export namespace DeleteNotificationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNotificationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> Request of DeleteSubscriber </p>
@@ -1456,29 +1157,10 @@ export interface DeleteSubscriberRequest {
   Subscriber: Subscriber | undefined;
 }
 
-export namespace DeleteSubscriberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSubscriberRequest): any => ({
-    ...obj,
-    ...(obj.Subscriber && { Subscriber: Subscriber.filterSensitiveLog(obj.Subscriber) }),
-  });
-}
-
 /**
  * <p> Response of DeleteSubscriber </p>
  */
 export interface DeleteSubscriberResponse {}
-
-export namespace DeleteSubscriberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSubscriberResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> Request of DescribeBudget </p>
@@ -1495,15 +1177,6 @@ export interface DescribeBudgetRequest {
   BudgetName: string | undefined;
 }
 
-export namespace DescribeBudgetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Response of DescribeBudget </p>
  */
@@ -1512,15 +1185,6 @@ export interface DescribeBudgetResponse {
    * <p>The description of the budget.</p>
    */
   Budget?: Budget;
-}
-
-export namespace DescribeBudgetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBudgetActionRequest {
@@ -1542,15 +1206,6 @@ export interface DescribeBudgetActionRequest {
   ActionId: string | undefined;
 }
 
-export namespace DescribeBudgetActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -1568,16 +1223,6 @@ export interface DescribeBudgetActionResponse {
    *       </p>
    */
   Action: Action | undefined;
-}
-
-export namespace DescribeBudgetActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetActionResponse): any => ({
-    ...obj,
-    ...(obj.Action && { Action: Action.filterSensitiveLog(obj.Action) }),
-  });
 }
 
 export interface DescribeBudgetActionHistoriesRequest {
@@ -1615,15 +1260,6 @@ export interface DescribeBudgetActionHistoriesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeBudgetActionHistoriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetActionHistoriesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBudgetActionHistoriesResponse {
   /**
    * <p>
@@ -1636,15 +1272,6 @@ export interface DescribeBudgetActionHistoriesResponse {
    * <p> A generic string.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeBudgetActionHistoriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetActionHistoriesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1688,15 +1315,6 @@ export interface DescribeBudgetActionsForAccountRequest {
   NextToken?: string;
 }
 
-export namespace DescribeBudgetActionsForAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetActionsForAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBudgetActionsForAccountResponse {
   /**
    * <p>
@@ -1709,15 +1327,6 @@ export interface DescribeBudgetActionsForAccountResponse {
    * <p> A generic string.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeBudgetActionsForAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetActionsForAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBudgetActionsForBudgetRequest {
@@ -1742,15 +1351,6 @@ export interface DescribeBudgetActionsForBudgetRequest {
   NextToken?: string;
 }
 
-export namespace DescribeBudgetActionsForBudgetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetActionsForBudgetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBudgetActionsForBudgetResponse {
   /**
    * <p>
@@ -1763,15 +1363,6 @@ export interface DescribeBudgetActionsForBudgetResponse {
    * <p> A generic string.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeBudgetActionsForBudgetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetActionsForBudgetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBudgetNotificationsForAccountRequest {
@@ -1793,15 +1384,6 @@ export interface DescribeBudgetNotificationsForAccountRequest {
   NextToken?: string;
 }
 
-export namespace DescribeBudgetNotificationsForAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetNotificationsForAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *          The budget name and associated notifications for an account.
@@ -1819,15 +1401,6 @@ export interface BudgetNotificationsForAccount {
   BudgetName?: string;
 }
 
-export namespace BudgetNotificationsForAccount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BudgetNotificationsForAccount): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBudgetNotificationsForAccountResponse {
   /**
    * <p>
@@ -1840,15 +1413,6 @@ export interface DescribeBudgetNotificationsForAccountResponse {
    * <p> A generic string.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeBudgetNotificationsForAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetNotificationsForAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1902,15 +1466,6 @@ export interface DescribeBudgetPerformanceHistoryRequest {
   NextToken?: string;
 }
 
-export namespace DescribeBudgetPerformanceHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetPerformanceHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The amount of cost or usage that you created the budget for, compared to your actual costs or usage.</p>
  */
@@ -1929,15 +1484,6 @@ export interface BudgetedAndActualAmounts {
    * <p>The time period that's covered by this budget comparison.</p>
    */
   TimePeriod?: TimePeriod;
-}
-
-export namespace BudgetedAndActualAmounts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BudgetedAndActualAmounts): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1978,15 +1524,6 @@ export interface BudgetPerformanceHistory {
   BudgetedAndActualAmountsList?: BudgetedAndActualAmounts[];
 }
 
-export namespace BudgetPerformanceHistory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BudgetPerformanceHistory): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBudgetPerformanceHistoryResponse {
   /**
    * <p>The history of how often the budget has gone into an <code>ALARM</code> state.</p>
@@ -1998,15 +1535,6 @@ export interface DescribeBudgetPerformanceHistoryResponse {
    * <p> A generic string.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeBudgetPerformanceHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetPerformanceHistoryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2029,15 +1557,6 @@ export interface DescribeBudgetsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeBudgetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Response of DescribeBudgets </p>
  */
@@ -2051,15 +1570,6 @@ export interface DescribeBudgetsResponse {
    * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeBudgetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBudgetsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2087,15 +1597,6 @@ export interface DescribeNotificationsForBudgetRequest {
   NextToken?: string;
 }
 
-export namespace DescribeNotificationsForBudgetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotificationsForBudgetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Response of GetNotificationsForBudget </p>
  */
@@ -2109,15 +1610,6 @@ export interface DescribeNotificationsForBudgetResponse {
    * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeNotificationsForBudgetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotificationsForBudgetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2150,15 +1642,6 @@ export interface DescribeSubscribersForNotificationRequest {
   NextToken?: string;
 }
 
-export namespace DescribeSubscribersForNotificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSubscribersForNotificationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Response of DescribeSubscribersForNotification </p>
  */
@@ -2172,16 +1655,6 @@ export interface DescribeSubscribersForNotificationResponse {
    * <p>The pagination token in the service response that indicates the next set of results that you can retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeSubscribersForNotificationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSubscribersForNotificationResponse): any => ({
-    ...obj,
-    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
-  });
 }
 
 export enum ExecutionType {
@@ -2217,15 +1690,6 @@ export interface ExecuteBudgetActionRequest {
   ExecutionType: ExecutionType | string | undefined;
 }
 
-export namespace ExecuteBudgetActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteBudgetActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExecuteBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -2252,15 +1716,6 @@ export interface ExecuteBudgetActionResponse {
   ExecutionType: ExecutionType | string | undefined;
 }
 
-export namespace ExecuteBudgetActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteBudgetActionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Request of UpdateBudget </p>
  */
@@ -2276,28 +1731,10 @@ export interface UpdateBudgetRequest {
   NewBudget: Budget | undefined;
 }
 
-export namespace UpdateBudgetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBudgetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Response of UpdateBudget </p>
  */
 export interface UpdateBudgetResponse {}
-
-export namespace UpdateBudgetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBudgetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateBudgetActionRequest {
   /**
@@ -2352,16 +1789,6 @@ export interface UpdateBudgetActionRequest {
   Subscribers?: Subscriber[];
 }
 
-export namespace UpdateBudgetActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBudgetActionRequest): any => ({
-    ...obj,
-    ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => Subscriber.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface UpdateBudgetActionResponse {
   /**
    * <p>The account ID of the user. It's a 12-digit number.</p>
@@ -2386,17 +1813,6 @@ export interface UpdateBudgetActionResponse {
    *       </p>
    */
   NewAction: Action | undefined;
-}
-
-export namespace UpdateBudgetActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBudgetActionResponse): any => ({
-    ...obj,
-    ...(obj.OldAction && { OldAction: Action.filterSensitiveLog(obj.OldAction) }),
-    ...(obj.NewAction && { NewAction: Action.filterSensitiveLog(obj.NewAction) }),
-  });
 }
 
 /**
@@ -2424,28 +1840,10 @@ export interface UpdateNotificationRequest {
   NewNotification: Notification | undefined;
 }
 
-export namespace UpdateNotificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotificationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Response of UpdateNotification </p>
  */
 export interface UpdateNotificationResponse {}
-
-export namespace UpdateNotificationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotificationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> Request of UpdateSubscriber </p>
@@ -2477,27 +1875,523 @@ export interface UpdateSubscriberRequest {
   NewSubscriber: Subscriber | undefined;
 }
 
-export namespace UpdateSubscriberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSubscriberRequest): any => ({
-    ...obj,
-    ...(obj.OldSubscriber && { OldSubscriber: Subscriber.filterSensitiveLog(obj.OldSubscriber) }),
-    ...(obj.NewSubscriber && { NewSubscriber: Subscriber.filterSensitiveLog(obj.NewSubscriber) }),
-  });
-}
-
 /**
  * <p> Response of UpdateSubscriber </p>
  */
 export interface UpdateSubscriberResponse {}
 
-export namespace UpdateSubscriberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSubscriberResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ActionThresholdFilterSensitiveLog = (obj: ActionThreshold): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IamActionDefinitionFilterSensitiveLog = (obj: IamActionDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScpActionDefinitionFilterSensitiveLog = (obj: ScpActionDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SsmActionDefinitionFilterSensitiveLog = (obj: SsmActionDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefinitionFilterSensitiveLog = (obj: Definition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscriberFilterSensitiveLog = (obj: Subscriber): any => ({
+  ...obj,
+  ...(obj.Address && { Address: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+  ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => SubscriberFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ActionHistoryDetailsFilterSensitiveLog = (obj: ActionHistoryDetails): any => ({
+  ...obj,
+  ...(obj.Action && { Action: ActionFilterSensitiveLog(obj.Action) }),
+});
+
+/**
+ * @internal
+ */
+export const ActionHistoryFilterSensitiveLog = (obj: ActionHistory): any => ({
+  ...obj,
+  ...(obj.ActionHistoryDetails && {
+    ActionHistoryDetails: ActionHistoryDetailsFilterSensitiveLog(obj.ActionHistoryDetails),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const HistoricalOptionsFilterSensitiveLog = (obj: HistoricalOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoAdjustDataFilterSensitiveLog = (obj: AutoAdjustData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpendFilterSensitiveLog = (obj: Spend): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculatedSpendFilterSensitiveLog = (obj: CalculatedSpend): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostTypesFilterSensitiveLog = (obj: CostTypes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimePeriodFilterSensitiveLog = (obj: TimePeriod): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BudgetFilterSensitiveLog = (obj: Budget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationFilterSensitiveLog = (obj: Notification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationWithSubscribersFilterSensitiveLog = (obj: NotificationWithSubscribers): any => ({
+  ...obj,
+  ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => SubscriberFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBudgetRequestFilterSensitiveLog = (obj: CreateBudgetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBudgetResponseFilterSensitiveLog = (obj: CreateBudgetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBudgetActionRequestFilterSensitiveLog = (obj: CreateBudgetActionRequest): any => ({
+  ...obj,
+  ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => SubscriberFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBudgetActionResponseFilterSensitiveLog = (obj: CreateBudgetActionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNotificationRequestFilterSensitiveLog = (obj: CreateNotificationRequest): any => ({
+  ...obj,
+  ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => SubscriberFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateNotificationResponseFilterSensitiveLog = (obj: CreateNotificationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSubscriberRequestFilterSensitiveLog = (obj: CreateSubscriberRequest): any => ({
+  ...obj,
+  ...(obj.Subscriber && { Subscriber: SubscriberFilterSensitiveLog(obj.Subscriber) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSubscriberResponseFilterSensitiveLog = (obj: CreateSubscriberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBudgetRequestFilterSensitiveLog = (obj: DeleteBudgetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBudgetResponseFilterSensitiveLog = (obj: DeleteBudgetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBudgetActionRequestFilterSensitiveLog = (obj: DeleteBudgetActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBudgetActionResponseFilterSensitiveLog = (obj: DeleteBudgetActionResponse): any => ({
+  ...obj,
+  ...(obj.Action && { Action: ActionFilterSensitiveLog(obj.Action) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteNotificationRequestFilterSensitiveLog = (obj: DeleteNotificationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNotificationResponseFilterSensitiveLog = (obj: DeleteNotificationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSubscriberRequestFilterSensitiveLog = (obj: DeleteSubscriberRequest): any => ({
+  ...obj,
+  ...(obj.Subscriber && { Subscriber: SubscriberFilterSensitiveLog(obj.Subscriber) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteSubscriberResponseFilterSensitiveLog = (obj: DeleteSubscriberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetRequestFilterSensitiveLog = (obj: DescribeBudgetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetResponseFilterSensitiveLog = (obj: DescribeBudgetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetActionRequestFilterSensitiveLog = (obj: DescribeBudgetActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetActionResponseFilterSensitiveLog = (obj: DescribeBudgetActionResponse): any => ({
+  ...obj,
+  ...(obj.Action && { Action: ActionFilterSensitiveLog(obj.Action) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetActionHistoriesRequestFilterSensitiveLog = (
+  obj: DescribeBudgetActionHistoriesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetActionHistoriesResponseFilterSensitiveLog = (
+  obj: DescribeBudgetActionHistoriesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetActionsForAccountRequestFilterSensitiveLog = (
+  obj: DescribeBudgetActionsForAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetActionsForAccountResponseFilterSensitiveLog = (
+  obj: DescribeBudgetActionsForAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetActionsForBudgetRequestFilterSensitiveLog = (
+  obj: DescribeBudgetActionsForBudgetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetActionsForBudgetResponseFilterSensitiveLog = (
+  obj: DescribeBudgetActionsForBudgetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetNotificationsForAccountRequestFilterSensitiveLog = (
+  obj: DescribeBudgetNotificationsForAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BudgetNotificationsForAccountFilterSensitiveLog = (obj: BudgetNotificationsForAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetNotificationsForAccountResponseFilterSensitiveLog = (
+  obj: DescribeBudgetNotificationsForAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetPerformanceHistoryRequestFilterSensitiveLog = (
+  obj: DescribeBudgetPerformanceHistoryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BudgetedAndActualAmountsFilterSensitiveLog = (obj: BudgetedAndActualAmounts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BudgetPerformanceHistoryFilterSensitiveLog = (obj: BudgetPerformanceHistory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetPerformanceHistoryResponseFilterSensitiveLog = (
+  obj: DescribeBudgetPerformanceHistoryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetsRequestFilterSensitiveLog = (obj: DescribeBudgetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBudgetsResponseFilterSensitiveLog = (obj: DescribeBudgetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNotificationsForBudgetRequestFilterSensitiveLog = (
+  obj: DescribeNotificationsForBudgetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNotificationsForBudgetResponseFilterSensitiveLog = (
+  obj: DescribeNotificationsForBudgetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSubscribersForNotificationRequestFilterSensitiveLog = (
+  obj: DescribeSubscribersForNotificationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSubscribersForNotificationResponseFilterSensitiveLog = (
+  obj: DescribeSubscribersForNotificationResponse
+): any => ({
+  ...obj,
+  ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => SubscriberFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ExecuteBudgetActionRequestFilterSensitiveLog = (obj: ExecuteBudgetActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteBudgetActionResponseFilterSensitiveLog = (obj: ExecuteBudgetActionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBudgetRequestFilterSensitiveLog = (obj: UpdateBudgetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBudgetResponseFilterSensitiveLog = (obj: UpdateBudgetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBudgetActionRequestFilterSensitiveLog = (obj: UpdateBudgetActionRequest): any => ({
+  ...obj,
+  ...(obj.Subscribers && { Subscribers: obj.Subscribers.map((item) => SubscriberFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateBudgetActionResponseFilterSensitiveLog = (obj: UpdateBudgetActionResponse): any => ({
+  ...obj,
+  ...(obj.OldAction && { OldAction: ActionFilterSensitiveLog(obj.OldAction) }),
+  ...(obj.NewAction && { NewAction: ActionFilterSensitiveLog(obj.NewAction) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotificationRequestFilterSensitiveLog = (obj: UpdateNotificationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotificationResponseFilterSensitiveLog = (obj: UpdateNotificationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSubscriberRequestFilterSensitiveLog = (obj: UpdateSubscriberRequest): any => ({
+  ...obj,
+  ...(obj.OldSubscriber && { OldSubscriber: SubscriberFilterSensitiveLog(obj.OldSubscriber) }),
+  ...(obj.NewSubscriber && { NewSubscriber: SubscriberFilterSensitiveLog(obj.NewSubscriber) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSubscriberResponseFilterSensitiveLog = (obj: UpdateSubscriberResponse): any => ({
+  ...obj,
+});

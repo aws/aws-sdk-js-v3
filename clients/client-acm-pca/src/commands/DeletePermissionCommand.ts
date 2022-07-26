@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { DeletePermissionRequest } from "../models/models_0";
+import { DeletePermissionRequest, DeletePermissionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePermissionCommand,
   serializeAws_json1_1DeletePermissionCommand,
@@ -100,7 +100,7 @@ export class DeletePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePermissionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePermissionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

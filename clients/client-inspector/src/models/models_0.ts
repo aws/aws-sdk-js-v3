@@ -61,15 +61,6 @@ export interface Attribute {
   value?: string;
 }
 
-export namespace Attribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attribute): any => ({
-    ...obj,
-  });
-}
-
 export interface AddAttributesToFindingsRequest {
   /**
    * <p>The ARNs that specify the findings that you want to assign attributes to.</p>
@@ -80,15 +71,6 @@ export interface AddAttributesToFindingsRequest {
    * <p>The array of attributes that you want to assign to specified findings.</p>
    */
   attributes: Attribute[] | undefined;
-}
-
-export namespace AddAttributesToFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddAttributesToFindingsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FailedItemErrorCode {
@@ -116,30 +98,12 @@ export interface FailedItemDetails {
   retryable: boolean | undefined;
 }
 
-export namespace FailedItemDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedItemDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface AddAttributesToFindingsResponse {
   /**
    * <p>Attribute details that cannot be described. An error code is provided for each failed
    *          item.</p>
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
-}
-
-export namespace AddAttributesToFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddAttributesToFindingsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -342,15 +306,6 @@ export interface AgentAlreadyRunningAssessment {
   assessmentRunArn: string | undefined;
 }
 
-export namespace AgentAlreadyRunningAssessment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentAlreadyRunningAssessment): any => ({
-    ...obj,
-  });
-}
-
 export enum AgentHealthCode {
   IDLE = "IDLE",
   RUNNING = "RUNNING",
@@ -380,15 +335,6 @@ export interface AgentFilter {
    * <p>The detailed health state of the agent. Values can be set to <b>IDLE</b>, <b>RUNNING</b>, <b>SHUTDOWN</b>, <b>UNHEALTHY</b>, <b>THROTTLED</b>, and <b>UNKNOWN</b>. </p>
    */
   agentHealthCodes: (AgentHealthCode | string)[] | undefined;
-}
-
-export namespace AgentFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -438,15 +384,6 @@ export interface AgentPreview {
    *          installed.</p>
    */
   ipv4Address?: string;
-}
-
-export namespace AgentPreview {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentPreview): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -547,15 +484,6 @@ export interface AssessmentRunNotification {
   snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode | string;
 }
 
-export namespace AssessmentRunNotification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentRunNotification): any => ({
-    ...obj,
-  });
-}
-
 export enum AssessmentRunState {
   CANCELED = "CANCELED",
   COLLECTING_DATA = "COLLECTING_DATA",
@@ -586,15 +514,6 @@ export interface AssessmentRunStateChange {
    * <p>The assessment run state.</p>
    */
   state: AssessmentRunState | string | undefined;
-}
-
-export namespace AssessmentRunStateChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentRunStateChange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -684,15 +603,6 @@ export interface AssessmentRun {
   findingCounts: Record<string, number> | undefined;
 }
 
-export namespace AssessmentRun {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentRun): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The metadata about the Amazon Inspector application data metrics collected by the
  *          agent. This data type is used as the response element in the <a>GetTelemetryMetadata</a> action.</p>
@@ -713,15 +623,6 @@ export interface TelemetryMetadata {
    *          service.</p>
    */
   dataSize?: number;
-}
-
-export namespace TelemetryMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TelemetryMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -767,15 +668,6 @@ export interface AssessmentRunAgent {
   telemetryMetadata: TelemetryMetadata[] | undefined;
 }
 
-export namespace AssessmentRunAgent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentRunAgent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type is used in the <a>AssessmentRunFilter</a> data
  *          type.</p>
@@ -790,15 +682,6 @@ export interface TimestampRange {
    * <p>The maximum value of the timestamp range.</p>
    */
   endDate?: Date;
-}
-
-export namespace TimestampRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestampRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -816,15 +699,6 @@ export interface DurationRange {
    *          (1 week).</p>
    */
   maxSeconds?: number;
-}
-
-export namespace DurationRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DurationRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -880,15 +754,6 @@ export interface AssessmentRunFilter {
    *             <a>AssessmentRun</a> data type.</p>
    */
   stateChangeTimeRange?: TimestampRange;
-}
-
-export namespace AssessmentRunFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentRunFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -962,15 +827,6 @@ export interface AssessmentTarget {
   updatedAt: Date | undefined;
 }
 
-export namespace AssessmentTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used as the request parameter in the <a>ListAssessmentTargets</a>
  *          action.</p>
@@ -982,15 +838,6 @@ export interface AssessmentTargetFilter {
    *             <b>assessmentTargetName</b> property of the <a>AssessmentTarget</a> data type.</p>
    */
   assessmentTargetNamePattern?: string;
-}
-
-export namespace AssessmentTargetFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentTargetFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1051,15 +898,6 @@ export interface AssessmentTemplate {
   createdAt: Date | undefined;
 }
 
-export namespace AssessmentTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentTemplate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used as the request parameter in the <a>ListAssessmentTemplates</a>
  *          action.</p>
@@ -1087,15 +925,6 @@ export interface AssessmentTemplateFilter {
   rulesPackageArns?: string[];
 }
 
-export namespace AssessmentTemplateFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentTemplateFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a private IP address associated with a network interface. This
  *          data type is used as a response element in the <a>DescribeFindings</a>
@@ -1113,15 +942,6 @@ export interface PrivateIp {
   privateIpAddress?: string;
 }
 
-export namespace PrivateIp {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateIp): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a security group associated with a network interface. This
  *          data type is used as one of the elements of the <a>NetworkInterface</a> data
@@ -1137,15 +957,6 @@ export interface SecurityGroup {
    * <p>The ID of the security group.</p>
    */
   groupId?: string;
-}
-
-export namespace SecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1207,15 +1018,6 @@ export interface NetworkInterface {
   securityGroups?: SecurityGroup[];
 }
 
-export namespace NetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key and value pair. This data type is used as a request parameter in the <a>SetTagsForResource</a> action and a response element in the <a>ListTagsForResource</a> action.</p>
  */
@@ -1229,15 +1031,6 @@ export interface Tag {
    * <p>A value assigned to a tag key.</p>
    */
   value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1289,15 +1082,6 @@ export interface AssetAttributes {
   networkInterfaces?: NetworkInterface[];
 }
 
-export namespace AssetAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetAttributes): any => ({
-    ...obj,
-  });
-}
-
 export enum AssetType {
   EC2_INSTANCE = "ec2-instance",
 }
@@ -1317,29 +1101,11 @@ export interface CreateAssessmentTargetRequest {
   resourceGroupArn?: string;
 }
 
-export namespace CreateAssessmentTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentTargetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAssessmentTargetResponse {
   /**
    * <p>The ARN that specifies the assessment target that is created.</p>
    */
   assessmentTargetArn: string | undefined;
-}
-
-export namespace CreateAssessmentTargetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentTargetResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum InvalidCrossAccountRoleErrorCode {
@@ -1454,29 +1220,11 @@ export interface CreateAssessmentTemplateRequest {
   userAttributesForFindings?: Attribute[];
 }
 
-export namespace CreateAssessmentTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAssessmentTemplateResponse {
   /**
    * <p>The ARN that specifies the assessment template that is created.</p>
    */
   assessmentTemplateArn: string | undefined;
-}
-
-export namespace CreateAssessmentTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateExclusionsPreviewRequest {
@@ -1487,15 +1235,6 @@ export interface CreateExclusionsPreviewRequest {
   assessmentTemplateArn: string | undefined;
 }
 
-export namespace CreateExclusionsPreviewRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExclusionsPreviewRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateExclusionsPreviewResponse {
   /**
    * <p>Specifies the unique identifier of the requested exclusions preview. You can use the
@@ -1503,15 +1242,6 @@ export interface CreateExclusionsPreviewResponse {
    *          API.</p>
    */
   previewToken: string | undefined;
-}
-
-export namespace CreateExclusionsPreviewResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExclusionsPreviewResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1550,15 +1280,6 @@ export interface ResourceGroupTag {
   value?: string;
 }
 
-export namespace ResourceGroupTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceGroupTag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourceGroupRequest {
   /**
    * <p>A collection of keys and an array of possible values,
@@ -1568,29 +1289,11 @@ export interface CreateResourceGroupRequest {
   resourceGroupTags: ResourceGroupTag[] | undefined;
 }
 
-export namespace CreateResourceGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourceGroupResponse {
   /**
    * <p>The ARN that specifies the resource group that is created.</p>
    */
   resourceGroupArn: string | undefined;
-}
-
-export namespace CreateResourceGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAssessmentRunRequest {
@@ -1600,29 +1303,11 @@ export interface DeleteAssessmentRunRequest {
   assessmentRunArn: string | undefined;
 }
 
-export namespace DeleteAssessmentRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentRunRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAssessmentTargetRequest {
   /**
    * <p>The ARN that specifies the assessment target that you want to delete.</p>
    */
   assessmentTargetArn: string | undefined;
-}
-
-export namespace DeleteAssessmentTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentTargetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAssessmentTemplateRequest {
@@ -1632,29 +1317,11 @@ export interface DeleteAssessmentTemplateRequest {
   assessmentTemplateArn: string | undefined;
 }
 
-export namespace DeleteAssessmentTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAssessmentRunsRequest {
   /**
    * <p>The ARN that specifies the assessment run that you want to describe.</p>
    */
   assessmentRunArns: string[] | undefined;
-}
-
-export namespace DescribeAssessmentRunsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAssessmentRunsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAssessmentRunsResponse {
@@ -1670,29 +1337,11 @@ export interface DescribeAssessmentRunsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
-export namespace DescribeAssessmentRunsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAssessmentRunsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAssessmentTargetsRequest {
   /**
    * <p>The ARNs that specifies the assessment targets that you want to describe.</p>
    */
   assessmentTargetArns: string[] | undefined;
-}
-
-export namespace DescribeAssessmentTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAssessmentTargetsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAssessmentTargetsResponse {
@@ -1708,26 +1357,8 @@ export interface DescribeAssessmentTargetsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
-export namespace DescribeAssessmentTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAssessmentTargetsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAssessmentTemplatesRequest {
   assessmentTemplateArns: string[] | undefined;
-}
-
-export namespace DescribeAssessmentTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAssessmentTemplatesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAssessmentTemplatesResponse {
@@ -1741,15 +1372,6 @@ export interface DescribeAssessmentTemplatesResponse {
    *          each failed item.</p>
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
-}
-
-export namespace DescribeAssessmentTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAssessmentTemplatesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCrossAccountAccessRoleResponse {
@@ -1771,15 +1393,6 @@ export interface DescribeCrossAccountAccessRoleResponse {
   registeredAt: Date | undefined;
 }
 
-export namespace DescribeCrossAccountAccessRoleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCrossAccountAccessRoleResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum Locale {
   EN_US = "EN_US",
 }
@@ -1795,15 +1408,6 @@ export interface DescribeExclusionsRequest {
    *          recommendation.</p>
    */
   locale?: Locale | string;
-}
-
-export namespace DescribeExclusionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExclusionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ScopeType {
@@ -1825,15 +1429,6 @@ export interface Scope {
    * <p>The resource identifier for the specified scope type.</p>
    */
   value?: string;
-}
-
-export namespace Scope {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scope): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1871,15 +1466,6 @@ export interface Exclusion {
   attributes?: Attribute[];
 }
 
-export namespace Exclusion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Exclusion): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeExclusionsResponse {
   /**
    * <p>Information about the exclusions.</p>
@@ -1893,15 +1479,6 @@ export interface DescribeExclusionsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
-export namespace DescribeExclusionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExclusionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFindingsRequest {
   /**
    * <p>The ARN that specifies the finding that you want to describe.</p>
@@ -1913,15 +1490,6 @@ export interface DescribeFindingsRequest {
    *          and the short description that identifies the finding.</p>
    */
   locale?: Locale | string;
-}
-
-export namespace DescribeFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFindingsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1942,15 +1510,6 @@ export interface InspectorServiceAttributes {
    * <p>The ARN of the rules package that is used to generate the finding.</p>
    */
   rulesPackageArn?: string;
-}
-
-export namespace InspectorServiceAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InspectorServiceAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2050,15 +1609,6 @@ export interface Finding {
   updatedAt: Date | undefined;
 }
 
-export namespace Finding {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Finding): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFindingsResponse {
   /**
    * <p>Information about the finding.</p>
@@ -2072,29 +1622,11 @@ export interface DescribeFindingsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
-export namespace DescribeFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFindingsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResourceGroupsRequest {
   /**
    * <p>The ARN that specifies the resource group that you want to describe.</p>
    */
   resourceGroupArns: string[] | undefined;
-}
-
-export namespace DescribeResourceGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceGroupsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2121,15 +1653,6 @@ export interface ResourceGroup {
   createdAt: Date | undefined;
 }
 
-export namespace ResourceGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResourceGroupsResponse {
   /**
    * <p>Information about a resource group.</p>
@@ -2143,15 +1666,6 @@ export interface DescribeResourceGroupsResponse {
   failedItems: Record<string, FailedItemDetails> | undefined;
 }
 
-export namespace DescribeResourceGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRulesPackagesRequest {
   /**
    * <p>The ARN that specifies the rules package that you want to describe.</p>
@@ -2162,15 +1676,6 @@ export interface DescribeRulesPackagesRequest {
    * <p>The locale that you want to translate a rules package description into.</p>
    */
   locale?: Locale | string;
-}
-
-export namespace DescribeRulesPackagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRulesPackagesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2204,15 +1709,6 @@ export interface RulesPackage {
   description?: string;
 }
 
-export namespace RulesPackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RulesPackage): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRulesPackagesResponse {
   /**
    * <p>Information about the rules package.</p>
@@ -2224,15 +1720,6 @@ export interface DescribeRulesPackagesResponse {
    *          failed item.</p>
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
-}
-
-export namespace DescribeRulesPackagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRulesPackagesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2249,15 +1736,6 @@ export interface EventSubscription {
    * <p>The time at which <a>SubscribeToEvent</a> is called.</p>
    */
   subscribedAt: Date | undefined;
-}
-
-export namespace EventSubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSubscription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2289,15 +1767,6 @@ export interface ExclusionPreview {
    * <p>The system-defined attributes for the exclusion preview.</p>
    */
   attributes?: Attribute[];
-}
-
-export namespace ExclusionPreview {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExclusionPreview): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2356,15 +1825,6 @@ export interface FindingFilter {
   creationTimeRange?: TimestampRange;
 }
 
-export namespace FindingFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FindingFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum ReportFileFormat {
   HTML = "HTML",
   PDF = "PDF",
@@ -2396,15 +1856,6 @@ export interface GetAssessmentReportRequest {
   reportType: ReportType | string | undefined;
 }
 
-export namespace GetAssessmentReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssessmentReportRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ReportStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -2422,15 +1873,6 @@ export interface GetAssessmentReportResponse {
    *          is only returned if the report is successfully generated.</p>
    */
   url?: string;
-}
-
-export namespace GetAssessmentReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssessmentReportResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2491,15 +1933,6 @@ export interface GetExclusionsPreviewRequest {
   locale?: Locale | string;
 }
 
-export namespace GetExclusionsPreviewRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExclusionsPreviewRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum PreviewStatus {
   COMPLETED = "COMPLETED",
   WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
@@ -2525,15 +1958,6 @@ export interface GetExclusionsPreviewResponse {
   nextToken?: string;
 }
 
-export namespace GetExclusionsPreviewResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExclusionsPreviewResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTelemetryMetadataRequest {
   /**
    * <p>The ARN that specifies the assessment run that has the telemetry data that you want
@@ -2542,29 +1966,11 @@ export interface GetTelemetryMetadataRequest {
   assessmentRunArn: string | undefined;
 }
 
-export namespace GetTelemetryMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTelemetryMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTelemetryMetadataResponse {
   /**
    * <p>Telemetry details.</p>
    */
   telemetryMetadata: TelemetryMetadata[] | undefined;
-}
-
-export namespace GetTelemetryMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTelemetryMetadataResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssessmentRunAgentsRequest {
@@ -2598,15 +2004,6 @@ export interface ListAssessmentRunAgentsRequest {
   maxResults?: number;
 }
 
-export namespace ListAssessmentRunAgentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentRunAgentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssessmentRunAgentsResponse {
   /**
    * <p>A list of ARNs that specifies the agents returned by the action.</p>
@@ -2619,15 +2016,6 @@ export interface ListAssessmentRunAgentsResponse {
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssessmentRunAgentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentRunAgentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssessmentRunsRequest {
@@ -2662,15 +2050,6 @@ export interface ListAssessmentRunsRequest {
   maxResults?: number;
 }
 
-export namespace ListAssessmentRunsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentRunsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssessmentRunsResponse {
   /**
    * <p>A list of ARNs that specifies the assessment runs that are returned by the
@@ -2684,15 +2063,6 @@ export interface ListAssessmentRunsResponse {
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssessmentRunsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentRunsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssessmentTargetsRequest {
@@ -2721,15 +2091,6 @@ export interface ListAssessmentTargetsRequest {
   maxResults?: number;
 }
 
-export namespace ListAssessmentTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentTargetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssessmentTargetsResponse {
   /**
    * <p>A list of ARNs that specifies the assessment targets that are returned by the
@@ -2743,15 +2104,6 @@ export interface ListAssessmentTargetsResponse {
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssessmentTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentTargetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssessmentTemplatesRequest {
@@ -2786,15 +2138,6 @@ export interface ListAssessmentTemplatesRequest {
   maxResults?: number;
 }
 
-export namespace ListAssessmentTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssessmentTemplatesResponse {
   /**
    * <p>A list of ARNs that specifies the assessment templates returned by the
@@ -2808,15 +2151,6 @@ export interface ListAssessmentTemplatesResponse {
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssessmentTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentTemplatesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEventSubscriptionsRequest {
@@ -2842,15 +2176,6 @@ export interface ListEventSubscriptionsRequest {
   maxResults?: number;
 }
 
-export namespace ListEventSubscriptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventSubscriptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type is used as a response element in the <a>ListEventSubscriptions</a> action.</p>
  */
@@ -2873,15 +2198,6 @@ export interface Subscription {
   eventSubscriptions: EventSubscription[] | undefined;
 }
 
-export namespace Subscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subscription): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventSubscriptionsResponse {
   /**
    * <p>Details of the returned event subscriptions.</p>
@@ -2894,15 +2210,6 @@ export interface ListEventSubscriptionsResponse {
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListEventSubscriptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventSubscriptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExclusionsRequest {
@@ -2927,15 +2234,6 @@ export interface ListExclusionsRequest {
   maxResults?: number;
 }
 
-export namespace ListExclusionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExclusionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExclusionsResponse {
   /**
    * <p>A list of exclusions' ARNs returned by the action.</p>
@@ -2949,15 +2247,6 @@ export interface ListExclusionsResponse {
    *          to null.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListExclusionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExclusionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFindingsRequest {
@@ -2992,15 +2281,6 @@ export interface ListFindingsRequest {
   maxResults?: number;
 }
 
-export namespace ListFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFindingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFindingsResponse {
   /**
    * <p>A list of ARNs that specifies the findings returned by the action.</p>
@@ -3013,15 +2293,6 @@ export interface ListFindingsResponse {
    *          data to be listed, this parameter is set to null.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFindingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRulesPackagesRequest {
@@ -3041,15 +2312,6 @@ export interface ListRulesPackagesRequest {
   maxResults?: number;
 }
 
-export namespace ListRulesPackagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesPackagesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRulesPackagesResponse {
   /**
    * <p>The list of ARNs that specifies the rules packages returned by the action.</p>
@@ -3064,15 +2326,6 @@ export interface ListRulesPackagesResponse {
   nextToken?: string;
 }
 
-export namespace ListRulesPackagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesPackagesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN that specifies the assessment template whose tags you want to list.</p>
@@ -3080,29 +2333,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A collection of key and value pairs.</p>
    */
   tags: Tag[] | undefined;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PreviewAgentsRequest {
@@ -3127,15 +2362,6 @@ export interface PreviewAgentsRequest {
   maxResults?: number;
 }
 
-export namespace PreviewAgentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreviewAgentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PreviewAgentsResponse {
   /**
    * <p>The resulting list of agents.</p>
@@ -3150,30 +2376,12 @@ export interface PreviewAgentsResponse {
   nextToken?: string;
 }
 
-export namespace PreviewAgentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreviewAgentsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterCrossAccountAccessRoleRequest {
   /**
    * <p>The ARN of the IAM role that grants Amazon Inspector access to AWS Services needed to
    *          perform security assessments. </p>
    */
   roleArn: string | undefined;
-}
-
-export namespace RegisterCrossAccountAccessRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterCrossAccountAccessRoleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveAttributesFromFindingsRequest {
@@ -3189,30 +2397,12 @@ export interface RemoveAttributesFromFindingsRequest {
   attributeKeys: string[] | undefined;
 }
 
-export namespace RemoveAttributesFromFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveAttributesFromFindingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveAttributesFromFindingsResponse {
   /**
    * <p>Attributes details that cannot be described. An error code is provided for each
    *          failed item.</p>
    */
   failedItems: Record<string, FailedItemDetails> | undefined;
-}
-
-export namespace RemoveAttributesFromFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveAttributesFromFindingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SetTagsForResourceRequest {
@@ -3226,15 +2416,6 @@ export interface SetTagsForResourceRequest {
    *          template.</p>
    */
   tags?: Tag[];
-}
-
-export namespace SetTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartAssessmentRunRequest {
@@ -3251,29 +2432,11 @@ export interface StartAssessmentRunRequest {
   assessmentRunName?: string;
 }
 
-export namespace StartAssessmentRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAssessmentRunRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartAssessmentRunResponse {
   /**
    * <p>The ARN of the assessment run that has been started.</p>
    */
   assessmentRunArn: string | undefined;
-}
-
-export namespace StartAssessmentRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAssessmentRunResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum StopAction {
@@ -3296,15 +2459,6 @@ export interface StopAssessmentRunRequest {
   stopAction?: StopAction | string;
 }
 
-export namespace StopAssessmentRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAssessmentRunRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SubscribeToEventRequest {
   /**
    * <p>The ARN of the assessment template that is used during the event for which you want
@@ -3321,15 +2475,6 @@ export interface SubscribeToEventRequest {
    * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>
    */
   topicArn: string | undefined;
-}
-
-export namespace SubscribeToEventRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscribeToEventRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UnsubscribeFromEventRequest {
@@ -3350,15 +2495,6 @@ export interface UnsubscribeFromEventRequest {
   topicArn: string | undefined;
 }
 
-export namespace UnsubscribeFromEventRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsubscribeFromEventRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAssessmentTargetRequest {
   /**
    * <p>The ARN of the assessment target that you want to update.</p>
@@ -3377,11 +2513,691 @@ export interface UpdateAssessmentTargetRequest {
   resourceGroupArn?: string;
 }
 
-export namespace UpdateAssessmentTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentTargetRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AttributeFilterSensitiveLog = (obj: Attribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddAttributesToFindingsRequestFilterSensitiveLog = (obj: AddAttributesToFindingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedItemDetailsFilterSensitiveLog = (obj: FailedItemDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddAttributesToFindingsResponseFilterSensitiveLog = (obj: AddAttributesToFindingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentAlreadyRunningAssessmentFilterSensitiveLog = (obj: AgentAlreadyRunningAssessment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentFilterFilterSensitiveLog = (obj: AgentFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentPreviewFilterSensitiveLog = (obj: AgentPreview): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentRunNotificationFilterSensitiveLog = (obj: AssessmentRunNotification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentRunStateChangeFilterSensitiveLog = (obj: AssessmentRunStateChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentRunFilterSensitiveLog = (obj: AssessmentRun): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TelemetryMetadataFilterSensitiveLog = (obj: TelemetryMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentRunAgentFilterSensitiveLog = (obj: AssessmentRunAgent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestampRangeFilterSensitiveLog = (obj: TimestampRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DurationRangeFilterSensitiveLog = (obj: DurationRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentRunFilterFilterSensitiveLog = (obj: AssessmentRunFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentTargetFilterSensitiveLog = (obj: AssessmentTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentTargetFilterFilterSensitiveLog = (obj: AssessmentTargetFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentTemplateFilterSensitiveLog = (obj: AssessmentTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentTemplateFilterFilterSensitiveLog = (obj: AssessmentTemplateFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrivateIpFilterSensitiveLog = (obj: PrivateIp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityGroupFilterSensitiveLog = (obj: SecurityGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssetAttributesFilterSensitiveLog = (obj: AssetAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentTargetRequestFilterSensitiveLog = (obj: CreateAssessmentTargetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentTargetResponseFilterSensitiveLog = (obj: CreateAssessmentTargetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentTemplateRequestFilterSensitiveLog = (obj: CreateAssessmentTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentTemplateResponseFilterSensitiveLog = (obj: CreateAssessmentTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExclusionsPreviewRequestFilterSensitiveLog = (obj: CreateExclusionsPreviewRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExclusionsPreviewResponseFilterSensitiveLog = (obj: CreateExclusionsPreviewResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceGroupTagFilterSensitiveLog = (obj: ResourceGroupTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceGroupRequestFilterSensitiveLog = (obj: CreateResourceGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceGroupResponseFilterSensitiveLog = (obj: CreateResourceGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentRunRequestFilterSensitiveLog = (obj: DeleteAssessmentRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentTargetRequestFilterSensitiveLog = (obj: DeleteAssessmentTargetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentTemplateRequestFilterSensitiveLog = (obj: DeleteAssessmentTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAssessmentRunsRequestFilterSensitiveLog = (obj: DescribeAssessmentRunsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAssessmentRunsResponseFilterSensitiveLog = (obj: DescribeAssessmentRunsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAssessmentTargetsRequestFilterSensitiveLog = (obj: DescribeAssessmentTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAssessmentTargetsResponseFilterSensitiveLog = (obj: DescribeAssessmentTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAssessmentTemplatesRequestFilterSensitiveLog = (obj: DescribeAssessmentTemplatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAssessmentTemplatesResponseFilterSensitiveLog = (
+  obj: DescribeAssessmentTemplatesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCrossAccountAccessRoleResponseFilterSensitiveLog = (
+  obj: DescribeCrossAccountAccessRoleResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExclusionsRequestFilterSensitiveLog = (obj: DescribeExclusionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScopeFilterSensitiveLog = (obj: Scope): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExclusionFilterSensitiveLog = (obj: Exclusion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExclusionsResponseFilterSensitiveLog = (obj: DescribeExclusionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFindingsRequestFilterSensitiveLog = (obj: DescribeFindingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InspectorServiceAttributesFilterSensitiveLog = (obj: InspectorServiceAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FindingFilterSensitiveLog = (obj: Finding): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFindingsResponseFilterSensitiveLog = (obj: DescribeFindingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceGroupsRequestFilterSensitiveLog = (obj: DescribeResourceGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceGroupFilterSensitiveLog = (obj: ResourceGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceGroupsResponseFilterSensitiveLog = (obj: DescribeResourceGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRulesPackagesRequestFilterSensitiveLog = (obj: DescribeRulesPackagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RulesPackageFilterSensitiveLog = (obj: RulesPackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRulesPackagesResponseFilterSensitiveLog = (obj: DescribeRulesPackagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventSubscriptionFilterSensitiveLog = (obj: EventSubscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExclusionPreviewFilterSensitiveLog = (obj: ExclusionPreview): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FindingFilterFilterSensitiveLog = (obj: FindingFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentReportRequestFilterSensitiveLog = (obj: GetAssessmentReportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentReportResponseFilterSensitiveLog = (obj: GetAssessmentReportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExclusionsPreviewRequestFilterSensitiveLog = (obj: GetExclusionsPreviewRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExclusionsPreviewResponseFilterSensitiveLog = (obj: GetExclusionsPreviewResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTelemetryMetadataRequestFilterSensitiveLog = (obj: GetTelemetryMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTelemetryMetadataResponseFilterSensitiveLog = (obj: GetTelemetryMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentRunAgentsRequestFilterSensitiveLog = (obj: ListAssessmentRunAgentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentRunAgentsResponseFilterSensitiveLog = (obj: ListAssessmentRunAgentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentRunsRequestFilterSensitiveLog = (obj: ListAssessmentRunsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentRunsResponseFilterSensitiveLog = (obj: ListAssessmentRunsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentTargetsRequestFilterSensitiveLog = (obj: ListAssessmentTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentTargetsResponseFilterSensitiveLog = (obj: ListAssessmentTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentTemplatesRequestFilterSensitiveLog = (obj: ListAssessmentTemplatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentTemplatesResponseFilterSensitiveLog = (obj: ListAssessmentTemplatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventSubscriptionsRequestFilterSensitiveLog = (obj: ListEventSubscriptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventSubscriptionsResponseFilterSensitiveLog = (obj: ListEventSubscriptionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExclusionsRequestFilterSensitiveLog = (obj: ListExclusionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExclusionsResponseFilterSensitiveLog = (obj: ListExclusionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingsRequestFilterSensitiveLog = (obj: ListFindingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingsResponseFilterSensitiveLog = (obj: ListFindingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesPackagesRequestFilterSensitiveLog = (obj: ListRulesPackagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesPackagesResponseFilterSensitiveLog = (obj: ListRulesPackagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PreviewAgentsRequestFilterSensitiveLog = (obj: PreviewAgentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PreviewAgentsResponseFilterSensitiveLog = (obj: PreviewAgentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterCrossAccountAccessRoleRequestFilterSensitiveLog = (
+  obj: RegisterCrossAccountAccessRoleRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveAttributesFromFindingsRequestFilterSensitiveLog = (
+  obj: RemoveAttributesFromFindingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveAttributesFromFindingsResponseFilterSensitiveLog = (
+  obj: RemoveAttributesFromFindingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTagsForResourceRequestFilterSensitiveLog = (obj: SetTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAssessmentRunRequestFilterSensitiveLog = (obj: StartAssessmentRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAssessmentRunResponseFilterSensitiveLog = (obj: StartAssessmentRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopAssessmentRunRequestFilterSensitiveLog = (obj: StopAssessmentRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscribeToEventRequestFilterSensitiveLog = (obj: SubscribeToEventRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnsubscribeFromEventRequestFilterSensitiveLog = (obj: UnsubscribeFromEventRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentTargetRequestFilterSensitiveLog = (obj: UpdateAssessmentTargetRequest): any => ({
+  ...obj,
+});

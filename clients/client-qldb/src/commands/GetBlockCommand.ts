@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetBlockRequest, GetBlockResponse } from "../models/models_0";
+import {
+  GetBlockRequest,
+  GetBlockRequestFilterSensitiveLog,
+  GetBlockResponse,
+  GetBlockResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetBlockCommand,
   serializeAws_restJson1GetBlockCommand,
@@ -77,8 +82,8 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBlockRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBlockResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBlockRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBlockResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

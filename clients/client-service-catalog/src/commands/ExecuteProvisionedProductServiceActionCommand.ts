@@ -14,7 +14,9 @@ import {
 
 import {
   ExecuteProvisionedProductServiceActionInput,
+  ExecuteProvisionedProductServiceActionInputFilterSensitiveLog,
   ExecuteProvisionedProductServiceActionOutput,
+  ExecuteProvisionedProductServiceActionOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand,
@@ -78,8 +80,8 @@ export class ExecuteProvisionedProductServiceActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteProvisionedProductServiceActionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteProvisionedProductServiceActionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ExecuteProvisionedProductServiceActionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ExecuteProvisionedProductServiceActionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

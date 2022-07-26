@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { JsonEnumsInputOutput } from "../models/models_0";
+import { JsonEnumsInputOutput, JsonEnumsInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1JsonEnumsCommand,
   serializeAws_restJson1JsonEnumsCommand,
@@ -72,8 +72,8 @@ export class JsonEnumsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JsonEnumsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: JsonEnumsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JsonEnumsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: JsonEnumsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

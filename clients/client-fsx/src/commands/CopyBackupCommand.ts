@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CopyBackupRequest, CopyBackupResponse } from "../models/models_0";
+import {
+  CopyBackupRequest,
+  CopyBackupRequestFilterSensitiveLog,
+  CopyBackupResponse,
+  CopyBackupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CopyBackupCommand,
   serializeAws_json1_1CopyBackupCommand,
@@ -92,8 +97,8 @@ export class CopyBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyBackupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CopyBackupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyBackupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CopyBackupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

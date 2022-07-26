@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeSnapshotsRequest, DescribeSnapshotsResult } from "../models/models_4";
+import {
+  DescribeSnapshotsRequest,
+  DescribeSnapshotsRequestFilterSensitiveLog,
+  DescribeSnapshotsResult,
+  DescribeSnapshotsResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeSnapshotsCommand,
   serializeAws_ec2DescribeSnapshotsCommand,
@@ -118,8 +123,8 @@ export class DescribeSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSnapshotsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSnapshotsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSnapshotsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

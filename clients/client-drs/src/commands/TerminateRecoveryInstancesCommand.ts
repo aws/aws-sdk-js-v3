@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { TerminateRecoveryInstancesRequest, TerminateRecoveryInstancesResponse } from "../models/models_0";
+import {
+  TerminateRecoveryInstancesRequest,
+  TerminateRecoveryInstancesRequestFilterSensitiveLog,
+  TerminateRecoveryInstancesResponse,
+  TerminateRecoveryInstancesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1TerminateRecoveryInstancesCommand,
   serializeAws_restJson1TerminateRecoveryInstancesCommand,
@@ -72,8 +77,8 @@ export class TerminateRecoveryInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateRecoveryInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TerminateRecoveryInstancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateRecoveryInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TerminateRecoveryInstancesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

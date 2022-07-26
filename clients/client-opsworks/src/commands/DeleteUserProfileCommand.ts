@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteUserProfileRequest } from "../models/models_0";
+import { DeleteUserProfileRequest, DeleteUserProfileRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DeleteUserProfileCommand,
@@ -76,7 +76,7 @@ export class DeleteUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserProfileRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserProfileRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

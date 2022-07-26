@@ -19,7 +19,9 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   DescribeElasticsearchDomainConfigRequest,
+  DescribeElasticsearchDomainConfigRequestFilterSensitiveLog,
   DescribeElasticsearchDomainConfigResponse,
+  DescribeElasticsearchDomainConfigResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeElasticsearchDomainConfigCommand,
@@ -81,8 +83,8 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeElasticsearchDomainConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeElasticsearchDomainConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeElasticsearchDomainConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeElasticsearchDomainConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

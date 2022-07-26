@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteHsmConfigurationMessage } from "../models/models_0";
+import { DeleteHsmConfigurationMessage, DeleteHsmConfigurationMessageFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteHsmConfigurationCommand,
   serializeAws_queryDeleteHsmConfigurationCommand,
@@ -72,7 +72,7 @@ export class DeleteHsmConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHsmConfigurationMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteHsmConfigurationMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

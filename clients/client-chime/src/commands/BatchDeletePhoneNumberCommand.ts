@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { BatchDeletePhoneNumberRequest, BatchDeletePhoneNumberResponse } from "../models/models_0";
+import {
+  BatchDeletePhoneNumberRequest,
+  BatchDeletePhoneNumberRequestFilterSensitiveLog,
+  BatchDeletePhoneNumberResponse,
+  BatchDeletePhoneNumberResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDeletePhoneNumberCommand,
   serializeAws_restJson1BatchDeletePhoneNumberCommand,
@@ -80,8 +85,8 @@ export class BatchDeletePhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeletePhoneNumberRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeletePhoneNumberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDeletePhoneNumberRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeletePhoneNumberResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

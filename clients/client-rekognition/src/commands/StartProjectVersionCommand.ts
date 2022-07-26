@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartProjectVersionRequest, StartProjectVersionResponse } from "../models/models_0";
+import {
+  StartProjectVersionRequest,
+  StartProjectVersionRequestFilterSensitiveLog,
+  StartProjectVersionResponse,
+  StartProjectVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartProjectVersionCommand,
   serializeAws_json1_1StartProjectVersionCommand,
@@ -81,8 +86,8 @@ export class StartProjectVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartProjectVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartProjectVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartProjectVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartProjectVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

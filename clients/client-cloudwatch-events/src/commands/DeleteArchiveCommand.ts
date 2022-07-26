@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { DeleteArchiveRequest, DeleteArchiveResponse } from "../models/models_0";
+import {
+  DeleteArchiveRequest,
+  DeleteArchiveRequestFilterSensitiveLog,
+  DeleteArchiveResponse,
+  DeleteArchiveResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteArchiveCommand,
   serializeAws_json1_1DeleteArchiveCommand,
@@ -72,8 +77,8 @@ export class DeleteArchiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteArchiveRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteArchiveResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteArchiveRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteArchiveResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

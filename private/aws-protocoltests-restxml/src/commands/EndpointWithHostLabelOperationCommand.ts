@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HostLabelInput } from "../models/models_0";
+import { HostLabelInput, HostLabelInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlEndpointWithHostLabelOperationCommand,
   serializeAws_restXmlEndpointWithHostLabelOperationCommand,
@@ -55,7 +55,7 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HostLabelInput.filterSensitiveLog,
+      inputFilterSensitiveLog: HostLabelInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

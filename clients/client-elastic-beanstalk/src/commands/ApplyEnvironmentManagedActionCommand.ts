@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ApplyEnvironmentManagedActionRequest, ApplyEnvironmentManagedActionResult } from "../models/models_0";
+import {
+  ApplyEnvironmentManagedActionRequest,
+  ApplyEnvironmentManagedActionRequestFilterSensitiveLog,
+  ApplyEnvironmentManagedActionResult,
+  ApplyEnvironmentManagedActionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryApplyEnvironmentManagedActionCommand,
   serializeAws_queryApplyEnvironmentManagedActionCommand,
@@ -76,8 +81,8 @@ export class ApplyEnvironmentManagedActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplyEnvironmentManagedActionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ApplyEnvironmentManagedActionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ApplyEnvironmentManagedActionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ApplyEnvironmentManagedActionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

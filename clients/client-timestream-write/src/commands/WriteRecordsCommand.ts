@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { WriteRecordsRequest, WriteRecordsResponse } from "../models/models_0";
+import {
+  WriteRecordsRequest,
+  WriteRecordsRequestFilterSensitiveLog,
+  WriteRecordsResponse,
+  WriteRecordsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0WriteRecordsCommand,
   serializeAws_json1_0WriteRecordsCommand,
@@ -119,8 +124,8 @@ export class WriteRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: WriteRecordsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: WriteRecordsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: WriteRecordsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: WriteRecordsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

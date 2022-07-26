@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteCustomEntityTypeRequest, DeleteCustomEntityTypeResponse } from "../models/models_1";
+import {
+  DeleteCustomEntityTypeRequest,
+  DeleteCustomEntityTypeRequestFilterSensitiveLog,
+  DeleteCustomEntityTypeResponse,
+  DeleteCustomEntityTypeResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteCustomEntityTypeCommand,
   serializeAws_json1_1DeleteCustomEntityTypeCommand,
@@ -72,8 +77,8 @@ export class DeleteCustomEntityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomEntityTypeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomEntityTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomEntityTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCustomEntityTypeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

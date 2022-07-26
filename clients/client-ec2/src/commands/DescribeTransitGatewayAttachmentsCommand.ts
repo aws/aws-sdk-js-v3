@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeTransitGatewayAttachmentsRequest, DescribeTransitGatewayAttachmentsResult } from "../models/models_4";
+import {
+  DescribeTransitGatewayAttachmentsRequest,
+  DescribeTransitGatewayAttachmentsRequestFilterSensitiveLog,
+  DescribeTransitGatewayAttachmentsResult,
+  DescribeTransitGatewayAttachmentsResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeTransitGatewayAttachmentsCommand,
   serializeAws_ec2DescribeTransitGatewayAttachmentsCommand,
@@ -75,8 +80,8 @@ export class DescribeTransitGatewayAttachmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransitGatewayAttachmentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransitGatewayAttachmentsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTransitGatewayAttachmentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTransitGatewayAttachmentsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

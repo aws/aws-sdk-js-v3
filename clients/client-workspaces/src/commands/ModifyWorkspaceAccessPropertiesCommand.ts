@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyWorkspaceAccessPropertiesRequest, ModifyWorkspaceAccessPropertiesResult } from "../models/models_0";
+import {
+  ModifyWorkspaceAccessPropertiesRequest,
+  ModifyWorkspaceAccessPropertiesRequestFilterSensitiveLog,
+  ModifyWorkspaceAccessPropertiesResult,
+  ModifyWorkspaceAccessPropertiesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand,
   serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand,
@@ -76,8 +81,8 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyWorkspaceAccessPropertiesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyWorkspaceAccessPropertiesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyWorkspaceAccessPropertiesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyWorkspaceAccessPropertiesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

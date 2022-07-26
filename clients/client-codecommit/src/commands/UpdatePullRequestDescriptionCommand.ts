@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdatePullRequestDescriptionInput, UpdatePullRequestDescriptionOutput } from "../models/models_1";
+import {
+  UpdatePullRequestDescriptionInput,
+  UpdatePullRequestDescriptionInputFilterSensitiveLog,
+  UpdatePullRequestDescriptionOutput,
+  UpdatePullRequestDescriptionOutputFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdatePullRequestDescriptionCommand,
   serializeAws_json1_1UpdatePullRequestDescriptionCommand,
@@ -74,8 +79,8 @@ export class UpdatePullRequestDescriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePullRequestDescriptionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePullRequestDescriptionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePullRequestDescriptionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePullRequestDescriptionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

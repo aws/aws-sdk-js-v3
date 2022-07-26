@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { RejectInvitationRequest } from "../models/models_0";
+import { RejectInvitationRequest, RejectInvitationRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1RejectInvitationCommand,
   serializeAws_restJson1RejectInvitationCommand,
@@ -78,7 +78,7 @@ export class RejectInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectInvitationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectInvitationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

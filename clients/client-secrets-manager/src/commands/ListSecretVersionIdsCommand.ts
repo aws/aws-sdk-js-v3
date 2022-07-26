@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListSecretVersionIdsRequest, ListSecretVersionIdsResponse } from "../models/models_0";
+import {
+  ListSecretVersionIdsRequest,
+  ListSecretVersionIdsRequestFilterSensitiveLog,
+  ListSecretVersionIdsResponse,
+  ListSecretVersionIdsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListSecretVersionIdsCommand,
   serializeAws_json1_1ListSecretVersionIdsCommand,
@@ -81,8 +86,8 @@ export class ListSecretVersionIdsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSecretVersionIdsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSecretVersionIdsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSecretVersionIdsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSecretVersionIdsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

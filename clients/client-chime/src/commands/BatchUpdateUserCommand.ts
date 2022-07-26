@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { BatchUpdateUserRequest, BatchUpdateUserResponse } from "../models/models_0";
+import {
+  BatchUpdateUserRequest,
+  BatchUpdateUserRequestFilterSensitiveLog,
+  BatchUpdateUserResponse,
+  BatchUpdateUserResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchUpdateUserCommand,
   serializeAws_restJson1BatchUpdateUserCommand,
@@ -72,8 +77,8 @@ export class BatchUpdateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchUpdateUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchUpdateUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

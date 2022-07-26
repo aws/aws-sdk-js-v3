@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { DisassociateExternalConnectionRequest, DisassociateExternalConnectionResult } from "../models/models_0";
+import {
+  DisassociateExternalConnectionRequest,
+  DisassociateExternalConnectionRequestFilterSensitiveLog,
+  DisassociateExternalConnectionResult,
+  DisassociateExternalConnectionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateExternalConnectionCommand,
   serializeAws_restJson1DisassociateExternalConnectionCommand,
@@ -76,8 +81,8 @@ export class DisassociateExternalConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateExternalConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateExternalConnectionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateExternalConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateExternalConnectionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

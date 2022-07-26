@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DeregisterTaskDefinitionRequest, DeregisterTaskDefinitionResponse } from "../models/models_0";
+import {
+  DeregisterTaskDefinitionRequest,
+  DeregisterTaskDefinitionRequestFilterSensitiveLog,
+  DeregisterTaskDefinitionResponse,
+  DeregisterTaskDefinitionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterTaskDefinitionCommand,
   serializeAws_json1_1DeregisterTaskDefinitionCommand,
@@ -86,8 +91,8 @@ export class DeregisterTaskDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterTaskDefinitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterTaskDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterTaskDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterTaskDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

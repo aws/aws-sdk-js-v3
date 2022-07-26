@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/models_0";
+import {
+  DeleteDeviceRequest,
+  DeleteDeviceRequestFilterSensitiveLog,
+  DeleteDeviceResponse,
+  DeleteDeviceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
   deserializeAws_restJson1DeleteDeviceCommand,
@@ -72,8 +77,8 @@ export class DeleteDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDeviceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDeviceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

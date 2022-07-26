@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { DeleteEnvironmentRequest } from "../models/models_0";
+import { DeleteEnvironmentRequest, DeleteEnvironmentRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEnvironmentCommand,
   serializeAws_restJson1DeleteEnvironmentCommand,
@@ -73,7 +73,7 @@ export class DeleteEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEnvironmentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TagInput, TagOutput } from "../models/models_0";
+import { TagInput, TagInputFilterSensitiveLog, TagOutput, TagOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_restJson1TagCommand, serializeAws_restJson1TagCommand } from "../protocols/Aws_restJson1";
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
@@ -83,8 +83,8 @@ export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, Reso
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagInput.filterSensitiveLog,
-      outputFilterSensitiveLog: TagOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TagInputFilterSensitiveLog,
+      outputFilterSensitiveLog: TagOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

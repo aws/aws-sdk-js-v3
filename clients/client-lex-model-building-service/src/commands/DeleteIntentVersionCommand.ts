@@ -17,7 +17,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteIntentVersionRequest } from "../models/models_0";
+import { DeleteIntentVersionRequest, DeleteIntentVersionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteIntentVersionCommand,
   serializeAws_restJson1DeleteIntentVersionCommand,
@@ -79,7 +79,7 @@ export class DeleteIntentVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIntentVersionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteIntentVersionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

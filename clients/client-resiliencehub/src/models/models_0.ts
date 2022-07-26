@@ -72,15 +72,6 @@ export interface PhysicalResourceId {
   awsAccountId?: string;
 }
 
-export namespace PhysicalResourceId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhysicalResourceId): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines a resource mapping.</p>
  */
@@ -145,15 +136,6 @@ export interface ResourceMapping {
   terraformSourceName?: string;
 }
 
-export namespace ResourceMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceMapping): any => ({
-    ...obj,
-  });
-}
-
 export interface AddDraftAppVersionResourceMappingsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
@@ -172,15 +154,6 @@ export interface AddDraftAppVersionResourceMappingsRequest {
    *       application is backed by a CloudFormation stack.</p>
    */
   resourceMappings: ResourceMapping[] | undefined;
-}
-
-export namespace AddDraftAppVersionResourceMappingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddDraftAppVersionResourceMappingsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface AddDraftAppVersionResourceMappingsResponse {
@@ -206,15 +179,6 @@ export interface AddDraftAppVersionResourceMappingsResponse {
    *       application is backed by a CloudFormation stack.</p>
    */
   resourceMappings: ResourceMapping[] | undefined;
-}
-
-export namespace AddDraftAppVersionResourceMappingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddDraftAppVersionResourceMappingsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -371,15 +335,6 @@ export interface RecommendationItem {
   alreadyImplemented?: boolean;
 }
 
-export namespace RecommendationItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationItem): any => ({
-    ...obj,
-  });
-}
-
 export enum AlarmType {
   CANARY = "Canary",
   COMPOSITE = "Composite",
@@ -431,15 +386,6 @@ export interface AlarmRecommendation {
    * <p>The prerequisite for the alarm recommendation.</p>
    */
   prerequisite?: string;
-}
-
-export namespace AlarmRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmRecommendation): any => ({
-    ...obj,
-  });
 }
 
 export enum AppAssessmentScheduleType {
@@ -535,16 +481,6 @@ export interface App {
   assessmentSchedule?: AppAssessmentScheduleType | string;
 }
 
-export namespace App {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: App): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export enum AssessmentStatus {
   FAILED = "Failed",
   INPROGRESS = "InProgress",
@@ -619,15 +555,6 @@ export interface DisruptionCompliance {
   message?: string;
 }
 
-export namespace DisruptionCompliance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisruptionCompliance): any => ({
-    ...obj,
-  });
-}
-
 export enum CostFrequency {
   DAILY = "Daily",
   HOURLY = "Hourly",
@@ -653,15 +580,6 @@ export interface Cost {
    * <p>The cost frequency.</p>
    */
   frequency: CostFrequency | string | undefined;
-}
-
-export namespace Cost {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cost): any => ({
-    ...obj,
-  });
 }
 
 export enum AssessmentInvoker {
@@ -695,15 +613,6 @@ export interface FailurePolicy {
    * <p>The Recovery Point Objective (RPO), in seconds.</p>
    */
   rpoInSecs: number | undefined;
-}
-
-export namespace FailurePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailurePolicy): any => ({
-    ...obj,
-  });
 }
 
 export enum ResiliencyPolicyTier {
@@ -771,16 +680,6 @@ export interface ResiliencyPolicy {
   tags?: Record<string, string>;
 }
 
-export namespace ResiliencyPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResiliencyPolicy): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The overall resiliency score, returned as an object that includes the disruption score and
  *       outage score.</p>
@@ -795,15 +694,6 @@ export interface ResiliencyScore {
    * <p>The disruption score for a valid key.</p>
    */
   disruptionScore: Record<string, number> | undefined;
-}
-
-export namespace ResiliencyScore {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResiliencyScore): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -834,15 +724,6 @@ export interface ResourceError {
   reason?: string;
 }
 
-export namespace ResourceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       A list of errors retrieving an application's resources.
@@ -862,15 +743,6 @@ export interface ResourceErrorsDetails {
    *     </p>
    */
   hasMoreErrors?: boolean;
-}
-
-export namespace ResourceErrorsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceErrorsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -969,17 +841,6 @@ export interface AppAssessment {
   resourceErrorsDetails?: ResourceErrorsDetails;
 }
 
-export namespace AppAssessment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppAssessment): any => ({
-    ...obj,
-    ...(obj.policy && { policy: ResiliencyPolicy.filterSensitiveLog(obj.policy) }),
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Defines an application assessment summary.</p>
  */
@@ -1053,15 +914,6 @@ export interface AppAssessmentSummary {
   resiliencyScore?: number;
 }
 
-export namespace AppAssessmentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppAssessmentSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines an application component.</p>
  */
@@ -1075,15 +927,6 @@ export interface AppComponent {
    * <p>The type of application component.</p>
    */
   type: string | undefined;
-}
-
-export namespace AppComponent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppComponent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1119,15 +962,6 @@ export interface AppComponentCompliance {
    * <p>The current resiliency score for the application.</p>
    */
   resiliencyScore?: ResiliencyScore;
-}
-
-export namespace AppComponentCompliance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppComponentCompliance): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1176,15 +1010,6 @@ export interface AppSummary {
   assessmentSchedule?: AppAssessmentScheduleType | string;
 }
 
-export namespace AppSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The version of the application.</p>
  */
@@ -1193,15 +1018,6 @@ export interface AppVersionSummary {
    * <p>The version of the application.</p>
    */
   appVersion: string | undefined;
-}
-
-export namespace AppVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppVersionSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAppRequest {
@@ -1244,32 +1060,12 @@ export interface CreateAppRequest {
   assessmentSchedule?: AppAssessmentScheduleType | string;
 }
 
-export namespace CreateAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateAppResponse {
   /**
    * <p>The created application returned as an object with details including compliance status,
    *       creation time, description, resiliency score, and more.</p>
    */
   app: App | undefined;
-}
-
-export namespace CreateAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppResponse): any => ({
-    ...obj,
-    ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
-  });
 }
 
 /**
@@ -1375,16 +1171,6 @@ export interface CreateRecommendationTemplateRequest {
   bucketName?: string;
 }
 
-export namespace CreateRecommendationTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRecommendationTemplateRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export enum RecommendationTemplateStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
@@ -1405,15 +1191,6 @@ export interface S3Location {
    * <p>The prefix for the Amazon S3 bucket.</p>
    */
   prefix?: string;
-}
-
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1524,34 +1301,12 @@ export interface RecommendationTemplate {
   needsReplacements?: boolean;
 }
 
-export namespace RecommendationTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationTemplate): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateRecommendationTemplateResponse {
   /**
    * <p>The newly created recommendation template, returned as an object. This object includes the
    *       template's name, format, status, tags, Amazon S3 bucket location, and more.</p>
    */
   recommendationTemplate?: RecommendationTemplate;
-}
-
-export namespace CreateRecommendationTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRecommendationTemplateResponse): any => ({
-    ...obj,
-    ...(obj.recommendationTemplate && {
-      recommendationTemplate: RecommendationTemplate.filterSensitiveLog(obj.recommendationTemplate),
-    }),
-  });
 }
 
 export interface CreateResiliencyPolicyRequest {
@@ -1596,32 +1351,12 @@ export interface CreateResiliencyPolicyRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateResiliencyPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResiliencyPolicyRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateResiliencyPolicyResponse {
   /**
    * <p>The type of resiliency policy that was created, including the recovery time objective
    *       (RTO) and recovery point objective (RPO) in seconds.</p>
    */
   policy: ResiliencyPolicy | undefined;
-}
-
-export namespace CreateResiliencyPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResiliencyPolicyResponse): any => ({
-    ...obj,
-    ...(obj.policy && { policy: ResiliencyPolicy.filterSensitiveLog(obj.policy) }),
-  });
 }
 
 export interface DeleteAppRequest {
@@ -1646,15 +1381,6 @@ export interface DeleteAppRequest {
   clientToken?: string;
 }
 
-export namespace DeleteAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
@@ -1664,15 +1390,6 @@ export interface DeleteAppResponse {
    *                     <i>AWS General Reference</i>.</p>
    */
   appArn: string | undefined;
-}
-
-export namespace DeleteAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAppAssessmentRequest {
@@ -1692,15 +1409,6 @@ export interface DeleteAppAssessmentRequest {
   clientToken?: string;
 }
 
-export namespace DeleteAppAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppAssessmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppAssessmentResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
@@ -1717,15 +1425,6 @@ export interface DeleteAppAssessmentResponse {
   assessmentStatus: AssessmentStatus | string | undefined;
 }
 
-export namespace DeleteAppAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppAssessmentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRecommendationTemplateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for a recommendation template.</p>
@@ -1739,15 +1438,6 @@ export interface DeleteRecommendationTemplateRequest {
   clientToken?: string;
 }
 
-export namespace DeleteRecommendationTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRecommendationTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRecommendationTemplateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for a recommendation template.</p>
@@ -1758,15 +1448,6 @@ export interface DeleteRecommendationTemplateResponse {
    * <p>The status of the action.</p>
    */
   status: RecommendationTemplateStatus | string | undefined;
-}
-
-export namespace DeleteRecommendationTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRecommendationTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResiliencyPolicyRequest {
@@ -1786,15 +1467,6 @@ export interface DeleteResiliencyPolicyRequest {
   clientToken?: string;
 }
 
-export namespace DeleteResiliencyPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResiliencyPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResiliencyPolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
@@ -1804,15 +1476,6 @@ export interface DeleteResiliencyPolicyResponse {
    *                     <i>AWS General Reference</i>.</p>
    */
   policyArn: string | undefined;
-}
-
-export namespace DeleteResiliencyPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResiliencyPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAppRequest {
@@ -1826,31 +1489,12 @@ export interface DescribeAppRequest {
   appArn: string | undefined;
 }
 
-export namespace DescribeAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAppResponse {
   /**
    * <p>The specified application, returned as an object with details including compliance status,
    *       creation time, description, resiliency score, and more.</p>
    */
   app: App | undefined;
-}
-
-export namespace DescribeAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppResponse): any => ({
-    ...obj,
-    ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
-  });
 }
 
 export interface DescribeAppAssessmentRequest {
@@ -1864,15 +1508,6 @@ export interface DescribeAppAssessmentRequest {
   assessmentArn: string | undefined;
 }
 
-export namespace DescribeAppAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppAssessmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAppAssessmentResponse {
   /**
    * <p>The assessment for an AWS Resilience Hub application, returned as an object. This object
@@ -1880,16 +1515,6 @@ export interface DescribeAppAssessmentResponse {
    *       messages, resiliency scores, and more.</p>
    */
   assessment: AppAssessment | undefined;
-}
-
-export namespace DescribeAppAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppAssessmentResponse): any => ({
-    ...obj,
-    ...(obj.assessment && { assessment: AppAssessment.filterSensitiveLog(obj.assessment) }),
-  });
 }
 
 export interface DescribeAppVersionResourcesResolutionStatusRequest {
@@ -1911,15 +1536,6 @@ export interface DescribeAppVersionResourcesResolutionStatusRequest {
    * <p>The identifier for a specific resolution.</p>
    */
   resolutionId?: string;
-}
-
-export namespace DescribeAppVersionResourcesResolutionStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppVersionResourcesResolutionStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceResolutionStatusType {
@@ -1960,15 +1576,6 @@ export interface DescribeAppVersionResourcesResolutionStatusResponse {
   errorMessage?: string;
 }
 
-export namespace DescribeAppVersionResourcesResolutionStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppVersionResourcesResolutionStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAppVersionTemplateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
@@ -1983,15 +1590,6 @@ export interface DescribeAppVersionTemplateRequest {
    * <p>The version of the application.</p>
    */
   appVersion: string | undefined;
-}
-
-export namespace DescribeAppVersionTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppVersionTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAppVersionTemplateResponse {
@@ -2015,15 +1613,6 @@ export interface DescribeAppVersionTemplateResponse {
   appTemplateBody: string | undefined;
 }
 
-export namespace DescribeAppVersionTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAppVersionTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDraftAppVersionResourcesImportStatusRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
@@ -2033,15 +1622,6 @@ export interface DescribeDraftAppVersionResourcesImportStatusRequest {
    *                     <i>AWS General Reference</i>.</p>
    */
   appArn: string | undefined;
-}
-
-export namespace DescribeDraftAppVersionResourcesImportStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDraftAppVersionResourcesImportStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceImportStatusType {
@@ -2082,15 +1662,6 @@ export interface DescribeDraftAppVersionResourcesImportStatusResponse {
   errorMessage?: string;
 }
 
-export namespace DescribeDraftAppVersionResourcesImportStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDraftAppVersionResourcesImportStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResiliencyPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
@@ -2102,15 +1673,6 @@ export interface DescribeResiliencyPolicyRequest {
   policyArn: string | undefined;
 }
 
-export namespace DescribeResiliencyPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResiliencyPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResiliencyPolicyResponse {
   /**
    * <p>Information about the specific resiliency policy, returned as an object. This object
@@ -2118,16 +1680,6 @@ export interface DescribeResiliencyPolicyResponse {
    *       time objective (RTO) and recovery point objective (RPO) in seconds, and more.</p>
    */
   policy: ResiliencyPolicy | undefined;
-}
-
-export namespace DescribeResiliencyPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResiliencyPolicyResponse): any => ({
-    ...obj,
-    ...(obj.policy && { policy: ResiliencyPolicy.filterSensitiveLog(obj.policy) }),
-  });
 }
 
 /**
@@ -2142,15 +1694,6 @@ export interface TerraformSource {
    *     </p>
    */
   s3StateFileUrl: string | undefined;
-}
-
-export namespace TerraformSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerraformSource): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportResourcesToDraftAppVersionRequest {
@@ -2174,15 +1717,6 @@ export interface ImportResourcesToDraftAppVersionRequest {
    *     </p>
    */
   terraformSources?: TerraformSource[];
-}
-
-export namespace ImportResourcesToDraftAppVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportResourcesToDraftAppVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportResourcesToDraftAppVersionResponse {
@@ -2218,15 +1752,6 @@ export interface ImportResourcesToDraftAppVersionResponse {
   terraformSources?: TerraformSource[];
 }
 
-export namespace ImportResourcesToDraftAppVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportResourcesToDraftAppVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAlarmRecommendationsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the assessment. The format for this ARN is:
@@ -2249,15 +1774,6 @@ export interface ListAlarmRecommendationsRequest {
   maxResults?: number;
 }
 
-export namespace ListAlarmRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmRecommendationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAlarmRecommendationsResponse {
   /**
    * <p>The alarm recommendations for an AWS Resilience Hub application, returned as an object. This
@@ -2270,15 +1786,6 @@ export interface ListAlarmRecommendationsResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAlarmRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAppAssessmentsRequest {
@@ -2330,15 +1837,6 @@ export interface ListAppAssessmentsRequest {
   maxResults?: number;
 }
 
-export namespace ListAppAssessmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppAssessmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppAssessmentsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -2351,15 +1849,6 @@ export interface ListAppAssessmentsResponse {
    *       scores, and more.</p>
    */
   assessmentSummaries: AppAssessmentSummary[] | undefined;
-}
-
-export namespace ListAppAssessmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppAssessmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAppComponentCompliancesRequest {
@@ -2384,15 +1873,6 @@ export interface ListAppComponentCompliancesRequest {
   assessmentArn: string | undefined;
 }
 
-export namespace ListAppComponentCompliancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppComponentCompliancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppComponentCompliancesResponse {
   /**
    * <p>The compliances for an AWS Resilience Hub application component, returned as an object. This
@@ -2405,15 +1885,6 @@ export interface ListAppComponentCompliancesResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAppComponentCompliancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppComponentCompliancesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAppComponentRecommendationsRequest {
@@ -2436,15 +1907,6 @@ export interface ListAppComponentRecommendationsRequest {
    * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListAppComponentRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppComponentRecommendationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum HaArchitecture {
@@ -2493,15 +1955,6 @@ export interface RecommendationDisruptionCompliance {
    *       configuration change.</p>
    */
   expectedRpoDescription?: string;
-}
-
-export namespace RecommendationDisruptionCompliance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationDisruptionCompliance): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2561,15 +2014,6 @@ export interface ConfigRecommendation {
   referenceId: string | undefined;
 }
 
-export namespace ConfigRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigRecommendation): any => ({
-    ...obj,
-  });
-}
-
 export enum RecommendationComplianceStatus {
   BREACHED_CAN_MEET = "BreachedCanMeet",
   BREACHED_UNATTAINABLE = "BreachedUnattainable",
@@ -2598,15 +2042,6 @@ export interface ComponentRecommendation {
   configRecommendations: ConfigRecommendation[] | undefined;
 }
 
-export namespace ComponentRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentRecommendation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppComponentRecommendationsResponse {
   /**
    * <p>The recommendations for an Resilience Hub application component, returned as an object. This
@@ -2619,15 +2054,6 @@ export interface ListAppComponentRecommendationsResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAppComponentRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppComponentRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAppsRequest {
@@ -2657,15 +2083,6 @@ export interface ListAppsRequest {
   appArn?: string;
 }
 
-export namespace ListAppsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppsResponse {
   /**
    * <p>Summaries for the Resilience Hub application.</p>
@@ -2676,15 +2093,6 @@ export interface ListAppsResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAppsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAppVersionResourceMappingsRequest {
@@ -2714,15 +2122,6 @@ export interface ListAppVersionResourceMappingsRequest {
   maxResults?: number;
 }
 
-export namespace ListAppVersionResourceMappingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppVersionResourceMappingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppVersionResourceMappingsResponse {
   /**
    * <p>Mappings used to map logical resources from the template to physical resources. You can
@@ -2737,15 +2136,6 @@ export interface ListAppVersionResourceMappingsResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAppVersionResourceMappingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppVersionResourceMappingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAppVersionResourcesRequest {
@@ -2780,15 +2170,6 @@ export interface ListAppVersionResourcesRequest {
   maxResults?: number;
 }
 
-export namespace ListAppVersionResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppVersionResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines a logical resource identifier.</p>
  */
@@ -2814,15 +2195,6 @@ export interface LogicalResourceId {
    *     </p>
    */
   terraformSourceName?: string;
-}
-
-export namespace LogicalResourceId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogicalResourceId): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2857,15 +2229,6 @@ export interface PhysicalResource {
   appComponents?: AppComponent[];
 }
 
-export namespace PhysicalResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhysicalResource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppVersionResourcesResponse {
   /**
    * <p>The physical resources in the application version.</p>
@@ -2881,15 +2244,6 @@ export interface ListAppVersionResourcesResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAppVersionResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppVersionResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAppVersionsRequest {
@@ -2914,15 +2268,6 @@ export interface ListAppVersionsRequest {
   maxResults?: number;
 }
 
-export namespace ListAppVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppVersionsResponse {
   /**
    * <p>The version of the application.</p>
@@ -2933,15 +2278,6 @@ export interface ListAppVersionsResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAppVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRecommendationTemplatesRequest {
@@ -2987,15 +2323,6 @@ export interface ListRecommendationTemplatesRequest {
   maxResults?: number;
 }
 
-export namespace ListRecommendationTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecommendationTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRecommendationTemplatesResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3006,20 +2333,6 @@ export interface ListRecommendationTemplatesResponse {
    * <p>The recommendation templates for the Resilience Hub applications.</p>
    */
   recommendationTemplates?: RecommendationTemplate[];
-}
-
-export namespace ListRecommendationTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecommendationTemplatesResponse): any => ({
-    ...obj,
-    ...(obj.recommendationTemplates && {
-      recommendationTemplates: obj.recommendationTemplates.map((item) =>
-        RecommendationTemplate.filterSensitiveLog(item)
-      ),
-    }),
-  });
 }
 
 export interface ListResiliencyPoliciesRequest {
@@ -3040,15 +2353,6 @@ export interface ListResiliencyPoliciesRequest {
   maxResults?: number;
 }
 
-export namespace ListResiliencyPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResiliencyPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResiliencyPoliciesResponse {
   /**
    * <p>The resiliency policies for the Resilience Hub applications.</p>
@@ -3059,18 +2363,6 @@ export interface ListResiliencyPoliciesResponse {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListResiliencyPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResiliencyPoliciesResponse): any => ({
-    ...obj,
-    ...(obj.resiliencyPolicies && {
-      resiliencyPolicies: obj.resiliencyPolicies.map((item) => ResiliencyPolicy.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListSopRecommendationsRequest {
@@ -3093,15 +2385,6 @@ export interface ListSopRecommendationsRequest {
    *                     <i>AWS General Reference</i>.</p>
    */
   assessmentArn: string | undefined;
-}
-
-export namespace ListSopRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSopRecommendationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SopServiceType {
@@ -3153,15 +2436,6 @@ export interface SopRecommendation {
   prerequisite?: string;
 }
 
-export namespace SopRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SopRecommendation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSopRecommendationsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3173,15 +2447,6 @@ export interface ListSopRecommendationsResponse {
    *       applications.</p>
    */
   sopRecommendations: SopRecommendation[] | undefined;
-}
-
-export namespace ListSopRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSopRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSuggestedResiliencyPoliciesRequest {
@@ -3197,15 +2462,6 @@ export interface ListSuggestedResiliencyPoliciesRequest {
   maxResults?: number;
 }
 
-export namespace ListSuggestedResiliencyPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSuggestedResiliencyPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSuggestedResiliencyPoliciesResponse {
   /**
    * <p>The suggested resiliency policies for the Resilience Hub applications.</p>
@@ -3218,18 +2474,6 @@ export interface ListSuggestedResiliencyPoliciesResponse {
   nextToken?: string;
 }
 
-export namespace ListSuggestedResiliencyPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSuggestedResiliencyPoliciesResponse): any => ({
-    ...obj,
-    ...(obj.resiliencyPolicies && {
-      resiliencyPolicies: obj.resiliencyPolicies.map((item) => ResiliencyPolicy.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for a specific resource in your Resilience Hub
@@ -3238,31 +2482,12 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags assigned to the resource. A tag is a label that you assign to an Amazon Web Services resource.
    * Each tag consists of a key/value pair.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListTestRecommendationsRequest {
@@ -3285,15 +2510,6 @@ export interface ListTestRecommendationsRequest {
    *                     <i>AWS General Reference</i>.</p>
    */
   assessmentArn: string | undefined;
-}
-
-export namespace ListTestRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTestRecommendationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum TestRisk {
@@ -3371,15 +2587,6 @@ export interface TestRecommendation {
   dependsOnAlarms?: string[];
 }
 
-export namespace TestRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRecommendation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTestRecommendationsResponse {
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
@@ -3390,15 +2597,6 @@ export interface ListTestRecommendationsResponse {
    * <p>The test recommendations for the Resilience Hub application.</p>
    */
   testRecommendations: TestRecommendation[] | undefined;
-}
-
-export namespace ListTestRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTestRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUnsupportedAppVersionResourcesRequest {
@@ -3433,15 +2631,6 @@ export interface ListUnsupportedAppVersionResourcesRequest {
   maxResults?: number;
 }
 
-export namespace ListUnsupportedAppVersionResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUnsupportedAppVersionResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines a resource that is not supported by Resilience Hub.</p>
  */
@@ -3462,15 +2651,6 @@ export interface UnsupportedResource {
   resourceType: string | undefined;
 }
 
-export namespace UnsupportedResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedResource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUnsupportedAppVersionResourcesResponse {
   /**
    * <p>The unsupported resources for the application.</p>
@@ -3488,15 +2668,6 @@ export interface ListUnsupportedAppVersionResourcesResponse {
   nextToken?: string;
 }
 
-export namespace ListUnsupportedAppVersionResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUnsupportedAppVersionResourcesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PublishAppVersionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
@@ -3506,15 +2677,6 @@ export interface PublishAppVersionRequest {
    *                     <i>AWS General Reference</i>.</p>
    */
   appArn: string | undefined;
-}
-
-export namespace PublishAppVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishAppVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PublishAppVersionResponse {
@@ -3533,15 +2695,6 @@ export interface PublishAppVersionResponse {
   appVersion?: string;
 }
 
-export namespace PublishAppVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishAppVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutDraftAppVersionTemplateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
@@ -3558,15 +2711,6 @@ export interface PutDraftAppVersionTemplateRequest {
   appTemplateBody: string | undefined;
 }
 
-export namespace PutDraftAppVersionTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDraftAppVersionTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutDraftAppVersionTemplateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
@@ -3581,15 +2725,6 @@ export interface PutDraftAppVersionTemplateResponse {
    * <p>The version of the application.</p>
    */
   appVersion?: string;
-}
-
-export namespace PutDraftAppVersionTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDraftAppVersionTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveDraftAppVersionResourceMappingsRequest {
@@ -3630,15 +2765,6 @@ export interface RemoveDraftAppVersionResourceMappingsRequest {
   terraformSourceNames?: string[];
 }
 
-export namespace RemoveDraftAppVersionResourceMappingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveDraftAppVersionResourceMappingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveDraftAppVersionResourceMappingsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
@@ -3655,15 +2781,6 @@ export interface RemoveDraftAppVersionResourceMappingsResponse {
   appVersion?: string;
 }
 
-export namespace RemoveDraftAppVersionResourceMappingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveDraftAppVersionResourceMappingsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ResolveAppVersionResourcesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is:
@@ -3678,15 +2795,6 @@ export interface ResolveAppVersionResourcesRequest {
    * <p>The version of the application.</p>
    */
   appVersion: string | undefined;
-}
-
-export namespace ResolveAppVersionResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveAppVersionResourcesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ResolveAppVersionResourcesResponse {
@@ -3713,15 +2821,6 @@ export interface ResolveAppVersionResourcesResponse {
    * <p>The status of the action.</p>
    */
   status: ResourceResolutionStatusType | string | undefined;
-}
-
-export namespace ResolveAppVersionResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveAppVersionResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartAppAssessmentRequest {
@@ -3757,31 +2856,11 @@ export interface StartAppAssessmentRequest {
   tags?: Record<string, string>;
 }
 
-export namespace StartAppAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAppAssessmentRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface StartAppAssessmentResponse {
   /**
    * <p>The assessment created.</p>
    */
   assessment: AppAssessment | undefined;
-}
-
-export namespace StartAppAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAppAssessmentResponse): any => ({
-    ...obj,
-    ...(obj.assessment && { assessment: AppAssessment.filterSensitiveLog(obj.assessment) }),
-  });
 }
 
 export interface TagResourceRequest {
@@ -3796,26 +2875,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3829,26 +2889,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-    ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateAppRequest {
   /**
@@ -3887,31 +2928,12 @@ export interface UpdateAppRequest {
   assessmentSchedule?: AppAssessmentScheduleType | string;
 }
 
-export namespace UpdateAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAppResponse {
   /**
    * <p>The specified application, returned as an object with details including compliance status,
    *       creation time, description, resiliency score, and more.</p>
    */
   app: App | undefined;
-}
-
-export namespace UpdateAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppResponse): any => ({
-    ...obj,
-    ...(obj.app && { app: App.filterSensitiveLog(obj.app) }),
-  });
 }
 
 export interface UpdateResiliencyPolicyRequest {
@@ -3953,15 +2975,6 @@ export interface UpdateResiliencyPolicyRequest {
   policy?: Record<string, FailurePolicy>;
 }
 
-export namespace UpdateResiliencyPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResiliencyPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResiliencyPolicyResponse {
   /**
    * <p>The type of resiliency policy that was updated, including the recovery time objective
@@ -3970,12 +2983,831 @@ export interface UpdateResiliencyPolicyResponse {
   policy: ResiliencyPolicy | undefined;
 }
 
-export namespace UpdateResiliencyPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResiliencyPolicyResponse): any => ({
-    ...obj,
-    ...(obj.policy && { policy: ResiliencyPolicy.filterSensitiveLog(obj.policy) }),
-  });
-}
+/**
+ * @internal
+ */
+export const PhysicalResourceIdFilterSensitiveLog = (obj: PhysicalResourceId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceMappingFilterSensitiveLog = (obj: ResourceMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddDraftAppVersionResourceMappingsRequestFilterSensitiveLog = (
+  obj: AddDraftAppVersionResourceMappingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddDraftAppVersionResourceMappingsResponseFilterSensitiveLog = (
+  obj: AddDraftAppVersionResourceMappingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationItemFilterSensitiveLog = (obj: RecommendationItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmRecommendationFilterSensitiveLog = (obj: AlarmRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppFilterSensitiveLog = (obj: App): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DisruptionComplianceFilterSensitiveLog = (obj: DisruptionCompliance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostFilterSensitiveLog = (obj: Cost): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailurePolicyFilterSensitiveLog = (obj: FailurePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResiliencyPolicyFilterSensitiveLog = (obj: ResiliencyPolicy): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResiliencyScoreFilterSensitiveLog = (obj: ResiliencyScore): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceErrorFilterSensitiveLog = (obj: ResourceError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceErrorsDetailsFilterSensitiveLog = (obj: ResourceErrorsDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppAssessmentFilterSensitiveLog = (obj: AppAssessment): any => ({
+  ...obj,
+  ...(obj.policy && { policy: ResiliencyPolicyFilterSensitiveLog(obj.policy) }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AppAssessmentSummaryFilterSensitiveLog = (obj: AppAssessmentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppComponentFilterSensitiveLog = (obj: AppComponent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppComponentComplianceFilterSensitiveLog = (obj: AppComponentCompliance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppSummaryFilterSensitiveLog = (obj: AppSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppVersionSummaryFilterSensitiveLog = (obj: AppVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAppRequestFilterSensitiveLog = (obj: CreateAppRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAppResponseFilterSensitiveLog = (obj: CreateAppResponse): any => ({
+  ...obj,
+  ...(obj.app && { app: AppFilterSensitiveLog(obj.app) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateRecommendationTemplateRequestFilterSensitiveLog = (
+  obj: CreateRecommendationTemplateRequest
+): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationTemplateFilterSensitiveLog = (obj: RecommendationTemplate): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateRecommendationTemplateResponseFilterSensitiveLog = (
+  obj: CreateRecommendationTemplateResponse
+): any => ({
+  ...obj,
+  ...(obj.recommendationTemplate && {
+    recommendationTemplate: RecommendationTemplateFilterSensitiveLog(obj.recommendationTemplate),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateResiliencyPolicyRequestFilterSensitiveLog = (obj: CreateResiliencyPolicyRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateResiliencyPolicyResponseFilterSensitiveLog = (obj: CreateResiliencyPolicyResponse): any => ({
+  ...obj,
+  ...(obj.policy && { policy: ResiliencyPolicyFilterSensitiveLog(obj.policy) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppRequestFilterSensitiveLog = (obj: DeleteAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppResponseFilterSensitiveLog = (obj: DeleteAppResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppAssessmentRequestFilterSensitiveLog = (obj: DeleteAppAssessmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppAssessmentResponseFilterSensitiveLog = (obj: DeleteAppAssessmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRecommendationTemplateRequestFilterSensitiveLog = (
+  obj: DeleteRecommendationTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRecommendationTemplateResponseFilterSensitiveLog = (
+  obj: DeleteRecommendationTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResiliencyPolicyRequestFilterSensitiveLog = (obj: DeleteResiliencyPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResiliencyPolicyResponseFilterSensitiveLog = (obj: DeleteResiliencyPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppRequestFilterSensitiveLog = (obj: DescribeAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppResponseFilterSensitiveLog = (obj: DescribeAppResponse): any => ({
+  ...obj,
+  ...(obj.app && { app: AppFilterSensitiveLog(obj.app) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppAssessmentRequestFilterSensitiveLog = (obj: DescribeAppAssessmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppAssessmentResponseFilterSensitiveLog = (obj: DescribeAppAssessmentResponse): any => ({
+  ...obj,
+  ...(obj.assessment && { assessment: AppAssessmentFilterSensitiveLog(obj.assessment) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppVersionResourcesResolutionStatusRequestFilterSensitiveLog = (
+  obj: DescribeAppVersionResourcesResolutionStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppVersionResourcesResolutionStatusResponseFilterSensitiveLog = (
+  obj: DescribeAppVersionResourcesResolutionStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppVersionTemplateRequestFilterSensitiveLog = (obj: DescribeAppVersionTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAppVersionTemplateResponseFilterSensitiveLog = (obj: DescribeAppVersionTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDraftAppVersionResourcesImportStatusRequestFilterSensitiveLog = (
+  obj: DescribeDraftAppVersionResourcesImportStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDraftAppVersionResourcesImportStatusResponseFilterSensitiveLog = (
+  obj: DescribeDraftAppVersionResourcesImportStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResiliencyPolicyRequestFilterSensitiveLog = (obj: DescribeResiliencyPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResiliencyPolicyResponseFilterSensitiveLog = (obj: DescribeResiliencyPolicyResponse): any => ({
+  ...obj,
+  ...(obj.policy && { policy: ResiliencyPolicyFilterSensitiveLog(obj.policy) }),
+});
+
+/**
+ * @internal
+ */
+export const TerraformSourceFilterSensitiveLog = (obj: TerraformSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportResourcesToDraftAppVersionRequestFilterSensitiveLog = (
+  obj: ImportResourcesToDraftAppVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportResourcesToDraftAppVersionResponseFilterSensitiveLog = (
+  obj: ImportResourcesToDraftAppVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlarmRecommendationsRequestFilterSensitiveLog = (obj: ListAlarmRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlarmRecommendationsResponseFilterSensitiveLog = (obj: ListAlarmRecommendationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppAssessmentsRequestFilterSensitiveLog = (obj: ListAppAssessmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppAssessmentsResponseFilterSensitiveLog = (obj: ListAppAssessmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppComponentCompliancesRequestFilterSensitiveLog = (obj: ListAppComponentCompliancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppComponentCompliancesResponseFilterSensitiveLog = (
+  obj: ListAppComponentCompliancesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppComponentRecommendationsRequestFilterSensitiveLog = (
+  obj: ListAppComponentRecommendationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationDisruptionComplianceFilterSensitiveLog = (obj: RecommendationDisruptionCompliance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigRecommendationFilterSensitiveLog = (obj: ConfigRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentRecommendationFilterSensitiveLog = (obj: ComponentRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppComponentRecommendationsResponseFilterSensitiveLog = (
+  obj: ListAppComponentRecommendationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppsRequestFilterSensitiveLog = (obj: ListAppsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppsResponseFilterSensitiveLog = (obj: ListAppsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppVersionResourceMappingsRequestFilterSensitiveLog = (
+  obj: ListAppVersionResourceMappingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppVersionResourceMappingsResponseFilterSensitiveLog = (
+  obj: ListAppVersionResourceMappingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppVersionResourcesRequestFilterSensitiveLog = (obj: ListAppVersionResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogicalResourceIdFilterSensitiveLog = (obj: LogicalResourceId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhysicalResourceFilterSensitiveLog = (obj: PhysicalResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppVersionResourcesResponseFilterSensitiveLog = (obj: ListAppVersionResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppVersionsRequestFilterSensitiveLog = (obj: ListAppVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppVersionsResponseFilterSensitiveLog = (obj: ListAppVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecommendationTemplatesRequestFilterSensitiveLog = (obj: ListRecommendationTemplatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecommendationTemplatesResponseFilterSensitiveLog = (
+  obj: ListRecommendationTemplatesResponse
+): any => ({
+  ...obj,
+  ...(obj.recommendationTemplates && {
+    recommendationTemplates: obj.recommendationTemplates.map((item) => RecommendationTemplateFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListResiliencyPoliciesRequestFilterSensitiveLog = (obj: ListResiliencyPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResiliencyPoliciesResponseFilterSensitiveLog = (obj: ListResiliencyPoliciesResponse): any => ({
+  ...obj,
+  ...(obj.resiliencyPolicies && {
+    resiliencyPolicies: obj.resiliencyPolicies.map((item) => ResiliencyPolicyFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListSopRecommendationsRequestFilterSensitiveLog = (obj: ListSopRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SopRecommendationFilterSensitiveLog = (obj: SopRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSopRecommendationsResponseFilterSensitiveLog = (obj: ListSopRecommendationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSuggestedResiliencyPoliciesRequestFilterSensitiveLog = (
+  obj: ListSuggestedResiliencyPoliciesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSuggestedResiliencyPoliciesResponseFilterSensitiveLog = (
+  obj: ListSuggestedResiliencyPoliciesResponse
+): any => ({
+  ...obj,
+  ...(obj.resiliencyPolicies && {
+    resiliencyPolicies: obj.resiliencyPolicies.map((item) => ResiliencyPolicyFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListTestRecommendationsRequestFilterSensitiveLog = (obj: ListTestRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestRecommendationFilterSensitiveLog = (obj: TestRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTestRecommendationsResponseFilterSensitiveLog = (obj: ListTestRecommendationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUnsupportedAppVersionResourcesRequestFilterSensitiveLog = (
+  obj: ListUnsupportedAppVersionResourcesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnsupportedResourceFilterSensitiveLog = (obj: UnsupportedResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUnsupportedAppVersionResourcesResponseFilterSensitiveLog = (
+  obj: ListUnsupportedAppVersionResourcesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishAppVersionRequestFilterSensitiveLog = (obj: PublishAppVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishAppVersionResponseFilterSensitiveLog = (obj: PublishAppVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDraftAppVersionTemplateRequestFilterSensitiveLog = (obj: PutDraftAppVersionTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDraftAppVersionTemplateResponseFilterSensitiveLog = (obj: PutDraftAppVersionTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveDraftAppVersionResourceMappingsRequestFilterSensitiveLog = (
+  obj: RemoveDraftAppVersionResourceMappingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveDraftAppVersionResourceMappingsResponseFilterSensitiveLog = (
+  obj: RemoveDraftAppVersionResourceMappingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveAppVersionResourcesRequestFilterSensitiveLog = (obj: ResolveAppVersionResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveAppVersionResourcesResponseFilterSensitiveLog = (obj: ResolveAppVersionResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAppAssessmentRequestFilterSensitiveLog = (obj: StartAppAssessmentRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartAppAssessmentResponseFilterSensitiveLog = (obj: StartAppAssessmentResponse): any => ({
+  ...obj,
+  ...(obj.assessment && { assessment: AppAssessmentFilterSensitiveLog(obj.assessment) }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppRequestFilterSensitiveLog = (obj: UpdateAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppResponseFilterSensitiveLog = (obj: UpdateAppResponse): any => ({
+  ...obj,
+  ...(obj.app && { app: AppFilterSensitiveLog(obj.app) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateResiliencyPolicyRequestFilterSensitiveLog = (obj: UpdateResiliencyPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResiliencyPolicyResponseFilterSensitiveLog = (obj: UpdateResiliencyPolicyResponse): any => ({
+  ...obj,
+  ...(obj.policy && { policy: ResiliencyPolicyFilterSensitiveLog(obj.policy) }),
+});

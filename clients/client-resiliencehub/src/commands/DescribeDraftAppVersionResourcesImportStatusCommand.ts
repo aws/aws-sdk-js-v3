@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeDraftAppVersionResourcesImportStatusRequest,
+  DescribeDraftAppVersionResourcesImportStatusRequestFilterSensitiveLog,
   DescribeDraftAppVersionResourcesImportStatusResponse,
+  DescribeDraftAppVersionResourcesImportStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusCommand,
@@ -81,8 +83,8 @@ export class DescribeDraftAppVersionResourcesImportStatusCommand extends $Comman
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDraftAppVersionResourcesImportStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDraftAppVersionResourcesImportStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDraftAppVersionResourcesImportStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDraftAppVersionResourcesImportStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

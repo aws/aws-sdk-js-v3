@@ -25,15 +25,6 @@ export interface AssociateCustomDomainRequest {
   EnableWWWSubdomain?: boolean;
 }
 
-export namespace AssociateCustomDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateCustomDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum CertificateValidationRecordStatus {
   FAILED = "FAILED",
   PENDING_VALIDATION = "PENDING_VALIDATION",
@@ -64,15 +55,6 @@ export interface CertificateValidationRecord {
    *       DNS.</p>
    */
   Status?: CertificateValidationRecordStatus | string;
-}
-
-export namespace CertificateValidationRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateValidationRecord): any => ({
-    ...obj,
-  });
 }
 
 export enum CustomDomainAssociationStatus {
@@ -113,15 +95,6 @@ export interface CustomDomain {
   Status: CustomDomainAssociationStatus | string | undefined;
 }
 
-export namespace CustomDomain {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomDomain): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateCustomDomainResponse {
   /**
    * <p>The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.</p>
@@ -137,15 +110,6 @@ export interface AssociateCustomDomainResponse {
    * <p>A description of the domain name that's being associated.</p>
    */
   CustomDomain: CustomDomain | undefined;
-}
-
-export namespace AssociateCustomDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateCustomDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -226,15 +190,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAutoScalingConfigurationRequest {
   /**
    * <p>A name for the auto scaling configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number <code>1</code> of this
@@ -277,15 +232,6 @@ export interface CreateAutoScalingConfigurationRequest {
    * <p>A list of metadata items that you can associate with your auto scaling configuration resource. A tag is a key-value pair.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateAutoScalingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAutoScalingConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum AutoScalingConfigurationStatus {
@@ -360,29 +306,11 @@ export interface AutoScalingConfiguration {
   DeletedAt?: Date;
 }
 
-export namespace AutoScalingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAutoScalingConfigurationResponse {
   /**
    * <p>A description of the App Runner auto scaling configuration that's created by this request.</p>
    */
   AutoScalingConfiguration: AutoScalingConfiguration | undefined;
-}
-
-export namespace CreateAutoScalingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAutoScalingConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -429,15 +357,6 @@ export interface CreateConnectionRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ConnectionStatus {
   AVAILABLE = "AVAILABLE",
   DELETED = "DELETED",
@@ -475,29 +394,11 @@ export interface Connection {
   CreatedAt?: Date;
 }
 
-export namespace Connection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Connection): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectionResponse {
   /**
    * <p>A description of the App Runner connection that's created by this request.</p>
    */
   Connection: Connection | undefined;
-}
-
-export namespace CreateConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum TracingVendor {
@@ -512,15 +413,6 @@ export interface TraceConfiguration {
    * <p>The implementation provider chosen for tracing App Runner services.</p>
    */
   Vendor: TracingVendor | string | undefined;
-}
-
-export namespace TraceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TraceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateObservabilityConfigurationRequest {
@@ -545,15 +437,6 @@ export interface CreateObservabilityConfigurationRequest {
    * <p>A list of metadata items that you can associate with your observability configuration resource. A tag is a key-value pair.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateObservabilityConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateObservabilityConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ObservabilityConfigurationStatus {
@@ -613,29 +496,11 @@ export interface ObservabilityConfiguration {
   DeletedAt?: Date;
 }
 
-export namespace ObservabilityConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObservabilityConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateObservabilityConfigurationResponse {
   /**
    * <p>A description of the App Runner observability configuration that's created by this request.</p>
    */
   ObservabilityConfiguration: ObservabilityConfiguration | undefined;
-}
-
-export namespace CreateObservabilityConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateObservabilityConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -646,15 +511,6 @@ export interface EncryptionConfiguration {
    * <p>The ARN of the KMS key that's used for encryption.</p>
    */
   KmsKey: string | undefined;
-}
-
-export namespace EncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum HealthCheckProtocol {
@@ -712,15 +568,6 @@ export interface HealthCheckConfiguration {
   UnhealthyThreshold?: number;
 }
 
-export namespace HealthCheckConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthCheckConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the runtime configuration of an App Runner service instance (scaling unit).</p>
  */
@@ -746,15 +593,6 @@ export interface InstanceConfiguration {
   InstanceRoleArn?: string;
 }
 
-export namespace InstanceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum EgressType {
   DEFAULT = "DEFAULT",
   VPC = "VPC",
@@ -778,15 +616,6 @@ export interface EgressConfiguration {
   VpcConnectorArn?: string;
 }
 
-export namespace EgressConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EgressConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes configuration settings related to network traffic of an App Runner service. Consists of embedded objects for each configurable network
  *       feature.</p>
@@ -796,15 +625,6 @@ export interface NetworkConfiguration {
    * <p>Network configuration settings for outbound message traffic.</p>
    */
   EgressConfiguration?: EgressConfiguration;
-}
-
-export namespace NetworkConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -831,15 +651,6 @@ export interface ServiceObservabilityConfiguration {
   ObservabilityConfigurationArn?: string;
 }
 
-export namespace ServiceObservabilityConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceObservabilityConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.</p>
  */
@@ -855,15 +666,6 @@ export interface AuthenticationConfiguration {
    *       (but not for ECR Public repositories).</p>
    */
   AccessRoleArn?: string;
-}
-
-export namespace AuthenticationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum Runtime {
@@ -910,18 +712,6 @@ export interface CodeConfigurationValues {
   RuntimeEnvironmentVariables?: Record<string, string>;
 }
 
-export namespace CodeConfigurationValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeConfigurationValues): any => ({
-    ...obj,
-    ...(obj.BuildCommand && { BuildCommand: SENSITIVE_STRING }),
-    ...(obj.StartCommand && { StartCommand: SENSITIVE_STRING }),
-    ...(obj.RuntimeEnvironmentVariables && { RuntimeEnvironmentVariables: SENSITIVE_STRING }),
-  });
-}
-
 export enum ConfigurationSource {
   API = "API",
   REPOSITORY = "REPOSITORY",
@@ -955,18 +745,6 @@ export interface CodeConfiguration {
   CodeConfigurationValues?: CodeConfigurationValues;
 }
 
-export namespace CodeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeConfiguration): any => ({
-    ...obj,
-    ...(obj.CodeConfigurationValues && {
-      CodeConfigurationValues: CodeConfigurationValues.filterSensitiveLog(obj.CodeConfigurationValues),
-    }),
-  });
-}
-
 export enum SourceCodeVersionType {
   BRANCH = "BRANCH",
 }
@@ -986,15 +764,6 @@ export interface SourceCodeVersion {
    *          <p>For a git-based repository, a branch name maps to a specific version. App Runner uses the most recent commit to the branch.</p>
    */
   Value: string | undefined;
-}
-
-export namespace SourceCodeVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceCodeVersion): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1021,16 +790,6 @@ export interface CodeRepository {
   CodeConfiguration?: CodeConfiguration;
 }
 
-export namespace CodeRepository {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeRepository): any => ({
-    ...obj,
-    ...(obj.CodeConfiguration && { CodeConfiguration: CodeConfiguration.filterSensitiveLog(obj.CodeConfiguration) }),
-  });
-}
-
 /**
  * <p>Describes the configuration that App Runner uses to run an App Runner service using an image pulled from a source image repository.</p>
  */
@@ -1053,17 +812,6 @@ export interface ImageConfiguration {
    *          </p>
    */
   Port?: string;
-}
-
-export namespace ImageConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageConfiguration): any => ({
-    ...obj,
-    ...(obj.RuntimeEnvironmentVariables && { RuntimeEnvironmentVariables: SENSITIVE_STRING }),
-    ...(obj.StartCommand && { StartCommand: SENSITIVE_STRING }),
-  });
 }
 
 export enum ImageRepositoryType {
@@ -1090,18 +838,6 @@ export interface ImageRepository {
    * <p>The type of the image repository. This reflects the repository provider and whether the repository is private or public.</p>
    */
   ImageRepositoryType: ImageRepositoryType | string | undefined;
-}
-
-export namespace ImageRepository {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageRepository): any => ({
-    ...obj,
-    ...(obj.ImageConfiguration && {
-      ImageConfiguration: ImageConfiguration.filterSensitiveLog(obj.ImageConfiguration),
-    }),
-  });
 }
 
 /**
@@ -1133,17 +869,6 @@ export interface SourceConfiguration {
    * <p>Describes the resources that are needed to authenticate access to some source repositories.</p>
    */
   AuthenticationConfiguration?: AuthenticationConfiguration;
-}
-
-export namespace SourceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceConfiguration): any => ({
-    ...obj,
-    ...(obj.CodeRepository && { CodeRepository: CodeRepository.filterSensitiveLog(obj.CodeRepository) }),
-    ...(obj.ImageRepository && { ImageRepository: ImageRepository.filterSensitiveLog(obj.ImageRepository) }),
-  });
 }
 
 export interface CreateServiceRequest {
@@ -1201,18 +926,6 @@ export interface CreateServiceRequest {
   ObservabilityConfiguration?: ServiceObservabilityConfiguration;
 }
 
-export namespace CreateServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceRequest): any => ({
-    ...obj,
-    ...(obj.SourceConfiguration && {
-      SourceConfiguration: SourceConfiguration.filterSensitiveLog(obj.SourceConfiguration),
-    }),
-  });
-}
-
 /**
  * <p>Provides summary information about an App Runner automatic scaling configuration resource.</p>
  *          <p>This type contains limited information about an auto scaling configuration. It includes only identification information, without configuration
@@ -1235,15 +948,6 @@ export interface AutoScalingConfigurationSummary {
    *         <code>AutoScalingConfigurationName</code>.</p>
    */
   AutoScalingConfigurationRevision?: number;
-}
-
-export namespace AutoScalingConfigurationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingConfigurationSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceStatus {
@@ -1351,18 +1055,6 @@ export interface Service {
   ObservabilityConfiguration?: ServiceObservabilityConfiguration;
 }
 
-export namespace Service {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Service): any => ({
-    ...obj,
-    ...(obj.SourceConfiguration && {
-      SourceConfiguration: SourceConfiguration.filterSensitiveLog(obj.SourceConfiguration),
-    }),
-  });
-}
-
 export interface CreateServiceResponse {
   /**
    * <p>A description of the App Runner service that's created by this request.</p>
@@ -1373,16 +1065,6 @@ export interface CreateServiceResponse {
    * <p>The unique ID of the asynchronous operation that this request started. You can use it combined with the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html">ListOperations</a> call to track the operation's progress.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace CreateServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceResponse): any => ({
-    ...obj,
-    ...(obj.Service && { Service: Service.filterSensitiveLog(obj.Service) }),
-  });
 }
 
 export interface CreateVpcConnectorRequest {
@@ -1412,15 +1094,6 @@ export interface CreateVpcConnectorRequest {
    * <p>A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateVpcConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcConnectorRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum VpcConnectorStatus {
@@ -1484,29 +1157,11 @@ export interface VpcConnector {
   DeletedAt?: Date;
 }
 
-export namespace VpcConnector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConnector): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateVpcConnectorResponse {
   /**
    * <p>A description of the App Runner VPC connector that's created by this request.</p>
    */
   VpcConnector: VpcConnector | undefined;
-}
-
-export namespace CreateVpcConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcConnectorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAutoScalingConfigurationRequest {
@@ -1520,29 +1175,11 @@ export interface DeleteAutoScalingConfigurationRequest {
   AutoScalingConfigurationArn: string | undefined;
 }
 
-export namespace DeleteAutoScalingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAutoScalingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAutoScalingConfigurationResponse {
   /**
    * <p>A description of the App Runner auto scaling configuration that this request just deleted.</p>
    */
   AutoScalingConfiguration: AutoScalingConfiguration | undefined;
-}
-
-export namespace DeleteAutoScalingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAutoScalingConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1573,29 +1210,11 @@ export interface DeleteConnectionRequest {
   ConnectionArn: string | undefined;
 }
 
-export namespace DeleteConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConnectionResponse {
   /**
    * <p>A description of the App Runner connection that this request just deleted.</p>
    */
   Connection?: Connection;
-}
-
-export namespace DeleteConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteObservabilityConfigurationRequest {
@@ -1609,15 +1228,6 @@ export interface DeleteObservabilityConfigurationRequest {
   ObservabilityConfigurationArn: string | undefined;
 }
 
-export namespace DeleteObservabilityConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObservabilityConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteObservabilityConfigurationResponse {
   /**
    * <p>A description of the App Runner observability configuration that this request just deleted.</p>
@@ -1625,29 +1235,11 @@ export interface DeleteObservabilityConfigurationResponse {
   ObservabilityConfiguration: ObservabilityConfiguration | undefined;
 }
 
-export namespace DeleteObservabilityConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObservabilityConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to delete.</p>
    */
   ServiceArn: string | undefined;
-}
-
-export namespace DeleteServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteServiceResponse {
@@ -1663,16 +1255,6 @@ export interface DeleteServiceResponse {
   OperationId: string | undefined;
 }
 
-export namespace DeleteServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceResponse): any => ({
-    ...obj,
-    ...(obj.Service && { Service: Service.filterSensitiveLog(obj.Service) }),
-  });
-}
-
 export interface DeleteVpcConnectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p>
@@ -1681,29 +1263,11 @@ export interface DeleteVpcConnectorRequest {
   VpcConnectorArn: string | undefined;
 }
 
-export namespace DeleteVpcConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVpcConnectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVpcConnectorResponse {
   /**
    * <p>A description of the App Runner VPC connector that this request just deleted.</p>
    */
   VpcConnector: VpcConnector | undefined;
-}
-
-export namespace DeleteVpcConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVpcConnectorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAutoScalingConfigurationRequest {
@@ -1718,29 +1282,11 @@ export interface DescribeAutoScalingConfigurationRequest {
   AutoScalingConfigurationArn: string | undefined;
 }
 
-export namespace DescribeAutoScalingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAutoScalingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAutoScalingConfigurationResponse {
   /**
    * <p>A full description of the App Runner auto scaling configuration that you specified in this request.</p>
    */
   AutoScalingConfiguration: AutoScalingConfiguration | undefined;
-}
-
-export namespace DescribeAutoScalingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAutoScalingConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCustomDomainsRequest {
@@ -1761,15 +1307,6 @@ export interface DescribeCustomDomainsRequest {
    *          <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribeCustomDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomDomainsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCustomDomainsResponse {
@@ -1795,15 +1332,6 @@ export interface DescribeCustomDomainsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeCustomDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomDomainsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeObservabilityConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner observability configuration that you want a description for.</p>
@@ -1816,29 +1344,11 @@ export interface DescribeObservabilityConfigurationRequest {
   ObservabilityConfigurationArn: string | undefined;
 }
 
-export namespace DescribeObservabilityConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeObservabilityConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeObservabilityConfigurationResponse {
   /**
    * <p>A full description of the App Runner observability configuration that you specified in this request.</p>
    */
   ObservabilityConfiguration: ObservabilityConfiguration | undefined;
-}
-
-export namespace DescribeObservabilityConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeObservabilityConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeServiceRequest {
@@ -1848,30 +1358,11 @@ export interface DescribeServiceRequest {
   ServiceArn: string | undefined;
 }
 
-export namespace DescribeServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeServiceResponse {
   /**
    * <p>A full description of the App Runner service that you specified in this request.</p>
    */
   Service: Service | undefined;
-}
-
-export namespace DescribeServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceResponse): any => ({
-    ...obj,
-    ...(obj.Service && { Service: Service.filterSensitiveLog(obj.Service) }),
-  });
 }
 
 export interface DescribeVpcConnectorRequest {
@@ -1882,29 +1373,11 @@ export interface DescribeVpcConnectorRequest {
   VpcConnectorArn: string | undefined;
 }
 
-export namespace DescribeVpcConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcConnectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeVpcConnectorResponse {
   /**
    * <p>A description of the App Runner VPC connector that you specified in this request.</p>
    */
   VpcConnector: VpcConnector | undefined;
-}
-
-export namespace DescribeVpcConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcConnectorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateCustomDomainRequest {
@@ -1917,15 +1390,6 @@ export interface DisassociateCustomDomainRequest {
    * <p>The domain name that you want to disassociate from the App Runner service.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace DisassociateCustomDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateCustomDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateCustomDomainResponse {
@@ -1943,15 +1407,6 @@ export interface DisassociateCustomDomainResponse {
    * <p>A description of the domain name that's being disassociated.</p>
    */
   CustomDomain: CustomDomain | undefined;
-}
-
-export namespace DisassociateCustomDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateCustomDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAutoScalingConfigurationsRequest {
@@ -1983,15 +1438,6 @@ export interface ListAutoScalingConfigurationsRequest {
   NextToken?: string;
 }
 
-export namespace ListAutoScalingConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAutoScalingConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAutoScalingConfigurationsResponse {
   /**
    * <p>A list of summary information records for auto scaling configurations. In a paginated request, the request returns up to <code>MaxResults</code>
@@ -2003,15 +1449,6 @@ export interface ListAutoScalingConfigurationsResponse {
    * <p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAutoScalingConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAutoScalingConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConnectionsRequest {
@@ -2032,15 +1469,6 @@ export interface ListConnectionsRequest {
    *          <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2073,15 +1501,6 @@ export interface ConnectionSummary {
   CreatedAt?: Date;
 }
 
-export namespace ConnectionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConnectionsResponse {
   /**
    * <p>A list of summary information records for connections. In a paginated request, the request returns up to <code>MaxResults</code> records for each
@@ -2093,15 +1512,6 @@ export interface ListConnectionsResponse {
    * <p>The token that you can pass in a subsequent request to get the next result page. Returned in a paginated request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListConnectionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListObservabilityConfigurationsRequest {
@@ -2133,15 +1543,6 @@ export interface ListObservabilityConfigurationsRequest {
   NextToken?: string;
 }
 
-export namespace ListObservabilityConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObservabilityConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides summary information about an App Runner observability configuration resource.</p>
  *          <p>This type contains limited information about an observability configuration. It includes only identification information, without configuration
@@ -2166,15 +1567,6 @@ export interface ObservabilityConfigurationSummary {
   ObservabilityConfigurationRevision?: number;
 }
 
-export namespace ObservabilityConfigurationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObservabilityConfigurationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListObservabilityConfigurationsResponse {
   /**
    * <p>A list of summary information records for observability configurations. In a paginated request, the request returns up to <code>MaxResults</code>
@@ -2186,15 +1578,6 @@ export interface ListObservabilityConfigurationsResponse {
    * <p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListObservabilityConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObservabilityConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOperationsRequest {
@@ -2215,15 +1598,6 @@ export interface ListOperationsRequest {
    *          <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListOperationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOperationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum OperationStatus {
@@ -2284,15 +1658,6 @@ export interface OperationSummary {
   UpdatedAt?: Date;
 }
 
-export namespace OperationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOperationsResponse {
   /**
    * <p>A list of operation summary information records. In a paginated request, the request returns up to <code>MaxResults</code> records for each
@@ -2304,15 +1669,6 @@ export interface ListOperationsResponse {
    * <p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOperationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOperationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListServicesRequest {
@@ -2328,15 +1684,6 @@ export interface ListServicesRequest {
    *          <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2393,15 +1740,6 @@ export interface ServiceSummary {
   Status?: ServiceStatus | string;
 }
 
-export namespace ServiceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServicesResponse {
   /**
    * <p>A list of service summary information records. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>
@@ -2414,15 +1752,6 @@ export interface ListServicesResponse {
   NextToken?: string;
 }
 
-export namespace ListServicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that a tag list is requested for.</p>
@@ -2431,29 +1760,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of the tag key-value pairs that are associated with the resource.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListVpcConnectorsRequest {
@@ -2471,15 +1782,6 @@ export interface ListVpcConnectorsRequest {
   NextToken?: string;
 }
 
-export namespace ListVpcConnectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVpcConnectorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListVpcConnectorsResponse {
   /**
    * <p>A list of information records for VPC connectors. In a paginated request, the request returns up to <code>MaxResults</code> records for each
@@ -2493,29 +1795,11 @@ export interface ListVpcConnectorsResponse {
   NextToken?: string;
 }
 
-export namespace ListVpcConnectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVpcConnectorsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PauseServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to pause.</p>
    */
   ServiceArn: string | undefined;
-}
-
-export namespace PauseServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PauseServiceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PauseServiceResponse {
@@ -2531,30 +1815,11 @@ export interface PauseServiceResponse {
   OperationId?: string;
 }
 
-export namespace PauseServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PauseServiceResponse): any => ({
-    ...obj,
-    ...(obj.Service && { Service: Service.filterSensitiveLog(obj.Service) }),
-  });
-}
-
 export interface ResumeServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to resume.</p>
    */
   ServiceArn: string | undefined;
-}
-
-export namespace ResumeServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeServiceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ResumeServiceResponse {
@@ -2570,30 +1835,11 @@ export interface ResumeServiceResponse {
   OperationId?: string;
 }
 
-export namespace ResumeServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeServiceResponse): any => ({
-    ...obj,
-    ...(obj.Service && { Service: Service.filterSensitiveLog(obj.Service) }),
-  });
-}
-
 export interface StartDeploymentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to manually deploy to.</p>
    */
   ServiceArn: string | undefined;
-}
-
-export namespace StartDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeploymentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartDeploymentResponse {
@@ -2602,15 +1848,6 @@ export interface StartDeploymentResponse {
    *       the operation's progress.</p>
    */
   OperationId: string | undefined;
-}
-
-export namespace StartDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeploymentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -2627,25 +1864,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2660,25 +1879,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateServiceRequest {
   /**
@@ -2721,18 +1922,6 @@ export interface UpdateServiceRequest {
   ObservabilityConfiguration?: ServiceObservabilityConfiguration;
 }
 
-export namespace UpdateServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceRequest): any => ({
-    ...obj,
-    ...(obj.SourceConfiguration && {
-      SourceConfiguration: SourceConfiguration.filterSensitiveLog(obj.SourceConfiguration),
-    }),
-  });
-}
-
 export interface UpdateServiceResponse {
   /**
    * <p>A description of the App Runner service updated by this request. All configuration values in the returned <code>Service</code> structure reflect
@@ -2747,12 +1936,677 @@ export interface UpdateServiceResponse {
   OperationId: string | undefined;
 }
 
-export namespace UpdateServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceResponse): any => ({
-    ...obj,
-    ...(obj.Service && { Service: Service.filterSensitiveLog(obj.Service) }),
-  });
-}
+/**
+ * @internal
+ */
+export const AssociateCustomDomainRequestFilterSensitiveLog = (obj: AssociateCustomDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateValidationRecordFilterSensitiveLog = (obj: CertificateValidationRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomDomainFilterSensitiveLog = (obj: CustomDomain): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateCustomDomainResponseFilterSensitiveLog = (obj: AssociateCustomDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAutoScalingConfigurationRequestFilterSensitiveLog = (
+  obj: CreateAutoScalingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingConfigurationFilterSensitiveLog = (obj: AutoScalingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAutoScalingConfigurationResponseFilterSensitiveLog = (
+  obj: CreateAutoScalingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionFilterSensitiveLog = (obj: Connection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionResponseFilterSensitiveLog = (obj: CreateConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TraceConfigurationFilterSensitiveLog = (obj: TraceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateObservabilityConfigurationRequestFilterSensitiveLog = (
+  obj: CreateObservabilityConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObservabilityConfigurationFilterSensitiveLog = (obj: ObservabilityConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateObservabilityConfigurationResponseFilterSensitiveLog = (
+  obj: CreateObservabilityConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HealthCheckConfigurationFilterSensitiveLog = (obj: HealthCheckConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceConfigurationFilterSensitiveLog = (obj: InstanceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EgressConfigurationFilterSensitiveLog = (obj: EgressConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceObservabilityConfigurationFilterSensitiveLog = (obj: ServiceObservabilityConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationConfigurationFilterSensitiveLog = (obj: AuthenticationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeConfigurationValuesFilterSensitiveLog = (obj: CodeConfigurationValues): any => ({
+  ...obj,
+  ...(obj.BuildCommand && { BuildCommand: SENSITIVE_STRING }),
+  ...(obj.StartCommand && { StartCommand: SENSITIVE_STRING }),
+  ...(obj.RuntimeEnvironmentVariables && { RuntimeEnvironmentVariables: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CodeConfigurationFilterSensitiveLog = (obj: CodeConfiguration): any => ({
+  ...obj,
+  ...(obj.CodeConfigurationValues && {
+    CodeConfigurationValues: CodeConfigurationValuesFilterSensitiveLog(obj.CodeConfigurationValues),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SourceCodeVersionFilterSensitiveLog = (obj: SourceCodeVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeRepositoryFilterSensitiveLog = (obj: CodeRepository): any => ({
+  ...obj,
+  ...(obj.CodeConfiguration && { CodeConfiguration: CodeConfigurationFilterSensitiveLog(obj.CodeConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const ImageConfigurationFilterSensitiveLog = (obj: ImageConfiguration): any => ({
+  ...obj,
+  ...(obj.RuntimeEnvironmentVariables && { RuntimeEnvironmentVariables: SENSITIVE_STRING }),
+  ...(obj.StartCommand && { StartCommand: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImageRepositoryFilterSensitiveLog = (obj: ImageRepository): any => ({
+  ...obj,
+  ...(obj.ImageConfiguration && { ImageConfiguration: ImageConfigurationFilterSensitiveLog(obj.ImageConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const SourceConfigurationFilterSensitiveLog = (obj: SourceConfiguration): any => ({
+  ...obj,
+  ...(obj.CodeRepository && { CodeRepository: CodeRepositoryFilterSensitiveLog(obj.CodeRepository) }),
+  ...(obj.ImageRepository && { ImageRepository: ImageRepositoryFilterSensitiveLog(obj.ImageRepository) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceRequestFilterSensitiveLog = (obj: CreateServiceRequest): any => ({
+  ...obj,
+  ...(obj.SourceConfiguration && {
+    SourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.SourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingConfigurationSummaryFilterSensitiveLog = (obj: AutoScalingConfigurationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceFilterSensitiveLog = (obj: Service): any => ({
+  ...obj,
+  ...(obj.SourceConfiguration && {
+    SourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.SourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceResponseFilterSensitiveLog = (obj: CreateServiceResponse): any => ({
+  ...obj,
+  ...(obj.Service && { Service: ServiceFilterSensitiveLog(obj.Service) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcConnectorRequestFilterSensitiveLog = (obj: CreateVpcConnectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConnectorFilterSensitiveLog = (obj: VpcConnector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcConnectorResponseFilterSensitiveLog = (obj: CreateVpcConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAutoScalingConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteAutoScalingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAutoScalingConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteAutoScalingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectionRequestFilterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectionResponseFilterSensitiveLog = (obj: DeleteConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObservabilityConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteObservabilityConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObservabilityConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteObservabilityConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceRequestFilterSensitiveLog = (obj: DeleteServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceResponseFilterSensitiveLog = (obj: DeleteServiceResponse): any => ({
+  ...obj,
+  ...(obj.Service && { Service: ServiceFilterSensitiveLog(obj.Service) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcConnectorRequestFilterSensitiveLog = (obj: DeleteVpcConnectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcConnectorResponseFilterSensitiveLog = (obj: DeleteVpcConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAutoScalingConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeAutoScalingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAutoScalingConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeAutoScalingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomDomainsRequestFilterSensitiveLog = (obj: DescribeCustomDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomDomainsResponseFilterSensitiveLog = (obj: DescribeCustomDomainsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeObservabilityConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeObservabilityConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeObservabilityConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeObservabilityConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceRequestFilterSensitiveLog = (obj: DescribeServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceResponseFilterSensitiveLog = (obj: DescribeServiceResponse): any => ({
+  ...obj,
+  ...(obj.Service && { Service: ServiceFilterSensitiveLog(obj.Service) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcConnectorRequestFilterSensitiveLog = (obj: DescribeVpcConnectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcConnectorResponseFilterSensitiveLog = (obj: DescribeVpcConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateCustomDomainRequestFilterSensitiveLog = (obj: DisassociateCustomDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateCustomDomainResponseFilterSensitiveLog = (obj: DisassociateCustomDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAutoScalingConfigurationsRequestFilterSensitiveLog = (
+  obj: ListAutoScalingConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAutoScalingConfigurationsResponseFilterSensitiveLog = (
+  obj: ListAutoScalingConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectionsRequestFilterSensitiveLog = (obj: ListConnectionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionSummaryFilterSensitiveLog = (obj: ConnectionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectionsResponseFilterSensitiveLog = (obj: ListConnectionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObservabilityConfigurationsRequestFilterSensitiveLog = (
+  obj: ListObservabilityConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObservabilityConfigurationSummaryFilterSensitiveLog = (obj: ObservabilityConfigurationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObservabilityConfigurationsResponseFilterSensitiveLog = (
+  obj: ListObservabilityConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOperationsRequestFilterSensitiveLog = (obj: ListOperationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperationSummaryFilterSensitiveLog = (obj: OperationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOperationsResponseFilterSensitiveLog = (obj: ListOperationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicesRequestFilterSensitiveLog = (obj: ListServicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceSummaryFilterSensitiveLog = (obj: ServiceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicesResponseFilterSensitiveLog = (obj: ListServicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVpcConnectorsRequestFilterSensitiveLog = (obj: ListVpcConnectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVpcConnectorsResponseFilterSensitiveLog = (obj: ListVpcConnectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PauseServiceRequestFilterSensitiveLog = (obj: PauseServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PauseServiceResponseFilterSensitiveLog = (obj: PauseServiceResponse): any => ({
+  ...obj,
+  ...(obj.Service && { Service: ServiceFilterSensitiveLog(obj.Service) }),
+});
+
+/**
+ * @internal
+ */
+export const ResumeServiceRequestFilterSensitiveLog = (obj: ResumeServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResumeServiceResponseFilterSensitiveLog = (obj: ResumeServiceResponse): any => ({
+  ...obj,
+  ...(obj.Service && { Service: ServiceFilterSensitiveLog(obj.Service) }),
+});
+
+/**
+ * @internal
+ */
+export const StartDeploymentRequestFilterSensitiveLog = (obj: StartDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDeploymentResponseFilterSensitiveLog = (obj: StartDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceRequestFilterSensitiveLog = (obj: UpdateServiceRequest): any => ({
+  ...obj,
+  ...(obj.SourceConfiguration && {
+    SourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.SourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceResponseFilterSensitiveLog = (obj: UpdateServiceResponse): any => ({
+  ...obj,
+  ...(obj.Service && { Service: ServiceFilterSensitiveLog(obj.Service) }),
+});

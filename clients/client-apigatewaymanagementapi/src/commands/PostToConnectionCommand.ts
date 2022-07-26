@@ -17,7 +17,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient";
-import { PostToConnectionRequest } from "../models/models_0";
+import { PostToConnectionRequest, PostToConnectionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1PostToConnectionCommand,
   serializeAws_restJson1PostToConnectionCommand,
@@ -76,7 +76,7 @@ export class PostToConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PostToConnectionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PostToConnectionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

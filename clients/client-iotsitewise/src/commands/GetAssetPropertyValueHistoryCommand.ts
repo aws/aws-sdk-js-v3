@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { GetAssetPropertyValueHistoryRequest, GetAssetPropertyValueHistoryResponse } from "../models/models_0";
+import {
+  GetAssetPropertyValueHistoryRequest,
+  GetAssetPropertyValueHistoryRequestFilterSensitiveLog,
+  GetAssetPropertyValueHistoryResponse,
+  GetAssetPropertyValueHistoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetAssetPropertyValueHistoryCommand,
   serializeAws_restJson1GetAssetPropertyValueHistoryCommand,
@@ -85,8 +90,8 @@ export class GetAssetPropertyValueHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssetPropertyValueHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAssetPropertyValueHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAssetPropertyValueHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAssetPropertyValueHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

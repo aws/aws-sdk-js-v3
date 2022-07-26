@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { AssociateEncryptionConfigRequest, AssociateEncryptionConfigResponse } from "../models/models_0";
+import {
+  AssociateEncryptionConfigRequest,
+  AssociateEncryptionConfigRequestFilterSensitiveLog,
+  AssociateEncryptionConfigResponse,
+  AssociateEncryptionConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateEncryptionConfigCommand,
   serializeAws_restJson1AssociateEncryptionConfigCommand,
@@ -75,8 +80,8 @@ export class AssociateEncryptionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateEncryptionConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateEncryptionConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateEncryptionConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateEncryptionConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

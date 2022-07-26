@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { DeleteDataSourceInput, DeleteDataSourceOutput } from "../models/models_0";
+import {
+  DeleteDataSourceInput,
+  DeleteDataSourceInputFilterSensitiveLog,
+  DeleteDataSourceOutput,
+  DeleteDataSourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDataSourceCommand,
   serializeAws_json1_1DeleteDataSourceCommand,
@@ -75,8 +80,8 @@ export class DeleteDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataSourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataSourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDataSourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDataSourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { BatchDeleteGeofenceRequest, BatchDeleteGeofenceResponse } from "../models/models_0";
+import {
+  BatchDeleteGeofenceRequest,
+  BatchDeleteGeofenceRequestFilterSensitiveLog,
+  BatchDeleteGeofenceResponse,
+  BatchDeleteGeofenceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDeleteGeofenceCommand,
   serializeAws_restJson1BatchDeleteGeofenceCommand,
@@ -75,8 +80,8 @@ export class BatchDeleteGeofenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteGeofenceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteGeofenceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDeleteGeofenceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteGeofenceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

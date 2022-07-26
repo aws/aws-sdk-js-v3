@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { PutAndGetInlineDocumentsInputOutput } from "../models/models_0";
+import {
+  PutAndGetInlineDocumentsInputOutput,
+  PutAndGetInlineDocumentsInputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutAndGetInlineDocumentsCommand,
   serializeAws_json1_1PutAndGetInlineDocumentsCommand,
@@ -72,8 +75,8 @@ export class PutAndGetInlineDocumentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAndGetInlineDocumentsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAndGetInlineDocumentsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAndGetInlineDocumentsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAndGetInlineDocumentsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

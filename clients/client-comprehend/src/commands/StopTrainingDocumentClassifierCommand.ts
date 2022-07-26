@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopTrainingDocumentClassifierRequest, StopTrainingDocumentClassifierResponse } from "../models/models_0";
+import {
+  StopTrainingDocumentClassifierRequest,
+  StopTrainingDocumentClassifierRequestFilterSensitiveLog,
+  StopTrainingDocumentClassifierResponse,
+  StopTrainingDocumentClassifierResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopTrainingDocumentClassifierCommand,
   serializeAws_json1_1StopTrainingDocumentClassifierCommand,
@@ -79,8 +84,8 @@ export class StopTrainingDocumentClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTrainingDocumentClassifierRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopTrainingDocumentClassifierResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopTrainingDocumentClassifierRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopTrainingDocumentClassifierResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { DetachLoadBalancerFromSubnetsInput, DetachLoadBalancerFromSubnetsOutput } from "../models/models_0";
+import {
+  DetachLoadBalancerFromSubnetsInput,
+  DetachLoadBalancerFromSubnetsInputFilterSensitiveLog,
+  DetachLoadBalancerFromSubnetsOutput,
+  DetachLoadBalancerFromSubnetsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDetachLoadBalancerFromSubnetsCommand,
   serializeAws_queryDetachLoadBalancerFromSubnetsCommand,
@@ -81,8 +86,8 @@ export class DetachLoadBalancerFromSubnetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachLoadBalancerFromSubnetsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachLoadBalancerFromSubnetsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachLoadBalancerFromSubnetsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DetachLoadBalancerFromSubnetsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

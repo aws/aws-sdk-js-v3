@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { DeleteUserAttributesRequest, DeleteUserAttributesResponse } from "../models/models_0";
+import {
+  DeleteUserAttributesRequest,
+  DeleteUserAttributesRequestFilterSensitiveLog,
+  DeleteUserAttributesResponse,
+  DeleteUserAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteUserAttributesCommand,
   serializeAws_json1_1DeleteUserAttributesCommand,
@@ -76,8 +81,8 @@ export class DeleteUserAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUserAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

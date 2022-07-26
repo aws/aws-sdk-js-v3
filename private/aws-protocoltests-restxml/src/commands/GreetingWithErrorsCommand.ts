@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GreetingWithErrorsOutput } from "../models/models_0";
+import { GreetingWithErrorsOutput, GreetingWithErrorsOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlGreetingWithErrorsCommand,
   serializeAws_restXmlGreetingWithErrorsCommand,
@@ -81,7 +81,7 @@ export class GreetingWithErrorsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GreetingWithErrorsOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: GreetingWithErrorsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

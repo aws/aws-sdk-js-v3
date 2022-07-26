@@ -14,15 +14,6 @@ export interface RouteFilterPrefix {
   cidr?: string;
 }
 
-export namespace RouteFilterPrefix {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RouteFilterPrefix): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -44,15 +35,6 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
    *          <p>For information about how to set the prefixes, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes">Allowed Prefixes</a> in the <i>Direct Connect User Guide</i>.</p>
    */
   overrideAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
-}
-
-export namespace AcceptDirectConnectGatewayAssociationProposalRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptDirectConnectGatewayAssociationProposalRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum GatewayType {
@@ -83,15 +65,6 @@ export interface AssociatedGateway {
    * <p>The Region where the associated gateway is located.</p>
    */
   region?: string;
-}
-
-export namespace AssociatedGateway {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatedGateway): any => ({
-    ...obj,
-  });
 }
 
 export type DirectConnectGatewayAssociationState =
@@ -176,29 +149,11 @@ export interface DirectConnectGatewayAssociation {
   virtualGatewayOwnerAccount?: string;
 }
 
-export namespace DirectConnectGatewayAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectConnectGatewayAssociation): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptDirectConnectGatewayAssociationProposalResult {
   /**
    * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
-}
-
-export namespace AcceptDirectConnectGatewayAssociationProposalResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptDirectConnectGatewayAssociationProposalResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -260,15 +215,6 @@ export interface CustomerAgreement {
   status?: string;
 }
 
-export namespace CustomerAgreement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerAgreement): any => ({
-    ...obj,
-  });
-}
-
 export interface AllocateConnectionOnInterconnectRequest {
   /**
    * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
@@ -297,15 +243,6 @@ export interface AllocateConnectionOnInterconnectRequest {
    * <p>The dedicated VLAN provisioned to the connection.</p>
    */
   vlan: number | undefined;
-}
-
-export namespace AllocateConnectionOnInterconnectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllocateConnectionOnInterconnectRequest): any => ({
-    ...obj,
-  });
 }
 
 export type ConnectionState =
@@ -369,15 +306,6 @@ export interface MacSecKey {
   startOn?: string;
 }
 
-export namespace MacSecKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MacSecKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a tag.</p>
  */
@@ -391,15 +319,6 @@ export interface Tag {
    * <p>The value.</p>
    */
   value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -560,15 +479,6 @@ export interface Connection {
   macSecKeys?: MacSecKey[];
 }
 
-export namespace Connection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Connection): any => ({
-    ...obj,
-  });
-}
-
 export interface AllocateHostedConnectionRequest {
   /**
    * <p>The ID of the interconnect or LAG.</p>
@@ -599,15 +509,6 @@ export interface AllocateHostedConnectionRequest {
    * <p>The tags associated with the connection.</p>
    */
   tags?: Tag[];
-}
-
-export namespace AllocateHostedConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllocateHostedConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -699,15 +600,6 @@ export interface NewPrivateVirtualInterfaceAllocation {
   tags?: Tag[];
 }
 
-export namespace NewPrivateVirtualInterfaceAllocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewPrivateVirtualInterfaceAllocation): any => ({
-    ...obj,
-  });
-}
-
 export interface AllocatePrivateVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection on which the private virtual interface is provisioned.</p>
@@ -723,15 +615,6 @@ export interface AllocatePrivateVirtualInterfaceRequest {
    * <p>Information about the private virtual interface.</p>
    */
   newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocation | undefined;
-}
-
-export namespace AllocatePrivateVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllocatePrivateVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum BGPPeerState {
@@ -839,15 +722,6 @@ export interface BGPPeer {
    *       different than the device that terminates the physical connection.</p>
    */
   awsLogicalDeviceId?: string;
-}
-
-export namespace BGPPeer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BGPPeer): any => ({
-    ...obj,
-  });
 }
 
 export type VirtualInterfaceState =
@@ -1036,15 +910,6 @@ export interface VirtualInterface {
   siteLinkEnabled?: boolean;
 }
 
-export namespace VirtualInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VirtualInterface): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a public virtual interface to be provisioned on a connection.</p>
  */
@@ -1096,15 +961,6 @@ export interface NewPublicVirtualInterfaceAllocation {
   tags?: Tag[];
 }
 
-export namespace NewPublicVirtualInterfaceAllocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewPublicVirtualInterfaceAllocation): any => ({
-    ...obj,
-  });
-}
-
 export interface AllocatePublicVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection on which the public virtual interface is provisioned.</p>
@@ -1120,15 +976,6 @@ export interface AllocatePublicVirtualInterfaceRequest {
    * <p>Information about the public virtual interface.</p>
    */
   newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocation | undefined;
-}
-
-export namespace AllocatePublicVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllocatePublicVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1182,15 +1029,6 @@ export interface NewTransitVirtualInterfaceAllocation {
   tags?: Tag[];
 }
 
-export namespace NewTransitVirtualInterfaceAllocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewTransitVirtualInterfaceAllocation): any => ({
-    ...obj,
-  });
-}
-
 export interface AllocateTransitVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection on which the transit virtual interface is provisioned.</p>
@@ -1208,29 +1046,11 @@ export interface AllocateTransitVirtualInterfaceRequest {
   newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocation | undefined;
 }
 
-export namespace AllocateTransitVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllocateTransitVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AllocateTransitVirtualInterfaceResult {
   /**
    * <p>Information about a virtual interface.</p>
    */
   virtualInterface?: VirtualInterface;
-}
-
-export namespace AllocateTransitVirtualInterfaceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllocateTransitVirtualInterfaceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateConnectionWithLagRequest {
@@ -1245,15 +1065,6 @@ export interface AssociateConnectionWithLagRequest {
   lagId: string | undefined;
 }
 
-export namespace AssociateConnectionWithLagRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateConnectionWithLagRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateHostedConnectionRequest {
   /**
    * <p>The ID of the hosted connection.</p>
@@ -1264,15 +1075,6 @@ export interface AssociateHostedConnectionRequest {
    * <p>The ID of the interconnect or the LAG.</p>
    */
   parentConnectionId: string | undefined;
-}
-
-export namespace AssociateHostedConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateHostedConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateMacSecKeyRequest {
@@ -1306,15 +1108,6 @@ export interface AssociateMacSecKeyRequest {
   cak?: string;
 }
 
-export namespace AssociateMacSecKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateMacSecKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateMacSecKeyResponse {
   /**
    * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
@@ -1325,15 +1118,6 @@ export interface AssociateMacSecKeyResponse {
    * <p>The MAC Security (MACsec) security keys associated with the dedicated connection.</p>
    */
   macSecKeys?: MacSecKey[];
-}
-
-export namespace AssociateMacSecKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateMacSecKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateVirtualInterfaceRequest {
@@ -1348,29 +1132,11 @@ export interface AssociateVirtualInterfaceRequest {
   connectionId: string | undefined;
 }
 
-export namespace AssociateVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ConfirmConnectionRequest {
   /**
    * <p>The ID of the hosted connection.</p>
    */
   connectionId: string | undefined;
-}
-
-export namespace ConfirmConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ConfirmConnectionResponse {
@@ -1418,15 +1184,6 @@ export interface ConfirmConnectionResponse {
   connectionState?: ConnectionState | string;
 }
 
-export namespace ConfirmConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ConfirmCustomerAgreementRequest {
   /**
    * <p>
@@ -1438,15 +1195,6 @@ export interface ConfirmCustomerAgreementRequest {
   agreementName?: string;
 }
 
-export namespace ConfirmCustomerAgreementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmCustomerAgreementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ConfirmCustomerAgreementResponse {
   /**
    * <p>
@@ -1454,15 +1202,6 @@ export interface ConfirmCustomerAgreementResponse {
    *     </p>
    */
   status?: string;
-}
-
-export namespace ConfirmCustomerAgreementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmCustomerAgreementResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ConfirmPrivateVirtualInterfaceRequest {
@@ -1480,15 +1219,6 @@ export interface ConfirmPrivateVirtualInterfaceRequest {
    * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId?: string;
-}
-
-export namespace ConfirmPrivateVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmPrivateVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ConfirmPrivateVirtualInterfaceResponse {
@@ -1536,29 +1266,11 @@ export interface ConfirmPrivateVirtualInterfaceResponse {
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
 
-export namespace ConfirmPrivateVirtualInterfaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmPrivateVirtualInterfaceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ConfirmPublicVirtualInterfaceRequest {
   /**
    * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId: string | undefined;
-}
-
-export namespace ConfirmPublicVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmPublicVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ConfirmPublicVirtualInterfaceResponse {
@@ -1606,15 +1318,6 @@ export interface ConfirmPublicVirtualInterfaceResponse {
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
 
-export namespace ConfirmPublicVirtualInterfaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmPublicVirtualInterfaceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ConfirmTransitVirtualInterfaceRequest {
   /**
    * <p>The ID of the virtual interface.</p>
@@ -1625,15 +1328,6 @@ export interface ConfirmTransitVirtualInterfaceRequest {
    * <p>The ID of the Direct Connect gateway.</p>
    */
   directConnectGatewayId: string | undefined;
-}
-
-export namespace ConfirmTransitVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmTransitVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ConfirmTransitVirtualInterfaceResponse {
@@ -1681,29 +1375,11 @@ export interface ConfirmTransitVirtualInterfaceResponse {
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
 
-export namespace ConfirmTransitVirtualInterfaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmTransitVirtualInterfaceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface Connections {
   /**
    * <p>The connections.</p>
    */
   connections?: Connection[];
-}
-
-export namespace Connections {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Connections): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1736,15 +1412,6 @@ export interface NewBGPPeer {
   customerAddress?: string;
 }
 
-export namespace NewBGPPeer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewBGPPeer): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBGPPeerRequest {
   /**
    * <p>The ID of the virtual interface.</p>
@@ -1757,29 +1424,11 @@ export interface CreateBGPPeerRequest {
   newBGPPeer?: NewBGPPeer;
 }
 
-export namespace CreateBGPPeerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBGPPeerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBGPPeerResponse {
   /**
    * <p>The virtual interface.</p>
    */
   virtualInterface?: VirtualInterface;
-}
-
-export namespace CreateBGPPeerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBGPPeerResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConnectionRequest {
@@ -1820,15 +1469,6 @@ export interface CreateConnectionRequest {
   requestMACSec?: boolean;
 }
 
-export namespace CreateConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDirectConnectGatewayRequest {
   /**
    * <p>The name of the Direct Connect gateway.</p>
@@ -1841,15 +1481,6 @@ export interface CreateDirectConnectGatewayRequest {
    *       65,534 or 4,200,000,000 to 4,294,967,294. The default is 64512.</p>
    */
   amazonSideAsn?: number;
-}
-
-export namespace CreateDirectConnectGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayRequest): any => ({
-    ...obj,
-  });
 }
 
 export type DirectConnectGatewayState = "available" | "deleted" | "deleting" | "pending";
@@ -1907,29 +1538,11 @@ export interface DirectConnectGateway {
   stateChangeError?: string;
 }
 
-export namespace DirectConnectGateway {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectConnectGateway): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDirectConnectGatewayResult {
   /**
    * <p>The Direct Connect gateway.</p>
    */
   directConnectGateway?: DirectConnectGateway;
-}
-
-export namespace CreateDirectConnectGatewayResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDirectConnectGatewayAssociationRequest {
@@ -1956,29 +1569,11 @@ export interface CreateDirectConnectGatewayAssociationRequest {
   virtualGatewayId?: string;
 }
 
-export namespace CreateDirectConnectGatewayAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDirectConnectGatewayAssociationResult {
   /**
    * <p>The association to be created.</p>
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
-}
-
-export namespace CreateDirectConnectGatewayAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayAssociationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDirectConnectGatewayAssociationProposalRequest {
@@ -2006,15 +1601,6 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
    * <p>The Amazon VPC prefixes to no longer advertise to the Direct Connect gateway.</p>
    */
   removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
-}
-
-export namespace CreateDirectConnectGatewayAssociationProposalRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayAssociationProposalRequest): any => ({
-    ...obj,
-  });
 }
 
 export type DirectConnectGatewayAssociationProposalState = "accepted" | "deleted" | "requested";
@@ -2073,29 +1659,11 @@ export interface DirectConnectGatewayAssociationProposal {
   requestedAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
-export namespace DirectConnectGatewayAssociationProposal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectConnectGatewayAssociationProposal): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDirectConnectGatewayAssociationProposalResult {
   /**
    * <p>Information about the Direct Connect gateway proposal.</p>
    */
   directConnectGatewayAssociationProposal?: DirectConnectGatewayAssociationProposal;
-}
-
-export namespace CreateDirectConnectGatewayAssociationProposalResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectConnectGatewayAssociationProposalResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateInterconnectRequest {
@@ -2128,15 +1696,6 @@ export interface CreateInterconnectRequest {
    * <p>The name of the service provider associated with the interconnect.</p>
    */
   providerName?: string;
-}
-
-export namespace CreateInterconnectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInterconnectRequest): any => ({
-    ...obj,
-  });
 }
 
 export type InterconnectState = "available" | "deleted" | "deleting" | "down" | "pending" | "requested" | "unknown";
@@ -2255,15 +1814,6 @@ export interface Interconnect {
   providerName?: string;
 }
 
-export namespace Interconnect {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Interconnect): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLagRequest {
   /**
    * <p>The number of physical dedicated connections initially provisioned and bundled by the
@@ -2314,15 +1864,6 @@ export interface CreateLagRequest {
    *          </note>
    */
   requestMACSec?: boolean;
-}
-
-export namespace CreateLagRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLagRequest): any => ({
-    ...obj,
-  });
 }
 
 export type LagState = "available" | "deleted" | "deleting" | "down" | "pending" | "requested" | "unknown";
@@ -2473,15 +2014,6 @@ export interface Lag {
   macSecKeys?: MacSecKey[];
 }
 
-export namespace Lag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Lag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a private virtual interface.</p>
  */
@@ -2548,15 +2080,6 @@ export interface NewPrivateVirtualInterface {
   enableSiteLink?: boolean;
 }
 
-export namespace NewPrivateVirtualInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewPrivateVirtualInterface): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePrivateVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -2567,15 +2090,6 @@ export interface CreatePrivateVirtualInterfaceRequest {
    * <p>Information about the private virtual interface.</p>
    */
   newPrivateVirtualInterface: NewPrivateVirtualInterface | undefined;
-}
-
-export namespace CreatePrivateVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePrivateVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2629,15 +2143,6 @@ export interface NewPublicVirtualInterface {
   tags?: Tag[];
 }
 
-export namespace NewPublicVirtualInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewPublicVirtualInterface): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePublicVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -2648,15 +2153,6 @@ export interface CreatePublicVirtualInterfaceRequest {
    * <p>Information about the public virtual interface.</p>
    */
   newPublicVirtualInterface: NewPublicVirtualInterface | undefined;
-}
-
-export namespace CreatePublicVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePublicVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2720,15 +2216,6 @@ export interface NewTransitVirtualInterface {
   enableSiteLink?: boolean;
 }
 
-export namespace NewTransitVirtualInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewTransitVirtualInterface): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTransitVirtualInterfaceRequest {
   /**
    * <p>The ID of the connection.</p>
@@ -2741,29 +2228,11 @@ export interface CreateTransitVirtualInterfaceRequest {
   newTransitVirtualInterface: NewTransitVirtualInterface | undefined;
 }
 
-export namespace CreateTransitVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTransitVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTransitVirtualInterfaceResult {
   /**
    * <p>Information about a virtual interface.</p>
    */
   virtualInterface?: VirtualInterface;
-}
-
-export namespace CreateTransitVirtualInterfaceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTransitVirtualInterfaceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBGPPeerRequest {
@@ -2788,29 +2257,11 @@ export interface DeleteBGPPeerRequest {
   bgpPeerId?: string;
 }
 
-export namespace DeleteBGPPeerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBGPPeerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBGPPeerResponse {
   /**
    * <p>The virtual interface.</p>
    */
   virtualInterface?: VirtualInterface;
-}
-
-export namespace DeleteBGPPeerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBGPPeerResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteConnectionRequest {
@@ -2820,15 +2271,6 @@ export interface DeleteConnectionRequest {
   connectionId: string | undefined;
 }
 
-export namespace DeleteConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDirectConnectGatewayRequest {
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -2836,29 +2278,11 @@ export interface DeleteDirectConnectGatewayRequest {
   directConnectGatewayId: string | undefined;
 }
 
-export namespace DeleteDirectConnectGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDirectConnectGatewayResult {
   /**
    * <p>The Direct Connect gateway.</p>
    */
   directConnectGateway?: DirectConnectGateway;
-}
-
-export namespace DeleteDirectConnectGatewayResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDirectConnectGatewayAssociationRequest {
@@ -2878,29 +2302,11 @@ export interface DeleteDirectConnectGatewayAssociationRequest {
   virtualGatewayId?: string;
 }
 
-export namespace DeleteDirectConnectGatewayAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDirectConnectGatewayAssociationResult {
   /**
    * <p>Information about the deleted association.</p>
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
-}
-
-export namespace DeleteDirectConnectGatewayAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayAssociationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDirectConnectGatewayAssociationProposalRequest {
@@ -2910,15 +2316,6 @@ export interface DeleteDirectConnectGatewayAssociationProposalRequest {
   proposalId: string | undefined;
 }
 
-export namespace DeleteDirectConnectGatewayAssociationProposalRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayAssociationProposalRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDirectConnectGatewayAssociationProposalResult {
   /**
    * <p>The ID of the associated gateway.</p>
@@ -2926,29 +2323,11 @@ export interface DeleteDirectConnectGatewayAssociationProposalResult {
   directConnectGatewayAssociationProposal?: DirectConnectGatewayAssociationProposal;
 }
 
-export namespace DeleteDirectConnectGatewayAssociationProposalResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectConnectGatewayAssociationProposalResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInterconnectRequest {
   /**
    * <p>The ID of the interconnect.</p>
    */
   interconnectId: string | undefined;
-}
-
-export namespace DeleteInterconnectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInterconnectRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteInterconnectResponse {
@@ -2989,15 +2368,6 @@ export interface DeleteInterconnectResponse {
   interconnectState?: InterconnectState | string;
 }
 
-export namespace DeleteInterconnectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInterconnectResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLagRequest {
   /**
    * <p>The ID of the LAG.</p>
@@ -3005,29 +2375,11 @@ export interface DeleteLagRequest {
   lagId: string | undefined;
 }
 
-export namespace DeleteLagRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLagRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVirtualInterfaceRequest {
   /**
    * <p>The ID of the virtual interface.</p>
    */
   virtualInterfaceId: string | undefined;
-}
-
-export namespace DeleteVirtualInterfaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVirtualInterfaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteVirtualInterfaceResponse {
@@ -3075,15 +2427,6 @@ export interface DeleteVirtualInterfaceResponse {
   virtualInterfaceState?: VirtualInterfaceState | string;
 }
 
-export namespace DeleteVirtualInterfaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVirtualInterfaceResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum LoaContentType {
   PDF = "application/pdf",
 }
@@ -3106,15 +2449,6 @@ export interface DescribeConnectionLoaRequest {
   loaContentType?: LoaContentType | string;
 }
 
-export namespace DescribeConnectionLoaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectionLoaRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a Letter of Authorization - Connecting Facility Assignment (LOA-CFA) for a connection.</p>
  */
@@ -3130,29 +2464,11 @@ export interface Loa {
   loaContentType?: LoaContentType | string;
 }
 
-export namespace Loa {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Loa): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectionLoaResponse {
   /**
    * <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
    */
   loa?: Loa;
-}
-
-export namespace DescribeConnectionLoaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectionLoaResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConnectionsRequest {
@@ -3162,29 +2478,11 @@ export interface DescribeConnectionsRequest {
   connectionId?: string;
 }
 
-export namespace DescribeConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectionsOnInterconnectRequest {
   /**
    * <p>The ID of the interconnect.</p>
    */
   interconnectId: string | undefined;
-}
-
-export namespace DescribeConnectionsOnInterconnectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectionsOnInterconnectRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum NniPartnerType {
@@ -3214,15 +2512,6 @@ export interface DescribeCustomerMetadataResponse {
    *          </ul>
    */
   nniPartnerType?: NniPartnerType | string;
-}
-
-export namespace DescribeCustomerMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomerMetadataResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
@@ -3255,15 +2544,6 @@ export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   nextToken?: string;
 }
 
-export namespace DescribeDirectConnectGatewayAssociationProposalsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAssociationProposalsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDirectConnectGatewayAssociationProposalsResult {
   /**
    * <p>Describes the Direct Connect gateway association proposals.</p>
@@ -3274,15 +2554,6 @@ export interface DescribeDirectConnectGatewayAssociationProposalsResult {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeDirectConnectGatewayAssociationProposalsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAssociationProposalsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDirectConnectGatewayAssociationsRequest {
@@ -3320,15 +2591,6 @@ export interface DescribeDirectConnectGatewayAssociationsRequest {
   virtualGatewayId?: string;
 }
 
-export namespace DescribeDirectConnectGatewayAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDirectConnectGatewayAssociationsResult {
   /**
    * <p>Information about the associations.</p>
@@ -3339,15 +2601,6 @@ export interface DescribeDirectConnectGatewayAssociationsResult {
    * <p>The token to retrieve the next page.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeDirectConnectGatewayAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAssociationsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDirectConnectGatewayAttachmentsRequest {
@@ -3373,15 +2626,6 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
    * <p>The token provided in the previous call to retrieve the next page.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeDirectConnectGatewayAttachmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAttachmentsRequest): any => ({
-    ...obj,
-  });
 }
 
 export type DirectConnectGatewayAttachmentState = "attached" | "attaching" | "detached" | "detaching";
@@ -3446,15 +2690,6 @@ export interface DirectConnectGatewayAttachment {
   stateChangeError?: string;
 }
 
-export namespace DirectConnectGatewayAttachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectConnectGatewayAttachment): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDirectConnectGatewayAttachmentsResult {
   /**
    * <p>The attachments.</p>
@@ -3465,15 +2700,6 @@ export interface DescribeDirectConnectGatewayAttachmentsResult {
    * <p>The token to retrieve the next page.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeDirectConnectGatewayAttachmentsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewayAttachmentsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDirectConnectGatewaysRequest {
@@ -3496,15 +2722,6 @@ export interface DescribeDirectConnectGatewaysRequest {
   nextToken?: string;
 }
 
-export namespace DescribeDirectConnectGatewaysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewaysRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDirectConnectGatewaysResult {
   /**
    * <p>The Direct Connect gateways.</p>
@@ -3517,29 +2734,11 @@ export interface DescribeDirectConnectGatewaysResult {
   nextToken?: string;
 }
 
-export namespace DescribeDirectConnectGatewaysResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectConnectGatewaysResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeHostedConnectionsRequest {
   /**
    * <p>The ID of the interconnect or LAG.</p>
    */
   connectionId: string | undefined;
-}
-
-export namespace DescribeHostedConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHostedConnectionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeInterconnectLoaRequest {
@@ -3559,29 +2758,11 @@ export interface DescribeInterconnectLoaRequest {
   loaContentType?: LoaContentType | string;
 }
 
-export namespace DescribeInterconnectLoaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInterconnectLoaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInterconnectLoaResponse {
   /**
    * <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>
    */
   loa?: Loa;
-}
-
-export namespace DescribeInterconnectLoaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInterconnectLoaResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeInterconnectsRequest {
@@ -3591,29 +2772,11 @@ export interface DescribeInterconnectsRequest {
   interconnectId?: string;
 }
 
-export namespace DescribeInterconnectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInterconnectsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface Interconnects {
   /**
    * <p>The interconnects.</p>
    */
   interconnects?: Interconnect[];
-}
-
-export namespace Interconnects {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Interconnects): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeLagsRequest {
@@ -3623,29 +2786,11 @@ export interface DescribeLagsRequest {
   lagId?: string;
 }
 
-export namespace DescribeLagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface Lags {
   /**
    * <p>The LAGs.</p>
    */
   lags?: Lag[];
-}
-
-export namespace Lags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Lags): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeLoaRequest {
@@ -3664,15 +2809,6 @@ export interface DescribeLoaRequest {
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
   loaContentType?: LoaContentType | string;
-}
-
-export namespace DescribeLoaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoaRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3710,29 +2846,11 @@ export interface Location {
   availableMacSecPortSpeeds?: string[];
 }
 
-export namespace Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Location): any => ({
-    ...obj,
-  });
-}
-
 export interface Locations {
   /**
    * <p>The locations.</p>
    */
   locations?: Location[];
-}
-
-export namespace Locations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Locations): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3748,15 +2866,6 @@ export interface DescribeRouterConfigurationRequest {
    * <p>Identifies the router by a combination of vendor, platform, and software version. For example, <code>CiscoSystemsInc-2900SeriesRouters-IOS124</code>.</p>
    */
   routerTypeIdentifier?: string;
-}
-
-export namespace DescribeRouterConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRouterConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3794,15 +2903,6 @@ export interface RouterType {
   routerTypeIdentifier?: string;
 }
 
-export namespace RouterType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RouterType): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRouterConfigurationResponse {
   /**
    * <p>The customer router configuration.</p>
@@ -3825,29 +2925,11 @@ export interface DescribeRouterConfigurationResponse {
   virtualInterfaceName?: string;
 }
 
-export namespace DescribeRouterConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRouterConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTagsRequest {
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    */
   resourceArns: string[] | undefined;
-}
-
-export namespace DescribeTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3865,29 +2947,11 @@ export interface ResourceTag {
   tags?: Tag[];
 }
 
-export namespace ResourceTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTag): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTagsResponse {
   /**
    * <p>Information about the tags.</p>
    */
   resourceTags?: ResourceTag[];
-}
-
-export namespace DescribeTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3923,29 +2987,11 @@ export interface VirtualGateway {
   virtualGatewayState?: string;
 }
 
-export namespace VirtualGateway {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VirtualGateway): any => ({
-    ...obj,
-  });
-}
-
 export interface VirtualGateways {
   /**
    * <p>The virtual private gateways.</p>
    */
   virtualGateways?: VirtualGateway[];
-}
-
-export namespace VirtualGateways {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VirtualGateways): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeVirtualInterfacesRequest {
@@ -3960,29 +3006,11 @@ export interface DescribeVirtualInterfacesRequest {
   virtualInterfaceId?: string;
 }
 
-export namespace DescribeVirtualInterfacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVirtualInterfacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface VirtualInterfaces {
   /**
    * <p>The virtual interfaces</p>
    */
   virtualInterfaces?: VirtualInterface[];
-}
-
-export namespace VirtualInterfaces {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VirtualInterfaces): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateConnectionFromLagRequest {
@@ -3995,15 +3023,6 @@ export interface DisassociateConnectionFromLagRequest {
    * <p>The ID of the LAG.</p>
    */
   lagId: string | undefined;
-}
-
-export namespace DisassociateConnectionFromLagRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateConnectionFromLagRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateMacSecKeyRequest {
@@ -4020,15 +3039,6 @@ export interface DisassociateMacSecKeyRequest {
   secretARN: string | undefined;
 }
 
-export namespace DisassociateMacSecKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMacSecKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateMacSecKeyResponse {
   /**
    * <p>The ID of the dedicated connection (dxcon-xxxx), or the ID of the LAG (dxlag-xxxx).</p>
@@ -4039,15 +3049,6 @@ export interface DisassociateMacSecKeyResponse {
    * <p>The MAC Security (MACsec) security keys no longer associated with the dedicated connection.</p>
    */
   macSecKeys?: MacSecKey[];
-}
-
-export namespace DisassociateMacSecKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMacSecKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListVirtualInterfaceTestHistoryRequest {
@@ -4083,15 +3084,6 @@ export interface ListVirtualInterfaceTestHistoryRequest {
    * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListVirtualInterfaceTestHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVirtualInterfaceTestHistoryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4139,15 +3131,6 @@ export interface VirtualInterfaceTestHistory {
   endTime?: Date;
 }
 
-export namespace VirtualInterfaceTestHistory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VirtualInterfaceTestHistory): any => ({
-    ...obj,
-  });
-}
-
 export interface ListVirtualInterfaceTestHistoryResponse {
   /**
    * <p>The ID of the tested virtual interface.</p>
@@ -4158,15 +3141,6 @@ export interface ListVirtualInterfaceTestHistoryResponse {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListVirtualInterfaceTestHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVirtualInterfaceTestHistoryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartBgpFailoverTestRequest {
@@ -4188,29 +3162,11 @@ export interface StartBgpFailoverTestRequest {
   testDurationInMinutes?: number;
 }
 
-export namespace StartBgpFailoverTestRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBgpFailoverTestRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartBgpFailoverTestResponse {
   /**
    * <p>Information about the virtual interface failover test.</p>
    */
   virtualInterfaceTest?: VirtualInterfaceTestHistory;
-}
-
-export namespace StartBgpFailoverTestResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBgpFailoverTestResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopBgpFailoverTestRequest {
@@ -4220,29 +3176,11 @@ export interface StopBgpFailoverTestRequest {
   virtualInterfaceId: string | undefined;
 }
 
-export namespace StopBgpFailoverTestRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopBgpFailoverTestRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopBgpFailoverTestResponse {
   /**
    * <p>Information about the virtual interface failover test.</p>
    */
   virtualInterfaceTest?: VirtualInterfaceTestHistory;
-}
-
-export namespace StopBgpFailoverTestResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopBgpFailoverTestResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4257,25 +3195,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4289,25 +3209,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateConnectionRequest {
   /**
@@ -4328,15 +3230,6 @@ export interface UpdateConnectionRequest {
   encryptionMode?: string;
 }
 
-export namespace UpdateConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDirectConnectGatewayRequest {
   /**
    * <p>The ID of the Direct Connect gateway to update.</p>
@@ -4349,29 +3242,11 @@ export interface UpdateDirectConnectGatewayRequest {
   newDirectConnectGatewayName: string | undefined;
 }
 
-export namespace UpdateDirectConnectGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDirectConnectGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDirectConnectGatewayResponse {
   /**
    * <p>Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.</p>
    */
   directConnectGateway?: DirectConnectGateway;
-}
-
-export namespace UpdateDirectConnectGatewayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDirectConnectGatewayResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDirectConnectGatewayAssociationRequest {
@@ -4391,29 +3266,11 @@ export interface UpdateDirectConnectGatewayAssociationRequest {
   removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
-export namespace UpdateDirectConnectGatewayAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDirectConnectGatewayAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDirectConnectGatewayAssociationResult {
   /**
    * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
    */
   directConnectGatewayAssociation?: DirectConnectGatewayAssociation;
-}
-
-export namespace UpdateDirectConnectGatewayAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDirectConnectGatewayAssociationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateLagRequest {
@@ -4439,15 +3296,6 @@ export interface UpdateLagRequest {
   encryptionMode?: string;
 }
 
-export namespace UpdateLagRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLagRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateVirtualInterfaceAttributesRequest {
   /**
    * <p>The ID of the virtual private interface.</p>
@@ -4470,11 +3318,995 @@ export interface UpdateVirtualInterfaceAttributesRequest {
   virtualInterfaceName?: string;
 }
 
-export namespace UpdateVirtualInterfaceAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVirtualInterfaceAttributesRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RouteFilterPrefixFilterSensitiveLog = (obj: RouteFilterPrefix): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptDirectConnectGatewayAssociationProposalRequestFilterSensitiveLog = (
+  obj: AcceptDirectConnectGatewayAssociationProposalRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatedGatewayFilterSensitiveLog = (obj: AssociatedGateway): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectConnectGatewayAssociationFilterSensitiveLog = (obj: DirectConnectGatewayAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptDirectConnectGatewayAssociationProposalResultFilterSensitiveLog = (
+  obj: AcceptDirectConnectGatewayAssociationProposalResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerAgreementFilterSensitiveLog = (obj: CustomerAgreement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllocateConnectionOnInterconnectRequestFilterSensitiveLog = (
+  obj: AllocateConnectionOnInterconnectRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MacSecKeyFilterSensitiveLog = (obj: MacSecKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionFilterSensitiveLog = (obj: Connection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllocateHostedConnectionRequestFilterSensitiveLog = (obj: AllocateHostedConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NewPrivateVirtualInterfaceAllocationFilterSensitiveLog = (
+  obj: NewPrivateVirtualInterfaceAllocation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllocatePrivateVirtualInterfaceRequestFilterSensitiveLog = (
+  obj: AllocatePrivateVirtualInterfaceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BGPPeerFilterSensitiveLog = (obj: BGPPeer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VirtualInterfaceFilterSensitiveLog = (obj: VirtualInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NewPublicVirtualInterfaceAllocationFilterSensitiveLog = (
+  obj: NewPublicVirtualInterfaceAllocation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllocatePublicVirtualInterfaceRequestFilterSensitiveLog = (
+  obj: AllocatePublicVirtualInterfaceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NewTransitVirtualInterfaceAllocationFilterSensitiveLog = (
+  obj: NewTransitVirtualInterfaceAllocation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllocateTransitVirtualInterfaceRequestFilterSensitiveLog = (
+  obj: AllocateTransitVirtualInterfaceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllocateTransitVirtualInterfaceResultFilterSensitiveLog = (
+  obj: AllocateTransitVirtualInterfaceResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateConnectionWithLagRequestFilterSensitiveLog = (obj: AssociateConnectionWithLagRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateHostedConnectionRequestFilterSensitiveLog = (obj: AssociateHostedConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateMacSecKeyRequestFilterSensitiveLog = (obj: AssociateMacSecKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateMacSecKeyResponseFilterSensitiveLog = (obj: AssociateMacSecKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateVirtualInterfaceRequestFilterSensitiveLog = (obj: AssociateVirtualInterfaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmConnectionRequestFilterSensitiveLog = (obj: ConfirmConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmConnectionResponseFilterSensitiveLog = (obj: ConfirmConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmCustomerAgreementRequestFilterSensitiveLog = (obj: ConfirmCustomerAgreementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmCustomerAgreementResponseFilterSensitiveLog = (obj: ConfirmCustomerAgreementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmPrivateVirtualInterfaceRequestFilterSensitiveLog = (
+  obj: ConfirmPrivateVirtualInterfaceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmPrivateVirtualInterfaceResponseFilterSensitiveLog = (
+  obj: ConfirmPrivateVirtualInterfaceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmPublicVirtualInterfaceRequestFilterSensitiveLog = (
+  obj: ConfirmPublicVirtualInterfaceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmPublicVirtualInterfaceResponseFilterSensitiveLog = (
+  obj: ConfirmPublicVirtualInterfaceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmTransitVirtualInterfaceRequestFilterSensitiveLog = (
+  obj: ConfirmTransitVirtualInterfaceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmTransitVirtualInterfaceResponseFilterSensitiveLog = (
+  obj: ConfirmTransitVirtualInterfaceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionsFilterSensitiveLog = (obj: Connections): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NewBGPPeerFilterSensitiveLog = (obj: NewBGPPeer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBGPPeerRequestFilterSensitiveLog = (obj: CreateBGPPeerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBGPPeerResponseFilterSensitiveLog = (obj: CreateBGPPeerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectConnectGatewayRequestFilterSensitiveLog = (obj: CreateDirectConnectGatewayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectConnectGatewayFilterSensitiveLog = (obj: DirectConnectGateway): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectConnectGatewayResultFilterSensitiveLog = (obj: CreateDirectConnectGatewayResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectConnectGatewayAssociationRequestFilterSensitiveLog = (
+  obj: CreateDirectConnectGatewayAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectConnectGatewayAssociationResultFilterSensitiveLog = (
+  obj: CreateDirectConnectGatewayAssociationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectConnectGatewayAssociationProposalRequestFilterSensitiveLog = (
+  obj: CreateDirectConnectGatewayAssociationProposalRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectConnectGatewayAssociationProposalFilterSensitiveLog = (
+  obj: DirectConnectGatewayAssociationProposal
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectConnectGatewayAssociationProposalResultFilterSensitiveLog = (
+  obj: CreateDirectConnectGatewayAssociationProposalResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInterconnectRequestFilterSensitiveLog = (obj: CreateInterconnectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InterconnectFilterSensitiveLog = (obj: Interconnect): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLagRequestFilterSensitiveLog = (obj: CreateLagRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LagFilterSensitiveLog = (obj: Lag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NewPrivateVirtualInterfaceFilterSensitiveLog = (obj: NewPrivateVirtualInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePrivateVirtualInterfaceRequestFilterSensitiveLog = (
+  obj: CreatePrivateVirtualInterfaceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NewPublicVirtualInterfaceFilterSensitiveLog = (obj: NewPublicVirtualInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePublicVirtualInterfaceRequestFilterSensitiveLog = (
+  obj: CreatePublicVirtualInterfaceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NewTransitVirtualInterfaceFilterSensitiveLog = (obj: NewTransitVirtualInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTransitVirtualInterfaceRequestFilterSensitiveLog = (
+  obj: CreateTransitVirtualInterfaceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTransitVirtualInterfaceResultFilterSensitiveLog = (
+  obj: CreateTransitVirtualInterfaceResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBGPPeerRequestFilterSensitiveLog = (obj: DeleteBGPPeerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBGPPeerResponseFilterSensitiveLog = (obj: DeleteBGPPeerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectionRequestFilterSensitiveLog = (obj: DeleteConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectConnectGatewayRequestFilterSensitiveLog = (obj: DeleteDirectConnectGatewayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectConnectGatewayResultFilterSensitiveLog = (obj: DeleteDirectConnectGatewayResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectConnectGatewayAssociationRequestFilterSensitiveLog = (
+  obj: DeleteDirectConnectGatewayAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectConnectGatewayAssociationResultFilterSensitiveLog = (
+  obj: DeleteDirectConnectGatewayAssociationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectConnectGatewayAssociationProposalRequestFilterSensitiveLog = (
+  obj: DeleteDirectConnectGatewayAssociationProposalRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectConnectGatewayAssociationProposalResultFilterSensitiveLog = (
+  obj: DeleteDirectConnectGatewayAssociationProposalResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInterconnectRequestFilterSensitiveLog = (obj: DeleteInterconnectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInterconnectResponseFilterSensitiveLog = (obj: DeleteInterconnectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLagRequestFilterSensitiveLog = (obj: DeleteLagRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVirtualInterfaceRequestFilterSensitiveLog = (obj: DeleteVirtualInterfaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVirtualInterfaceResponseFilterSensitiveLog = (obj: DeleteVirtualInterfaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionLoaRequestFilterSensitiveLog = (obj: DescribeConnectionLoaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoaFilterSensitiveLog = (obj: Loa): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionLoaResponseFilterSensitiveLog = (obj: DescribeConnectionLoaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionsRequestFilterSensitiveLog = (obj: DescribeConnectionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionsOnInterconnectRequestFilterSensitiveLog = (
+  obj: DescribeConnectionsOnInterconnectRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomerMetadataResponseFilterSensitiveLog = (obj: DescribeCustomerMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectConnectGatewayAssociationProposalsRequestFilterSensitiveLog = (
+  obj: DescribeDirectConnectGatewayAssociationProposalsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectConnectGatewayAssociationProposalsResultFilterSensitiveLog = (
+  obj: DescribeDirectConnectGatewayAssociationProposalsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectConnectGatewayAssociationsRequestFilterSensitiveLog = (
+  obj: DescribeDirectConnectGatewayAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectConnectGatewayAssociationsResultFilterSensitiveLog = (
+  obj: DescribeDirectConnectGatewayAssociationsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectConnectGatewayAttachmentsRequestFilterSensitiveLog = (
+  obj: DescribeDirectConnectGatewayAttachmentsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectConnectGatewayAttachmentFilterSensitiveLog = (obj: DirectConnectGatewayAttachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectConnectGatewayAttachmentsResultFilterSensitiveLog = (
+  obj: DescribeDirectConnectGatewayAttachmentsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectConnectGatewaysRequestFilterSensitiveLog = (
+  obj: DescribeDirectConnectGatewaysRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectConnectGatewaysResultFilterSensitiveLog = (
+  obj: DescribeDirectConnectGatewaysResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHostedConnectionsRequestFilterSensitiveLog = (obj: DescribeHostedConnectionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInterconnectLoaRequestFilterSensitiveLog = (obj: DescribeInterconnectLoaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInterconnectLoaResponseFilterSensitiveLog = (obj: DescribeInterconnectLoaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInterconnectsRequestFilterSensitiveLog = (obj: DescribeInterconnectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InterconnectsFilterSensitiveLog = (obj: Interconnects): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLagsRequestFilterSensitiveLog = (obj: DescribeLagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LagsFilterSensitiveLog = (obj: Lags): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoaRequestFilterSensitiveLog = (obj: DescribeLoaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocationFilterSensitiveLog = (obj: Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocationsFilterSensitiveLog = (obj: Locations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRouterConfigurationRequestFilterSensitiveLog = (obj: DescribeRouterConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RouterTypeFilterSensitiveLog = (obj: RouterType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRouterConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeRouterConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsRequestFilterSensitiveLog = (obj: DescribeTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTagFilterSensitiveLog = (obj: ResourceTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsResponseFilterSensitiveLog = (obj: DescribeTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VirtualGatewayFilterSensitiveLog = (obj: VirtualGateway): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VirtualGatewaysFilterSensitiveLog = (obj: VirtualGateways): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVirtualInterfacesRequestFilterSensitiveLog = (obj: DescribeVirtualInterfacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VirtualInterfacesFilterSensitiveLog = (obj: VirtualInterfaces): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateConnectionFromLagRequestFilterSensitiveLog = (
+  obj: DisassociateConnectionFromLagRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMacSecKeyRequestFilterSensitiveLog = (obj: DisassociateMacSecKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMacSecKeyResponseFilterSensitiveLog = (obj: DisassociateMacSecKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVirtualInterfaceTestHistoryRequestFilterSensitiveLog = (
+  obj: ListVirtualInterfaceTestHistoryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VirtualInterfaceTestHistoryFilterSensitiveLog = (obj: VirtualInterfaceTestHistory): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVirtualInterfaceTestHistoryResponseFilterSensitiveLog = (
+  obj: ListVirtualInterfaceTestHistoryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBgpFailoverTestRequestFilterSensitiveLog = (obj: StartBgpFailoverTestRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBgpFailoverTestResponseFilterSensitiveLog = (obj: StartBgpFailoverTestResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopBgpFailoverTestRequestFilterSensitiveLog = (obj: StopBgpFailoverTestRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopBgpFailoverTestResponseFilterSensitiveLog = (obj: StopBgpFailoverTestResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionRequestFilterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDirectConnectGatewayRequestFilterSensitiveLog = (obj: UpdateDirectConnectGatewayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDirectConnectGatewayResponseFilterSensitiveLog = (obj: UpdateDirectConnectGatewayResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDirectConnectGatewayAssociationRequestFilterSensitiveLog = (
+  obj: UpdateDirectConnectGatewayAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDirectConnectGatewayAssociationResultFilterSensitiveLog = (
+  obj: UpdateDirectConnectGatewayAssociationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLagRequestFilterSensitiveLog = (obj: UpdateLagRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVirtualInterfaceAttributesRequestFilterSensitiveLog = (
+  obj: UpdateVirtualInterfaceAttributesRequest
+): any => ({
+  ...obj,
+});

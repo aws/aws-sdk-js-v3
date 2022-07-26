@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { PutMaintenanceStartTimeInput, PutMaintenanceStartTimeOutput } from "../models/models_0";
+import {
+  PutMaintenanceStartTimeInput,
+  PutMaintenanceStartTimeInputFilterSensitiveLog,
+  PutMaintenanceStartTimeOutput,
+  PutMaintenanceStartTimeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0PutMaintenanceStartTimeCommand,
   serializeAws_json1_0PutMaintenanceStartTimeCommand,
@@ -72,8 +77,8 @@ export class PutMaintenanceStartTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMaintenanceStartTimeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutMaintenanceStartTimeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutMaintenanceStartTimeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutMaintenanceStartTimeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

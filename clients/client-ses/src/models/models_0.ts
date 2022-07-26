@@ -43,15 +43,6 @@ export interface AddHeaderAction {
   HeaderValue: string | undefined;
 }
 
-export namespace AddHeaderAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddHeaderAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that a resource could not be created because of a naming conflict.</p>
  */
@@ -101,15 +92,6 @@ export interface Content {
   Charset?: string;
 }
 
-export namespace Content {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Content): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the body of the message. You can specify text, HTML, or both. If you use
  *             both, then the message should display correctly in the widest variety of email
@@ -128,15 +110,6 @@ export interface Body {
    *             message.</p>
    */
   Html?: Content;
-}
-
-export namespace Body {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Body): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -178,15 +151,6 @@ export interface BounceAction {
   Sender: string | undefined;
 }
 
-export namespace BounceAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BounceAction): any => ({
-    ...obj,
-  });
-}
-
 export enum BounceType {
   ContentRejected = "ContentRejected",
   DoesNotExist = "DoesNotExist",
@@ -222,15 +186,6 @@ export interface ExtensionField {
    *             contain newline characters ("\r" or "\n").</p>
    */
   Value: string | undefined;
-}
-
-export namespace ExtensionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtensionField): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -291,15 +246,6 @@ export interface RecipientDsnFields {
   ExtensionFields?: ExtensionField[];
 }
 
-export namespace RecipientDsnFields {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecipientDsnFields): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Recipient-related information to include in the Delivery Status Notification (DSN)
  *             when an email that Amazon SES receives on your behalf bounces.</p>
@@ -335,15 +281,6 @@ export interface BouncedRecipientInfo {
   RecipientDsnFields?: RecipientDsnFields;
 }
 
-export namespace BouncedRecipientInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BouncedRecipientInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the destination of the message, consisting of To:, CC:, and BCC:
  *             fields.</p>
@@ -371,15 +308,6 @@ export interface Destination {
    * <p>The recipients to place on the BCC: line of the message.</p>
    */
   BccAddresses?: string[];
-}
-
-export namespace Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -418,15 +346,6 @@ export interface MessageTag {
   Value: string | undefined;
 }
 
-export namespace MessageTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageTag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An array that contains one or more Destinations, as well as the tags and replacement
  *             data associated with each of those Destinations.</p>
@@ -459,15 +378,6 @@ export interface BulkEmailDestination {
    *             replacement tags in the email template.</p>
    */
   ReplacementTemplateData?: string;
-}
-
-export namespace BulkEmailDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BulkEmailDestination): any => ({
-    ...obj,
-  });
 }
 
 export enum BulkEmailStatus {
@@ -587,15 +497,6 @@ export interface BulkEmailDestinationStatus {
   MessageId?: string;
 }
 
-export namespace BulkEmailDestinationStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BulkEmailDestinationStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the delete operation could not be completed.</p>
  */
@@ -650,28 +551,10 @@ export interface CloneReceiptRuleSetRequest {
   OriginalRuleSetName: string | undefined;
 }
 
-export namespace CloneReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloneReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CloneReceiptRuleSetResponse {}
-
-export namespace CloneReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloneReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that a resource could not be created because of service limits. For a list
@@ -772,15 +655,6 @@ export interface CloudWatchDimensionConfiguration {
   DefaultDimensionValue: string | undefined;
 }
 
-export namespace CloudWatchDimensionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information associated with an Amazon CloudWatch event destination to which email
  *             sending events are published.</p>
@@ -795,15 +669,6 @@ export interface CloudWatchDestination {
    *             sending events to Amazon CloudWatch.</p>
    */
   DimensionConfigurations: CloudWatchDimensionConfiguration[] | undefined;
-}
-
-export namespace CloudWatchDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -826,15 +691,6 @@ export interface ConfigurationSet {
    *          </ul>
    */
   Name: string | undefined;
-}
-
-export namespace ConfigurationSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationSet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -934,28 +790,10 @@ export interface CreateConfigurationSetRequest {
   ConfigurationSet: ConfigurationSet | undefined;
 }
 
-export namespace CreateConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateConfigurationSetResponse {}
-
-export namespace CreateConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the configuration set is invalid. See the error message for
@@ -998,15 +836,6 @@ export interface KinesisFirehoseDestination {
   DeliveryStreamARN: string | undefined;
 }
 
-export namespace KinesisFirehoseDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
-    ...obj,
-  });
-}
-
 export enum EventType {
   BOUNCE = "bounce",
   CLICK = "click",
@@ -1032,15 +861,6 @@ export interface SNSDestination {
    *             more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
    */
   TopicARN: string | undefined;
-}
-
-export namespace SNSDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1102,15 +922,6 @@ export interface EventDestination {
   SNSDestination?: SNSDestination;
 }
 
-export namespace EventDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to create a configuration set event destination. A configuration
  *             set event destination, which can be either Amazon CloudWatch or Amazon Kinesis Firehose, describes an AWS service
@@ -1132,28 +943,10 @@ export interface CreateConfigurationSetEventDestinationRequest {
   EventDestination: EventDestination | undefined;
 }
 
-export namespace CreateConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateConfigurationSetEventDestinationResponse {}
-
-export namespace CreateConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the event destination could not be created because of a naming
@@ -1298,15 +1091,6 @@ export interface TrackingOptions {
   CustomRedirectDomain?: string;
 }
 
-export namespace TrackingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrackingOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to create an open and click tracking option object in a
  *             configuration set. </p>
@@ -1328,28 +1112,10 @@ export interface CreateConfigurationSetTrackingOptionsRequest {
   TrackingOptions: TrackingOptions | undefined;
 }
 
-export namespace CreateConfigurationSetTrackingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetTrackingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateConfigurationSetTrackingOptionsResponse {}
-
-export namespace CreateConfigurationSetTrackingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetTrackingOptionsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the custom domain to be used for open and click tracking redirects is
@@ -1445,15 +1211,6 @@ export interface CreateCustomVerificationEmailTemplateRequest {
    *             is not successfully verified.</p>
    */
   FailureRedirectionURL: string | undefined;
-}
-
-export namespace CreateCustomVerificationEmailTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomVerificationEmailTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1556,15 +1313,6 @@ export interface ReceiptIpFilter {
   Cidr: string | undefined;
 }
 
-export namespace ReceiptIpFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptIpFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A receipt IP address filter enables you to specify whether to accept or reject mail
  *             originating from an IP address or range of IP addresses.</p>
@@ -1595,15 +1343,6 @@ export interface ReceiptFilter {
   IpFilter: ReceiptIpFilter | undefined;
 }
 
-export namespace ReceiptFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to create a new IP address filter. You use IP address filters
  *             when you receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
@@ -1616,28 +1355,10 @@ export interface CreateReceiptFilterRequest {
   Filter: ReceiptFilter | undefined;
 }
 
-export namespace CreateReceiptFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateReceiptFilterResponse {}
-
-export namespace CreateReceiptFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptFilterResponse): any => ({
-    ...obj,
-  });
-}
 
 export type InvocationType = "Event" | "RequestResponse";
 
@@ -1681,15 +1402,6 @@ export interface LambdaAction {
    *         </important>
    */
   InvocationType?: InvocationType | string;
-}
-
-export namespace LambdaAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1762,15 +1474,6 @@ export interface S3Action {
   KmsKeyArn?: string;
 }
 
-export namespace S3Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Action): any => ({
-    ...obj,
-  });
-}
-
 export enum SNSActionEncoding {
   Base64 = "Base64",
   UTF8 = "UTF-8",
@@ -1812,15 +1515,6 @@ export interface SNSAction {
   Encoding?: SNSActionEncoding | string;
 }
 
-export namespace SNSAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSAction): any => ({
-    ...obj,
-  });
-}
-
 export enum StopScope {
   RULE_SET = "RuleSet",
 }
@@ -1844,15 +1538,6 @@ export interface StopAction {
    *             Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
    */
   TopicArn?: string;
-}
-
-export namespace StopAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1880,15 +1565,6 @@ export interface WorkmailAction {
    *                 Administrator Guide</a>.</p>
    */
   OrganizationArn: string | undefined;
-}
-
-export namespace WorkmailAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkmailAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1937,15 +1613,6 @@ export interface ReceiptAction {
    * <p>Publishes the email content within a notification to Amazon SNS.</p>
    */
   SNSAction?: SNSAction;
-}
-
-export namespace ReceiptAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptAction): any => ({
-    ...obj,
-  });
 }
 
 export enum TlsPolicy {
@@ -2014,15 +1681,6 @@ export interface ReceiptRule {
   ScanEnabled?: boolean;
 }
 
-export namespace ReceiptRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to create a receipt rule. You use receipt rules to receive email
  *             with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -2048,28 +1706,10 @@ export interface CreateReceiptRuleRequest {
   Rule: ReceiptRule | undefined;
 }
 
-export namespace CreateReceiptRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateReceiptRuleResponse {}
-
-export namespace CreateReceiptRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptRuleResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could
@@ -2204,28 +1844,10 @@ export interface CreateReceiptRuleSetRequest {
   RuleSetName: string | undefined;
 }
 
-export namespace CreateReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface CreateReceiptRuleSetResponse {}
-
-export namespace CreateReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The content of the email, composed of a subject line, an HTML part, and a text-only
@@ -2256,15 +1878,6 @@ export interface Template {
   HtmlPart?: string;
 }
 
-export namespace Template {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Template): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to create an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
@@ -2277,25 +1890,7 @@ export interface CreateTemplateRequest {
   Template: Template | undefined;
 }
 
-export namespace CreateTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTemplateResponse {}
-
-export namespace CreateTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTemplateResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the template that you specified could not be rendered. This issue may
@@ -2358,15 +1953,6 @@ export interface CustomVerificationEmailTemplate {
   FailureRedirectionURL?: string;
 }
 
-export namespace CustomVerificationEmailTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomVerificationEmailTemplate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that a custom verification email template with the name you specified does
  *             not exist.</p>
@@ -2407,28 +1993,10 @@ export interface DeleteConfigurationSetRequest {
   ConfigurationSetName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteConfigurationSetResponse {}
-
-export namespace DeleteConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to delete a configuration set event destination. Configuration
@@ -2449,28 +2017,10 @@ export interface DeleteConfigurationSetEventDestinationRequest {
   EventDestinationName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteConfigurationSetEventDestinationResponse {}
-
-export namespace DeleteConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the event destination does not exist.</p>
@@ -2515,28 +2065,10 @@ export interface DeleteConfigurationSetTrackingOptionsRequest {
   ConfigurationSetName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetTrackingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetTrackingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteConfigurationSetTrackingOptionsResponse {}
-
-export namespace DeleteConfigurationSetTrackingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetTrackingOptionsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the TrackingOptions object you specified does not exist.</p>
@@ -2574,15 +2106,6 @@ export interface DeleteCustomVerificationEmailTemplateRequest {
   TemplateName: string | undefined;
 }
 
-export namespace DeleteCustomVerificationEmailTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomVerificationEmailTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to delete one of your Amazon SES identities (an email address or
  *             domain).</p>
@@ -2594,28 +2117,10 @@ export interface DeleteIdentityRequest {
   Identity: string | undefined;
 }
 
-export namespace DeleteIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteIdentityResponse {}
-
-export namespace DeleteIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to delete a sending authorization policy for an identity. Sending
@@ -2639,28 +2144,10 @@ export interface DeleteIdentityPolicyRequest {
   PolicyName: string | undefined;
 }
 
-export namespace DeleteIdentityPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteIdentityPolicyResponse {}
-
-export namespace DeleteIdentityPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to delete an IP address filter. You use IP address filters when
@@ -2674,28 +2161,10 @@ export interface DeleteReceiptFilterRequest {
   FilterName: string | undefined;
 }
 
-export namespace DeleteReceiptFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteReceiptFilterResponse {}
-
-export namespace DeleteReceiptFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptFilterResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to delete a receipt rule. You use receipt rules to receive email
@@ -2714,28 +2183,10 @@ export interface DeleteReceiptRuleRequest {
   RuleName: string | undefined;
 }
 
-export namespace DeleteReceiptRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteReceiptRuleResponse {}
-
-export namespace DeleteReceiptRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptRuleResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to delete a receipt rule set and all of the receipt rules it
@@ -2750,28 +2201,10 @@ export interface DeleteReceiptRuleSetRequest {
   RuleSetName: string | undefined;
 }
 
-export namespace DeleteReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface DeleteReceiptRuleSetResponse {}
-
-export namespace DeleteReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to delete an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
@@ -2784,25 +2217,7 @@ export interface DeleteTemplateRequest {
   TemplateName: string | undefined;
 }
 
-export namespace DeleteTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTemplateResponse {}
-
-export namespace DeleteTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTemplateResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to delete an email address from the list of email addresses you
@@ -2813,15 +2228,6 @@ export interface DeleteVerifiedEmailAddressRequest {
    * <p>An email address to be removed from the list of verified addresses.</p>
    */
   EmailAddress: string | undefined;
-}
-
-export namespace DeleteVerifiedEmailAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVerifiedEmailAddressRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2838,15 +2244,6 @@ export interface DeliveryOptions {
   TlsPolicy?: TlsPolicy | string;
 }
 
-export namespace DeliveryOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliveryOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to return the metadata and receipt rules for the receipt rule set
  *             that is currently active. You use receipt rule sets to receive email with Amazon SES. For
@@ -2854,15 +2251,6 @@ export namespace DeliveryOptions {
  *                 Guide</a>.</p>
  */
 export interface DescribeActiveReceiptRuleSetRequest {}
-
-export namespace DescribeActiveReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActiveReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Information about a receipt rule set.</p>
@@ -2895,15 +2283,6 @@ export interface ReceiptRuleSetMetadata {
   CreatedTimestamp?: Date;
 }
 
-export namespace ReceiptRuleSetMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReceiptRuleSetMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the metadata and receipt rules for the receipt rule set that is currently
  *             active.</p>
@@ -2919,15 +2298,6 @@ export interface DescribeActiveReceiptRuleSetResponse {
    * <p>The receipt rules that belong to the active rule set.</p>
    */
   Rules?: ReceiptRule[];
-}
-
-export namespace DescribeActiveReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActiveReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2946,15 +2316,6 @@ export interface DescribeConfigurationSetRequest {
    * <p>A list of configuration set attributes to return.</p>
    */
   ConfigurationSetAttributeNames?: (ConfigurationSetAttribute | string)[];
-}
-
-export namespace DescribeConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2989,15 +2350,6 @@ export interface ReputationOptions {
    *             re-enabled, the value of this attribute is <code>null</code>.</p>
    */
   LastFreshStart?: Date;
-}
-
-export namespace ReputationOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReputationOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3035,15 +2387,6 @@ export interface DescribeConfigurationSetResponse {
   ReputationOptions?: ReputationOptions;
 }
 
-export namespace DescribeConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to return the details of a receipt rule. You use receipt rules to
  *             receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -3061,15 +2404,6 @@ export interface DescribeReceiptRuleRequest {
   RuleName: string | undefined;
 }
 
-export namespace DescribeReceiptRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReceiptRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the details of a receipt rule.</p>
  */
@@ -3081,15 +2415,6 @@ export interface DescribeReceiptRuleResponse {
   Rule?: ReceiptRule;
 }
 
-export namespace DescribeReceiptRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReceiptRuleResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to return the details of a receipt rule set. You use receipt rule
  *             sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
@@ -3099,15 +2424,6 @@ export interface DescribeReceiptRuleSetRequest {
    * <p>The name of the receipt rule set to describe.</p>
    */
   RuleSetName: string | undefined;
-}
-
-export namespace DescribeReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3124,15 +2440,6 @@ export interface DescribeReceiptRuleSetResponse {
    * <p>A list of the receipt rules that belong to the specified receipt rule set.</p>
    */
   Rules?: ReceiptRule[];
-}
-
-export namespace DescribeReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export type VerificationStatus = "Failed" | "NotStarted" | "Pending" | "Success" | "TemporaryFailure";
@@ -3167,15 +2474,6 @@ export interface IdentityDkimAttributes {
   DkimTokens?: string[];
 }
 
-export namespace IdentityDkimAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityDkimAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to return the email sending status for your Amazon SES account in the
  *             current AWS Region.</p>
@@ -3188,15 +2486,6 @@ export interface GetAccountSendingEnabledResponse {
   Enabled?: boolean;
 }
 
-export namespace GetAccountSendingEnabledResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountSendingEnabledResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to retrieve an existing custom verification email
  *             template.</p>
@@ -3206,15 +2495,6 @@ export interface GetCustomVerificationEmailTemplateRequest {
    * <p>The name of the custom verification email template that you want to retrieve.</p>
    */
   TemplateName: string | undefined;
-}
-
-export namespace GetCustomVerificationEmailTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3254,15 +2534,6 @@ export interface GetCustomVerificationEmailTemplateResponse {
   FailureRedirectionURL?: string;
 }
 
-export namespace GetCustomVerificationEmailTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For
  *             domain identities, this request also returns the DKIM tokens that are required for Easy
@@ -3274,15 +2545,6 @@ export interface GetIdentityDkimAttributesRequest {
    * <p>A list of one or more verified identities - email addresses, domains, or both.</p>
    */
   Identities: string[] | undefined;
-}
-
-export namespace GetIdentityDkimAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityDkimAttributesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3298,15 +2560,6 @@ export interface GetIdentityDkimAttributesResponse {
   DkimAttributes: Record<string, IdentityDkimAttributes> | undefined;
 }
 
-export namespace GetIdentityDkimAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityDkimAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of
  *             identities. For information about using a custom MAIL FROM domain, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES Developer
@@ -3317,15 +2570,6 @@ export interface GetIdentityMailFromDomainAttributesRequest {
    * <p>A list of one or more identities.</p>
    */
   Identities: string[] | undefined;
-}
-
-export namespace GetIdentityMailFromDomainAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityMailFromDomainAttributesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3360,15 +2604,6 @@ export interface IdentityMailFromDomainAttributes {
   BehaviorOnMXFailure: BehaviorOnMXFailure | string | undefined;
 }
 
-export namespace IdentityMailFromDomainAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityMailFromDomainAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the custom MAIL FROM attributes for a list of identities.</p>
  */
@@ -3377,15 +2612,6 @@ export interface GetIdentityMailFromDomainAttributesResponse {
    * <p>A map of identities to custom MAIL FROM attributes.</p>
    */
   MailFromDomainAttributes: Record<string, IdentityMailFromDomainAttributes> | undefined;
-}
-
-export namespace GetIdentityMailFromDomainAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityMailFromDomainAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3401,15 +2627,6 @@ export interface GetIdentityNotificationAttributesRequest {
    *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>
    */
   Identities: string[] | undefined;
-}
-
-export namespace GetIdentityNotificationAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityNotificationAttributesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3471,15 +2688,6 @@ export interface IdentityNotificationAttributes {
   HeadersInDeliveryNotificationsEnabled?: boolean;
 }
 
-export namespace IdentityNotificationAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityNotificationAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the notification attributes for a list of identities.</p>
  */
@@ -3488,15 +2696,6 @@ export interface GetIdentityNotificationAttributesResponse {
    * <p>A map of Identity to IdentityNotificationAttributes.</p>
    */
   NotificationAttributes: Record<string, IdentityNotificationAttributes> | undefined;
-}
-
-export namespace GetIdentityNotificationAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityNotificationAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3523,15 +2722,6 @@ export interface GetIdentityPoliciesRequest {
   PolicyNames: string[] | undefined;
 }
 
-export namespace GetIdentityPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the requested sending authorization policies.</p>
  */
@@ -3540,15 +2730,6 @@ export interface GetIdentityPoliciesResponse {
    * <p>A map of policy names to policies.</p>
    */
   Policies: Record<string, string> | undefined;
-}
-
-export namespace GetIdentityPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3562,15 +2743,6 @@ export interface GetIdentityVerificationAttributesRequest {
    * <p>A list of identities.</p>
    */
   Identities: string[] | undefined;
-}
-
-export namespace GetIdentityVerificationAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityVerificationAttributesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3590,15 +2762,6 @@ export interface IdentityVerificationAttributes {
   VerificationToken?: string;
 }
 
-export namespace IdentityVerificationAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityVerificationAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon SES verification status of a list of identities. For domain identities, this
  *             response also contains the verification token.</p>
@@ -3608,15 +2771,6 @@ export interface GetIdentityVerificationAttributesResponse {
    * <p>A map of Identities to IdentityVerificationAttributes objects.</p>
    */
   VerificationAttributes: Record<string, IdentityVerificationAttributes> | undefined;
-}
-
-export namespace GetIdentityVerificationAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityVerificationAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3644,15 +2798,6 @@ export interface GetSendQuotaResponse {
    * <p>The number of emails sent during the previous 24 hours.</p>
    */
   SentLast24Hours?: number;
-}
-
-export namespace GetSendQuotaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSendQuotaResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3686,15 +2831,6 @@ export interface SendDataPoint {
   Rejects?: number;
 }
 
-export namespace SendDataPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendDataPoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a list of data points. This list contains aggregated data from the previous
  *             two weeks of your sending activity with Amazon SES.</p>
@@ -3706,29 +2842,11 @@ export interface GetSendStatisticsResponse {
   SendDataPoints?: SendDataPoint[];
 }
 
-export namespace GetSendStatisticsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSendStatisticsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTemplateRequest {
   /**
    * <p>The name of the template you want to retrieve.</p>
    */
   TemplateName: string | undefined;
-}
-
-export namespace GetTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTemplateResponse {
@@ -3737,15 +2855,6 @@ export interface GetTemplateResponse {
    *             part.</p>
    */
   Template?: Template;
-}
-
-export namespace GetTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3852,15 +2961,6 @@ export interface ListConfigurationSetsRequest {
   MaxItems?: number;
 }
 
-export namespace ListConfigurationSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of configuration sets associated with your AWS account. Configuration sets
  *             enable you to publish email sending events. For information about using configuration
@@ -3879,15 +2979,6 @@ export interface ListConfigurationSetsResponse {
    *         </p>
    */
   NextToken?: string;
-}
-
-export namespace ListConfigurationSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3913,15 +3004,6 @@ export interface ListCustomVerificationEmailTemplatesRequest {
   MaxResults?: number;
 }
 
-export namespace ListCustomVerificationEmailTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A paginated list of custom verification email templates.</p>
  */
@@ -3938,15 +3020,6 @@ export interface ListCustomVerificationEmailTemplatesResponse {
    *             templates.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCustomVerificationEmailTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3973,15 +3046,6 @@ export interface ListIdentitiesRequest {
   MaxItems?: number;
 }
 
-export namespace ListIdentitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentitiesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of all identities that you have attempted to verify under your AWS account,
  *             regardless of verification status.</p>
@@ -3996,15 +3060,6 @@ export interface ListIdentitiesResponse {
    * <p>The token used for pagination.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIdentitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4023,15 +3078,6 @@ export interface ListIdentityPoliciesRequest {
   Identity: string | undefined;
 }
 
-export namespace ListIdentityPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of names of sending authorization policies that apply to an identity.</p>
  */
@@ -4042,15 +3088,6 @@ export interface ListIdentityPoliciesResponse {
   PolicyNames: string[] | undefined;
 }
 
-export namespace ListIdentityPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityPoliciesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to list the IP address filters that exist under your AWS account.
  *             You use IP address filters when you receive email with Amazon SES. For more information, see
@@ -4058,15 +3095,6 @@ export namespace ListIdentityPoliciesResponse {
  *                 Guide</a>.</p>
  */
 export interface ListReceiptFiltersRequest {}
-
-export namespace ListReceiptFiltersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceiptFiltersRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A list of IP address filters that exist under your AWS account.</p>
@@ -4077,15 +3105,6 @@ export interface ListReceiptFiltersResponse {
    *             address range, and whether to allow or block mail from it.</p>
    */
   Filters?: ReceiptFilter[];
-}
-
-export namespace ListReceiptFiltersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceiptFiltersResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4100,15 +3119,6 @@ export interface ListReceiptRuleSetsRequest {
    *             the position in the receipt rule set list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListReceiptRuleSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceiptRuleSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4129,15 +3139,6 @@ export interface ListReceiptRuleSetsResponse {
   NextToken?: string;
 }
 
-export namespace ListReceiptRuleSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReceiptRuleSetsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTemplatesRequest {
   /**
    * <p>A token returned from a previous call to <code>ListTemplates</code> to indicate the
@@ -4151,15 +3152,6 @@ export interface ListTemplatesRequest {
    *             greater than 10, the operation will return up to 10 results.</p>
    */
   MaxItems?: number;
-}
-
-export namespace ListTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4177,15 +3169,6 @@ export interface TemplateMetadata {
   CreatedTimestamp?: Date;
 }
 
-export namespace TemplateMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTemplatesResponse {
   /**
    * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
@@ -4201,15 +3184,6 @@ export interface ListTemplatesResponse {
   NextToken?: string;
 }
 
-export namespace ListTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of email addresses that you have verified with Amazon SES under your AWS
  *             account.</p>
@@ -4219,15 +3193,6 @@ export interface ListVerifiedEmailAddressesResponse {
    * <p>A list of email addresses that have been verified.</p>
    */
   VerifiedEmailAddresses?: string[];
-}
-
-export namespace ListVerifiedEmailAddressesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVerifiedEmailAddressesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4268,15 +3233,6 @@ export interface Message {
   Body: Body | undefined;
 }
 
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Message-related information to include in the Delivery Status Notification (DSN) when
  *             an email that Amazon SES receives on your behalf bounces.</p>
@@ -4301,15 +3257,6 @@ export interface MessageDsn {
    * <p>Additional X-headers to include in the DSN.</p>
    */
   ExtensionFields?: ExtensionField[];
-}
-
-export namespace MessageDsn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageDsn): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4393,29 +3340,11 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
   DeliveryOptions?: DeliveryOptions;
 }
 
-export namespace PutConfigurationSetDeliveryOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsResponse {}
-
-export namespace PutConfigurationSetDeliveryOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to add or update a sending authorization policy for an identity.
@@ -4448,28 +3377,10 @@ export interface PutIdentityPolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutIdentityPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutIdentityPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface PutIdentityPolicyResponse {}
-
-export namespace PutIdentityPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutIdentityPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the raw data of the message.</p>
@@ -4495,15 +3406,6 @@ export interface RawMessage {
   Data: Uint8Array | undefined;
 }
 
-export namespace RawMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RawMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to reorder the receipt rules within a receipt rule set. You use
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
@@ -4521,28 +3423,10 @@ export interface ReorderReceiptRuleSetRequest {
   RuleNames: string[] | undefined;
 }
 
-export namespace ReorderReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReorderReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface ReorderReceiptRuleSetResponse {}
-
-export namespace ReorderReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReorderReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to send a bounce message to the sender of an email you received
@@ -4588,15 +3472,6 @@ export interface SendBounceRequest {
   BounceSenderArn?: string;
 }
 
-export namespace SendBounceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendBounceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a unique message ID.</p>
  */
@@ -4605,15 +3480,6 @@ export interface SendBounceResponse {
    * <p>The message ID of the bounce message.</p>
    */
   MessageId?: string;
-}
-
-export namespace SendBounceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendBounceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4732,30 +3598,12 @@ export interface SendBulkTemplatedEmailRequest {
   Destinations: BulkEmailDestination[] | undefined;
 }
 
-export namespace SendBulkTemplatedEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendBulkTemplatedEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendBulkTemplatedEmailResponse {
   /**
    * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
    *             action.</p>
    */
   Status: BulkEmailDestinationStatus[] | undefined;
-}
-
-export namespace SendBulkTemplatedEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendBulkTemplatedEmailResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4780,15 +3628,6 @@ export interface SendCustomVerificationEmailRequest {
   ConfigurationSetName?: string;
 }
 
-export namespace SendCustomVerificationEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendCustomVerificationEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response received when attempting to send the custom verification email.</p>
  */
@@ -4798,15 +3637,6 @@ export interface SendCustomVerificationEmailResponse {
    *                 <code>SendCustomVerificationEmail</code> operation.</p>
    */
   MessageId?: string;
-}
-
-export namespace SendCustomVerificationEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendCustomVerificationEmailResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4909,15 +3739,6 @@ export interface SendEmailRequest {
   ConfigurationSetName?: string;
 }
 
-export namespace SendEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a unique message ID.</p>
  */
@@ -4926,15 +3747,6 @@ export interface SendEmailResponse {
    * <p>The unique message identifier returned from the <code>SendEmail</code> action. </p>
    */
   MessageId: string | undefined;
-}
-
-export namespace SendEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendEmailResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5079,15 +3891,6 @@ export interface SendRawEmailRequest {
   ConfigurationSetName?: string;
 }
 
-export namespace SendRawEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendRawEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a unique message ID.</p>
  */
@@ -5097,15 +3900,6 @@ export interface SendRawEmailResponse {
    *         </p>
    */
   MessageId: string | undefined;
-}
-
-export namespace SendRawEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendRawEmailResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5221,30 +4015,12 @@ export interface SendTemplatedEmailRequest {
   TemplateData: string | undefined;
 }
 
-export namespace SendTemplatedEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendTemplatedEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendTemplatedEmailResponse {
   /**
    * <p>The unique message identifier returned from the <code>SendTemplatedEmail</code>
    *             action. </p>
    */
   MessageId: string | undefined;
-}
-
-export namespace SendTemplatedEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendTemplatedEmailResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5259,28 +4035,10 @@ export interface SetActiveReceiptRuleSetRequest {
   RuleSetName?: string;
 }
 
-export namespace SetActiveReceiptRuleSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetActiveReceiptRuleSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetActiveReceiptRuleSetResponse {}
-
-export namespace SetActiveReceiptRuleSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetActiveReceiptRuleSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For
@@ -5299,28 +4057,10 @@ export interface SetIdentityDkimEnabledRequest {
   DkimEnabled: boolean | undefined;
 }
 
-export namespace SetIdentityDkimEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityDkimEnabledRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityDkimEnabledResponse {}
-
-export namespace SetIdentityDkimEnabledResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityDkimEnabledResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to enable or disable whether Amazon SES forwards you bounce and
@@ -5347,28 +4087,10 @@ export interface SetIdentityFeedbackForwardingEnabledRequest {
   ForwardingEnabled: boolean | undefined;
 }
 
-export namespace SetIdentityFeedbackForwardingEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityFeedbackForwardingEnabledRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityFeedbackForwardingEnabledResponse {}
-
-export namespace SetIdentityFeedbackForwardingEnabledResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityFeedbackForwardingEnabledResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to set whether Amazon SES includes the original email headers in the
@@ -5399,28 +4121,10 @@ export interface SetIdentityHeadersInNotificationsEnabledRequest {
   Enabled: boolean | undefined;
 }
 
-export namespace SetIdentityHeadersInNotificationsEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityHeadersInNotificationsEnabledRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityHeadersInNotificationsEnabledResponse {}
-
-export namespace SetIdentityHeadersInNotificationsEnabledResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityHeadersInNotificationsEnabledResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for
@@ -5458,28 +4162,10 @@ export interface SetIdentityMailFromDomainRequest {
   BehaviorOnMXFailure?: BehaviorOnMXFailure | string;
 }
 
-export namespace SetIdentityMailFromDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityMailFromDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityMailFromDomainResponse {}
-
-export namespace SetIdentityMailFromDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityMailFromDomainResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce,
@@ -5514,28 +4200,10 @@ export interface SetIdentityNotificationTopicRequest {
   SnsTopic?: string;
 }
 
-export namespace SetIdentityNotificationTopicRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityNotificationTopicRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetIdentityNotificationTopicResponse {}
-
-export namespace SetIdentityNotificationTopicResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityNotificationTopicResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to set the position of a receipt rule in a receipt rule set. You
@@ -5558,28 +4226,10 @@ export interface SetReceiptRulePositionRequest {
   After?: string;
 }
 
-export namespace SetReceiptRulePositionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetReceiptRulePositionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface SetReceiptRulePositionResponse {}
-
-export namespace SetReceiptRulePositionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetReceiptRulePositionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TestRenderTemplateRequest {
   /**
@@ -5595,30 +4245,12 @@ export interface TestRenderTemplateRequest {
   TemplateData: string | undefined;
 }
 
-export namespace TestRenderTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRenderTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TestRenderTemplateResponse {
   /**
    * <p>The complete MIME message rendered by applying the data in the TemplateData parameter
    *             to the template specified in the TemplateName parameter.</p>
    */
   RenderedTemplate?: string;
-}
-
-export namespace TestRenderTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRenderTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5631,15 +4263,6 @@ export interface UpdateAccountSendingEnabledRequest {
    *             current AWS Region.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace UpdateAccountSendingEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccountSendingEnabledRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5662,28 +4285,10 @@ export interface UpdateConfigurationSetEventDestinationRequest {
   EventDestination: EventDestination | undefined;
 }
 
-export namespace UpdateConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface UpdateConfigurationSetEventDestinationResponse {}
-
-export namespace UpdateConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to modify the reputation metric publishing settings for a
@@ -5702,15 +4307,6 @@ export interface UpdateConfigurationSetReputationMetricsEnabledRequest {
   Enabled: boolean | undefined;
 }
 
-export namespace UpdateConfigurationSetReputationMetricsEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetReputationMetricsEnabledRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to enable or disable the email sending capabilities for a
  *             specific configuration set.</p>
@@ -5726,15 +4322,6 @@ export interface UpdateConfigurationSetSendingEnabledRequest {
    *         </p>
    */
   Enabled: boolean | undefined;
-}
-
-export namespace UpdateConfigurationSetSendingEnabledRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetSendingEnabledRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5757,28 +4344,10 @@ export interface UpdateConfigurationSetTrackingOptionsRequest {
   TrackingOptions: TrackingOptions | undefined;
 }
 
-export namespace UpdateConfigurationSetTrackingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetTrackingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface UpdateConfigurationSetTrackingOptionsResponse {}
-
-export namespace UpdateConfigurationSetTrackingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetTrackingOptionsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to update an existing custom verification email template.</p>
@@ -5820,15 +4389,6 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
   FailureRedirectionURL?: string;
 }
 
-export namespace UpdateCustomVerificationEmailTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomVerificationEmailTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to update a receipt rule. You use receipt rules to receive email
  *             with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer
@@ -5846,28 +4406,10 @@ export interface UpdateReceiptRuleRequest {
   Rule: ReceiptRule | undefined;
 }
 
-export namespace UpdateReceiptRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReceiptRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface UpdateReceiptRuleResponse {}
-
-export namespace UpdateReceiptRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReceiptRuleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateTemplateRequest {
   /**
@@ -5877,25 +4419,7 @@ export interface UpdateTemplateRequest {
   Template: Template | undefined;
 }
 
-export namespace UpdateTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTemplateResponse {}
-
-export namespace UpdateTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents a request to generate the CNAME records needed to set up Easy DKIM with
@@ -5907,15 +4431,6 @@ export interface VerifyDomainDkimRequest {
    * <p>The name of the domain to be verified for Easy DKIM signing.</p>
    */
   Domain: string | undefined;
-}
-
-export namespace VerifyDomainDkimRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyDomainDkimRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5937,15 +4452,6 @@ export interface VerifyDomainDkimResponse {
   DkimTokens: string[] | undefined;
 }
 
-export namespace VerifyDomainDkimResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyDomainDkimResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to begin Amazon SES domain verification and to generate the TXT
  *             records that you must publish to the DNS server of your domain to complete the
@@ -5957,15 +4463,6 @@ export interface VerifyDomainIdentityRequest {
    * <p>The domain to be verified.</p>
    */
   Domain: string | undefined;
-}
-
-export namespace VerifyDomainIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyDomainIdentityRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5985,15 +4482,6 @@ export interface VerifyDomainIdentityResponse {
   VerificationToken: string | undefined;
 }
 
-export namespace VerifyDomainIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyDomainIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to begin email address verification with Amazon SES. For information
  *             about email address verification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer
@@ -6004,15 +4492,6 @@ export interface VerifyEmailAddressRequest {
    * <p>The email address to be verified.</p>
    */
   EmailAddress: string | undefined;
-}
-
-export namespace VerifyEmailAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyEmailAddressRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6027,25 +4506,1280 @@ export interface VerifyEmailIdentityRequest {
   EmailAddress: string | undefined;
 }
 
-export namespace VerifyEmailIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyEmailIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element returned on a successful request.</p>
  */
 export interface VerifyEmailIdentityResponse {}
 
-export namespace VerifyEmailIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyEmailIdentityResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AddHeaderActionFilterSensitiveLog = (obj: AddHeaderAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentFilterSensitiveLog = (obj: Content): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BodyFilterSensitiveLog = (obj: Body): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BounceActionFilterSensitiveLog = (obj: BounceAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtensionFieldFilterSensitiveLog = (obj: ExtensionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecipientDsnFieldsFilterSensitiveLog = (obj: RecipientDsnFields): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BouncedRecipientInfoFilterSensitiveLog = (obj: BouncedRecipientInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageTagFilterSensitiveLog = (obj: MessageTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BulkEmailDestinationFilterSensitiveLog = (obj: BulkEmailDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BulkEmailDestinationStatusFilterSensitiveLog = (obj: BulkEmailDestinationStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloneReceiptRuleSetRequestFilterSensitiveLog = (obj: CloneReceiptRuleSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloneReceiptRuleSetResponseFilterSensitiveLog = (obj: CloneReceiptRuleSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchDimensionConfigurationFilterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchDestinationFilterSensitiveLog = (obj: CloudWatchDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationSetFilterSensitiveLog = (obj: ConfigurationSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetRequestFilterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetResponseFilterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseDestinationFilterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SNSDestinationFilterSensitiveLog = (obj: SNSDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDestinationFilterSensitiveLog = (obj: EventDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetEventDestinationRequestFilterSensitiveLog = (
+  obj: CreateConfigurationSetEventDestinationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetEventDestinationResponseFilterSensitiveLog = (
+  obj: CreateConfigurationSetEventDestinationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrackingOptionsFilterSensitiveLog = (obj: TrackingOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetTrackingOptionsRequestFilterSensitiveLog = (
+  obj: CreateConfigurationSetTrackingOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetTrackingOptionsResponseFilterSensitiveLog = (
+  obj: CreateConfigurationSetTrackingOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomVerificationEmailTemplateRequestFilterSensitiveLog = (
+  obj: CreateCustomVerificationEmailTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReceiptIpFilterFilterSensitiveLog = (obj: ReceiptIpFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReceiptFilterFilterSensitiveLog = (obj: ReceiptFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReceiptFilterRequestFilterSensitiveLog = (obj: CreateReceiptFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReceiptFilterResponseFilterSensitiveLog = (obj: CreateReceiptFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaActionFilterSensitiveLog = (obj: LambdaAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ActionFilterSensitiveLog = (obj: S3Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SNSActionFilterSensitiveLog = (obj: SNSAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopActionFilterSensitiveLog = (obj: StopAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkmailActionFilterSensitiveLog = (obj: WorkmailAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReceiptActionFilterSensitiveLog = (obj: ReceiptAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReceiptRuleFilterSensitiveLog = (obj: ReceiptRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReceiptRuleRequestFilterSensitiveLog = (obj: CreateReceiptRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReceiptRuleResponseFilterSensitiveLog = (obj: CreateReceiptRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReceiptRuleSetRequestFilterSensitiveLog = (obj: CreateReceiptRuleSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReceiptRuleSetResponseFilterSensitiveLog = (obj: CreateReceiptRuleSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateFilterSensitiveLog = (obj: Template): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTemplateRequestFilterSensitiveLog = (obj: CreateTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTemplateResponseFilterSensitiveLog = (obj: CreateTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomVerificationEmailTemplateFilterSensitiveLog = (obj: CustomVerificationEmailTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetRequestFilterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetResponseFilterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog = (
+  obj: DeleteConfigurationSetEventDestinationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog = (
+  obj: DeleteConfigurationSetEventDestinationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetTrackingOptionsRequestFilterSensitiveLog = (
+  obj: DeleteConfigurationSetTrackingOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetTrackingOptionsResponseFilterSensitiveLog = (
+  obj: DeleteConfigurationSetTrackingOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomVerificationEmailTemplateRequestFilterSensitiveLog = (
+  obj: DeleteCustomVerificationEmailTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIdentityRequestFilterSensitiveLog = (obj: DeleteIdentityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIdentityResponseFilterSensitiveLog = (obj: DeleteIdentityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIdentityPolicyRequestFilterSensitiveLog = (obj: DeleteIdentityPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIdentityPolicyResponseFilterSensitiveLog = (obj: DeleteIdentityPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReceiptFilterRequestFilterSensitiveLog = (obj: DeleteReceiptFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReceiptFilterResponseFilterSensitiveLog = (obj: DeleteReceiptFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReceiptRuleRequestFilterSensitiveLog = (obj: DeleteReceiptRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReceiptRuleResponseFilterSensitiveLog = (obj: DeleteReceiptRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReceiptRuleSetRequestFilterSensitiveLog = (obj: DeleteReceiptRuleSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReceiptRuleSetResponseFilterSensitiveLog = (obj: DeleteReceiptRuleSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTemplateRequestFilterSensitiveLog = (obj: DeleteTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTemplateResponseFilterSensitiveLog = (obj: DeleteTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVerifiedEmailAddressRequestFilterSensitiveLog = (obj: DeleteVerifiedEmailAddressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeliveryOptionsFilterSensitiveLog = (obj: DeliveryOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeActiveReceiptRuleSetRequestFilterSensitiveLog = (
+  obj: DescribeActiveReceiptRuleSetRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReceiptRuleSetMetadataFilterSensitiveLog = (obj: ReceiptRuleSetMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeActiveReceiptRuleSetResponseFilterSensitiveLog = (
+  obj: DescribeActiveReceiptRuleSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationSetRequestFilterSensitiveLog = (obj: DescribeConfigurationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReputationOptionsFilterSensitiveLog = (obj: ReputationOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationSetResponseFilterSensitiveLog = (obj: DescribeConfigurationSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReceiptRuleRequestFilterSensitiveLog = (obj: DescribeReceiptRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReceiptRuleResponseFilterSensitiveLog = (obj: DescribeReceiptRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReceiptRuleSetRequestFilterSensitiveLog = (obj: DescribeReceiptRuleSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReceiptRuleSetResponseFilterSensitiveLog = (obj: DescribeReceiptRuleSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityDkimAttributesFilterSensitiveLog = (obj: IdentityDkimAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountSendingEnabledResponseFilterSensitiveLog = (obj: GetAccountSendingEnabledResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCustomVerificationEmailTemplateRequestFilterSensitiveLog = (
+  obj: GetCustomVerificationEmailTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCustomVerificationEmailTemplateResponseFilterSensitiveLog = (
+  obj: GetCustomVerificationEmailTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityDkimAttributesRequestFilterSensitiveLog = (obj: GetIdentityDkimAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityDkimAttributesResponseFilterSensitiveLog = (obj: GetIdentityDkimAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityMailFromDomainAttributesRequestFilterSensitiveLog = (
+  obj: GetIdentityMailFromDomainAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityMailFromDomainAttributesFilterSensitiveLog = (obj: IdentityMailFromDomainAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityMailFromDomainAttributesResponseFilterSensitiveLog = (
+  obj: GetIdentityMailFromDomainAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityNotificationAttributesRequestFilterSensitiveLog = (
+  obj: GetIdentityNotificationAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityNotificationAttributesFilterSensitiveLog = (obj: IdentityNotificationAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityNotificationAttributesResponseFilterSensitiveLog = (
+  obj: GetIdentityNotificationAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityPoliciesRequestFilterSensitiveLog = (obj: GetIdentityPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityPoliciesResponseFilterSensitiveLog = (obj: GetIdentityPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityVerificationAttributesRequestFilterSensitiveLog = (
+  obj: GetIdentityVerificationAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityVerificationAttributesFilterSensitiveLog = (obj: IdentityVerificationAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityVerificationAttributesResponseFilterSensitiveLog = (
+  obj: GetIdentityVerificationAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSendQuotaResponseFilterSensitiveLog = (obj: GetSendQuotaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendDataPointFilterSensitiveLog = (obj: SendDataPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSendStatisticsResponseFilterSensitiveLog = (obj: GetSendStatisticsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemplateRequestFilterSensitiveLog = (obj: GetTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemplateResponseFilterSensitiveLog = (obj: GetTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationSetsRequestFilterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationSetsResponseFilterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomVerificationEmailTemplatesRequestFilterSensitiveLog = (
+  obj: ListCustomVerificationEmailTemplatesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomVerificationEmailTemplatesResponseFilterSensitiveLog = (
+  obj: ListCustomVerificationEmailTemplatesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentitiesRequestFilterSensitiveLog = (obj: ListIdentitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentitiesResponseFilterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityPoliciesRequestFilterSensitiveLog = (obj: ListIdentityPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityPoliciesResponseFilterSensitiveLog = (obj: ListIdentityPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceiptFiltersRequestFilterSensitiveLog = (obj: ListReceiptFiltersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceiptFiltersResponseFilterSensitiveLog = (obj: ListReceiptFiltersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceiptRuleSetsRequestFilterSensitiveLog = (obj: ListReceiptRuleSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReceiptRuleSetsResponseFilterSensitiveLog = (obj: ListReceiptRuleSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplatesRequestFilterSensitiveLog = (obj: ListTemplatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateMetadataFilterSensitiveLog = (obj: TemplateMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplatesResponseFilterSensitiveLog = (obj: ListTemplatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVerifiedEmailAddressesResponseFilterSensitiveLog = (obj: ListVerifiedEmailAddressesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageDsnFilterSensitiveLog = (obj: MessageDsn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetDeliveryOptionsRequestFilterSensitiveLog = (
+  obj: PutConfigurationSetDeliveryOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetDeliveryOptionsResponseFilterSensitiveLog = (
+  obj: PutConfigurationSetDeliveryOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutIdentityPolicyRequestFilterSensitiveLog = (obj: PutIdentityPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutIdentityPolicyResponseFilterSensitiveLog = (obj: PutIdentityPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RawMessageFilterSensitiveLog = (obj: RawMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReorderReceiptRuleSetRequestFilterSensitiveLog = (obj: ReorderReceiptRuleSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReorderReceiptRuleSetResponseFilterSensitiveLog = (obj: ReorderReceiptRuleSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendBounceRequestFilterSensitiveLog = (obj: SendBounceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendBounceResponseFilterSensitiveLog = (obj: SendBounceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendBulkTemplatedEmailRequestFilterSensitiveLog = (obj: SendBulkTemplatedEmailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendBulkTemplatedEmailResponseFilterSensitiveLog = (obj: SendBulkTemplatedEmailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendCustomVerificationEmailRequestFilterSensitiveLog = (obj: SendCustomVerificationEmailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendCustomVerificationEmailResponseFilterSensitiveLog = (
+  obj: SendCustomVerificationEmailResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendEmailRequestFilterSensitiveLog = (obj: SendEmailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendEmailResponseFilterSensitiveLog = (obj: SendEmailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendRawEmailRequestFilterSensitiveLog = (obj: SendRawEmailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendRawEmailResponseFilterSensitiveLog = (obj: SendRawEmailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendTemplatedEmailRequestFilterSensitiveLog = (obj: SendTemplatedEmailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendTemplatedEmailResponseFilterSensitiveLog = (obj: SendTemplatedEmailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetActiveReceiptRuleSetRequestFilterSensitiveLog = (obj: SetActiveReceiptRuleSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetActiveReceiptRuleSetResponseFilterSensitiveLog = (obj: SetActiveReceiptRuleSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityDkimEnabledRequestFilterSensitiveLog = (obj: SetIdentityDkimEnabledRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityDkimEnabledResponseFilterSensitiveLog = (obj: SetIdentityDkimEnabledResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityFeedbackForwardingEnabledRequestFilterSensitiveLog = (
+  obj: SetIdentityFeedbackForwardingEnabledRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityFeedbackForwardingEnabledResponseFilterSensitiveLog = (
+  obj: SetIdentityFeedbackForwardingEnabledResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityHeadersInNotificationsEnabledRequestFilterSensitiveLog = (
+  obj: SetIdentityHeadersInNotificationsEnabledRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityHeadersInNotificationsEnabledResponseFilterSensitiveLog = (
+  obj: SetIdentityHeadersInNotificationsEnabledResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityMailFromDomainRequestFilterSensitiveLog = (obj: SetIdentityMailFromDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityMailFromDomainResponseFilterSensitiveLog = (obj: SetIdentityMailFromDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityNotificationTopicRequestFilterSensitiveLog = (
+  obj: SetIdentityNotificationTopicRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityNotificationTopicResponseFilterSensitiveLog = (
+  obj: SetIdentityNotificationTopicResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetReceiptRulePositionRequestFilterSensitiveLog = (obj: SetReceiptRulePositionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetReceiptRulePositionResponseFilterSensitiveLog = (obj: SetReceiptRulePositionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestRenderTemplateRequestFilterSensitiveLog = (obj: TestRenderTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestRenderTemplateResponseFilterSensitiveLog = (obj: TestRenderTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountSendingEnabledRequestFilterSensitiveLog = (obj: UpdateAccountSendingEnabledRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog = (
+  obj: UpdateConfigurationSetEventDestinationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog = (
+  obj: UpdateConfigurationSetEventDestinationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationSetReputationMetricsEnabledRequestFilterSensitiveLog = (
+  obj: UpdateConfigurationSetReputationMetricsEnabledRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationSetSendingEnabledRequestFilterSensitiveLog = (
+  obj: UpdateConfigurationSetSendingEnabledRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationSetTrackingOptionsRequestFilterSensitiveLog = (
+  obj: UpdateConfigurationSetTrackingOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationSetTrackingOptionsResponseFilterSensitiveLog = (
+  obj: UpdateConfigurationSetTrackingOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomVerificationEmailTemplateRequestFilterSensitiveLog = (
+  obj: UpdateCustomVerificationEmailTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReceiptRuleRequestFilterSensitiveLog = (obj: UpdateReceiptRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReceiptRuleResponseFilterSensitiveLog = (obj: UpdateReceiptRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplateRequestFilterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplateResponseFilterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyDomainDkimRequestFilterSensitiveLog = (obj: VerifyDomainDkimRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyDomainDkimResponseFilterSensitiveLog = (obj: VerifyDomainDkimResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyDomainIdentityRequestFilterSensitiveLog = (obj: VerifyDomainIdentityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyDomainIdentityResponseFilterSensitiveLog = (obj: VerifyDomainIdentityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyEmailAddressRequestFilterSensitiveLog = (obj: VerifyEmailAddressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyEmailIdentityRequestFilterSensitiveLog = (obj: VerifyEmailIdentityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyEmailIdentityResponseFilterSensitiveLog = (obj: VerifyEmailIdentityResponse): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { UnmonitorInstancesRequest, UnmonitorInstancesResult } from "../models/models_6";
+import {
+  UnmonitorInstancesRequest,
+  UnmonitorInstancesRequestFilterSensitiveLog,
+  UnmonitorInstancesResult,
+  UnmonitorInstancesResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2UnmonitorInstancesCommand,
   serializeAws_ec2UnmonitorInstancesCommand,
@@ -74,8 +79,8 @@ export class UnmonitorInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnmonitorInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UnmonitorInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UnmonitorInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UnmonitorInstancesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

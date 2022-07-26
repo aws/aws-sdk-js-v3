@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDevicePolicyConfigurationRequest, UpdateDevicePolicyConfigurationResponse } from "../models/models_0";
+import {
+  UpdateDevicePolicyConfigurationRequest,
+  UpdateDevicePolicyConfigurationRequestFilterSensitiveLog,
+  UpdateDevicePolicyConfigurationResponse,
+  UpdateDevicePolicyConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDevicePolicyConfigurationCommand,
   serializeAws_restJson1UpdateDevicePolicyConfigurationCommand,
@@ -76,8 +81,8 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDevicePolicyConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDevicePolicyConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDevicePolicyConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDevicePolicyConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

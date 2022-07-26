@@ -187,15 +187,6 @@ export interface GenerateDataSetRequest {
   customerDefinedValues?: Record<string, string>;
 }
 
-export namespace GenerateDataSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateDataSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Container for the result of the GenerateDataSet operation.
  */
@@ -205,15 +196,6 @@ export interface GenerateDataSetResult {
    *         used to correlate a request with notifications from the SNS topic.
    */
   dataSetRequestId?: string;
-}
-
-export namespace GenerateDataSetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateDataSetResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -295,15 +277,6 @@ export interface StartSupportDataExportRequest {
   customerDefinedValues?: Record<string, string>;
 }
 
-export namespace StartSupportDataExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSupportDataExportRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Container for the result of the StartSupportDataExport operation.
  */
@@ -315,11 +288,30 @@ export interface StartSupportDataExportResult {
   dataSetRequestId?: string;
 }
 
-export namespace StartSupportDataExportResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSupportDataExportResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GenerateDataSetRequestFilterSensitiveLog = (obj: GenerateDataSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateDataSetResultFilterSensitiveLog = (obj: GenerateDataSetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSupportDataExportRequestFilterSensitiveLog = (obj: StartSupportDataExportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSupportDataExportResultFilterSensitiveLog = (obj: StartSupportDataExportResult): any => ({
+  ...obj,
+});

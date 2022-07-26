@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVolumesRequest, DescribeVolumesResult } from "../models/models_4";
+import {
+  DescribeVolumesRequest,
+  DescribeVolumesRequestFilterSensitiveLog,
+  DescribeVolumesResult,
+  DescribeVolumesResultFilterSensitiveLog,
+} from "../models/models_4";
 import { deserializeAws_ec2DescribeVolumesCommand, serializeAws_ec2DescribeVolumesCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeVolumesCommandInput extends DescribeVolumesRequest {}
@@ -76,8 +81,8 @@ export class DescribeVolumesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVolumesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVolumesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVolumesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVolumesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

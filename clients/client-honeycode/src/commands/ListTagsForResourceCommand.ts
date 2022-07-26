@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResult } from "../models/models_0";
+import {
+  ListTagsForResourceRequest,
+  ListTagsForResourceRequestFilterSensitiveLog,
+  ListTagsForResourceResult,
+  ListTagsForResourceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,
@@ -74,8 +79,8 @@ export class ListTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForResourceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

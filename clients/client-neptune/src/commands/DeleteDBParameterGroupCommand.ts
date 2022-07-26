@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDBParameterGroupMessage } from "../models/models_0";
+import { DeleteDBParameterGroupMessage, DeleteDBParameterGroupMessageFilterSensitiveLog } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryDeleteDBParameterGroupCommand,
@@ -73,7 +73,7 @@ export class DeleteDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBParameterGroupMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDBParameterGroupMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddWorkingStorageInput, AddWorkingStorageOutput } from "../models/models_0";
+import {
+  AddWorkingStorageInput,
+  AddWorkingStorageInputFilterSensitiveLog,
+  AddWorkingStorageOutput,
+  AddWorkingStorageOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddWorkingStorageCommand,
   serializeAws_json1_1AddWorkingStorageCommand,
@@ -84,8 +89,8 @@ export class AddWorkingStorageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddWorkingStorageInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AddWorkingStorageOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddWorkingStorageInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AddWorkingStorageOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

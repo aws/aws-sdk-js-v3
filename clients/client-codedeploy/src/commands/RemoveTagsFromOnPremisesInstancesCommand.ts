@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { RemoveTagsFromOnPremisesInstancesInput } from "../models/models_0";
+import {
+  RemoveTagsFromOnPremisesInstancesInput,
+  RemoveTagsFromOnPremisesInstancesInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand,
   serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand,
@@ -72,7 +75,7 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromOnPremisesInstancesInput.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTagsFromOnPremisesInstancesInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { GetParametersForImportRequest, GetParametersForImportResponse } from "../models/models_0";
+import {
+  GetParametersForImportRequest,
+  GetParametersForImportRequestFilterSensitiveLog,
+  GetParametersForImportResponse,
+  GetParametersForImportResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetParametersForImportCommand,
   serializeAws_json1_1GetParametersForImportCommand,
@@ -106,8 +111,8 @@ export class GetParametersForImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetParametersForImportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetParametersForImportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetParametersForImportRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetParametersForImportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -1,6 +1,11 @@
 // smithy-typescript generated code
 import { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EchoServiceClient";
-import { LengthInput, LengthOutput } from "../models/models_0";
+import {
+  LengthInput,
+  LengthInputFilterSensitiveLog,
+  LengthOutput,
+  LengthOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_restJson1LengthCommand, serializeAws_restJson1LengthCommand } from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -47,8 +52,8 @@ export class LengthCommand extends $Command<LengthCommandInput, LengthCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LengthInput.filterSensitiveLog,
-      outputFilterSensitiveLog: LengthOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: LengthInputFilterSensitiveLog,
+      outputFilterSensitiveLog: LengthOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

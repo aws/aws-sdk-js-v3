@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { CreateDataSetRequest, CreateDataSetResponse } from "../models/models_0";
+import {
+  CreateDataSetRequest,
+  CreateDataSetRequestFilterSensitiveLog,
+  CreateDataSetResponse,
+  CreateDataSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDataSetCommand,
   serializeAws_restJson1CreateDataSetCommand,
@@ -72,8 +77,8 @@ export class CreateDataSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDataSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDataSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

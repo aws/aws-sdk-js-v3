@@ -27,15 +27,6 @@ export interface ActiveDirectoryBackupAttributes {
   ResourceARN?: string;
 }
 
-export namespace ActiveDirectoryBackupAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveDirectoryBackupAttributes): any => ({
-    ...obj,
-  });
-}
-
 export enum ActiveDirectoryErrorType {
   DOMAIN_NOT_FOUND = "DOMAIN_NOT_FOUND",
   INCOMPATIBLE_DOMAIN_MODE = "INCOMPATIBLE_DOMAIN_MODE",
@@ -99,15 +90,6 @@ export interface AdministrativeActionFailureDetails {
   Message?: string;
 }
 
-export namespace AdministrativeActionFailureDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdministrativeActionFailureDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum Status {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -125,15 +107,6 @@ export interface FileSystemFailureDetails {
    * <p>A message describing any failures that occurred during file system creation.</p>
    */
   Message?: string;
-}
-
-export namespace FileSystemFailureDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemFailureDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum FileSystemType {
@@ -174,15 +147,6 @@ export interface DataRepositoryFailureDetails {
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace DataRepositoryFailureDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryFailureDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum DataRepositoryLifecycle {
@@ -304,15 +268,6 @@ export interface DataRepositoryConfiguration {
   FailureDetails?: DataRepositoryFailureDetails;
 }
 
-export namespace DataRepositoryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum LustreDeploymentType {
   PERSISTENT_1 = "PERSISTENT_1",
   PERSISTENT_2 = "PERSISTENT_2",
@@ -376,15 +331,6 @@ export interface LustreLogConfiguration {
   Destination?: string;
 }
 
-export namespace LustreLogConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LustreLogConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for Lustre root squash used to restrict root-level access
  *             from clients that try to access your FSx for Lustre file system as root.
@@ -433,15 +379,6 @@ export interface LustreRootSquashConfiguration {
    *          </ul>
    */
   NoSquashNids?: string[];
-}
-
-export namespace LustreRootSquashConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LustreRootSquashConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -580,15 +517,6 @@ export interface LustreFileSystemConfiguration {
   RootSquashConfiguration?: LustreRootSquashConfiguration;
 }
 
-export namespace LustreFileSystemConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LustreFileSystemConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum OntapDeploymentType {
   MULTI_AZ_1 = "MULTI_AZ_1",
   SINGLE_AZ_1 = "SINGLE_AZ_1",
@@ -619,15 +547,6 @@ export interface DiskIopsConfiguration {
   Iops?: number;
 }
 
-export namespace DiskIopsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiskIopsConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Amazon FSx for NetApp ONTAP file system has two endpoints
  *             that are used to access data or to manage the file system
@@ -647,15 +566,6 @@ export interface FileSystemEndpoint {
   IpAddresses?: string[];
 }
 
-export namespace FileSystemEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemEndpoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Amazon FSx for NetApp ONTAP file system has the following endpoints
  *             that are used to access data or to manage the file system using the
@@ -673,15 +583,6 @@ export interface FileSystemEndpoints {
    *             and NetApp ONTAP API.</p>
    */
   Management?: FileSystemEndpoint;
-}
-
-export namespace FileSystemEndpoints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemEndpoints): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -781,15 +682,6 @@ export interface OntapFileSystemConfiguration {
   WeeklyMaintenanceStartTime?: string;
 }
 
-export namespace OntapFileSystemConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OntapFileSystemConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum OpenZFSDeploymentType {
   SINGLE_AZ_1 = "SINGLE_AZ_1",
 }
@@ -873,15 +765,6 @@ export interface OpenZFSFileSystemConfiguration {
   RootVolumeId?: string;
 }
 
-export namespace OpenZFSFileSystemConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenZFSFileSystemConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum StorageType {
   HDD = "HDD",
   SSD = "SSD",
@@ -904,15 +787,6 @@ export interface Tag {
    *             and also of <code>payroll : April</code>.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export enum AliasLifecycle {
@@ -973,15 +847,6 @@ export interface Alias {
    *          </ul>
    */
   Lifecycle?: AliasLifecycle | string;
-}
-
-export namespace Alias {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alias): any => ({
-    ...obj,
-  });
 }
 
 export enum WindowsAccessAuditLogLevel {
@@ -1065,15 +930,6 @@ export interface WindowsAuditLogConfiguration {
   AuditLogDestination?: string;
 }
 
-export namespace WindowsAuditLogConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WindowsAuditLogConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum WindowsDeploymentType {
   MULTI_AZ_1 = "MULTI_AZ_1",
   SINGLE_AZ_1 = "SINGLE_AZ_1",
@@ -1118,15 +974,6 @@ export interface SelfManagedActiveDirectoryAttributes {
    *             self-managed AD directory.</p>
    */
   DnsIps?: string[];
-}
-
-export namespace SelfManagedActiveDirectoryAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelfManagedActiveDirectoryAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1257,15 +1104,6 @@ export interface WindowsFileSystemConfiguration {
   AuditLogConfiguration?: WindowsAuditLogConfiguration;
 }
 
-export namespace WindowsFileSystemConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WindowsFileSystemConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum SnapshotLifecycle {
   AVAILABLE = "AVAILABLE",
   CREATING = "CREATING",
@@ -1281,15 +1119,6 @@ export interface LifecycleTransitionReason {
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace LifecycleTransitionReason {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleTransitionReason): any => ({
-    ...obj,
-  });
 }
 
 export enum VolumeLifecycle {
@@ -1391,15 +1220,6 @@ export interface TieringPolicy {
    *          </ul>
    */
   Name?: TieringPolicyName | string;
-}
-
-export namespace TieringPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TieringPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1504,15 +1324,6 @@ export interface OntapVolumeConfiguration {
   OntapVolumeType?: OntapVolumeType | string;
 }
 
-export namespace OntapVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OntapVolumeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum OpenZFSDataCompressionType {
   LZ4 = "LZ4",
   NONE = "NONE",
@@ -1555,15 +1366,6 @@ export interface OpenZFSClientConfiguration {
   Options: string[] | undefined;
 }
 
-export namespace OpenZFSClientConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenZFSClientConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Network File System (NFS) configurations for mounting an Amazon FSx for
  *             OpenZFS file system. </p>
@@ -1574,15 +1376,6 @@ export interface OpenZFSNfsExport {
    *             OpenZFS file system. </p>
    */
   ClientConfigurations: OpenZFSClientConfiguration[] | undefined;
-}
-
-export namespace OpenZFSNfsExport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenZFSNfsExport): any => ({
-    ...obj,
-  });
 }
 
 export enum OpenZFSCopyStrategy {
@@ -1623,15 +1416,6 @@ export interface OpenZFSOriginSnapshotConfiguration {
   CopyStrategy?: OpenZFSCopyStrategy | string;
 }
 
-export namespace OpenZFSOriginSnapshotConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenZFSOriginSnapshotConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum OpenZFSQuotaType {
   GROUP = "GROUP",
   USER = "USER",
@@ -1655,15 +1439,6 @@ export interface OpenZFSUserOrGroupQuota {
    * <p>The amount of storage that the user or group can use in gibibytes (GiB).</p>
    */
   StorageCapacityQuotaGiB: number | undefined;
-}
-
-export namespace OpenZFSUserOrGroupQuota {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenZFSUserOrGroupQuota): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1760,15 +1535,6 @@ export interface OpenZFSVolumeConfiguration {
   UserAndGroupQuotas?: OpenZFSUserOrGroupQuota[];
 }
 
-export namespace OpenZFSVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenZFSVolumeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum VolumeType {
   ONTAP = "ONTAP",
   OPENZFS = "OPENZFS",
@@ -1816,15 +1582,6 @@ export interface AssociateFileSystemAliasesRequest {
   Aliases: string[] | undefined;
 }
 
-export namespace AssociateFileSystemAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateFileSystemAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The system generated response showing the DNS aliases that
  *             Amazon FSx is attempting to associate with the file system.
@@ -1838,15 +1595,6 @@ export interface AssociateFileSystemAliasesResponse {
    * <p>An array of the DNS aliases that Amazon FSx is associating with the file system.</p>
    */
   Aliases?: Alias[];
-}
-
-export namespace AssociateFileSystemAliasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateFileSystemAliasesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1962,15 +1710,6 @@ export interface AutoExportPolicy {
   Events?: (EventType | string)[];
 }
 
-export namespace AutoExportPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoExportPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the data repository association's automatic import policy.
  *             The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory
@@ -2006,15 +1745,6 @@ export interface AutoImportPolicy {
   Events?: (EventType | string)[];
 }
 
-export namespace AutoImportPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoImportPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Cancels a data repository task.</p>
  */
@@ -2023,15 +1753,6 @@ export interface CancelDataRepositoryTaskRequest {
    * <p>Specifies the data repository task to cancel.</p>
    */
   TaskId: string | undefined;
-}
-
-export namespace CancelDataRepositoryTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelDataRepositoryTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DataRepositoryTaskLifecycle {
@@ -2080,15 +1801,6 @@ export interface CancelDataRepositoryTaskResponse {
    * <p>The ID of the task being canceled.</p>
    */
   TaskId?: string;
-}
-
-export namespace CancelDataRepositoryTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelDataRepositoryTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2252,15 +1964,6 @@ export interface CopyBackupRequest {
   Tags?: Tag[];
 }
 
-export namespace CopyBackupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyBackupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If backup creation fails, this structure contains the details of that
  *             failure.</p>
@@ -2270,15 +1973,6 @@ export interface BackupFailureDetails {
    * <p>A message describing the backup-creation failure.</p>
    */
   Message?: string;
-}
-
-export namespace BackupFailureDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupFailureDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum BackupLifecycle {
@@ -2564,15 +2258,6 @@ export interface CreateBackupRequest {
   VolumeId?: string;
 }
 
-export namespace CreateBackupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
  */
@@ -2622,15 +2307,6 @@ export interface S3DataRepositoryConfiguration {
    *             the linked S3 bucket.</p>
    */
   AutoExportPolicy?: AutoExportPolicy;
-}
-
-export namespace S3DataRepositoryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DataRepositoryConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDataRepositoryAssociationRequest {
@@ -2706,15 +2382,6 @@ export interface CreateDataRepositoryAssociationRequest {
    * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateDataRepositoryAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataRepositoryAssociationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2875,29 +2542,11 @@ export interface DataRepositoryAssociation {
   CreationTime?: Date;
 }
 
-export namespace DataRepositoryAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryAssociation): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDataRepositoryAssociationResponse {
   /**
    * <p>The response object returned after the data repository association is created.</p>
    */
   Association?: DataRepositoryAssociation;
-}
-
-export namespace CreateDataRepositoryAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataRepositoryAssociationResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ReportFormat {
@@ -2946,15 +2595,6 @@ export interface CompletionReport {
   Scope?: ReportScope | string;
 }
 
-export namespace CompletionReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompletionReport): any => ({
-    ...obj,
-  });
-}
-
 export enum DataRepositoryTaskType {
   EXPORT = "EXPORT_TO_REPOSITORY",
   IMPORT = "IMPORT_METADATA_FROM_REPOSITORY",
@@ -3001,15 +2641,6 @@ export interface CreateDataRepositoryTaskRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateDataRepositoryTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataRepositoryTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about why a data repository task failed. Only populated when the task <code>Lifecycle</code> is set to <code>FAILED</code>.</p>
  */
@@ -3018,15 +2649,6 @@ export interface DataRepositoryTaskFailureDetails {
    * <p>A detailed error message.</p>
    */
   Message?: string;
-}
-
-export namespace DataRepositoryTaskFailureDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryTaskFailureDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3055,15 +2677,6 @@ export interface DataRepositoryTaskStatus {
    * <p>The time at which the task status was last updated.</p>
    */
   LastUpdatedTime?: Date;
-}
-
-export namespace DataRepositoryTaskStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryTaskStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3190,29 +2803,11 @@ export interface DataRepositoryTask {
   Report?: CompletionReport;
 }
 
-export namespace DataRepositoryTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryTask): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDataRepositoryTaskResponse {
   /**
    * <p>The description of the data repository task that you just created.</p>
    */
   DataRepositoryTask?: DataRepositoryTask;
-}
-
-export namespace CreateDataRepositoryTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataRepositoryTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3311,15 +2906,6 @@ export interface LustreLogCreateConfiguration {
    *          </ul>
    */
   Destination?: string;
-}
-
-export namespace LustreLogCreateConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LustreLogCreateConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3588,15 +3174,6 @@ export interface CreateFileSystemLustreConfiguration {
   RootSquashConfiguration?: LustreRootSquashConfiguration;
 }
 
-export namespace CreateFileSystemLustreConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFileSystemLustreConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ONTAP configuration properties of the FSx for ONTAP file system that you
  *             are creating.</p>
@@ -3692,16 +3269,6 @@ export interface CreateFileSystemOntapConfiguration {
   WeeklyMaintenanceStartTime?: string;
 }
 
-export namespace CreateFileSystemOntapConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFileSystemOntapConfiguration): any => ({
-    ...obj,
-    ...(obj.FsxAdminPassword && { FsxAdminPassword: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The configuration of an Amazon FSx for OpenZFS root volume.</p>
  */
@@ -3768,15 +3335,6 @@ export interface OpenZFSCreateRootVolumeConfiguration {
    *             longer want changes to occur. </p>
    */
   ReadOnly?: boolean;
-}
-
-export namespace OpenZFSCreateRootVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenZFSCreateRootVolumeConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3857,15 +3415,6 @@ export interface CreateFileSystemOpenZFSConfiguration {
    *             file system. All volumes are children of the root volume. </p>
    */
   RootVolumeConfiguration?: OpenZFSCreateRootVolumeConfiguration;
-}
-
-export namespace CreateFileSystemOpenZFSConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFileSystemOpenZFSConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3959,15 +3508,6 @@ export interface WindowsAuditLogCreateConfiguration {
   AuditLogDestination?: string;
 }
 
-export namespace WindowsAuditLogCreateConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WindowsAuditLogCreateConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
  *             a self-managed (including on-premises) Microsoft Active Directory (AD)
@@ -4026,16 +3566,6 @@ export interface SelfManagedActiveDirectoryConfiguration {
    *             self-managed AD directory. </p>
    */
   DnsIps: string[] | undefined;
-}
-
-export namespace SelfManagedActiveDirectoryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelfManagedActiveDirectoryConfiguration): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -4165,20 +3695,6 @@ export interface CreateFileSystemWindowsConfiguration {
    *             file system.</p>
    */
   AuditLogConfiguration?: WindowsAuditLogCreateConfiguration;
-}
-
-export namespace CreateFileSystemWindowsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFileSystemWindowsConfiguration): any => ({
-    ...obj,
-    ...(obj.SelfManagedActiveDirectoryConfiguration && {
-      SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryConfiguration.filterSensitiveLog(
-        obj.SelfManagedActiveDirectoryConfiguration
-      ),
-    }),
-  });
 }
 
 /**
@@ -4393,21 +3909,6 @@ export interface CreateFileSystemRequest {
    * <p>The OpenZFS configuration for the file system that's being created.</p>
    */
   OpenZFSConfiguration?: CreateFileSystemOpenZFSConfiguration;
-}
-
-export namespace CreateFileSystemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
-    ...obj,
-    ...(obj.WindowsConfiguration && {
-      WindowsConfiguration: CreateFileSystemWindowsConfiguration.filterSensitiveLog(obj.WindowsConfiguration),
-    }),
-    ...(obj.OntapConfiguration && {
-      OntapConfiguration: CreateFileSystemOntapConfiguration.filterSensitiveLog(obj.OntapConfiguration),
-    }),
-  });
 }
 
 /**
@@ -4693,18 +4194,6 @@ export interface CreateFileSystemFromBackupRequest {
   OpenZFSConfiguration?: CreateFileSystemOpenZFSConfiguration;
 }
 
-export namespace CreateFileSystemFromBackupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFileSystemFromBackupRequest): any => ({
-    ...obj,
-    ...(obj.WindowsConfiguration && {
-      WindowsConfiguration: CreateFileSystemWindowsConfiguration.filterSensitiveLog(obj.WindowsConfiguration),
-    }),
-  });
-}
-
 export interface CreateSnapshotRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -4729,15 +4218,6 @@ export interface CreateSnapshotRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration that Amazon FSx uses to join the ONTAP storage virtual machine
  *             (SVM) to your self-managed (including on-premises) Microsoft Active Directory (AD) directory.</p>
@@ -4757,20 +4237,6 @@ export interface CreateSvmActiveDirectoryConfiguration {
    *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-svms.html">Managing SVMs</a>.</p>
    */
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfiguration;
-}
-
-export namespace CreateSvmActiveDirectoryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSvmActiveDirectoryConfiguration): any => ({
-    ...obj,
-    ...(obj.SelfManagedActiveDirectoryConfiguration && {
-      SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryConfiguration.filterSensitiveLog(
-        obj.SelfManagedActiveDirectoryConfiguration
-      ),
-    }),
-  });
 }
 
 export enum StorageVirtualMachineRootVolumeSecurityStyle {
@@ -4841,21 +4307,6 @@ export interface CreateStorageVirtualMachineRequest {
   RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle | string;
 }
 
-export namespace CreateStorageVirtualMachineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStorageVirtualMachineRequest): any => ({
-    ...obj,
-    ...(obj.ActiveDirectoryConfiguration && {
-      ActiveDirectoryConfiguration: CreateSvmActiveDirectoryConfiguration.filterSensitiveLog(
-        obj.ActiveDirectoryConfiguration
-      ),
-    }),
-    ...(obj.SvmAdminPassword && { SvmAdminPassword: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Describes the configuration of the Microsoft Active Directory (AD)
  *             directory to which the Amazon FSx for ONTAP storage virtual machine (SVM) is joined.
@@ -4872,15 +4323,6 @@ export interface SvmActiveDirectoryConfiguration {
    *             which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.</p>
    */
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryAttributes;
-}
-
-export namespace SvmActiveDirectoryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SvmActiveDirectoryConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4901,15 +4343,6 @@ export interface SvmEndpoint {
    * <p>The SVM endpoint's IP addresses.</p>
    */
   IpAddresses?: string[];
-}
-
-export namespace SvmEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SvmEndpoint): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4937,15 +4370,6 @@ export interface SvmEndpoints {
    * <p>An endpoint for connecting using the Server Message Block (SMB) protocol.</p>
    */
   Smb?: SvmEndpoint;
-}
-
-export namespace SvmEndpoints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SvmEndpoints): any => ({
-    ...obj,
-  });
 }
 
 export enum StorageVirtualMachineLifecycle {
@@ -5067,29 +4491,11 @@ export interface StorageVirtualMachine {
   RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle | string;
 }
 
-export namespace StorageVirtualMachine {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageVirtualMachine): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStorageVirtualMachineResponse {
   /**
    * <p>Returned after a successful <code>CreateStorageVirtualMachine</code> operation; describes the SVM just created.</p>
    */
   StorageVirtualMachine?: StorageVirtualMachine;
-}
-
-export namespace CreateStorageVirtualMachineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStorageVirtualMachineResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5176,15 +4582,6 @@ export interface CreateOntapVolumeConfiguration {
   TieringPolicy?: TieringPolicy;
 }
 
-export namespace CreateOntapVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOntapVolumeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The snapshot configuration to use when creating an OpenZFS volume from a snapshot. </p>
  */
@@ -5215,15 +4612,6 @@ export interface CreateOpenZFSOriginSnapshotConfiguration {
    *          </ul>
    */
   CopyStrategy: OpenZFSCopyStrategy | string | undefined;
-}
-
-export namespace CreateOpenZFSOriginSnapshotConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOpenZFSOriginSnapshotConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5333,15 +4721,6 @@ export interface CreateOpenZFSVolumeConfiguration {
   UserAndGroupQuotas?: OpenZFSUserOrGroupQuota[];
 }
 
-export namespace CreateOpenZFSVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOpenZFSVolumeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateVolumeRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -5375,15 +4754,6 @@ export interface CreateVolumeRequest {
    * <p>Specifies the configuration to use when creating the OpenZFS volume.</p>
    */
   OpenZFSConfiguration?: CreateOpenZFSVolumeConfiguration;
-}
-
-export namespace CreateVolumeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVolumeRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5461,15 +4831,6 @@ export interface CreateVolumeFromBackupRequest {
    * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateVolumeFromBackupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVolumeFromBackupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5550,15 +4911,6 @@ export interface DeleteBackupRequest {
   ClientRequestToken?: string;
 }
 
-export namespace DeleteBackupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response object for the <code>DeleteBackup</code> operation.</p>
  */
@@ -5573,15 +4925,6 @@ export interface DeleteBackupResponse {
    *             successful, the status is <code>DELETED</code>.</p>
    */
   Lifecycle?: BackupLifecycle | string;
-}
-
-export namespace DeleteBackupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBackupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5628,15 +4971,6 @@ export interface DeleteDataRepositoryAssociationRequest {
   DeleteDataInFileSystem: boolean | undefined;
 }
 
-export namespace DeleteDataRepositoryAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataRepositoryAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDataRepositoryAssociationResponse {
   /**
    * <p>The ID of the data repository association being deleted.</p>
@@ -5653,15 +4987,6 @@ export interface DeleteDataRepositoryAssociationResponse {
    *             repository association is being deleted. Default is <code>false</code>.</p>
    */
   DeleteDataInFileSystem?: boolean;
-}
-
-export namespace DeleteDataRepositoryAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataRepositoryAssociationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5686,15 +5011,6 @@ export interface DeleteFileSystemLustreConfiguration {
    *             you specify one or more <code>FinalBackupTags</code> when deleting a file system, Amazon FSx will not copy any existing file system tags to the backup.</p>
    */
   FinalBackupTags?: Tag[];
-}
-
-export namespace DeleteFileSystemLustreConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileSystemLustreConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum DeleteFileSystemOpenZFSOption {
@@ -5727,15 +5043,6 @@ export interface DeleteFileSystemOpenZFSConfiguration {
   Options?: (DeleteFileSystemOpenZFSOption | string)[];
 }
 
-export namespace DeleteFileSystemOpenZFSConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileSystemOpenZFSConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration object for the Microsoft Windows file system used in the
  *                 <code>DeleteFileSystem</code> operation.</p>
@@ -5753,15 +5060,6 @@ export interface DeleteFileSystemWindowsConfiguration {
    * <p>A set of tags for your final backup.</p>
    */
   FinalBackupTags?: Tag[];
-}
-
-export namespace DeleteFileSystemWindowsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileSystemWindowsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5799,15 +5097,6 @@ export interface DeleteFileSystemRequest {
   OpenZFSConfiguration?: DeleteFileSystemOpenZFSConfiguration;
 }
 
-export namespace DeleteFileSystemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileSystemRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response object for the Amazon FSx for Lustre file system being deleted in the
  *                 <code>DeleteFileSystem</code> operation.</p>
@@ -5822,15 +5111,6 @@ export interface DeleteFileSystemLustreResponse {
    * <p>The set of tags applied to the final backup.</p>
    */
   FinalBackupTags?: Tag[];
-}
-
-export namespace DeleteFileSystemLustreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileSystemLustreResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5849,15 +5129,6 @@ export interface DeleteFileSystemOpenZFSResponse {
   FinalBackupTags?: Tag[];
 }
 
-export namespace DeleteFileSystemOpenZFSResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileSystemOpenZFSResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response object for the Microsoft Windows file system used in the
  *                 <code>DeleteFileSystem</code> operation.</p>
@@ -5872,15 +5143,6 @@ export interface DeleteFileSystemWindowsResponse {
    * <p>The set of tags applied to the final backup.</p>
    */
   FinalBackupTags?: Tag[];
-}
-
-export namespace DeleteFileSystemWindowsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileSystemWindowsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5918,15 +5180,6 @@ export interface DeleteFileSystemResponse {
   OpenZFSResponse?: DeleteFileSystemOpenZFSResponse;
 }
 
-export namespace DeleteFileSystemResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileSystemResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSnapshotRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -5941,15 +5194,6 @@ export interface DeleteSnapshotRequest {
   SnapshotId: string | undefined;
 }
 
-export namespace DeleteSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSnapshotResponse {
   /**
    * <p>The ID of the deleted snapshot.</p>
@@ -5961,15 +5205,6 @@ export interface DeleteSnapshotResponse {
    *             successful, this status is <code>DELETING</code>.</p>
    */
   Lifecycle?: SnapshotLifecycle | string;
-}
-
-export namespace DeleteSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSnapshotResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6010,15 +5245,6 @@ export interface DeleteStorageVirtualMachineRequest {
   StorageVirtualMachineId: string | undefined;
 }
 
-export namespace DeleteStorageVirtualMachineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStorageVirtualMachineRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStorageVirtualMachineResponse {
   /**
    * <p>The ID of the SVM Amazon FSx is deleting.</p>
@@ -6029,15 +5255,6 @@ export interface DeleteStorageVirtualMachineResponse {
    * <p>Describes the lifecycle state of the SVM being deleted.</p>
    */
   Lifecycle?: StorageVirtualMachineLifecycle | string;
-}
-
-export namespace DeleteStorageVirtualMachineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStorageVirtualMachineResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6056,15 +5273,6 @@ export interface DeleteVolumeOntapConfiguration {
   FinalBackupTags?: Tag[];
 }
 
-export namespace DeleteVolumeOntapConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVolumeOntapConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum DeleteOpenZFSVolumeOption {
   DELETE_CHILD_VOLUMES_AND_SNAPSHOTS = "DELETE_CHILD_VOLUMES_AND_SNAPSHOTS",
 }
@@ -6078,15 +5286,6 @@ export interface DeleteVolumeOpenZFSConfiguration {
    *               <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>.</p>
    */
   Options?: (DeleteOpenZFSVolumeOption | string)[];
-}
-
-export namespace DeleteVolumeOpenZFSConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVolumeOpenZFSConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteVolumeRequest {
@@ -6116,15 +5315,6 @@ export interface DeleteVolumeRequest {
   OpenZFSConfiguration?: DeleteVolumeOpenZFSConfiguration;
 }
 
-export namespace DeleteVolumeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVolumeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response object for the Amazon FSx for NetApp ONTAP volume being deleted
  *             in the <code>DeleteVolume</code> operation.</p>
@@ -6139,15 +5329,6 @@ export interface DeleteVolumeOntapResponse {
    * <p>A list of <code>Tag</code> values, with a maximum of 50 elements.</p>
    */
   FinalBackupTags?: Tag[];
-}
-
-export namespace DeleteVolumeOntapResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVolumeOntapResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteVolumeResponse {
@@ -6167,15 +5348,6 @@ export interface DeleteVolumeResponse {
    *             request.</p>
    */
   OntapResponse?: DeleteVolumeOntapResponse;
-}
-
-export namespace DeleteVolumeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVolumeResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum FilterName {
@@ -6201,15 +5373,6 @@ export interface Filter {
    *             filters.</p>
    */
   Values?: string[];
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6245,15 +5408,6 @@ export interface DescribeBackupsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeBackupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDataRepositoryAssociationsRequest {
   /**
    * <p>IDs of the data repository associations whose descriptions you want to retrieve
@@ -6280,15 +5434,6 @@ export interface DescribeDataRepositoryAssociationsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeDataRepositoryAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataRepositoryAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDataRepositoryAssociationsResponse {
   /**
    * <p>An array of one ore more data repository association descriptions.</p>
@@ -6301,15 +5446,6 @@ export interface DescribeDataRepositoryAssociationsResponse {
    *             the previous <code>NextToken</code> value left off.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeDataRepositoryAssociationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataRepositoryAssociationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6369,15 +5505,6 @@ export interface DataRepositoryTaskFilter {
   Values?: string[];
 }
 
-export namespace DataRepositoryTaskFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataRepositoryTaskFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDataRepositoryTasksRequest {
   /**
    * <p>(Optional) IDs of the tasks whose descriptions you want to retrieve
@@ -6405,15 +5532,6 @@ export interface DescribeDataRepositoryTasksRequest {
   NextToken?: string;
 }
 
-export namespace DescribeDataRepositoryTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataRepositoryTasksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDataRepositoryTasksResponse {
   /**
    * <p>The collection of data repository task descriptions returned.</p>
@@ -6426,15 +5544,6 @@ export interface DescribeDataRepositoryTasksResponse {
    *             the previous <code>NextToken</code> value left off.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeDataRepositoryTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataRepositoryTasksResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6470,15 +5579,6 @@ export interface DescribeFileSystemAliasesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeFileSystemAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFileSystemAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response object for <code>DescribeFileSystemAliases</code> operation.</p>
  */
@@ -6494,15 +5594,6 @@ export interface DescribeFileSystemAliasesResponse {
    *             descriptions. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeFileSystemAliasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFileSystemAliasesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6531,15 +5622,6 @@ export interface DescribeFileSystemsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeFileSystemsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFileSystemsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum SnapshotFilterName {
   FILE_SYSTEM_ID = "file-system-id",
   VOLUME_ID = "volume-id",
@@ -6561,15 +5643,6 @@ export interface SnapshotFilter {
    *             for.</p>
    */
   Values?: string[];
-}
-
-export namespace SnapshotFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSnapshotsRequest {
@@ -6599,15 +5672,6 @@ export interface DescribeSnapshotsRequest {
   NextToken?: string;
 }
 
-export namespace DescribeSnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum StorageVirtualMachineFilterName {
   FILE_SYSTEM_ID = "file-system-id",
 }
@@ -6628,15 +5692,6 @@ export interface StorageVirtualMachineFilter {
    *             filters.</p>
    */
   Values?: string[];
-}
-
-export namespace StorageVirtualMachineFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageVirtualMachineFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeStorageVirtualMachinesRequest {
@@ -6664,15 +5719,6 @@ export interface DescribeStorageVirtualMachinesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeStorageVirtualMachinesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStorageVirtualMachinesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStorageVirtualMachinesResponse {
   /**
    * <p>Returned after a successful <code>DescribeStorageVirtualMachines</code> operation, describing each SVM.</p>
@@ -6685,15 +5731,6 @@ export interface DescribeStorageVirtualMachinesResponse {
    *             the previous <code>NextToken</code> value left off.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeStorageVirtualMachinesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStorageVirtualMachinesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum VolumeFilterName {
@@ -6717,15 +5754,6 @@ export interface VolumeFilter {
    *             filters.</p>
    */
   Values?: string[];
-}
-
-export namespace VolumeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeVolumesRequest {
@@ -6754,15 +5782,6 @@ export interface DescribeVolumesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeVolumesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVolumesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request object of DNS aliases to disassociate from an Amazon FSx for Windows File Server file system.</p>
  */
@@ -6785,15 +5804,6 @@ export interface DisassociateFileSystemAliasesRequest {
   Aliases: string[] | undefined;
 }
 
-export namespace DisassociateFileSystemAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFileSystemAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The system generated response showing the DNS aliases that Amazon FSx is attempting to disassociate from the file system.
  *         Use the  API operation to monitor the status of the aliases Amazon FSx is removing from the file system.</p>
@@ -6803,15 +5813,6 @@ export interface DisassociateFileSystemAliasesResponse {
    * <p>An array of one or more DNS aliases that Amazon FSx is attempting to disassociate from the file system.</p>
    */
   Aliases?: Alias[];
-}
-
-export namespace DisassociateFileSystemAliasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFileSystemAliasesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6839,15 +5840,6 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response object for <code>ListTagsForResource</code> operation.</p>
  */
@@ -6863,15 +5855,6 @@ export interface ListTagsForResourceResponse {
    *         </p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6980,15 +5963,6 @@ export interface ReleaseFileSystemNfsV3LocksRequest {
   ClientRequestToken?: string;
 }
 
-export namespace ReleaseFileSystemNfsV3LocksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseFileSystemNfsV3LocksRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum RestoreOpenZFSVolumeOption {
   DELETE_CLONED_VOLUMES = "DELETE_CLONED_VOLUMES",
   DELETE_INTERMEDIATE_SNAPSHOTS = "DELETE_INTERMEDIATE_SNAPSHOTS",
@@ -7033,15 +6007,6 @@ export interface RestoreVolumeFromSnapshotRequest {
   Options?: (RestoreOpenZFSVolumeOption | string)[];
 }
 
-export namespace RestoreVolumeFromSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreVolumeFromSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreVolumeFromSnapshotResponse {
   /**
    * <p>The ID of the volume that you restored.</p>
@@ -7052,15 +6017,6 @@ export interface RestoreVolumeFromSnapshotResponse {
    * <p>The lifecycle state of the volume being restored.</p>
    */
   Lifecycle?: VolumeLifecycle | string;
-}
-
-export namespace RestoreVolumeFromSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreVolumeFromSnapshotResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7080,28 +6036,10 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response object for the <code>TagResource</code> operation.</p>
  */
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The request object for <code>UntagResource</code> action.</p>
@@ -7119,28 +6057,10 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response object for <code>UntagResource</code> action.</p>
  */
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDataRepositoryAssociationRequest {
   /**
@@ -7177,29 +6097,11 @@ export interface UpdateDataRepositoryAssociationRequest {
   S3?: S3DataRepositoryConfiguration;
 }
 
-export namespace UpdateDataRepositoryAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataRepositoryAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDataRepositoryAssociationResponse {
   /**
    * <p>The response object returned after the data repository association is updated.</p>
    */
   Association?: DataRepositoryAssociation;
-}
-
-export namespace UpdateDataRepositoryAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataRepositoryAssociationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7302,15 +6204,6 @@ export interface UpdateFileSystemLustreConfiguration {
   RootSquashConfiguration?: LustreRootSquashConfiguration;
 }
 
-export namespace UpdateFileSystemLustreConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFileSystemLustreConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration updates for an Amazon FSx for NetApp ONTAP file system.</p>
  */
@@ -7359,16 +6252,6 @@ export interface UpdateFileSystemOntapConfiguration {
    *             (MBps). Valid values are 128, 256, 512, 1024, or 2048 MB/s.</p>
    */
   ThroughputCapacity?: number;
-}
-
-export namespace UpdateFileSystemOntapConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFileSystemOntapConfiguration): any => ({
-    ...obj,
-    ...(obj.FsxAdminPassword && { FsxAdminPassword: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -7437,15 +6320,6 @@ export interface UpdateFileSystemOpenZFSConfiguration {
   DiskIopsConfiguration?: DiskIopsConfiguration;
 }
 
-export namespace UpdateFileSystemOpenZFSConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFileSystemOpenZFSConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration that Amazon FSx uses to join the Windows File Server instance to a
  *             self-managed Microsoft Active Directory (AD) directory.</p>
@@ -7470,16 +6344,6 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
    *             self-managed AD directory.</p>
    */
   DnsIps?: string[];
-}
-
-export namespace SelfManagedActiveDirectoryConfigurationUpdates {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelfManagedActiveDirectoryConfigurationUpdates): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -7526,20 +6390,6 @@ export interface UpdateFileSystemWindowsConfiguration {
    *             file system..</p>
    */
   AuditLogConfiguration?: WindowsAuditLogCreateConfiguration;
-}
-
-export namespace UpdateFileSystemWindowsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFileSystemWindowsConfiguration): any => ({
-    ...obj,
-    ...(obj.SelfManagedActiveDirectoryConfiguration && {
-      SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryConfigurationUpdates.filterSensitiveLog(
-        obj.SelfManagedActiveDirectoryConfiguration
-      ),
-    }),
-  });
 }
 
 /**
@@ -7619,21 +6469,6 @@ export interface UpdateFileSystemRequest {
   OpenZFSConfiguration?: UpdateFileSystemOpenZFSConfiguration;
 }
 
-export namespace UpdateFileSystemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFileSystemRequest): any => ({
-    ...obj,
-    ...(obj.WindowsConfiguration && {
-      WindowsConfiguration: UpdateFileSystemWindowsConfiguration.filterSensitiveLog(obj.WindowsConfiguration),
-    }),
-    ...(obj.OntapConfiguration && {
-      OntapConfiguration: UpdateFileSystemOntapConfiguration.filterSensitiveLog(obj.OntapConfiguration),
-    }),
-  });
-}
-
 export interface UpdateSnapshotRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -7654,15 +6489,6 @@ export interface UpdateSnapshotRequest {
   SnapshotId: string | undefined;
 }
 
-export namespace UpdateSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates the Microsoft Active Directory (AD) configuration of an SVM joined to an AD.
  *             Please note, account credentials are not returned in the response payload.</p>
@@ -7673,20 +6499,6 @@ export interface UpdateSvmActiveDirectoryConfiguration {
    *             self-managed Microsoft Active Directory (AD) directory.</p>
    */
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfigurationUpdates;
-}
-
-export namespace UpdateSvmActiveDirectoryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSvmActiveDirectoryConfiguration): any => ({
-    ...obj,
-    ...(obj.SelfManagedActiveDirectoryConfiguration && {
-      SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryConfigurationUpdates.filterSensitiveLog(
-        obj.SelfManagedActiveDirectoryConfiguration
-      ),
-    }),
-  });
 }
 
 export interface UpdateStorageVirtualMachineRequest {
@@ -7713,35 +6525,11 @@ export interface UpdateStorageVirtualMachineRequest {
   SvmAdminPassword?: string;
 }
 
-export namespace UpdateStorageVirtualMachineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStorageVirtualMachineRequest): any => ({
-    ...obj,
-    ...(obj.ActiveDirectoryConfiguration && {
-      ActiveDirectoryConfiguration: UpdateSvmActiveDirectoryConfiguration.filterSensitiveLog(
-        obj.ActiveDirectoryConfiguration
-      ),
-    }),
-    ...(obj.SvmAdminPassword && { SvmAdminPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateStorageVirtualMachineResponse {
   /**
    * <p>Describes the Amazon FSx for NetApp ONTAP storage virtual machine (SVM) configuration.</p>
    */
   StorageVirtualMachine?: StorageVirtualMachine;
-}
-
-export namespace UpdateStorageVirtualMachineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStorageVirtualMachineResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7775,15 +6563,6 @@ export interface UpdateOntapVolumeConfiguration {
    * <p>Update the volume's data tiering policy.</p>
    */
   TieringPolicy?: TieringPolicy;
-}
-
-export namespace UpdateOntapVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOntapVolumeConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7857,15 +6636,6 @@ export interface UpdateOpenZFSVolumeConfiguration {
   ReadOnly?: boolean;
 }
 
-export namespace UpdateOpenZFSVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOpenZFSVolumeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateVolumeRequest {
   /**
    * <p>(Optional) An idempotency token for resource creation, in a string of up to 64
@@ -7896,15 +6666,6 @@ export interface UpdateVolumeRequest {
    * <p>The configuration of the OpenZFS volume that you are updating.</p>
    */
   OpenZFSConfiguration?: UpdateOpenZFSVolumeConfiguration;
-}
-
-export namespace UpdateVolumeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVolumeRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8048,15 +6809,6 @@ export interface AdministrativeAction {
    * <p>A snapshot of an Amazon FSx for OpenZFS volume.</p>
    */
   TargetSnapshotValues?: Snapshot;
-}
-
-export namespace AdministrativeAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdministrativeAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8249,15 +7001,6 @@ export interface FileSystem {
   OpenZFSConfiguration?: OpenZFSFileSystemConfiguration;
 }
 
-export namespace FileSystem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A snapshot of an Amazon FSx for OpenZFS volume.</p>
  */
@@ -8331,15 +7074,6 @@ export interface Snapshot {
    *             system.</p>
    */
   AdministrativeActions?: AdministrativeAction[];
-}
-
-export namespace Snapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Snapshot): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8449,15 +7183,6 @@ export interface Volume {
   OpenZFSConfiguration?: OpenZFSVolumeConfiguration;
 }
 
-export namespace Volume {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Volume): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response object for the <code>CreateFileSystemFromBackup</code>
  *             operation.</p>
@@ -8467,15 +7192,6 @@ export interface CreateFileSystemFromBackupResponse {
    * <p>A description of the file system.</p>
    */
   FileSystem?: FileSystem;
-}
-
-export namespace CreateFileSystemFromBackupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFileSystemFromBackupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8488,29 +7204,11 @@ export interface CreateFileSystemResponse {
   FileSystem?: FileSystem;
 }
 
-export namespace CreateFileSystemResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFileSystemResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSnapshotResponse {
   /**
    * <p>A description of the snapshot.</p>
    */
   Snapshot?: Snapshot;
-}
-
-export namespace CreateSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateVolumeFromBackupResponse {
@@ -8521,15 +7219,6 @@ export interface CreateVolumeFromBackupResponse {
   Volume?: Volume;
 }
 
-export namespace CreateVolumeFromBackupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVolumeFromBackupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateVolumeResponse {
   /**
    * <p>Returned after a successful <code>CreateVolume</code> API operation, describing the volume just created.</p>
@@ -8537,29 +7226,11 @@ export interface CreateVolumeResponse {
   Volume?: Volume;
 }
 
-export namespace CreateVolumeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVolumeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ReleaseFileSystemNfsV3LocksResponse {
   /**
    * <p>A description of a specific Amazon FSx file system.</p>
    */
   FileSystem?: FileSystem;
-}
-
-export namespace ReleaseFileSystemNfsV3LocksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseFileSystemNfsV3LocksResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8572,15 +7243,6 @@ export interface UpdateFileSystemResponse {
   FileSystem?: FileSystem;
 }
 
-export namespace UpdateFileSystemResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFileSystemResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSnapshotResponse {
   /**
    * <p>Returned after a successful <code>UpdateSnapshot</code> operation, describing the
@@ -8589,30 +7251,12 @@ export interface UpdateSnapshotResponse {
   Snapshot?: Snapshot;
 }
 
-export namespace UpdateSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSnapshotResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateVolumeResponse {
   /**
    * <p>A description of the volume just updated. Returned after a successful
    *                 <code>UpdateVolume</code> API operation.</p>
    */
   Volume?: Volume;
-}
-
-export namespace UpdateVolumeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVolumeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8632,15 +7276,6 @@ export interface DescribeFileSystemsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeFileSystemsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFileSystemsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSnapshotsResponse {
   /**
    * <p>An array of snapshots.</p>
@@ -8655,15 +7290,6 @@ export interface DescribeSnapshotsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeSnapshotsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeVolumesResponse {
   /**
    * <p>Returned after a successful <code>DescribeVolumes</code> operation, describing each volume.</p>
@@ -8676,15 +7302,6 @@ export interface DescribeVolumesResponse {
    *             the previous <code>NextToken</code> value left off.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeVolumesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVolumesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8811,15 +7428,6 @@ export interface Backup {
   Volume?: Volume;
 }
 
-export namespace Backup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Backup): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyBackupResponse {
   /**
    * <p>A backup of an Amazon FSx for Windows File Server, Amazon FSx for
@@ -8827,15 +7435,6 @@ export interface CopyBackupResponse {
    *             for OpenZFS file system.</p>
    */
   Backup?: Backup;
-}
-
-export namespace CopyBackupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyBackupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8846,15 +7445,6 @@ export interface CreateBackupResponse {
    * <p>A description of the backup.</p>
    */
   Backup?: Backup;
-}
-
-export namespace CreateBackupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBackupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8874,11 +7464,1183 @@ export interface DescribeBackupsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeBackupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ActiveDirectoryBackupAttributesFilterSensitiveLog = (obj: ActiveDirectoryBackupAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdministrativeActionFailureDetailsFilterSensitiveLog = (obj: AdministrativeActionFailureDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemFailureDetailsFilterSensitiveLog = (obj: FileSystemFailureDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataRepositoryFailureDetailsFilterSensitiveLog = (obj: DataRepositoryFailureDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataRepositoryConfigurationFilterSensitiveLog = (obj: DataRepositoryConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LustreLogConfigurationFilterSensitiveLog = (obj: LustreLogConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LustreRootSquashConfigurationFilterSensitiveLog = (obj: LustreRootSquashConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LustreFileSystemConfigurationFilterSensitiveLog = (obj: LustreFileSystemConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiskIopsConfigurationFilterSensitiveLog = (obj: DiskIopsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemEndpointFilterSensitiveLog = (obj: FileSystemEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemEndpointsFilterSensitiveLog = (obj: FileSystemEndpoints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OntapFileSystemConfigurationFilterSensitiveLog = (obj: OntapFileSystemConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenZFSFileSystemConfigurationFilterSensitiveLog = (obj: OpenZFSFileSystemConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AliasFilterSensitiveLog = (obj: Alias): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WindowsAuditLogConfigurationFilterSensitiveLog = (obj: WindowsAuditLogConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelfManagedActiveDirectoryAttributesFilterSensitiveLog = (
+  obj: SelfManagedActiveDirectoryAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WindowsFileSystemConfigurationFilterSensitiveLog = (obj: WindowsFileSystemConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleTransitionReasonFilterSensitiveLog = (obj: LifecycleTransitionReason): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TieringPolicyFilterSensitiveLog = (obj: TieringPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OntapVolumeConfigurationFilterSensitiveLog = (obj: OntapVolumeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenZFSClientConfigurationFilterSensitiveLog = (obj: OpenZFSClientConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenZFSNfsExportFilterSensitiveLog = (obj: OpenZFSNfsExport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenZFSOriginSnapshotConfigurationFilterSensitiveLog = (obj: OpenZFSOriginSnapshotConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenZFSUserOrGroupQuotaFilterSensitiveLog = (obj: OpenZFSUserOrGroupQuota): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenZFSVolumeConfigurationFilterSensitiveLog = (obj: OpenZFSVolumeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateFileSystemAliasesRequestFilterSensitiveLog = (obj: AssociateFileSystemAliasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateFileSystemAliasesResponseFilterSensitiveLog = (obj: AssociateFileSystemAliasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoExportPolicyFilterSensitiveLog = (obj: AutoExportPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoImportPolicyFilterSensitiveLog = (obj: AutoImportPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelDataRepositoryTaskRequestFilterSensitiveLog = (obj: CancelDataRepositoryTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelDataRepositoryTaskResponseFilterSensitiveLog = (obj: CancelDataRepositoryTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyBackupRequestFilterSensitiveLog = (obj: CopyBackupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackupFailureDetailsFilterSensitiveLog = (obj: BackupFailureDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackupRequestFilterSensitiveLog = (obj: CreateBackupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DataRepositoryConfigurationFilterSensitiveLog = (obj: S3DataRepositoryConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataRepositoryAssociationRequestFilterSensitiveLog = (
+  obj: CreateDataRepositoryAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataRepositoryAssociationFilterSensitiveLog = (obj: DataRepositoryAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataRepositoryAssociationResponseFilterSensitiveLog = (
+  obj: CreateDataRepositoryAssociationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompletionReportFilterSensitiveLog = (obj: CompletionReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataRepositoryTaskRequestFilterSensitiveLog = (obj: CreateDataRepositoryTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataRepositoryTaskFailureDetailsFilterSensitiveLog = (obj: DataRepositoryTaskFailureDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataRepositoryTaskStatusFilterSensitiveLog = (obj: DataRepositoryTaskStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataRepositoryTaskFilterSensitiveLog = (obj: DataRepositoryTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataRepositoryTaskResponseFilterSensitiveLog = (obj: CreateDataRepositoryTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LustreLogCreateConfigurationFilterSensitiveLog = (obj: LustreLogCreateConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemLustreConfigurationFilterSensitiveLog = (
+  obj: CreateFileSystemLustreConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemOntapConfigurationFilterSensitiveLog = (obj: CreateFileSystemOntapConfiguration): any => ({
+  ...obj,
+  ...(obj.FsxAdminPassword && { FsxAdminPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const OpenZFSCreateRootVolumeConfigurationFilterSensitiveLog = (
+  obj: OpenZFSCreateRootVolumeConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemOpenZFSConfigurationFilterSensitiveLog = (
+  obj: CreateFileSystemOpenZFSConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WindowsAuditLogCreateConfigurationFilterSensitiveLog = (obj: WindowsAuditLogCreateConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelfManagedActiveDirectoryConfigurationFilterSensitiveLog = (
+  obj: SelfManagedActiveDirectoryConfiguration
+): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemWindowsConfigurationFilterSensitiveLog = (
+  obj: CreateFileSystemWindowsConfiguration
+): any => ({
+  ...obj,
+  ...(obj.SelfManagedActiveDirectoryConfiguration && {
+    SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryConfigurationFilterSensitiveLog(
+      obj.SelfManagedActiveDirectoryConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemRequestFilterSensitiveLog = (obj: CreateFileSystemRequest): any => ({
+  ...obj,
+  ...(obj.WindowsConfiguration && {
+    WindowsConfiguration: CreateFileSystemWindowsConfigurationFilterSensitiveLog(obj.WindowsConfiguration),
+  }),
+  ...(obj.OntapConfiguration && {
+    OntapConfiguration: CreateFileSystemOntapConfigurationFilterSensitiveLog(obj.OntapConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemFromBackupRequestFilterSensitiveLog = (obj: CreateFileSystemFromBackupRequest): any => ({
+  ...obj,
+  ...(obj.WindowsConfiguration && {
+    WindowsConfiguration: CreateFileSystemWindowsConfigurationFilterSensitiveLog(obj.WindowsConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotRequestFilterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSvmActiveDirectoryConfigurationFilterSensitiveLog = (
+  obj: CreateSvmActiveDirectoryConfiguration
+): any => ({
+  ...obj,
+  ...(obj.SelfManagedActiveDirectoryConfiguration && {
+    SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryConfigurationFilterSensitiveLog(
+      obj.SelfManagedActiveDirectoryConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateStorageVirtualMachineRequestFilterSensitiveLog = (obj: CreateStorageVirtualMachineRequest): any => ({
+  ...obj,
+  ...(obj.ActiveDirectoryConfiguration && {
+    ActiveDirectoryConfiguration: CreateSvmActiveDirectoryConfigurationFilterSensitiveLog(
+      obj.ActiveDirectoryConfiguration
+    ),
+  }),
+  ...(obj.SvmAdminPassword && { SvmAdminPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SvmActiveDirectoryConfigurationFilterSensitiveLog = (obj: SvmActiveDirectoryConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SvmEndpointFilterSensitiveLog = (obj: SvmEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SvmEndpointsFilterSensitiveLog = (obj: SvmEndpoints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageVirtualMachineFilterSensitiveLog = (obj: StorageVirtualMachine): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStorageVirtualMachineResponseFilterSensitiveLog = (
+  obj: CreateStorageVirtualMachineResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOntapVolumeConfigurationFilterSensitiveLog = (obj: CreateOntapVolumeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOpenZFSOriginSnapshotConfigurationFilterSensitiveLog = (
+  obj: CreateOpenZFSOriginSnapshotConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOpenZFSVolumeConfigurationFilterSensitiveLog = (obj: CreateOpenZFSVolumeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVolumeRequestFilterSensitiveLog = (obj: CreateVolumeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVolumeFromBackupRequestFilterSensitiveLog = (obj: CreateVolumeFromBackupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackupRequestFilterSensitiveLog = (obj: DeleteBackupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBackupResponseFilterSensitiveLog = (obj: DeleteBackupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataRepositoryAssociationRequestFilterSensitiveLog = (
+  obj: DeleteDataRepositoryAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataRepositoryAssociationResponseFilterSensitiveLog = (
+  obj: DeleteDataRepositoryAssociationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileSystemLustreConfigurationFilterSensitiveLog = (
+  obj: DeleteFileSystemLustreConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileSystemOpenZFSConfigurationFilterSensitiveLog = (
+  obj: DeleteFileSystemOpenZFSConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileSystemWindowsConfigurationFilterSensitiveLog = (
+  obj: DeleteFileSystemWindowsConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileSystemRequestFilterSensitiveLog = (obj: DeleteFileSystemRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileSystemLustreResponseFilterSensitiveLog = (obj: DeleteFileSystemLustreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileSystemOpenZFSResponseFilterSensitiveLog = (obj: DeleteFileSystemOpenZFSResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileSystemWindowsResponseFilterSensitiveLog = (obj: DeleteFileSystemWindowsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileSystemResponseFilterSensitiveLog = (obj: DeleteFileSystemResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSnapshotRequestFilterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSnapshotResponseFilterSensitiveLog = (obj: DeleteSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStorageVirtualMachineRequestFilterSensitiveLog = (obj: DeleteStorageVirtualMachineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStorageVirtualMachineResponseFilterSensitiveLog = (
+  obj: DeleteStorageVirtualMachineResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVolumeOntapConfigurationFilterSensitiveLog = (obj: DeleteVolumeOntapConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVolumeOpenZFSConfigurationFilterSensitiveLog = (obj: DeleteVolumeOpenZFSConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVolumeRequestFilterSensitiveLog = (obj: DeleteVolumeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVolumeOntapResponseFilterSensitiveLog = (obj: DeleteVolumeOntapResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVolumeResponseFilterSensitiveLog = (obj: DeleteVolumeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBackupsRequestFilterSensitiveLog = (obj: DescribeBackupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataRepositoryAssociationsRequestFilterSensitiveLog = (
+  obj: DescribeDataRepositoryAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataRepositoryAssociationsResponseFilterSensitiveLog = (
+  obj: DescribeDataRepositoryAssociationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataRepositoryTaskFilterFilterSensitiveLog = (obj: DataRepositoryTaskFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataRepositoryTasksRequestFilterSensitiveLog = (obj: DescribeDataRepositoryTasksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataRepositoryTasksResponseFilterSensitiveLog = (
+  obj: DescribeDataRepositoryTasksResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileSystemAliasesRequestFilterSensitiveLog = (obj: DescribeFileSystemAliasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileSystemAliasesResponseFilterSensitiveLog = (obj: DescribeFileSystemAliasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileSystemsRequestFilterSensitiveLog = (obj: DescribeFileSystemsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotFilterFilterSensitiveLog = (obj: SnapshotFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotsRequestFilterSensitiveLog = (obj: DescribeSnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageVirtualMachineFilterFilterSensitiveLog = (obj: StorageVirtualMachineFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStorageVirtualMachinesRequestFilterSensitiveLog = (
+  obj: DescribeStorageVirtualMachinesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStorageVirtualMachinesResponseFilterSensitiveLog = (
+  obj: DescribeStorageVirtualMachinesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeFilterFilterSensitiveLog = (obj: VolumeFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVolumesRequestFilterSensitiveLog = (obj: DescribeVolumesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFileSystemAliasesRequestFilterSensitiveLog = (
+  obj: DisassociateFileSystemAliasesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFileSystemAliasesResponseFilterSensitiveLog = (
+  obj: DisassociateFileSystemAliasesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseFileSystemNfsV3LocksRequestFilterSensitiveLog = (obj: ReleaseFileSystemNfsV3LocksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreVolumeFromSnapshotRequestFilterSensitiveLog = (obj: RestoreVolumeFromSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreVolumeFromSnapshotResponseFilterSensitiveLog = (obj: RestoreVolumeFromSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataRepositoryAssociationRequestFilterSensitiveLog = (
+  obj: UpdateDataRepositoryAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataRepositoryAssociationResponseFilterSensitiveLog = (
+  obj: UpdateDataRepositoryAssociationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileSystemLustreConfigurationFilterSensitiveLog = (
+  obj: UpdateFileSystemLustreConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileSystemOntapConfigurationFilterSensitiveLog = (obj: UpdateFileSystemOntapConfiguration): any => ({
+  ...obj,
+  ...(obj.FsxAdminPassword && { FsxAdminPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileSystemOpenZFSConfigurationFilterSensitiveLog = (
+  obj: UpdateFileSystemOpenZFSConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelfManagedActiveDirectoryConfigurationUpdatesFilterSensitiveLog = (
+  obj: SelfManagedActiveDirectoryConfigurationUpdates
+): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileSystemWindowsConfigurationFilterSensitiveLog = (
+  obj: UpdateFileSystemWindowsConfiguration
+): any => ({
+  ...obj,
+  ...(obj.SelfManagedActiveDirectoryConfiguration && {
+    SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryConfigurationUpdatesFilterSensitiveLog(
+      obj.SelfManagedActiveDirectoryConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileSystemRequestFilterSensitiveLog = (obj: UpdateFileSystemRequest): any => ({
+  ...obj,
+  ...(obj.WindowsConfiguration && {
+    WindowsConfiguration: UpdateFileSystemWindowsConfigurationFilterSensitiveLog(obj.WindowsConfiguration),
+  }),
+  ...(obj.OntapConfiguration && {
+    OntapConfiguration: UpdateFileSystemOntapConfigurationFilterSensitiveLog(obj.OntapConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSnapshotRequestFilterSensitiveLog = (obj: UpdateSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSvmActiveDirectoryConfigurationFilterSensitiveLog = (
+  obj: UpdateSvmActiveDirectoryConfiguration
+): any => ({
+  ...obj,
+  ...(obj.SelfManagedActiveDirectoryConfiguration && {
+    SelfManagedActiveDirectoryConfiguration: SelfManagedActiveDirectoryConfigurationUpdatesFilterSensitiveLog(
+      obj.SelfManagedActiveDirectoryConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStorageVirtualMachineRequestFilterSensitiveLog = (obj: UpdateStorageVirtualMachineRequest): any => ({
+  ...obj,
+  ...(obj.ActiveDirectoryConfiguration && {
+    ActiveDirectoryConfiguration: UpdateSvmActiveDirectoryConfigurationFilterSensitiveLog(
+      obj.ActiveDirectoryConfiguration
+    ),
+  }),
+  ...(obj.SvmAdminPassword && { SvmAdminPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStorageVirtualMachineResponseFilterSensitiveLog = (
+  obj: UpdateStorageVirtualMachineResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOntapVolumeConfigurationFilterSensitiveLog = (obj: UpdateOntapVolumeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOpenZFSVolumeConfigurationFilterSensitiveLog = (obj: UpdateOpenZFSVolumeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVolumeRequestFilterSensitiveLog = (obj: UpdateVolumeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdministrativeActionFilterSensitiveLog = (obj: AdministrativeAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemFilterSensitiveLog = (obj: FileSystem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeFilterSensitiveLog = (obj: Volume): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemFromBackupResponseFilterSensitiveLog = (obj: CreateFileSystemFromBackupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFileSystemResponseFilterSensitiveLog = (obj: CreateFileSystemResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotResponseFilterSensitiveLog = (obj: CreateSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVolumeFromBackupResponseFilterSensitiveLog = (obj: CreateVolumeFromBackupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVolumeResponseFilterSensitiveLog = (obj: CreateVolumeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog = (
+  obj: ReleaseFileSystemNfsV3LocksResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileSystemResponseFilterSensitiveLog = (obj: UpdateFileSystemResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSnapshotResponseFilterSensitiveLog = (obj: UpdateSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVolumeResponseFilterSensitiveLog = (obj: UpdateVolumeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileSystemsResponseFilterSensitiveLog = (obj: DescribeFileSystemsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotsResponseFilterSensitiveLog = (obj: DescribeSnapshotsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVolumesResponseFilterSensitiveLog = (obj: DescribeVolumesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BackupFilterSensitiveLog = (obj: Backup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyBackupResponseFilterSensitiveLog = (obj: CopyBackupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBackupResponseFilterSensitiveLog = (obj: CreateBackupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBackupsResponseFilterSensitiveLog = (obj: DescribeBackupsResponse): any => ({
+  ...obj,
+});

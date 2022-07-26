@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { BatchGetTracesRequest, BatchGetTracesResult } from "../models/models_0";
+import {
+  BatchGetTracesRequest,
+  BatchGetTracesRequestFilterSensitiveLog,
+  BatchGetTracesResult,
+  BatchGetTracesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetTracesCommand,
   serializeAws_restJson1BatchGetTracesCommand,
@@ -74,8 +79,8 @@ export class BatchGetTracesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetTracesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetTracesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetTracesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetTracesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

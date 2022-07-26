@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { RebootBrokerRequest, RebootBrokerResponse } from "../models/models_0";
+import {
+  RebootBrokerRequest,
+  RebootBrokerRequestFilterSensitiveLog,
+  RebootBrokerResponse,
+  RebootBrokerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RebootBrokerCommand,
   serializeAws_restJson1RebootBrokerCommand,
@@ -72,8 +77,8 @@ export class RebootBrokerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootBrokerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RebootBrokerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootBrokerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RebootBrokerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { PutAutoTerminationPolicyInput, PutAutoTerminationPolicyOutput } from "../models/models_0";
+import {
+  PutAutoTerminationPolicyInput,
+  PutAutoTerminationPolicyInputFilterSensitiveLog,
+  PutAutoTerminationPolicyOutput,
+  PutAutoTerminationPolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutAutoTerminationPolicyCommand,
   serializeAws_json1_1PutAutoTerminationPolicyCommand,
@@ -80,8 +85,8 @@ export class PutAutoTerminationPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAutoTerminationPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAutoTerminationPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAutoTerminationPolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAutoTerminationPolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

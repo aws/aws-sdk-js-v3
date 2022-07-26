@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { DescribeBudgetRequest, DescribeBudgetResponse } from "../models/models_0";
+import {
+  DescribeBudgetRequest,
+  DescribeBudgetRequestFilterSensitiveLog,
+  DescribeBudgetResponse,
+  DescribeBudgetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeBudgetCommand,
   serializeAws_json1_1DescribeBudgetCommand,
@@ -75,8 +80,8 @@ export class DescribeBudgetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBudgetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBudgetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBudgetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBudgetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

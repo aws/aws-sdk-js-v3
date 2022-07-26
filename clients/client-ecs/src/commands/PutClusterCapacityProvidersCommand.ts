@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_0";
+import {
+  PutClusterCapacityProvidersRequest,
+  PutClusterCapacityProvidersRequestFilterSensitiveLog,
+  PutClusterCapacityProvidersResponse,
+  PutClusterCapacityProvidersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutClusterCapacityProvidersCommand,
   serializeAws_json1_1PutClusterCapacityProvidersCommand,
@@ -87,8 +92,8 @@ export class PutClusterCapacityProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutClusterCapacityProvidersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutClusterCapacityProvidersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutClusterCapacityProvidersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutClusterCapacityProvidersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

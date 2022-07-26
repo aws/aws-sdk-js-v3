@@ -27,15 +27,6 @@ export interface ListJobsResponse {
   NextToken?: string;
 }
 
-export namespace ListJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListJobTemplatesRequest {
   /**
    * Optionally, specify a job template category to limit responses to only job templates from that category.
@@ -63,15 +54,6 @@ export interface ListJobTemplatesRequest {
   Order?: Order | string;
 }
 
-export namespace ListJobTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListJobTemplatesResponse {
   /**
    * List of Job templates.
@@ -82,15 +64,6 @@ export interface ListJobTemplatesResponse {
    * Use this string to request the next batch of job templates.
    */
   NextToken?: string;
-}
-
-export namespace ListJobTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum PresetListBy {
@@ -126,15 +99,6 @@ export interface ListPresetsRequest {
   Order?: Order | string;
 }
 
-export namespace ListPresetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPresetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPresetsResponse {
   /**
    * Use this string to request the next batch of presets.
@@ -145,15 +109,6 @@ export interface ListPresetsResponse {
    * List of presets
    */
   Presets?: Preset[];
-}
-
-export namespace ListPresetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPresetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum QueueListBy {
@@ -183,15 +138,6 @@ export interface ListQueuesRequest {
   Order?: Order | string;
 }
 
-export namespace ListQueuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueuesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQueuesResponse {
   /**
    * Use this string to request the next batch of queues.
@@ -204,29 +150,11 @@ export interface ListQueuesResponse {
   Queues?: Queue[];
 }
 
-export namespace ListQueuesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueuesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to list tags for. To get the ARN, send a GET request with the resource name.
    */
   Arn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -244,29 +172,11 @@ export interface ResourceTags {
   Tags?: Record<string, string>;
 }
 
-export namespace ResourceTags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTags): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * The Amazon Resource Name (ARN) and tags for an AWS Elemental MediaConvert resource.
    */
   ResourceTags?: ResourceTags;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutPolicyRequest {
@@ -276,29 +186,11 @@ export interface PutPolicyRequest {
   Policy: Policy | undefined;
 }
 
-export namespace PutPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPolicyResponse {
   /**
    * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
    */
   Policy?: Policy;
-}
-
-export namespace PutPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -313,25 +205,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -345,25 +219,7 @@ export interface UntagResourceRequest {
   TagKeys?: string[];
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateJobTemplateRequest {
   /**
@@ -412,29 +268,11 @@ export interface UpdateJobTemplateRequest {
   StatusUpdateInterval?: StatusUpdateInterval | string;
 }
 
-export namespace UpdateJobTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateJobTemplateResponse {
   /**
    * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
    */
   JobTemplate?: JobTemplate;
-}
-
-export namespace UpdateJobTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePresetRequest {
@@ -459,29 +297,11 @@ export interface UpdatePresetRequest {
   Settings?: PresetSettings;
 }
 
-export namespace UpdatePresetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePresetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePresetResponse {
   /**
    * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
    */
   Preset?: Preset;
-}
-
-export namespace UpdatePresetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePresetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateQueueRequest {
@@ -506,15 +326,6 @@ export interface UpdateQueueRequest {
   Status?: QueueStatus | string;
 }
 
-export namespace UpdateQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateQueueRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateQueueResponse {
   /**
    * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
@@ -522,11 +333,156 @@ export interface UpdateQueueResponse {
   Queue?: Queue;
 }
 
-export namespace UpdateQueueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateQueueResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ListJobsResponseFilterSensitiveLog = (obj: ListJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobTemplatesRequestFilterSensitiveLog = (obj: ListJobTemplatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobTemplatesResponseFilterSensitiveLog = (obj: ListJobTemplatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPresetsRequestFilterSensitiveLog = (obj: ListPresetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPresetsResponseFilterSensitiveLog = (obj: ListPresetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueuesRequestFilterSensitiveLog = (obj: ListQueuesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueuesResponseFilterSensitiveLog = (obj: ListQueuesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTagsFilterSensitiveLog = (obj: ResourceTags): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPolicyRequestFilterSensitiveLog = (obj: PutPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPolicyResponseFilterSensitiveLog = (obj: PutPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobTemplateRequestFilterSensitiveLog = (obj: UpdateJobTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobTemplateResponseFilterSensitiveLog = (obj: UpdateJobTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePresetRequestFilterSensitiveLog = (obj: UpdatePresetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePresetResponseFilterSensitiveLog = (obj: UpdatePresetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateQueueRequestFilterSensitiveLog = (obj: UpdateQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateQueueResponseFilterSensitiveLog = (obj: UpdateQueueResponse): any => ({
+  ...obj,
+});

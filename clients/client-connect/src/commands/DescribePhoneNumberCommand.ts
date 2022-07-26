@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribePhoneNumberRequest, DescribePhoneNumberResponse } from "../models/models_0";
+import {
+  DescribePhoneNumberRequest,
+  DescribePhoneNumberRequestFilterSensitiveLog,
+  DescribePhoneNumberResponse,
+  DescribePhoneNumberResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribePhoneNumberCommand,
   serializeAws_restJson1DescribePhoneNumberCommand,
@@ -72,8 +77,8 @@ export class DescribePhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePhoneNumberRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePhoneNumberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePhoneNumberRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribePhoneNumberResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

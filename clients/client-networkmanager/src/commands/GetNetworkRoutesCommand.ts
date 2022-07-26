@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetNetworkRoutesRequest, GetNetworkRoutesResponse } from "../models/models_0";
+import {
+  GetNetworkRoutesRequest,
+  GetNetworkRoutesRequestFilterSensitiveLog,
+  GetNetworkRoutesResponse,
+  GetNetworkRoutesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetNetworkRoutesCommand,
@@ -72,8 +77,8 @@ export class GetNetworkRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkRoutesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkRoutesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNetworkRoutesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetNetworkRoutesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

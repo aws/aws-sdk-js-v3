@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateNetworkSettingsRequest, CreateNetworkSettingsResponse } from "../models/models_0";
+import {
+  CreateNetworkSettingsRequest,
+  CreateNetworkSettingsRequestFilterSensitiveLog,
+  CreateNetworkSettingsResponse,
+  CreateNetworkSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateNetworkSettingsCommand,
   serializeAws_restJson1CreateNetworkSettingsCommand,
@@ -74,8 +79,8 @@ export class CreateNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNetworkSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateNetworkSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateNetworkSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

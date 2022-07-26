@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ReplaceTopicRuleRequest } from "../models/models_2";
+import { ReplaceTopicRuleRequest, ReplaceTopicRuleRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_restJson1ReplaceTopicRuleCommand,
   serializeAws_restJson1ReplaceTopicRuleCommand,
@@ -75,7 +75,7 @@ export class ReplaceTopicRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReplaceTopicRuleRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ReplaceTopicRuleRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

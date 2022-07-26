@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { Environment, GetEnvironmentRequest } from "../models/models_0";
+import {
+  Environment,
+  EnvironmentFilterSensitiveLog,
+  GetEnvironmentRequest,
+  GetEnvironmentRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetEnvironmentCommand,
   serializeAws_restJson1GetEnvironmentCommand,
@@ -77,8 +82,8 @@ export class GetEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Environment.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEnvironmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnvironmentFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { TagResourceRequest } from "../models/models_1";
+import { TagResourceRequest, TagResourceRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restXmlTagResourceCommand,
   serializeAws_restXmlTagResourceCommand,
@@ -72,7 +72,7 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

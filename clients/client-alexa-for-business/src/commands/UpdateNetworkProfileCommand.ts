@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { UpdateNetworkProfileRequest, UpdateNetworkProfileResponse } from "../models/models_0";
+import {
+  UpdateNetworkProfileRequest,
+  UpdateNetworkProfileRequestFilterSensitiveLog,
+  UpdateNetworkProfileResponse,
+  UpdateNetworkProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateNetworkProfileCommand,
   serializeAws_json1_1UpdateNetworkProfileCommand,
@@ -72,8 +77,8 @@ export class UpdateNetworkProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNetworkProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNetworkProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNetworkProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNetworkProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient";
-import { CancelPipelineReprocessingRequest, CancelPipelineReprocessingResponse } from "../models/models_0";
+import {
+  CancelPipelineReprocessingRequest,
+  CancelPipelineReprocessingRequestFilterSensitiveLog,
+  CancelPipelineReprocessingResponse,
+  CancelPipelineReprocessingResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CancelPipelineReprocessingCommand,
   serializeAws_restJson1CancelPipelineReprocessingCommand,
@@ -72,8 +77,8 @@ export class CancelPipelineReprocessingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelPipelineReprocessingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelPipelineReprocessingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelPipelineReprocessingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelPipelineReprocessingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

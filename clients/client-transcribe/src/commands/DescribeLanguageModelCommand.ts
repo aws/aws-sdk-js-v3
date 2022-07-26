@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeLanguageModelRequest, DescribeLanguageModelResponse } from "../models/models_0";
+import {
+  DescribeLanguageModelRequest,
+  DescribeLanguageModelRequestFilterSensitiveLog,
+  DescribeLanguageModelResponse,
+  DescribeLanguageModelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLanguageModelCommand,
   serializeAws_json1_1DescribeLanguageModelCommand,
@@ -80,8 +85,8 @@ export class DescribeLanguageModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLanguageModelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLanguageModelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLanguageModelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLanguageModelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

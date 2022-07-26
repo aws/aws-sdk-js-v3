@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { PutAlertManagerDefinitionRequest, PutAlertManagerDefinitionResponse } from "../models/models_0";
+import {
+  PutAlertManagerDefinitionRequest,
+  PutAlertManagerDefinitionRequestFilterSensitiveLog,
+  PutAlertManagerDefinitionResponse,
+  PutAlertManagerDefinitionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutAlertManagerDefinitionCommand,
   serializeAws_restJson1PutAlertManagerDefinitionCommand,
@@ -72,8 +77,8 @@ export class PutAlertManagerDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAlertManagerDefinitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAlertManagerDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAlertManagerDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAlertManagerDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

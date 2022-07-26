@@ -14,7 +14,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_1";
+import {
+  PutObjectRetentionOutput,
+  PutObjectRetentionOutputFilterSensitiveLog,
+  PutObjectRetentionRequest,
+  PutObjectRetentionRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlPutObjectRetentionCommand,
   serializeAws_restXmlPutObjectRetentionCommand,
@@ -87,8 +92,8 @@ export class PutObjectRetentionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutObjectRetentionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectRetentionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutObjectRetentionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutObjectRetentionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

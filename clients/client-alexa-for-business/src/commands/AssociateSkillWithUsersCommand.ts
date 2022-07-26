@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { AssociateSkillWithUsersRequest, AssociateSkillWithUsersResponse } from "../models/models_0";
+import {
+  AssociateSkillWithUsersRequest,
+  AssociateSkillWithUsersRequestFilterSensitiveLog,
+  AssociateSkillWithUsersResponse,
+  AssociateSkillWithUsersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateSkillWithUsersCommand,
   serializeAws_json1_1AssociateSkillWithUsersCommand,
@@ -72,8 +77,8 @@ export class AssociateSkillWithUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSkillWithUsersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSkillWithUsersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateSkillWithUsersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSkillWithUsersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

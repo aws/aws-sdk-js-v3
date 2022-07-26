@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutAccountSuppressionAttributesRequest, PutAccountSuppressionAttributesResponse } from "../models/models_0";
+import {
+  PutAccountSuppressionAttributesRequest,
+  PutAccountSuppressionAttributesRequestFilterSensitiveLog,
+  PutAccountSuppressionAttributesResponse,
+  PutAccountSuppressionAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutAccountSuppressionAttributesCommand,
   serializeAws_restJson1PutAccountSuppressionAttributesCommand,
@@ -74,8 +79,8 @@ export class PutAccountSuppressionAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountSuppressionAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountSuppressionAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAccountSuppressionAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAccountSuppressionAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

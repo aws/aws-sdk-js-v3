@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateInstanceAttributeRequest } from "../models/models_1";
+import { UpdateInstanceAttributeRequest, UpdateInstanceAttributeRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateInstanceAttributeCommand,
   serializeAws_restJson1UpdateInstanceAttributeCommand,
@@ -73,7 +73,7 @@ export class UpdateInstanceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceAttributeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateInstanceAttributeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

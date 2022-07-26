@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { SimpleScalarPropertiesInputOutput } from "../models/models_0";
+import {
+  SimpleScalarPropertiesInputOutput,
+  SimpleScalarPropertiesInputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SimpleScalarPropertiesCommand,
   serializeAws_json1_1SimpleScalarPropertiesCommand,
@@ -55,8 +58,8 @@ export class SimpleScalarPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimpleScalarPropertiesInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: SimpleScalarPropertiesInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SimpleScalarPropertiesInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: SimpleScalarPropertiesInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

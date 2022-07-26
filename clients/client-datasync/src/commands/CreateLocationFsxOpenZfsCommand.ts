@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { CreateLocationFsxOpenZfsRequest, CreateLocationFsxOpenZfsResponse } from "../models/models_0";
+import {
+  CreateLocationFsxOpenZfsRequest,
+  CreateLocationFsxOpenZfsRequestFilterSensitiveLog,
+  CreateLocationFsxOpenZfsResponse,
+  CreateLocationFsxOpenZfsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLocationFsxOpenZfsCommand,
   serializeAws_json1_1CreateLocationFsxOpenZfsCommand,
@@ -72,8 +77,8 @@ export class CreateLocationFsxOpenZfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocationFsxOpenZfsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationFsxOpenZfsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocationFsxOpenZfsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocationFsxOpenZfsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteStateMachineInput, DeleteStateMachineOutput } from "../models/models_0";
+import {
+  DeleteStateMachineInput,
+  DeleteStateMachineInputFilterSensitiveLog,
+  DeleteStateMachineOutput,
+  DeleteStateMachineOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteStateMachineCommand,
   serializeAws_json1_0DeleteStateMachineCommand,
@@ -78,8 +83,8 @@ export class DeleteStateMachineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStateMachineInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStateMachineOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStateMachineInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStateMachineOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

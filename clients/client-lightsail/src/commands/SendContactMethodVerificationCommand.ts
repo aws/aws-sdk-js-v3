@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { SendContactMethodVerificationRequest, SendContactMethodVerificationResult } from "../models/models_1";
+import {
+  SendContactMethodVerificationRequest,
+  SendContactMethodVerificationRequestFilterSensitiveLog,
+  SendContactMethodVerificationResult,
+  SendContactMethodVerificationResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1SendContactMethodVerificationCommand,
   serializeAws_json1_1SendContactMethodVerificationCommand,
@@ -86,8 +91,8 @@ export class SendContactMethodVerificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendContactMethodVerificationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendContactMethodVerificationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SendContactMethodVerificationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendContactMethodVerificationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

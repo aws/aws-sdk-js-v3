@@ -15,25 +15,7 @@ export interface AcceptAdministratorInvitationRequest {
   InvitationId: string | undefined;
 }
 
-export namespace AcceptAdministratorInvitationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptAdministratorInvitationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptAdministratorInvitationResponse {}
-
-export namespace AcceptAdministratorInvitationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptAdministratorInvitationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Internal server error.</p>
@@ -165,25 +147,7 @@ export interface AcceptInvitationRequest {
   InvitationId: string | undefined;
 }
 
-export namespace AcceptInvitationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptInvitationResponse {}
-
-export namespace AcceptInvitationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptInvitationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You don't have permission to perform the action specified in the request.</p>
@@ -223,15 +187,6 @@ export interface AccountDetails {
   Email?: string;
 }
 
-export namespace AccountDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provided if <code>CallerType</code> is <code>domain</code>. It provides information
  *          about the DNS domain that issued the API call.</p>
@@ -243,15 +198,6 @@ export interface AwsApiCallActionDomainDetails {
   Domain?: string;
 }
 
-export namespace AwsApiCallActionDomainDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiCallActionDomainDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a city.</p>
  */
@@ -260,15 +206,6 @@ export interface City {
    * <p>The name of the city.</p>
    */
   CityName?: string;
-}
-
-export namespace City {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: City): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -286,15 +223,6 @@ export interface Country {
   CountryName?: string;
 }
 
-export namespace Country {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Country): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the latitude and longitude coordinates of a location.</p>
  */
@@ -308,15 +236,6 @@ export interface GeoLocation {
    * <p>The latitude of the location.</p>
    */
   Lat?: number;
-}
-
-export namespace GeoLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoLocation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -342,15 +261,6 @@ export interface IpOrganizationDetails {
    * <p>The name of the internet provider.</p>
    */
   Org?: string;
-}
-
-export namespace IpOrganizationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpOrganizationDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -384,15 +294,6 @@ export interface ActionRemoteIpDetails {
    * <p>The coordinates of the location of the remote IP address.</p>
    */
   GeoLocation?: GeoLocation;
-}
-
-export namespace ActionRemoteIpDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionRemoteIpDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -446,15 +347,6 @@ export interface AwsApiCallAction {
   LastSeen?: string;
 }
 
-export namespace AwsApiCallAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiCallAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provided if <code>ActionType</code> is <code>DNS_REQUEST</code>. It provides details
  *          about the DNS request that was detected.</p>
@@ -476,15 +368,6 @@ export interface DnsRequestAction {
   Blocked?: boolean;
 }
 
-export namespace DnsRequestAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DnsRequestAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>For <code>NetworkConnectionAction</code> and <code>PortProbeDetails</code>,
  *             <code>LocalPortDetails</code> provides information about the local port that was
@@ -502,15 +385,6 @@ export interface ActionLocalPortDetails {
   PortName?: string;
 }
 
-export namespace ActionLocalPortDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionLocalPortDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the remote port that was involved in an attempted network
  *          connection.</p>
@@ -525,15 +399,6 @@ export interface ActionRemotePortDetails {
    * <p>The port name of the remote connection.</p>
    */
   PortName?: string;
-}
-
-export namespace ActionRemotePortDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionRemotePortDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -574,15 +439,6 @@ export interface NetworkConnectionAction {
   Blocked?: boolean;
 }
 
-export namespace NetworkConnectionAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkConnectionAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the IP address where the scanned port is located.</p>
  */
@@ -591,15 +447,6 @@ export interface ActionLocalIpDetails {
    * <p>The IP address.</p>
    */
   IpAddressV4?: string;
-}
-
-export namespace ActionLocalIpDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionLocalIpDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -624,15 +471,6 @@ export interface PortProbeDetail {
   RemoteIpDetails?: ActionRemoteIpDetails;
 }
 
-export namespace PortProbeDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortProbeDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provided if <code>ActionType</code> is <code>PORT_PROBE</code>. It provides details
  *          about the attempted port probe that was detected.</p>
@@ -647,15 +485,6 @@ export interface PortProbeAction {
    * <p>Indicates whether the port probe was blocked.</p>
    */
   Blocked?: boolean;
-}
-
-export namespace PortProbeAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortProbeAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -728,15 +557,6 @@ export interface Action {
   PortProbeAction?: PortProbeAction;
 }
 
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An <code>ActionTarget</code> object.</p>
  */
@@ -757,15 +577,6 @@ export interface ActionTarget {
   Description: string | undefined;
 }
 
-export namespace ActionTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An adjustment to the CVSS metric.</p>
  */
@@ -779,15 +590,6 @@ export interface Adjustment {
    * <p>The reason for the adjustment.</p>
    */
   Reason?: string;
-}
-
-export namespace Adjustment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Adjustment): any => ({
-    ...obj,
-  });
 }
 
 export enum AdminStatus {
@@ -812,15 +614,6 @@ export interface AdminAccount {
   Status?: AdminStatus | string;
 }
 
-export namespace AdminAccount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdminAccount): any => ({
-    ...obj,
-  });
-}
-
 export enum AutoEnableStandards {
   DEFAULT = "DEFAULT",
   NONE = "NONE",
@@ -841,15 +634,6 @@ export interface AvailabilityZone {
   SubnetId?: string;
 }
 
-export namespace AvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about settings for logging access for the stage.</p>
  */
@@ -865,15 +649,6 @@ export interface AwsApiGatewayAccessLogSettings {
    * <p>The ARN of the CloudWatch Logs log group that receives the access logs.</p>
    */
   DestinationArn?: string;
-}
-
-export namespace AwsApiGatewayAccessLogSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiGatewayAccessLogSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -904,15 +679,6 @@ export interface AwsApiGatewayCanarySettings {
   UseStageCache?: boolean;
 }
 
-export namespace AwsApiGatewayCanarySettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiGatewayCanarySettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the endpoints for the API.</p>
  */
@@ -924,15 +690,6 @@ export interface AwsApiGatewayEndpointConfiguration {
    *             <code>PRIVATE</code>.</p>
    */
   Types?: string[];
-}
-
-export namespace AwsApiGatewayEndpointConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiGatewayEndpointConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1019,15 +776,6 @@ export interface AwsApiGatewayMethodSettings {
   ResourcePath?: string;
 }
 
-export namespace AwsApiGatewayMethodSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiGatewayMethodSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a REST API in version 1 of Amazon API Gateway.</p>
  */
@@ -1087,15 +835,6 @@ export interface AwsApiGatewayRestApiDetails {
    * <p>The endpoint configuration of the REST API.</p>
    */
   EndpointConfiguration?: AwsApiGatewayEndpointConfiguration;
-}
-
-export namespace AwsApiGatewayRestApiDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiGatewayRestApiDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1202,15 +941,6 @@ export interface AwsApiGatewayStageDetails {
   WebAclArn?: string;
 }
 
-export namespace AwsApiGatewayStageDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiGatewayStageDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the cross-origin resource sharing (CORS) configuration for the API. CORS is
  *          only supported for HTTP APIs.</p>
@@ -1245,15 +975,6 @@ export interface AwsCorsConfiguration {
    * <p>The allowed headers for CORS requests.</p>
    */
   AllowHeaders?: string[];
-}
-
-export namespace AwsCorsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCorsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1326,15 +1047,6 @@ export interface AwsApiGatewayV2ApiDetails {
   CorsConfiguration?: AwsCorsConfiguration;
 }
 
-export namespace AwsApiGatewayV2ApiDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiGatewayV2ApiDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains route settings for a stage.</p>
  */
@@ -1371,15 +1083,6 @@ export interface AwsApiGatewayV2RouteSettings {
    * <p>The throttling rate limit.</p>
    */
   ThrottlingRateLimit?: number;
-}
-
-export namespace AwsApiGatewayV2RouteSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiGatewayV2RouteSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1472,15 +1175,6 @@ export interface AwsApiGatewayV2StageDetails {
   ApiGatewayManaged?: boolean;
 }
 
-export namespace AwsApiGatewayV2StageDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsApiGatewayV2StageDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Availability Zone for the automatic scaling group.</p>
  */
@@ -1489,15 +1183,6 @@ export interface AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
    * <p>The name of the Availability Zone.</p>
    */
   Value?: string;
-}
-
-export namespace AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1518,17 +1203,6 @@ export interface AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpeci
    * <p>Identifies the version of the launch template. You can specify a version identifier, or use the values <code>$Latest</code> or <code>$Default</code>.</p>
    */
   Version?: string;
-}
-
-export namespace AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1566,17 +1240,6 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDist
   SpotMaxPrice?: string;
 }
 
-export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the launch template to use for a mixed instances policy.</p>
  */
@@ -1597,17 +1260,6 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
   Version?: string;
 }
 
-export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
-  ): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Property values to use to override the values in the launch template.</p>
  */
@@ -1621,17 +1273,6 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
    * <p>The number of capacity units provided by the specified instance type in terms of virtual CPUs, memory, storage, throughput, or other relative performance characteristic.</p>
    */
   WeightedCapacity?: string;
-}
-
-export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1649,17 +1290,6 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplat
   Overrides?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails[];
 }
 
-export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The mixed instances policy for the automatic scaling group.</p>
  */
@@ -1673,15 +1303,6 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
    * <p>The launch template to use and the instance types (overrides) to use to provision EC2 instances to fulfill On-Demand and Spot capacities.</p>
    */
   LaunchTemplate?: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails;
-}
-
-export namespace AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1739,15 +1360,6 @@ export interface AwsAutoScalingAutoScalingGroupDetails {
   CapacityRebalance?: boolean;
 }
 
-export namespace AwsAutoScalingAutoScalingGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsAutoScalingAutoScalingGroupDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Parameters that are used to automatically set up EBS volumes when an instance is launched.</p>
  */
@@ -1800,15 +1412,6 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails 
   VolumeType?: string;
 }
 
-export namespace AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A block device for the instance.</p>
  */
@@ -1836,15 +1439,6 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails {
   VirtualName?: string;
 }
 
-export namespace AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the type of monitoring for instances in the group.</p>
  */
@@ -1856,15 +1450,6 @@ export interface AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
    *          monitoring.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1885,15 +1470,6 @@ export interface AwsAutoScalingLaunchConfigurationMetadataOptions {
    * <p>Indicates whether token usage is <code>required</code> or <code>optional</code> for metadata requests. By default, token usage is <code>optional</code>.</p>
    */
   HttpTokens?: string;
-}
-
-export namespace AwsAutoScalingLaunchConfigurationMetadataOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsAutoScalingLaunchConfigurationMetadataOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2004,15 +1580,6 @@ export interface AwsAutoScalingLaunchConfigurationDetails {
   MetadataOptions?: AwsAutoScalingLaunchConfigurationMetadataOptions;
 }
 
-export namespace AwsAutoScalingLaunchConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsAutoScalingLaunchConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about the CNAME record that is added to the DNS database for domain
  *          validation.</p>
@@ -2032,15 +1599,6 @@ export interface AwsCertificateManagerCertificateResourceRecord {
    * <p>The value of the resource.</p>
    */
   Value?: string;
-}
-
-export namespace AwsCertificateManagerCertificateResourceRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCertificateManagerCertificateResourceRecord): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2089,15 +1647,6 @@ export interface AwsCertificateManagerCertificateDomainValidationOption {
   ValidationStatus?: string;
 }
 
-export namespace AwsCertificateManagerCertificateDomainValidationOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCertificateManagerCertificateDomainValidationOption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about an extended key usage X.509 v3 extension object.</p>
  */
@@ -2115,15 +1664,6 @@ export interface AwsCertificateManagerCertificateExtendedKeyUsage {
   OId?: string;
 }
 
-export namespace AwsCertificateManagerCertificateExtendedKeyUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCertificateManagerCertificateExtendedKeyUsage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a key usage X.509 v3 extension object.</p>
  */
@@ -2132,15 +1672,6 @@ export interface AwsCertificateManagerCertificateKeyUsage {
    * <p>The key usage extension name.</p>
    */
   Name?: string;
-}
-
-export namespace AwsCertificateManagerCertificateKeyUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCertificateManagerCertificateKeyUsage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2153,15 +1684,6 @@ export interface AwsCertificateManagerCertificateOptions {
    *          </p>
    */
   CertificateTransparencyLoggingPreference?: string;
-}
-
-export namespace AwsCertificateManagerCertificateOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCertificateManagerCertificateOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2205,15 +1727,6 @@ export interface AwsCertificateManagerCertificateRenewalSummary {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   UpdatedAt?: string;
-}
-
-export namespace AwsCertificateManagerCertificateRenewalSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCertificateManagerCertificateRenewalSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2390,15 +1903,6 @@ export interface AwsCertificateManagerCertificateDetails {
   Type?: string;
 }
 
-export namespace AwsCertificateManagerCertificateDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCertificateManagerCertificateDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the stack's conformity to its expected template configuration.
  *       </p>
@@ -2409,15 +1913,6 @@ export interface AwsCloudFormationStackDriftInformationDetails {
    *       </p>
    */
   StackDriftStatus?: string;
-}
-
-export namespace AwsCloudFormationStackDriftInformationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFormationStackDriftInformationDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2442,15 +1937,6 @@ export interface AwsCloudFormationStackOutputsDetails {
    *       </p>
    */
   OutputValue?: string;
-}
-
-export namespace AwsCloudFormationStackOutputsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFormationStackOutputsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2550,15 +2036,6 @@ export interface AwsCloudFormationStackDetails {
   TimeoutInMinutes?: number;
 }
 
-export namespace AwsCloudFormationStackDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFormationStackDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a cache behavior for the distribution.</p>
  */
@@ -2587,15 +2064,6 @@ export interface AwsCloudFrontDistributionCacheBehavior {
   ViewerProtocolPolicy?: string;
 }
 
-export namespace AwsCloudFrontDistributionCacheBehavior {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionCacheBehavior): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about caching for the CloudFront distribution.</p>
  */
@@ -2604,15 +2072,6 @@ export interface AwsCloudFrontDistributionCacheBehaviors {
    * <p>The cache behaviors for the distribution.</p>
    */
   Items?: AwsCloudFrontDistributionCacheBehavior[];
-}
-
-export namespace AwsCloudFrontDistributionCacheBehaviors {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionCacheBehaviors): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2643,15 +2102,6 @@ export interface AwsCloudFrontDistributionDefaultCacheBehavior {
   ViewerProtocolPolicy?: string;
 }
 
-export namespace AwsCloudFrontDistributionDefaultCacheBehavior {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionDefaultCacheBehavior): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that controls whether access logs are written for the CloudFront distribution.</p>
  */
@@ -2678,15 +2128,6 @@ export interface AwsCloudFrontDistributionLogging {
   Prefix?: string;
 }
 
-export namespace AwsCloudFrontDistributionLogging {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionLogging): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status codes that cause an origin group to fail over.</p>
  */
@@ -2702,15 +2143,6 @@ export interface AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
   Quantity?: number;
 }
 
-export namespace AwsCloudFrontDistributionOriginGroupFailoverStatusCodes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about when an origin group fails over.</p>
  */
@@ -2719,15 +2151,6 @@ export interface AwsCloudFrontDistributionOriginGroupFailover {
    * <p>Information about the status codes that cause an origin group to fail over.</p>
    */
   StatusCodes?: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes;
-}
-
-export namespace AwsCloudFrontDistributionOriginGroupFailover {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginGroupFailover): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2740,15 +2163,6 @@ export interface AwsCloudFrontDistributionOriginGroup {
   FailoverCriteria?: AwsCloudFrontDistributionOriginGroupFailover;
 }
 
-export namespace AwsCloudFrontDistributionOriginGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about origin groups that are associated with the CloudFront distribution.</p>
  */
@@ -2757,15 +2171,6 @@ export interface AwsCloudFrontDistributionOriginGroups {
    * <p>The list of origin groups.</p>
    */
   Items?: AwsCloudFrontDistributionOriginGroup[];
-}
-
-export namespace AwsCloudFrontDistributionOriginGroups {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginGroups): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2786,15 +2191,6 @@ export interface AwsCloudFrontDistributionOriginSslProtocols {
    *       </p>
    */
   Quantity?: number;
-}
-
-export namespace AwsCloudFrontDistributionOriginSslProtocols {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginSslProtocols): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2839,15 +2235,6 @@ export interface AwsCloudFrontDistributionOriginCustomOriginConfig {
   OriginSslProtocols?: AwsCloudFrontDistributionOriginSslProtocols;
 }
 
-export namespace AwsCloudFrontDistributionOriginCustomOriginConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginCustomOriginConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an origin that is an Amazon S3 bucket that is not configured with static website
  *          hosting.</p>
@@ -2857,15 +2244,6 @@ export interface AwsCloudFrontDistributionOriginS3OriginConfig {
    * <p>The CloudFront origin access identity to associate with the origin.</p>
    */
   OriginAccessIdentity?: string;
-}
-
-export namespace AwsCloudFrontDistributionOriginS3OriginConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginS3OriginConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2905,15 +2283,6 @@ export interface AwsCloudFrontDistributionOriginItem {
   CustomOriginConfig?: AwsCloudFrontDistributionOriginCustomOriginConfig;
 }
 
-export namespace AwsCloudFrontDistributionOriginItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOriginItem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about origins and origin groups for this CloudFront distribution.</p>
  */
@@ -2922,15 +2291,6 @@ export interface AwsCloudFrontDistributionOrigins {
    * <p>A complex type that contains origins or origin groups for this distribution.</p>
    */
   Items?: AwsCloudFrontDistributionOriginItem[];
-}
-
-export namespace AwsCloudFrontDistributionOrigins {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionOrigins): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2971,15 +2331,6 @@ export interface AwsCloudFrontDistributionViewerCertificate {
    * <p>The viewers that the distribution accepts HTTPS connections from.</p>
    */
   SslSupportMethod?: string;
-}
-
-export namespace AwsCloudFrontDistributionViewerCertificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionViewerCertificate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3051,15 +2402,6 @@ export interface AwsCloudFrontDistributionDetails {
    * <p>A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution.</p>
    */
   WebAclId?: string;
-}
-
-export namespace AwsCloudFrontDistributionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3146,15 +2488,6 @@ export interface AwsCloudTrailTrailDetails {
   TrailArn?: string;
 }
 
-export namespace AwsCloudTrailTrailDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudTrailTrailDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the dimensions for the metric associated with the alarm.
  *       </p>
@@ -3171,15 +2504,6 @@ export interface AwsCloudWatchAlarmDimensionsDetails {
    *       </p>
    */
   Value?: string;
-}
-
-export namespace AwsCloudWatchAlarmDimensionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudWatchAlarmDimensionsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3331,15 +2655,6 @@ export interface AwsCloudWatchAlarmDetails {
   Unit?: string;
 }
 
-export namespace AwsCloudWatchAlarmDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCloudWatchAlarmDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the build artifacts for the CodeBuild project.</p>
  */
@@ -3390,15 +2705,6 @@ export interface AwsCodeBuildProjectArtifactsDetails {
   Type?: string;
 }
 
-export namespace AwsCodeBuildProjectArtifactsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCodeBuildProjectArtifactsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an environment variable that is available to builds for the build project.</p>
  */
@@ -3419,15 +2725,6 @@ export interface AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
   Value?: string;
 }
 
-export namespace AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The credentials for access to a private registry.</p>
  */
@@ -3446,15 +2743,6 @@ export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
    *          <p>The valid value,<code> SECRETS_MANAGER</code>, is for Secrets Manager.</p>
    */
   CredentialProvider?: string;
-}
-
-export namespace AwsCodeBuildProjectEnvironmentRegistryCredential {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCodeBuildProjectEnvironmentRegistryCredential): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3525,15 +2813,6 @@ export interface AwsCodeBuildProjectEnvironment {
   Type?: string;
 }
 
-export namespace AwsCodeBuildProjectEnvironment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCodeBuildProjectEnvironment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about CloudWatch Logs for the build project.</p>
  */
@@ -3552,15 +2831,6 @@ export interface AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails {
    * <p>The prefix of the stream name of the CloudWatch Logs.</p>
    */
   StreamName?: string;
-}
-
-export namespace AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3583,15 +2853,6 @@ export interface AwsCodeBuildProjectLogsConfigS3LogsDetails {
   Status?: string;
 }
 
-export namespace AwsCodeBuildProjectLogsConfigS3LogsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCodeBuildProjectLogsConfigS3LogsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about logs for the build project.</p>
  */
@@ -3605,15 +2866,6 @@ export interface AwsCodeBuildProjectLogsConfigDetails {
    * <p>Information about logs built to an S3 bucket for a build project.</p>
    */
   S3Logs?: AwsCodeBuildProjectLogsConfigS3LogsDetails;
-}
-
-export namespace AwsCodeBuildProjectLogsConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCodeBuildProjectLogsConfigDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3710,15 +2962,6 @@ export interface AwsCodeBuildProjectSource {
   InsecureSsl?: boolean;
 }
 
-export namespace AwsCodeBuildProjectSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCodeBuildProjectSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the VPC configuration that CodeBuild accesses.</p>
  */
@@ -3737,15 +2980,6 @@ export interface AwsCodeBuildProjectVpcConfig {
    * <p>A list of one or more security group IDs in your VPC.</p>
    */
   SecurityGroupIds?: string[];
-}
-
-export namespace AwsCodeBuildProjectVpcConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCodeBuildProjectVpcConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3802,15 +3036,6 @@ export interface AwsCodeBuildProjectDetails {
   SecondaryArtifacts?: AwsCodeBuildProjectArtifactsDetails[];
 }
 
-export namespace AwsCodeBuildProjectDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCodeBuildProjectDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a definition of an attribute for the table.</p>
  */
@@ -3824,15 +3049,6 @@ export interface AwsDynamoDbTableAttributeDefinition {
    * <p>The type of the attribute.</p>
    */
   AttributeType?: string;
-}
-
-export namespace AwsDynamoDbTableAttributeDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableAttributeDefinition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3854,15 +3070,6 @@ export interface AwsDynamoDbTableBillingModeSummary {
   LastUpdateToPayPerRequestDateTime?: string;
 }
 
-export namespace AwsDynamoDbTableBillingModeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableBillingModeSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A component of the key schema for the DynamoDB table, a global secondary index, or a
  *          local secondary index.</p>
@@ -3877,15 +3084,6 @@ export interface AwsDynamoDbTableKeySchema {
    * <p>The type of key used for the key schema attribute.</p>
    */
   KeyType?: string;
-}
-
-export namespace AwsDynamoDbTableKeySchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableKeySchema): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3903,15 +3101,6 @@ export interface AwsDynamoDbTableProjection {
    * <p>The types of attributes that are projected into the index.</p>
    */
   ProjectionType?: string;
-}
-
-export namespace AwsDynamoDbTableProjection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableProjection): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3952,15 +3141,6 @@ export interface AwsDynamoDbTableProvisionedThroughput {
    *             <code>ThrottlingException</code>.</p>
    */
   WriteCapacityUnits?: number;
-}
-
-export namespace AwsDynamoDbTableProvisionedThroughput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableProvisionedThroughput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4013,15 +3193,6 @@ export interface AwsDynamoDbTableGlobalSecondaryIndex {
   ProvisionedThroughput?: AwsDynamoDbTableProvisionedThroughput;
 }
 
-export namespace AwsDynamoDbTableGlobalSecondaryIndex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableGlobalSecondaryIndex): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a local secondary index for a DynamoDB table.</p>
  */
@@ -4048,15 +3219,6 @@ export interface AwsDynamoDbTableLocalSecondaryIndex {
   Projection?: AwsDynamoDbTableProjection;
 }
 
-export namespace AwsDynamoDbTableLocalSecondaryIndex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableLocalSecondaryIndex): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Replica-specific configuration for the provisioned throughput.</p>
  */
@@ -4065,15 +3227,6 @@ export interface AwsDynamoDbTableProvisionedThroughputOverride {
    * <p>The read capacity units for the replica.</p>
    */
   ReadCapacityUnits?: number;
-}
-
-export namespace AwsDynamoDbTableProvisionedThroughputOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableProvisionedThroughputOverride): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4089,15 +3242,6 @@ export interface AwsDynamoDbTableReplicaGlobalSecondaryIndex {
    * <p>Replica-specific configuration for the provisioned throughput for the index.</p>
    */
   ProvisionedThroughputOverride?: AwsDynamoDbTableProvisionedThroughputOverride;
-}
-
-export namespace AwsDynamoDbTableReplicaGlobalSecondaryIndex {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableReplicaGlobalSecondaryIndex): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4136,15 +3280,6 @@ export interface AwsDynamoDbTableReplica {
   ReplicaStatusDescription?: string;
 }
 
-export namespace AwsDynamoDbTableReplica {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableReplica): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the restore for the table.</p>
  */
@@ -4171,15 +3306,6 @@ export interface AwsDynamoDbTableRestoreSummary {
    * <p>Whether a restore is currently in progress.</p>
    */
   RestoreInProgress?: boolean;
-}
-
-export namespace AwsDynamoDbTableRestoreSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableRestoreSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4212,15 +3338,6 @@ export interface AwsDynamoDbTableSseDescription {
   KmsMasterKeyArn?: string;
 }
 
-export namespace AwsDynamoDbTableSseDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableSseDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The current DynamoDB Streams configuration for the table.</p>
  */
@@ -4234,15 +3351,6 @@ export interface AwsDynamoDbTableStreamSpecification {
    * <p>Determines the information that is written to the table.</p>
    */
   StreamViewType?: string;
-}
-
-export namespace AwsDynamoDbTableStreamSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableStreamSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4348,15 +3456,6 @@ export interface AwsDynamoDbTableDetails {
   TableStatus?: string;
 }
 
-export namespace AwsDynamoDbTableDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsDynamoDbTableDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an Elastic IP address.</p>
  */
@@ -4417,15 +3516,6 @@ export interface AwsEc2EipDetails {
   PrivateIpAddress?: string;
 }
 
-export namespace AwsEc2EipDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2EipDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metadata options that allow you to configure and secure the Amazon EC2 instance.</p>
  */
@@ -4462,15 +3552,6 @@ export interface AwsEc2InstanceMetadataOptions {
   InstanceMetadataTags?: string;
 }
 
-export namespace AwsEc2InstanceMetadataOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2InstanceMetadataOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifies a network interface for the Amazon EC2 instance.</p>
  */
@@ -4479,15 +3560,6 @@ export interface AwsEc2InstanceNetworkInterfacesDetails {
    * <p>The identifier of the network interface. The details are in a corresponding <code>AwsEc2NetworkInterfacesDetails</code> object.</p>
    */
   NetworkInterfaceId?: string;
-}
-
-export namespace AwsEc2InstanceNetworkInterfacesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2InstanceNetworkInterfacesDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4560,15 +3632,6 @@ export interface AwsEc2InstanceDetails {
   MetadataOptions?: AwsEc2InstanceMetadataOptions;
 }
 
-export namespace AwsEc2InstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2InstanceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An association between the network ACL and a subnet.</p>
  */
@@ -4589,15 +3652,6 @@ export interface AwsEc2NetworkAclAssociation {
   SubnetId?: string;
 }
 
-export namespace AwsEc2NetworkAclAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2NetworkAclAssociation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Internet Control Message Protocol (ICMP) type and code.</p>
  */
@@ -4615,15 +3669,6 @@ export interface IcmpTypeCode {
   Type?: number;
 }
 
-export namespace IcmpTypeCode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IcmpTypeCode): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A range of ports.</p>
  */
@@ -4637,15 +3682,6 @@ export interface PortRangeFromTo {
    * <p>The last port in the port range.</p>
    */
   To?: number;
-}
-
-export namespace PortRangeFromTo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortRangeFromTo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4694,15 +3730,6 @@ export interface AwsEc2NetworkAclEntry {
   RuleNumber?: number;
 }
 
-export namespace AwsEc2NetworkAclEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2NetworkAclEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about an Amazon EC2 network access control list (ACL).</p>
  */
@@ -4736,15 +3763,6 @@ export interface AwsEc2NetworkAclDetails {
    * <p>The set of rules in the network ACL.</p>
    */
   Entries?: AwsEc2NetworkAclEntry[];
-}
-
-export namespace AwsEc2NetworkAclDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2NetworkAclDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4794,15 +3812,6 @@ export interface AwsEc2NetworkInterfaceAttachment {
   Status?: string;
 }
 
-export namespace AwsEc2NetworkInterfaceAttachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2NetworkInterfaceAttachment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an IPV6 address that is associated with the network
  *          interface.</p>
@@ -4812,15 +3821,6 @@ export interface AwsEc2NetworkInterfaceIpV6AddressDetail {
    * <p>The IPV6 address.</p>
    */
   IpV6Address?: string;
-}
-
-export namespace AwsEc2NetworkInterfaceIpV6AddressDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2NetworkInterfaceIpV6AddressDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4839,15 +3839,6 @@ export interface AwsEc2NetworkInterfacePrivateIpAddressDetail {
   PrivateDnsName?: string;
 }
 
-export namespace AwsEc2NetworkInterfacePrivateIpAddressDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2NetworkInterfacePrivateIpAddressDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A security group associated with the network interface.</p>
  */
@@ -4861,15 +3852,6 @@ export interface AwsEc2NetworkInterfaceSecurityGroup {
    * <p>The ID of the security group.</p>
    */
   GroupId?: string;
-}
-
-export namespace AwsEc2NetworkInterfaceSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2NetworkInterfaceSecurityGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4917,15 +3899,6 @@ export interface AwsEc2NetworkInterfaceDetails {
   PublicIp?: string;
 }
 
-export namespace AwsEc2NetworkInterfaceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2NetworkInterfaceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A range of IPv4 addresses.</p>
  */
@@ -4935,15 +3908,6 @@ export interface AwsEc2SecurityGroupIpRange {
    *          not both. To specify a single IPv4 address, use the /32 prefix length.</p>
    */
   CidrIp?: string;
-}
-
-export namespace AwsEc2SecurityGroupIpRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2SecurityGroupIpRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4957,15 +3921,6 @@ export interface AwsEc2SecurityGroupIpv6Range {
   CidrIpv6?: string;
 }
 
-export namespace AwsEc2SecurityGroupIpv6Range {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2SecurityGroupIpv6Range): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A prefix list ID.</p>
  */
@@ -4974,15 +3929,6 @@ export interface AwsEc2SecurityGroupPrefixListId {
    * <p>The ID of the prefix.</p>
    */
   PrefixListId?: string;
-}
-
-export namespace AwsEc2SecurityGroupPrefixListId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2SecurityGroupPrefixListId): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5023,15 +3969,6 @@ export interface AwsEc2SecurityGroupUserIdGroupPair {
    * <p>The ID of the VPC peering connection, if applicable.</p>
    */
   VpcPeeringConnectionId?: string;
-}
-
-export namespace AwsEc2SecurityGroupUserIdGroupPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2SecurityGroupUserIdGroupPair): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5091,15 +4028,6 @@ export interface AwsEc2SecurityGroupIpPermission {
   PrefixListIds?: AwsEc2SecurityGroupPrefixListId[];
 }
 
-export namespace AwsEc2SecurityGroupIpPermission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2SecurityGroupIpPermission): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about an Amazon EC2 security group.</p>
  */
@@ -5135,15 +4063,6 @@ export interface AwsEc2SecurityGroupDetails {
   IpPermissionsEgress?: AwsEc2SecurityGroupIpPermission[];
 }
 
-export namespace AwsEc2SecurityGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2SecurityGroupDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An IPV6 CIDR block association.</p>
  */
@@ -5162,15 +4081,6 @@ export interface Ipv6CidrBlockAssociation {
    * <p>Information about the state of the CIDR block.</p>
    */
   CidrBlockState?: string;
-}
-
-export namespace Ipv6CidrBlockAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ipv6CidrBlockAssociation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5241,15 +4151,6 @@ export interface AwsEc2SubnetDetails {
    * <p>The IPV6 CIDR blocks that are associated with the subnet.</p>
    */
   Ipv6CidrBlockAssociationSet?: Ipv6CidrBlockAssociation[];
-}
-
-export namespace AwsEc2SubnetDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2SubnetDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5331,15 +4232,6 @@ export interface AwsEc2TransitGatewayDetails {
   AmazonSideAsn?: number;
 }
 
-export namespace AwsEc2TransitGatewayDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2TransitGatewayDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An attachment to an Amazon EC2 volume.</p>
  */
@@ -5363,15 +4255,6 @@ export interface AwsEc2VolumeAttachment {
    * <p>The attachment state of the volume.</p>
    */
   Status?: string;
-}
-
-export namespace AwsEc2VolumeAttachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VolumeAttachment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5442,15 +4325,6 @@ export interface AwsEc2VolumeDetails {
   VolumeScanStatus?: string;
 }
 
-export namespace AwsEc2VolumeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VolumeDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An IPv4 CIDR block association.</p>
  */
@@ -5469,15 +4343,6 @@ export interface CidrBlockAssociation {
    * <p>Information about the state of the IPv4 CIDR block.</p>
    */
   CidrBlockState?: string;
-}
-
-export namespace CidrBlockAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CidrBlockAssociation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5507,15 +4372,6 @@ export interface AwsEc2VpcDetails {
   State?: string;
 }
 
-export namespace AwsEc2VpcDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpcDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service type information for a VPC endpoint service.</p>
  */
@@ -5524,15 +4380,6 @@ export interface AwsEc2VpcEndpointServiceServiceTypeDetails {
    * <p>The type of service.</p>
    */
   ServiceType?: string;
-}
-
-export namespace AwsEc2VpcEndpointServiceServiceTypeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpcEndpointServiceServiceTypeDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5595,15 +4442,6 @@ export interface AwsEc2VpcEndpointServiceDetails {
   ServiceType?: AwsEc2VpcEndpointServiceServiceTypeDetails[];
 }
 
-export namespace AwsEc2VpcEndpointServiceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpcEndpointServiceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about the IPv4 CIDR blocks for the VPC.
  *       </p>
@@ -5616,15 +4454,6 @@ export interface VpcInfoCidrBlockSetDetails {
   CidrBlock?: string;
 }
 
-export namespace VpcInfoCidrBlockSetDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcInfoCidrBlockSetDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about the IPv6 CIDR blocks for the VPC.
  *       </p>
@@ -5635,15 +4464,6 @@ export interface VpcInfoIpv6CidrBlockSetDetails {
    *       </p>
    */
   Ipv6CidrBlock?: string;
-}
-
-export namespace VpcInfoIpv6CidrBlockSetDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcInfoIpv6CidrBlockSetDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5668,15 +4488,6 @@ export interface VpcInfoPeeringOptionsDetails {
    *       </p>
    */
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
-}
-
-export namespace VpcInfoPeeringOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcInfoPeeringOptionsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5727,15 +4538,6 @@ export interface AwsEc2VpcPeeringConnectionVpcInfoDetails {
   VpcId?: string;
 }
 
-export namespace AwsEc2VpcPeeringConnectionVpcInfoDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpcPeeringConnectionVpcInfoDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the status of the VPC peering connection.
  *       </p>
@@ -5752,15 +4554,6 @@ export interface AwsEc2VpcPeeringConnectionStatusDetails {
    *       </p>
    */
   Message?: string;
-}
-
-export namespace AwsEc2VpcPeeringConnectionStatusDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpcPeeringConnectionStatusDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5798,15 +4591,6 @@ export interface AwsEc2VpcPeeringConnectionDetails {
    *       </p>
    */
   VpcPeeringConnectionId?: string;
-}
-
-export namespace AwsEc2VpcPeeringConnectionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpcPeeringConnectionDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5903,15 +4687,6 @@ export interface AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
   TunnelInsideCidr?: string;
 }
 
-export namespace AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpnConnectionOptionsTunnelOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>VPN connection options.</p>
  */
@@ -5925,15 +4700,6 @@ export interface AwsEc2VpnConnectionOptionsDetails {
    * <p>The VPN tunnel options.</p>
    */
   TunnelOptions?: AwsEc2VpnConnectionOptionsTunnelOptionsDetails[];
-}
-
-export namespace AwsEc2VpnConnectionOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpnConnectionOptionsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5950,15 +4716,6 @@ export interface AwsEc2VpnConnectionRoutesDetails {
    * <p>The current state of the static route.</p>
    */
   State?: string;
-}
-
-export namespace AwsEc2VpnConnectionRoutesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpnConnectionRoutesDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5998,15 +4755,6 @@ export interface AwsEc2VpnConnectionVgwTelemetryDetails {
    * <p>If an error occurs, a description of the error.</p>
    */
   StatusMessage?: string;
-}
-
-export namespace AwsEc2VpnConnectionVgwTelemetryDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpnConnectionVgwTelemetryDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6073,15 +4821,6 @@ export interface AwsEc2VpnConnectionDetails {
   TransitGatewayId?: string;
 }
 
-export namespace AwsEc2VpnConnectionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEc2VpnConnectionDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an Amazon ECR image.</p>
  */
@@ -6121,15 +4860,6 @@ export interface AwsEcrContainerImageDetails {
   ImagePublishedAt?: string;
 }
 
-export namespace AwsEcrContainerImageDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcrContainerImageDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The image scanning configuration for a repository.</p>
  */
@@ -6138,15 +4868,6 @@ export interface AwsEcrRepositoryImageScanningConfigurationDetails {
    * <p>Whether to scan images after they are pushed to a repository.</p>
    */
   ScanOnPush?: boolean;
-}
-
-export namespace AwsEcrRepositoryImageScanningConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcrRepositoryImageScanningConfigurationDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6162,15 +4883,6 @@ export interface AwsEcrRepositoryLifecyclePolicyDetails {
    * <p>The Amazon Web Services account identifier that is associated with the registry that contains the repository.</p>
    */
   RegistryId?: string;
-}
-
-export namespace AwsEcrRepositoryLifecyclePolicyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcrRepositoryLifecyclePolicyDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6208,15 +4920,6 @@ export interface AwsEcrRepositoryDetails {
   RepositoryPolicyText?: string;
 }
 
-export namespace AwsEcrRepositoryDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcrRepositoryDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether to enable CloudWatch Container Insights for the ECS cluster.</p>
  */
@@ -6230,15 +4933,6 @@ export interface AwsEcsClusterClusterSettingsDetails {
    * <p>The value of the setting.</p>
    */
   Value?: string;
-}
-
-export namespace AwsEcsClusterClusterSettingsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsClusterClusterSettingsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6271,17 +4965,6 @@ export interface AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigu
   S3KeyPrefix?: string;
 }
 
-export namespace AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the run command configuration for the cluster.</p>
  */
@@ -6302,15 +4985,6 @@ export interface AwsEcsClusterConfigurationExecuteCommandConfigurationDetails {
   Logging?: string;
 }
 
-export namespace AwsEcsClusterConfigurationExecuteCommandConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The run command configuration for the cluster.</p>
  */
@@ -6319,15 +4993,6 @@ export interface AwsEcsClusterConfigurationDetails {
    * <p>Contains the run command configuration for the cluster.</p>
    */
   ExecuteCommandConfiguration?: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails;
-}
-
-export namespace AwsEcsClusterConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsClusterConfigurationDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6348,15 +5013,6 @@ export interface AwsEcsClusterDefaultCapacityProviderStrategyDetails {
    * <p>The relative percentage of the total number of tasks launched that should use the capacity provider.</p>
    */
   Weight?: number;
-}
-
-export namespace AwsEcsClusterDefaultCapacityProviderStrategyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsClusterDefaultCapacityProviderStrategyDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6422,15 +5078,6 @@ export interface AwsEcsClusterDetails {
   Status?: string;
 }
 
-export namespace AwsEcsClusterDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsClusterDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for a volume mount point that's used in a container definition.
  *       </p>
@@ -6448,15 +5095,6 @@ export interface AwsMountPoint {
    *       </p>
    */
   ContainerPath?: string;
-}
-
-export namespace AwsMountPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsMountPoint): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6490,15 +5128,6 @@ export interface AwsEcsContainerDetails {
   Privileged?: boolean;
 }
 
-export namespace AwsEcsContainerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsContainerDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Strategy item for the capacity provider strategy that the service uses.</p>
  */
@@ -6522,15 +5151,6 @@ export interface AwsEcsServiceCapacityProviderStrategyDetails {
   Weight?: number;
 }
 
-export namespace AwsEcsServiceCapacityProviderStrategyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsServiceCapacityProviderStrategyDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Determines whether a service deployment fails if a service cannot reach a steady state.</p>
  */
@@ -6544,17 +5164,6 @@ export interface AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDet
    * <p>Whether to roll back the service if a service deployment fails. If rollback is enabled, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.</p>
    */
   Rollback?: boolean;
-}
-
-export namespace AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6581,15 +5190,6 @@ export interface AwsEcsServiceDeploymentConfigurationDetails {
   MinimumHealthyPercent?: number;
 }
 
-export namespace AwsEcsServiceDeploymentConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsServiceDeploymentConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the deployment controller type that the service uses.</p>
  */
@@ -6602,15 +5202,6 @@ export interface AwsEcsServiceDeploymentControllerDetails {
    *          </p>
    */
   Type?: string;
-}
-
-export namespace AwsEcsServiceDeploymentControllerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsServiceDeploymentControllerDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6640,15 +5231,6 @@ export interface AwsEcsServiceLoadBalancersDetails {
   TargetGroupArn?: string;
 }
 
-export namespace AwsEcsServiceLoadBalancersDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsServiceLoadBalancersDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
  */
@@ -6673,15 +5255,6 @@ export interface AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
   Subnets?: string[];
 }
 
-export namespace AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>For tasks that use the <code>awsvpc</code> networking mode, the VPC subnet and security group configuration.</p>
  */
@@ -6690,15 +5263,6 @@ export interface AwsEcsServiceNetworkConfigurationDetails {
    * <p>The VPC subnet and security group configuration.</p>
    */
   AwsVpcConfiguration?: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails;
-}
-
-export namespace AwsEcsServiceNetworkConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsServiceNetworkConfigurationDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6716,15 +5280,6 @@ export interface AwsEcsServicePlacementConstraintsDetails {
    *          </p>
    */
   Type?: string;
-}
-
-export namespace AwsEcsServicePlacementConstraintsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsServicePlacementConstraintsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6748,15 +5303,6 @@ export interface AwsEcsServicePlacementStrategiesDetails {
    *          </p>
    */
   Type?: string;
-}
-
-export namespace AwsEcsServicePlacementStrategiesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsServicePlacementStrategiesDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6786,15 +5332,6 @@ export interface AwsEcsServiceServiceRegistriesDetails {
    * <p>The ARN of the service registry.</p>
    */
   RegistryArn?: string;
-}
-
-export namespace AwsEcsServiceServiceRegistriesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsServiceServiceRegistriesDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6921,15 +5458,6 @@ export interface AwsEcsServiceDetails {
   TaskDefinition?: string;
 }
 
-export namespace AwsEcsServiceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsServiceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A dependency that is defined for container startup and shutdown.</p>
  */
@@ -6943,15 +5471,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
    * <p>The name of the dependent container.</p>
    */
   ContainerName?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6969,15 +5488,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
   Value?: string;
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A file that contain environment variables to pass to a container.</p>
  */
@@ -6993,15 +5503,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
   Value?: string;
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A hostname and IP address mapping to append to the <b>/etc/hosts</b> file on the container.</p>
  */
@@ -7015,15 +5516,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
    * <p>The IP address to use in the <b>/etc/hosts</b> entry.</p>
    */
   IpAddress?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7058,17 +5550,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDe
   Type?: string;
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container health check command and associated configuration parameters for the container.</p>
  */
@@ -7099,15 +5580,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
   Timeout?: number;
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker.</p>
  */
@@ -7121,17 +5593,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabili
    * <p>The Linux capabilities for the container that are dropped from the default configuration provided by Docker.</p>
    */
   Drop?: string[];
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7154,17 +5615,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesD
   Permissions?: string[];
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container path, mount options, and size (in MiB) of a tmpfs mount.</p>
  */
@@ -7183,17 +5633,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDet
    * <p>The maximum size (in MiB) of the tmpfs volume.</p>
    */
   Size?: number;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7236,15 +5675,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails 
   Tmpfs?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails[];
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A secret to pass to the log configuration.</p>
  */
@@ -7260,17 +5690,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretO
    *          parameter in the Systems Manager Parameter Store.</p>
    */
   ValueFrom?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7293,15 +5712,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
   SecretOptions?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails[];
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A mount point for the data volumes in the container.</p>
  */
@@ -7320,15 +5730,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
    * <p>The name of the volume to mount. Must match the name of a volume listed in <code>VolumeDetails</code> for the task definition.</p>
    */
   SourceVolume?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7351,15 +5752,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
   Protocol?: string;
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The private repository authentication credentials to use.</p>
  */
@@ -7368,17 +5760,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDe
    * <p>The ARN of the secret that contains the private repository credentials.</p>
    */
   CredentialsParameter?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7400,17 +5781,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDet
   Value?: string;
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A secret to pass to the container.</p>
  */
@@ -7427,15 +5797,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
   ValueFrom?: string;
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A namespaced kernel parameter to set in the container.</p>
  */
@@ -7449,15 +5810,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
    * <p>The value of the parameter.</p>
    */
   Value?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7480,15 +5832,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
   SoftLimit?: number;
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A data volume to mount from another container.</p>
  */
@@ -7502,15 +5845,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
    * <p>The name of another container within the same task definition from which to mount volumes.</p>
    */
   SourceContainer?: string;
-}
-
-export namespace AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7768,15 +6102,6 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
   WorkingDirectory?: string;
 }
 
-export namespace AwsEcsTaskDefinitionContainerDefinitionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionContainerDefinitionsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Elastic Inference accelerator to use
  *          for the containers in the task.</p>
@@ -7791,15 +6116,6 @@ export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
    * <p>The Elastic Inference accelerator type to use.</p>
    */
   DeviceType?: string;
-}
-
-export namespace AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionInferenceAcceleratorsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7817,15 +6133,6 @@ export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
   Type?: string;
 }
 
-export namespace AwsEcsTaskDefinitionPlacementConstraintsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionPlacementConstraintsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
  */
@@ -7839,17 +6146,6 @@ export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropert
    * <p>The value of the property.</p>
    */
   Value?: string;
-}
-
-export namespace AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7871,15 +6167,6 @@ export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
    * <p>The proxy type.</p>
    */
   Type?: string;
-}
-
-export namespace AwsEcsTaskDefinitionProxyConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionProxyConfigurationDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7912,15 +6199,6 @@ export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
   Scope?: string;
 }
 
-export namespace AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -7934,17 +6212,6 @@ export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationC
    * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
    */
   Iam?: string;
-}
-
-export namespace AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7977,15 +6244,6 @@ export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
   TransitEncryptionPort?: number;
 }
 
-export namespace AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a bind mount host volume.</p>
  */
@@ -7994,15 +6252,6 @@ export interface AwsEcsTaskDefinitionVolumesHostDetails {
    * <p>The path on the host container instance that is presented to the container.</p>
    */
   SourcePath?: string;
-}
-
-export namespace AwsEcsTaskDefinitionVolumesHostDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesHostDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8028,15 +6277,6 @@ export interface AwsEcsTaskDefinitionVolumesDetails {
    * <p>The name of the data volume.</p>
    */
   Name?: string;
-}
-
-export namespace AwsEcsTaskDefinitionVolumesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8115,15 +6355,6 @@ export interface AwsEcsTaskDefinitionDetails {
   Volumes?: AwsEcsTaskDefinitionVolumesDetails[];
 }
 
-export namespace AwsEcsTaskDefinitionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDefinitionDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details on a container instance bind mount host volume.
  *       </p>
@@ -8135,15 +6366,6 @@ export interface AwsEcsTaskVolumeHostDetails {
    *       </p>
    */
   SourcePath?: string;
-}
-
-export namespace AwsEcsTaskVolumeHostDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskVolumeHostDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8164,15 +6386,6 @@ export interface AwsEcsTaskVolumeDetails {
    *       </p>
    */
   Host?: AwsEcsTaskVolumeHostDetails;
-}
-
-export namespace AwsEcsTaskVolumeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskVolumeDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8238,15 +6451,6 @@ export interface AwsEcsTaskDetails {
   Containers?: AwsEcsContainerDetails[];
 }
 
-export namespace AwsEcsTaskDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEcsTaskDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details for all file system operations using this Amazon EFS access point.
  *       </p>
@@ -8269,15 +6473,6 @@ export interface AwsEfsAccessPointPosixUserDetails {
    *       </p>
    */
   Uid?: string;
-}
-
-export namespace AwsEfsAccessPointPosixUserDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEfsAccessPointPosixUserDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8306,15 +6501,6 @@ export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
   Permissions?: string;
 }
 
-export namespace AwsEfsAccessPointRootDirectoryCreationInfoDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEfsAccessPointRootDirectoryCreationInfoDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the directory on the Amazon EFS file system that the access point exposes
  * as the root directory to NFS clients using the access point.
@@ -8334,15 +6520,6 @@ export interface AwsEfsAccessPointRootDirectoryDetails {
    *       </p>
    */
   Path?: string;
-}
-
-export namespace AwsEfsAccessPointRootDirectoryDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEfsAccessPointRootDirectoryDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8388,15 +6565,6 @@ export interface AwsEfsAccessPointDetails {
   RootDirectory?: AwsEfsAccessPointRootDirectoryDetails;
 }
 
-export namespace AwsEfsAccessPointDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEfsAccessPointDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for a cluster logging configuration.</p>
  */
@@ -8412,15 +6580,6 @@ export interface AwsEksClusterLoggingClusterLoggingDetails {
   Types?: string[];
 }
 
-export namespace AwsEksClusterLoggingClusterLoggingDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEksClusterLoggingClusterLoggingDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The logging configuration for an Amazon EKS cluster.</p>
  */
@@ -8429,15 +6588,6 @@ export interface AwsEksClusterLoggingDetails {
    * <p>Cluster logging configurations.</p>
    */
   ClusterLogging?: AwsEksClusterLoggingClusterLoggingDetails[];
-}
-
-export namespace AwsEksClusterLoggingDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEksClusterLoggingDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8453,15 +6603,6 @@ export interface AwsEksClusterResourcesVpcConfigDetails {
    * <p>The subnets that are associated with the cluster.</p>
    */
   SubnetIds?: string[];
-}
-
-export namespace AwsEksClusterResourcesVpcConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEksClusterResourcesVpcConfigDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8514,15 +6655,6 @@ export interface AwsEksClusterDetails {
   Logging?: AwsEksClusterLoggingDetails;
 }
 
-export namespace AwsEksClusterDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsEksClusterDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a link to another environment that is in the same group.</p>
  */
@@ -8536,15 +6668,6 @@ export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
    * <p>The name of the environment link.</p>
    */
   LinkName?: string;
-}
-
-export namespace AwsElasticBeanstalkEnvironmentEnvironmentLink {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentEnvironmentLink): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8572,15 +6695,6 @@ export interface AwsElasticBeanstalkEnvironmentOptionSetting {
   Value?: string;
 }
 
-export namespace AwsElasticBeanstalkEnvironmentOptionSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentOptionSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the tier of the environment.</p>
  */
@@ -8599,15 +6713,6 @@ export interface AwsElasticBeanstalkEnvironmentTier {
    * <p>The version of the environment tier.</p>
    */
   Version?: string;
-}
-
-export namespace AwsElasticBeanstalkEnvironmentTier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentTier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8695,15 +6800,6 @@ export interface AwsElasticBeanstalkEnvironmentDetails {
   VersionLabel?: string;
 }
 
-export namespace AwsElasticBeanstalkEnvironmentDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Additional options for the domain endpoint, such as whether to require HTTPS for all
  *          traffic.</p>
@@ -8732,15 +6828,6 @@ export interface AwsElasticsearchDomainDomainEndpointOptions {
   TLSSecurityPolicy?: string;
 }
 
-export namespace AwsElasticsearchDomainDomainEndpointOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainDomainEndpointOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration options for zone awareness.</p>
  */
@@ -8749,17 +6836,6 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessCo
    * <p>he number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
    */
   AvailabilityZoneCount?: number;
-}
-
-export namespace AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8802,15 +6878,6 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
   ZoneAwarenessEnabled?: boolean;
 }
 
-export namespace AwsElasticsearchDomainElasticsearchClusterConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainElasticsearchClusterConfigDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the configuration for encryption at rest.</p>
  */
@@ -8826,15 +6893,6 @@ export interface AwsElasticsearchDomainEncryptionAtRestOptions {
   KmsKeyId?: string;
 }
 
-export namespace AwsElasticsearchDomainEncryptionAtRestOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainEncryptionAtRestOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The log configuration.</p>
  */
@@ -8848,15 +6906,6 @@ export interface AwsElasticsearchDomainLogPublishingOptionsLogConfig {
    * <p>Whether the log publishing is enabled.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace AwsElasticsearchDomainLogPublishingOptionsLogConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainLogPublishingOptionsLogConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8882,15 +6931,6 @@ export interface AwsElasticsearchDomainLogPublishingOptions {
   AuditLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
 }
 
-export namespace AwsElasticsearchDomainLogPublishingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainLogPublishingOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the configuration for node-to-node encryption.</p>
  */
@@ -8899,15 +6939,6 @@ export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
    * <p>Whether node-to-node encryption is enabled.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace AwsElasticsearchDomainNodeToNodeEncryptionOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainNodeToNodeEncryptionOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8951,15 +6982,6 @@ export interface AwsElasticsearchDomainServiceSoftwareOptions {
   UpdateStatus?: string;
 }
 
-export namespace AwsElasticsearchDomainServiceSoftwareOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainServiceSoftwareOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
  *          domain.</p>
@@ -8984,15 +7006,6 @@ export interface AwsElasticsearchDomainVPCOptions {
    * <p>ID for the VPC.</p>
    */
   VPCId?: string;
-}
-
-export namespace AwsElasticsearchDomainVPCOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainVPCOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9073,15 +7086,6 @@ export interface AwsElasticsearchDomainDetails {
   VPCOptions?: AwsElasticsearchDomainVPCOptions;
 }
 
-export namespace AwsElasticsearchDomainDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElasticsearchDomainDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a stickiness policy that was created using
  *             <code>CreateAppCookieStickinessPolicy</code>.</p>
@@ -9097,15 +7101,6 @@ export interface AwsElbAppCookieStickinessPolicy {
    *          of policies for the load balancer.</p>
    */
   PolicyName?: string;
-}
-
-export namespace AwsElbAppCookieStickinessPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbAppCookieStickinessPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9125,15 +7120,6 @@ export interface AwsElbLbCookieStickinessPolicy {
    *          balancer.</p>
    */
   PolicyName?: string;
-}
-
-export namespace AwsElbLbCookieStickinessPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLbCookieStickinessPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9163,15 +7149,6 @@ export interface AwsElbLoadBalancerAccessLog {
   S3BucketPrefix?: string;
 }
 
-export namespace AwsElbLoadBalancerAccessLog {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerAccessLog): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about additional attributes for the load balancer.</p>
  */
@@ -9185,15 +7162,6 @@ export interface AwsElbLoadBalancerAdditionalAttribute {
    * <p>The value of the attribute.</p>
    */
   Value?: string;
-}
-
-export namespace AwsElbLoadBalancerAdditionalAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerAdditionalAttribute): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9213,15 +7181,6 @@ export interface AwsElbLoadBalancerConnectionDraining {
   Timeout?: number;
 }
 
-export namespace AwsElbLoadBalancerConnectionDraining {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerConnectionDraining): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains connection settings for the load balancer.</p>
  */
@@ -9233,15 +7192,6 @@ export interface AwsElbLoadBalancerConnectionSettings {
   IdleTimeout?: number;
 }
 
-export namespace AwsElbLoadBalancerConnectionSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerConnectionSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains cross-zone load balancing settings for the load balancer.</p>
  */
@@ -9250,15 +7200,6 @@ export interface AwsElbLoadBalancerCrossZoneLoadBalancing {
    * <p>Indicates whether cross-zone load balancing is enabled for the load balancer.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace AwsElbLoadBalancerCrossZoneLoadBalancing {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerCrossZoneLoadBalancing): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9300,15 +7241,6 @@ export interface AwsElbLoadBalancerAttributes {
   AdditionalAttributes?: AwsElbLoadBalancerAdditionalAttribute[];
 }
 
-export namespace AwsElbLoadBalancerAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the configuration of an EC2 instance for the load
  *          balancer.</p>
@@ -9323,15 +7255,6 @@ export interface AwsElbLoadBalancerBackendServerDescription {
    * <p>The names of the policies that are enabled for the EC2 instance.</p>
    */
   PolicyNames?: string[];
-}
-
-export namespace AwsElbLoadBalancerBackendServerDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerBackendServerDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9383,15 +7306,6 @@ export interface AwsElbLoadBalancerHealthCheck {
   UnhealthyThreshold?: number;
 }
 
-export namespace AwsElbLoadBalancerHealthCheck {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerHealthCheck): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an EC2 instance for a load balancer.</p>
  */
@@ -9400,15 +7314,6 @@ export interface AwsElbLoadBalancerInstance {
    * <p>The instance identifier.</p>
    */
   InstanceId?: string;
-}
-
-export namespace AwsElbLoadBalancerInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerInstance): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9450,15 +7355,6 @@ export interface AwsElbLoadBalancerListener {
   SslCertificateId?: string;
 }
 
-export namespace AwsElbLoadBalancerListener {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerListener): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lists the policies that are enabled for a load balancer listener.</p>
  */
@@ -9472,15 +7368,6 @@ export interface AwsElbLoadBalancerListenerDescription {
    * <p>The policies enabled for the listener.</p>
    */
   PolicyNames?: string[];
-}
-
-export namespace AwsElbLoadBalancerListenerDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerListenerDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9505,15 +7392,6 @@ export interface AwsElbLoadBalancerPolicies {
   OtherPolicies?: string[];
 }
 
-export namespace AwsElbLoadBalancerPolicies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerPolicies): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the security group for the load balancer.</p>
  */
@@ -9527,15 +7405,6 @@ export interface AwsElbLoadBalancerSourceSecurityGroup {
    * <p>The owner of the security group.</p>
    */
   OwnerAlias?: string;
-}
-
-export namespace AwsElbLoadBalancerSourceSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerSourceSecurityGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9637,15 +7506,6 @@ export interface AwsElbLoadBalancerDetails {
   VpcId?: string;
 }
 
-export namespace AwsElbLoadBalancerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbLoadBalancerDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A load balancer attribute.</p>
  */
@@ -9659,15 +7519,6 @@ export interface AwsElbv2LoadBalancerAttribute {
    * <p>The value of the load balancer attribute.</p>
    */
   Value?: string;
-}
-
-export namespace AwsElbv2LoadBalancerAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbv2LoadBalancerAttribute): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9686,15 +7537,6 @@ export interface LoadBalancerState {
    * <p>A description of the state.</p>
    */
   Reason?: string;
-}
-
-export namespace LoadBalancerState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9762,15 +7604,6 @@ export interface AwsElbv2LoadBalancerDetails {
   LoadBalancerAttributes?: AwsElbv2LoadBalancerAttribute[];
 }
 
-export namespace AwsElbv2LoadBalancerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsElbv2LoadBalancerDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Attributes of the session that the key was used for.</p>
  */
@@ -9787,15 +7620,6 @@ export interface AwsIamAccessKeySessionContextAttributes {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreationDate?: string;
-}
-
-export namespace AwsIamAccessKeySessionContextAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamAccessKeySessionContextAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9829,15 +7653,6 @@ export interface AwsIamAccessKeySessionContextSessionIssuer {
   UserName?: string;
 }
 
-export namespace AwsIamAccessKeySessionContextSessionIssuer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamAccessKeySessionContextSessionIssuer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the session that the key was used for.</p>
  */
@@ -9851,15 +7666,6 @@ export interface AwsIamAccessKeySessionContext {
    * <p>Information about the entity that created the session.</p>
    */
   SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
-}
-
-export namespace AwsIamAccessKeySessionContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamAccessKeySessionContext): any => ({
-    ...obj,
-  });
 }
 
 export enum AwsIamAccessKeyStatus {
@@ -9925,15 +7731,6 @@ export interface AwsIamAccessKeyDetails {
   SessionContext?: AwsIamAccessKeySessionContext;
 }
 
-export namespace AwsIamAccessKeyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamAccessKeyDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A managed policy that is attached to an IAM principal.</p>
  */
@@ -9949,15 +7746,6 @@ export interface AwsIamAttachedManagedPolicy {
   PolicyArn?: string;
 }
 
-export namespace AwsIamAttachedManagedPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamAttachedManagedPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A managed policy that is attached to the IAM group.</p>
  */
@@ -9966,15 +7754,6 @@ export interface AwsIamGroupPolicy {
    * <p>The name of the policy.</p>
    */
   PolicyName?: string;
-}
-
-export namespace AwsIamGroupPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamGroupPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10015,15 +7794,6 @@ export interface AwsIamGroupDetails {
   Path?: string;
 }
 
-export namespace AwsIamGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamGroupDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a role associated with an instance profile.</p>
  */
@@ -10060,15 +7830,6 @@ export interface AwsIamInstanceProfileRole {
    * <p>The name of the role.</p>
    */
   RoleName?: string;
-}
-
-export namespace AwsIamInstanceProfileRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamInstanceProfileRole): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10109,15 +7870,6 @@ export interface AwsIamInstanceProfile {
   Roles?: AwsIamInstanceProfileRole[];
 }
 
-export namespace AwsIamInstanceProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamInstanceProfile): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the policy used to set the permissions boundary for an IAM
  *          principal.</p>
@@ -10132,15 +7884,6 @@ export interface AwsIamPermissionsBoundary {
    * <p>The usage type for the permissions boundary.</p>
    */
   PermissionsBoundaryType?: string;
-}
-
-export namespace AwsIamPermissionsBoundary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamPermissionsBoundary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10164,15 +7907,6 @@ export interface AwsIamPolicyVersion {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   CreateDate?: string;
-}
-
-export namespace AwsIamPolicyVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamPolicyVersion): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10242,15 +7976,6 @@ export interface AwsIamPolicyDetails {
   UpdateDate?: string;
 }
 
-export namespace AwsIamPolicyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamPolicyDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An inline policy that is embedded in the role.</p>
  */
@@ -10259,15 +7984,6 @@ export interface AwsIamRolePolicy {
    * <p>The name of the policy.</p>
    */
   PolicyName?: string;
-}
-
-export namespace AwsIamRolePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamRolePolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10329,15 +8045,6 @@ export interface AwsIamRoleDetails {
   Path?: string;
 }
 
-export namespace AwsIamRoleDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamRoleDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an inline policy that is embedded in the user.</p>
  */
@@ -10346,15 +8053,6 @@ export interface AwsIamUserPolicy {
    * <p>The name of the policy.</p>
    */
   PolicyName?: string;
-}
-
-export namespace AwsIamUserPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamUserPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10405,15 +8103,6 @@ export interface AwsIamUserDetails {
   UserPolicyList?: AwsIamUserPolicy[];
 }
 
-export namespace AwsIamUserDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIamUserDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about stream encryption.
  *       </p>
@@ -10429,15 +8118,6 @@ export interface AwsKinesisStreamStreamEncryptionDetails {
    * <p>The globally unique identifier for the customer-managed KMS key to use for encryption. </p>
    */
   KeyId?: string;
-}
-
-export namespace AwsKinesisStreamStreamEncryptionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsKinesisStreamStreamEncryptionDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10476,15 +8156,6 @@ export interface AwsKinesisStreamDetails {
    *       </p>
    */
   RetentionPeriodHours?: number;
-}
-
-export namespace AwsKinesisStreamDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsKinesisStreamDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10539,15 +8210,6 @@ export interface AwsKmsKeyDetails {
   KeyRotationStatus?: boolean;
 }
 
-export namespace AwsKmsKeyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsKmsKeyDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
  */
@@ -10573,15 +8235,6 @@ export interface AwsLambdaFunctionCode {
   ZipFile?: string;
 }
 
-export namespace AwsLambdaFunctionCode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionCode): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The dead-letter queue for failed asynchronous invocations.</p>
  */
@@ -10590,15 +8243,6 @@ export interface AwsLambdaFunctionDeadLetterConfig {
    * <p>The ARN of an SQS queue or SNS topic.</p>
    */
   TargetArn?: string;
-}
-
-export namespace AwsLambdaFunctionDeadLetterConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionDeadLetterConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10616,15 +8260,6 @@ export interface AwsLambdaFunctionEnvironmentError {
   Message?: string;
 }
 
-export namespace AwsLambdaFunctionEnvironmentError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionEnvironmentError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A function's environment variable settings.</p>
  */
@@ -10638,15 +8273,6 @@ export interface AwsLambdaFunctionEnvironment {
    * <p>An <code>AwsLambdaFunctionEnvironmentError</code> object.</p>
    */
   Error?: AwsLambdaFunctionEnvironmentError;
-}
-
-export namespace AwsLambdaFunctionEnvironment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionEnvironment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10664,15 +8290,6 @@ export interface AwsLambdaFunctionLayer {
   CodeSize?: number;
 }
 
-export namespace AwsLambdaFunctionLayer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionLayer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The function's X-Ray tracing configuration.</p>
  */
@@ -10681,15 +8298,6 @@ export interface AwsLambdaFunctionTracingConfig {
    * <p>The tracing mode.</p>
    */
   Mode?: string;
-}
-
-export namespace AwsLambdaFunctionTracingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionTracingConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10710,15 +8318,6 @@ export interface AwsLambdaFunctionVpcConfig {
    * <p>The ID of the VPC.</p>
    */
   VpcId?: string;
-}
-
-export namespace AwsLambdaFunctionVpcConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionVpcConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10819,15 +8418,6 @@ export interface AwsLambdaFunctionDetails {
   Version?: string;
 }
 
-export namespace AwsLambdaFunctionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsLambdaFunctionDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a Lambda layer version.</p>
  */
@@ -10857,15 +8447,6 @@ export interface AwsLambdaLayerVersionDetails {
   CreatedDate?: string;
 }
 
-export namespace AwsLambdaLayerVersionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsLambdaLayerVersionDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A public subnet that Network Firewall uses for the firewall.</p>
  */
@@ -10874,15 +8455,6 @@ export interface AwsNetworkFirewallFirewallSubnetMappingsDetails {
    * <p>The identifier of the subnet</p>
    */
   SubnetId?: string;
-}
-
-export namespace AwsNetworkFirewallFirewallSubnetMappingsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsNetworkFirewallFirewallSubnetMappingsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10940,15 +8512,6 @@ export interface AwsNetworkFirewallFirewallDetails {
   VpcId?: string;
 }
 
-export namespace AwsNetworkFirewallFirewallDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsNetworkFirewallFirewallDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A stateful rule group that is used by the firewall policy.</p>
  */
@@ -10957,15 +8520,6 @@ export interface FirewallPolicyStatefulRuleGroupReferencesDetails {
    * <p>The ARN of the stateful rule group.</p>
    */
   ResourceArn?: string;
-}
-
-export namespace FirewallPolicyStatefulRuleGroupReferencesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallPolicyStatefulRuleGroupReferencesDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10978,15 +8532,6 @@ export interface StatelessCustomPublishMetricActionDimension {
   Value?: string;
 }
 
-export namespace StatelessCustomPublishMetricActionDimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatelessCustomPublishMetricActionDimension): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about metrics to publish to CloudWatch.</p>
  */
@@ -10997,15 +8542,6 @@ export interface StatelessCustomPublishMetricAction {
   Dimensions?: StatelessCustomPublishMetricActionDimension[];
 }
 
-export namespace StatelessCustomPublishMetricAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatelessCustomPublishMetricAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The definition of a custom action that can be used for stateless packet handling.</p>
  */
@@ -11014,15 +8550,6 @@ export interface StatelessCustomActionDefinition {
    * <p>Information about metrics to publish to CloudWatch.</p>
    */
   PublishMetricAction?: StatelessCustomPublishMetricAction;
-}
-
-export namespace StatelessCustomActionDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatelessCustomActionDefinition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11040,15 +8567,6 @@ export interface FirewallPolicyStatelessCustomActionsDetails {
   ActionName?: string;
 }
 
-export namespace FirewallPolicyStatelessCustomActionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallPolicyStatelessCustomActionsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A stateless rule group that is used by the firewall policy.</p>
  */
@@ -11062,15 +8580,6 @@ export interface FirewallPolicyStatelessRuleGroupReferencesDetails {
    * <p>The ARN of the stateless rule group.</p>
    */
   ResourceArn?: string;
-}
-
-export namespace FirewallPolicyStatelessRuleGroupReferencesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallPolicyStatelessRuleGroupReferencesDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11107,15 +8616,6 @@ export interface FirewallPolicyDetails {
   StatelessRuleGroupReferences?: FirewallPolicyStatelessRuleGroupReferencesDetails[];
 }
 
-export namespace FirewallPolicyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallPolicyDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a firewall policy. A firewall policy defines the behavior of a network firewall.</p>
  */
@@ -11146,15 +8646,6 @@ export interface AwsNetworkFirewallFirewallPolicyDetails {
   Description?: string;
 }
 
-export namespace AwsNetworkFirewallFirewallPolicyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsNetworkFirewallFirewallPolicyDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Stateful inspection criteria for a domain list rule group.</p>
  */
@@ -11173,15 +8664,6 @@ export interface RuleGroupSourceListDetails {
    * <p>The domains that you want to inspect for in your traffic flows. You can provide full domain names, or use the '.' prefix as a wildcard. For example, <code>.example.com</code> matches all domains that end with <code>example.com</code>.</p>
    */
   Targets?: string[];
-}
-
-export namespace RuleGroupSourceListDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceListDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11219,15 +8701,6 @@ export interface RuleGroupSourceStatefulRulesHeaderDetails {
   SourcePort?: string;
 }
 
-export namespace RuleGroupSourceStatefulRulesHeaderDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatefulRulesHeaderDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A rule option for a stateful rule.</p>
  */
@@ -11241,15 +8714,6 @@ export interface RuleGroupSourceStatefulRulesOptionsDetails {
    * <p>A list of settings.</p>
    */
   Settings?: string[];
-}
-
-export namespace RuleGroupSourceStatefulRulesOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatefulRulesOptionsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11272,15 +8736,6 @@ export interface RuleGroupSourceStatefulRulesDetails {
   RuleOptions?: RuleGroupSourceStatefulRulesOptionsDetails[];
 }
 
-export namespace RuleGroupSourceStatefulRulesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatefulRulesDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A custom action definition. A custom action is an optional, non-standard action to use for stateless packet handling.</p>
  */
@@ -11294,15 +8749,6 @@ export interface RuleGroupSourceCustomActionsDetails {
    * <p>A descriptive name of the custom action.</p>
    */
   ActionName?: string;
-}
-
-export namespace RuleGroupSourceCustomActionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceCustomActionsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11320,15 +8766,6 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
   ToPort?: number;
 }
 
-export namespace RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A destination IP address or range.</p>
  */
@@ -11337,15 +8774,6 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesDestinations {
    * <p>An IP address or a block of IP addresses.</p>
    */
   AddressDefinition?: string;
-}
-
-export namespace RuleGroupSourceStatelessRuleMatchAttributesDestinations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesDestinations): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11363,15 +8791,6 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
   ToPort?: number;
 }
 
-export namespace RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A source IP addresses and address range to inspect for.</p>
  */
@@ -11380,15 +8799,6 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesSources {
    * <p>An IP address or a block of IP addresses.</p>
    */
   AddressDefinition?: string;
-}
-
-export namespace RuleGroupSourceStatelessRuleMatchAttributesSources {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesSources): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11404,15 +8814,6 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
    * <p>The set of flags to consider in the inspection. If not specified, then all flags are inspected.</p>
    */
   Masks?: string[];
-}
-
-export namespace RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11450,15 +8851,6 @@ export interface RuleGroupSourceStatelessRuleMatchAttributes {
   TcpFlags?: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags[];
 }
 
-export namespace RuleGroupSourceStatelessRuleMatchAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleMatchAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The definition of the stateless rule.</p>
  */
@@ -11472,15 +8864,6 @@ export interface RuleGroupSourceStatelessRuleDefinition {
    * <p>The criteria for Network Firewall to use to inspect an individual packet in a stateless rule inspection.</p>
    */
   MatchAttributes?: RuleGroupSourceStatelessRuleMatchAttributes;
-}
-
-export namespace RuleGroupSourceStatelessRuleDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRuleDefinition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11498,15 +8881,6 @@ export interface RuleGroupSourceStatelessRulesDetails {
   RuleDefinition?: RuleGroupSourceStatelessRuleDefinition;
 }
 
-export namespace RuleGroupSourceStatelessRulesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRulesDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Stateless rules and custom actions for a stateless rule group.</p>
  */
@@ -11520,15 +8894,6 @@ export interface RuleGroupSourceStatelessRulesAndCustomActionsDetails {
    * <p>Stateless rules for the rule group.</p>
    */
   StatelessRules?: RuleGroupSourceStatelessRulesDetails[];
-}
-
-export namespace RuleGroupSourceStatelessRulesAndCustomActionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSourceStatelessRulesAndCustomActionsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11556,15 +8921,6 @@ export interface RuleGroupSource {
   StatelessRulesAndCustomActions?: RuleGroupSourceStatelessRulesAndCustomActionsDetails;
 }
 
-export namespace RuleGroupSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
  */
@@ -11575,11 +8931,2332 @@ export interface RuleGroupVariablesIpSetsDetails {
   Definition?: string[];
 }
 
-export namespace RuleGroupVariablesIpSetsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupVariablesIpSetsDetails): any => ({
+/**
+ * @internal
+ */
+export const AcceptAdministratorInvitationRequestFilterSensitiveLog = (
+  obj: AcceptAdministratorInvitationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptAdministratorInvitationResponseFilterSensitiveLog = (
+  obj: AcceptAdministratorInvitationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptInvitationRequestFilterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptInvitationResponseFilterSensitiveLog = (obj: AcceptInvitationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountDetailsFilterSensitiveLog = (obj: AccountDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiCallActionDomainDetailsFilterSensitiveLog = (obj: AwsApiCallActionDomainDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CityFilterSensitiveLog = (obj: City): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountryFilterSensitiveLog = (obj: Country): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeoLocationFilterSensitiveLog = (obj: GeoLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpOrganizationDetailsFilterSensitiveLog = (obj: IpOrganizationDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionRemoteIpDetailsFilterSensitiveLog = (obj: ActionRemoteIpDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiCallActionFilterSensitiveLog = (obj: AwsApiCallAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsRequestActionFilterSensitiveLog = (obj: DnsRequestAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionLocalPortDetailsFilterSensitiveLog = (obj: ActionLocalPortDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionRemotePortDetailsFilterSensitiveLog = (obj: ActionRemotePortDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkConnectionActionFilterSensitiveLog = (obj: NetworkConnectionAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionLocalIpDetailsFilterSensitiveLog = (obj: ActionLocalIpDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortProbeDetailFilterSensitiveLog = (obj: PortProbeDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortProbeActionFilterSensitiveLog = (obj: PortProbeAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTargetFilterSensitiveLog = (obj: ActionTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdjustmentFilterSensitiveLog = (obj: Adjustment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdminAccountFilterSensitiveLog = (obj: AdminAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiGatewayAccessLogSettingsFilterSensitiveLog = (obj: AwsApiGatewayAccessLogSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiGatewayCanarySettingsFilterSensitiveLog = (obj: AwsApiGatewayCanarySettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiGatewayEndpointConfigurationFilterSensitiveLog = (obj: AwsApiGatewayEndpointConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiGatewayMethodSettingsFilterSensitiveLog = (obj: AwsApiGatewayMethodSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiGatewayRestApiDetailsFilterSensitiveLog = (obj: AwsApiGatewayRestApiDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiGatewayStageDetailsFilterSensitiveLog = (obj: AwsApiGatewayStageDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCorsConfigurationFilterSensitiveLog = (obj: AwsCorsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiGatewayV2ApiDetailsFilterSensitiveLog = (obj: AwsApiGatewayV2ApiDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiGatewayV2RouteSettingsFilterSensitiveLog = (obj: AwsApiGatewayV2RouteSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsApiGatewayV2StageDetailsFilterSensitiveLog = (obj: AwsApiGatewayV2StageDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetailsFilterSensitiveLog = (
+  obj: AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecificationFilterSensitiveLog = (
+  obj: AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetailsFilterSensitiveLog = (
+  obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationFilterSensitiveLog =
+  (obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification): any => ({
     ...obj,
   });
-}
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetailsFilterSensitiveLog = (
+  obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetailsFilterSensitiveLog = (
+  obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetailsFilterSensitiveLog = (
+  obj: AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingAutoScalingGroupDetailsFilterSensitiveLog = (
+  obj: AwsAutoScalingAutoScalingGroupDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetailsFilterSensitiveLog = (
+  obj: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetailsFilterSensitiveLog = (
+  obj: AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingLaunchConfigurationInstanceMonitoringDetailsFilterSensitiveLog = (
+  obj: AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingLaunchConfigurationMetadataOptionsFilterSensitiveLog = (
+  obj: AwsAutoScalingLaunchConfigurationMetadataOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsAutoScalingLaunchConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsAutoScalingLaunchConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCertificateManagerCertificateResourceRecordFilterSensitiveLog = (
+  obj: AwsCertificateManagerCertificateResourceRecord
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCertificateManagerCertificateDomainValidationOptionFilterSensitiveLog = (
+  obj: AwsCertificateManagerCertificateDomainValidationOption
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCertificateManagerCertificateExtendedKeyUsageFilterSensitiveLog = (
+  obj: AwsCertificateManagerCertificateExtendedKeyUsage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCertificateManagerCertificateKeyUsageFilterSensitiveLog = (
+  obj: AwsCertificateManagerCertificateKeyUsage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCertificateManagerCertificateOptionsFilterSensitiveLog = (
+  obj: AwsCertificateManagerCertificateOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCertificateManagerCertificateRenewalSummaryFilterSensitiveLog = (
+  obj: AwsCertificateManagerCertificateRenewalSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCertificateManagerCertificateDetailsFilterSensitiveLog = (
+  obj: AwsCertificateManagerCertificateDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFormationStackDriftInformationDetailsFilterSensitiveLog = (
+  obj: AwsCloudFormationStackDriftInformationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFormationStackOutputsDetailsFilterSensitiveLog = (
+  obj: AwsCloudFormationStackOutputsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFormationStackDetailsFilterSensitiveLog = (obj: AwsCloudFormationStackDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionCacheBehaviorFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionCacheBehavior
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionCacheBehaviorsFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionCacheBehaviors
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionDefaultCacheBehaviorFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionDefaultCacheBehavior
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionLoggingFilterSensitiveLog = (obj: AwsCloudFrontDistributionLogging): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionOriginGroupFailoverStatusCodesFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionOriginGroupFailoverFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionOriginGroupFailover
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionOriginGroupFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionOriginGroup
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionOriginGroupsFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionOriginGroups
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionOriginSslProtocolsFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionOriginSslProtocols
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionOriginCustomOriginConfigFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionOriginCustomOriginConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionOriginS3OriginConfigFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionOriginS3OriginConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionOriginItemFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionOriginItem
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionOriginsFilterSensitiveLog = (obj: AwsCloudFrontDistributionOrigins): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionViewerCertificateFilterSensitiveLog = (
+  obj: AwsCloudFrontDistributionViewerCertificate
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudFrontDistributionDetailsFilterSensitiveLog = (obj: AwsCloudFrontDistributionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudTrailTrailDetailsFilterSensitiveLog = (obj: AwsCloudTrailTrailDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudWatchAlarmDimensionsDetailsFilterSensitiveLog = (
+  obj: AwsCloudWatchAlarmDimensionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCloudWatchAlarmDetailsFilterSensitiveLog = (obj: AwsCloudWatchAlarmDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCodeBuildProjectArtifactsDetailsFilterSensitiveLog = (
+  obj: AwsCodeBuildProjectArtifactsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetailsFilterSensitiveLog = (
+  obj: AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCodeBuildProjectEnvironmentRegistryCredentialFilterSensitiveLog = (
+  obj: AwsCodeBuildProjectEnvironmentRegistryCredential
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCodeBuildProjectEnvironmentFilterSensitiveLog = (obj: AwsCodeBuildProjectEnvironment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCodeBuildProjectLogsConfigCloudWatchLogsDetailsFilterSensitiveLog = (
+  obj: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCodeBuildProjectLogsConfigS3LogsDetailsFilterSensitiveLog = (
+  obj: AwsCodeBuildProjectLogsConfigS3LogsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCodeBuildProjectLogsConfigDetailsFilterSensitiveLog = (
+  obj: AwsCodeBuildProjectLogsConfigDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCodeBuildProjectSourceFilterSensitiveLog = (obj: AwsCodeBuildProjectSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCodeBuildProjectVpcConfigFilterSensitiveLog = (obj: AwsCodeBuildProjectVpcConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCodeBuildProjectDetailsFilterSensitiveLog = (obj: AwsCodeBuildProjectDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableAttributeDefinitionFilterSensitiveLog = (
+  obj: AwsDynamoDbTableAttributeDefinition
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableBillingModeSummaryFilterSensitiveLog = (obj: AwsDynamoDbTableBillingModeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableKeySchemaFilterSensitiveLog = (obj: AwsDynamoDbTableKeySchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableProjectionFilterSensitiveLog = (obj: AwsDynamoDbTableProjection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableProvisionedThroughputFilterSensitiveLog = (
+  obj: AwsDynamoDbTableProvisionedThroughput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableGlobalSecondaryIndexFilterSensitiveLog = (
+  obj: AwsDynamoDbTableGlobalSecondaryIndex
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableLocalSecondaryIndexFilterSensitiveLog = (
+  obj: AwsDynamoDbTableLocalSecondaryIndex
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableProvisionedThroughputOverrideFilterSensitiveLog = (
+  obj: AwsDynamoDbTableProvisionedThroughputOverride
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableReplicaGlobalSecondaryIndexFilterSensitiveLog = (
+  obj: AwsDynamoDbTableReplicaGlobalSecondaryIndex
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableReplicaFilterSensitiveLog = (obj: AwsDynamoDbTableReplica): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableRestoreSummaryFilterSensitiveLog = (obj: AwsDynamoDbTableRestoreSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableSseDescriptionFilterSensitiveLog = (obj: AwsDynamoDbTableSseDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableStreamSpecificationFilterSensitiveLog = (
+  obj: AwsDynamoDbTableStreamSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsDynamoDbTableDetailsFilterSensitiveLog = (obj: AwsDynamoDbTableDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2EipDetailsFilterSensitiveLog = (obj: AwsEc2EipDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2InstanceMetadataOptionsFilterSensitiveLog = (obj: AwsEc2InstanceMetadataOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2InstanceNetworkInterfacesDetailsFilterSensitiveLog = (
+  obj: AwsEc2InstanceNetworkInterfacesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2InstanceDetailsFilterSensitiveLog = (obj: AwsEc2InstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2NetworkAclAssociationFilterSensitiveLog = (obj: AwsEc2NetworkAclAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IcmpTypeCodeFilterSensitiveLog = (obj: IcmpTypeCode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortRangeFromToFilterSensitiveLog = (obj: PortRangeFromTo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2NetworkAclEntryFilterSensitiveLog = (obj: AwsEc2NetworkAclEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2NetworkAclDetailsFilterSensitiveLog = (obj: AwsEc2NetworkAclDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2NetworkInterfaceAttachmentFilterSensitiveLog = (obj: AwsEc2NetworkInterfaceAttachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2NetworkInterfaceIpV6AddressDetailFilterSensitiveLog = (
+  obj: AwsEc2NetworkInterfaceIpV6AddressDetail
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2NetworkInterfacePrivateIpAddressDetailFilterSensitiveLog = (
+  obj: AwsEc2NetworkInterfacePrivateIpAddressDetail
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2NetworkInterfaceSecurityGroupFilterSensitiveLog = (
+  obj: AwsEc2NetworkInterfaceSecurityGroup
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2NetworkInterfaceDetailsFilterSensitiveLog = (obj: AwsEc2NetworkInterfaceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2SecurityGroupIpRangeFilterSensitiveLog = (obj: AwsEc2SecurityGroupIpRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2SecurityGroupIpv6RangeFilterSensitiveLog = (obj: AwsEc2SecurityGroupIpv6Range): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2SecurityGroupPrefixListIdFilterSensitiveLog = (obj: AwsEc2SecurityGroupPrefixListId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2SecurityGroupUserIdGroupPairFilterSensitiveLog = (obj: AwsEc2SecurityGroupUserIdGroupPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2SecurityGroupIpPermissionFilterSensitiveLog = (obj: AwsEc2SecurityGroupIpPermission): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2SecurityGroupDetailsFilterSensitiveLog = (obj: AwsEc2SecurityGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Ipv6CidrBlockAssociationFilterSensitiveLog = (obj: Ipv6CidrBlockAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2SubnetDetailsFilterSensitiveLog = (obj: AwsEc2SubnetDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2TransitGatewayDetailsFilterSensitiveLog = (obj: AwsEc2TransitGatewayDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VolumeAttachmentFilterSensitiveLog = (obj: AwsEc2VolumeAttachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VolumeDetailsFilterSensitiveLog = (obj: AwsEc2VolumeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CidrBlockAssociationFilterSensitiveLog = (obj: CidrBlockAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpcDetailsFilterSensitiveLog = (obj: AwsEc2VpcDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpcEndpointServiceServiceTypeDetailsFilterSensitiveLog = (
+  obj: AwsEc2VpcEndpointServiceServiceTypeDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpcEndpointServiceDetailsFilterSensitiveLog = (obj: AwsEc2VpcEndpointServiceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcInfoCidrBlockSetDetailsFilterSensitiveLog = (obj: VpcInfoCidrBlockSetDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcInfoIpv6CidrBlockSetDetailsFilterSensitiveLog = (obj: VpcInfoIpv6CidrBlockSetDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcInfoPeeringOptionsDetailsFilterSensitiveLog = (obj: VpcInfoPeeringOptionsDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpcPeeringConnectionVpcInfoDetailsFilterSensitiveLog = (
+  obj: AwsEc2VpcPeeringConnectionVpcInfoDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpcPeeringConnectionStatusDetailsFilterSensitiveLog = (
+  obj: AwsEc2VpcPeeringConnectionStatusDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpcPeeringConnectionDetailsFilterSensitiveLog = (obj: AwsEc2VpcPeeringConnectionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpnConnectionOptionsTunnelOptionsDetailsFilterSensitiveLog = (
+  obj: AwsEc2VpnConnectionOptionsTunnelOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpnConnectionOptionsDetailsFilterSensitiveLog = (obj: AwsEc2VpnConnectionOptionsDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpnConnectionRoutesDetailsFilterSensitiveLog = (obj: AwsEc2VpnConnectionRoutesDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpnConnectionVgwTelemetryDetailsFilterSensitiveLog = (
+  obj: AwsEc2VpnConnectionVgwTelemetryDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2VpnConnectionDetailsFilterSensitiveLog = (obj: AwsEc2VpnConnectionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcrContainerImageDetailsFilterSensitiveLog = (obj: AwsEcrContainerImageDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcrRepositoryImageScanningConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcrRepositoryImageScanningConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcrRepositoryLifecyclePolicyDetailsFilterSensitiveLog = (
+  obj: AwsEcrRepositoryLifecyclePolicyDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcrRepositoryDetailsFilterSensitiveLog = (obj: AwsEcrRepositoryDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsClusterClusterSettingsDetailsFilterSensitiveLog = (
+  obj: AwsEcsClusterClusterSettingsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsClusterConfigurationExecuteCommandConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcsClusterConfigurationExecuteCommandConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsClusterConfigurationDetailsFilterSensitiveLog = (obj: AwsEcsClusterConfigurationDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsClusterDefaultCapacityProviderStrategyDetailsFilterSensitiveLog = (
+  obj: AwsEcsClusterDefaultCapacityProviderStrategyDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsClusterDetailsFilterSensitiveLog = (obj: AwsEcsClusterDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsMountPointFilterSensitiveLog = (obj: AwsMountPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsContainerDetailsFilterSensitiveLog = (obj: AwsEcsContainerDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServiceCapacityProviderStrategyDetailsFilterSensitiveLog = (
+  obj: AwsEcsServiceCapacityProviderStrategyDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetailsFilterSensitiveLog = (
+  obj: AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServiceDeploymentConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcsServiceDeploymentConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServiceDeploymentControllerDetailsFilterSensitiveLog = (
+  obj: AwsEcsServiceDeploymentControllerDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServiceLoadBalancersDetailsFilterSensitiveLog = (obj: AwsEcsServiceLoadBalancersDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServiceNetworkConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcsServiceNetworkConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServicePlacementConstraintsDetailsFilterSensitiveLog = (
+  obj: AwsEcsServicePlacementConstraintsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServicePlacementStrategiesDetailsFilterSensitiveLog = (
+  obj: AwsEcsServicePlacementStrategiesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServiceServiceRegistriesDetailsFilterSensitiveLog = (
+  obj: AwsEcsServiceServiceRegistriesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsServiceDetailsFilterSensitiveLog = (obj: AwsEcsServiceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsSecretsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionContainerDefinitionsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionContainerDefinitionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionInferenceAcceleratorsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionInferenceAcceleratorsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionPlacementConstraintsDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionPlacementConstraintsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionProxyConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionProxyConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionVolumesHostDetailsFilterSensitiveLog = (
+  obj: AwsEcsTaskDefinitionVolumesHostDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionVolumesDetailsFilterSensitiveLog = (obj: AwsEcsTaskDefinitionVolumesDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDefinitionDetailsFilterSensitiveLog = (obj: AwsEcsTaskDefinitionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskVolumeHostDetailsFilterSensitiveLog = (obj: AwsEcsTaskVolumeHostDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskVolumeDetailsFilterSensitiveLog = (obj: AwsEcsTaskVolumeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEcsTaskDetailsFilterSensitiveLog = (obj: AwsEcsTaskDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEfsAccessPointPosixUserDetailsFilterSensitiveLog = (obj: AwsEfsAccessPointPosixUserDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEfsAccessPointRootDirectoryCreationInfoDetailsFilterSensitiveLog = (
+  obj: AwsEfsAccessPointRootDirectoryCreationInfoDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEfsAccessPointRootDirectoryDetailsFilterSensitiveLog = (
+  obj: AwsEfsAccessPointRootDirectoryDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEfsAccessPointDetailsFilterSensitiveLog = (obj: AwsEfsAccessPointDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEksClusterLoggingClusterLoggingDetailsFilterSensitiveLog = (
+  obj: AwsEksClusterLoggingClusterLoggingDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEksClusterLoggingDetailsFilterSensitiveLog = (obj: AwsEksClusterLoggingDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEksClusterResourcesVpcConfigDetailsFilterSensitiveLog = (
+  obj: AwsEksClusterResourcesVpcConfigDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEksClusterDetailsFilterSensitiveLog = (obj: AwsEksClusterDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticBeanstalkEnvironmentEnvironmentLinkFilterSensitiveLog = (
+  obj: AwsElasticBeanstalkEnvironmentEnvironmentLink
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticBeanstalkEnvironmentOptionSettingFilterSensitiveLog = (
+  obj: AwsElasticBeanstalkEnvironmentOptionSetting
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticBeanstalkEnvironmentTierFilterSensitiveLog = (obj: AwsElasticBeanstalkEnvironmentTier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticBeanstalkEnvironmentDetailsFilterSensitiveLog = (
+  obj: AwsElasticBeanstalkEnvironmentDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticsearchDomainDomainEndpointOptionsFilterSensitiveLog = (
+  obj: AwsElasticsearchDomainDomainEndpointOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetailsFilterSensitiveLog = (
+  obj: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticsearchDomainElasticsearchClusterConfigDetailsFilterSensitiveLog = (
+  obj: AwsElasticsearchDomainElasticsearchClusterConfigDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticsearchDomainEncryptionAtRestOptionsFilterSensitiveLog = (
+  obj: AwsElasticsearchDomainEncryptionAtRestOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticsearchDomainLogPublishingOptionsLogConfigFilterSensitiveLog = (
+  obj: AwsElasticsearchDomainLogPublishingOptionsLogConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticsearchDomainLogPublishingOptionsFilterSensitiveLog = (
+  obj: AwsElasticsearchDomainLogPublishingOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticsearchDomainNodeToNodeEncryptionOptionsFilterSensitiveLog = (
+  obj: AwsElasticsearchDomainNodeToNodeEncryptionOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticsearchDomainServiceSoftwareOptionsFilterSensitiveLog = (
+  obj: AwsElasticsearchDomainServiceSoftwareOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticsearchDomainVPCOptionsFilterSensitiveLog = (obj: AwsElasticsearchDomainVPCOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElasticsearchDomainDetailsFilterSensitiveLog = (obj: AwsElasticsearchDomainDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbAppCookieStickinessPolicyFilterSensitiveLog = (obj: AwsElbAppCookieStickinessPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLbCookieStickinessPolicyFilterSensitiveLog = (obj: AwsElbLbCookieStickinessPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerAccessLogFilterSensitiveLog = (obj: AwsElbLoadBalancerAccessLog): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerAdditionalAttributeFilterSensitiveLog = (
+  obj: AwsElbLoadBalancerAdditionalAttribute
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerConnectionDrainingFilterSensitiveLog = (
+  obj: AwsElbLoadBalancerConnectionDraining
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerConnectionSettingsFilterSensitiveLog = (
+  obj: AwsElbLoadBalancerConnectionSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerCrossZoneLoadBalancingFilterSensitiveLog = (
+  obj: AwsElbLoadBalancerCrossZoneLoadBalancing
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerAttributesFilterSensitiveLog = (obj: AwsElbLoadBalancerAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerBackendServerDescriptionFilterSensitiveLog = (
+  obj: AwsElbLoadBalancerBackendServerDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerHealthCheckFilterSensitiveLog = (obj: AwsElbLoadBalancerHealthCheck): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerInstanceFilterSensitiveLog = (obj: AwsElbLoadBalancerInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerListenerFilterSensitiveLog = (obj: AwsElbLoadBalancerListener): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerListenerDescriptionFilterSensitiveLog = (
+  obj: AwsElbLoadBalancerListenerDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerPoliciesFilterSensitiveLog = (obj: AwsElbLoadBalancerPolicies): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerSourceSecurityGroupFilterSensitiveLog = (
+  obj: AwsElbLoadBalancerSourceSecurityGroup
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbLoadBalancerDetailsFilterSensitiveLog = (obj: AwsElbLoadBalancerDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbv2LoadBalancerAttributeFilterSensitiveLog = (obj: AwsElbv2LoadBalancerAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerStateFilterSensitiveLog = (obj: LoadBalancerState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsElbv2LoadBalancerDetailsFilterSensitiveLog = (obj: AwsElbv2LoadBalancerDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamAccessKeySessionContextAttributesFilterSensitiveLog = (
+  obj: AwsIamAccessKeySessionContextAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamAccessKeySessionContextSessionIssuerFilterSensitiveLog = (
+  obj: AwsIamAccessKeySessionContextSessionIssuer
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamAccessKeySessionContextFilterSensitiveLog = (obj: AwsIamAccessKeySessionContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamAccessKeyDetailsFilterSensitiveLog = (obj: AwsIamAccessKeyDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamAttachedManagedPolicyFilterSensitiveLog = (obj: AwsIamAttachedManagedPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamGroupPolicyFilterSensitiveLog = (obj: AwsIamGroupPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamGroupDetailsFilterSensitiveLog = (obj: AwsIamGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamInstanceProfileRoleFilterSensitiveLog = (obj: AwsIamInstanceProfileRole): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamInstanceProfileFilterSensitiveLog = (obj: AwsIamInstanceProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamPermissionsBoundaryFilterSensitiveLog = (obj: AwsIamPermissionsBoundary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamPolicyVersionFilterSensitiveLog = (obj: AwsIamPolicyVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamPolicyDetailsFilterSensitiveLog = (obj: AwsIamPolicyDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamRolePolicyFilterSensitiveLog = (obj: AwsIamRolePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamRoleDetailsFilterSensitiveLog = (obj: AwsIamRoleDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamUserPolicyFilterSensitiveLog = (obj: AwsIamUserPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIamUserDetailsFilterSensitiveLog = (obj: AwsIamUserDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsKinesisStreamStreamEncryptionDetailsFilterSensitiveLog = (
+  obj: AwsKinesisStreamStreamEncryptionDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsKinesisStreamDetailsFilterSensitiveLog = (obj: AwsKinesisStreamDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsKmsKeyDetailsFilterSensitiveLog = (obj: AwsKmsKeyDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionCodeFilterSensitiveLog = (obj: AwsLambdaFunctionCode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionDeadLetterConfigFilterSensitiveLog = (obj: AwsLambdaFunctionDeadLetterConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionEnvironmentErrorFilterSensitiveLog = (obj: AwsLambdaFunctionEnvironmentError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionEnvironmentFilterSensitiveLog = (obj: AwsLambdaFunctionEnvironment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionLayerFilterSensitiveLog = (obj: AwsLambdaFunctionLayer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionTracingConfigFilterSensitiveLog = (obj: AwsLambdaFunctionTracingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionVpcConfigFilterSensitiveLog = (obj: AwsLambdaFunctionVpcConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionDetailsFilterSensitiveLog = (obj: AwsLambdaFunctionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaLayerVersionDetailsFilterSensitiveLog = (obj: AwsLambdaLayerVersionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsNetworkFirewallFirewallSubnetMappingsDetailsFilterSensitiveLog = (
+  obj: AwsNetworkFirewallFirewallSubnetMappingsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsNetworkFirewallFirewallDetailsFilterSensitiveLog = (obj: AwsNetworkFirewallFirewallDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyStatefulRuleGroupReferencesDetailsFilterSensitiveLog = (
+  obj: FirewallPolicyStatefulRuleGroupReferencesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatelessCustomPublishMetricActionDimensionFilterSensitiveLog = (
+  obj: StatelessCustomPublishMetricActionDimension
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatelessCustomPublishMetricActionFilterSensitiveLog = (obj: StatelessCustomPublishMetricAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatelessCustomActionDefinitionFilterSensitiveLog = (obj: StatelessCustomActionDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyStatelessCustomActionsDetailsFilterSensitiveLog = (
+  obj: FirewallPolicyStatelessCustomActionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyStatelessRuleGroupReferencesDetailsFilterSensitiveLog = (
+  obj: FirewallPolicyStatelessRuleGroupReferencesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyDetailsFilterSensitiveLog = (obj: FirewallPolicyDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsNetworkFirewallFirewallPolicyDetailsFilterSensitiveLog = (
+  obj: AwsNetworkFirewallFirewallPolicyDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceListDetailsFilterSensitiveLog = (obj: RuleGroupSourceListDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatefulRulesHeaderDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatefulRulesHeaderDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatefulRulesOptionsDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatefulRulesOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatefulRulesDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatefulRulesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceCustomActionsDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceCustomActionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesDestinationsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributesDestinations
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesSourcePortsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesSourcesFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributesSources
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleMatchAttributesFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleMatchAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRuleDefinitionFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRuleDefinition
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRulesDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRulesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatelessRulesAndCustomActionsDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatelessRulesAndCustomActionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceFilterSensitiveLog = (obj: RuleGroupSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupVariablesIpSetsDetailsFilterSensitiveLog = (obj: RuleGroupVariablesIpSetsDetails): any => ({
+  ...obj,
+});

@@ -25,15 +25,6 @@ export interface ComplianceDetails {
   ComplianceStatus?: boolean;
 }
 
-export namespace ComplianceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The target of the operation is currently being modified by a different request. Try
  *             again later.</p>
@@ -98,15 +89,6 @@ export class ConstraintViolationException extends __BaseException {
 
 export interface DescribeReportCreationInput {}
 
-export namespace DescribeReportCreationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReportCreationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeReportCreationOutput {
   /**
    * <p>Reports the status of the operation.</p>
@@ -149,15 +131,6 @@ export interface DescribeReportCreationOutput {
    * <p>Details of the common errors that all operations return.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace DescribeReportCreationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReportCreationOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -302,15 +275,6 @@ export interface FailureInfo {
   ErrorMessage?: string;
 }
 
-export namespace FailureInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailureInfo): any => ({
-    ...obj,
-  });
-}
-
 export enum GroupByAttribute {
   REGION = "REGION",
   RESOURCE_TYPE = "RESOURCE_TYPE",
@@ -392,15 +356,6 @@ export interface GetComplianceSummaryInput {
   PaginationToken?: string;
 }
 
-export namespace GetComplianceSummaryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceSummaryInput): any => ({
-    ...obj,
-  });
-}
-
 export enum TargetIdType {
   ACCOUNT = "ACCOUNT",
   OU = "OU",
@@ -443,15 +398,6 @@ export interface Summary {
   NonCompliantResources?: number;
 }
 
-export namespace Summary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Summary): any => ({
-    ...obj,
-  });
-}
-
 export interface GetComplianceSummaryOutput {
   /**
    * <p>A table that shows counts of noncompliant resources.</p>
@@ -464,15 +410,6 @@ export interface GetComplianceSummaryOutput {
    *     as the <code>PaginationToken</code> value in the request for the next page.</p>
    */
   PaginationToken?: string;
-}
-
-export namespace GetComplianceSummaryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComplianceSummaryOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -491,15 +428,6 @@ export interface TagFilter {
    *     descriptor within a tag category (key). The value can be empty or null.</p>
    */
   Values?: string[];
-}
-
-export namespace TagFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourcesInput {
@@ -649,15 +577,6 @@ export interface GetResourcesInput {
   ResourceARNList?: string[];
 }
 
-export namespace GetResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize
  *             them. Each tag consists of a key and a value, both of which you define. For more
@@ -675,15 +594,6 @@ export interface Tag {
    *     descriptor within a tag category (key). The value can be empty or null.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -708,15 +618,6 @@ export interface ResourceTagMapping {
   ComplianceDetails?: ComplianceDetails;
 }
 
-export namespace ResourceTagMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTagMapping): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourcesOutput {
   /**
    * <p>A string that indicates that there is more data available than this
@@ -730,15 +631,6 @@ export interface GetResourcesOutput {
    *     each.</p>
    */
   ResourceTagMappingList?: ResourceTagMapping[];
-}
-
-export namespace GetResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -772,15 +664,6 @@ export interface GetTagKeysInput {
   PaginationToken?: string;
 }
 
-export namespace GetTagKeysInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagKeysInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTagKeysOutput {
   /**
    * <p>A string that indicates that there is more data available than this
@@ -793,15 +676,6 @@ export interface GetTagKeysOutput {
    * <p>A list of all tag keys in the Amazon Web Services account.</p>
    */
   TagKeys?: string[];
-}
-
-export namespace GetTagKeysOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagKeysOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTagValuesInput {
@@ -819,15 +693,6 @@ export interface GetTagValuesInput {
   Key: string | undefined;
 }
 
-export namespace GetTagValuesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagValuesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTagValuesOutput {
   /**
    * <p>A string that indicates that there is more data available than this
@@ -843,15 +708,6 @@ export interface GetTagValuesOutput {
   TagValues?: string[];
 }
 
-export namespace GetTagValuesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagValuesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface StartReportCreationInput {
   /**
    * <p>The name of the Amazon S3 bucket where the report will be stored; for example:</p>
@@ -864,25 +720,7 @@ export interface StartReportCreationInput {
   S3Bucket: string | undefined;
 }
 
-export namespace StartReportCreationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartReportCreationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StartReportCreationOutput {}
-
-export namespace StartReportCreationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartReportCreationOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourcesInput {
   /**
@@ -901,15 +739,6 @@ export interface TagResourcesInput {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourcesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourcesOutput {
   /**
    * <p>A map containing a key-value pair for each failed item that couldn't be tagged. The
@@ -918,15 +747,6 @@ export interface TagResourcesOutput {
    *             errors, the <code>FailedResourcesMap</code> is empty.</p>
    */
   FailedResourcesMap?: Record<string, FailureInfo>;
-}
-
-export namespace TagResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourcesInput {
@@ -946,15 +766,6 @@ export interface UntagResourcesInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourcesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourcesOutput {
   /**
    * <p>A map containing a key-value pair for each failed item that couldn't be untagged. The
@@ -965,11 +776,156 @@ export interface UntagResourcesOutput {
   FailedResourcesMap?: Record<string, FailureInfo>;
 }
 
-export namespace UntagResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourcesOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ComplianceDetailsFilterSensitiveLog = (obj: ComplianceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReportCreationInputFilterSensitiveLog = (obj: DescribeReportCreationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReportCreationOutputFilterSensitiveLog = (obj: DescribeReportCreationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailureInfoFilterSensitiveLog = (obj: FailureInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceSummaryInputFilterSensitiveLog = (obj: GetComplianceSummaryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SummaryFilterSensitiveLog = (obj: Summary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComplianceSummaryOutputFilterSensitiveLog = (obj: GetComplianceSummaryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterFilterSensitiveLog = (obj: TagFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcesInputFilterSensitiveLog = (obj: GetResourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTagMappingFilterSensitiveLog = (obj: ResourceTagMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcesOutputFilterSensitiveLog = (obj: GetResourcesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagKeysInputFilterSensitiveLog = (obj: GetTagKeysInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagKeysOutputFilterSensitiveLog = (obj: GetTagKeysOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagValuesInputFilterSensitiveLog = (obj: GetTagValuesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagValuesOutputFilterSensitiveLog = (obj: GetTagValuesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartReportCreationInputFilterSensitiveLog = (obj: StartReportCreationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartReportCreationOutputFilterSensitiveLog = (obj: StartReportCreationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourcesInputFilterSensitiveLog = (obj: TagResourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourcesOutputFilterSensitiveLog = (obj: TagResourcesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourcesInputFilterSensitiveLog = (obj: UntagResourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourcesOutputFilterSensitiveLog = (obj: UntagResourcesOutput): any => ({
+  ...obj,
+});

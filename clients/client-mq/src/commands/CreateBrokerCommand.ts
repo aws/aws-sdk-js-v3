@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateBrokerRequest, CreateBrokerResponse } from "../models/models_0";
+import {
+  CreateBrokerRequest,
+  CreateBrokerRequestFilterSensitiveLog,
+  CreateBrokerResponse,
+  CreateBrokerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
   deserializeAws_restJson1CreateBrokerCommand,
@@ -72,8 +77,8 @@ export class CreateBrokerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBrokerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateBrokerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBrokerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateBrokerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

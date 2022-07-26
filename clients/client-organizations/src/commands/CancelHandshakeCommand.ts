@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelHandshakeRequest, CancelHandshakeResponse } from "../models/models_0";
+import {
+  CancelHandshakeRequest,
+  CancelHandshakeRequestFilterSensitiveLog,
+  CancelHandshakeResponse,
+  CancelHandshakeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1CancelHandshakeCommand,
@@ -77,8 +82,8 @@ export class CancelHandshakeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelHandshakeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelHandshakeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelHandshakeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelHandshakeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

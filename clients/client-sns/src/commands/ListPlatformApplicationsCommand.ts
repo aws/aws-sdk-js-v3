@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListPlatformApplicationsInput, ListPlatformApplicationsResponse } from "../models/models_0";
+import {
+  ListPlatformApplicationsInput,
+  ListPlatformApplicationsInputFilterSensitiveLog,
+  ListPlatformApplicationsResponse,
+  ListPlatformApplicationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListPlatformApplicationsCommand,
   serializeAws_queryListPlatformApplicationsCommand,
@@ -81,8 +86,8 @@ export class ListPlatformApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlatformApplicationsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPlatformApplicationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPlatformApplicationsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPlatformApplicationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { TagResourceInput } from "../models/models_0";
+import { TagResourceInput, TagResourceInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1TagResourceCommand,
   serializeAws_restJson1TagResourceCommand,
@@ -73,7 +73,7 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceInput.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

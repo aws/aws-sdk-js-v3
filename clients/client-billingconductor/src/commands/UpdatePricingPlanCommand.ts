@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import { UpdatePricingPlanInput, UpdatePricingPlanOutput } from "../models/models_0";
+import {
+  UpdatePricingPlanInput,
+  UpdatePricingPlanInputFilterSensitiveLog,
+  UpdatePricingPlanOutput,
+  UpdatePricingPlanOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePricingPlanCommand,
   serializeAws_restJson1UpdatePricingPlanCommand,
@@ -73,8 +78,8 @@ export class UpdatePricingPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePricingPlanInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePricingPlanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePricingPlanInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePricingPlanOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

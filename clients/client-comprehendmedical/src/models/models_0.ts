@@ -56,15 +56,6 @@ export interface Trait {
   Score?: number;
 }
 
-export namespace Trait {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Trait): any => ({
-    ...obj,
-  });
-}
-
 export enum EntitySubType {
   ACUITY = "ACUITY",
   ADDRESS = "ADDRESS",
@@ -171,15 +162,6 @@ export interface Attribute {
   Traits?: Trait[];
 }
 
-export namespace Attribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       The number of characters in the input text to be analyzed.
@@ -194,15 +176,6 @@ export interface Characters {
   OriginalTextCharacters?: number;
 }
 
-export namespace Characters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Characters): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEntitiesDetectionV2JobRequest {
   /**
    * <p>The identifier that Comprehend Medical; generated for the job. The
@@ -210,15 +183,6 @@ export interface DescribeEntitiesDetectionV2JobRequest {
    *       response.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribeEntitiesDetectionV2JobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEntitiesDetectionV2JobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -238,15 +202,6 @@ export interface InputDataConfig {
    * <p>The path to the input data files in the S3 bucket.</p>
    */
   S3Key?: string;
-}
-
-export namespace InputDataConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDataConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum JobStatus {
@@ -281,15 +236,6 @@ export interface OutputDataConfig {
    *       another.</p>
    */
   S3Key?: string;
-}
-
-export namespace OutputDataConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputDataConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -373,29 +319,11 @@ export interface ComprehendMedicalAsyncJobProperties {
   ModelVersion?: string;
 }
 
-export namespace ComprehendMedicalAsyncJobProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComprehendMedicalAsyncJobProperties): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEntitiesDetectionV2JobResponse {
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
    */
   ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
-}
-
-export namespace DescribeEntitiesDetectionV2JobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEntitiesDetectionV2JobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -494,29 +422,11 @@ export interface DescribeICD10CMInferenceJobRequest {
   JobId: string | undefined;
 }
 
-export namespace DescribeICD10CMInferenceJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeICD10CMInferenceJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeICD10CMInferenceJobResponse {
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
    */
   ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
-}
-
-export namespace DescribeICD10CMInferenceJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeICD10CMInferenceJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePHIDetectionJobRequest {
@@ -527,29 +437,11 @@ export interface DescribePHIDetectionJobRequest {
   JobId: string | undefined;
 }
 
-export namespace DescribePHIDetectionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePHIDetectionJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePHIDetectionJobResponse {
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
    */
   ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
-}
-
-export namespace DescribePHIDetectionJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePHIDetectionJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRxNormInferenceJobRequest {
@@ -560,29 +452,11 @@ export interface DescribeRxNormInferenceJobRequest {
   JobId: string | undefined;
 }
 
-export namespace DescribeRxNormInferenceJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRxNormInferenceJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRxNormInferenceJobResponse {
   /**
    * <p>An object that contains the properties associated with a detection job.</p>
    */
   ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
-}
-
-export namespace DescribeRxNormInferenceJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRxNormInferenceJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSNOMEDCTInferenceJobRequest {
@@ -594,29 +468,11 @@ export interface DescribeSNOMEDCTInferenceJobRequest {
   JobId: string | undefined;
 }
 
-export namespace DescribeSNOMEDCTInferenceJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSNOMEDCTInferenceJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSNOMEDCTInferenceJobResponse {
   /**
    * <p>Provides information about a detection job.</p>
    */
   ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
-}
-
-export namespace DescribeSNOMEDCTInferenceJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSNOMEDCTInferenceJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DetectEntitiesRequest {
@@ -625,15 +481,6 @@ export interface DetectEntitiesRequest {
    *       string must contain fewer than 20,000 bytes of characters.</p>
    */
   Text: string | undefined;
-}
-
-export namespace DetectEntitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectEntitiesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -689,15 +536,6 @@ export interface Entity {
   Attributes?: Attribute[];
 }
 
-export namespace Entity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Entity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> An attribute that was extracted, but Comprehend Medical; was unable to relate to an entity. </p>
  */
@@ -713,15 +551,6 @@ export interface UnmappedAttribute {
    * <p> The specific attribute that has been extracted but not mapped to an entity. </p>
    */
   Attribute?: Attribute;
-}
-
-export namespace UnmappedAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnmappedAttribute): any => ({
-    ...obj,
-  });
 }
 
 export interface DetectEntitiesResponse {
@@ -751,15 +580,6 @@ export interface DetectEntitiesResponse {
    *       documents.</p>
    */
   ModelVersion: string | undefined;
-}
-
-export namespace DetectEntitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectEntitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -836,15 +656,6 @@ export interface DetectEntitiesV2Request {
   Text: string | undefined;
 }
 
-export namespace DetectEntitiesV2Request {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectEntitiesV2Request): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectEntitiesV2Response {
   /**
    * <p>The collection of medical entities extracted from the input text and their associated
@@ -873,30 +684,12 @@ export interface DetectEntitiesV2Response {
   ModelVersion: string | undefined;
 }
 
-export namespace DetectEntitiesV2Response {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectEntitiesV2Response): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectPHIRequest {
   /**
    * <p> A UTF-8 text string containing the clinical content being examined for PHI entities. Each
    *       string must contain fewer than 20,000 bytes of characters.</p>
    */
   Text: string | undefined;
-}
-
-export namespace DetectPHIRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectPHIRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DetectPHIResponse {
@@ -922,30 +715,12 @@ export interface DetectPHIResponse {
   ModelVersion: string | undefined;
 }
 
-export namespace DetectPHIResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectPHIResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface InferICD10CMRequest {
   /**
    * <p>The input text used for analysis. The input for InferICD10CM is a string from 1 to 10000
    *       characters.</p>
    */
   Text: string | undefined;
-}
-
-export namespace InferICD10CMRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferICD10CMRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ICD10CMEntityType {
@@ -981,15 +756,6 @@ export interface ICD10CMTrait {
    *       as a trait.</p>
    */
   Score?: number;
-}
-
-export namespace ICD10CMTrait {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ICD10CMTrait): any => ({
-    ...obj,
-  });
 }
 
 export enum ICD10CMAttributeType {
@@ -1069,15 +835,6 @@ export interface ICD10CMAttribute {
   RelationshipType?: ICD10CMRelationshipType | string;
 }
 
-export namespace ICD10CMAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ICD10CMAttribute): any => ({
-    ...obj,
-  });
-}
-
 export enum ICD10CMEntityCategory {
   MEDICAL_CONDITION = "MEDICAL_CONDITION",
 }
@@ -1103,15 +860,6 @@ export interface ICD10CMConcept {
    *       linked to an ICD-10-CM concept.</p>
    */
   Score?: number;
-}
-
-export namespace ICD10CMConcept {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ICD10CMConcept): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1185,15 +933,6 @@ export interface ICD10CMEntity {
   ICD10CMConcepts?: ICD10CMConcept[];
 }
 
-export namespace ICD10CMEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ICD10CMEntity): any => ({
-    ...obj,
-  });
-}
-
 export interface InferICD10CMResponse {
   /**
    * <p>The medical conditions detected in the text linked to ICD-10-CM concepts. If the action is
@@ -1216,30 +955,12 @@ export interface InferICD10CMResponse {
   ModelVersion?: string;
 }
 
-export namespace InferICD10CMResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferICD10CMResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface InferRxNormRequest {
   /**
    * <p>The input text used for analysis. The input for InferRxNorm is a string from 1 to 10000
    *       characters.</p>
    */
   Text: string | undefined;
-}
-
-export namespace InferRxNormRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferRxNormRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RxNormTraitName {
@@ -1262,15 +983,6 @@ export interface RxNormTrait {
    *       trait.</p>
    */
   Score?: number;
-}
-
-export namespace RxNormTrait {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RxNormTrait): any => ({
-    ...obj,
-  });
 }
 
 export enum RxNormAttributeType {
@@ -1338,15 +1050,6 @@ export interface RxNormAttribute {
   Traits?: RxNormTrait[];
 }
 
-export namespace RxNormAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RxNormAttribute): any => ({
-    ...obj,
-  });
-}
-
 export enum RxNormEntityCategory {
   MEDICATION = "MEDICATION",
 }
@@ -1371,15 +1074,6 @@ export interface RxNormConcept {
    *       linked to the reported RxNorm concept.</p>
    */
   Score?: number;
-}
-
-export namespace RxNormConcept {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RxNormConcept): any => ({
-    ...obj,
-  });
 }
 
 export enum RxNormEntityType {
@@ -1456,15 +1150,6 @@ export interface RxNormEntity {
   RxNormConcepts?: RxNormConcept[];
 }
 
-export namespace RxNormEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RxNormEntity): any => ({
-    ...obj,
-  });
-}
-
 export interface InferRxNormResponse {
   /**
    * <p>The medication entities detected in the text linked to RxNorm concepts. If the action is
@@ -1487,15 +1172,6 @@ export interface InferRxNormResponse {
   ModelVersion?: string;
 }
 
-export namespace InferRxNormResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferRxNormResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface InferSNOMEDCTRequest {
   /**
    * <p>
@@ -1503,15 +1179,6 @@ export interface InferSNOMEDCTRequest {
    *     </p>
    */
   Text: string | undefined;
-}
-
-export namespace InferSNOMEDCTRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferSNOMEDCTRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SNOMEDCTEntityCategory {
@@ -1557,15 +1224,6 @@ export interface SNOMEDCTConcept {
   Score?: number;
 }
 
-export namespace SNOMEDCTConcept {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNOMEDCTConcept): any => ({
-    ...obj,
-  });
-}
-
 export enum SNOMEDCTTraitName {
   DIAGNOSIS = "DIAGNOSIS",
   NEGATION = "NEGATION",
@@ -1592,15 +1250,6 @@ export interface SNOMEDCTTrait {
    *     </p>
    */
   Score?: number;
-}
-
-export namespace SNOMEDCTTrait {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNOMEDCTTrait): any => ({
-    ...obj,
-  });
 }
 
 export enum SNOMEDCTAttributeType {
@@ -1696,15 +1345,6 @@ export interface SNOMEDCTAttribute {
   SNOMEDCTConcepts?: SNOMEDCTConcept[];
 }
 
-export namespace SNOMEDCTAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNOMEDCTAttribute): any => ({
-    ...obj,
-  });
-}
-
 export enum SNOMEDCTEntityType {
   DX_NAME = "DX_NAME",
   PROCEDURE_NAME = "PROCEDURE_NAME",
@@ -1789,15 +1429,6 @@ export interface SNOMEDCTEntity {
   SNOMEDCTConcepts?: SNOMEDCTConcept[];
 }
 
-export namespace SNOMEDCTEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNOMEDCTEntity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       The information about the revision of the SNOMED-CT ontology in the response. Specifically, the details include the SNOMED-CT edition, language, and version date.
@@ -1824,15 +1455,6 @@ export interface SNOMEDCTDetails {
    *     </p>
    */
   VersionDate?: string;
-}
-
-export namespace SNOMEDCTDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNOMEDCTDetails): any => ({
-    ...obj,
-  });
 }
 
 export interface InferSNOMEDCTResponse {
@@ -1872,15 +1494,6 @@ export interface InferSNOMEDCTResponse {
   Characters?: Characters;
 }
 
-export namespace InferSNOMEDCTResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferSNOMEDCTResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information for filtering a list of detection jobs.</p>
  */
@@ -1911,15 +1524,6 @@ export interface ComprehendMedicalAsyncJobFilter {
   SubmitTimeAfter?: Date;
 }
 
-export namespace ComprehendMedicalAsyncJobFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComprehendMedicalAsyncJobFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEntitiesDetectionV2JobsRequest {
   /**
    * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
@@ -1938,15 +1542,6 @@ export interface ListEntitiesDetectionV2JobsRequest {
   MaxResults?: number;
 }
 
-export namespace ListEntitiesDetectionV2JobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitiesDetectionV2JobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEntitiesDetectionV2JobsResponse {
   /**
    * <p>A list containing the properties of each job returned.</p>
@@ -1957,15 +1552,6 @@ export interface ListEntitiesDetectionV2JobsResponse {
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEntitiesDetectionV2JobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitiesDetectionV2JobsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2008,15 +1594,6 @@ export interface ListICD10CMInferenceJobsRequest {
   MaxResults?: number;
 }
 
-export namespace ListICD10CMInferenceJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListICD10CMInferenceJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListICD10CMInferenceJobsResponse {
   /**
    * <p>A list containing the properties of each job that is returned.</p>
@@ -2027,15 +1604,6 @@ export interface ListICD10CMInferenceJobsResponse {
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListICD10CMInferenceJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListICD10CMInferenceJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPHIDetectionJobsRequest {
@@ -2056,15 +1624,6 @@ export interface ListPHIDetectionJobsRequest {
   MaxResults?: number;
 }
 
-export namespace ListPHIDetectionJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPHIDetectionJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPHIDetectionJobsResponse {
   /**
    * <p>A list containing the properties of each job returned.</p>
@@ -2075,15 +1634,6 @@ export interface ListPHIDetectionJobsResponse {
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPHIDetectionJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPHIDetectionJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRxNormInferenceJobsRequest {
@@ -2104,15 +1654,6 @@ export interface ListRxNormInferenceJobsRequest {
   MaxResults?: number;
 }
 
-export namespace ListRxNormInferenceJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRxNormInferenceJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRxNormInferenceJobsResponse {
   /**
    * <p>The maximum number of results to return in each page. The default is 100.</p>
@@ -2123,15 +1664,6 @@ export interface ListRxNormInferenceJobsResponse {
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRxNormInferenceJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRxNormInferenceJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSNOMEDCTInferenceJobsRequest {
@@ -2155,15 +1687,6 @@ export interface ListSNOMEDCTInferenceJobsRequest {
   MaxResults?: number;
 }
 
-export namespace ListSNOMEDCTInferenceJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSNOMEDCTInferenceJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSNOMEDCTInferenceJobsResponse {
   /**
    * <p>
@@ -2178,15 +1701,6 @@ export interface ListSNOMEDCTInferenceJobsResponse {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace ListSNOMEDCTInferenceJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSNOMEDCTInferenceJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartEntitiesDetectionV2JobRequest {
@@ -2229,30 +1743,12 @@ export interface StartEntitiesDetectionV2JobRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
-export namespace StartEntitiesDetectionV2JobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartEntitiesDetectionV2JobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartEntitiesDetectionV2JobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
    *       the <code>DescribeEntitiesDetectionV2Job</code> operation.</p>
    */
   JobId?: string;
-}
-
-export namespace StartEntitiesDetectionV2JobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartEntitiesDetectionV2JobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartICD10CMInferenceJobRequest {
@@ -2295,30 +1791,12 @@ export interface StartICD10CMInferenceJobRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
-export namespace StartICD10CMInferenceJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartICD10CMInferenceJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartICD10CMInferenceJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
    *       the <code>StartICD10CMInferenceJob</code> operation.</p>
    */
   JobId?: string;
-}
-
-export namespace StartICD10CMInferenceJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartICD10CMInferenceJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartPHIDetectionJobRequest {
@@ -2361,30 +1839,12 @@ export interface StartPHIDetectionJobRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
-export namespace StartPHIDetectionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartPHIDetectionJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartPHIDetectionJobResponse {
   /**
    * <p>The identifier generated for the job. To get the status of a job, use this identifier with
    *       the <code>DescribePHIDetectionJob</code> operation.</p>
    */
   JobId?: string;
-}
-
-export namespace StartPHIDetectionJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartPHIDetectionJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartRxNormInferenceJobRequest {
@@ -2427,29 +1887,11 @@ export interface StartRxNormInferenceJobRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
-export namespace StartRxNormInferenceJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRxNormInferenceJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartRxNormInferenceJobResponse {
   /**
    * <p>The identifier of the job.</p>
    */
   JobId?: string;
-}
-
-export namespace StartRxNormInferenceJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRxNormInferenceJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartSNOMEDCTInferenceJobRequest {
@@ -2500,15 +1942,6 @@ export interface StartSNOMEDCTInferenceJobRequest {
   LanguageCode: LanguageCode | string | undefined;
 }
 
-export namespace StartSNOMEDCTInferenceJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSNOMEDCTInferenceJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartSNOMEDCTInferenceJobResponse {
   /**
    * <p>
@@ -2518,29 +1951,11 @@ export interface StartSNOMEDCTInferenceJobResponse {
   JobId?: string;
 }
 
-export namespace StartSNOMEDCTInferenceJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSNOMEDCTInferenceJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopEntitiesDetectionV2JobRequest {
   /**
    * <p>The identifier of the medical entities job to stop.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace StopEntitiesDetectionV2JobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopEntitiesDetectionV2JobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopEntitiesDetectionV2JobResponse {
@@ -2550,29 +1965,11 @@ export interface StopEntitiesDetectionV2JobResponse {
   JobId?: string;
 }
 
-export namespace StopEntitiesDetectionV2JobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopEntitiesDetectionV2JobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopICD10CMInferenceJobRequest {
   /**
    * <p>The identifier of the job.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace StopICD10CMInferenceJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopICD10CMInferenceJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopICD10CMInferenceJobResponse {
@@ -2583,29 +1980,11 @@ export interface StopICD10CMInferenceJobResponse {
   JobId?: string;
 }
 
-export namespace StopICD10CMInferenceJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopICD10CMInferenceJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopPHIDetectionJobRequest {
   /**
    * <p>The identifier of the PHI detection job to stop.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace StopPHIDetectionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopPHIDetectionJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopPHIDetectionJobResponse {
@@ -2615,29 +1994,11 @@ export interface StopPHIDetectionJobResponse {
   JobId?: string;
 }
 
-export namespace StopPHIDetectionJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopPHIDetectionJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopRxNormInferenceJobRequest {
   /**
    * <p>The identifier of the job.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace StopRxNormInferenceJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopRxNormInferenceJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopRxNormInferenceJobResponse {
@@ -2646,15 +2007,6 @@ export interface StopRxNormInferenceJobResponse {
    *       the <code>DescribeRxNormInferenceJob</code> operation.</p>
    */
   JobId?: string;
-}
-
-export namespace StopRxNormInferenceJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopRxNormInferenceJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopSNOMEDCTInferenceJobRequest {
@@ -2666,15 +2018,6 @@ export interface StopSNOMEDCTInferenceJobRequest {
   JobId: string | undefined;
 }
 
-export namespace StopSNOMEDCTInferenceJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopSNOMEDCTInferenceJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopSNOMEDCTInferenceJobResponse {
   /**
    * <p>
@@ -2684,11 +2027,536 @@ export interface StopSNOMEDCTInferenceJobResponse {
   JobId?: string;
 }
 
-export namespace StopSNOMEDCTInferenceJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopSNOMEDCTInferenceJobResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TraitFilterSensitiveLog = (obj: Trait): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeFilterSensitiveLog = (obj: Attribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CharactersFilterSensitiveLog = (obj: Characters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEntitiesDetectionV2JobRequestFilterSensitiveLog = (
+  obj: DescribeEntitiesDetectionV2JobRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDataConfigFilterSensitiveLog = (obj: InputDataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputDataConfigFilterSensitiveLog = (obj: OutputDataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComprehendMedicalAsyncJobPropertiesFilterSensitiveLog = (
+  obj: ComprehendMedicalAsyncJobProperties
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEntitiesDetectionV2JobResponseFilterSensitiveLog = (
+  obj: DescribeEntitiesDetectionV2JobResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeICD10CMInferenceJobRequestFilterSensitiveLog = (obj: DescribeICD10CMInferenceJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeICD10CMInferenceJobResponseFilterSensitiveLog = (
+  obj: DescribeICD10CMInferenceJobResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePHIDetectionJobRequestFilterSensitiveLog = (obj: DescribePHIDetectionJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePHIDetectionJobResponseFilterSensitiveLog = (obj: DescribePHIDetectionJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRxNormInferenceJobRequestFilterSensitiveLog = (obj: DescribeRxNormInferenceJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRxNormInferenceJobResponseFilterSensitiveLog = (obj: DescribeRxNormInferenceJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSNOMEDCTInferenceJobRequestFilterSensitiveLog = (
+  obj: DescribeSNOMEDCTInferenceJobRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSNOMEDCTInferenceJobResponseFilterSensitiveLog = (
+  obj: DescribeSNOMEDCTInferenceJobResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectEntitiesRequestFilterSensitiveLog = (obj: DetectEntitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntityFilterSensitiveLog = (obj: Entity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnmappedAttributeFilterSensitiveLog = (obj: UnmappedAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectEntitiesResponseFilterSensitiveLog = (obj: DetectEntitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectEntitiesV2RequestFilterSensitiveLog = (obj: DetectEntitiesV2Request): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectEntitiesV2ResponseFilterSensitiveLog = (obj: DetectEntitiesV2Response): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectPHIRequestFilterSensitiveLog = (obj: DetectPHIRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectPHIResponseFilterSensitiveLog = (obj: DetectPHIResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferICD10CMRequestFilterSensitiveLog = (obj: InferICD10CMRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ICD10CMTraitFilterSensitiveLog = (obj: ICD10CMTrait): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ICD10CMAttributeFilterSensitiveLog = (obj: ICD10CMAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ICD10CMConceptFilterSensitiveLog = (obj: ICD10CMConcept): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ICD10CMEntityFilterSensitiveLog = (obj: ICD10CMEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferICD10CMResponseFilterSensitiveLog = (obj: InferICD10CMResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferRxNormRequestFilterSensitiveLog = (obj: InferRxNormRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RxNormTraitFilterSensitiveLog = (obj: RxNormTrait): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RxNormAttributeFilterSensitiveLog = (obj: RxNormAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RxNormConceptFilterSensitiveLog = (obj: RxNormConcept): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RxNormEntityFilterSensitiveLog = (obj: RxNormEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferRxNormResponseFilterSensitiveLog = (obj: InferRxNormResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferSNOMEDCTRequestFilterSensitiveLog = (obj: InferSNOMEDCTRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SNOMEDCTConceptFilterSensitiveLog = (obj: SNOMEDCTConcept): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SNOMEDCTTraitFilterSensitiveLog = (obj: SNOMEDCTTrait): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SNOMEDCTAttributeFilterSensitiveLog = (obj: SNOMEDCTAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SNOMEDCTEntityFilterSensitiveLog = (obj: SNOMEDCTEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SNOMEDCTDetailsFilterSensitiveLog = (obj: SNOMEDCTDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InferSNOMEDCTResponseFilterSensitiveLog = (obj: InferSNOMEDCTResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComprehendMedicalAsyncJobFilterFilterSensitiveLog = (obj: ComprehendMedicalAsyncJobFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntitiesDetectionV2JobsRequestFilterSensitiveLog = (obj: ListEntitiesDetectionV2JobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntitiesDetectionV2JobsResponseFilterSensitiveLog = (
+  obj: ListEntitiesDetectionV2JobsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListICD10CMInferenceJobsRequestFilterSensitiveLog = (obj: ListICD10CMInferenceJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListICD10CMInferenceJobsResponseFilterSensitiveLog = (obj: ListICD10CMInferenceJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPHIDetectionJobsRequestFilterSensitiveLog = (obj: ListPHIDetectionJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPHIDetectionJobsResponseFilterSensitiveLog = (obj: ListPHIDetectionJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRxNormInferenceJobsRequestFilterSensitiveLog = (obj: ListRxNormInferenceJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRxNormInferenceJobsResponseFilterSensitiveLog = (obj: ListRxNormInferenceJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSNOMEDCTInferenceJobsRequestFilterSensitiveLog = (obj: ListSNOMEDCTInferenceJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSNOMEDCTInferenceJobsResponseFilterSensitiveLog = (obj: ListSNOMEDCTInferenceJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartEntitiesDetectionV2JobRequestFilterSensitiveLog = (obj: StartEntitiesDetectionV2JobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartEntitiesDetectionV2JobResponseFilterSensitiveLog = (
+  obj: StartEntitiesDetectionV2JobResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartICD10CMInferenceJobRequestFilterSensitiveLog = (obj: StartICD10CMInferenceJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartICD10CMInferenceJobResponseFilterSensitiveLog = (obj: StartICD10CMInferenceJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartPHIDetectionJobRequestFilterSensitiveLog = (obj: StartPHIDetectionJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartPHIDetectionJobResponseFilterSensitiveLog = (obj: StartPHIDetectionJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRxNormInferenceJobRequestFilterSensitiveLog = (obj: StartRxNormInferenceJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRxNormInferenceJobResponseFilterSensitiveLog = (obj: StartRxNormInferenceJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSNOMEDCTInferenceJobRequestFilterSensitiveLog = (obj: StartSNOMEDCTInferenceJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSNOMEDCTInferenceJobResponseFilterSensitiveLog = (obj: StartSNOMEDCTInferenceJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopEntitiesDetectionV2JobRequestFilterSensitiveLog = (obj: StopEntitiesDetectionV2JobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopEntitiesDetectionV2JobResponseFilterSensitiveLog = (obj: StopEntitiesDetectionV2JobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopICD10CMInferenceJobRequestFilterSensitiveLog = (obj: StopICD10CMInferenceJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopICD10CMInferenceJobResponseFilterSensitiveLog = (obj: StopICD10CMInferenceJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopPHIDetectionJobRequestFilterSensitiveLog = (obj: StopPHIDetectionJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopPHIDetectionJobResponseFilterSensitiveLog = (obj: StopPHIDetectionJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopRxNormInferenceJobRequestFilterSensitiveLog = (obj: StopRxNormInferenceJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopRxNormInferenceJobResponseFilterSensitiveLog = (obj: StopRxNormInferenceJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopSNOMEDCTInferenceJobRequestFilterSensitiveLog = (obj: StopSNOMEDCTInferenceJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopSNOMEDCTInferenceJobResponseFilterSensitiveLog = (obj: StopSNOMEDCTInferenceJobResponse): any => ({
+  ...obj,
+});

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { RemoveClientIDFromOpenIDConnectProviderRequest } from "../models/models_0";
+import {
+  RemoveClientIDFromOpenIDConnectProviderRequest,
+  RemoveClientIDFromOpenIDConnectProviderRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand,
   serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand,
@@ -80,7 +83,7 @@ export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveClientIDFromOpenIDConnectProviderRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveClientIDFromOpenIDConnectProviderRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

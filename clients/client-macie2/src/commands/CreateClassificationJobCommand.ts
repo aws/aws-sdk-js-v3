@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { CreateClassificationJobRequest, CreateClassificationJobResponse } from "../models/models_0";
+import {
+  CreateClassificationJobRequest,
+  CreateClassificationJobRequestFilterSensitiveLog,
+  CreateClassificationJobResponse,
+  CreateClassificationJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateClassificationJobCommand,
   serializeAws_restJson1CreateClassificationJobCommand,
@@ -72,8 +77,8 @@ export class CreateClassificationJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClassificationJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateClassificationJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateClassificationJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateClassificationJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

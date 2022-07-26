@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_0";
+import {
+  DeleteSessionRequest,
+  DeleteSessionRequestFilterSensitiveLog,
+  DeleteSessionResponse,
+  DeleteSessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSessionCommand,
   serializeAws_restJson1DeleteSessionCommand,
@@ -77,8 +82,8 @@ export class DeleteSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { StartProjectSessionRequest, StartProjectSessionResponse } from "../models/models_0";
+import {
+  StartProjectSessionRequest,
+  StartProjectSessionRequestFilterSensitiveLog,
+  StartProjectSessionResponse,
+  StartProjectSessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartProjectSessionCommand,
   serializeAws_restJson1StartProjectSessionCommand,
@@ -73,8 +78,8 @@ export class StartProjectSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartProjectSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartProjectSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartProjectSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartProjectSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

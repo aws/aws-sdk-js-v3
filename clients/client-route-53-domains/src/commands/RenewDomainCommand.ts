@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RenewDomainRequest, RenewDomainResponse } from "../models/models_0";
+import {
+  RenewDomainRequest,
+  RenewDomainRequestFilterSensitiveLog,
+  RenewDomainResponse,
+  RenewDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RenewDomainCommand,
   serializeAws_json1_1RenewDomainCommand,
@@ -76,8 +81,8 @@ export class RenewDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RenewDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RenewDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RenewDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RenewDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

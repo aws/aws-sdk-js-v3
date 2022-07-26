@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteCorsConfigurationRequest } from "../models/models_0";
+import { DeleteCorsConfigurationRequest, DeleteCorsConfigurationRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCorsConfigurationCommand,
   serializeAws_restJson1DeleteCorsConfigurationCommand,
@@ -72,7 +72,7 @@ export class DeleteCorsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCorsConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCorsConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListAttachmentsRequest, ListAttachmentsResponse } from "../models/models_0";
+import {
+  ListAttachmentsRequest,
+  ListAttachmentsRequestFilterSensitiveLog,
+  ListAttachmentsResponse,
+  ListAttachmentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1ListAttachmentsCommand,
@@ -72,8 +77,8 @@ export class ListAttachmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttachmentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAttachmentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAttachmentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAttachmentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

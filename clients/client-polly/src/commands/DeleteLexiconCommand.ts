@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteLexiconInput, DeleteLexiconOutput } from "../models/models_0";
+import {
+  DeleteLexiconInput,
+  DeleteLexiconInputFilterSensitiveLog,
+  DeleteLexiconOutput,
+  DeleteLexiconOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import {
   deserializeAws_restJson1DeleteLexiconCommand,
@@ -75,8 +80,8 @@ export class DeleteLexiconCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLexiconInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLexiconOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLexiconInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLexiconOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { AssociateEntitiesToExperienceRequest, AssociateEntitiesToExperienceResponse } from "../models/models_0";
+import {
+  AssociateEntitiesToExperienceRequest,
+  AssociateEntitiesToExperienceRequestFilterSensitiveLog,
+  AssociateEntitiesToExperienceResponse,
+  AssociateEntitiesToExperienceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateEntitiesToExperienceCommand,
   serializeAws_json1_1AssociateEntitiesToExperienceCommand,
@@ -78,8 +83,8 @@ export class AssociateEntitiesToExperienceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateEntitiesToExperienceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateEntitiesToExperienceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateEntitiesToExperienceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateEntitiesToExperienceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTagsForDomainRequest, DeleteTagsForDomainResponse } from "../models/models_0";
+import {
+  DeleteTagsForDomainRequest,
+  DeleteTagsForDomainRequestFilterSensitiveLog,
+  DeleteTagsForDomainResponse,
+  DeleteTagsForDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTagsForDomainCommand,
   serializeAws_json1_1DeleteTagsForDomainCommand,
@@ -73,8 +78,8 @@ export class DeleteTagsForDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTagsForDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTagsForDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTagsForDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTagsForDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

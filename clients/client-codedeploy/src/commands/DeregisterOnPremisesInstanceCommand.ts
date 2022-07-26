@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { DeregisterOnPremisesInstanceInput } from "../models/models_0";
+import {
+  DeregisterOnPremisesInstanceInput,
+  DeregisterOnPremisesInstanceInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterOnPremisesInstanceCommand,
   serializeAws_json1_1DeregisterOnPremisesInstanceCommand,
@@ -72,7 +75,7 @@ export class DeregisterOnPremisesInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterOnPremisesInstanceInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterOnPremisesInstanceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

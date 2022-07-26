@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { DeleteMissionProfileRequest, MissionProfileIdResponse } from "../models/models_0";
+import {
+  DeleteMissionProfileRequest,
+  DeleteMissionProfileRequestFilterSensitiveLog,
+  MissionProfileIdResponse,
+  MissionProfileIdResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMissionProfileCommand,
   serializeAws_restJson1DeleteMissionProfileCommand,
@@ -72,8 +77,8 @@ export class DeleteMissionProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMissionProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: MissionProfileIdResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMissionProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: MissionProfileIdResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { UpdateTaskSetRequest, UpdateTaskSetResponse } from "../models/models_0";
+import {
+  UpdateTaskSetRequest,
+  UpdateTaskSetRequestFilterSensitiveLog,
+  UpdateTaskSetResponse,
+  UpdateTaskSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateTaskSetCommand,
   serializeAws_json1_1UpdateTaskSetCommand,
@@ -74,8 +79,8 @@ export class UpdateTaskSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTaskSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTaskSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTaskSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTaskSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

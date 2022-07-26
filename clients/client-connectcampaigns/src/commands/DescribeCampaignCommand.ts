@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
+import {
+  DescribeCampaignRequest,
+  DescribeCampaignRequestFilterSensitiveLog,
+  DescribeCampaignResponse,
+  DescribeCampaignResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeCampaignCommand,
   serializeAws_restJson1DescribeCampaignCommand,
@@ -72,8 +77,8 @@ export class DescribeCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCampaignRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCampaignResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCampaignRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCampaignResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

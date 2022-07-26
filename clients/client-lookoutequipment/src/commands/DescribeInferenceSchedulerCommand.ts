@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
-import { DescribeInferenceSchedulerRequest, DescribeInferenceSchedulerResponse } from "../models/models_0";
+import {
+  DescribeInferenceSchedulerRequest,
+  DescribeInferenceSchedulerRequestFilterSensitiveLog,
+  DescribeInferenceSchedulerResponse,
+  DescribeInferenceSchedulerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeInferenceSchedulerCommand,
   serializeAws_json1_0DescribeInferenceSchedulerCommand,
@@ -73,8 +78,8 @@ export class DescribeInferenceSchedulerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInferenceSchedulerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInferenceSchedulerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInferenceSchedulerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInferenceSchedulerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

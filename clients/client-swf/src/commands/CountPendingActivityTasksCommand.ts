@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CountPendingActivityTasksInput, PendingTaskCount } from "../models/models_0";
+import {
+  CountPendingActivityTasksInput,
+  CountPendingActivityTasksInputFilterSensitiveLog,
+  PendingTaskCount,
+  PendingTaskCountFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CountPendingActivityTasksCommand,
   serializeAws_json1_0CountPendingActivityTasksCommand,
@@ -99,8 +104,8 @@ export class CountPendingActivityTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CountPendingActivityTasksInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PendingTaskCount.filterSensitiveLog,
+      inputFilterSensitiveLog: CountPendingActivityTasksInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PendingTaskCountFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

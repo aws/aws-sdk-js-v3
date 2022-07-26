@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { SearchTablesRequest, SearchTablesResponse } from "../models/models_2";
+import {
+  SearchTablesRequest,
+  SearchTablesRequestFilterSensitiveLog,
+  SearchTablesResponse,
+  SearchTablesResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1SearchTablesCommand,
   serializeAws_json1_1SearchTablesCommand,
@@ -73,8 +78,8 @@ export class SearchTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchTablesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchTablesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchTablesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchTablesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

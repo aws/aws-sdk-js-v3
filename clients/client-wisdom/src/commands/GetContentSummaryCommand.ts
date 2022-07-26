@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetContentSummaryRequest, GetContentSummaryResponse } from "../models/models_0";
+import {
+  GetContentSummaryRequest,
+  GetContentSummaryRequestFilterSensitiveLog,
+  GetContentSummaryResponse,
+  GetContentSummaryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetContentSummaryCommand,
   serializeAws_restJson1GetContentSummaryCommand,
@@ -72,8 +77,8 @@ export class GetContentSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContentSummaryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetContentSummaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetContentSummaryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetContentSummaryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

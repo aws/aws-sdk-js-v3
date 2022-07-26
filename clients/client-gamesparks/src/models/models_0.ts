@@ -61,15 +61,6 @@ export interface Connection {
   Created?: Date;
 }
 
-export namespace Connection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Connection): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGameRequest {
   /**
    * <p>The name of the game.</p>
@@ -93,15 +84,6 @@ export interface CreateGameRequest {
    * <p>The list of tags to apply to the game.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateGameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGameRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum GameState {
@@ -154,29 +136,11 @@ export interface GameDetails {
   Tags?: Record<string, string>;
 }
 
-export namespace GameDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGameResult {
   /**
    * <p>Details about the game that was created.</p>
    */
   Game?: GameDetails;
-}
-
-export namespace CreateGameResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGameResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -275,15 +239,6 @@ export interface CreateSnapshotRequest {
   Description?: string;
 }
 
-export namespace CreateSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration section.</p>
  */
@@ -302,15 +257,6 @@ export interface Section {
    * <p>The content of a configuration section.</p>
    */
   Attributes?: __DocumentType;
-}
-
-export namespace Section {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Section): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -343,29 +289,11 @@ export interface SnapshotDetails {
   LastUpdated?: Date;
 }
 
-export namespace SnapshotDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSnapshotResult {
   /**
    * <p>Properties that provide details of the created snapshot.</p>
    */
   Snapshot?: SnapshotDetails;
-}
-
-export namespace CreateSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -425,15 +353,6 @@ export interface CreateStageRequest {
    * <p>The list of tags to apply to the stage.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStageRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum StageState {
@@ -499,29 +418,11 @@ export interface StageDetails {
   LogGroup?: string;
 }
 
-export namespace StageDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStageResult {
   /**
    * <p>Properties that describe the stage.</p>
    */
   Stage?: StageDetails;
-}
-
-export namespace CreateStageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStageResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGameRequest {
@@ -531,25 +432,7 @@ export interface DeleteGameRequest {
   GameName: string | undefined;
 }
 
-export namespace DeleteGameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGameRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGameResult {}
-
-export namespace DeleteGameResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGameResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteStageRequest {
   /**
@@ -563,25 +446,7 @@ export interface DeleteStageRequest {
   StageName: string | undefined;
 }
 
-export namespace DeleteStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStageResult {}
-
-export namespace DeleteStageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStageResult): any => ({
-    ...obj,
-  });
-}
 
 export enum DeploymentAction {
   DEPLOY = "DEPLOY",
@@ -609,15 +474,6 @@ export interface DeploymentResult {
   Message?: string;
 }
 
-export namespace DeploymentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentResult): any => ({
-    ...obj,
-  });
-}
-
 export enum DeploymentState {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -642,15 +498,6 @@ export interface DisconnectPlayerRequest {
   StageName: string | undefined;
 }
 
-export namespace DisconnectPlayerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisconnectPlayerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisconnectPlayerResult {
   /**
    * <p>The list of the connection ids that were disconnected.</p>
@@ -661,15 +508,6 @@ export interface DisconnectPlayerResult {
    * <p>The list of the connection ids that could not be disconnected.</p>
    */
   DisconnectFailures?: string[];
-}
-
-export namespace DisconnectPlayerResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisconnectPlayerResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ExportSnapshotRequest {
@@ -684,15 +522,6 @@ export interface ExportSnapshotRequest {
   SnapshotId: string | undefined;
 }
 
-export namespace ExportSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportSnapshotResult {
   /**
    * <p>The presigned URL for the snapshot data.</p>
@@ -702,15 +531,6 @@ export interface ExportSnapshotResult {
    *       </p>
    */
   S3Url?: string;
-}
-
-export namespace ExportSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -731,15 +551,6 @@ export interface ExtensionDetails {
    * <p>The description of the extension.</p>
    */
   Description?: string;
-}
-
-export namespace ExtensionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtensionDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -767,15 +578,6 @@ export interface ExtensionVersionDetails {
   Version?: string;
 }
 
-export namespace ExtensionVersionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtensionVersionDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the game configuration.</p>
  *          <p>
@@ -801,15 +603,6 @@ export interface GameConfigurationDetails {
   LastUpdated?: Date;
 }
 
-export namespace GameConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface GetExtensionRequest {
   /**
    * <p>The namespace (qualifier) of the extension.</p>
@@ -822,29 +615,11 @@ export interface GetExtensionRequest {
   Name: string | undefined;
 }
 
-export namespace GetExtensionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExtensionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetExtensionResult {
   /**
    * <p>Details about the extension.</p>
    */
   Extension?: ExtensionDetails;
-}
-
-export namespace GetExtensionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExtensionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetExtensionVersionRequest {
@@ -864,29 +639,11 @@ export interface GetExtensionVersionRequest {
   ExtensionVersion: string | undefined;
 }
 
-export namespace GetExtensionVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExtensionVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetExtensionVersionResult {
   /**
    * <p>The version of the extension.</p>
    */
   ExtensionVersion?: ExtensionVersionDetails;
-}
-
-export namespace GetExtensionVersionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExtensionVersionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGameRequest {
@@ -896,29 +653,11 @@ export interface GetGameRequest {
   GameName: string | undefined;
 }
 
-export namespace GetGameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGameRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGameResult {
   /**
    * <p>The details of the game.</p>
    */
   Game?: GameDetails;
-}
-
-export namespace GetGameResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGameResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGameConfigurationRequest {
@@ -933,29 +672,11 @@ export interface GetGameConfigurationRequest {
   Sections?: string[];
 }
 
-export namespace GetGameConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGameConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGameConfigurationResult {
   /**
    * <p>Details about the game configuration.</p>
    */
   GameConfiguration?: GameConfigurationDetails;
-}
-
-export namespace GetGameConfigurationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGameConfigurationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGeneratedCodeJobRequest {
@@ -973,15 +694,6 @@ export interface GetGeneratedCodeJobRequest {
    * <p>The identifier of the code generation job.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace GetGeneratedCodeJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGeneratedCodeJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum GeneratedCodeJobState {
@@ -1024,29 +736,11 @@ export interface GeneratedCodeJobDetails {
   GeneratedCodeJobId?: string;
 }
 
-export namespace GeneratedCodeJobDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeneratedCodeJobDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGeneratedCodeJobResult {
   /**
    * <p>Details about the generated code job.</p>
    */
   GeneratedCodeJob?: GeneratedCodeJobDetails;
-}
-
-export namespace GetGeneratedCodeJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGeneratedCodeJobResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPlayerConnectionStatusRequest {
@@ -1066,29 +760,11 @@ export interface GetPlayerConnectionStatusRequest {
   StageName: string | undefined;
 }
 
-export namespace GetPlayerConnectionStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPlayerConnectionStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPlayerConnectionStatusResult {
   /**
    * <p>The list of connection ids, one for each connection in use by the player.</p>
    */
   Connections?: Connection[];
-}
-
-export namespace GetPlayerConnectionStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPlayerConnectionStatusResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSnapshotRequest {
@@ -1108,29 +784,11 @@ export interface GetSnapshotRequest {
   Sections?: string[];
 }
 
-export namespace GetSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSnapshotResult {
   /**
    * <p>Properties that provide details of the snapshot.</p>
    */
   Snapshot?: SnapshotDetails;
-}
-
-export namespace GetSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetStageRequest {
@@ -1145,29 +803,11 @@ export interface GetStageRequest {
   StageName: string | undefined;
 }
 
-export namespace GetStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStageResult {
   /**
    * <p>Properties that provide details of the stage.</p>
    */
   Stage?: StageDetails;
-}
-
-export namespace GetStageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStageResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetStageDeploymentRequest {
@@ -1188,15 +828,6 @@ export interface GetStageDeploymentRequest {
    *       </p>
    */
   DeploymentId?: string;
-}
-
-export namespace GetStageDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStageDeploymentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1239,29 +870,11 @@ export interface StageDeploymentDetails {
   DeploymentResult?: DeploymentResult;
 }
 
-export namespace StageDeploymentDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageDeploymentDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStageDeploymentResult {
   /**
    * <p>Properties that provide details of the stage deployment.</p>
    */
   StageDeployment?: StageDeploymentDetails;
-}
-
-export namespace GetStageDeploymentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStageDeploymentResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1272,15 +885,6 @@ export interface ImportGameConfigurationSource {
    * <p>The JSON string containing the configuration sections.</p>
    */
   File: Uint8Array | undefined;
-}
-
-export namespace ImportGameConfigurationSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportGameConfigurationSource): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportGameConfigurationRequest {
@@ -1295,29 +899,11 @@ export interface ImportGameConfigurationRequest {
   ImportSource: ImportGameConfigurationSource | undefined;
 }
 
-export namespace ImportGameConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportGameConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportGameConfigurationResult {
   /**
    * <p>Details about the game configuration.</p>
    */
   GameConfiguration?: GameConfigurationDetails;
-}
-
-export namespace ImportGameConfigurationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportGameConfigurationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExtensionsRequest {
@@ -1339,15 +925,6 @@ export interface ListExtensionsRequest {
   NextToken?: string;
 }
 
-export namespace ListExtensionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExtensionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExtensionsResult {
   /**
    * <p>The list of extensions.</p>
@@ -1361,15 +938,6 @@ export interface ListExtensionsResult {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListExtensionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExtensionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExtensionVersionsRequest {
@@ -1401,15 +969,6 @@ export interface ListExtensionVersionsRequest {
   MaxResults?: number;
 }
 
-export namespace ListExtensionVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExtensionVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExtensionVersionsResult {
   /**
    * <p>The list of extension versions.</p>
@@ -1423,15 +982,6 @@ export interface ListExtensionVersionsResult {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListExtensionVersionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExtensionVersionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGamesRequest {
@@ -1451,15 +1001,6 @@ export interface ListGamesRequest {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListGamesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGamesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1487,15 +1028,6 @@ export interface GameSummary {
   Tags?: Record<string, string>;
 }
 
-export namespace GameSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGamesResult {
   /**
    * <p>The list of games.</p>
@@ -1509,15 +1041,6 @@ export interface ListGamesResult {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListGamesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGamesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGeneratedCodeJobsRequest {
@@ -1549,15 +1072,6 @@ export interface ListGeneratedCodeJobsRequest {
   NextToken?: string;
 }
 
-export namespace ListGeneratedCodeJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeneratedCodeJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGeneratedCodeJobsResult {
   /**
    * <p>The list of generated code jobs.</p>
@@ -1571,15 +1085,6 @@ export interface ListGeneratedCodeJobsResult {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListGeneratedCodeJobsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeneratedCodeJobsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSnapshotsRequest {
@@ -1604,15 +1109,6 @@ export interface ListSnapshotsRequest {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListSnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSnapshotsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1640,15 +1136,6 @@ export interface SnapshotSummary {
   LastUpdated?: Date;
 }
 
-export namespace SnapshotSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSnapshotsResult {
   /**
    * <p>
@@ -1665,15 +1152,6 @@ export interface ListSnapshotsResult {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListSnapshotsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSnapshotsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStageDeploymentsRequest {
@@ -1703,15 +1181,6 @@ export interface ListStageDeploymentsRequest {
    *       </p>
    */
   MaxResults?: number;
-}
-
-export namespace ListStageDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStageDeploymentsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1749,15 +1218,6 @@ export interface StageDeploymentSummary {
   DeploymentResult?: DeploymentResult;
 }
 
-export namespace StageDeploymentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageDeploymentSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStageDeploymentsResult {
   /**
    * <p>
@@ -1774,15 +1234,6 @@ export interface ListStageDeploymentsResult {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListStageDeploymentsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStageDeploymentsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStagesRequest {
@@ -1807,15 +1258,6 @@ export interface ListStagesRequest {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListStagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStagesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1851,15 +1293,6 @@ export interface StageSummary {
   Tags?: Record<string, string>;
 }
 
-export namespace StageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStagesResult {
   /**
    * <p>
@@ -1878,15 +1311,6 @@ export interface ListStagesResult {
   NextToken?: string;
 }
 
-export namespace ListStagesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStagesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the GameSparks resource.</p>
@@ -1894,29 +1318,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResult {
   /**
    * <p>The tags associated with the resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1944,15 +1350,6 @@ export interface Generator {
   GameSdkVersion?: string;
 }
 
-export namespace Generator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Generator): any => ({
-    ...obj,
-  });
-}
-
 export interface StartGeneratedCodeJobRequest {
   /**
    * <p>The name of the game.</p>
@@ -1970,15 +1367,6 @@ export interface StartGeneratedCodeJobRequest {
   Generator: Generator | undefined;
 }
 
-export namespace StartGeneratedCodeJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartGeneratedCodeJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartGeneratedCodeJobResult {
   /**
    * <p>
@@ -1987,15 +1375,6 @@ export interface StartGeneratedCodeJobResult {
    *       </p>
    */
   GeneratedCodeJobId?: string;
-}
-
-export namespace StartGeneratedCodeJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartGeneratedCodeJobResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StartStageDeploymentRequest {
@@ -2023,29 +1402,11 @@ export interface StartStageDeploymentRequest {
   ClientToken?: string;
 }
 
-export namespace StartStageDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStageDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartStageDeploymentResult {
   /**
    * <p>Properties that describe the stage deployment.</p>
    */
   StageDeployment?: StageDeploymentDetails;
-}
-
-export namespace StartStageDeploymentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStageDeploymentResult): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -2060,25 +1421,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResult {}
-
-export namespace TagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2092,25 +1435,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResult {}
-
-export namespace UntagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateGameRequest {
   /**
@@ -2124,29 +1449,11 @@ export interface UpdateGameRequest {
   Description?: string;
 }
 
-export namespace UpdateGameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGameResult {
   /**
    * <p>The details of the game.</p>
    */
   Game?: GameDetails;
-}
-
-export namespace UpdateGameResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameResult): any => ({
-    ...obj,
-  });
 }
 
 export enum Operation {
@@ -2186,15 +1493,6 @@ export interface SectionModification {
   Value?: __DocumentType;
 }
 
-export namespace SectionModification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SectionModification): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGameConfigurationRequest {
   /**
    * <p>The name of the game.</p>
@@ -2207,29 +1505,11 @@ export interface UpdateGameConfigurationRequest {
   Modifications: SectionModification[] | undefined;
 }
 
-export namespace UpdateGameConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGameConfigurationResult {
   /**
    * <p>Details about the game configuration.</p>
    */
   GameConfiguration?: GameConfigurationDetails;
-}
-
-export namespace UpdateGameConfigurationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameConfigurationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSnapshotRequest {
@@ -2249,29 +1529,11 @@ export interface UpdateSnapshotRequest {
   Description?: string;
 }
 
-export namespace UpdateSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSnapshotResult {
   /**
    * <p>Properties that provide details of the updated snapshot.</p>
    */
   Snapshot?: SnapshotDetails;
-}
-
-export namespace UpdateSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateStageRequest {
@@ -2296,15 +1558,6 @@ export interface UpdateStageRequest {
   Description?: string;
 }
 
-export namespace UpdateStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateStageResult {
   /**
    * <p>Properties that provide details of the updated stage.</p>
@@ -2312,11 +1565,590 @@ export interface UpdateStageResult {
   Stage?: StageDetails;
 }
 
-export namespace UpdateStageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStageResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ConnectionFilterSensitiveLog = (obj: Connection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGameRequestFilterSensitiveLog = (obj: CreateGameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameDetailsFilterSensitiveLog = (obj: GameDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGameResultFilterSensitiveLog = (obj: CreateGameResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotRequestFilterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SectionFilterSensitiveLog = (obj: Section): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotDetailsFilterSensitiveLog = (obj: SnapshotDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotResultFilterSensitiveLog = (obj: CreateSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStageRequestFilterSensitiveLog = (obj: CreateStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageDetailsFilterSensitiveLog = (obj: StageDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStageResultFilterSensitiveLog = (obj: CreateStageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGameRequestFilterSensitiveLog = (obj: DeleteGameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGameResultFilterSensitiveLog = (obj: DeleteGameResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStageRequestFilterSensitiveLog = (obj: DeleteStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStageResultFilterSensitiveLog = (obj: DeleteStageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentResultFilterSensitiveLog = (obj: DeploymentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisconnectPlayerRequestFilterSensitiveLog = (obj: DisconnectPlayerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisconnectPlayerResultFilterSensitiveLog = (obj: DisconnectPlayerResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportSnapshotRequestFilterSensitiveLog = (obj: ExportSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportSnapshotResultFilterSensitiveLog = (obj: ExportSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtensionDetailsFilterSensitiveLog = (obj: ExtensionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtensionVersionDetailsFilterSensitiveLog = (obj: ExtensionVersionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameConfigurationDetailsFilterSensitiveLog = (obj: GameConfigurationDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExtensionRequestFilterSensitiveLog = (obj: GetExtensionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExtensionResultFilterSensitiveLog = (obj: GetExtensionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExtensionVersionRequestFilterSensitiveLog = (obj: GetExtensionVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExtensionVersionResultFilterSensitiveLog = (obj: GetExtensionVersionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGameRequestFilterSensitiveLog = (obj: GetGameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGameResultFilterSensitiveLog = (obj: GetGameResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGameConfigurationRequestFilterSensitiveLog = (obj: GetGameConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGameConfigurationResultFilterSensitiveLog = (obj: GetGameConfigurationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGeneratedCodeJobRequestFilterSensitiveLog = (obj: GetGeneratedCodeJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeneratedCodeJobDetailsFilterSensitiveLog = (obj: GeneratedCodeJobDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGeneratedCodeJobResultFilterSensitiveLog = (obj: GetGeneratedCodeJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPlayerConnectionStatusRequestFilterSensitiveLog = (obj: GetPlayerConnectionStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPlayerConnectionStatusResultFilterSensitiveLog = (obj: GetPlayerConnectionStatusResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnapshotRequestFilterSensitiveLog = (obj: GetSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnapshotResultFilterSensitiveLog = (obj: GetSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStageRequestFilterSensitiveLog = (obj: GetStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStageResultFilterSensitiveLog = (obj: GetStageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStageDeploymentRequestFilterSensitiveLog = (obj: GetStageDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageDeploymentDetailsFilterSensitiveLog = (obj: StageDeploymentDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStageDeploymentResultFilterSensitiveLog = (obj: GetStageDeploymentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportGameConfigurationSourceFilterSensitiveLog = (obj: ImportGameConfigurationSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportGameConfigurationRequestFilterSensitiveLog = (obj: ImportGameConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportGameConfigurationResultFilterSensitiveLog = (obj: ImportGameConfigurationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExtensionsRequestFilterSensitiveLog = (obj: ListExtensionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExtensionsResultFilterSensitiveLog = (obj: ListExtensionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExtensionVersionsRequestFilterSensitiveLog = (obj: ListExtensionVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExtensionVersionsResultFilterSensitiveLog = (obj: ListExtensionVersionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGamesRequestFilterSensitiveLog = (obj: ListGamesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameSummaryFilterSensitiveLog = (obj: GameSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGamesResultFilterSensitiveLog = (obj: ListGamesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGeneratedCodeJobsRequestFilterSensitiveLog = (obj: ListGeneratedCodeJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGeneratedCodeJobsResultFilterSensitiveLog = (obj: ListGeneratedCodeJobsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSnapshotsRequestFilterSensitiveLog = (obj: ListSnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotSummaryFilterSensitiveLog = (obj: SnapshotSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSnapshotsResultFilterSensitiveLog = (obj: ListSnapshotsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStageDeploymentsRequestFilterSensitiveLog = (obj: ListStageDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageDeploymentSummaryFilterSensitiveLog = (obj: StageDeploymentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStageDeploymentsResultFilterSensitiveLog = (obj: ListStageDeploymentsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStagesRequestFilterSensitiveLog = (obj: ListStagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageSummaryFilterSensitiveLog = (obj: StageSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStagesResultFilterSensitiveLog = (obj: ListStagesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeneratorFilterSensitiveLog = (obj: Generator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartGeneratedCodeJobRequestFilterSensitiveLog = (obj: StartGeneratedCodeJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartGeneratedCodeJobResultFilterSensitiveLog = (obj: StartGeneratedCodeJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartStageDeploymentRequestFilterSensitiveLog = (obj: StartStageDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartStageDeploymentResultFilterSensitiveLog = (obj: StartStageDeploymentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameRequestFilterSensitiveLog = (obj: UpdateGameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameResultFilterSensitiveLog = (obj: UpdateGameResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SectionModificationFilterSensitiveLog = (obj: SectionModification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameConfigurationRequestFilterSensitiveLog = (obj: UpdateGameConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameConfigurationResultFilterSensitiveLog = (obj: UpdateGameConfigurationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSnapshotRequestFilterSensitiveLog = (obj: UpdateSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSnapshotResultFilterSensitiveLog = (obj: UpdateSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStageRequestFilterSensitiveLog = (obj: UpdateStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStageResultFilterSensitiveLog = (obj: UpdateStageResult): any => ({
+  ...obj,
+});

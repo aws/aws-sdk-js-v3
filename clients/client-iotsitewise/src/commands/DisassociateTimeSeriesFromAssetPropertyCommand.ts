@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DisassociateTimeSeriesFromAssetPropertyRequest } from "../models/models_0";
+import {
+  DisassociateTimeSeriesFromAssetPropertyRequest,
+  DisassociateTimeSeriesFromAssetPropertyRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommand,
   serializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyCommand,
@@ -76,7 +79,7 @@ export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTimeSeriesFromAssetPropertyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateTimeSeriesFromAssetPropertyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

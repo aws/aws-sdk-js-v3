@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DisassociateCertificateRequest, DisassociateCertificateResponse } from "../models/models_1";
+import {
+  DisassociateCertificateRequest,
+  DisassociateCertificateRequestFilterSensitiveLog,
+  DisassociateCertificateResponse,
+  DisassociateCertificateResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DisassociateCertificateCommand,
   serializeAws_restJson1DisassociateCertificateCommand,
@@ -72,8 +77,8 @@ export class DisassociateCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateCertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateCertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

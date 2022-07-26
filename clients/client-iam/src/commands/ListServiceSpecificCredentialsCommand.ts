@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListServiceSpecificCredentialsRequest, ListServiceSpecificCredentialsResponse } from "../models/models_0";
+import {
+  ListServiceSpecificCredentialsRequest,
+  ListServiceSpecificCredentialsRequestFilterSensitiveLog,
+  ListServiceSpecificCredentialsResponse,
+  ListServiceSpecificCredentialsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListServiceSpecificCredentialsCommand,
   serializeAws_queryListServiceSpecificCredentialsCommand,
@@ -79,8 +84,8 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceSpecificCredentialsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListServiceSpecificCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListServiceSpecificCredentialsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListServiceSpecificCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

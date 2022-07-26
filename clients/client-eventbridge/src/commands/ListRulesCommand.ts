@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { ListRulesRequest, ListRulesResponse } from "../models/models_0";
+import {
+  ListRulesRequest,
+  ListRulesRequestFilterSensitiveLog,
+  ListRulesResponse,
+  ListRulesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListRulesCommand, serializeAws_json1_1ListRulesCommand } from "../protocols/Aws_json1_1";
 
 export interface ListRulesCommandInput extends ListRulesRequest {}
@@ -73,8 +78,8 @@ export class ListRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRulesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRulesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRulesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListRulesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UntagResourceRequest, UntagResourceResult } from "../models/models_0";
+import {
+  UntagResourceRequest,
+  UntagResourceRequestFilterSensitiveLog,
+  UntagResourceResult,
+  UntagResourceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -78,8 +83,8 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagResourceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

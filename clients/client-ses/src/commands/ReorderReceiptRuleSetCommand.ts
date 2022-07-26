@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse } from "../models/models_0";
+import {
+  ReorderReceiptRuleSetRequest,
+  ReorderReceiptRuleSetRequestFilterSensitiveLog,
+  ReorderReceiptRuleSetResponse,
+  ReorderReceiptRuleSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryReorderReceiptRuleSetCommand,
   serializeAws_queryReorderReceiptRuleSetCommand,
@@ -79,8 +84,8 @@ export class ReorderReceiptRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReorderReceiptRuleSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ReorderReceiptRuleSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReorderReceiptRuleSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ReorderReceiptRuleSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -41,15 +41,6 @@ export interface ConfigParameter {
   parameterValue?: string;
 }
 
-export namespace ConfigParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The submitted action has conflicts.</p>
  */
@@ -84,15 +75,6 @@ export interface ConvertRecoveryPointToSnapshotRequest {
    * <p>How long to retain the snapshot.</p>
    */
   retentionPeriod?: number;
-}
-
-export namespace ConvertRecoveryPointToSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConvertRecoveryPointToSnapshotRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SnapshotStatus {
@@ -210,29 +192,11 @@ export interface Snapshot {
   accountsWithProvisionedRestoreAccess?: string[];
 }
 
-export namespace Snapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Snapshot): any => ({
-    ...obj,
-  });
-}
-
 export interface ConvertRecoveryPointToSnapshotResponse {
   /**
    * <p>The snapshot converted from the recovery point.</p>
    */
   snapshot?: Snapshot;
-}
-
-export namespace ConvertRecoveryPointToSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConvertRecoveryPointToSnapshotResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -344,15 +308,6 @@ export interface CreateEndpointAccessRequest {
   vpcSecurityGroupIds?: string[];
 }
 
-export namespace CreateEndpointAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEndpointAccessRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a network interface
  *          in an Amazon Redshift Serverless managed VPC endpoint.
@@ -380,15 +335,6 @@ export interface NetworkInterface {
   availabilityZone?: string;
 }
 
-export namespace NetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The connection endpoint for connecting to Amazon Redshift Serverless through the proxy.</p>
  */
@@ -409,15 +355,6 @@ export interface VpcEndpoint {
   networkInterfaces?: NetworkInterface[];
 }
 
-export namespace VpcEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcEndpoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the members of a VPC security group.</p>
  */
@@ -431,15 +368,6 @@ export interface VpcSecurityGroupMembership {
    * <p>The status of the VPC security group.</p>
    */
   status?: string;
-}
-
-export namespace VpcSecurityGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -498,29 +426,11 @@ export interface EndpointAccess {
   endpointArn?: string;
 }
 
-export namespace EndpointAccess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointAccess): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEndpointAccessResponse {
   /**
    * <p>The created VPC endpoint.</p>
    */
   endpoint?: EndpointAccess;
-}
-
-export namespace CreateEndpointAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEndpointAccessResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum LogExport {
@@ -542,15 +452,6 @@ export interface Tag {
    * <p>The value of the tag.</p>
    */
   value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateNamespaceRequest {
@@ -599,17 +500,6 @@ export interface CreateNamespaceRequest {
    * <p>A list of tag instances.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNamespaceRequest): any => ({
-    ...obj,
-    ...(obj.adminUsername && { adminUsername: SENSITIVE_STRING }),
-    ...(obj.adminUserPassword && { adminUserPassword: SENSITIVE_STRING }),
-  });
 }
 
 export enum NamespaceStatus {
@@ -681,31 +571,11 @@ export interface Namespace {
   creationDate?: Date;
 }
 
-export namespace Namespace {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Namespace): any => ({
-    ...obj,
-    ...(obj.adminUsername && { adminUsername: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateNamespaceResponse {
   /**
    * <p>The created namespace object.</p>
    */
   namespace?: Namespace;
-}
-
-export namespace CreateNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNamespaceResponse): any => ({
-    ...obj,
-    ...(obj.namespace && { namespace: Namespace.filterSensitiveLog(obj.namespace) }),
-  });
 }
 
 /**
@@ -750,29 +620,11 @@ export interface CreateSnapshotRequest {
   retentionPeriod?: number;
 }
 
-export namespace CreateSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSnapshotResponse {
   /**
    * <p>The created snapshot object.</p>
    */
   snapshot?: Snapshot;
-}
-
-export namespace CreateSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum UsageLimitBreachAction {
@@ -820,15 +672,6 @@ export interface CreateUsageLimitRequest {
   breachAction?: UsageLimitBreachAction | string;
 }
 
-export namespace CreateUsageLimitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUsageLimitRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The usage limit object.</p>
  */
@@ -869,29 +712,11 @@ export interface UsageLimit {
   breachAction?: UsageLimitBreachAction | string;
 }
 
-export namespace UsageLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageLimit): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUsageLimitResponse {
   /**
    * <p>The returned usage limit object.</p>
    */
   usageLimit?: UsageLimit;
-}
-
-export namespace CreateUsageLimitResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUsageLimitResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateWorkgroupRequest {
@@ -944,15 +769,6 @@ export interface CreateWorkgroupRequest {
   tags?: Tag[];
 }
 
-export namespace CreateWorkgroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkgroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The VPC endpoint object.</p>
  */
@@ -971,15 +787,6 @@ export interface Endpoint {
    * <p>An array of <code>VpcEndpoint</code> objects.</p>
    */
   vpcEndpoints?: VpcEndpoint[];
-}
-
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkgroupStatus {
@@ -1063,29 +870,11 @@ export interface Workgroup {
   creationDate?: Date;
 }
 
-export namespace Workgroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Workgroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkgroupResponse {
   /**
    * <p>The created workgroup object.</p>
    */
   workgroup?: Workgroup;
-}
-
-export namespace CreateWorkgroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkgroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1115,29 +904,11 @@ export interface DeleteEndpointAccessRequest {
   endpointName: string | undefined;
 }
 
-export namespace DeleteEndpointAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEndpointAccessRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEndpointAccessResponse {
   /**
    * <p>The deleted VPC endpoint.</p>
    */
   endpoint?: EndpointAccess;
-}
-
-export namespace DeleteEndpointAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEndpointAccessResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEndpointAccessRequest {
@@ -1147,29 +918,11 @@ export interface GetEndpointAccessRequest {
   endpointName: string | undefined;
 }
 
-export namespace GetEndpointAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEndpointAccessRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEndpointAccessResponse {
   /**
    * <p>The returned VPC endpoint.</p>
    */
   endpoint?: EndpointAccess;
-}
-
-export namespace GetEndpointAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEndpointAccessResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEndpointAccessRequest {
@@ -1197,15 +950,6 @@ export interface ListEndpointAccessRequest {
   vpcId?: string;
 }
 
-export namespace ListEndpointAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEndpointAccessRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEndpointAccessResponse {
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available.
@@ -1220,15 +964,6 @@ export interface ListEndpointAccessResponse {
   endpoints: EndpointAccess[] | undefined;
 }
 
-export namespace ListEndpointAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEndpointAccessResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEndpointAccessRequest {
   /**
    * <p>The name of the VPC endpoint to update.</p>
@@ -1241,29 +976,11 @@ export interface UpdateEndpointAccessRequest {
   vpcSecurityGroupIds?: string[];
 }
 
-export namespace UpdateEndpointAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointAccessRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEndpointAccessResponse {
   /**
    * <p>The updated VPC endpoint.</p>
    */
   endpoint?: EndpointAccess;
-}
-
-export namespace UpdateEndpointAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointAccessResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteNamespaceRequest {
@@ -1283,30 +1000,11 @@ export interface DeleteNamespaceRequest {
   finalSnapshotRetentionPeriod?: number;
 }
 
-export namespace DeleteNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteNamespaceResponse {
   /**
    * <p>The deleted namespace object.</p>
    */
   namespace: Namespace | undefined;
-}
-
-export namespace DeleteNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
-    ...obj,
-    ...(obj.namespace && { namespace: Namespace.filterSensitiveLog(obj.namespace) }),
-  });
 }
 
 export interface DeleteResourcePolicyRequest {
@@ -1316,40 +1014,13 @@ export interface DeleteResourcePolicyRequest {
   resourceArn: string | undefined;
 }
 
-export namespace DeleteResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyResponse {}
-
-export namespace DeleteResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSnapshotRequest {
   /**
    * <p>The name of the snapshot to be deleted.</p>
    */
   snapshotName: string | undefined;
-}
-
-export namespace DeleteSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSnapshotResponse {
@@ -1359,29 +1030,11 @@ export interface DeleteSnapshotResponse {
   snapshot?: Snapshot;
 }
 
-export namespace DeleteSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSnapshotResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUsageLimitRequest {
   /**
    * <p>The unique identifier of the usage limit to delete.</p>
    */
   usageLimitId: string | undefined;
-}
-
-export namespace DeleteUsageLimitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUsageLimitRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteUsageLimitResponse {
@@ -1391,15 +1044,6 @@ export interface DeleteUsageLimitResponse {
   usageLimit?: UsageLimit;
 }
 
-export namespace DeleteUsageLimitResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUsageLimitResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkgroupRequest {
   /**
    * <p>The name of the workgroup to be deleted.</p>
@@ -1407,29 +1051,11 @@ export interface DeleteWorkgroupRequest {
   workgroupName: string | undefined;
 }
 
-export namespace DeleteWorkgroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkgroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkgroupResponse {
   /**
    * <p>The deleted workgroup object.</p>
    */
   workgroup: Workgroup | undefined;
-}
-
-export namespace DeleteWorkgroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkgroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCredentialsRequest {
@@ -1470,15 +1096,6 @@ export interface GetCredentialsRequest {
   durationSeconds?: number;
 }
 
-export namespace GetCredentialsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCredentialsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCredentialsResponse {
   /**
    * <p>A database user name that is authorized to log on to the database <code>DbName</code>
@@ -1506,31 +1123,11 @@ export interface GetCredentialsResponse {
   nextRefreshTime?: Date;
 }
 
-export namespace GetCredentialsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCredentialsResponse): any => ({
-    ...obj,
-    ...(obj.dbUser && { dbUser: SENSITIVE_STRING }),
-    ...(obj.dbPassword && { dbPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetNamespaceRequest {
   /**
    * <p>The name of the namespace to retrieve information for.</p>
    */
   namespaceName: string | undefined;
-}
-
-export namespace GetNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNamespaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetNamespaceResponse {
@@ -1540,30 +1137,11 @@ export interface GetNamespaceResponse {
   namespace: Namespace | undefined;
 }
 
-export namespace GetNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNamespaceResponse): any => ({
-    ...obj,
-    ...(obj.namespace && { namespace: Namespace.filterSensitiveLog(obj.namespace) }),
-  });
-}
-
 export interface GetRecoveryPointRequest {
   /**
    * <p>The unique identifier of the recovery point to return information for.</p>
    */
   recoveryPointId: string | undefined;
-}
-
-export namespace GetRecoveryPointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecoveryPointRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1597,15 +1175,6 @@ export interface RecoveryPoint {
   workgroupName?: string;
 }
 
-export namespace RecoveryPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryPoint): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecoveryPointResponse {
   /**
    * <p>The returned recovery point object.</p>
@@ -1613,29 +1182,11 @@ export interface GetRecoveryPointResponse {
   recoveryPoint?: RecoveryPoint;
 }
 
-export namespace GetRecoveryPointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecoveryPointResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to return.</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace GetResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1653,29 +1204,11 @@ export interface ResourcePolicy {
   policy?: string;
 }
 
-export namespace ResourcePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourcePolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourcePolicyResponse {
   /**
    * <p>The returned resource policy.</p>
    */
   resourcePolicy?: ResourcePolicy;
-}
-
-export namespace GetResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSnapshotRequest {
@@ -1695,29 +1228,11 @@ export interface GetSnapshotRequest {
   snapshotArn?: string;
 }
 
-export namespace GetSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSnapshotResponse {
   /**
    * <p>The returned snapshot object.</p>
    */
   snapshot?: Snapshot;
-}
-
-export namespace GetSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnapshotResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetUsageLimitRequest {
@@ -1727,29 +1242,11 @@ export interface GetUsageLimitRequest {
   usageLimitId: string | undefined;
 }
 
-export namespace GetUsageLimitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUsageLimitRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetUsageLimitResponse {
   /**
    * <p>The returned usage limit object.</p>
    */
   usageLimit?: UsageLimit;
-}
-
-export namespace GetUsageLimitResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUsageLimitResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWorkgroupRequest {
@@ -1759,29 +1256,11 @@ export interface GetWorkgroupRequest {
   workgroupName: string | undefined;
 }
 
-export namespace GetWorkgroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkgroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWorkgroupResponse {
   /**
    * <p>The returned workgroup object.</p>
    */
   workgroup: Workgroup | undefined;
-}
-
-export namespace GetWorkgroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkgroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1818,15 +1297,6 @@ export interface ListNamespacesRequest {
   maxResults?: number;
 }
 
-export namespace ListNamespacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNamespacesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNamespacesResponse {
   /**
    * <p>When <code>nextToken</code> is returned, there are more results available.
@@ -1839,16 +1309,6 @@ export interface ListNamespacesResponse {
    * <p>The list of returned namespaces.</p>
    */
   namespaces: Namespace[] | undefined;
-}
-
-export namespace ListNamespacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNamespacesResponse): any => ({
-    ...obj,
-    ...(obj.namespaces && { namespaces: obj.namespaces.map((item) => Namespace.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListRecoveryPointsRequest {
@@ -1881,15 +1341,6 @@ export interface ListRecoveryPointsRequest {
   namespaceName?: string;
 }
 
-export namespace ListRecoveryPointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecoveryPointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRecoveryPointsResponse {
   /**
    * <p>The returned recovery point objects.</p>
@@ -1902,15 +1353,6 @@ export interface ListRecoveryPointsResponse {
    *          Make the call again using the returned token to retrieve the next page.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListRecoveryPointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecoveryPointsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSnapshotsRequest {
@@ -1953,15 +1395,6 @@ export interface ListSnapshotsRequest {
   endTime?: Date;
 }
 
-export namespace ListSnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSnapshotsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSnapshotsResponse {
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available.
@@ -1976,15 +1409,6 @@ export interface ListSnapshotsResponse {
   snapshots?: Snapshot[];
 }
 
-export namespace ListSnapshotsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSnapshotsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to list tags for.</p>
@@ -1992,29 +1416,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A map of the key-value pairs assigned to the resource.</p>
    */
   tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2065,15 +1471,6 @@ export interface ListUsageLimitsRequest {
   maxResults?: number;
 }
 
-export namespace ListUsageLimitsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsageLimitsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUsageLimitsResponse {
   /**
    * <p>An array of returned usage limit objects.</p>
@@ -2086,15 +1483,6 @@ export interface ListUsageLimitsResponse {
    *          Make the call again using the returned token to retrieve the next page.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListUsageLimitsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsageLimitsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWorkgroupsRequest {
@@ -2112,15 +1500,6 @@ export interface ListWorkgroupsRequest {
   maxResults?: number;
 }
 
-export namespace ListWorkgroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkgroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWorkgroupsResponse {
   /**
    * <p>
@@ -2134,15 +1513,6 @@ export interface ListWorkgroupsResponse {
    * <p>The returned array of workgroups.</p>
    */
   workgroups: Workgroup[] | undefined;
-}
-
-export namespace ListWorkgroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkgroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateNamespaceRequest {
@@ -2182,32 +1552,11 @@ export interface UpdateNamespaceRequest {
   logExports?: (LogExport | string)[];
 }
 
-export namespace UpdateNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNamespaceRequest): any => ({
-    ...obj,
-    ...(obj.adminUserPassword && { adminUserPassword: SENSITIVE_STRING }),
-    ...(obj.adminUsername && { adminUsername: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateNamespaceResponse {
   /**
    * <p>A list of tag instances.</p>
    */
   namespace: Namespace | undefined;
-}
-
-export namespace UpdateNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNamespaceResponse): any => ({
-    ...obj,
-    ...(obj.namespace && { namespace: Namespace.filterSensitiveLog(obj.namespace) }),
-  });
 }
 
 export interface PutResourcePolicyRequest {
@@ -2228,29 +1577,11 @@ export interface PutResourcePolicyRequest {
   policy: string | undefined;
 }
 
-export namespace PutResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutResourcePolicyResponse {
   /**
    * <p>The policy that was created or updated.</p>
    */
   resourcePolicy?: ResourcePolicy;
-}
-
-export namespace PutResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreFromRecoveryPointRequest {
@@ -2270,15 +1601,6 @@ export interface RestoreFromRecoveryPointRequest {
   workgroupName: string | undefined;
 }
 
-export namespace RestoreFromRecoveryPointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreFromRecoveryPointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreFromRecoveryPointResponse {
   /**
    * <p>The unique identifier of the recovery point used for the restore.</p>
@@ -2289,16 +1611,6 @@ export interface RestoreFromRecoveryPointResponse {
    * <p>The namespace that data was restored into.</p>
    */
   namespace?: Namespace;
-}
-
-export namespace RestoreFromRecoveryPointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreFromRecoveryPointResponse): any => ({
-    ...obj,
-    ...(obj.namespace && { namespace: Namespace.filterSensitiveLog(obj.namespace) }),
-  });
 }
 
 export interface RestoreFromSnapshotRequest {
@@ -2328,15 +1640,6 @@ export interface RestoreFromSnapshotRequest {
   ownerAccount?: string;
 }
 
-export namespace RestoreFromSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreFromSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreFromSnapshotResponse {
   /**
    * <p>The name of the snapshot used to restore the namespace.</p>
@@ -2354,16 +1657,6 @@ export interface RestoreFromSnapshotResponse {
   namespace?: Namespace;
 }
 
-export namespace RestoreFromSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreFromSnapshotResponse): any => ({
-    ...obj,
-    ...(obj.namespace && { namespace: Namespace.filterSensitiveLog(obj.namespace) }),
-  });
-}
-
 export interface UpdateSnapshotRequest {
   /**
    * <p>The name of the snapshot.</p>
@@ -2376,29 +1669,11 @@ export interface UpdateSnapshotRequest {
   retentionPeriod?: number;
 }
 
-export namespace UpdateSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSnapshotResponse {
   /**
    * <p>The updated snapshot object.</p>
    */
   snapshot?: Snapshot;
-}
-
-export namespace UpdateSnapshotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSnapshotResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -2413,25 +1688,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2445,25 +1702,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateUsageLimitRequest {
   /**
@@ -2482,29 +1721,11 @@ export interface UpdateUsageLimitRequest {
   breachAction?: UsageLimitBreachAction | string;
 }
 
-export namespace UpdateUsageLimitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUsageLimitRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateUsageLimitResponse {
   /**
    * <p>The updated usage limit object.</p>
    */
   usageLimit?: UsageLimit;
-}
-
-export namespace UpdateUsageLimitResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUsageLimitResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateWorkgroupRequest {
@@ -2547,15 +1768,6 @@ export interface UpdateWorkgroupRequest {
   securityGroupIds?: string[];
 }
 
-export namespace UpdateWorkgroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkgroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWorkgroupResponse {
   /**
    * <p>The updated workgroup object.</p>
@@ -2563,11 +1775,629 @@ export interface UpdateWorkgroupResponse {
   workgroup: Workgroup | undefined;
 }
 
-export namespace UpdateWorkgroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkgroupResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ConfigParameterFilterSensitiveLog = (obj: ConfigParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConvertRecoveryPointToSnapshotRequestFilterSensitiveLog = (
+  obj: ConvertRecoveryPointToSnapshotRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConvertRecoveryPointToSnapshotResponseFilterSensitiveLog = (
+  obj: ConvertRecoveryPointToSnapshotResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEndpointAccessRequestFilterSensitiveLog = (obj: CreateEndpointAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcEndpointFilterSensitiveLog = (obj: VpcEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcSecurityGroupMembershipFilterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointAccessFilterSensitiveLog = (obj: EndpointAccess): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEndpointAccessResponseFilterSensitiveLog = (obj: CreateEndpointAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNamespaceRequestFilterSensitiveLog = (obj: CreateNamespaceRequest): any => ({
+  ...obj,
+  ...(obj.adminUsername && { adminUsername: SENSITIVE_STRING }),
+  ...(obj.adminUserPassword && { adminUserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NamespaceFilterSensitiveLog = (obj: Namespace): any => ({
+  ...obj,
+  ...(obj.adminUsername && { adminUsername: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateNamespaceResponseFilterSensitiveLog = (obj: CreateNamespaceResponse): any => ({
+  ...obj,
+  ...(obj.namespace && { namespace: NamespaceFilterSensitiveLog(obj.namespace) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotRequestFilterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotResponseFilterSensitiveLog = (obj: CreateSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUsageLimitRequestFilterSensitiveLog = (obj: CreateUsageLimitRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageLimitFilterSensitiveLog = (obj: UsageLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUsageLimitResponseFilterSensitiveLog = (obj: CreateUsageLimitResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkgroupRequestFilterSensitiveLog = (obj: CreateWorkgroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkgroupFilterSensitiveLog = (obj: Workgroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkgroupResponseFilterSensitiveLog = (obj: CreateWorkgroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEndpointAccessRequestFilterSensitiveLog = (obj: DeleteEndpointAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEndpointAccessResponseFilterSensitiveLog = (obj: DeleteEndpointAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEndpointAccessRequestFilterSensitiveLog = (obj: GetEndpointAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEndpointAccessResponseFilterSensitiveLog = (obj: GetEndpointAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEndpointAccessRequestFilterSensitiveLog = (obj: ListEndpointAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEndpointAccessResponseFilterSensitiveLog = (obj: ListEndpointAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointAccessRequestFilterSensitiveLog = (obj: UpdateEndpointAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointAccessResponseFilterSensitiveLog = (obj: UpdateEndpointAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNamespaceRequestFilterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNamespaceResponseFilterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
+  ...obj,
+  ...(obj.namespace && { namespace: NamespaceFilterSensitiveLog(obj.namespace) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSnapshotRequestFilterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSnapshotResponseFilterSensitiveLog = (obj: DeleteSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUsageLimitRequestFilterSensitiveLog = (obj: DeleteUsageLimitRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUsageLimitResponseFilterSensitiveLog = (obj: DeleteUsageLimitResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkgroupRequestFilterSensitiveLog = (obj: DeleteWorkgroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkgroupResponseFilterSensitiveLog = (obj: DeleteWorkgroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCredentialsRequestFilterSensitiveLog = (obj: GetCredentialsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCredentialsResponseFilterSensitiveLog = (obj: GetCredentialsResponse): any => ({
+  ...obj,
+  ...(obj.dbUser && { dbUser: SENSITIVE_STRING }),
+  ...(obj.dbPassword && { dbPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetNamespaceRequestFilterSensitiveLog = (obj: GetNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNamespaceResponseFilterSensitiveLog = (obj: GetNamespaceResponse): any => ({
+  ...obj,
+  ...(obj.namespace && { namespace: NamespaceFilterSensitiveLog(obj.namespace) }),
+});
+
+/**
+ * @internal
+ */
+export const GetRecoveryPointRequestFilterSensitiveLog = (obj: GetRecoveryPointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryPointFilterSensitiveLog = (obj: RecoveryPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecoveryPointResponseFilterSensitiveLog = (obj: GetRecoveryPointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePolicyRequestFilterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourcePolicyFilterSensitiveLog = (obj: ResourcePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcePolicyResponseFilterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnapshotRequestFilterSensitiveLog = (obj: GetSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnapshotResponseFilterSensitiveLog = (obj: GetSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUsageLimitRequestFilterSensitiveLog = (obj: GetUsageLimitRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUsageLimitResponseFilterSensitiveLog = (obj: GetUsageLimitResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkgroupRequestFilterSensitiveLog = (obj: GetWorkgroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkgroupResponseFilterSensitiveLog = (obj: GetWorkgroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNamespacesRequestFilterSensitiveLog = (obj: ListNamespacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNamespacesResponseFilterSensitiveLog = (obj: ListNamespacesResponse): any => ({
+  ...obj,
+  ...(obj.namespaces && { namespaces: obj.namespaces.map((item) => NamespaceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListRecoveryPointsRequestFilterSensitiveLog = (obj: ListRecoveryPointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecoveryPointsResponseFilterSensitiveLog = (obj: ListRecoveryPointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSnapshotsRequestFilterSensitiveLog = (obj: ListSnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSnapshotsResponseFilterSensitiveLog = (obj: ListSnapshotsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsageLimitsRequestFilterSensitiveLog = (obj: ListUsageLimitsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsageLimitsResponseFilterSensitiveLog = (obj: ListUsageLimitsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkgroupsRequestFilterSensitiveLog = (obj: ListWorkgroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkgroupsResponseFilterSensitiveLog = (obj: ListWorkgroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNamespaceRequestFilterSensitiveLog = (obj: UpdateNamespaceRequest): any => ({
+  ...obj,
+  ...(obj.adminUserPassword && { adminUserPassword: SENSITIVE_STRING }),
+  ...(obj.adminUsername && { adminUsername: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateNamespaceResponseFilterSensitiveLog = (obj: UpdateNamespaceResponse): any => ({
+  ...obj,
+  ...(obj.namespace && { namespace: NamespaceFilterSensitiveLog(obj.namespace) }),
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreFromRecoveryPointRequestFilterSensitiveLog = (obj: RestoreFromRecoveryPointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreFromRecoveryPointResponseFilterSensitiveLog = (obj: RestoreFromRecoveryPointResponse): any => ({
+  ...obj,
+  ...(obj.namespace && { namespace: NamespaceFilterSensitiveLog(obj.namespace) }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreFromSnapshotRequestFilterSensitiveLog = (obj: RestoreFromSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreFromSnapshotResponseFilterSensitiveLog = (obj: RestoreFromSnapshotResponse): any => ({
+  ...obj,
+  ...(obj.namespace && { namespace: NamespaceFilterSensitiveLog(obj.namespace) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSnapshotRequestFilterSensitiveLog = (obj: UpdateSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSnapshotResponseFilterSensitiveLog = (obj: UpdateSnapshotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUsageLimitRequestFilterSensitiveLog = (obj: UpdateUsageLimitRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUsageLimitResponseFilterSensitiveLog = (obj: UpdateUsageLimitResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkgroupRequestFilterSensitiveLog = (obj: UpdateWorkgroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkgroupResponseFilterSensitiveLog = (obj: UpdateWorkgroupResponse): any => ({
+  ...obj,
+});

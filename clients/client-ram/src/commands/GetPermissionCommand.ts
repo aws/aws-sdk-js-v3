@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetPermissionRequest, GetPermissionResponse } from "../models/models_0";
+import {
+  GetPermissionRequest,
+  GetPermissionRequestFilterSensitiveLog,
+  GetPermissionResponse,
+  GetPermissionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetPermissionCommand,
   serializeAws_restJson1GetPermissionCommand,
@@ -72,8 +77,8 @@ export class GetPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPermissionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPermissionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPermissionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

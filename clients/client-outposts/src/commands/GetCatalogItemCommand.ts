@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCatalogItemInput, GetCatalogItemOutput } from "../models/models_0";
+import {
+  GetCatalogItemInput,
+  GetCatalogItemInputFilterSensitiveLog,
+  GetCatalogItemOutput,
+  GetCatalogItemOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1GetCatalogItemCommand,
@@ -72,8 +77,8 @@ export class GetCatalogItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCatalogItemInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCatalogItemOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCatalogItemInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCatalogItemOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

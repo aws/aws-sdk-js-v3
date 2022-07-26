@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateVolumeRequest } from "../models/models_0";
+import { UpdateVolumeRequest, UpdateVolumeRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1UpdateVolumeCommand,
@@ -77,7 +77,7 @@ export class UpdateVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVolumeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVolumeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

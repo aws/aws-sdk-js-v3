@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { EnableDirectoryRequest, EnableDirectoryResponse } from "../models/models_0";
+import {
+  EnableDirectoryRequest,
+  EnableDirectoryRequestFilterSensitiveLog,
+  EnableDirectoryResponse,
+  EnableDirectoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1EnableDirectoryCommand,
   serializeAws_restJson1EnableDirectoryCommand,
@@ -73,8 +78,8 @@ export class EnableDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableDirectoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableDirectoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableDirectoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableDirectoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

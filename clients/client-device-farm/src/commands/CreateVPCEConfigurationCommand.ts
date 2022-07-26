@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { CreateVPCEConfigurationRequest, CreateVPCEConfigurationResult } from "../models/models_0";
+import {
+  CreateVPCEConfigurationRequest,
+  CreateVPCEConfigurationRequestFilterSensitiveLog,
+  CreateVPCEConfigurationResult,
+  CreateVPCEConfigurationResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateVPCEConfigurationCommand,
   serializeAws_json1_1CreateVPCEConfigurationCommand,
@@ -73,8 +78,8 @@ export class CreateVPCEConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVPCEConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateVPCEConfigurationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVPCEConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateVPCEConfigurationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRegexPatternSetRequest, DeleteRegexPatternSetResponse } from "../models/models_0";
+import {
+  DeleteRegexPatternSetRequest,
+  DeleteRegexPatternSetRequestFilterSensitiveLog,
+  DeleteRegexPatternSetResponse,
+  DeleteRegexPatternSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRegexPatternSetCommand,
   serializeAws_json1_1DeleteRegexPatternSetCommand,
@@ -72,8 +77,8 @@ export class DeleteRegexPatternSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegexPatternSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRegexPatternSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRegexPatternSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRegexPatternSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

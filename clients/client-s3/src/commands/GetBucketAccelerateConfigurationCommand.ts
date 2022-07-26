@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetBucketAccelerateConfigurationOutput, GetBucketAccelerateConfigurationRequest } from "../models/models_0";
+import {
+  GetBucketAccelerateConfigurationOutput,
+  GetBucketAccelerateConfigurationOutputFilterSensitiveLog,
+  GetBucketAccelerateConfigurationRequest,
+  GetBucketAccelerateConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketAccelerateConfigurationCommand,
   serializeAws_restXmlGetBucketAccelerateConfigurationCommand,
@@ -102,8 +107,8 @@ export class GetBucketAccelerateConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketAccelerateConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketAccelerateConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketAccelerateConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketAccelerateConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

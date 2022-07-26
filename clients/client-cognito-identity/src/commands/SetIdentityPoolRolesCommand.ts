@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { SetIdentityPoolRolesInput } from "../models/models_0";
+import { SetIdentityPoolRolesInput, SetIdentityPoolRolesInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1SetIdentityPoolRolesCommand,
   serializeAws_json1_1SetIdentityPoolRolesCommand,
@@ -75,7 +75,7 @@ export class SetIdentityPoolRolesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIdentityPoolRolesInput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetIdentityPoolRolesInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

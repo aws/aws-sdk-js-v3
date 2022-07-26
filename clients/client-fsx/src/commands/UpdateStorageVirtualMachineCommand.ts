@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { UpdateStorageVirtualMachineRequest, UpdateStorageVirtualMachineResponse } from "../models/models_0";
+import {
+  UpdateStorageVirtualMachineRequest,
+  UpdateStorageVirtualMachineRequestFilterSensitiveLog,
+  UpdateStorageVirtualMachineResponse,
+  UpdateStorageVirtualMachineResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateStorageVirtualMachineCommand,
   serializeAws_json1_1UpdateStorageVirtualMachineCommand,
@@ -74,8 +79,8 @@ export class UpdateStorageVirtualMachineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStorageVirtualMachineRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStorageVirtualMachineResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateStorageVirtualMachineRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateStorageVirtualMachineResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

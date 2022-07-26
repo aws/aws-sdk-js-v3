@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { BatchDeleteDocumentRequest, BatchDeleteDocumentResponse } from "../models/models_0";
+import {
+  BatchDeleteDocumentRequest,
+  BatchDeleteDocumentRequestFilterSensitiveLog,
+  BatchDeleteDocumentResponse,
+  BatchDeleteDocumentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeleteDocumentCommand,
   serializeAws_json1_1BatchDeleteDocumentCommand,
@@ -76,8 +81,8 @@ export class BatchDeleteDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteDocumentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteDocumentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDeleteDocumentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteDocumentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

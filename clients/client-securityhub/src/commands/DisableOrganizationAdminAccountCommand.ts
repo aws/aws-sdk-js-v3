@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisableOrganizationAdminAccountRequest, DisableOrganizationAdminAccountResponse } from "../models/models_1";
+import {
+  DisableOrganizationAdminAccountRequest,
+  DisableOrganizationAdminAccountRequestFilterSensitiveLog,
+  DisableOrganizationAdminAccountResponse,
+  DisableOrganizationAdminAccountResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DisableOrganizationAdminAccountCommand,
   serializeAws_restJson1DisableOrganizationAdminAccountCommand,
@@ -75,8 +80,8 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableOrganizationAdminAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableOrganizationAdminAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableOrganizationAdminAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableOrganizationAdminAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

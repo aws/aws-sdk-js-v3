@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateConnectPeerRequest, CreateConnectPeerResponse } from "../models/models_0";
+import {
+  CreateConnectPeerRequest,
+  CreateConnectPeerRequestFilterSensitiveLog,
+  CreateConnectPeerResponse,
+  CreateConnectPeerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1CreateConnectPeerCommand,
@@ -73,8 +78,8 @@ export class CreateConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectPeerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectPeerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConnectPeerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateConnectPeerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

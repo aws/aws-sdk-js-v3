@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteStoredQueryRequest, DeleteStoredQueryResponse } from "../models/models_0";
+import {
+  DeleteStoredQueryRequest,
+  DeleteStoredQueryRequestFilterSensitiveLog,
+  DeleteStoredQueryResponse,
+  DeleteStoredQueryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteStoredQueryCommand,
   serializeAws_json1_1DeleteStoredQueryCommand,
@@ -72,8 +77,8 @@ export class DeleteStoredQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStoredQueryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStoredQueryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStoredQueryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStoredQueryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

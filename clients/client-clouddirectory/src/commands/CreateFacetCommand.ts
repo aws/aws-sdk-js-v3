@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { CreateFacetRequest, CreateFacetResponse } from "../models/models_0";
+import {
+  CreateFacetRequest,
+  CreateFacetRequestFilterSensitiveLog,
+  CreateFacetResponse,
+  CreateFacetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFacetCommand,
   serializeAws_restJson1CreateFacetCommand,
@@ -73,8 +78,8 @@ export class CreateFacetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFacetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateFacetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFacetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateFacetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

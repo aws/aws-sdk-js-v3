@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTapePoolInput, DeleteTapePoolOutput } from "../models/models_0";
+import {
+  DeleteTapePoolInput,
+  DeleteTapePoolInputFilterSensitiveLog,
+  DeleteTapePoolOutput,
+  DeleteTapePoolOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTapePoolCommand,
   serializeAws_json1_1DeleteTapePoolCommand,
@@ -74,8 +79,8 @@ export class DeleteTapePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTapePoolInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTapePoolOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTapePoolInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTapePoolOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

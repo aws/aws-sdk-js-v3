@@ -71,15 +71,6 @@ export interface GetEmailTemplateResponse {
   EmailTemplateResponse: EmailTemplateResponse | undefined;
 }
 
-export namespace GetEmailTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEmailTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEndpointRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -92,29 +83,11 @@ export interface GetEndpointRequest {
   EndpointId: string | undefined;
 }
 
-export namespace GetEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEndpointResponse {
   /**
    * <p>Provides information about the channel type and other settings for an endpoint.</p>
    */
   EndpointResponse: EndpointResponse | undefined;
-}
-
-export namespace GetEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEventStreamRequest {
@@ -124,29 +97,11 @@ export interface GetEventStreamRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace GetEventStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventStreamRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEventStreamResponse {
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
    */
   EventStream: EventStream | undefined;
-}
-
-export namespace GetEventStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventStreamResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetExportJobRequest {
@@ -161,29 +116,11 @@ export interface GetExportJobRequest {
   JobId: string | undefined;
 }
 
-export namespace GetExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetExportJobResponse {
   /**
    * <p>Provides information about the status and settings of a job that exports endpoint definitions to a file. The file can be added directly to an Amazon Simple Storage Service (Amazon S3) bucket by using the Amazon Pinpoint API or downloaded directly to a computer by using the Amazon Pinpoint console.</p>
    */
   ExportJobResponse: ExportJobResponse | undefined;
-}
-
-export namespace GetExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetExportJobsRequest {
@@ -203,29 +140,11 @@ export interface GetExportJobsRequest {
   Token?: string;
 }
 
-export namespace GetExportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetExportJobsResponse {
   /**
    * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
    */
   ExportJobsResponse: ExportJobsResponse | undefined;
-}
-
-export namespace GetExportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGcmChannelRequest {
@@ -235,29 +154,11 @@ export interface GetGcmChannelRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace GetGcmChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGcmChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGcmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
    */
   GCMChannelResponse: GCMChannelResponse | undefined;
-}
-
-export namespace GetGcmChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGcmChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetImportJobRequest {
@@ -272,29 +173,11 @@ export interface GetImportJobRequest {
   JobId: string | undefined;
 }
 
-export namespace GetImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImportJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImportJobResponse {
   /**
    * <p>Provides information about the status and settings of a job that imports endpoint definitions from one or more files. The files can be stored in an Amazon Simple Storage Service (Amazon S3) bucket or uploaded directly from a computer by using the Amazon Pinpoint console.</p>
    */
   ImportJobResponse: ImportJobResponse | undefined;
-}
-
-export namespace GetImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetImportJobsRequest {
@@ -314,15 +197,6 @@ export interface GetImportJobsRequest {
   Token?: string;
 }
 
-export namespace GetImportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
  */
@@ -338,29 +212,11 @@ export interface ImportJobsResponse {
   NextToken?: string;
 }
 
-export namespace ImportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportJobsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImportJobsResponse {
   /**
    * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
    */
   ImportJobsResponse: ImportJobsResponse | undefined;
-}
-
-export namespace GetImportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImportJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetInAppMessagesRequest {
@@ -373,15 +229,6 @@ export interface GetInAppMessagesRequest {
    * <p>The unique identifier for the endpoint.</p>
    */
   EndpointId: string | undefined;
-}
-
-export namespace GetInAppMessagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInAppMessagesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -404,15 +251,6 @@ export interface InAppMessage {
   Layout?: Layout | string;
 }
 
-export namespace InAppMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InAppMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Schedule of the campaign.</p>
  */
@@ -431,15 +269,6 @@ export interface InAppCampaignSchedule {
    * <p>Time during which the in-app message should not be shown to the user.</p>
    */
   QuietTime?: QuietTime;
-}
-
-export namespace InAppCampaignSchedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InAppCampaignSchedule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -487,15 +316,6 @@ export interface InAppMessageCampaign {
   TreatmentId?: string;
 }
 
-export namespace InAppMessageCampaign {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InAppMessageCampaign): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Get in-app messages response object.</p>
  */
@@ -506,29 +326,11 @@ export interface InAppMessagesResponse {
   InAppMessageCampaigns?: InAppMessageCampaign[];
 }
 
-export namespace InAppMessagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InAppMessagesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInAppMessagesResponse {
   /**
    * <p>Get in-app messages response object.</p>
    */
   InAppMessagesResponse: InAppMessagesResponse | undefined;
-}
-
-export namespace GetInAppMessagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInAppMessagesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetInAppTemplateRequest {
@@ -541,15 +343,6 @@ export interface GetInAppTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
   Version?: string;
-}
-
-export namespace GetInAppTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInAppTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -612,29 +405,11 @@ export interface InAppTemplateResponse {
   Version?: string;
 }
 
-export namespace InAppTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InAppTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInAppTemplateResponse {
   /**
    * <p>In-App Template Response.</p>
    */
   InAppTemplateResponse: InAppTemplateResponse | undefined;
-}
-
-export namespace GetInAppTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInAppTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetJourneyRequest {
@@ -649,29 +424,11 @@ export interface GetJourneyRequest {
   JourneyId: string | undefined;
 }
 
-export namespace GetJourneyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJourneyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetJourneyResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
    */
   JourneyResponse: JourneyResponse | undefined;
-}
-
-export namespace GetJourneyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJourneyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetJourneyDateRangeKpiRequest {
@@ -709,15 +466,6 @@ export interface GetJourneyDateRangeKpiRequest {
    * <p>The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.</p>
    */
   StartTime?: Date;
-}
-
-export namespace GetJourneyDateRangeKpiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJourneyDateRangeKpiRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -760,29 +508,11 @@ export interface JourneyDateRangeKpiResponse {
   StartTime: Date | undefined;
 }
 
-export namespace JourneyDateRangeKpiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JourneyDateRangeKpiResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetJourneyDateRangeKpiResponse {
   /**
    * <p>Provides the results of a query that retrieved the data for a standard engagement metric that applies to a journey, and provides information about that query.</p>
    */
   JourneyDateRangeKpiResponse: JourneyDateRangeKpiResponse | undefined;
-}
-
-export namespace GetJourneyDateRangeKpiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJourneyDateRangeKpiResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetJourneyExecutionActivityMetricsRequest {
@@ -810,15 +540,6 @@ export interface GetJourneyExecutionActivityMetricsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
   PageSize?: string;
-}
-
-export namespace GetJourneyExecutionActivityMetricsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJourneyExecutionActivityMetricsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -856,29 +577,11 @@ export interface JourneyExecutionActivityMetricsResponse {
   Metrics: Record<string, string> | undefined;
 }
 
-export namespace JourneyExecutionActivityMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JourneyExecutionActivityMetricsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetJourneyExecutionActivityMetricsResponse {
   /**
    * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey activity, and provides information about that query.</p>
    */
   JourneyExecutionActivityMetricsResponse: JourneyExecutionActivityMetricsResponse | undefined;
-}
-
-export namespace GetJourneyExecutionActivityMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJourneyExecutionActivityMetricsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetJourneyExecutionMetricsRequest {
@@ -901,15 +604,6 @@ export interface GetJourneyExecutionMetricsRequest {
    * <p>The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.</p>
    */
   PageSize?: string;
-}
-
-export namespace GetJourneyExecutionMetricsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJourneyExecutionMetricsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -937,29 +631,11 @@ export interface JourneyExecutionMetricsResponse {
   Metrics: Record<string, string> | undefined;
 }
 
-export namespace JourneyExecutionMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JourneyExecutionMetricsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetJourneyExecutionMetricsResponse {
   /**
    * <p>Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey, and provides information about that query.</p>
    */
   JourneyExecutionMetricsResponse: JourneyExecutionMetricsResponse | undefined;
-}
-
-export namespace GetJourneyExecutionMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJourneyExecutionMetricsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPushTemplateRequest {
@@ -972,15 +648,6 @@ export interface GetPushTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
   Version?: string;
-}
-
-export namespace GetPushTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPushTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1063,29 +730,11 @@ export interface PushNotificationTemplateResponse {
   Version?: string;
 }
 
-export namespace PushNotificationTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PushNotificationTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPushTemplateResponse {
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through a push notification channel.</p>
    */
   PushNotificationTemplateResponse: PushNotificationTemplateResponse | undefined;
-}
-
-export namespace GetPushTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPushTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRecommenderConfigurationRequest {
@@ -1095,29 +744,11 @@ export interface GetRecommenderConfigurationRequest {
   RecommenderId: string | undefined;
 }
 
-export namespace GetRecommenderConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommenderConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecommenderConfigurationResponse {
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
    */
   RecommenderConfigurationResponse: RecommenderConfigurationResponse | undefined;
-}
-
-export namespace GetRecommenderConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommenderConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRecommenderConfigurationsRequest {
@@ -1130,15 +761,6 @@ export interface GetRecommenderConfigurationsRequest {
    * <p>The NextToken string that specifies which page of results to return in a paginated response.</p>
    */
   Token?: string;
-}
-
-export namespace GetRecommenderConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommenderConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1156,29 +778,11 @@ export interface ListRecommenderConfigurationsResponse {
   NextToken?: string;
 }
 
-export namespace ListRecommenderConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecommenderConfigurationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecommenderConfigurationsResponse {
   /**
    * <p>Provides information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
    */
   ListRecommenderConfigurationsResponse: ListRecommenderConfigurationsResponse | undefined;
-}
-
-export namespace GetRecommenderConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommenderConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSegmentRequest {
@@ -1193,29 +797,11 @@ export interface GetSegmentRequest {
   SegmentId: string | undefined;
 }
 
-export namespace GetSegmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSegmentResponse {
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
    */
   SegmentResponse: SegmentResponse | undefined;
-}
-
-export namespace GetSegmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSegmentExportJobsRequest {
@@ -1240,29 +826,11 @@ export interface GetSegmentExportJobsRequest {
   Token?: string;
 }
 
-export namespace GetSegmentExportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentExportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSegmentExportJobsResponse {
   /**
    * <p>Provides information about all the export jobs that are associated with an application or segment. An export job is a job that exports endpoint definitions to a file.</p>
    */
   ExportJobsResponse: ExportJobsResponse | undefined;
-}
-
-export namespace GetSegmentExportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentExportJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSegmentImportJobsRequest {
@@ -1287,29 +855,11 @@ export interface GetSegmentImportJobsRequest {
   Token?: string;
 }
 
-export namespace GetSegmentImportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentImportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSegmentImportJobsResponse {
   /**
    * <p>Provides information about the status and settings of all the import jobs that are associated with an application or segment. An import job is a job that imports endpoint definitions from one or more files.</p>
    */
   ImportJobsResponse: ImportJobsResponse | undefined;
-}
-
-export namespace GetSegmentImportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentImportJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSegmentsRequest {
@@ -1329,15 +879,6 @@ export interface GetSegmentsRequest {
   Token?: string;
 }
 
-export namespace GetSegmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about all the segments that are associated with an application.</p>
  */
@@ -1353,29 +894,11 @@ export interface SegmentsResponse {
   NextToken?: string;
 }
 
-export namespace SegmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SegmentsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSegmentsResponse {
   /**
    * <p>Provides information about all the segments that are associated with an application.</p>
    */
   SegmentsResponse: SegmentsResponse | undefined;
-}
-
-export namespace GetSegmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSegmentVersionRequest {
@@ -1395,29 +918,11 @@ export interface GetSegmentVersionRequest {
   Version: string | undefined;
 }
 
-export namespace GetSegmentVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSegmentVersionResponse {
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
    */
   SegmentResponse: SegmentResponse | undefined;
-}
-
-export namespace GetSegmentVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSegmentVersionsRequest {
@@ -1442,29 +947,11 @@ export interface GetSegmentVersionsRequest {
   Token?: string;
 }
 
-export namespace GetSegmentVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSegmentVersionsResponse {
   /**
    * <p>Provides information about all the segments that are associated with an application.</p>
    */
   SegmentsResponse: SegmentsResponse | undefined;
-}
-
-export namespace GetSegmentVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSegmentVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSmsChannelRequest {
@@ -1474,29 +961,11 @@ export interface GetSmsChannelRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace GetSmsChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSmsChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSmsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
    */
   SMSChannelResponse: SMSChannelResponse | undefined;
-}
-
-export namespace GetSmsChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSmsChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSmsTemplateRequest {
@@ -1509,15 +978,6 @@ export interface GetSmsTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
   Version?: string;
-}
-
-export namespace GetSmsTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSmsTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1580,29 +1040,11 @@ export interface SMSTemplateResponse {
   Version?: string;
 }
 
-export namespace SMSTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SMSTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSmsTemplateResponse {
   /**
    * <p>Provides information about the content and settings for a message template that can be used in text messages that are sent through the SMS channel.</p>
    */
   SMSTemplateResponse: SMSTemplateResponse | undefined;
-}
-
-export namespace GetSmsTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSmsTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetUserEndpointsRequest {
@@ -1617,29 +1059,11 @@ export interface GetUserEndpointsRequest {
   UserId: string | undefined;
 }
 
-export namespace GetUserEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetUserEndpointsResponse {
   /**
    * <p>Provides information about all the endpoints that are associated with a user ID.</p>
    */
   EndpointsResponse: EndpointsResponse | undefined;
-}
-
-export namespace GetUserEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserEndpointsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetVoiceChannelRequest {
@@ -1649,29 +1073,11 @@ export interface GetVoiceChannelRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace GetVoiceChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetVoiceChannelResponse {
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
    */
   VoiceChannelResponse: VoiceChannelResponse | undefined;
-}
-
-export namespace GetVoiceChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetVoiceTemplateRequest {
@@ -1684,15 +1090,6 @@ export interface GetVoiceTemplateRequest {
    * <p>The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p> <p>If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.</p> <p>If you don't specify a value for this parameter, Amazon Pinpoint does the following:</p> <ul><li><p>For a get operation, retrieves information about the active version of the template.</p></li> <li><p>For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.</p></li> <li><p>For a delete operation, deletes the template, including all versions of the template.</p></li></ul>
    */
   Version?: string;
-}
-
-export namespace GetVoiceTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1760,29 +1157,11 @@ export interface VoiceTemplateResponse {
   VoiceId?: string;
 }
 
-export namespace VoiceTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VoiceTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetVoiceTemplateResponse {
   /**
    * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the voice channel.</p>
    */
   VoiceTemplateResponse: VoiceTemplateResponse | undefined;
-}
-
-export namespace GetVoiceTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVoiceTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1800,15 +1179,6 @@ export interface JourneysResponse {
   NextToken?: string;
 }
 
-export namespace JourneysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JourneysResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Changes the status of a journey.</p>
  */
@@ -1817,15 +1187,6 @@ export interface JourneyStateRequest {
    * <p>The status of the journey. Currently, Supported values are ACTIVE, PAUSED, and CANCELLED</p> <p>If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.</p> <p>After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.</p> <p>When the journey is paused, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Endpoints will stop entering journeys when the journey is paused and will resume entering the journey after the journey is resumed. For wait activities, wait time is paused when the journey is paused. Currently, PAUSED only supports journeys with a segment refresh interval.</p>
    */
   State?: State | string;
-}
-
-export namespace JourneyStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JourneyStateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListJourneysRequest {
@@ -1845,29 +1206,11 @@ export interface ListJourneysRequest {
   Token?: string;
 }
 
-export namespace ListJourneysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJourneysRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListJourneysResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
    */
   JourneysResponse: JourneysResponse | undefined;
-}
-
-export namespace ListJourneysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJourneysResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1920,15 +1263,6 @@ export interface TemplateResponse {
   Version?: string;
 }
 
-export namespace TemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about a specific version of a message template.</p>
  */
@@ -1969,29 +1303,11 @@ export interface TemplateVersionResponse {
   Version?: string;
 }
 
-export namespace TemplateVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2004,29 +1320,11 @@ export interface TagsModel {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagsModel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagsModel): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Specifies the tags (keys and values) for an application, campaign, message template, or segment.</p>
    */
   TagsModel: TagsModel | undefined;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTemplatesRequest {
@@ -2051,15 +1349,6 @@ export interface ListTemplatesRequest {
   TemplateType?: string;
 }
 
-export namespace ListTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
  */
@@ -2075,29 +1364,11 @@ export interface TemplatesResponse {
   NextToken?: string;
 }
 
-export namespace TemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplatesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTemplatesResponse {
   /**
    * <p>Provides information about all the message templates that are associated with your Amazon Pinpoint account.</p>
    */
   TemplatesResponse: TemplatesResponse | undefined;
-}
-
-export namespace ListTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTemplateVersionsRequest {
@@ -2120,15 +1391,6 @@ export interface ListTemplateVersionsRequest {
    * <p>The type of channel that the message template is designed for. Valid values are: EMAIL, PUSH, SMS, and VOICE.</p>
    */
   TemplateType: string | undefined;
-}
-
-export namespace ListTemplateVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplateVersionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2156,29 +1418,11 @@ export interface TemplateVersionsResponse {
   RequestID?: string;
 }
 
-export namespace TemplateVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTemplateVersionsResponse {
   /**
    * <p>Provides information about all the versions of a specific message template.</p>
    */
   TemplateVersionsResponse: TemplateVersionsResponse | undefined;
-}
-
-export namespace ListTemplateVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTemplateVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2209,15 +1453,6 @@ export interface MessageResult {
    * <p>For push notifications that are sent through the GCM channel, specifies whether the endpoint's device registration token was updated as part of delivering the message.</p>
    */
   UpdatedToken?: string;
-}
-
-export namespace MessageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2255,15 +1490,6 @@ export interface MessageRequest {
   TraceId?: string;
 }
 
-export namespace MessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
  */
@@ -2289,15 +1515,6 @@ export interface MessageResponse {
   Result?: Record<string, MessageResult>;
 }
 
-export namespace MessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a phone number to validate and retrieve information about.</p>
  */
@@ -2311,15 +1528,6 @@ export interface NumberValidateRequest {
    * <p>The phone number to retrieve information about. The phone number that you provide should include a valid numeric country code. Otherwise, the operation might result in an error.</p>
    */
   PhoneNumber?: string;
-}
-
-export namespace NumberValidateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberValidateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2398,15 +1606,6 @@ export interface NumberValidateResponse {
   ZipCode?: string;
 }
 
-export namespace NumberValidateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberValidateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PhoneNumberValidateRequest {
   /**
    * <p>Specifies a phone number to validate and retrieve information about.</p>
@@ -2414,29 +1613,11 @@ export interface PhoneNumberValidateRequest {
   NumberValidateRequest: NumberValidateRequest | undefined;
 }
 
-export namespace PhoneNumberValidateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhoneNumberValidateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PhoneNumberValidateResponse {
   /**
    * <p>Provides information about a phone number.</p>
    */
   NumberValidateResponse: NumberValidateResponse | undefined;
-}
-
-export namespace PhoneNumberValidateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhoneNumberValidateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutEventsRequest {
@@ -2451,29 +1632,11 @@ export interface PutEventsRequest {
   EventsRequest: EventsRequest | undefined;
 }
 
-export namespace PutEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEventsResponse {
   /**
    * <p>Provides information about endpoints and the events that they're associated with.</p>
    */
   EventsResponse: EventsResponse | undefined;
-}
-
-export namespace PutEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2493,15 +1656,6 @@ export interface WriteEventStream {
   RoleArn: string | undefined;
 }
 
-export namespace WriteEventStream {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WriteEventStream): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEventStreamRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2514,29 +1668,11 @@ export interface PutEventStreamRequest {
   WriteEventStream: WriteEventStream | undefined;
 }
 
-export namespace PutEventStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventStreamRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEventStreamResponse {
   /**
    * <p>Specifies settings for publishing event data to an Amazon Kinesis data stream or an Amazon Kinesis Data Firehose delivery stream.</p>
    */
   EventStream: EventStream | undefined;
-}
-
-export namespace PutEventStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEventStreamResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2547,15 +1683,6 @@ export interface UpdateAttributesRequest {
    * <p>An array of the attributes to remove from all the endpoints that are associated with the application. The array can specify the complete, exact name of each attribute to remove or it can specify a glob pattern that an attribute name must match in order for the attribute to be removed.</p>
    */
   Blacklist?: string[];
-}
-
-export namespace UpdateAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAttributesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveAttributesRequest {
@@ -2575,29 +1702,11 @@ export interface RemoveAttributesRequest {
   UpdateAttributesRequest: UpdateAttributesRequest | undefined;
 }
 
-export namespace RemoveAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveAttributesResponse {
   /**
    * <p>Provides information about the type and the names of attributes that were removed from all the endpoints that are associated with an application.</p>
    */
   AttributesResource: AttributesResource | undefined;
-}
-
-export namespace RemoveAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SendMessagesRequest {
@@ -2612,29 +1721,11 @@ export interface SendMessagesRequest {
   MessageRequest: MessageRequest | undefined;
 }
 
-export namespace SendMessagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendMessagesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendMessagesResponse {
   /**
    * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
    */
   MessageResponse: MessageResponse | undefined;
-}
-
-export namespace SendMessagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendMessagesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2697,15 +1788,6 @@ export interface SendOTPMessageRequestParameters {
   ValidityPeriod?: number;
 }
 
-export namespace SendOTPMessageRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendOTPMessageRequestParameters): any => ({
-    ...obj,
-  });
-}
-
 export interface SendOTPMessageRequest {
   /**
    * <p>The unique ID of your Amazon Pinpoint application.</p>
@@ -2718,29 +1800,11 @@ export interface SendOTPMessageRequest {
   SendOTPMessageRequestParameters: SendOTPMessageRequestParameters | undefined;
 }
 
-export namespace SendOTPMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendOTPMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendOTPMessageResponse {
   /**
    * <p>Provides information about the results of a request to send a message to an endpoint address.</p>
    */
   MessageResponse: MessageResponse | undefined;
-}
-
-export namespace SendOTPMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendOTPMessageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2773,15 +1837,6 @@ export interface SendUsersMessageRequest {
   Users: Record<string, EndpointSendConfiguration> | undefined;
 }
 
-export namespace SendUsersMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendUsersMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendUsersMessagesRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -2792,15 +1847,6 @@ export interface SendUsersMessagesRequest {
    * <p>Specifies the configuration and other settings for a message to send to all the endpoints that are associated with a list of users.</p>
    */
   SendUsersMessageRequest: SendUsersMessageRequest | undefined;
-}
-
-export namespace SendUsersMessagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendUsersMessagesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2823,29 +1869,11 @@ export interface SendUsersMessageResponse {
   Result?: Record<string, Record<string, EndpointMessageResult>>;
 }
 
-export namespace SendUsersMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendUsersMessageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface SendUsersMessagesResponse {
   /**
    * <p>Provides information about which users and endpoints a message was sent to.</p>
    */
   SendUsersMessageResponse: SendUsersMessageResponse | undefined;
-}
-
-export namespace SendUsersMessagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendUsersMessagesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -2860,15 +1888,6 @@ export interface TagResourceRequest {
   TagsModel: TagsModel | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2879,15 +1898,6 @@ export interface UntagResourceRequest {
    * <p>The key of the tag to remove from the resource. To remove multiple tags, append the tagKeys parameter and argument for each additional tag to remove, separated by an ampersand (&amp;).</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAdmChannelRequest {
@@ -2902,29 +1912,11 @@ export interface UpdateAdmChannelRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace UpdateAdmChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAdmChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAdmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the ADM (Amazon Device Messaging) channel for an application.</p>
    */
   ADMChannelResponse: ADMChannelResponse | undefined;
-}
-
-export namespace UpdateAdmChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAdmChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApnsChannelRequest {
@@ -2939,29 +1931,11 @@ export interface UpdateApnsChannelRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace UpdateApnsChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApnsChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApnsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) channel for an application.</p>
    */
   APNSChannelResponse: APNSChannelResponse | undefined;
-}
-
-export namespace UpdateApnsChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApnsChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApnsSandboxChannelRequest {
@@ -2976,29 +1950,11 @@ export interface UpdateApnsSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace UpdateApnsSandboxChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApnsSandboxChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApnsSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) sandbox channel for an application.</p>
    */
   APNSSandboxChannelResponse: APNSSandboxChannelResponse | undefined;
-}
-
-export namespace UpdateApnsSandboxChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApnsSandboxChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApnsVoipChannelRequest {
@@ -3013,29 +1969,11 @@ export interface UpdateApnsVoipChannelRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace UpdateApnsVoipChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApnsVoipChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApnsVoipChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP channel for an application.</p>
    */
   APNSVoipChannelResponse: APNSVoipChannelResponse | undefined;
-}
-
-export namespace UpdateApnsVoipChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApnsVoipChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApnsVoipSandboxChannelRequest {
@@ -3050,29 +1988,11 @@ export interface UpdateApnsVoipSandboxChannelRequest {
   ApplicationId: string | undefined;
 }
 
-export namespace UpdateApnsVoipSandboxChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApnsVoipSandboxChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApnsVoipSandboxChannelResponse {
   /**
    * <p>Provides information about the status and settings of the APNs (Apple Push Notification service) VoIP sandbox channel for an application.</p>
    */
   APNSVoipSandboxChannelResponse: APNSVoipSandboxChannelResponse | undefined;
-}
-
-export namespace UpdateApnsVoipSandboxChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApnsVoipSandboxChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3101,15 +2021,6 @@ export interface WriteApplicationSettingsRequest {
   QuietTime?: QuietTime;
 }
 
-export namespace WriteApplicationSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WriteApplicationSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApplicationSettingsRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -3122,29 +2033,11 @@ export interface UpdateApplicationSettingsRequest {
   WriteApplicationSettingsRequest: WriteApplicationSettingsRequest | undefined;
 }
 
-export namespace UpdateApplicationSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApplicationSettingsResponse {
   /**
    * <p>Provides information about an application, including the default settings for an application.</p>
    */
   ApplicationSettingsResource: ApplicationSettingsResource | undefined;
-}
-
-export namespace UpdateApplicationSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBaiduChannelRequest {
@@ -3159,29 +2052,11 @@ export interface UpdateBaiduChannelRequest {
   BaiduChannelRequest: BaiduChannelRequest | undefined;
 }
 
-export namespace UpdateBaiduChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBaiduChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBaiduChannelResponse {
   /**
    * <p>Provides information about the status and settings of the Baidu (Baidu Cloud Push) channel for an application.</p>
    */
   BaiduChannelResponse: BaiduChannelResponse | undefined;
-}
-
-export namespace UpdateBaiduChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBaiduChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCampaignRequest {
@@ -3201,29 +2076,11 @@ export interface UpdateCampaignRequest {
   WriteCampaignRequest: WriteCampaignRequest | undefined;
 }
 
-export namespace UpdateCampaignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCampaignRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCampaignResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a campaign.</p>
    */
   CampaignResponse: CampaignResponse | undefined;
-}
-
-export namespace UpdateCampaignResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCampaignResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateEmailChannelRequest {
@@ -3238,29 +2095,11 @@ export interface UpdateEmailChannelRequest {
   EmailChannelRequest: EmailChannelRequest | undefined;
 }
 
-export namespace UpdateEmailChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEmailChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEmailChannelResponse {
   /**
    * <p>Provides information about the status and settings of the email channel for an application.</p>
    */
   EmailChannelResponse: EmailChannelResponse | undefined;
-}
-
-export namespace UpdateEmailChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEmailChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateEmailTemplateRequest {
@@ -3285,29 +2124,11 @@ export interface UpdateEmailTemplateRequest {
   Version?: string;
 }
 
-export namespace UpdateEmailTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEmailTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEmailTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
    */
   MessageBody: MessageBody | undefined;
-}
-
-export namespace UpdateEmailTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEmailTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateEndpointRequest {
@@ -3327,29 +2148,11 @@ export interface UpdateEndpointRequest {
   EndpointRequest: EndpointRequest | undefined;
 }
 
-export namespace UpdateEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEndpointResponse {
   /**
    * <p>Provides information about an API request or response.</p>
    */
   MessageBody: MessageBody | undefined;
-}
-
-export namespace UpdateEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateEndpointsBatchRequest {
@@ -3364,29 +2167,11 @@ export interface UpdateEndpointsBatchRequest {
   EndpointBatchRequest: EndpointBatchRequest | undefined;
 }
 
-export namespace UpdateEndpointsBatchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointsBatchRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEndpointsBatchResponse {
   /**
    * <p>Provides information about an API request or response.</p>
    */
   MessageBody: MessageBody | undefined;
-}
-
-export namespace UpdateEndpointsBatchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointsBatchResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateGcmChannelRequest {
@@ -3401,29 +2186,11 @@ export interface UpdateGcmChannelRequest {
   GCMChannelRequest: GCMChannelRequest | undefined;
 }
 
-export namespace UpdateGcmChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGcmChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGcmChannelResponse {
   /**
    * <p>Provides information about the status and settings of the GCM channel for an application. The GCM channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.</p>
    */
   GCMChannelResponse: GCMChannelResponse | undefined;
-}
-
-export namespace UpdateGcmChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGcmChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateInAppTemplateRequest {
@@ -3448,29 +2215,11 @@ export interface UpdateInAppTemplateRequest {
   Version?: string;
 }
 
-export namespace UpdateInAppTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInAppTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateInAppTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
    */
   MessageBody: MessageBody | undefined;
-}
-
-export namespace UpdateInAppTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInAppTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateJourneyRequest {
@@ -3490,29 +2239,11 @@ export interface UpdateJourneyRequest {
   WriteJourneyRequest: WriteJourneyRequest | undefined;
 }
 
-export namespace UpdateJourneyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJourneyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateJourneyResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
    */
   JourneyResponse: JourneyResponse | undefined;
-}
-
-export namespace UpdateJourneyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJourneyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateJourneyStateRequest {
@@ -3532,29 +2263,11 @@ export interface UpdateJourneyStateRequest {
   JourneyStateRequest: JourneyStateRequest | undefined;
 }
 
-export namespace UpdateJourneyStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJourneyStateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateJourneyStateResponse {
   /**
    * <p>Provides information about the status, configuration, and other settings for a journey.</p>
    */
   JourneyResponse: JourneyResponse | undefined;
-}
-
-export namespace UpdateJourneyStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJourneyStateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePushTemplateRequest {
@@ -3579,29 +2292,11 @@ export interface UpdatePushTemplateRequest {
   Version?: string;
 }
 
-export namespace UpdatePushTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePushTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePushTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
    */
   MessageBody: MessageBody | undefined;
-}
-
-export namespace UpdatePushTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePushTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3654,15 +2349,6 @@ export interface UpdateRecommenderConfigurationShape {
   RecommendationsPerMessage?: number;
 }
 
-export namespace UpdateRecommenderConfigurationShape {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecommenderConfigurationShape): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRecommenderConfigurationRequest {
   /**
    * <p>The unique identifier for the recommender model configuration. This identifier is displayed as the <b>Recommender ID</b> on the Amazon Pinpoint console.</p>
@@ -3675,29 +2361,11 @@ export interface UpdateRecommenderConfigurationRequest {
   UpdateRecommenderConfiguration: UpdateRecommenderConfigurationShape | undefined;
 }
 
-export namespace UpdateRecommenderConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecommenderConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRecommenderConfigurationResponse {
   /**
    * <p>Provides information about Amazon Pinpoint configuration settings for retrieving and processing data from a recommender model.</p>
    */
   RecommenderConfigurationResponse: RecommenderConfigurationResponse | undefined;
-}
-
-export namespace UpdateRecommenderConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecommenderConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSegmentRequest {
@@ -3717,29 +2385,11 @@ export interface UpdateSegmentRequest {
   WriteSegmentRequest: WriteSegmentRequest | undefined;
 }
 
-export namespace UpdateSegmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSegmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSegmentResponse {
   /**
    * <p>Provides information about the configuration, dimension, and other settings for a segment.</p>
    */
   SegmentResponse: SegmentResponse | undefined;
-}
-
-export namespace UpdateSegmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSegmentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3762,15 +2412,6 @@ export interface SMSChannelRequest {
   ShortCode?: string;
 }
 
-export namespace SMSChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SMSChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSmsChannelRequest {
   /**
    * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
@@ -3783,29 +2424,11 @@ export interface UpdateSmsChannelRequest {
   SMSChannelRequest: SMSChannelRequest | undefined;
 }
 
-export namespace UpdateSmsChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSmsChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSmsChannelResponse {
   /**
    * <p>Provides information about the status and settings of the SMS channel for an application.</p>
    */
   SMSChannelResponse: SMSChannelResponse | undefined;
-}
-
-export namespace UpdateSmsChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSmsChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSmsTemplateRequest {
@@ -3830,29 +2453,11 @@ export interface UpdateSmsTemplateRequest {
   Version?: string;
 }
 
-export namespace UpdateSmsTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSmsTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSmsTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
    */
   MessageBody: MessageBody | undefined;
-}
-
-export namespace UpdateSmsTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSmsTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3863,15 +2468,6 @@ export interface TemplateActiveVersionRequest {
    * <p>The version of the message template to use as the active version of the template. Valid values are: latest, for the most recent version of the template; or, the unique identifier for any existing version of the template. If you specify an identifier, the value must match the identifier for an existing template version. To retrieve a list of versions and version identifiers for a template, use the <link  linkend="templates-template-name-template-type-versions">Template Versions</link> resource.</p>
    */
   Version?: string;
-}
-
-export namespace TemplateActiveVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateActiveVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTemplateActiveVersionRequest {
@@ -3891,29 +2487,11 @@ export interface UpdateTemplateActiveVersionRequest {
   TemplateType: string | undefined;
 }
 
-export namespace UpdateTemplateActiveVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateActiveVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTemplateActiveVersionResponse {
   /**
    * <p>Provides information about an API request or response.</p>
    */
   MessageBody: MessageBody | undefined;
-}
-
-export namespace UpdateTemplateActiveVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateActiveVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3924,15 +2502,6 @@ export interface VoiceChannelRequest {
    * <p>Specifies whether to enable the voice channel for the application.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace VoiceChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VoiceChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateVoiceChannelRequest {
@@ -3947,29 +2516,11 @@ export interface UpdateVoiceChannelRequest {
   VoiceChannelRequest: VoiceChannelRequest | undefined;
 }
 
-export namespace UpdateVoiceChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVoiceChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateVoiceChannelResponse {
   /**
    * <p>Provides information about the status and settings of the voice channel for an application.</p>
    */
   VoiceChannelResponse: VoiceChannelResponse | undefined;
-}
-
-export namespace UpdateVoiceChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVoiceChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateVoiceTemplateRequest {
@@ -3994,29 +2545,11 @@ export interface UpdateVoiceTemplateRequest {
   VoiceTemplateRequest: VoiceTemplateRequest | undefined;
 }
 
-export namespace UpdateVoiceTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVoiceTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateVoiceTemplateResponse {
   /**
    * <p>Provides information about an API request or response.</p>
    */
   MessageBody: MessageBody | undefined;
-}
-
-export namespace UpdateVoiceTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVoiceTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4039,15 +2572,6 @@ export interface VerifyOTPMessageRequestParameters {
   ReferenceId: string | undefined;
 }
 
-export namespace VerifyOTPMessageRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyOTPMessageRequestParameters): any => ({
-    ...obj,
-  });
-}
-
 export interface VerifyOTPMessageRequest {
   /**
    * <p>The unique ID of your Amazon Pinpoint application.</p>
@@ -4060,15 +2584,6 @@ export interface VerifyOTPMessageRequest {
   VerifyOTPMessageRequestParameters: VerifyOTPMessageRequestParameters | undefined;
 }
 
-export namespace VerifyOTPMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyOTPMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Verify OTP Message Response.</p>
  */
@@ -4079,15 +2594,6 @@ export interface VerificationResponse {
   Valid?: boolean;
 }
 
-export namespace VerificationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerificationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface VerifyOTPMessageResponse {
   /**
    * <p>Verify OTP Message Response.</p>
@@ -4095,11 +2601,1197 @@ export interface VerifyOTPMessageResponse {
   VerificationResponse: VerificationResponse | undefined;
 }
 
-export namespace VerifyOTPMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyOTPMessageResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GetEmailTemplateResponseFilterSensitiveLog = (obj: GetEmailTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEndpointRequestFilterSensitiveLog = (obj: GetEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEndpointResponseFilterSensitiveLog = (obj: GetEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventStreamRequestFilterSensitiveLog = (obj: GetEventStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventStreamResponseFilterSensitiveLog = (obj: GetEventStreamResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExportJobRequestFilterSensitiveLog = (obj: GetExportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExportJobResponseFilterSensitiveLog = (obj: GetExportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExportJobsRequestFilterSensitiveLog = (obj: GetExportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExportJobsResponseFilterSensitiveLog = (obj: GetExportJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGcmChannelRequestFilterSensitiveLog = (obj: GetGcmChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGcmChannelResponseFilterSensitiveLog = (obj: GetGcmChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImportJobRequestFilterSensitiveLog = (obj: GetImportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImportJobResponseFilterSensitiveLog = (obj: GetImportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImportJobsRequestFilterSensitiveLog = (obj: GetImportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportJobsResponseFilterSensitiveLog = (obj: ImportJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImportJobsResponseFilterSensitiveLog = (obj: GetImportJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInAppMessagesRequestFilterSensitiveLog = (obj: GetInAppMessagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InAppMessageFilterSensitiveLog = (obj: InAppMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InAppCampaignScheduleFilterSensitiveLog = (obj: InAppCampaignSchedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InAppMessageCampaignFilterSensitiveLog = (obj: InAppMessageCampaign): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InAppMessagesResponseFilterSensitiveLog = (obj: InAppMessagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInAppMessagesResponseFilterSensitiveLog = (obj: GetInAppMessagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInAppTemplateRequestFilterSensitiveLog = (obj: GetInAppTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InAppTemplateResponseFilterSensitiveLog = (obj: InAppTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInAppTemplateResponseFilterSensitiveLog = (obj: GetInAppTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJourneyRequestFilterSensitiveLog = (obj: GetJourneyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJourneyResponseFilterSensitiveLog = (obj: GetJourneyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJourneyDateRangeKpiRequestFilterSensitiveLog = (obj: GetJourneyDateRangeKpiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JourneyDateRangeKpiResponseFilterSensitiveLog = (obj: JourneyDateRangeKpiResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJourneyDateRangeKpiResponseFilterSensitiveLog = (obj: GetJourneyDateRangeKpiResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJourneyExecutionActivityMetricsRequestFilterSensitiveLog = (
+  obj: GetJourneyExecutionActivityMetricsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JourneyExecutionActivityMetricsResponseFilterSensitiveLog = (
+  obj: JourneyExecutionActivityMetricsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJourneyExecutionActivityMetricsResponseFilterSensitiveLog = (
+  obj: GetJourneyExecutionActivityMetricsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJourneyExecutionMetricsRequestFilterSensitiveLog = (obj: GetJourneyExecutionMetricsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JourneyExecutionMetricsResponseFilterSensitiveLog = (obj: JourneyExecutionMetricsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJourneyExecutionMetricsResponseFilterSensitiveLog = (obj: GetJourneyExecutionMetricsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPushTemplateRequestFilterSensitiveLog = (obj: GetPushTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PushNotificationTemplateResponseFilterSensitiveLog = (obj: PushNotificationTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPushTemplateResponseFilterSensitiveLog = (obj: GetPushTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommenderConfigurationRequestFilterSensitiveLog = (obj: GetRecommenderConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommenderConfigurationResponseFilterSensitiveLog = (
+  obj: GetRecommenderConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommenderConfigurationsRequestFilterSensitiveLog = (
+  obj: GetRecommenderConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecommenderConfigurationsResponseFilterSensitiveLog = (
+  obj: ListRecommenderConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommenderConfigurationsResponseFilterSensitiveLog = (
+  obj: GetRecommenderConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentRequestFilterSensitiveLog = (obj: GetSegmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentResponseFilterSensitiveLog = (obj: GetSegmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentExportJobsRequestFilterSensitiveLog = (obj: GetSegmentExportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentExportJobsResponseFilterSensitiveLog = (obj: GetSegmentExportJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentImportJobsRequestFilterSensitiveLog = (obj: GetSegmentImportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentImportJobsResponseFilterSensitiveLog = (obj: GetSegmentImportJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentsRequestFilterSensitiveLog = (obj: GetSegmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SegmentsResponseFilterSensitiveLog = (obj: SegmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentsResponseFilterSensitiveLog = (obj: GetSegmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentVersionRequestFilterSensitiveLog = (obj: GetSegmentVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentVersionResponseFilterSensitiveLog = (obj: GetSegmentVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentVersionsRequestFilterSensitiveLog = (obj: GetSegmentVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentVersionsResponseFilterSensitiveLog = (obj: GetSegmentVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSmsChannelRequestFilterSensitiveLog = (obj: GetSmsChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSmsChannelResponseFilterSensitiveLog = (obj: GetSmsChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSmsTemplateRequestFilterSensitiveLog = (obj: GetSmsTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SMSTemplateResponseFilterSensitiveLog = (obj: SMSTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSmsTemplateResponseFilterSensitiveLog = (obj: GetSmsTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUserEndpointsRequestFilterSensitiveLog = (obj: GetUserEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUserEndpointsResponseFilterSensitiveLog = (obj: GetUserEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVoiceChannelRequestFilterSensitiveLog = (obj: GetVoiceChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVoiceChannelResponseFilterSensitiveLog = (obj: GetVoiceChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVoiceTemplateRequestFilterSensitiveLog = (obj: GetVoiceTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VoiceTemplateResponseFilterSensitiveLog = (obj: VoiceTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVoiceTemplateResponseFilterSensitiveLog = (obj: GetVoiceTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JourneysResponseFilterSensitiveLog = (obj: JourneysResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JourneyStateRequestFilterSensitiveLog = (obj: JourneyStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJourneysRequestFilterSensitiveLog = (obj: ListJourneysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJourneysResponseFilterSensitiveLog = (obj: ListJourneysResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateResponseFilterSensitiveLog = (obj: TemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateVersionResponseFilterSensitiveLog = (obj: TemplateVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagsModelFilterSensitiveLog = (obj: TagsModel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplatesRequestFilterSensitiveLog = (obj: ListTemplatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplatesResponseFilterSensitiveLog = (obj: TemplatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplatesResponseFilterSensitiveLog = (obj: ListTemplatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplateVersionsRequestFilterSensitiveLog = (obj: ListTemplateVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateVersionsResponseFilterSensitiveLog = (obj: TemplateVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplateVersionsResponseFilterSensitiveLog = (obj: ListTemplateVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageResultFilterSensitiveLog = (obj: MessageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageRequestFilterSensitiveLog = (obj: MessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageResponseFilterSensitiveLog = (obj: MessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NumberValidateRequestFilterSensitiveLog = (obj: NumberValidateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NumberValidateResponseFilterSensitiveLog = (obj: NumberValidateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberValidateRequestFilterSensitiveLog = (obj: PhoneNumberValidateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberValidateResponseFilterSensitiveLog = (obj: PhoneNumberValidateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventsRequestFilterSensitiveLog = (obj: PutEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventsResponseFilterSensitiveLog = (obj: PutEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WriteEventStreamFilterSensitiveLog = (obj: WriteEventStream): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventStreamRequestFilterSensitiveLog = (obj: PutEventStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEventStreamResponseFilterSensitiveLog = (obj: PutEventStreamResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAttributesRequestFilterSensitiveLog = (obj: UpdateAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveAttributesRequestFilterSensitiveLog = (obj: RemoveAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveAttributesResponseFilterSensitiveLog = (obj: RemoveAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendMessagesRequestFilterSensitiveLog = (obj: SendMessagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendMessagesResponseFilterSensitiveLog = (obj: SendMessagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendOTPMessageRequestParametersFilterSensitiveLog = (obj: SendOTPMessageRequestParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendOTPMessageRequestFilterSensitiveLog = (obj: SendOTPMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendOTPMessageResponseFilterSensitiveLog = (obj: SendOTPMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendUsersMessageRequestFilterSensitiveLog = (obj: SendUsersMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendUsersMessagesRequestFilterSensitiveLog = (obj: SendUsersMessagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendUsersMessageResponseFilterSensitiveLog = (obj: SendUsersMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendUsersMessagesResponseFilterSensitiveLog = (obj: SendUsersMessagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAdmChannelRequestFilterSensitiveLog = (obj: UpdateAdmChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAdmChannelResponseFilterSensitiveLog = (obj: UpdateAdmChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApnsChannelRequestFilterSensitiveLog = (obj: UpdateApnsChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApnsChannelResponseFilterSensitiveLog = (obj: UpdateApnsChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApnsSandboxChannelRequestFilterSensitiveLog = (obj: UpdateApnsSandboxChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApnsSandboxChannelResponseFilterSensitiveLog = (obj: UpdateApnsSandboxChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApnsVoipChannelRequestFilterSensitiveLog = (obj: UpdateApnsVoipChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApnsVoipChannelResponseFilterSensitiveLog = (obj: UpdateApnsVoipChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApnsVoipSandboxChannelRequestFilterSensitiveLog = (
+  obj: UpdateApnsVoipSandboxChannelRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApnsVoipSandboxChannelResponseFilterSensitiveLog = (
+  obj: UpdateApnsVoipSandboxChannelResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WriteApplicationSettingsRequestFilterSensitiveLog = (obj: WriteApplicationSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationSettingsRequestFilterSensitiveLog = (obj: UpdateApplicationSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationSettingsResponseFilterSensitiveLog = (obj: UpdateApplicationSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBaiduChannelRequestFilterSensitiveLog = (obj: UpdateBaiduChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBaiduChannelResponseFilterSensitiveLog = (obj: UpdateBaiduChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCampaignRequestFilterSensitiveLog = (obj: UpdateCampaignRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCampaignResponseFilterSensitiveLog = (obj: UpdateCampaignResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEmailChannelRequestFilterSensitiveLog = (obj: UpdateEmailChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEmailChannelResponseFilterSensitiveLog = (obj: UpdateEmailChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEmailTemplateRequestFilterSensitiveLog = (obj: UpdateEmailTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEmailTemplateResponseFilterSensitiveLog = (obj: UpdateEmailTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointRequestFilterSensitiveLog = (obj: UpdateEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointResponseFilterSensitiveLog = (obj: UpdateEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointsBatchRequestFilterSensitiveLog = (obj: UpdateEndpointsBatchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointsBatchResponseFilterSensitiveLog = (obj: UpdateEndpointsBatchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGcmChannelRequestFilterSensitiveLog = (obj: UpdateGcmChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGcmChannelResponseFilterSensitiveLog = (obj: UpdateGcmChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInAppTemplateRequestFilterSensitiveLog = (obj: UpdateInAppTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInAppTemplateResponseFilterSensitiveLog = (obj: UpdateInAppTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJourneyRequestFilterSensitiveLog = (obj: UpdateJourneyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJourneyResponseFilterSensitiveLog = (obj: UpdateJourneyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJourneyStateRequestFilterSensitiveLog = (obj: UpdateJourneyStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJourneyStateResponseFilterSensitiveLog = (obj: UpdateJourneyStateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePushTemplateRequestFilterSensitiveLog = (obj: UpdatePushTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePushTemplateResponseFilterSensitiveLog = (obj: UpdatePushTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecommenderConfigurationShapeFilterSensitiveLog = (
+  obj: UpdateRecommenderConfigurationShape
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecommenderConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateRecommenderConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecommenderConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateRecommenderConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSegmentRequestFilterSensitiveLog = (obj: UpdateSegmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSegmentResponseFilterSensitiveLog = (obj: UpdateSegmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SMSChannelRequestFilterSensitiveLog = (obj: SMSChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSmsChannelRequestFilterSensitiveLog = (obj: UpdateSmsChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSmsChannelResponseFilterSensitiveLog = (obj: UpdateSmsChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSmsTemplateRequestFilterSensitiveLog = (obj: UpdateSmsTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSmsTemplateResponseFilterSensitiveLog = (obj: UpdateSmsTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateActiveVersionRequestFilterSensitiveLog = (obj: TemplateActiveVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplateActiveVersionRequestFilterSensitiveLog = (obj: UpdateTemplateActiveVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplateActiveVersionResponseFilterSensitiveLog = (
+  obj: UpdateTemplateActiveVersionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VoiceChannelRequestFilterSensitiveLog = (obj: VoiceChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVoiceChannelRequestFilterSensitiveLog = (obj: UpdateVoiceChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVoiceChannelResponseFilterSensitiveLog = (obj: UpdateVoiceChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVoiceTemplateRequestFilterSensitiveLog = (obj: UpdateVoiceTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVoiceTemplateResponseFilterSensitiveLog = (obj: UpdateVoiceTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyOTPMessageRequestParametersFilterSensitiveLog = (obj: VerifyOTPMessageRequestParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyOTPMessageRequestFilterSensitiveLog = (obj: VerifyOTPMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerificationResponseFilterSensitiveLog = (obj: VerificationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyOTPMessageResponseFilterSensitiveLog = (obj: VerifyOTPMessageResponse): any => ({
+  ...obj,
+});

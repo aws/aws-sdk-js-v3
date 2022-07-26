@@ -20,15 +20,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing one or more of the following fields:</p>
  *
@@ -161,15 +152,6 @@ export interface ActivateGatewayInput {
   Tags?: Tag[];
 }
 
-export namespace ActivateGatewayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateGatewayInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Storage Gateway returns the Amazon Resource Name (ARN) of the activated gateway. It
  *          is a string made of information such as your account, gateway name, and Amazon Web Services Region. This ARN is used to reference the gateway in other API operations as
@@ -187,15 +169,6 @@ export interface ActivateGatewayOutput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace ActivateGatewayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateGatewayOutput): any => ({
-    ...obj,
-  });
 }
 
 export type ErrorCode =
@@ -279,15 +252,6 @@ export interface StorageGatewayError {
   errorDetails?: Record<string, string>;
 }
 
-export namespace StorageGatewayError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageGatewayError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An internal server error has occurred during the request. For more information, see the
  *          error and message fields.</p>
@@ -366,30 +330,12 @@ export interface AddCacheInput {
   DiskIds: string[] | undefined;
 }
 
-export namespace AddCacheInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddCacheInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AddCacheOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace AddCacheOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddCacheOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -415,15 +361,6 @@ export interface AddTagsToResourceInput {
   Tags: Tag[] | undefined;
 }
 
-export namespace AddTagsToResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsToResourceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>AddTagsToResourceOutput</p>
  */
@@ -432,15 +369,6 @@ export interface AddTagsToResourceOutput {
    * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to.</p>
    */
   ResourceARN?: string;
-}
-
-export namespace AddTagsToResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsToResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface AddUploadBufferInput {
@@ -458,30 +386,12 @@ export interface AddUploadBufferInput {
   DiskIds: string[] | undefined;
 }
 
-export namespace AddUploadBufferInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddUploadBufferInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AddUploadBufferOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace AddUploadBufferOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddUploadBufferOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -510,15 +420,6 @@ export interface AddWorkingStorageInput {
   DiskIds: string[] | undefined;
 }
 
-export namespace AddWorkingStorageInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddWorkingStorageInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway for which working
  *          storage was configured.</p>
@@ -529,15 +430,6 @@ export interface AddWorkingStorageOutput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace AddWorkingStorageOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddWorkingStorageOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface AssignTapePoolInput {
@@ -569,30 +461,12 @@ export interface AssignTapePoolInput {
   BypassGovernanceRetention?: boolean;
 }
 
-export namespace AssignTapePoolInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssignTapePoolInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AssignTapePoolOutput {
   /**
    * <p>The unique Amazon Resource Names (ARN) of the virtual tape that was added to the tape
    *          pool.</p>
    */
   TapeARN?: string;
-}
-
-export namespace AssignTapePoolOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssignTapePoolOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -610,15 +484,6 @@ export interface CacheAttributes {
   CacheStaleTimeoutInSeconds?: number;
 }
 
-export namespace CacheAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies network configuration information for the gateway associated with the Amazon FSx file system.</p>
  */
@@ -632,15 +497,6 @@ export interface EndpointNetworkConfiguration {
    *          </note>
    */
   IpAddresses?: string[];
-}
-
-export namespace EndpointNetworkConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointNetworkConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateFileSystemInput {
@@ -701,30 +557,11 @@ export interface AssociateFileSystemInput {
   EndpointNetworkConfiguration?: EndpointNetworkConfiguration;
 }
 
-export namespace AssociateFileSystemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateFileSystemInput): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export interface AssociateFileSystemOutput {
   /**
    * <p>The ARN of the newly created file system association.</p>
    */
   FileSystemAssociationARN?: string;
-}
-
-export namespace AssociateFileSystemOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateFileSystemOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -771,15 +608,6 @@ export interface AttachVolumeInput {
   DiskId?: string;
 }
 
-export namespace AttachVolumeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachVolumeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>AttachVolumeOutput</p>
  */
@@ -794,15 +622,6 @@ export interface AttachVolumeOutput {
    *          the initiator that was used to connect to the target.</p>
    */
   TargetARN?: string;
-}
-
-export namespace AttachVolumeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachVolumeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -852,15 +671,6 @@ export interface AutomaticTapeCreationRule {
   Worm?: boolean;
 }
 
-export namespace AutomaticTapeCreationRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomaticTapeCreationRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the gateway's automatic tape creation policies, including the
  *          automatic tape creation rules and the gateway that is using the policies.</p>
@@ -878,15 +688,6 @@ export interface AutomaticTapeCreationPolicyInfo {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace AutomaticTapeCreationPolicyInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomaticTapeCreationPolicyInfo): any => ({
-    ...obj,
-  });
 }
 
 export type AvailabilityMonitorTestStatus = "COMPLETE" | "FAILED" | "PENDING";
@@ -946,15 +747,6 @@ export interface BandwidthRateLimitInterval {
   AverageDownloadRateLimitInBitsPerSec?: number;
 }
 
-export namespace BandwidthRateLimitInterval {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BandwidthRateLimitInterval): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lists iSCSI information about a volume.</p>
  */
@@ -983,15 +775,6 @@ export interface VolumeiSCSIAttributes {
    * <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
    */
   ChapEnabled?: boolean;
-}
-
-export namespace VolumeiSCSIAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeiSCSIAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1094,15 +877,6 @@ export interface CachediSCSIVolume {
   TargetName?: string;
 }
 
-export namespace CachediSCSIVolume {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachediSCSIVolume): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>CancelArchivalInput</p>
  */
@@ -1120,15 +894,6 @@ export interface CancelArchivalInput {
   TapeARN: string | undefined;
 }
 
-export namespace CancelArchivalInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelArchivalInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>CancelArchivalOutput</p>
  */
@@ -1138,15 +903,6 @@ export interface CancelArchivalOutput {
    *          canceled.</p>
    */
   TapeARN?: string;
-}
-
-export namespace CancelArchivalOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelArchivalOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1166,15 +922,6 @@ export interface CancelRetrievalInput {
   TapeARN: string | undefined;
 }
 
-export namespace CancelRetrievalInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelRetrievalInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>CancelRetrievalOutput</p>
  */
@@ -1184,15 +931,6 @@ export interface CancelRetrievalOutput {
    *          canceled.</p>
    */
   TapeARN?: string;
-}
-
-export namespace CancelRetrievalOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelRetrievalOutput): any => ({
-    ...obj,
-  });
 }
 
 export type CaseSensitivity = "CaseSensitive" | "ClientSpecified";
@@ -1225,17 +963,6 @@ export interface ChapInfo {
    *          initiator (e.g., Windows client).</p>
    */
   SecretToAuthenticateTarget?: string;
-}
-
-export namespace ChapInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChapInfo): any => ({
-    ...obj,
-    ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
-    ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
-  });
 }
 
 export interface CreateCachediSCSIVolumeInput {
@@ -1323,15 +1050,6 @@ export interface CreateCachediSCSIVolumeInput {
   Tags?: Tag[];
 }
 
-export namespace CreateCachediSCSIVolumeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCachediSCSIVolumeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCachediSCSIVolumeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the configured volume.</p>
@@ -1343,15 +1061,6 @@ export interface CreateCachediSCSIVolumeOutput {
    *          initiators can use to connect to the target.</p>
    */
   TargetARN?: string;
-}
-
-export namespace CreateCachediSCSIVolumeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCachediSCSIVolumeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1386,15 +1095,6 @@ export interface NFSFileShareDefaults {
    *          specified). The default value is <code>nfsnobody</code>.</p>
    */
   OwnerId?: number;
-}
-
-export namespace NFSFileShareDefaults {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NFSFileShareDefaults): any => ({
-    ...obj,
-  });
 }
 
 export type ObjectACL =
@@ -1643,15 +1343,6 @@ export interface CreateNFSFileShareInput {
   AuditDestinationARN?: string;
 }
 
-export namespace CreateNFSFileShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNFSFileShareInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>CreateNFSFileShareOutput</p>
  */
@@ -1660,15 +1351,6 @@ export interface CreateNFSFileShareOutput {
    * <p>The Amazon Resource Name (ARN) of the newly created file share.</p>
    */
   FileShareARN?: string;
-}
-
-export namespace CreateNFSFileShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNFSFileShareOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1955,15 +1637,6 @@ export interface CreateSMBFileShareInput {
   OplocksEnabled?: boolean;
 }
 
-export namespace CreateSMBFileShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSMBFileShareInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>CreateSMBFileShareOutput</p>
  */
@@ -1972,15 +1645,6 @@ export interface CreateSMBFileShareOutput {
    * <p>The Amazon Resource Name (ARN) of the newly created file share.</p>
    */
   FileShareARN?: string;
-}
-
-export namespace CreateSMBFileShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSMBFileShareOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2028,15 +1692,6 @@ export interface CreateSnapshotInput {
   Tags?: Tag[];
 }
 
-export namespace CreateSnapshotInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the following fields:</p>
  */
@@ -2052,15 +1707,6 @@ export interface CreateSnapshotOutput {
    *          creating a volume from a snapshot (<a>CreateStorediSCSIVolume</a>).</p>
    */
   SnapshotId?: string;
-}
-
-export namespace CreateSnapshotOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2119,15 +1765,6 @@ export interface CreateSnapshotFromVolumeRecoveryPointInput {
   Tags?: Tag[];
 }
 
-export namespace CreateSnapshotFromVolumeRecoveryPointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotFromVolumeRecoveryPointInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSnapshotFromVolumeRecoveryPointOutput {
   /**
    * <p>The ID of the snapshot.</p>
@@ -2144,15 +1781,6 @@ export interface CreateSnapshotFromVolumeRecoveryPointOutput {
    * <p>The time the volume was created from the recovery point.</p>
    */
   VolumeRecoveryPointTime?: string;
-}
-
-export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotFromVolumeRecoveryPointOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2268,15 +1896,6 @@ export interface CreateStorediSCSIVolumeInput {
   Tags?: Tag[];
 }
 
-export namespace CreateStorediSCSIVolumeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStorediSCSIVolumeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the following fields:</p>
  */
@@ -2296,15 +1915,6 @@ export interface CreateStorediSCSIVolumeOutput {
    *          initiators can use to connect to the target.</p>
    */
   TargetARN?: string;
-}
-
-export namespace CreateStorediSCSIVolumeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStorediSCSIVolumeOutput): any => ({
-    ...obj,
-  });
 }
 
 export type RetentionLockType = "COMPLIANCE" | "GOVERNANCE" | "NONE";
@@ -2352,15 +1962,6 @@ export interface CreateTapePoolInput {
   Tags?: Tag[];
 }
 
-export namespace CreateTapePoolInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTapePoolInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTapePoolOutput {
   /**
    * <p>The unique Amazon Resource Name (ARN) that represents the custom tape pool. Use the
@@ -2368,15 +1969,6 @@ export interface CreateTapePoolOutput {
    *          account and Amazon Web Services Region.</p>
    */
   PoolARN?: string;
-}
-
-export namespace CreateTapePoolOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTapePoolOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2470,15 +2062,6 @@ export interface CreateTapesInput {
   Tags?: Tag[];
 }
 
-export namespace CreateTapesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTapesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>CreateTapeOutput</p>
  */
@@ -2488,15 +2071,6 @@ export interface CreateTapesOutput {
    *          were created.</p>
    */
   TapeARNs?: string[];
-}
-
-export namespace CreateTapesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTapesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2573,15 +2147,6 @@ export interface CreateTapeWithBarcodeInput {
   Tags?: Tag[];
 }
 
-export namespace CreateTapeWithBarcodeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTapeWithBarcodeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>CreateTapeOutput</p>
  */
@@ -2593,15 +2158,6 @@ export interface CreateTapeWithBarcodeOutput {
   TapeARN?: string;
 }
 
-export namespace CreateTapeWithBarcodeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTapeWithBarcodeOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAutomaticTapeCreationPolicyInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -2610,30 +2166,12 @@ export interface DeleteAutomaticTapeCreationPolicyInput {
   GatewayARN: string | undefined;
 }
 
-export namespace DeleteAutomaticTapeCreationPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAutomaticTapeCreationPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAutomaticTapeCreationPolicyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace DeleteAutomaticTapeCreationPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAutomaticTapeCreationPolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2664,15 +2202,6 @@ export interface DeleteBandwidthRateLimitInput {
   BandwidthType: string | undefined;
 }
 
-export namespace DeleteBandwidthRateLimitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBandwidthRateLimitInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway whose bandwidth
  *          rate information was deleted.</p>
@@ -2683,15 +2212,6 @@ export interface DeleteBandwidthRateLimitOutput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace DeleteBandwidthRateLimitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBandwidthRateLimitOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2723,15 +2243,6 @@ export interface DeleteChapCredentialsInput {
   InitiatorName: string | undefined;
 }
 
-export namespace DeleteChapCredentialsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChapCredentialsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the following fields:</p>
  */
@@ -2745,15 +2256,6 @@ export interface DeleteChapCredentialsOutput {
    * <p>The iSCSI initiator that connects to the target.</p>
    */
   InitiatorName?: string;
-}
-
-export namespace DeleteChapCredentialsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChapCredentialsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2777,15 +2279,6 @@ export interface DeleteFileShareInput {
   ForceDelete?: boolean;
 }
 
-export namespace DeleteFileShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileShareInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DeleteFileShareOutput</p>
  */
@@ -2794,15 +2287,6 @@ export interface DeleteFileShareOutput {
    * <p>The Amazon Resource Name (ARN) of the deleted file share.</p>
    */
   FileShareARN?: string;
-}
-
-export namespace DeleteFileShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFileShareOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2816,15 +2300,6 @@ export interface DeleteGatewayInput {
   GatewayARN: string | undefined;
 }
 
-export namespace DeleteGatewayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGatewayInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the ID of the deleted gateway.</p>
  */
@@ -2836,15 +2311,6 @@ export interface DeleteGatewayOutput {
   GatewayARN?: string;
 }
 
-export namespace DeleteGatewayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGatewayOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSnapshotScheduleInput {
   /**
    * <p>The volume which snapshot schedule to delete.</p>
@@ -2852,29 +2318,11 @@ export interface DeleteSnapshotScheduleInput {
   VolumeARN: string | undefined;
 }
 
-export namespace DeleteSnapshotScheduleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSnapshotScheduleInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSnapshotScheduleOutput {
   /**
    * <p>The volume which snapshot schedule was deleted.</p>
    */
   VolumeARN?: string;
-}
-
-export namespace DeleteSnapshotScheduleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSnapshotScheduleOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2902,15 +2350,6 @@ export interface DeleteTapeInput {
   BypassGovernanceRetention?: boolean;
 }
 
-export namespace DeleteTapeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTapeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DeleteTapeOutput</p>
  */
@@ -2919,15 +2358,6 @@ export interface DeleteTapeOutput {
    * <p>The Amazon Resource Name (ARN) of the deleted virtual tape.</p>
    */
   TapeARN?: string;
-}
-
-export namespace DeleteTapeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTapeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2949,15 +2379,6 @@ export interface DeleteTapeArchiveInput {
   BypassGovernanceRetention?: boolean;
 }
 
-export namespace DeleteTapeArchiveInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTapeArchiveInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DeleteTapeArchiveOutput</p>
  */
@@ -2969,15 +2390,6 @@ export interface DeleteTapeArchiveOutput {
   TapeARN?: string;
 }
 
-export namespace DeleteTapeArchiveOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTapeArchiveOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTapePoolInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom tape pool to delete.</p>
@@ -2985,29 +2397,11 @@ export interface DeleteTapePoolInput {
   PoolARN: string | undefined;
 }
 
-export namespace DeleteTapePoolInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTapePoolInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTapePoolOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom tape pool being deleted.</p>
    */
   PoolARN?: string;
-}
-
-export namespace DeleteTapePoolOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTapePoolOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3022,15 +2416,6 @@ export interface DeleteVolumeInput {
   VolumeARN: string | undefined;
 }
 
-export namespace DeleteVolumeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVolumeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the storage volume that was
  *          deleted.</p>
@@ -3043,30 +2428,12 @@ export interface DeleteVolumeOutput {
   VolumeARN?: string;
 }
 
-export namespace DeleteVolumeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVolumeOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAvailabilityMonitorTestInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace DescribeAvailabilityMonitorTestInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAvailabilityMonitorTestInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAvailabilityMonitorTestOutput {
@@ -3089,15 +2456,6 @@ export interface DescribeAvailabilityMonitorTestOutput {
   StartTime?: Date;
 }
 
-export namespace DescribeAvailabilityMonitorTestOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAvailabilityMonitorTestOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
@@ -3107,15 +2465,6 @@ export interface DescribeBandwidthRateLimitInput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace DescribeBandwidthRateLimitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3141,30 +2490,12 @@ export interface DescribeBandwidthRateLimitOutput {
   AverageDownloadRateLimitInBitsPerSec?: number;
 }
 
-export namespace DescribeBandwidthRateLimitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBandwidthRateLimitScheduleInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace DescribeBandwidthRateLimitScheduleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitScheduleInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBandwidthRateLimitScheduleOutput {
@@ -3180,30 +2511,12 @@ export interface DescribeBandwidthRateLimitScheduleOutput {
   BandwidthRateLimitIntervals?: BandwidthRateLimitInterval[];
 }
 
-export namespace DescribeBandwidthRateLimitScheduleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitScheduleOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCacheInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace DescribeCacheInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCacheInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCacheOutput {
@@ -3251,30 +2564,12 @@ export interface DescribeCacheOutput {
   CacheMissPercentage?: number;
 }
 
-export namespace DescribeCacheOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCacheOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCachediSCSIVolumesInput {
   /**
    * <p>An array of strings where each string represents the Amazon Resource Name (ARN) of a
    *          cached volume. All of the specified cached volumes must be from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
    */
   VolumeARNs: string[] | undefined;
-}
-
-export namespace DescribeCachediSCSIVolumesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCachediSCSIVolumesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3287,15 +2582,6 @@ export interface DescribeCachediSCSIVolumesOutput {
   CachediSCSIVolumes?: CachediSCSIVolume[];
 }
 
-export namespace DescribeCachediSCSIVolumesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCachediSCSIVolumesOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume
  *          target.</p>
@@ -3306,15 +2592,6 @@ export interface DescribeChapCredentialsInput {
    *          specified VolumeARN.</p>
    */
   TargetARN: string | undefined;
-}
-
-export namespace DescribeChapCredentialsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChapCredentialsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3359,33 +2636,12 @@ export interface DescribeChapCredentialsOutput {
   ChapCredentials?: ChapInfo[];
 }
 
-export namespace DescribeChapCredentialsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChapCredentialsOutput): any => ({
-    ...obj,
-    ...(obj.ChapCredentials && {
-      ChapCredentials: obj.ChapCredentials.map((item) => ChapInfo.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface DescribeFileSystemAssociationsInput {
   /**
    * <p>An array containing the Amazon Resource Name (ARN) of each file system association to be
    *          described.</p>
    */
   FileSystemAssociationARNList: string[] | undefined;
-}
-
-export namespace DescribeFileSystemAssociationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFileSystemAssociationsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3396,15 +2652,6 @@ export interface FileSystemAssociationStatusDetail {
    * <p>The error code for a given file system association status.</p>
    */
   ErrorCode?: string;
-}
-
-export namespace FileSystemAssociationStatusDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemAssociationStatusDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3470,15 +2717,6 @@ export interface FileSystemAssociationInfo {
   FileSystemAssociationStatusDetails?: FileSystemAssociationStatusDetail[];
 }
 
-export namespace FileSystemAssociationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemAssociationInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFileSystemAssociationsOutput {
   /**
    * <p>An array containing the <code>FileSystemAssociationInfo</code> data type of each file
@@ -3486,15 +2724,6 @@ export interface DescribeFileSystemAssociationsOutput {
    *          </p>
    */
   FileSystemAssociationInfoList?: FileSystemAssociationInfo[];
-}
-
-export namespace DescribeFileSystemAssociationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFileSystemAssociationsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3506,15 +2735,6 @@ export interface DescribeGatewayInformationInput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace DescribeGatewayInformationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGatewayInformationInput): any => ({
-    ...obj,
-  });
 }
 
 export enum GatewayCapacity {
@@ -3546,15 +2766,6 @@ export interface NetworkInterface {
    *             supported</i>.</p>
    */
   Ipv6Address?: string;
-}
-
-export namespace NetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj,
-  });
 }
 
 export type HostEnvironment = "EC2" | "HYPER-V" | "KVM" | "OTHER" | "SNOWBALL" | "VMWARE";
@@ -3690,15 +2901,6 @@ export interface DescribeGatewayInformationOutput {
   HostEnvironmentId?: string;
 }
 
-export namespace DescribeGatewayInformationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGatewayInformationOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
@@ -3708,15 +2910,6 @@ export interface DescribeMaintenanceStartTimeInput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace DescribeMaintenanceStartTimeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMaintenanceStartTimeInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3792,15 +2985,6 @@ export interface DescribeMaintenanceStartTimeOutput {
   Timezone?: string;
 }
 
-export namespace DescribeMaintenanceStartTimeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMaintenanceStartTimeOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DescribeNFSFileSharesInput</p>
  */
@@ -3810,15 +2994,6 @@ export interface DescribeNFSFileSharesInput {
    *          described.</p>
    */
   FileShareARNList: string[] | undefined;
-}
-
-export namespace DescribeNFSFileSharesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNFSFileSharesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4075,15 +3250,6 @@ export interface NFSFileShareInfo {
   AuditDestinationARN?: string;
 }
 
-export namespace NFSFileShareInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NFSFileShareInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DescribeNFSFileSharesOutput</p>
  */
@@ -4092,15 +3258,6 @@ export interface DescribeNFSFileSharesOutput {
    * <p>An array containing a description for each requested file share.</p>
    */
   NFSFileShareInfoList?: NFSFileShareInfo[];
-}
-
-export namespace DescribeNFSFileSharesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNFSFileSharesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4112,15 +3269,6 @@ export interface DescribeSMBFileSharesInput {
    *          described.</p>
    */
   FileShareARNList: string[] | undefined;
-}
-
-export namespace DescribeSMBFileSharesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSMBFileSharesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4415,15 +3563,6 @@ export interface SMBFileShareInfo {
   OplocksEnabled?: boolean;
 }
 
-export namespace SMBFileShareInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SMBFileShareInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DescribeSMBFileSharesOutput</p>
  */
@@ -4434,30 +3573,12 @@ export interface DescribeSMBFileSharesOutput {
   SMBFileShareInfoList?: SMBFileShareInfo[];
 }
 
-export namespace DescribeSMBFileSharesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSMBFileSharesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSMBSettingsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace DescribeSMBSettingsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSMBSettingsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4473,15 +3594,6 @@ export interface SMBLocalGroups {
    *          force-close files that are open and locked.</p>
    */
   GatewayAdmins?: string[];
-}
-
-export namespace SMBLocalGroups {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SMBLocalGroups): any => ({
-    ...obj,
-  });
 }
 
 export type SMBSecurityStrategy = "ClientSpecified" | "MandatoryEncryption" | "MandatorySigning";
@@ -4591,15 +3703,6 @@ export interface DescribeSMBSettingsOutput {
   SMBLocalGroups?: SMBLocalGroups;
 }
 
-export namespace DescribeSMBSettingsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSMBSettingsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the <a>DescribeSnapshotScheduleInput$VolumeARN</a>
  *          of the volume.</p>
@@ -4610,15 +3713,6 @@ export interface DescribeSnapshotScheduleInput {
    *          operation to return a list of gateway volumes.</p>
    */
   VolumeARN: string | undefined;
-}
-
-export namespace DescribeSnapshotScheduleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotScheduleInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSnapshotScheduleOutput {
@@ -4657,15 +3751,6 @@ export interface DescribeSnapshotScheduleOutput {
   Tags?: Tag[];
 }
 
-export namespace DescribeSnapshotScheduleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotScheduleOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing a list of <a>DescribeStorediSCSIVolumesInput$VolumeARNs</a>.</p>
  */
@@ -4675,15 +3760,6 @@ export interface DescribeStorediSCSIVolumesInput {
    *          stored volume. All of the specified stored volumes must be from the same gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
    */
   VolumeARNs: string[] | undefined;
-}
-
-export namespace DescribeStorediSCSIVolumesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStorediSCSIVolumesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4794,15 +3870,6 @@ export interface StorediSCSIVolume {
   TargetName?: string;
 }
 
-export namespace StorediSCSIVolume {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorediSCSIVolume): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStorediSCSIVolumesOutput {
   /**
    * <p>Describes a single unit of output from <a>DescribeStorediSCSIVolumes</a>. The
@@ -4893,15 +3960,6 @@ export interface DescribeStorediSCSIVolumesOutput {
   StorediSCSIVolumes?: StorediSCSIVolume[];
 }
 
-export namespace DescribeStorediSCSIVolumesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStorediSCSIVolumesOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DescribeTapeArchivesInput</p>
  */
@@ -4923,15 +3981,6 @@ export interface DescribeTapeArchivesInput {
    *          number.</p>
    */
   Limit?: number;
-}
-
-export namespace DescribeTapeArchivesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTapeArchivesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5021,15 +4070,6 @@ export interface TapeArchive {
   PoolEntryDate?: Date;
 }
 
-export namespace TapeArchive {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TapeArchive): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DescribeTapeArchivesOutput</p>
  */
@@ -5049,15 +4089,6 @@ export interface DescribeTapeArchivesOutput {
    *          describe, this field does not appear in the response.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeTapeArchivesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTapeArchivesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5081,15 +4112,6 @@ export interface DescribeTapeRecoveryPointsInput {
    *          to the specified number.</p>
    */
   Limit?: number;
-}
-
-export namespace DescribeTapeRecoveryPointsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTapeRecoveryPointsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5121,15 +4143,6 @@ export interface TapeRecoveryPointInfo {
   TapeStatus?: string;
 }
 
-export namespace TapeRecoveryPointInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TapeRecoveryPointInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DescribeTapeRecoveryPointsOutput</p>
  */
@@ -5154,15 +4167,6 @@ export interface DescribeTapeRecoveryPointsOutput {
    *          appear in the response.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeTapeRecoveryPointsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTapeRecoveryPointsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5199,15 +4203,6 @@ export interface DescribeTapesInput {
    *          </note>
    */
   Limit?: number;
-}
-
-export namespace DescribeTapesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTapesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5292,15 +4287,6 @@ export interface Tape {
   PoolEntryDate?: Date;
 }
 
-export namespace Tape {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tape): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DescribeTapesOutput</p>
  */
@@ -5320,30 +4306,12 @@ export interface DescribeTapesOutput {
   Marker?: string;
 }
 
-export namespace DescribeTapesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTapesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUploadBufferInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace DescribeUploadBufferInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUploadBufferInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUploadBufferOutput {
@@ -5370,15 +4338,6 @@ export interface DescribeUploadBufferOutput {
    * <p>The total number of bytes allocated in the gateway's as upload buffer.</p>
    */
   UploadBufferAllocatedInBytes?: number;
-}
-
-export namespace DescribeUploadBufferOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUploadBufferOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5415,15 +4374,6 @@ export interface DescribeVTLDevicesInput {
   Limit?: number;
 }
 
-export namespace DescribeVTLDevicesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVTLDevicesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lists iSCSI information about a VTL device.</p>
  */
@@ -5448,15 +4398,6 @@ export interface DeviceiSCSIAttributes {
    * <p>Indicates whether mutual CHAP is enabled for the iSCSI target.</p>
    */
   ChapEnabled?: boolean;
-}
-
-export namespace DeviceiSCSIAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceiSCSIAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5490,15 +4431,6 @@ export interface VTLDevice {
   DeviceiSCSIAttributes?: DeviceiSCSIAttributes;
 }
 
-export namespace VTLDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VTLDevice): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DescribeVTLDevicesOutput</p>
  */
@@ -5524,15 +4456,6 @@ export interface DescribeVTLDevicesOutput {
   Marker?: string;
 }
 
-export namespace DescribeVTLDevicesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVTLDevicesOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
@@ -5542,15 +4465,6 @@ export interface DescribeWorkingStorageInput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace DescribeWorkingStorageInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkingStorageInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5584,15 +4498,6 @@ export interface DescribeWorkingStorageOutput {
   WorkingStorageAllocatedInBytes?: number;
 }
 
-export namespace DescribeWorkingStorageOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkingStorageOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>AttachVolumeInput</p>
  */
@@ -5614,15 +4519,6 @@ export interface DetachVolumeInput {
   ForceDetach?: boolean;
 }
 
-export namespace DetachVolumeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachVolumeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>AttachVolumeOutput</p>
  */
@@ -5631,15 +4527,6 @@ export interface DetachVolumeOutput {
    * <p>The Amazon Resource Name (ARN) of the volume that was detached.</p>
    */
   VolumeARN?: string;
-}
-
-export namespace DetachVolumeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachVolumeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5653,15 +4540,6 @@ export interface DisableGatewayInput {
   GatewayARN: string | undefined;
 }
 
-export namespace DisableGatewayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableGatewayInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>DisableGatewayOutput</p>
  */
@@ -5670,15 +4548,6 @@ export interface DisableGatewayOutput {
    * <p>The unique Amazon Resource Name (ARN) of the disabled gateway.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace DisableGatewayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableGatewayOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateFileSystemInput {
@@ -5696,29 +4565,11 @@ export interface DisassociateFileSystemInput {
   ForceDelete?: boolean;
 }
 
-export namespace DisassociateFileSystemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFileSystemInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateFileSystemOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted file system association.</p>
    */
   FileSystemAssociationARN?: string;
-}
-
-export namespace DisassociateFileSystemOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFileSystemOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5772,15 +4623,6 @@ export interface Disk {
   DiskAttributeList?: string[];
 }
 
-export namespace Disk {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Disk): any => ({
-    ...obj,
-  });
-}
-
 export type FileShareType = "NFS" | "SMB";
 
 /**
@@ -5818,15 +4660,6 @@ export interface FileShareInfo {
   GatewayARN?: string;
 }
 
-export namespace FileShareInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileShareInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Gets the summary returned by <code>ListFileSystemAssociation</code>, which is a summary
  *          of a created file system association.</p>
@@ -5855,15 +4688,6 @@ export interface FileSystemAssociationSummary {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace FileSystemAssociationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemAssociationSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5924,15 +4748,6 @@ export interface GatewayInfo {
   HostEnvironmentId?: string;
 }
 
-export namespace GatewayInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatewayInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>JoinDomainInput</p>
  */
@@ -5981,16 +4796,6 @@ export interface JoinDomainInput {
    *          Directory domain.</p>
    */
   Password: string | undefined;
-}
-
-export namespace JoinDomainInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JoinDomainInput): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -6045,30 +4850,12 @@ export interface JoinDomainOutput {
   ActiveDirectoryStatus?: ActiveDirectoryStatus | string;
 }
 
-export namespace JoinDomainOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JoinDomainOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAutomaticTapeCreationPoliciesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace ListAutomaticTapeCreationPoliciesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAutomaticTapeCreationPoliciesInput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAutomaticTapeCreationPoliciesOutput {
@@ -6078,15 +4865,6 @@ export interface ListAutomaticTapeCreationPoliciesOutput {
    *          policies.</p>
    */
   AutomaticTapeCreationPolicyInfos?: AutomaticTapeCreationPolicyInfo[];
-}
-
-export namespace ListAutomaticTapeCreationPoliciesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAutomaticTapeCreationPoliciesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6113,15 +4891,6 @@ export interface ListFileSharesInput {
   Marker?: string;
 }
 
-export namespace ListFileSharesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFileSharesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>ListFileShareOutput</p>
  */
@@ -6145,15 +4914,6 @@ export interface ListFileSharesOutput {
   FileShareInfoList?: FileShareInfo[];
 }
 
-export namespace ListFileSharesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFileSharesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFileSystemAssociationsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6175,15 +4935,6 @@ export interface ListFileSystemAssociationsInput {
   Marker?: string;
 }
 
-export namespace ListFileSystemAssociationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFileSystemAssociationsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFileSystemAssociationsOutput {
   /**
    * <p>If the request includes <code>Marker</code>, the response returns that value in this
@@ -6203,15 +4954,6 @@ export interface ListFileSystemAssociationsOutput {
    *          associations.</p>
    */
   FileSystemAssociationSummaryList?: FileSystemAssociationSummary[];
-}
-
-export namespace ListFileSystemAssociationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFileSystemAssociationsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6244,15 +4986,6 @@ export interface ListGatewaysInput {
   Limit?: number;
 }
 
-export namespace ListGatewaysInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGatewaysInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGatewaysOutput {
   /**
    * <p>An array of <a>GatewayInfo</a> objects.</p>
@@ -6266,15 +4999,6 @@ export interface ListGatewaysOutput {
   Marker?: string;
 }
 
-export namespace ListGatewaysOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGatewaysOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway.</p>
  */
@@ -6284,15 +5008,6 @@ export interface ListLocalDisksInput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace ListLocalDisksInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLocalDisksInput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLocalDisksOutput {
@@ -6314,15 +5029,6 @@ export interface ListLocalDisksOutput {
    *          </ul>
    */
   Disks?: Disk[];
-}
-
-export namespace ListLocalDisksOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLocalDisksOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6347,15 +5053,6 @@ export interface ListTagsForResourceInput {
   Limit?: number;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>ListTagsForResourceOutput</p>
  */
@@ -6377,15 +5074,6 @@ export interface ListTagsForResourceOutput {
   Tags?: Tag[];
 }
 
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTapePoolsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of each of the custom tape pools you want to list. If you
@@ -6403,15 +5091,6 @@ export interface ListTapePoolsInput {
    * <p>An optional number limit for the tape pools in the list returned by this call.</p>
    */
   Limit?: number;
-}
-
-export namespace ListTapePoolsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTapePoolsInput): any => ({
-    ...obj,
-  });
 }
 
 export type PoolStatus = "ACTIVE" | "DELETED";
@@ -6461,15 +5140,6 @@ export interface PoolInfo {
   PoolStatus?: PoolStatus | string;
 }
 
-export namespace PoolInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PoolInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTapePoolsOutput {
   /**
    * <p>An array of <code>PoolInfo</code> objects, where each object describes a single custom
@@ -6484,15 +5154,6 @@ export interface ListTapePoolsOutput {
    *          more tape pools to list, this element does not appear in the response body. </p>
    */
   Marker?: string;
-}
-
-export namespace ListTapePoolsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTapePoolsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6533,15 +5194,6 @@ export interface ListTapesInput {
    * <p>An optional number limit for the tapes in the list returned by this call.</p>
    */
   Limit?: number;
-}
-
-export namespace ListTapesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTapesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6594,15 +5246,6 @@ export interface TapeInfo {
   PoolEntryDate?: Date;
 }
 
-export namespace TapeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TapeInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the following fields:</p>
  *
@@ -6635,15 +5278,6 @@ export interface ListTapesOutput {
   Marker?: string;
 }
 
-export namespace ListTapesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTapesOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>ListVolumeInitiatorsInput</p>
  */
@@ -6653,15 +5287,6 @@ export interface ListVolumeInitiatorsInput {
    *          operation to return a list of gateway volumes for the gateway.</p>
    */
   VolumeARN: string | undefined;
-}
-
-export namespace ListVolumeInitiatorsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVolumeInitiatorsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6675,30 +5300,12 @@ export interface ListVolumeInitiatorsOutput {
   Initiators?: string[];
 }
 
-export namespace ListVolumeInitiatorsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVolumeInitiatorsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListVolumeRecoveryPointsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace ListVolumeRecoveryPointsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVolumeRecoveryPointsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6731,15 +5338,6 @@ export interface VolumeRecoveryPointInfo {
   VolumeRecoveryPointTime?: string;
 }
 
-export namespace VolumeRecoveryPointInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeRecoveryPointInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListVolumeRecoveryPointsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -6751,15 +5349,6 @@ export interface ListVolumeRecoveryPointsOutput {
    * <p>An array of <a>VolumeRecoveryPointInfo</a> objects.</p>
    */
   VolumeRecoveryPointInfos?: VolumeRecoveryPointInfo[];
-}
-
-export namespace ListVolumeRecoveryPointsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVolumeRecoveryPointsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6796,15 +5385,6 @@ export interface ListVolumesInput {
    *          items.</p>
    */
   Limit?: number;
-}
-
-export namespace ListVolumesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVolumesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6864,15 +5444,6 @@ export interface VolumeInfo {
   VolumeAttachmentStatus?: string;
 }
 
-export namespace VolumeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the following fields:</p>
  *
@@ -6910,29 +5481,11 @@ export interface ListVolumesOutput {
   VolumeInfos?: VolumeInfo[];
 }
 
-export namespace ListVolumesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVolumesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface NotifyWhenUploadedInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the file share.</p>
    */
   FileShareARN: string | undefined;
-}
-
-export namespace NotifyWhenUploadedInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyWhenUploadedInput): any => ({
-    ...obj,
-  });
 }
 
 export interface NotifyWhenUploadedOutput {
@@ -6946,15 +5499,6 @@ export interface NotifyWhenUploadedOutput {
    *          format.</p>
    */
   NotificationId?: string;
-}
-
-export namespace NotifyWhenUploadedOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyWhenUploadedOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6988,15 +5532,6 @@ export interface RefreshCacheInput {
   Recursive?: boolean;
 }
 
-export namespace RefreshCacheInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RefreshCacheInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>RefreshCacheOutput</p>
  */
@@ -7011,15 +5546,6 @@ export interface RefreshCacheOutput {
    *          format.</p>
    */
   NotificationId?: string;
-}
-
-export namespace RefreshCacheOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RefreshCacheOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7038,15 +5564,6 @@ export interface RemoveTagsFromResourceInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace RemoveTagsFromResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>RemoveTagsFromResourceOutput</p>
  */
@@ -7057,15 +5574,6 @@ export interface RemoveTagsFromResourceOutput {
   ResourceARN?: string;
 }
 
-export namespace RemoveTagsFromResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetCacheInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -7074,30 +5582,12 @@ export interface ResetCacheInput {
   GatewayARN: string | undefined;
 }
 
-export namespace ResetCacheInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetCacheInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetCacheOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace ResetCacheOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetCacheOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7121,15 +5611,6 @@ export interface RetrieveTapeArchiveInput {
   GatewayARN: string | undefined;
 }
 
-export namespace RetrieveTapeArchiveInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetrieveTapeArchiveInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>RetrieveTapeArchiveOutput</p>
  */
@@ -7138,15 +5619,6 @@ export interface RetrieveTapeArchiveOutput {
    * <p>The Amazon Resource Name (ARN) of the retrieved virtual tape.</p>
    */
   TapeARN?: string;
-}
-
-export namespace RetrieveTapeArchiveOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetrieveTapeArchiveOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7166,15 +5638,6 @@ export interface RetrieveTapeRecoveryPointInput {
   GatewayARN: string | undefined;
 }
 
-export namespace RetrieveTapeRecoveryPointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetrieveTapeRecoveryPointInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>RetrieveTapeRecoveryPointOutput</p>
  */
@@ -7184,15 +5647,6 @@ export interface RetrieveTapeRecoveryPointOutput {
    *          retrieved.</p>
    */
   TapeARN?: string;
-}
-
-export namespace RetrieveTapeRecoveryPointOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetrieveTapeRecoveryPointOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7211,31 +5665,12 @@ export interface SetLocalConsolePasswordInput {
   LocalConsolePassword: string | undefined;
 }
 
-export namespace SetLocalConsolePasswordInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetLocalConsolePasswordInput): any => ({
-    ...obj,
-    ...(obj.LocalConsolePassword && { LocalConsolePassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface SetLocalConsolePasswordOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace SetLocalConsolePasswordOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetLocalConsolePasswordOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7254,31 +5689,12 @@ export interface SetSMBGuestPasswordInput {
   Password: string | undefined;
 }
 
-export namespace SetSMBGuestPasswordInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSMBGuestPasswordInput): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export interface SetSMBGuestPasswordOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace SetSMBGuestPasswordOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSMBGuestPasswordOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7293,15 +5709,6 @@ export interface ShutdownGatewayInput {
   GatewayARN: string | undefined;
 }
 
-export namespace ShutdownGatewayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShutdownGatewayInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway that was shut
  *          down.</p>
@@ -7314,15 +5721,6 @@ export interface ShutdownGatewayOutput {
   GatewayARN?: string;
 }
 
-export namespace ShutdownGatewayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShutdownGatewayOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface StartAvailabilityMonitorTestInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
@@ -7331,30 +5729,12 @@ export interface StartAvailabilityMonitorTestInput {
   GatewayARN: string | undefined;
 }
 
-export namespace StartAvailabilityMonitorTestInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAvailabilityMonitorTestInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StartAvailabilityMonitorTestOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace StartAvailabilityMonitorTestOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAvailabilityMonitorTestOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7368,15 +5748,6 @@ export interface StartGatewayInput {
   GatewayARN: string | undefined;
 }
 
-export namespace StartGatewayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartGatewayInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway that was
  *          restarted.</p>
@@ -7387,15 +5758,6 @@ export interface StartGatewayOutput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace StartGatewayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartGatewayOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAutomaticTapeCreationPolicyInput {
@@ -7412,30 +5774,12 @@ export interface UpdateAutomaticTapeCreationPolicyInput {
   GatewayARN: string | undefined;
 }
 
-export namespace UpdateAutomaticTapeCreationPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAutomaticTapeCreationPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAutomaticTapeCreationPolicyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace UpdateAutomaticTapeCreationPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAutomaticTapeCreationPolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7472,15 +5816,6 @@ export interface UpdateBandwidthRateLimitInput {
   AverageDownloadRateLimitInBitsPerSec?: number;
 }
 
-export namespace UpdateBandwidthRateLimitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway whose throttle
  *          information was updated.</p>
@@ -7491,15 +5826,6 @@ export interface UpdateBandwidthRateLimitOutput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace UpdateBandwidthRateLimitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBandwidthRateLimitScheduleInput {
@@ -7516,30 +5842,12 @@ export interface UpdateBandwidthRateLimitScheduleInput {
   BandwidthRateLimitIntervals: BandwidthRateLimitInterval[] | undefined;
 }
 
-export namespace UpdateBandwidthRateLimitScheduleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitScheduleInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBandwidthRateLimitScheduleOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace UpdateBandwidthRateLimitScheduleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitScheduleOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7604,17 +5912,6 @@ export interface UpdateChapCredentialsInput {
   SecretToAuthenticateTarget?: string;
 }
 
-export namespace UpdateChapCredentialsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChapCredentialsInput): any => ({
-    ...obj,
-    ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
-    ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A JSON object containing the following fields:</p>
  */
@@ -7630,15 +5927,6 @@ export interface UpdateChapCredentialsOutput {
    *          specified in the request.</p>
    */
   InitiatorName?: string;
-}
-
-export namespace UpdateChapCredentialsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChapCredentialsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFileSystemAssociationInput {
@@ -7671,30 +5959,11 @@ export interface UpdateFileSystemAssociationInput {
   CacheAttributes?: CacheAttributes;
 }
 
-export namespace UpdateFileSystemAssociationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFileSystemAssociationInput): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateFileSystemAssociationOutput {
   /**
    * <p>The ARN of the updated file system association.</p>
    */
   FileSystemAssociationARN?: string;
-}
-
-export namespace UpdateFileSystemAssociationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFileSystemAssociationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateGatewayInformationInput {
@@ -7730,15 +5999,6 @@ export interface UpdateGatewayInformationInput {
   GatewayCapacity?: GatewayCapacity | string;
 }
 
-export namespace UpdateGatewayInformationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewayInformationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway that was
  *          updated.</p>
@@ -7756,15 +6016,6 @@ export interface UpdateGatewayInformationOutput {
   GatewayName?: string;
 }
 
-export namespace UpdateGatewayInformationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewayInformationOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway to update.</p>
  */
@@ -7774,15 +6025,6 @@ export interface UpdateGatewaySoftwareNowInput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN: string | undefined;
-}
-
-export namespace UpdateGatewaySoftwareNowInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewaySoftwareNowInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7795,15 +6037,6 @@ export interface UpdateGatewaySoftwareNowOutput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace UpdateGatewaySoftwareNowOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewaySoftwareNowOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7867,15 +6100,6 @@ export interface UpdateMaintenanceStartTimeInput {
   DayOfMonth?: number;
 }
 
-export namespace UpdateMaintenanceStartTimeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceStartTimeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the gateway whose maintenance
  *          start time is updated.</p>
@@ -7886,15 +6110,6 @@ export interface UpdateMaintenanceStartTimeOutput {
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace UpdateMaintenanceStartTimeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceStartTimeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8058,15 +6273,6 @@ export interface UpdateNFSFileShareInput {
   AuditDestinationARN?: string;
 }
 
-export namespace UpdateNFSFileShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNFSFileShareInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>UpdateNFSFileShareOutput</p>
  */
@@ -8075,15 +6281,6 @@ export interface UpdateNFSFileShareOutput {
    * <p>The Amazon Resource Name (ARN) of the updated file share.</p>
    */
   FileShareARN?: string;
-}
-
-export namespace UpdateNFSFileShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNFSFileShareOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8282,15 +6479,6 @@ export interface UpdateSMBFileShareInput {
   OplocksEnabled?: boolean;
 }
 
-export namespace UpdateSMBFileShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSMBFileShareInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>UpdateSMBFileShareOutput</p>
  */
@@ -8299,15 +6487,6 @@ export interface UpdateSMBFileShareOutput {
    * <p>The Amazon Resource Name (ARN) of the updated SMB file share.</p>
    */
   FileShareARN?: string;
-}
-
-export namespace UpdateSMBFileShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSMBFileShareOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSMBFileShareVisibilityInput {
@@ -8323,30 +6502,12 @@ export interface UpdateSMBFileShareVisibilityInput {
   FileSharesVisible: boolean | undefined;
 }
 
-export namespace UpdateSMBFileShareVisibilityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSMBFileShareVisibilityInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSMBFileShareVisibilityOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace UpdateSMBFileShareVisibilityOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSMBFileShareVisibilityOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSMBLocalGroupsInput {
@@ -8363,30 +6524,12 @@ export interface UpdateSMBLocalGroupsInput {
   SMBLocalGroups: SMBLocalGroups | undefined;
 }
 
-export namespace UpdateSMBLocalGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSMBLocalGroupsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSMBLocalGroupsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace UpdateSMBLocalGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSMBLocalGroupsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSMBSecurityStrategyInput {
@@ -8416,30 +6559,12 @@ export interface UpdateSMBSecurityStrategyInput {
   SMBSecurityStrategy: SMBSecurityStrategy | string | undefined;
 }
 
-export namespace UpdateSMBSecurityStrategyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSMBSecurityStrategyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSMBSecurityStrategyOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the gateway. Use the <a>ListGateways</a>
    *          operation to return a list of gateways for your account and Amazon Web Services Region.</p>
    */
   GatewayARN?: string;
-}
-
-export namespace UpdateSMBSecurityStrategyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSMBSecurityStrategyOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8506,15 +6631,6 @@ export interface UpdateSnapshotScheduleInput {
   Tags?: Tag[];
 }
 
-export namespace UpdateSnapshotScheduleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSnapshotScheduleInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A JSON object containing the Amazon Resource Name (ARN) of the updated storage
  *          volume.</p>
@@ -8525,15 +6641,6 @@ export interface UpdateSnapshotScheduleOutput {
    *          operation to return a list of gateway volumes.</p>
    */
   VolumeARN?: string;
-}
-
-export namespace UpdateSnapshotScheduleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSnapshotScheduleOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateVTLDeviceTypeInput {
@@ -8552,15 +6659,6 @@ export interface UpdateVTLDeviceTypeInput {
   DeviceType: string | undefined;
 }
 
-export namespace UpdateVTLDeviceTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVTLDeviceTypeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>UpdateVTLDeviceTypeOutput</p>
  */
@@ -8571,11 +6669,1521 @@ export interface UpdateVTLDeviceTypeOutput {
   VTLDeviceARN?: string;
 }
 
-export namespace UpdateVTLDeviceTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVTLDeviceTypeOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateGatewayInputFilterSensitiveLog = (obj: ActivateGatewayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateGatewayOutputFilterSensitiveLog = (obj: ActivateGatewayOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageGatewayErrorFilterSensitiveLog = (obj: StorageGatewayError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddCacheInputFilterSensitiveLog = (obj: AddCacheInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddCacheOutputFilterSensitiveLog = (obj: AddCacheOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsToResourceInputFilterSensitiveLog = (obj: AddTagsToResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsToResourceOutputFilterSensitiveLog = (obj: AddTagsToResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddUploadBufferInputFilterSensitiveLog = (obj: AddUploadBufferInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddUploadBufferOutputFilterSensitiveLog = (obj: AddUploadBufferOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddWorkingStorageInputFilterSensitiveLog = (obj: AddWorkingStorageInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddWorkingStorageOutputFilterSensitiveLog = (obj: AddWorkingStorageOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssignTapePoolInputFilterSensitiveLog = (obj: AssignTapePoolInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssignTapePoolOutputFilterSensitiveLog = (obj: AssignTapePoolOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheAttributesFilterSensitiveLog = (obj: CacheAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointNetworkConfigurationFilterSensitiveLog = (obj: EndpointNetworkConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateFileSystemInputFilterSensitiveLog = (obj: AssociateFileSystemInput): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssociateFileSystemOutputFilterSensitiveLog = (obj: AssociateFileSystemOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachVolumeInputFilterSensitiveLog = (obj: AttachVolumeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachVolumeOutputFilterSensitiveLog = (obj: AttachVolumeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutomaticTapeCreationRuleFilterSensitiveLog = (obj: AutomaticTapeCreationRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutomaticTapeCreationPolicyInfoFilterSensitiveLog = (obj: AutomaticTapeCreationPolicyInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BandwidthRateLimitIntervalFilterSensitiveLog = (obj: BandwidthRateLimitInterval): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeiSCSIAttributesFilterSensitiveLog = (obj: VolumeiSCSIAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CachediSCSIVolumeFilterSensitiveLog = (obj: CachediSCSIVolume): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelArchivalInputFilterSensitiveLog = (obj: CancelArchivalInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelArchivalOutputFilterSensitiveLog = (obj: CancelArchivalOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelRetrievalInputFilterSensitiveLog = (obj: CancelRetrievalInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelRetrievalOutputFilterSensitiveLog = (obj: CancelRetrievalOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChapInfoFilterSensitiveLog = (obj: ChapInfo): any => ({
+  ...obj,
+  ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
+  ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCachediSCSIVolumeInputFilterSensitiveLog = (obj: CreateCachediSCSIVolumeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCachediSCSIVolumeOutputFilterSensitiveLog = (obj: CreateCachediSCSIVolumeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NFSFileShareDefaultsFilterSensitiveLog = (obj: NFSFileShareDefaults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNFSFileShareInputFilterSensitiveLog = (obj: CreateNFSFileShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNFSFileShareOutputFilterSensitiveLog = (obj: CreateNFSFileShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSMBFileShareInputFilterSensitiveLog = (obj: CreateSMBFileShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSMBFileShareOutputFilterSensitiveLog = (obj: CreateSMBFileShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotInputFilterSensitiveLog = (obj: CreateSnapshotInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotOutputFilterSensitiveLog = (obj: CreateSnapshotOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotFromVolumeRecoveryPointInputFilterSensitiveLog = (
+  obj: CreateSnapshotFromVolumeRecoveryPointInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotFromVolumeRecoveryPointOutputFilterSensitiveLog = (
+  obj: CreateSnapshotFromVolumeRecoveryPointOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStorediSCSIVolumeInputFilterSensitiveLog = (obj: CreateStorediSCSIVolumeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStorediSCSIVolumeOutputFilterSensitiveLog = (obj: CreateStorediSCSIVolumeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTapePoolInputFilterSensitiveLog = (obj: CreateTapePoolInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTapePoolOutputFilterSensitiveLog = (obj: CreateTapePoolOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTapesInputFilterSensitiveLog = (obj: CreateTapesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTapesOutputFilterSensitiveLog = (obj: CreateTapesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTapeWithBarcodeInputFilterSensitiveLog = (obj: CreateTapeWithBarcodeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTapeWithBarcodeOutputFilterSensitiveLog = (obj: CreateTapeWithBarcodeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAutomaticTapeCreationPolicyInputFilterSensitiveLog = (
+  obj: DeleteAutomaticTapeCreationPolicyInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAutomaticTapeCreationPolicyOutputFilterSensitiveLog = (
+  obj: DeleteAutomaticTapeCreationPolicyOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBandwidthRateLimitInputFilterSensitiveLog = (obj: DeleteBandwidthRateLimitInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBandwidthRateLimitOutputFilterSensitiveLog = (obj: DeleteBandwidthRateLimitOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChapCredentialsInputFilterSensitiveLog = (obj: DeleteChapCredentialsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChapCredentialsOutputFilterSensitiveLog = (obj: DeleteChapCredentialsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileShareInputFilterSensitiveLog = (obj: DeleteFileShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFileShareOutputFilterSensitiveLog = (obj: DeleteFileShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGatewayInputFilterSensitiveLog = (obj: DeleteGatewayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGatewayOutputFilterSensitiveLog = (obj: DeleteGatewayOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSnapshotScheduleInputFilterSensitiveLog = (obj: DeleteSnapshotScheduleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSnapshotScheduleOutputFilterSensitiveLog = (obj: DeleteSnapshotScheduleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTapeInputFilterSensitiveLog = (obj: DeleteTapeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTapeOutputFilterSensitiveLog = (obj: DeleteTapeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTapeArchiveInputFilterSensitiveLog = (obj: DeleteTapeArchiveInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTapeArchiveOutputFilterSensitiveLog = (obj: DeleteTapeArchiveOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTapePoolInputFilterSensitiveLog = (obj: DeleteTapePoolInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTapePoolOutputFilterSensitiveLog = (obj: DeleteTapePoolOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVolumeInputFilterSensitiveLog = (obj: DeleteVolumeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVolumeOutputFilterSensitiveLog = (obj: DeleteVolumeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAvailabilityMonitorTestInputFilterSensitiveLog = (
+  obj: DescribeAvailabilityMonitorTestInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAvailabilityMonitorTestOutputFilterSensitiveLog = (
+  obj: DescribeAvailabilityMonitorTestOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBandwidthRateLimitInputFilterSensitiveLog = (obj: DescribeBandwidthRateLimitInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBandwidthRateLimitOutputFilterSensitiveLog = (obj: DescribeBandwidthRateLimitOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBandwidthRateLimitScheduleInputFilterSensitiveLog = (
+  obj: DescribeBandwidthRateLimitScheduleInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBandwidthRateLimitScheduleOutputFilterSensitiveLog = (
+  obj: DescribeBandwidthRateLimitScheduleOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCacheInputFilterSensitiveLog = (obj: DescribeCacheInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCacheOutputFilterSensitiveLog = (obj: DescribeCacheOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCachediSCSIVolumesInputFilterSensitiveLog = (obj: DescribeCachediSCSIVolumesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCachediSCSIVolumesOutputFilterSensitiveLog = (obj: DescribeCachediSCSIVolumesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChapCredentialsInputFilterSensitiveLog = (obj: DescribeChapCredentialsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChapCredentialsOutputFilterSensitiveLog = (obj: DescribeChapCredentialsOutput): any => ({
+  ...obj,
+  ...(obj.ChapCredentials && { ChapCredentials: obj.ChapCredentials.map((item) => ChapInfoFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileSystemAssociationsInputFilterSensitiveLog = (
+  obj: DescribeFileSystemAssociationsInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemAssociationStatusDetailFilterSensitiveLog = (obj: FileSystemAssociationStatusDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemAssociationInfoFilterSensitiveLog = (obj: FileSystemAssociationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFileSystemAssociationsOutputFilterSensitiveLog = (
+  obj: DescribeFileSystemAssociationsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGatewayInformationInputFilterSensitiveLog = (obj: DescribeGatewayInformationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGatewayInformationOutputFilterSensitiveLog = (obj: DescribeGatewayInformationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMaintenanceStartTimeInputFilterSensitiveLog = (obj: DescribeMaintenanceStartTimeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMaintenanceStartTimeOutputFilterSensitiveLog = (obj: DescribeMaintenanceStartTimeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNFSFileSharesInputFilterSensitiveLog = (obj: DescribeNFSFileSharesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NFSFileShareInfoFilterSensitiveLog = (obj: NFSFileShareInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNFSFileSharesOutputFilterSensitiveLog = (obj: DescribeNFSFileSharesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSMBFileSharesInputFilterSensitiveLog = (obj: DescribeSMBFileSharesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SMBFileShareInfoFilterSensitiveLog = (obj: SMBFileShareInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSMBFileSharesOutputFilterSensitiveLog = (obj: DescribeSMBFileSharesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSMBSettingsInputFilterSensitiveLog = (obj: DescribeSMBSettingsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SMBLocalGroupsFilterSensitiveLog = (obj: SMBLocalGroups): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSMBSettingsOutputFilterSensitiveLog = (obj: DescribeSMBSettingsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotScheduleInputFilterSensitiveLog = (obj: DescribeSnapshotScheduleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotScheduleOutputFilterSensitiveLog = (obj: DescribeSnapshotScheduleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStorediSCSIVolumesInputFilterSensitiveLog = (obj: DescribeStorediSCSIVolumesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorediSCSIVolumeFilterSensitiveLog = (obj: StorediSCSIVolume): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStorediSCSIVolumesOutputFilterSensitiveLog = (obj: DescribeStorediSCSIVolumesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTapeArchivesInputFilterSensitiveLog = (obj: DescribeTapeArchivesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TapeArchiveFilterSensitiveLog = (obj: TapeArchive): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTapeArchivesOutputFilterSensitiveLog = (obj: DescribeTapeArchivesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTapeRecoveryPointsInputFilterSensitiveLog = (obj: DescribeTapeRecoveryPointsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TapeRecoveryPointInfoFilterSensitiveLog = (obj: TapeRecoveryPointInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTapeRecoveryPointsOutputFilterSensitiveLog = (obj: DescribeTapeRecoveryPointsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTapesInputFilterSensitiveLog = (obj: DescribeTapesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TapeFilterSensitiveLog = (obj: Tape): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTapesOutputFilterSensitiveLog = (obj: DescribeTapesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUploadBufferInputFilterSensitiveLog = (obj: DescribeUploadBufferInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUploadBufferOutputFilterSensitiveLog = (obj: DescribeUploadBufferOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVTLDevicesInputFilterSensitiveLog = (obj: DescribeVTLDevicesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceiSCSIAttributesFilterSensitiveLog = (obj: DeviceiSCSIAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VTLDeviceFilterSensitiveLog = (obj: VTLDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVTLDevicesOutputFilterSensitiveLog = (obj: DescribeVTLDevicesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkingStorageInputFilterSensitiveLog = (obj: DescribeWorkingStorageInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkingStorageOutputFilterSensitiveLog = (obj: DescribeWorkingStorageOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachVolumeInputFilterSensitiveLog = (obj: DetachVolumeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachVolumeOutputFilterSensitiveLog = (obj: DetachVolumeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableGatewayInputFilterSensitiveLog = (obj: DisableGatewayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableGatewayOutputFilterSensitiveLog = (obj: DisableGatewayOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFileSystemInputFilterSensitiveLog = (obj: DisassociateFileSystemInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFileSystemOutputFilterSensitiveLog = (obj: DisassociateFileSystemOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiskFilterSensitiveLog = (obj: Disk): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileShareInfoFilterSensitiveLog = (obj: FileShareInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemAssociationSummaryFilterSensitiveLog = (obj: FileSystemAssociationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatewayInfoFilterSensitiveLog = (obj: GatewayInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JoinDomainInputFilterSensitiveLog = (obj: JoinDomainInput): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const JoinDomainOutputFilterSensitiveLog = (obj: JoinDomainOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAutomaticTapeCreationPoliciesInputFilterSensitiveLog = (
+  obj: ListAutomaticTapeCreationPoliciesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAutomaticTapeCreationPoliciesOutputFilterSensitiveLog = (
+  obj: ListAutomaticTapeCreationPoliciesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFileSharesInputFilterSensitiveLog = (obj: ListFileSharesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFileSharesOutputFilterSensitiveLog = (obj: ListFileSharesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFileSystemAssociationsInputFilterSensitiveLog = (obj: ListFileSystemAssociationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFileSystemAssociationsOutputFilterSensitiveLog = (obj: ListFileSystemAssociationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGatewaysInputFilterSensitiveLog = (obj: ListGatewaysInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGatewaysOutputFilterSensitiveLog = (obj: ListGatewaysOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLocalDisksInputFilterSensitiveLog = (obj: ListLocalDisksInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLocalDisksOutputFilterSensitiveLog = (obj: ListLocalDisksOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTapePoolsInputFilterSensitiveLog = (obj: ListTapePoolsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PoolInfoFilterSensitiveLog = (obj: PoolInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTapePoolsOutputFilterSensitiveLog = (obj: ListTapePoolsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTapesInputFilterSensitiveLog = (obj: ListTapesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TapeInfoFilterSensitiveLog = (obj: TapeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTapesOutputFilterSensitiveLog = (obj: ListTapesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVolumeInitiatorsInputFilterSensitiveLog = (obj: ListVolumeInitiatorsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVolumeInitiatorsOutputFilterSensitiveLog = (obj: ListVolumeInitiatorsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVolumeRecoveryPointsInputFilterSensitiveLog = (obj: ListVolumeRecoveryPointsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeRecoveryPointInfoFilterSensitiveLog = (obj: VolumeRecoveryPointInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVolumeRecoveryPointsOutputFilterSensitiveLog = (obj: ListVolumeRecoveryPointsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVolumesInputFilterSensitiveLog = (obj: ListVolumesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeInfoFilterSensitiveLog = (obj: VolumeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVolumesOutputFilterSensitiveLog = (obj: ListVolumesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyWhenUploadedInputFilterSensitiveLog = (obj: NotifyWhenUploadedInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyWhenUploadedOutputFilterSensitiveLog = (obj: NotifyWhenUploadedOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RefreshCacheInputFilterSensitiveLog = (obj: RefreshCacheInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RefreshCacheOutputFilterSensitiveLog = (obj: RefreshCacheOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromResourceInputFilterSensitiveLog = (obj: RemoveTagsFromResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromResourceOutputFilterSensitiveLog = (obj: RemoveTagsFromResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetCacheInputFilterSensitiveLog = (obj: ResetCacheInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetCacheOutputFilterSensitiveLog = (obj: ResetCacheOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveTapeArchiveInputFilterSensitiveLog = (obj: RetrieveTapeArchiveInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveTapeArchiveOutputFilterSensitiveLog = (obj: RetrieveTapeArchiveOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveTapeRecoveryPointInputFilterSensitiveLog = (obj: RetrieveTapeRecoveryPointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveTapeRecoveryPointOutputFilterSensitiveLog = (obj: RetrieveTapeRecoveryPointOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetLocalConsolePasswordInputFilterSensitiveLog = (obj: SetLocalConsolePasswordInput): any => ({
+  ...obj,
+  ...(obj.LocalConsolePassword && { LocalConsolePassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SetLocalConsolePasswordOutputFilterSensitiveLog = (obj: SetLocalConsolePasswordOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetSMBGuestPasswordInputFilterSensitiveLog = (obj: SetSMBGuestPasswordInput): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SetSMBGuestPasswordOutputFilterSensitiveLog = (obj: SetSMBGuestPasswordOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShutdownGatewayInputFilterSensitiveLog = (obj: ShutdownGatewayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShutdownGatewayOutputFilterSensitiveLog = (obj: ShutdownGatewayOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAvailabilityMonitorTestInputFilterSensitiveLog = (obj: StartAvailabilityMonitorTestInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAvailabilityMonitorTestOutputFilterSensitiveLog = (obj: StartAvailabilityMonitorTestOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartGatewayInputFilterSensitiveLog = (obj: StartGatewayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartGatewayOutputFilterSensitiveLog = (obj: StartGatewayOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAutomaticTapeCreationPolicyInputFilterSensitiveLog = (
+  obj: UpdateAutomaticTapeCreationPolicyInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAutomaticTapeCreationPolicyOutputFilterSensitiveLog = (
+  obj: UpdateAutomaticTapeCreationPolicyOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBandwidthRateLimitInputFilterSensitiveLog = (obj: UpdateBandwidthRateLimitInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBandwidthRateLimitOutputFilterSensitiveLog = (obj: UpdateBandwidthRateLimitOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBandwidthRateLimitScheduleInputFilterSensitiveLog = (
+  obj: UpdateBandwidthRateLimitScheduleInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBandwidthRateLimitScheduleOutputFilterSensitiveLog = (
+  obj: UpdateBandwidthRateLimitScheduleOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChapCredentialsInputFilterSensitiveLog = (obj: UpdateChapCredentialsInput): any => ({
+  ...obj,
+  ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
+  ...(obj.SecretToAuthenticateTarget && { SecretToAuthenticateTarget: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateChapCredentialsOutputFilterSensitiveLog = (obj: UpdateChapCredentialsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileSystemAssociationInputFilterSensitiveLog = (obj: UpdateFileSystemAssociationInput): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFileSystemAssociationOutputFilterSensitiveLog = (obj: UpdateFileSystemAssociationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewayInformationInputFilterSensitiveLog = (obj: UpdateGatewayInformationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewayInformationOutputFilterSensitiveLog = (obj: UpdateGatewayInformationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewaySoftwareNowInputFilterSensitiveLog = (obj: UpdateGatewaySoftwareNowInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewaySoftwareNowOutputFilterSensitiveLog = (obj: UpdateGatewaySoftwareNowOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMaintenanceStartTimeInputFilterSensitiveLog = (obj: UpdateMaintenanceStartTimeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMaintenanceStartTimeOutputFilterSensitiveLog = (obj: UpdateMaintenanceStartTimeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNFSFileShareInputFilterSensitiveLog = (obj: UpdateNFSFileShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNFSFileShareOutputFilterSensitiveLog = (obj: UpdateNFSFileShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSMBFileShareInputFilterSensitiveLog = (obj: UpdateSMBFileShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSMBFileShareOutputFilterSensitiveLog = (obj: UpdateSMBFileShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSMBFileShareVisibilityInputFilterSensitiveLog = (obj: UpdateSMBFileShareVisibilityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSMBFileShareVisibilityOutputFilterSensitiveLog = (obj: UpdateSMBFileShareVisibilityOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSMBLocalGroupsInputFilterSensitiveLog = (obj: UpdateSMBLocalGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSMBLocalGroupsOutputFilterSensitiveLog = (obj: UpdateSMBLocalGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSMBSecurityStrategyInputFilterSensitiveLog = (obj: UpdateSMBSecurityStrategyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSMBSecurityStrategyOutputFilterSensitiveLog = (obj: UpdateSMBSecurityStrategyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSnapshotScheduleInputFilterSensitiveLog = (obj: UpdateSnapshotScheduleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSnapshotScheduleOutputFilterSensitiveLog = (obj: UpdateSnapshotScheduleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVTLDeviceTypeInputFilterSensitiveLog = (obj: UpdateVTLDeviceTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVTLDeviceTypeOutputFilterSensitiveLog = (obj: UpdateVTLDeviceTypeOutput): any => ({
+  ...obj,
+});

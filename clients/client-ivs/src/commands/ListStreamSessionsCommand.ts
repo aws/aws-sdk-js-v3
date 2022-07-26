@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { ListStreamSessionsRequest, ListStreamSessionsResponse } from "../models/models_0";
+import {
+  ListStreamSessionsRequest,
+  ListStreamSessionsRequestFilterSensitiveLog,
+  ListStreamSessionsResponse,
+  ListStreamSessionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListStreamSessionsCommand,
   serializeAws_restJson1ListStreamSessionsCommand,
@@ -73,8 +78,8 @@ export class ListStreamSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamSessionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamSessionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStreamSessionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStreamSessionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

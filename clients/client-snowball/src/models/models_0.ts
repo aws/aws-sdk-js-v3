@@ -87,15 +87,6 @@ export interface Address {
   IsRestricted?: boolean;
 }
 
-export namespace Address {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Address): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelClusterRequest {
   /**
    * <p>The 39-character ID for the cluster that you want to cancel, for example
@@ -104,25 +95,7 @@ export interface CancelClusterRequest {
   ClusterId: string | undefined;
 }
 
-export namespace CancelClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelClusterResult {}
-
-export namespace CancelClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelClusterResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The action can't be performed because the job's current state doesn't allow that action
@@ -203,40 +176,13 @@ export interface CancelJobRequest {
   JobId: string | undefined;
 }
 
-export namespace CancelJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelJobResult {}
-
-export namespace CancelJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobResult): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateAddressRequest {
   /**
    * <p>The address that you want the Snow device shipped to.</p>
    */
   Address: Address | undefined;
-}
-
-export namespace CreateAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAddressRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAddressResult {
@@ -246,15 +192,6 @@ export interface CreateAddressResult {
    *       to.</p>
    */
   AddressId?: string;
-}
-
-export namespace CreateAddressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAddressResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -357,15 +294,6 @@ export interface Notification {
   NotifyAll?: boolean;
 }
 
-export namespace Notification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Notification): any => ({
-    ...obj,
-  });
-}
-
 export enum StorageUnit {
   TB = "TB",
 }
@@ -387,15 +315,6 @@ export interface NFSOnDeviceServiceConfiguration {
   StorageUnit?: StorageUnit | string;
 }
 
-export namespace NFSOnDeviceServiceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NFSOnDeviceServiceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that represents the metadata and configuration settings for the Storage Gateway
  *       service Tape Gateway type on an Amazon Web Services Snow Family device.</p>
@@ -413,15 +332,6 @@ export interface TGWOnDeviceServiceConfiguration {
   StorageUnit?: StorageUnit | string;
 }
 
-export namespace TGWOnDeviceServiceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TGWOnDeviceServiceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that represents the metadata and configuration settings for services on an Amazon Web Services
  *       Snow Family device.</p>
@@ -436,15 +346,6 @@ export interface OnDeviceServiceConfiguration {
    * <p>Represents the Storage Gateway service Tape Gateway type on a Snow Family device.</p>
    */
   TGWOnDeviceService?: TGWOnDeviceServiceConfiguration;
-}
-
-export namespace OnDeviceServiceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnDeviceServiceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum RemoteManagement {
@@ -469,15 +370,6 @@ export interface Ec2AmiResource {
   SnowballAmiId?: string;
 }
 
-export namespace Ec2AmiResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ec2AmiResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container for the <a>EventTriggerDefinition$EventResourceARN</a>.</p>
  */
@@ -486,15 +378,6 @@ export interface EventTriggerDefinition {
    * <p>The Amazon Resource Name (ARN) for any local Amazon S3 resource that is an Lambda function's event trigger associated with this job.</p>
    */
   EventResourceARN?: string;
-}
-
-export namespace EventTriggerDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventTriggerDefinition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -511,15 +394,6 @@ export interface LambdaResource {
    * <p>The array of ARNs for <a>S3Resource</a> objects to trigger the <a>LambdaResource</a> objects associated with this job.</p>
    */
   EventTriggers?: EventTriggerDefinition[];
-}
-
-export namespace LambdaResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaResource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -540,15 +414,6 @@ export interface KeyRange {
    *       UTF-8 binary sorted.</p>
    */
   EndMarker?: string;
-}
-
-export namespace KeyRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyRange): any => ({
-    ...obj,
-  });
 }
 
 export enum DeviceServiceName {
@@ -581,15 +446,6 @@ export interface TargetOnDeviceService {
   TransferOption?: TransferOption | string;
 }
 
-export namespace TargetOnDeviceService {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetOnDeviceService): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Each <code>S3Resource</code> object represents an Amazon S3 bucket that your
  *       transferred data will be exported from or imported into. For export jobs, this object can have
@@ -619,15 +475,6 @@ export interface S3Resource {
   TargetOnDeviceServices?: TargetOnDeviceService[];
 }
 
-export namespace S3Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Resource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains an array of Amazon Web Services resource objects. Each object represents an
  *       Amazon S3 bucket, an Lambda function, or an Amazon Machine Image (AMI) based
@@ -648,15 +495,6 @@ export interface JobResource {
    * <p>The Amazon Machine Images (AMIs) associated with this job.</p>
    */
   Ec2AmiResources?: Ec2AmiResource[];
-}
-
-export namespace JobResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobResource): any => ({
-    ...obj,
-  });
 }
 
 export enum ShippingOption {
@@ -687,15 +525,6 @@ export interface INDTaxDocuments {
   GSTIN?: string;
 }
 
-export namespace INDTaxDocuments {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: INDTaxDocuments): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The tax documents required in your Amazon Web Services Region.</p>
  */
@@ -704,15 +533,6 @@ export interface TaxDocuments {
    * <p>The tax documents required in Amazon Web Services Region in India.</p>
    */
   IND?: INDTaxDocuments;
-}
-
-export namespace TaxDocuments {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaxDocuments): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateClusterRequest {
@@ -851,29 +671,11 @@ export interface CreateClusterRequest {
   RemoteManagement?: RemoteManagement | string;
 }
 
-export namespace CreateClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateClusterResult {
   /**
    * <p>The automatically generated ID for a cluster.</p>
    */
   ClusterId?: string;
-}
-
-export namespace CreateClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -952,15 +754,6 @@ export interface WirelessConnection {
   IsWifiEnabled?: boolean;
 }
 
-export namespace WirelessConnection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WirelessConnection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the device configuration for an Snowcone job.</p>
  */
@@ -969,15 +762,6 @@ export interface SnowconeDeviceConfiguration {
    * <p>Configures the wireless connection for the Snowcone device.</p>
    */
   WirelessConnection?: WirelessConnection;
-}
-
-export namespace SnowconeDeviceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnowconeDeviceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -989,15 +773,6 @@ export interface DeviceConfiguration {
    *       job.</p>
    */
   SnowconeDeviceConfiguration?: SnowconeDeviceConfiguration;
-}
-
-export namespace DeviceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum SnowballCapacity {
@@ -1172,30 +947,12 @@ export interface CreateJobRequest {
   LongTermPricingId?: string;
 }
 
-export namespace CreateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateJobResult {
   /**
    * <p>The automatically generated ID for a job, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
    */
   JobId?: string;
-}
-
-export namespace CreateJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobResult): any => ({
-    ...obj,
-  });
 }
 
 export enum LongTermPricingType {
@@ -1222,29 +979,11 @@ export interface CreateLongTermPricingRequest {
   SnowballType?: SnowballType | string;
 }
 
-export namespace CreateLongTermPricingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLongTermPricingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLongTermPricingResult {
   /**
    * <p>The ID of the long-term pricing type for the device.</p>
    */
   LongTermPricingId?: string;
-}
-
-export namespace CreateLongTermPricingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLongTermPricingResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1290,15 +1029,6 @@ export interface CreateReturnShippingLabelRequest {
   ShippingOption?: ShippingOption | string;
 }
 
-export namespace CreateReturnShippingLabelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReturnShippingLabelRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ShippingLabelStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
@@ -1311,15 +1041,6 @@ export interface CreateReturnShippingLabelResult {
    * <p>The status information of the task on a Snow device that is being returned to Amazon Web Services.</p>
    */
   Status?: ShippingLabelStatus | string;
-}
-
-export namespace CreateReturnShippingLabelResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReturnShippingLabelResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1352,30 +1073,12 @@ export interface DescribeAddressRequest {
   AddressId: string | undefined;
 }
 
-export namespace DescribeAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAddressRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAddressResult {
   /**
    * <p>The address that you want the Snow device(s) associated with a specific job to be
    *       shipped to.</p>
    */
   Address?: Address;
-}
-
-export namespace DescribeAddressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAddressResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAddressesRequest {
@@ -1392,15 +1095,6 @@ export interface DescribeAddressesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeAddressesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAddressesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAddressesResult {
   /**
    * <p>The Snow device shipping addresses that were created for this account.</p>
@@ -1413,15 +1107,6 @@ export interface DescribeAddressesResult {
    *       returned addresses will start from this point in the array.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAddressesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAddressesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1452,15 +1137,6 @@ export interface DescribeClusterRequest {
    * <p>The automatically generated ID for a cluster.</p>
    */
   ClusterId: string | undefined;
-}
-
-export namespace DescribeClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ClusterState {
@@ -1583,15 +1259,6 @@ export interface ClusterMetadata {
   OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 }
 
-export namespace ClusterMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClusterResult {
   /**
    * <p>Information about a specific cluster, including shipping information, cluster status,
@@ -1600,30 +1267,12 @@ export interface DescribeClusterResult {
   ClusterMetadata?: ClusterMetadata;
 }
 
-export namespace DescribeClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClusterResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobRequest {
   /**
    * <p>The automatically generated ID for a job, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribeJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1654,15 +1303,6 @@ export interface DataTransfer {
    *       listed.</p>
    */
   TotalObjects?: number;
-}
-
-export namespace DataTransfer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataTransfer): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1703,15 +1343,6 @@ export interface JobLogs {
   JobFailureLogURI?: string;
 }
 
-export namespace JobLogs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobLogs): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>Status</code> and <code>TrackingNumber</code> information for an inbound or
  *       outbound shipment.</p>
@@ -1729,15 +1360,6 @@ export interface Shipment {
    *       carrier.</p>
    */
   TrackingNumber?: string;
-}
-
-export namespace Shipment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Shipment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1783,15 +1405,6 @@ export interface ShippingDetails {
    *       delivered to the address that you specified for a particular job.</p>
    */
   OutboundShipment?: Shipment;
-}
-
-export namespace ShippingDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShippingDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1940,15 +1553,6 @@ export interface JobMetadata {
   OnDeviceServiceConfiguration?: OnDeviceServiceConfiguration;
 }
 
-export namespace JobMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobResult {
   /**
    * <p>Information about a specific job, including shipping information, job status, and other
@@ -1963,30 +1567,12 @@ export interface DescribeJobResult {
   SubJobMetadata?: JobMetadata[];
 }
 
-export namespace DescribeJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeReturnShippingLabelRequest {
   /**
    * <p>The automatically generated ID for a job, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribeReturnShippingLabelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReturnShippingLabelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeReturnShippingLabelResult {
@@ -2006,30 +1592,12 @@ export interface DescribeReturnShippingLabelResult {
   ReturnShippingLabelURI?: string;
 }
 
-export namespace DescribeReturnShippingLabelResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReturnShippingLabelResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetJobManifestRequest {
   /**
    * <p>The ID for a job that you want to get the manifest file for, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace GetJobManifestRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobManifestRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetJobManifestResult {
@@ -2040,30 +1608,12 @@ export interface GetJobManifestResult {
   ManifestURI?: string;
 }
 
-export namespace GetJobManifestResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobManifestResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetJobUnlockCodeRequest {
   /**
    * <p>The ID for the job that you want to get the <code>UnlockCode</code> value for, for
    *       example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace GetJobUnlockCodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobUnlockCodeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetJobUnlockCodeResult {
@@ -2074,25 +1624,7 @@ export interface GetJobUnlockCodeResult {
   UnlockCode?: string;
 }
 
-export namespace GetJobUnlockCodeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobUnlockCodeResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSnowballUsageRequest {}
-
-export namespace GetSnowballUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnowballUsageRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetSnowballUsageResult {
   /**
@@ -2107,30 +1639,12 @@ export interface GetSnowballUsageResult {
   SnowballsInUse?: number;
 }
 
-export namespace GetSnowballUsageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnowballUsageResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSoftwareUpdatesRequest {
   /**
    * <p>The ID for a job that you want to get the software update file for, for example
    *         <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace GetSoftwareUpdatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSoftwareUpdatesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSoftwareUpdatesResult {
@@ -2141,15 +1655,6 @@ export interface GetSoftwareUpdatesResult {
    *       call to <code>GetSoftwareUpdates</code>.</p>
    */
   UpdatesURI?: string;
-}
-
-export namespace GetSoftwareUpdatesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSoftwareUpdatesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListClusterJobsRequest {
@@ -2170,15 +1675,6 @@ export interface ListClusterJobsRequest {
    *       as the starting point for your returned list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListClusterJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClusterJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2228,15 +1724,6 @@ export interface JobListEntry {
   Description?: string;
 }
 
-export namespace JobListEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobListEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListClusterJobsResult {
   /**
    * <p>Each <code>JobListEntry</code> object contains a job's state, a job's ID, and a value
@@ -2252,15 +1739,6 @@ export interface ListClusterJobsResult {
   NextToken?: string;
 }
 
-export namespace ListClusterJobsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClusterJobsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListClustersRequest {
   /**
    * <p>The number of <code>ClusterListEntry</code> objects to return.</p>
@@ -2273,15 +1751,6 @@ export interface ListClustersRequest {
    *         <code>NextToken</code> as the starting point for your returned list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListClustersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2312,15 +1781,6 @@ export interface ClusterListEntry {
   Description?: string;
 }
 
-export namespace ClusterListEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterListEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListClustersResult {
   /**
    * <p>Each <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID,
@@ -2336,15 +1796,6 @@ export interface ListClustersResult {
   NextToken?: string;
 }
 
-export namespace ListClustersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClustersResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCompatibleImagesRequest {
   /**
    * <p>The maximum number of results for the list of compatible images. Currently, a Snowball
@@ -2358,15 +1809,6 @@ export interface ListCompatibleImagesRequest {
    *       for your list of returned images.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCompatibleImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCompatibleImagesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2387,15 +1829,6 @@ export interface CompatibleImage {
   Name?: string;
 }
 
-export namespace CompatibleImage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompatibleImage): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCompatibleImagesResult {
   /**
    * <p>A JSON-formatted object that describes a compatible AMI, including the ID and name for
@@ -2410,15 +1843,6 @@ export interface ListCompatibleImagesResult {
   NextToken?: string;
 }
 
-export namespace ListCompatibleImagesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCompatibleImagesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListJobsRequest {
   /**
    * <p>The number of <code>JobListEntry</code> objects to return.</p>
@@ -2431,15 +1855,6 @@ export interface ListJobsRequest {
    *       as the starting point for your returned list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListJobsResult {
@@ -2457,15 +1872,6 @@ export interface ListJobsResult {
   NextToken?: string;
 }
 
-export namespace ListJobsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLongTermPricingRequest {
   /**
    * <p>The maximum number of <code>ListLongTermPricing</code> objects to return.</p>
@@ -2477,15 +1883,6 @@ export interface ListLongTermPricingRequest {
    *         <code>ListLongTermPricing</code> to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLongTermPricingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLongTermPricingRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2545,15 +1942,6 @@ export interface LongTermPricingListEntry {
   JobIds?: string[];
 }
 
-export namespace LongTermPricingListEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LongTermPricingListEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLongTermPricingResult {
   /**
    * <p>Each <code>LongTermPricingEntry</code> object contains a status, ID, and other information
@@ -2566,15 +1954,6 @@ export interface ListLongTermPricingResult {
    *       returned <code>ListLongTermPricing</code> list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLongTermPricingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLongTermPricingResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateClusterRequest {
@@ -2631,25 +2010,7 @@ export interface UpdateClusterRequest {
   ForwardingAddressId?: string;
 }
 
-export namespace UpdateClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateClusterResult {}
-
-export namespace UpdateClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClusterResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateJobRequest {
   /**
@@ -2717,25 +2078,7 @@ export interface UpdateJobRequest {
   ForwardingAddressId?: string;
 }
 
-export namespace UpdateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateJobResult {}
-
-export namespace UpdateJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobResult): any => ({
-    ...obj,
-  });
-}
 
 export enum ShipmentState {
   RECEIVED = "RECEIVED",
@@ -2757,25 +2100,7 @@ export interface UpdateJobShipmentStateRequest {
   ShipmentState: ShipmentState | string | undefined;
 }
 
-export namespace UpdateJobShipmentStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobShipmentStateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateJobShipmentStateResult {}
-
-export namespace UpdateJobShipmentStateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobShipmentStateResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateLongTermPricingRequest {
   /**
@@ -2796,22 +2121,543 @@ export interface UpdateLongTermPricingRequest {
   IsLongTermPricingAutoRenew?: boolean;
 }
 
-export namespace UpdateLongTermPricingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLongTermPricingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLongTermPricingResult {}
 
-export namespace UpdateLongTermPricingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLongTermPricingResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AddressFilterSensitiveLog = (obj: Address): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelClusterRequestFilterSensitiveLog = (obj: CancelClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelClusterResultFilterSensitiveLog = (obj: CancelClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobResultFilterSensitiveLog = (obj: CancelJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAddressRequestFilterSensitiveLog = (obj: CreateAddressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAddressResultFilterSensitiveLog = (obj: CreateAddressResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationFilterSensitiveLog = (obj: Notification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NFSOnDeviceServiceConfigurationFilterSensitiveLog = (obj: NFSOnDeviceServiceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TGWOnDeviceServiceConfigurationFilterSensitiveLog = (obj: TGWOnDeviceServiceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnDeviceServiceConfigurationFilterSensitiveLog = (obj: OnDeviceServiceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Ec2AmiResourceFilterSensitiveLog = (obj: Ec2AmiResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventTriggerDefinitionFilterSensitiveLog = (obj: EventTriggerDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaResourceFilterSensitiveLog = (obj: LambdaResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyRangeFilterSensitiveLog = (obj: KeyRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetOnDeviceServiceFilterSensitiveLog = (obj: TargetOnDeviceService): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ResourceFilterSensitiveLog = (obj: S3Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobResourceFilterSensitiveLog = (obj: JobResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const INDTaxDocumentsFilterSensitiveLog = (obj: INDTaxDocuments): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaxDocumentsFilterSensitiveLog = (obj: TaxDocuments): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterRequestFilterSensitiveLog = (obj: CreateClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterResultFilterSensitiveLog = (obj: CreateClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WirelessConnectionFilterSensitiveLog = (obj: WirelessConnection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnowconeDeviceConfigurationFilterSensitiveLog = (obj: SnowconeDeviceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceConfigurationFilterSensitiveLog = (obj: DeviceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobResultFilterSensitiveLog = (obj: CreateJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLongTermPricingRequestFilterSensitiveLog = (obj: CreateLongTermPricingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLongTermPricingResultFilterSensitiveLog = (obj: CreateLongTermPricingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReturnShippingLabelRequestFilterSensitiveLog = (obj: CreateReturnShippingLabelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReturnShippingLabelResultFilterSensitiveLog = (obj: CreateReturnShippingLabelResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAddressRequestFilterSensitiveLog = (obj: DescribeAddressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAddressResultFilterSensitiveLog = (obj: DescribeAddressResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAddressesRequestFilterSensitiveLog = (obj: DescribeAddressesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAddressesResultFilterSensitiveLog = (obj: DescribeAddressesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClusterRequestFilterSensitiveLog = (obj: DescribeClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterMetadataFilterSensitiveLog = (obj: ClusterMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClusterResultFilterSensitiveLog = (obj: DescribeClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobRequestFilterSensitiveLog = (obj: DescribeJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataTransferFilterSensitiveLog = (obj: DataTransfer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobLogsFilterSensitiveLog = (obj: JobLogs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShipmentFilterSensitiveLog = (obj: Shipment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShippingDetailsFilterSensitiveLog = (obj: ShippingDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobMetadataFilterSensitiveLog = (obj: JobMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobResultFilterSensitiveLog = (obj: DescribeJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReturnShippingLabelRequestFilterSensitiveLog = (obj: DescribeReturnShippingLabelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReturnShippingLabelResultFilterSensitiveLog = (obj: DescribeReturnShippingLabelResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobManifestRequestFilterSensitiveLog = (obj: GetJobManifestRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobManifestResultFilterSensitiveLog = (obj: GetJobManifestResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobUnlockCodeRequestFilterSensitiveLog = (obj: GetJobUnlockCodeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobUnlockCodeResultFilterSensitiveLog = (obj: GetJobUnlockCodeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnowballUsageRequestFilterSensitiveLog = (obj: GetSnowballUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnowballUsageResultFilterSensitiveLog = (obj: GetSnowballUsageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSoftwareUpdatesRequestFilterSensitiveLog = (obj: GetSoftwareUpdatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSoftwareUpdatesResultFilterSensitiveLog = (obj: GetSoftwareUpdatesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClusterJobsRequestFilterSensitiveLog = (obj: ListClusterJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobListEntryFilterSensitiveLog = (obj: JobListEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClusterJobsResultFilterSensitiveLog = (obj: ListClusterJobsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClustersRequestFilterSensitiveLog = (obj: ListClustersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterListEntryFilterSensitiveLog = (obj: ClusterListEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClustersResultFilterSensitiveLog = (obj: ListClustersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCompatibleImagesRequestFilterSensitiveLog = (obj: ListCompatibleImagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompatibleImageFilterSensitiveLog = (obj: CompatibleImage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCompatibleImagesResultFilterSensitiveLog = (obj: ListCompatibleImagesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsResultFilterSensitiveLog = (obj: ListJobsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLongTermPricingRequestFilterSensitiveLog = (obj: ListLongTermPricingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LongTermPricingListEntryFilterSensitiveLog = (obj: LongTermPricingListEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLongTermPricingResultFilterSensitiveLog = (obj: ListLongTermPricingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterRequestFilterSensitiveLog = (obj: UpdateClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClusterResultFilterSensitiveLog = (obj: UpdateClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobRequestFilterSensitiveLog = (obj: UpdateJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobResultFilterSensitiveLog = (obj: UpdateJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobShipmentStateRequestFilterSensitiveLog = (obj: UpdateJobShipmentStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobShipmentStateResultFilterSensitiveLog = (obj: UpdateJobShipmentStateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLongTermPricingRequestFilterSensitiveLog = (obj: UpdateLongTermPricingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLongTermPricingResultFilterSensitiveLog = (obj: UpdateLongTermPricingResult): any => ({
+  ...obj,
+});

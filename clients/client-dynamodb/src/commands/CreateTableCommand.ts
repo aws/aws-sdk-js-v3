@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { CreateTableInput, CreateTableOutput } from "../models/models_0";
+import {
+  CreateTableInput,
+  CreateTableInputFilterSensitiveLog,
+  CreateTableOutput,
+  CreateTableOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CreateTableCommand,
   serializeAws_json1_0CreateTableCommand,
@@ -84,8 +89,8 @@ export class CreateTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTableInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTableOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTableInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTableOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

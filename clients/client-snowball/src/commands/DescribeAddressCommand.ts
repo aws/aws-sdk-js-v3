@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeAddressRequest, DescribeAddressResult } from "../models/models_0";
+import {
+  DescribeAddressRequest,
+  DescribeAddressRequestFilterSensitiveLog,
+  DescribeAddressResult,
+  DescribeAddressResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAddressCommand,
   serializeAws_json1_1DescribeAddressCommand,
@@ -73,8 +78,8 @@ export class DescribeAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAddressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAddressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAddressRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAddressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

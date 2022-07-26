@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { InferSNOMEDCTRequest, InferSNOMEDCTResponse } from "../models/models_0";
+import {
+  InferSNOMEDCTRequest,
+  InferSNOMEDCTRequestFilterSensitiveLog,
+  InferSNOMEDCTResponse,
+  InferSNOMEDCTResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1InferSNOMEDCTCommand,
   serializeAws_json1_1InferSNOMEDCTCommand,
@@ -77,8 +82,8 @@ export class InferSNOMEDCTCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InferSNOMEDCTRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InferSNOMEDCTResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InferSNOMEDCTRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: InferSNOMEDCTResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

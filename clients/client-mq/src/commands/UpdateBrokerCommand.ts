@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateBrokerRequest, UpdateBrokerResponse } from "../models/models_0";
+import {
+  UpdateBrokerRequest,
+  UpdateBrokerRequestFilterSensitiveLog,
+  UpdateBrokerResponse,
+  UpdateBrokerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
   deserializeAws_restJson1UpdateBrokerCommand,
@@ -72,8 +77,8 @@ export class UpdateBrokerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBrokerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBrokerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBrokerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBrokerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { SetVaultNotificationsInput } from "../models/models_0";
+import { SetVaultNotificationsInput, SetVaultNotificationsInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1SetVaultNotificationsCommand,
   serializeAws_restJson1SetVaultNotificationsCommand,
@@ -109,7 +109,7 @@ export class SetVaultNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetVaultNotificationsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetVaultNotificationsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

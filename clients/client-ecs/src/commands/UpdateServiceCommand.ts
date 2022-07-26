@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
+import {
+  UpdateServiceRequest,
+  UpdateServiceRequestFilterSensitiveLog,
+  UpdateServiceResponse,
+  UpdateServiceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateServiceCommand,
   serializeAws_json1_1UpdateServiceCommand,
@@ -196,8 +201,8 @@ export class UpdateServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServiceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateServiceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

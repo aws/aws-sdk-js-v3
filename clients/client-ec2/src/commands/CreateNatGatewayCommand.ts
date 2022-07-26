@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateNatGatewayRequest, CreateNatGatewayResult } from "../models/models_1";
+import {
+  CreateNatGatewayRequest,
+  CreateNatGatewayRequestFilterSensitiveLog,
+  CreateNatGatewayResult,
+  CreateNatGatewayResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateNatGatewayCommand,
   serializeAws_ec2CreateNatGatewayCommand,
@@ -81,8 +86,8 @@ export class CreateNatGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNatGatewayRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateNatGatewayResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateNatGatewayRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateNatGatewayResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

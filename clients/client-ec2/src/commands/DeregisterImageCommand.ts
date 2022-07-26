@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeregisterImageRequest } from "../models/models_2";
+import { DeregisterImageRequest, DeregisterImageRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2DeregisterImageCommand, serializeAws_ec2DeregisterImageCommand } from "../protocols/Aws_ec2";
 
 export interface DeregisterImageCommandInput extends DeregisterImageRequest {}
@@ -84,7 +84,7 @@ export class DeregisterImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterImageRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterImageRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TerminateWorkflowExecutionInput } from "../models/models_0";
+import { TerminateWorkflowExecutionInput, TerminateWorkflowExecutionInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0TerminateWorkflowExecutionCommand,
   serializeAws_json1_0TerminateWorkflowExecutionCommand,
@@ -115,7 +115,7 @@ export class TerminateWorkflowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateWorkflowExecutionInput.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateWorkflowExecutionInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

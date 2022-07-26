@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCampaignRequest } from "../models/models_0";
+import { DeleteCampaignRequest, DeleteCampaignRequestFilterSensitiveLog } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1DeleteCampaignCommand,
@@ -77,7 +77,7 @@ export class DeleteCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCampaignRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCampaignRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

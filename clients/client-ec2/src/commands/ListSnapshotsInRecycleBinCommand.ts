@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ListSnapshotsInRecycleBinRequest, ListSnapshotsInRecycleBinResult } from "../models/models_5";
+import {
+  ListSnapshotsInRecycleBinRequest,
+  ListSnapshotsInRecycleBinRequestFilterSensitiveLog,
+  ListSnapshotsInRecycleBinResult,
+  ListSnapshotsInRecycleBinResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ListSnapshotsInRecycleBinCommand,
   serializeAws_ec2ListSnapshotsInRecycleBinCommand,
@@ -72,8 +77,8 @@ export class ListSnapshotsInRecycleBinCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSnapshotsInRecycleBinRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSnapshotsInRecycleBinResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSnapshotsInRecycleBinRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSnapshotsInRecycleBinResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

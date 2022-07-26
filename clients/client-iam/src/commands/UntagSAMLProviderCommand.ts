@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagSAMLProviderRequest } from "../models/models_1";
+import { UntagSAMLProviderRequest, UntagSAMLProviderRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryUntagSAMLProviderCommand,
   serializeAws_queryUntagSAMLProviderCommand,
@@ -75,7 +75,7 @@ export class UntagSAMLProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagSAMLProviderRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagSAMLProviderRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

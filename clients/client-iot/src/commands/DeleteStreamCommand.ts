@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteStreamRequest, DeleteStreamResponse } from "../models/models_1";
+import {
+  DeleteStreamRequest,
+  DeleteStreamRequestFilterSensitiveLog,
+  DeleteStreamResponse,
+  DeleteStreamResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteStreamCommand,
   serializeAws_restJson1DeleteStreamCommand,
@@ -73,8 +78,8 @@ export class DeleteStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStreamRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStreamResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

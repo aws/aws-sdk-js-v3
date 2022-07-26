@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { ContinueUpdateRollbackInput, ContinueUpdateRollbackOutput } from "../models/models_0";
+import {
+  ContinueUpdateRollbackInput,
+  ContinueUpdateRollbackInputFilterSensitiveLog,
+  ContinueUpdateRollbackOutput,
+  ContinueUpdateRollbackOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryContinueUpdateRollbackCommand,
   serializeAws_queryContinueUpdateRollbackCommand,
@@ -81,8 +86,8 @@ export class ContinueUpdateRollbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ContinueUpdateRollbackInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ContinueUpdateRollbackOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ContinueUpdateRollbackInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ContinueUpdateRollbackOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

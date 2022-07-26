@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DescribeMountTargetsRequest, DescribeMountTargetsResponse } from "../models/models_0";
+import {
+  DescribeMountTargetsRequest,
+  DescribeMountTargetsRequestFilterSensitiveLog,
+  DescribeMountTargetsResponse,
+  DescribeMountTargetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeMountTargetsCommand,
   serializeAws_restJson1DescribeMountTargetsCommand,
@@ -79,8 +84,8 @@ export class DescribeMountTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMountTargetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMountTargetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeMountTargetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMountTargetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

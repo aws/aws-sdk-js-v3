@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { CreateIntentVersionRequest, CreateIntentVersionResponse } from "../models/models_0";
+import {
+  CreateIntentVersionRequest,
+  CreateIntentVersionRequestFilterSensitiveLog,
+  CreateIntentVersionResponse,
+  CreateIntentVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateIntentVersionCommand,
   serializeAws_restJson1CreateIntentVersionCommand,
@@ -89,8 +94,8 @@ export class CreateIntentVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIntentVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateIntentVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateIntentVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateIntentVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

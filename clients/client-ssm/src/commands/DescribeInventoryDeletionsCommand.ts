@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeInventoryDeletionsRequest, DescribeInventoryDeletionsResult } from "../models/models_0";
+import {
+  DescribeInventoryDeletionsRequest,
+  DescribeInventoryDeletionsRequestFilterSensitiveLog,
+  DescribeInventoryDeletionsResult,
+  DescribeInventoryDeletionsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeInventoryDeletionsCommand,
   serializeAws_json1_1DescribeInventoryDeletionsCommand,
@@ -72,8 +77,8 @@ export class DescribeInventoryDeletionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInventoryDeletionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInventoryDeletionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInventoryDeletionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInventoryDeletionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

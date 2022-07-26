@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AuthorizeDataShareMessage, DataShare } from "../models/models_0";
+import {
+  AuthorizeDataShareMessage,
+  AuthorizeDataShareMessageFilterSensitiveLog,
+  DataShare,
+  DataShareFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryAuthorizeDataShareCommand,
   serializeAws_queryAuthorizeDataShareCommand,
@@ -74,8 +79,8 @@ export class AuthorizeDataShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeDataShareMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DataShare.filterSensitiveLog,
+      inputFilterSensitiveLog: AuthorizeDataShareMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DataShareFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

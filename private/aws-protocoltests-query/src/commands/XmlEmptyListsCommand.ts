@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlListsOutput } from "../models/models_0";
+import { XmlListsOutput, XmlListsOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryXmlEmptyListsCommand,
   serializeAws_queryXmlEmptyListsCommand,
@@ -56,7 +56,7 @@ export class XmlEmptyListsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlListsOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlListsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

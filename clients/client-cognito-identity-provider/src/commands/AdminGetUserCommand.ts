@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminGetUserRequest, AdminGetUserResponse } from "../models/models_0";
+import {
+  AdminGetUserRequest,
+  AdminGetUserRequestFilterSensitiveLog,
+  AdminGetUserResponse,
+  AdminGetUserResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AdminGetUserCommand,
   serializeAws_json1_1AdminGetUserCommand,
@@ -80,8 +85,8 @@ export class AdminGetUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminGetUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AdminGetUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminGetUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AdminGetUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { ListApiKeysRequest, ListApiKeysResponse } from "../models/models_0";
+import {
+  ListApiKeysRequest,
+  ListApiKeysRequestFilterSensitiveLog,
+  ListApiKeysResponse,
+  ListApiKeysResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListApiKeysCommand,
   serializeAws_restJson1ListApiKeysCommand,
@@ -78,8 +83,8 @@ export class ListApiKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApiKeysRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListApiKeysResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListApiKeysRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListApiKeysResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

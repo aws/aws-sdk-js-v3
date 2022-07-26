@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListStudioComponentsRequest, ListStudioComponentsResponse } from "../models/models_0";
+import {
+  ListStudioComponentsRequest,
+  ListStudioComponentsRequestFilterSensitiveLog,
+  ListStudioComponentsResponse,
+  ListStudioComponentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1ListStudioComponentsCommand,
@@ -72,8 +77,8 @@ export class ListStudioComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStudioComponentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStudioComponentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStudioComponentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStudioComponentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

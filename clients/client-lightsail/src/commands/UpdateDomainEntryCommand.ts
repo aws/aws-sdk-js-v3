@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { UpdateDomainEntryRequest, UpdateDomainEntryResult } from "../models/models_1";
+import {
+  UpdateDomainEntryRequest,
+  UpdateDomainEntryRequestFilterSensitiveLog,
+  UpdateDomainEntryResult,
+  UpdateDomainEntryResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateDomainEntryCommand,
   serializeAws_json1_1UpdateDomainEntryCommand,
@@ -75,8 +80,8 @@ export class UpdateDomainEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainEntryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainEntryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDomainEntryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDomainEntryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

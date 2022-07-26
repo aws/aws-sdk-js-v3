@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NullAndEmptyHeadersIO } from "../models/models_0";
+import { NullAndEmptyHeadersIO, NullAndEmptyHeadersIOFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlNullAndEmptyHeadersServerCommand,
   serializeAws_restXmlNullAndEmptyHeadersServerCommand,
@@ -72,8 +72,8 @@ export class NullAndEmptyHeadersServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NullAndEmptyHeadersIO.filterSensitiveLog,
-      outputFilterSensitiveLog: NullAndEmptyHeadersIO.filterSensitiveLog,
+      inputFilterSensitiveLog: NullAndEmptyHeadersIOFilterSensitiveLog,
+      outputFilterSensitiveLog: NullAndEmptyHeadersIOFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

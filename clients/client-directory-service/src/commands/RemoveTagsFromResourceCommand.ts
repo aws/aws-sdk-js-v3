@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult } from "../models/models_0";
+import {
+  RemoveTagsFromResourceRequest,
+  RemoveTagsFromResourceRequestFilterSensitiveLog,
+  RemoveTagsFromResourceResult,
+  RemoveTagsFromResourceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsFromResourceCommand,
   serializeAws_json1_1RemoveTagsFromResourceCommand,
@@ -72,8 +77,8 @@ export class RemoveTagsFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTagsFromResourceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTagsFromResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveTagsFromResourceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { StopBuildBatchInput, StopBuildBatchOutput } from "../models/models_0";
+import {
+  StopBuildBatchInput,
+  StopBuildBatchInputFilterSensitiveLog,
+  StopBuildBatchOutput,
+  StopBuildBatchOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopBuildBatchCommand,
   serializeAws_json1_1StopBuildBatchCommand,
@@ -72,8 +77,8 @@ export class StopBuildBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBuildBatchInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StopBuildBatchOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopBuildBatchInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StopBuildBatchOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

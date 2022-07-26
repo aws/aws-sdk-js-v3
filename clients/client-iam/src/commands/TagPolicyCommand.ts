@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagPolicyRequest } from "../models/models_0";
+import { TagPolicyRequest, TagPolicyRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryTagPolicyCommand, serializeAws_queryTagPolicyCommand } from "../protocols/Aws_query";
 
 export interface TagPolicyCommandInput extends TagPolicyRequest {}
@@ -100,7 +100,7 @@ export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagPolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: TagPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

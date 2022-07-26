@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { DeleteDataRepositoryAssociationRequest, DeleteDataRepositoryAssociationResponse } from "../models/models_0";
+import {
+  DeleteDataRepositoryAssociationRequest,
+  DeleteDataRepositoryAssociationRequestFilterSensitiveLog,
+  DeleteDataRepositoryAssociationResponse,
+  DeleteDataRepositoryAssociationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDataRepositoryAssociationCommand,
   serializeAws_json1_1DeleteDataRepositoryAssociationCommand,
@@ -80,8 +85,8 @@ export class DeleteDataRepositoryAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataRepositoryAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataRepositoryAssociationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDataRepositoryAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDataRepositoryAssociationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

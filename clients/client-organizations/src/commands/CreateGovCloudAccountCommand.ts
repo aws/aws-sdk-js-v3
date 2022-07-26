@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateGovCloudAccountRequest, CreateGovCloudAccountResponse } from "../models/models_0";
+import {
+  CreateGovCloudAccountRequest,
+  CreateGovCloudAccountRequestFilterSensitiveLog,
+  CreateGovCloudAccountResponse,
+  CreateGovCloudAccountResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1CreateGovCloudAccountCommand,
@@ -204,8 +209,8 @@ export class CreateGovCloudAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGovCloudAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateGovCloudAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGovCloudAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateGovCloudAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

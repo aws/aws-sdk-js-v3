@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AttachInternetGatewayRequest } from "../models/models_0";
+import { AttachInternetGatewayRequest, AttachInternetGatewayRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_ec2AttachInternetGatewayCommand,
   serializeAws_ec2AttachInternetGatewayCommand,
@@ -73,7 +73,7 @@ export class AttachInternetGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachInternetGatewayRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachInternetGatewayRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

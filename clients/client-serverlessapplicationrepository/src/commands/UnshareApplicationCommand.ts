@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UnshareApplicationRequest } from "../models/models_0";
+import { UnshareApplicationRequest, UnshareApplicationRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UnshareApplicationCommand,
   serializeAws_restJson1UnshareApplicationCommand,
@@ -76,7 +76,7 @@ export class UnshareApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnshareApplicationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UnshareApplicationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

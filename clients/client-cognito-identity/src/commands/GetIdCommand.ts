@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { GetIdInput, GetIdResponse } from "../models/models_0";
+import {
+  GetIdInput,
+  GetIdInputFilterSensitiveLog,
+  GetIdResponse,
+  GetIdResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetIdCommand, serializeAws_json1_1GetIdCommand } from "../protocols/Aws_json1_1";
 
 export interface GetIdCommandInput extends GetIdInput {}
@@ -67,8 +72,8 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIdResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIdInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetIdResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

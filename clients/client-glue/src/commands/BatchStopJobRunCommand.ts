@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchStopJobRunRequest, BatchStopJobRunResponse } from "../models/models_0";
+import {
+  BatchStopJobRunRequest,
+  BatchStopJobRunRequestFilterSensitiveLog,
+  BatchStopJobRunResponse,
+  BatchStopJobRunResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchStopJobRunCommand,
   serializeAws_json1_1BatchStopJobRunCommand,
@@ -72,8 +77,8 @@ export class BatchStopJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchStopJobRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchStopJobRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchStopJobRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchStopJobRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

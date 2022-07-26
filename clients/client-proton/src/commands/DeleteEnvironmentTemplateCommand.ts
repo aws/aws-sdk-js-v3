@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteEnvironmentTemplateInput, DeleteEnvironmentTemplateOutput } from "../models/models_0";
+import {
+  DeleteEnvironmentTemplateInput,
+  DeleteEnvironmentTemplateInputFilterSensitiveLog,
+  DeleteEnvironmentTemplateOutput,
+  DeleteEnvironmentTemplateOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteEnvironmentTemplateCommand,
   serializeAws_json1_0DeleteEnvironmentTemplateCommand,
@@ -72,8 +77,8 @@ export class DeleteEnvironmentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentTemplateInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEnvironmentTemplateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEnvironmentTemplateInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEnvironmentTemplateOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

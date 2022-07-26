@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { ListNotificationsRequest, ListNotificationsResponse } from "../models/models_0";
+import {
+  ListNotificationsRequest,
+  ListNotificationsRequestFilterSensitiveLog,
+  ListNotificationsResponse,
+  ListNotificationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListNotificationsCommand,
   serializeAws_restJson1ListNotificationsCommand,
@@ -72,8 +77,8 @@ export class ListNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotificationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListNotificationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNotificationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListNotificationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

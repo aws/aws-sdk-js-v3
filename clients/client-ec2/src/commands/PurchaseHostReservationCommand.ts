@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { PurchaseHostReservationRequest, PurchaseHostReservationResult } from "../models/models_5";
+import {
+  PurchaseHostReservationRequest,
+  PurchaseHostReservationRequestFilterSensitiveLog,
+  PurchaseHostReservationResult,
+  PurchaseHostReservationResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2PurchaseHostReservationCommand,
   serializeAws_ec2PurchaseHostReservationCommand,
@@ -75,8 +80,8 @@ export class PurchaseHostReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseHostReservationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseHostReservationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseHostReservationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseHostReservationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

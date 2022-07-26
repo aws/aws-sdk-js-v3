@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartActivityStreamRequest, StartActivityStreamResponse } from "../models/models_1";
+import {
+  StartActivityStreamRequest,
+  StartActivityStreamRequestFilterSensitiveLog,
+  StartActivityStreamResponse,
+  StartActivityStreamResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryStartActivityStreamCommand,
   serializeAws_queryStartActivityStreamCommand,
@@ -74,8 +79,8 @@ export class StartActivityStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartActivityStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartActivityStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartActivityStreamRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartActivityStreamResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

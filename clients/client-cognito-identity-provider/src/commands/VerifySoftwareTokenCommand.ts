@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { VerifySoftwareTokenRequest, VerifySoftwareTokenResponse } from "../models/models_1";
+import {
+  VerifySoftwareTokenRequest,
+  VerifySoftwareTokenRequestFilterSensitiveLog,
+  VerifySoftwareTokenResponse,
+  VerifySoftwareTokenResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1VerifySoftwareTokenCommand,
   serializeAws_json1_1VerifySoftwareTokenCommand,
@@ -80,8 +85,8 @@ export class VerifySoftwareTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifySoftwareTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VerifySoftwareTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: VerifySoftwareTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: VerifySoftwareTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

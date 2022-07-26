@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { KitchenSink } from "../models/models_0";
+import { KitchenSink, KitchenSinkFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1KitchenSinkOperationCommand,
   serializeAws_json1_1KitchenSinkOperationCommand,
@@ -55,8 +55,8 @@ export class KitchenSinkOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: KitchenSink.filterSensitiveLog,
-      outputFilterSensitiveLog: KitchenSink.filterSensitiveLog,
+      inputFilterSensitiveLog: KitchenSinkFilterSensitiveLog,
+      outputFilterSensitiveLog: KitchenSinkFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

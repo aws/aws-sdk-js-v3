@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DeleteDirectoryRequest, DeleteDirectoryResult } from "../models/models_0";
+import {
+  DeleteDirectoryRequest,
+  DeleteDirectoryRequestFilterSensitiveLog,
+  DeleteDirectoryResult,
+  DeleteDirectoryResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDirectoryCommand,
   serializeAws_json1_1DeleteDirectoryCommand,
@@ -76,8 +81,8 @@ export class DeleteDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDirectoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDirectoryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDirectoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDirectoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAccessControlEffectRequest, GetAccessControlEffectResponse } from "../models/models_0";
+import {
+  GetAccessControlEffectRequest,
+  GetAccessControlEffectRequestFilterSensitiveLog,
+  GetAccessControlEffectResponse,
+  GetAccessControlEffectResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetAccessControlEffectCommand,
   serializeAws_json1_1GetAccessControlEffectCommand,
@@ -73,8 +78,8 @@ export class GetAccessControlEffectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessControlEffectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessControlEffectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccessControlEffectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAccessControlEffectResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

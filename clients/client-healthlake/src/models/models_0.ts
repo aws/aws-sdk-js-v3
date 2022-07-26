@@ -68,15 +68,6 @@ export interface PreloadDataConfig {
   PreloadDataType: PreloadDataType | string | undefined;
 }
 
-export namespace PreloadDataConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreloadDataConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             The customer-managed-key(CMK) used when creating a Data Store. If a customer owned key is not specified, an AWS owned key will be used for encryption.
@@ -98,15 +89,6 @@ export interface KmsEncryptionConfig {
   KmsKeyId?: string;
 }
 
-export namespace KmsEncryptionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KmsEncryptionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             The server-side encryption key configuration for a customer provided encryption key.
@@ -119,15 +101,6 @@ export interface SseConfiguration {
    *          </p>
    */
   KmsEncryptionConfig: KmsEncryptionConfig | undefined;
-}
-
-export namespace SseConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SseConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -149,15 +122,6 @@ export interface Tag {
    *          </p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFHIRDatastoreRequest {
@@ -197,15 +161,6 @@ export interface CreateFHIRDatastoreRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateFHIRDatastoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFHIRDatastoreRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum DatastoreStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -237,15 +192,6 @@ export interface CreateFHIRDatastoreResponse {
    *          supported.</p>
    */
   DatastoreEndpoint: string | undefined;
-}
-
-export namespace CreateFHIRDatastoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFHIRDatastoreResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -338,15 +284,6 @@ export interface DatastoreFilter {
   CreatedAfter?: Date;
 }
 
-export namespace DatastoreFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastoreFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Displays the properties of the Data Store, including the ID, Arn, name, and the status of the Data Store.</p>
  */
@@ -399,29 +336,11 @@ export interface DatastoreProperties {
   PreloadDataConfig?: PreloadDataConfig;
 }
 
-export namespace DatastoreProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatastoreProperties): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFHIRDatastoreRequest {
   /**
    * <p> The AWS-generated ID for the Data Store to be deleted.</p>
    */
   DatastoreId?: string;
-}
-
-export namespace DeleteFHIRDatastoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFHIRDatastoreRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFHIRDatastoreResponse {
@@ -445,15 +364,6 @@ export interface DeleteFHIRDatastoreResponse {
    * <p>The AWS endpoint for the Data Store the user has requested to be deleted.</p>
    */
   DatastoreEndpoint: string | undefined;
-}
-
-export namespace DeleteFHIRDatastoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFHIRDatastoreResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -484,15 +394,6 @@ export interface DescribeFHIRDatastoreRequest {
   DatastoreId?: string;
 }
 
-export namespace DescribeFHIRDatastoreRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFHIRDatastoreRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFHIRDatastoreResponse {
   /**
    * <p>All properties associated with a Data Store, including the Data Store ID, Data Store ARN,
@@ -500,15 +401,6 @@ export interface DescribeFHIRDatastoreResponse {
    *          endpoint.</p>
    */
   DatastoreProperties: DatastoreProperties | undefined;
-}
-
-export namespace DescribeFHIRDatastoreResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFHIRDatastoreResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFHIRExportJobRequest {
@@ -521,15 +413,6 @@ export interface DescribeFHIRExportJobRequest {
    * <p>The AWS generated ID for an export job.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribeFHIRExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFHIRExportJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum JobStatus {
@@ -561,15 +444,6 @@ export interface S3Configuration {
   KmsKeyId: string | undefined;
 }
 
-export namespace S3Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Configuration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output data configuration that was supplied when the export job was created.</p>
  */
@@ -599,15 +473,6 @@ export namespace OutputDataConfig {
   export const visit = <T>(value: OutputDataConfig, visitor: Visitor<T>): T => {
     if (value.S3Configuration !== undefined) return visitor.S3Configuration(value.S3Configuration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputDataConfig): any => {
-    if (obj.S3Configuration !== undefined)
-      return { S3Configuration: S3Configuration.filterSensitiveLog(obj.S3Configuration) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -661,33 +526,11 @@ export interface ExportJobProperties {
   Message?: string;
 }
 
-export namespace ExportJobProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportJobProperties): any => ({
-    ...obj,
-    ...(obj.OutputDataConfig && { OutputDataConfig: OutputDataConfig.filterSensitiveLog(obj.OutputDataConfig) }),
-  });
-}
-
 export interface DescribeFHIRExportJobResponse {
   /**
    * <p>Displays the properties of the export job, including the ID, Arn, Name, and the status of the job. </p>
    */
   ExportJobProperties: ExportJobProperties | undefined;
-}
-
-export namespace DescribeFHIRExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFHIRExportJobResponse): any => ({
-    ...obj,
-    ...(obj.ExportJobProperties && {
-      ExportJobProperties: ExportJobProperties.filterSensitiveLog(obj.ExportJobProperties),
-    }),
-  });
 }
 
 export interface DescribeFHIRImportJobRequest {
@@ -700,15 +543,6 @@ export interface DescribeFHIRImportJobRequest {
    * <p>The AWS-generated job ID.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribeFHIRImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFHIRImportJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -738,14 +572,6 @@ export namespace InputDataConfig {
   export const visit = <T>(value: InputDataConfig, visitor: Visitor<T>): T => {
     if (value.S3Uri !== undefined) return visitor.S3Uri(value.S3Uri);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDataConfig): any => {
-    if (obj.S3Uri !== undefined) return { S3Uri: obj.S3Uri };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -804,36 +630,11 @@ export interface ImportJobProperties {
   Message?: string;
 }
 
-export namespace ImportJobProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportJobProperties): any => ({
-    ...obj,
-    ...(obj.InputDataConfig && { InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig) }),
-    ...(obj.JobOutputDataConfig && {
-      JobOutputDataConfig: OutputDataConfig.filterSensitiveLog(obj.JobOutputDataConfig),
-    }),
-  });
-}
-
 export interface DescribeFHIRImportJobResponse {
   /**
    * <p>The properties of the Import job request, including the ID, ARN, name, and the status of the job.</p>
    */
   ImportJobProperties: ImportJobProperties | undefined;
-}
-
-export namespace DescribeFHIRImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFHIRImportJobResponse): any => ({
-    ...obj,
-    ...(obj.ImportJobProperties && {
-      ImportJobProperties: ImportJobProperties.filterSensitiveLog(obj.ImportJobProperties),
-    }),
-  });
 }
 
 export interface ListFHIRDatastoresRequest {
@@ -854,15 +655,6 @@ export interface ListFHIRDatastoresRequest {
   MaxResults?: number;
 }
 
-export namespace ListFHIRDatastoresRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFHIRDatastoresRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFHIRDatastoresResponse {
   /**
    * <p>All properties associated with the listed Data Stores.</p>
@@ -873,15 +665,6 @@ export interface ListFHIRDatastoresResponse {
    * <p>Pagination token that can be used to retrieve the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListFHIRDatastoresResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFHIRDatastoresResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFHIRExportJobsRequest {
@@ -935,15 +718,6 @@ export interface ListFHIRExportJobsRequest {
   SubmittedAfter?: Date;
 }
 
-export namespace ListFHIRExportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFHIRExportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFHIRExportJobsResponse {
   /**
    * <p>
@@ -958,18 +732,6 @@ export interface ListFHIRExportJobsResponse {
    *          </p>
    */
   NextToken?: string;
-}
-
-export namespace ListFHIRExportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFHIRExportJobsResponse): any => ({
-    ...obj,
-    ...(obj.ExportJobPropertiesList && {
-      ExportJobPropertiesList: obj.ExportJobPropertiesList.map((item) => ExportJobProperties.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListFHIRImportJobsRequest {
@@ -1023,15 +785,6 @@ export interface ListFHIRImportJobsRequest {
   SubmittedAfter?: Date;
 }
 
-export namespace ListFHIRImportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFHIRImportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFHIRImportJobsResponse {
   /**
    * <p>
@@ -1048,18 +801,6 @@ export interface ListFHIRImportJobsResponse {
   NextToken?: string;
 }
 
-export namespace ListFHIRImportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFHIRImportJobsResponse): any => ({
-    ...obj,
-    ...(obj.ImportJobPropertiesList && {
-      ImportJobPropertiesList: obj.ImportJobPropertiesList.map((item) => ImportJobProperties.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>
@@ -1069,15 +810,6 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>
@@ -1085,15 +817,6 @@ export interface ListTagsForResourceResponse {
    *          </p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartFHIRExportJobRequest {
@@ -1123,16 +846,6 @@ export interface StartFHIRExportJobRequest {
   ClientToken?: string;
 }
 
-export namespace StartFHIRExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFHIRExportJobRequest): any => ({
-    ...obj,
-    ...(obj.OutputDataConfig && { OutputDataConfig: OutputDataConfig.filterSensitiveLog(obj.OutputDataConfig) }),
-  });
-}
-
 export interface StartFHIRExportJobResponse {
   /**
    * <p>The AWS generated ID for an export job.</p>
@@ -1148,15 +861,6 @@ export interface StartFHIRExportJobResponse {
    * <p>The AWS generated ID for the Data Store from which files are being exported for an export job.</p>
    */
   DatastoreId?: string;
-}
-
-export namespace StartFHIRExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFHIRExportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartFHIRImportJobRequest {
@@ -1191,19 +895,6 @@ export interface StartFHIRImportJobRequest {
   ClientToken?: string;
 }
 
-export namespace StartFHIRImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFHIRImportJobRequest): any => ({
-    ...obj,
-    ...(obj.InputDataConfig && { InputDataConfig: InputDataConfig.filterSensitiveLog(obj.InputDataConfig) }),
-    ...(obj.JobOutputDataConfig && {
-      JobOutputDataConfig: OutputDataConfig.filterSensitiveLog(obj.JobOutputDataConfig),
-    }),
-  });
-}
-
 export interface StartFHIRImportJobResponse {
   /**
    * <p>The AWS-generated job ID.</p>
@@ -1219,15 +910,6 @@ export interface StartFHIRImportJobResponse {
    * <p>The AWS-generated Data Store ID.</p>
    */
   DatastoreId?: string;
-}
-
-export namespace StartFHIRImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFHIRImportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1246,25 +928,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1282,22 +946,284 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const PreloadDataConfigFilterSensitiveLog = (obj: PreloadDataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KmsEncryptionConfigFilterSensitiveLog = (obj: KmsEncryptionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SseConfigurationFilterSensitiveLog = (obj: SseConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFHIRDatastoreRequestFilterSensitiveLog = (obj: CreateFHIRDatastoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFHIRDatastoreResponseFilterSensitiveLog = (obj: CreateFHIRDatastoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastoreFilterFilterSensitiveLog = (obj: DatastoreFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatastorePropertiesFilterSensitiveLog = (obj: DatastoreProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFHIRDatastoreRequestFilterSensitiveLog = (obj: DeleteFHIRDatastoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFHIRDatastoreResponseFilterSensitiveLog = (obj: DeleteFHIRDatastoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFHIRDatastoreRequestFilterSensitiveLog = (obj: DescribeFHIRDatastoreRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFHIRDatastoreResponseFilterSensitiveLog = (obj: DescribeFHIRDatastoreResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFHIRExportJobRequestFilterSensitiveLog = (obj: DescribeFHIRExportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ConfigurationFilterSensitiveLog = (obj: S3Configuration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputDataConfigFilterSensitiveLog = (obj: OutputDataConfig): any => {
+  if (obj.S3Configuration !== undefined)
+    return { S3Configuration: S3ConfigurationFilterSensitiveLog(obj.S3Configuration) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ExportJobPropertiesFilterSensitiveLog = (obj: ExportJobProperties): any => ({
+  ...obj,
+  ...(obj.OutputDataConfig && { OutputDataConfig: OutputDataConfigFilterSensitiveLog(obj.OutputDataConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeFHIRExportJobResponseFilterSensitiveLog = (obj: DescribeFHIRExportJobResponse): any => ({
+  ...obj,
+  ...(obj.ExportJobProperties && {
+    ExportJobProperties: ExportJobPropertiesFilterSensitiveLog(obj.ExportJobProperties),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeFHIRImportJobRequestFilterSensitiveLog = (obj: DescribeFHIRImportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDataConfigFilterSensitiveLog = (obj: InputDataConfig): any => {
+  if (obj.S3Uri !== undefined) return { S3Uri: obj.S3Uri };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ImportJobPropertiesFilterSensitiveLog = (obj: ImportJobProperties): any => ({
+  ...obj,
+  ...(obj.InputDataConfig && { InputDataConfig: InputDataConfigFilterSensitiveLog(obj.InputDataConfig) }),
+  ...(obj.JobOutputDataConfig && { JobOutputDataConfig: OutputDataConfigFilterSensitiveLog(obj.JobOutputDataConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeFHIRImportJobResponseFilterSensitiveLog = (obj: DescribeFHIRImportJobResponse): any => ({
+  ...obj,
+  ...(obj.ImportJobProperties && {
+    ImportJobProperties: ImportJobPropertiesFilterSensitiveLog(obj.ImportJobProperties),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListFHIRDatastoresRequestFilterSensitiveLog = (obj: ListFHIRDatastoresRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFHIRDatastoresResponseFilterSensitiveLog = (obj: ListFHIRDatastoresResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFHIRExportJobsRequestFilterSensitiveLog = (obj: ListFHIRExportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFHIRExportJobsResponseFilterSensitiveLog = (obj: ListFHIRExportJobsResponse): any => ({
+  ...obj,
+  ...(obj.ExportJobPropertiesList && {
+    ExportJobPropertiesList: obj.ExportJobPropertiesList.map((item) => ExportJobPropertiesFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListFHIRImportJobsRequestFilterSensitiveLog = (obj: ListFHIRImportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFHIRImportJobsResponseFilterSensitiveLog = (obj: ListFHIRImportJobsResponse): any => ({
+  ...obj,
+  ...(obj.ImportJobPropertiesList && {
+    ImportJobPropertiesList: obj.ImportJobPropertiesList.map((item) => ImportJobPropertiesFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFHIRExportJobRequestFilterSensitiveLog = (obj: StartFHIRExportJobRequest): any => ({
+  ...obj,
+  ...(obj.OutputDataConfig && { OutputDataConfig: OutputDataConfigFilterSensitiveLog(obj.OutputDataConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const StartFHIRExportJobResponseFilterSensitiveLog = (obj: StartFHIRExportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFHIRImportJobRequestFilterSensitiveLog = (obj: StartFHIRImportJobRequest): any => ({
+  ...obj,
+  ...(obj.InputDataConfig && { InputDataConfig: InputDataConfigFilterSensitiveLog(obj.InputDataConfig) }),
+  ...(obj.JobOutputDataConfig && { JobOutputDataConfig: OutputDataConfigFilterSensitiveLog(obj.JobOutputDataConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const StartFHIRImportJobResponseFilterSensitiveLog = (obj: StartFHIRImportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

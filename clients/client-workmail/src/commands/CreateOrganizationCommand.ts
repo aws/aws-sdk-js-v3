@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateOrganizationRequest, CreateOrganizationResponse } from "../models/models_0";
+import {
+  CreateOrganizationRequest,
+  CreateOrganizationRequestFilterSensitiveLog,
+  CreateOrganizationResponse,
+  CreateOrganizationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateOrganizationCommand,
   serializeAws_json1_1CreateOrganizationCommand,
@@ -76,8 +81,8 @@ export class CreateOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOrganizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateOrganizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

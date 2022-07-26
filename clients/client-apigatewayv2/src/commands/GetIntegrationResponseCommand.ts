@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { GetIntegrationResponseRequest, GetIntegrationResponseResponse } from "../models/models_0";
+import {
+  GetIntegrationResponseRequest,
+  GetIntegrationResponseRequestFilterSensitiveLog,
+  GetIntegrationResponseResponse,
+  GetIntegrationResponseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetIntegrationResponseCommand,
   serializeAws_restJson1GetIntegrationResponseCommand,
@@ -72,8 +77,8 @@ export class GetIntegrationResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntegrationResponseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIntegrationResponseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIntegrationResponseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetIntegrationResponseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

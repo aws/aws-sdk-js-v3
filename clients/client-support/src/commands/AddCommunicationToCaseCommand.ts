@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddCommunicationToCaseRequest, AddCommunicationToCaseResponse } from "../models/models_0";
+import {
+  AddCommunicationToCaseRequest,
+  AddCommunicationToCaseRequestFilterSensitiveLog,
+  AddCommunicationToCaseResponse,
+  AddCommunicationToCaseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddCommunicationToCaseCommand,
   serializeAws_json1_1AddCommunicationToCaseCommand,
@@ -91,8 +96,8 @@ export class AddCommunicationToCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddCommunicationToCaseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddCommunicationToCaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddCommunicationToCaseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddCommunicationToCaseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

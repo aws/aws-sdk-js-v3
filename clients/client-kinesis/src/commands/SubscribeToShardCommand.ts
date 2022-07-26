@@ -14,7 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { SubscribeToShardInput, SubscribeToShardOutput } from "../models/models_0";
+import {
+  SubscribeToShardInput,
+  SubscribeToShardInputFilterSensitiveLog,
+  SubscribeToShardOutput,
+  SubscribeToShardOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SubscribeToShardCommand,
   serializeAws_json1_1SubscribeToShardCommand,
@@ -95,8 +100,8 @@ export class SubscribeToShardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubscribeToShardInput.filterSensitiveLog,
-      outputFilterSensitiveLog: SubscribeToShardOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SubscribeToShardInputFilterSensitiveLog,
+      outputFilterSensitiveLog: SubscribeToShardOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

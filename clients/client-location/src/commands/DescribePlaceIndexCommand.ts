@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { DescribePlaceIndexRequest, DescribePlaceIndexResponse } from "../models/models_0";
+import {
+  DescribePlaceIndexRequest,
+  DescribePlaceIndexRequestFilterSensitiveLog,
+  DescribePlaceIndexResponse,
+  DescribePlaceIndexResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribePlaceIndexCommand,
   serializeAws_restJson1DescribePlaceIndexCommand,
@@ -72,8 +77,8 @@ export class DescribePlaceIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePlaceIndexRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePlaceIndexResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePlaceIndexRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribePlaceIndexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

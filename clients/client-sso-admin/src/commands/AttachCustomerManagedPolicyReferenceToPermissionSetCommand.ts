@@ -14,7 +14,9 @@ import {
 
 import {
   AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
+  AttachCustomerManagedPolicyReferenceToPermissionSetRequestFilterSensitiveLog,
   AttachCustomerManagedPolicyReferenceToPermissionSetResponse,
+  AttachCustomerManagedPolicyReferenceToPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AttachCustomerManagedPolicyReferenceToPermissionSetCommand,
@@ -81,8 +83,8 @@ export class AttachCustomerManagedPolicyReferenceToPermissionSetCommand extends 
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachCustomerManagedPolicyReferenceToPermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AttachCustomerManagedPolicyReferenceToPermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachCustomerManagedPolicyReferenceToPermissionSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AttachCustomerManagedPolicyReferenceToPermissionSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

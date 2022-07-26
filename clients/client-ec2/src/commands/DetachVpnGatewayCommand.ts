@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachVpnGatewayRequest } from "../models/models_4";
+import { DetachVpnGatewayRequest, DetachVpnGatewayRequestFilterSensitiveLog } from "../models/models_4";
 import {
   deserializeAws_ec2DetachVpnGatewayCommand,
   serializeAws_ec2DetachVpnGatewayCommand,
@@ -77,7 +77,7 @@ export class DetachVpnGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachVpnGatewayRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachVpnGatewayRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

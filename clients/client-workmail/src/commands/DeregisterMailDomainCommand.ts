@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterMailDomainRequest, DeregisterMailDomainResponse } from "../models/models_0";
+import {
+  DeregisterMailDomainRequest,
+  DeregisterMailDomainRequestFilterSensitiveLog,
+  DeregisterMailDomainResponse,
+  DeregisterMailDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterMailDomainCommand,
   serializeAws_json1_1DeregisterMailDomainCommand,
@@ -73,8 +78,8 @@ export class DeregisterMailDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterMailDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterMailDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterMailDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterMailDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

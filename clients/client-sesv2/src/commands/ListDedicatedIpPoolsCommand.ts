@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListDedicatedIpPoolsRequest, ListDedicatedIpPoolsResponse } from "../models/models_0";
+import {
+  ListDedicatedIpPoolsRequest,
+  ListDedicatedIpPoolsRequestFilterSensitiveLog,
+  ListDedicatedIpPoolsResponse,
+  ListDedicatedIpPoolsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListDedicatedIpPoolsCommand,
   serializeAws_restJson1ListDedicatedIpPoolsCommand,
@@ -73,8 +78,8 @@ export class ListDedicatedIpPoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDedicatedIpPoolsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDedicatedIpPoolsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDedicatedIpPoolsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDedicatedIpPoolsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

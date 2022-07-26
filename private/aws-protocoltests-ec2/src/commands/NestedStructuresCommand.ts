@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { NestedStructuresInput } from "../models/models_0";
+import { NestedStructuresInput, NestedStructuresInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_ec2NestedStructuresCommand,
   serializeAws_ec2NestedStructuresCommand,
@@ -72,7 +72,7 @@ export class NestedStructuresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NestedStructuresInput.filterSensitiveLog,
+      inputFilterSensitiveLog: NestedStructuresInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

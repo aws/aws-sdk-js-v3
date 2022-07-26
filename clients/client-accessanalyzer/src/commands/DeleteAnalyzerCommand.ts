@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { DeleteAnalyzerRequest } from "../models/models_0";
+import { DeleteAnalyzerRequest, DeleteAnalyzerRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAnalyzerCommand,
   serializeAws_restJson1DeleteAnalyzerCommand,
@@ -74,7 +74,7 @@ export class DeleteAnalyzerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAnalyzerRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAnalyzerRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

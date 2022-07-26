@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { RemoveFlowOutputRequest, RemoveFlowOutputResponse } from "../models/models_0";
+import {
+  RemoveFlowOutputRequest,
+  RemoveFlowOutputRequestFilterSensitiveLog,
+  RemoveFlowOutputResponse,
+  RemoveFlowOutputResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveFlowOutputCommand,
   serializeAws_restJson1RemoveFlowOutputCommand,
@@ -72,8 +77,8 @@ export class RemoveFlowOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveFlowOutputRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveFlowOutputResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveFlowOutputRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveFlowOutputResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

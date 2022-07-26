@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTrustAnchorRequest, TrustAnchorDetailResponse } from "../models/models_0";
+import {
+  CreateTrustAnchorRequest,
+  CreateTrustAnchorRequestFilterSensitiveLog,
+  TrustAnchorDetailResponse,
+  TrustAnchorDetailResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTrustAnchorCommand,
   serializeAws_restJson1CreateTrustAnchorCommand,
@@ -76,8 +81,8 @@ export class CreateTrustAnchorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrustAnchorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TrustAnchorDetailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTrustAnchorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TrustAnchorDetailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

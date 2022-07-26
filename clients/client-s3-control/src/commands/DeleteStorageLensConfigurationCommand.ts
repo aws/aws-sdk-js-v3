@@ -13,7 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteStorageLensConfigurationRequest } from "../models/models_0";
+import {
+  DeleteStorageLensConfigurationRequest,
+  DeleteStorageLensConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteStorageLensConfigurationCommand,
   serializeAws_restXmlDeleteStorageLensConfigurationCommand,
@@ -82,7 +85,7 @@ export class DeleteStorageLensConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStorageLensConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStorageLensConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

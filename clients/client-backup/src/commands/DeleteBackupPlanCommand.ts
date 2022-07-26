@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { DeleteBackupPlanInput, DeleteBackupPlanOutput } from "../models/models_0";
+import {
+  DeleteBackupPlanInput,
+  DeleteBackupPlanInputFilterSensitiveLog,
+  DeleteBackupPlanOutput,
+  DeleteBackupPlanOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBackupPlanCommand,
   serializeAws_restJson1DeleteBackupPlanCommand,
@@ -74,8 +79,8 @@ export class DeleteBackupPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackupPlanInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBackupPlanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBackupPlanInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBackupPlanOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { EnterStandbyAnswer, EnterStandbyQuery } from "../models/models_0";
+import {
+  EnterStandbyAnswer,
+  EnterStandbyAnswerFilterSensitiveLog,
+  EnterStandbyQuery,
+  EnterStandbyQueryFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryEnterStandbyCommand, serializeAws_queryEnterStandbyCommand } from "../protocols/Aws_query";
 
 export interface EnterStandbyCommandInput extends EnterStandbyQuery {}
@@ -78,8 +83,8 @@ export class EnterStandbyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnterStandbyQuery.filterSensitiveLog,
-      outputFilterSensitiveLog: EnterStandbyAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: EnterStandbyQueryFilterSensitiveLog,
+      outputFilterSensitiveLog: EnterStandbyAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetPolicyRequest, GetPolicyResponse } from "../models/models_0";
+import {
+  GetPolicyRequest,
+  GetPolicyRequestFilterSensitiveLog,
+  GetPolicyResponse,
+  GetPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryGetPolicyCommand, serializeAws_queryGetPolicyCommand } from "../protocols/Aws_query";
 
 export interface GetPolicyCommandInput extends GetPolicyRequest {}
@@ -74,8 +79,8 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

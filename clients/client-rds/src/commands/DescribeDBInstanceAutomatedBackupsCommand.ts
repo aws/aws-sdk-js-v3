@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBInstanceAutomatedBackupMessage, DescribeDBInstanceAutomatedBackupsMessage } from "../models/models_0";
+import {
+  DBInstanceAutomatedBackupMessage,
+  DBInstanceAutomatedBackupMessageFilterSensitiveLog,
+  DescribeDBInstanceAutomatedBackupsMessage,
+  DescribeDBInstanceAutomatedBackupsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBInstanceAutomatedBackupsCommand,
   serializeAws_queryDescribeDBInstanceAutomatedBackupsCommand,
@@ -80,8 +85,8 @@ export class DescribeDBInstanceAutomatedBackupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBInstanceAutomatedBackupsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBInstanceAutomatedBackupMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBInstanceAutomatedBackupsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBInstanceAutomatedBackupMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

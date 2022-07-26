@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { StartExportTaskRequest, StartExportTaskResponse } from "../models/models_0";
+import {
+  StartExportTaskRequest,
+  StartExportTaskRequestFilterSensitiveLog,
+  StartExportTaskResponse,
+  StartExportTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartExportTaskCommand,
   serializeAws_json1_1StartExportTaskCommand,
@@ -84,8 +89,8 @@ export class StartExportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartExportTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartExportTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartExportTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartExportTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

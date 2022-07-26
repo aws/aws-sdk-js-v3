@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { DeleteRunRequest, DeleteRunResult } from "../models/models_0";
+import {
+  DeleteRunRequest,
+  DeleteRunRequestFilterSensitiveLog,
+  DeleteRunResult,
+  DeleteRunResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1DeleteRunCommand, serializeAws_json1_1DeleteRunCommand } from "../protocols/Aws_json1_1";
 
 export interface DeleteRunCommandInput extends DeleteRunRequest {}
@@ -70,8 +75,8 @@ export class DeleteRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRunResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRunResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

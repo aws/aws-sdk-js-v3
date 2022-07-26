@@ -19,7 +19,9 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import {
   DeleteApplicationVpcConfigurationRequest,
+  DeleteApplicationVpcConfigurationRequestFilterSensitiveLog,
   DeleteApplicationVpcConfigurationResponse,
+  DeleteApplicationVpcConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand,
@@ -81,8 +83,8 @@ export class DeleteApplicationVpcConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationVpcConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationVpcConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApplicationVpcConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationVpcConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

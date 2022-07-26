@@ -14,7 +14,9 @@ import {
 
 import {
   ListUnsupportedAppVersionResourcesRequest,
+  ListUnsupportedAppVersionResourcesRequestFilterSensitiveLog,
   ListUnsupportedAppVersionResourcesResponse,
+  ListUnsupportedAppVersionResourcesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListUnsupportedAppVersionResourcesCommand,
@@ -79,8 +81,8 @@ export class ListUnsupportedAppVersionResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUnsupportedAppVersionResourcesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListUnsupportedAppVersionResourcesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListUnsupportedAppVersionResourcesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListUnsupportedAppVersionResourcesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

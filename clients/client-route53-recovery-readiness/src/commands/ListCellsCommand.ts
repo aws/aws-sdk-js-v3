@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListCellsRequest, ListCellsResponse } from "../models/models_0";
+import {
+  ListCellsRequest,
+  ListCellsRequestFilterSensitiveLog,
+  ListCellsResponse,
+  ListCellsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListCellsCommand,
   serializeAws_restJson1ListCellsCommand,
@@ -76,8 +81,8 @@ export class ListCellsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCellsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCellsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCellsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCellsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

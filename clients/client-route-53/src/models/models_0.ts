@@ -56,15 +56,6 @@ export interface AccountLimit {
   Value: number | undefined;
 }
 
-export namespace AccountLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountLimit): any => ({
-    ...obj,
-  });
-}
-
 export interface ActivateKeySigningKeyRequest {
   /**
    * <p>A unique string used to identify a hosted zone.</p>
@@ -77,15 +68,6 @@ export interface ActivateKeySigningKeyRequest {
    * 			key-signing key in the same hosted zone.</p>
    */
   Name: string | undefined;
-}
-
-export namespace ActivateKeySigningKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateKeySigningKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 export type ChangeStatus = "INSYNC" | "PENDING";
@@ -120,30 +102,12 @@ export interface ChangeInfo {
   Comment?: string;
 }
 
-export namespace ChangeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ActivateKeySigningKeyResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
-}
-
-export namespace ActivateKeySigningKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateKeySigningKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -329,15 +293,6 @@ export interface AlarmIdentifier {
    * 		       </note>
    */
   Name: string | undefined;
-}
-
-export namespace AlarmIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmIdentifier): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -770,15 +725,6 @@ export interface AliasTarget {
   EvaluateTargetHealth: boolean | undefined;
 }
 
-export namespace AliasTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AliasTarget): any => ({
-    ...obj,
-  });
-}
-
 export type VPCRegion =
   | "af-south-1"
   | "ap-east-1"
@@ -828,15 +774,6 @@ export interface VPC {
   VPCId?: string;
 }
 
-export namespace VPC {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VPC): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about the request to associate a VPC with a
  * 			private hosted zone.</p>
@@ -863,15 +800,6 @@ export interface AssociateVPCWithHostedZoneRequest {
   Comment?: string;
 }
 
-export namespace AssociateVPCWithHostedZoneRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateVPCWithHostedZoneRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the
  * 				<code>AssociateVPCWithHostedZone</code> request.</p>
@@ -881,15 +809,6 @@ export interface AssociateVPCWithHostedZoneResponse {
    * <p>A complex type that describes the changes made to your hosted zone.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
-}
-
-export namespace AssociateVPCWithHostedZoneResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateVPCWithHostedZoneResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1084,15 +1003,6 @@ export interface CidrCollectionChange {
   CidrList: string[] | undefined;
 }
 
-export namespace CidrCollectionChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CidrCollectionChange): any => ({
-    ...obj,
-  });
-}
-
 export interface ChangeCidrCollectionRequest {
   /**
    * <p>The UUID of the CIDR collection to update.</p>
@@ -1128,15 +1038,6 @@ export interface ChangeCidrCollectionRequest {
   Changes: CidrCollectionChange[] | undefined;
 }
 
-export namespace ChangeCidrCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeCidrCollectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ChangeCidrCollectionResponse {
   /**
    * <p>The ID that is returned by <code>ChangeCidrCollection</code>. You can use it as input to
@@ -1144,15 +1045,6 @@ export interface ChangeCidrCollectionResponse {
    * 			not.</p>
    */
   Id: string | undefined;
-}
-
-export namespace ChangeCidrCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeCidrCollectionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1239,15 +1131,6 @@ export interface CidrRoutingConfig {
   LocationName: string | undefined;
 }
 
-export namespace CidrRoutingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CidrRoutingConfig): any => ({
-    ...obj,
-  });
-}
-
 export type ResourceRecordSetFailover = "PRIMARY" | "SECONDARY";
 
 /**
@@ -1310,15 +1193,6 @@ export interface GeoLocation {
   SubdivisionCode?: string;
 }
 
-export namespace GeoLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoLocation): any => ({
-    ...obj,
-  });
-}
-
 export type ResourceRecordSetRegion =
   | "af-south-1"
   | "ap-east-1"
@@ -1367,15 +1241,6 @@ export interface ResourceRecord {
    * 		       </note>
    */
   Value: string | undefined;
-}
-
-export namespace ResourceRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceRecord): any => ({
-    ...obj,
-  });
 }
 
 export type RRType =
@@ -2007,15 +1872,6 @@ export interface ResourceRecordSet {
   CidrRoutingConfig?: CidrRoutingConfig;
 }
 
-export namespace ResourceRecordSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceRecordSet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The information for each resource record set that you want to change.</p>
  */
@@ -2056,15 +1912,6 @@ export interface Change {
   ResourceRecordSet: ResourceRecordSet | undefined;
 }
 
-export namespace Change {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Change): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The information for a change request.</p>
  */
@@ -2080,15 +1927,6 @@ export interface ChangeBatch {
    * <p>Information about the changes to make to the record sets.</p>
    */
   Changes: Change[] | undefined;
-}
-
-export namespace ChangeBatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeBatch): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2108,15 +1946,6 @@ export interface ChangeResourceRecordSetsRequest {
   ChangeBatch: ChangeBatch | undefined;
 }
 
-export namespace ChangeResourceRecordSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeResourceRecordSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type containing the response for the request.</p>
  */
@@ -2128,15 +1957,6 @@ export interface ChangeResourceRecordSetsResponse {
    * 			detailed information about the change.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
-}
-
-export namespace ChangeResourceRecordSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeResourceRecordSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2238,15 +2058,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export type TagResourceType = "healthcheck" | "hostedzone";
 
 /**
@@ -2287,28 +2098,10 @@ export interface ChangeTagsForResourceRequest {
   RemoveTagKeys?: string[];
 }
 
-export namespace ChangeTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Empty response for the request.</p>
  */
 export interface ChangeTagsForResourceResponse {}
-
-export namespace ChangeTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The limit on the number of requests per second was exceeded.</p>
@@ -2365,15 +2158,6 @@ export interface CreateCidrCollectionRequest {
   CallerReference: string | undefined;
 }
 
-export namespace CreateCidrCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCidrCollectionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex
  * 			type that
@@ -2404,15 +2188,6 @@ export interface CidrCollection {
   Version?: number;
 }
 
-export namespace CidrCollection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CidrCollection): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCidrCollectionResponse {
   /**
    * <p>A complex type that contains information about the CIDR collection.</p>
@@ -2423,15 +2198,6 @@ export interface CreateCidrCollectionResponse {
    * <p>A unique URL that represents the location for the CIDR collection.</p>
    */
   Location?: string;
-}
-
-export namespace CreateCidrCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCidrCollectionResponse): any => ({
-    ...obj,
-  });
 }
 
 export type InsufficientDataHealthStatus = "Healthy" | "LastKnownStatus" | "Unhealthy";
@@ -2870,15 +2636,6 @@ export interface HealthCheckConfig {
   RoutingControlArn?: string;
 }
 
-export namespace HealthCheckConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthCheckConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the health check request information.</p>
  */
@@ -2920,15 +2677,6 @@ export interface CreateHealthCheckRequest {
   HealthCheckConfig: HealthCheckConfig | undefined;
 }
 
-export namespace CreateHealthCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHealthCheckRequest): any => ({
-    ...obj,
-  });
-}
-
 export type ComparisonOperator =
   | "GreaterThanOrEqualToThreshold"
   | "GreaterThanThreshold"
@@ -2951,15 +2699,6 @@ export interface Dimension {
    * 			dimension.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Dimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Dimension): any => ({
-    ...obj,
-  });
 }
 
 export type Statistic = "Average" | "Maximum" | "Minimum" | "SampleCount" | "Sum";
@@ -3021,15 +2760,6 @@ export interface CloudWatchAlarmConfiguration {
   Dimensions?: Dimension[];
 }
 
-export namespace CloudWatchAlarmConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchAlarmConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If a health check or hosted zone was created by another service,
  * 				<code>LinkedService</code> is a complex type that describes the service that created
@@ -3050,15 +2780,6 @@ export interface LinkedService {
    * 			another service, you can't edit or delete it using Amazon Route 53. </p>
    */
   Description?: string;
-}
-
-export namespace LinkedService {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LinkedService): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3104,15 +2825,6 @@ export interface HealthCheck {
   CloudWatchAlarmConfiguration?: CloudWatchAlarmConfiguration;
 }
 
-export namespace HealthCheck {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthCheck): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type containing the response information for the new health check.</p>
  */
@@ -3126,15 +2838,6 @@ export interface CreateHealthCheckResponse {
    * <p>The unique URL representing the new health check.</p>
    */
   Location: string | undefined;
-}
-
-export namespace CreateHealthCheckResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHealthCheckResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3212,15 +2915,6 @@ export interface HostedZoneConfig {
   PrivateZone?: boolean;
 }
 
-export namespace HostedZoneConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedZoneConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about the request to create a public or
  * 			private hosted zone.</p>
@@ -3282,15 +2976,6 @@ export interface CreateHostedZoneRequest {
   DelegationSetId?: string;
 }
 
-export namespace CreateHostedZoneRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHostedZoneRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that lists the name servers in a delegation set, as well as the
  * 				<code>CallerReference</code> and the <code>ID</code> for the delegation set.</p>
@@ -3312,15 +2997,6 @@ export interface DelegationSet {
    * 			zone or for a reusable delegation set.</p>
    */
   NameServers: string[] | undefined;
-}
-
-export namespace DelegationSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegationSet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3368,15 +3044,6 @@ export interface HostedZone {
   LinkedService?: LinkedService;
 }
 
-export namespace HostedZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedZone): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type containing the response information for the hosted zone.</p>
  */
@@ -3407,15 +3074,6 @@ export interface CreateHostedZoneResponse {
    * <p>The unique URL representing the new hosted zone.</p>
    */
   Location: string | undefined;
-}
-
-export namespace CreateHostedZoneResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHostedZoneResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3620,15 +3278,6 @@ export interface CreateKeySigningKeyRequest {
   Status: string | undefined;
 }
 
-export namespace CreateKeySigningKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeySigningKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key-signing key (KSK) is a complex type that represents a public/private key pair.
  * 			The private key is used to generate a digital signature for the zone signing key (ZSK).
@@ -3803,15 +3452,6 @@ export interface KeySigningKey {
   LastModifiedDate?: Date;
 }
 
-export namespace KeySigningKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeySigningKey): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateKeySigningKeyResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
@@ -3828,15 +3468,6 @@ export interface CreateKeySigningKeyResponse {
    * <p>The unique URL representing the new key-signing key (KSK).</p>
    */
   Location: string | undefined;
-}
-
-export namespace CreateKeySigningKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeySigningKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3934,15 +3565,6 @@ export interface CreateQueryLoggingConfigRequest {
   CloudWatchLogsLogGroupArn: string | undefined;
 }
 
-export namespace CreateQueryLoggingConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQueryLoggingConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about a configuration for DNS query
  * 			logging.</p>
@@ -3965,15 +3587,6 @@ export interface QueryLoggingConfig {
   CloudWatchLogsLogGroupArn: string | undefined;
 }
 
-export namespace QueryLoggingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryLoggingConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateQueryLoggingConfigResponse {
   /**
    * <p>A complex type that contains the ID for a query logging configuration, the ID of the
@@ -3986,15 +3599,6 @@ export interface CreateQueryLoggingConfigResponse {
    * <p>The unique URL representing the new query logging configuration.</p>
    */
   Location: string | undefined;
-}
-
-export namespace CreateQueryLoggingConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateQueryLoggingConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4092,15 +3696,6 @@ export interface CreateReusableDelegationSetRequest {
   HostedZoneId?: string;
 }
 
-export namespace CreateReusableDelegationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReusableDelegationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateReusableDelegationSetResponse {
   /**
    * <p>A complex type that contains name server information.</p>
@@ -4111,15 +3706,6 @@ export interface CreateReusableDelegationSetResponse {
    * <p>The unique URL representing the new reusable delegation set.</p>
    */
   Location: string | undefined;
-}
-
-export namespace CreateReusableDelegationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReusableDelegationSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4201,15 +3787,6 @@ export interface CreateTrafficPolicyRequest {
   Comment?: string;
 }
 
-export namespace CreateTrafficPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrafficPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains settings for a traffic policy.</p>
  */
@@ -4250,15 +3827,6 @@ export interface TrafficPolicy {
   Comment?: string;
 }
 
-export namespace TrafficPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrafficPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the
  * 				<code>CreateTrafficPolicy</code> request.</p>
@@ -4273,15 +3841,6 @@ export interface CreateTrafficPolicyResponse {
    * <p>A unique URL that represents a new traffic policy.</p>
    */
   Location: string | undefined;
-}
-
-export namespace CreateTrafficPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrafficPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4385,15 +3944,6 @@ export interface CreateTrafficPolicyInstanceRequest {
   TrafficPolicyVersion: number | undefined;
 }
 
-export namespace CreateTrafficPolicyInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrafficPolicyInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains settings for the new traffic policy instance.</p>
  */
@@ -4472,15 +4022,6 @@ export interface TrafficPolicyInstance {
   TrafficPolicyType: RRType | string | undefined;
 }
 
-export namespace TrafficPolicyInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrafficPolicyInstance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the
  * 				<code>CreateTrafficPolicyInstance</code> request.</p>
@@ -4495,15 +4036,6 @@ export interface CreateTrafficPolicyInstanceResponse {
    * <p>A unique URL that represents a new traffic policy instance.</p>
    */
   Location: string | undefined;
-}
-
-export namespace CreateTrafficPolicyInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrafficPolicyInstanceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4593,15 +4125,6 @@ export interface CreateTrafficPolicyVersionRequest {
   Comment?: string;
 }
 
-export namespace CreateTrafficPolicyVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrafficPolicyVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the
  * 				<code>CreateTrafficPolicyVersion</code> request.</p>
@@ -4617,15 +4140,6 @@ export interface CreateTrafficPolicyVersionResponse {
    * <p>A unique URL that represents a new traffic policy version.</p>
    */
   Location: string | undefined;
-}
-
-export namespace CreateTrafficPolicyVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrafficPolicyVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4671,15 +4185,6 @@ export interface CreateVPCAssociationAuthorizationRequest {
   VPC: VPC | undefined;
 }
 
-export namespace CreateVPCAssociationAuthorizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVPCAssociationAuthorizationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information from a
  * 				<code>CreateVPCAssociationAuthorization</code> request.</p>
@@ -4694,15 +4199,6 @@ export interface CreateVPCAssociationAuthorizationResponse {
    * <p>The VPC that you authorized associating with a hosted zone.</p>
    */
   VPC: VPC | undefined;
-}
-
-export namespace CreateVPCAssociationAuthorizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVPCAssociationAuthorizationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4740,30 +4236,12 @@ export interface DeactivateKeySigningKeyRequest {
   Name: string | undefined;
 }
 
-export namespace DeactivateKeySigningKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivateKeySigningKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeactivateKeySigningKeyResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
-}
-
-export namespace DeactivateKeySigningKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivateKeySigningKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4834,25 +4312,7 @@ export interface DeleteCidrCollectionRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteCidrCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCidrCollectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCidrCollectionResponse {}
-
-export namespace DeleteCidrCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCidrCollectionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>This action deletes a health check.</p>
@@ -4864,28 +4324,10 @@ export interface DeleteHealthCheckRequest {
   HealthCheckId: string | undefined;
 }
 
-export namespace DeleteHealthCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHealthCheckRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element.</p>
  */
 export interface DeleteHealthCheckResponse {}
-
-export namespace DeleteHealthCheckResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHealthCheckResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * @deprecated
@@ -4918,15 +4360,6 @@ export interface DeleteHostedZoneRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteHostedZoneRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHostedZoneRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response to a <code>DeleteHostedZone</code>
  * 			request.</p>
@@ -4937,15 +4370,6 @@ export interface DeleteHostedZoneResponse {
    * 			delete a hosted zone.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
-}
-
-export namespace DeleteHostedZoneResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHostedZoneResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4979,30 +4403,12 @@ export interface DeleteKeySigningKeyRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteKeySigningKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKeySigningKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteKeySigningKeyResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
-}
-
-export namespace DeleteKeySigningKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKeySigningKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteQueryLoggingConfigRequest {
@@ -5012,25 +4418,7 @@ export interface DeleteQueryLoggingConfigRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteQueryLoggingConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQueryLoggingConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteQueryLoggingConfigResponse {}
-
-export namespace DeleteQueryLoggingConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQueryLoggingConfigResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>There is no DNS query logging configuration with the specified ID.</p>
@@ -5081,28 +4469,10 @@ export interface DeleteReusableDelegationSetRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteReusableDelegationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReusableDelegationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element.</p>
  */
 export interface DeleteReusableDelegationSetResponse {}
-
-export namespace DeleteReusableDelegationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReusableDelegationSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to delete a specified traffic policy version.</p>
@@ -5119,28 +4489,10 @@ export interface DeleteTrafficPolicyRequest {
   Version: number | undefined;
 }
 
-export namespace DeleteTrafficPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrafficPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element.</p>
  */
 export interface DeleteTrafficPolicyResponse {}
-
-export namespace DeleteTrafficPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrafficPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>One or more traffic policy instances were created by using the specified traffic
@@ -5177,28 +4529,10 @@ export interface DeleteTrafficPolicyInstanceRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteTrafficPolicyInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrafficPolicyInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An empty element.</p>
  */
 export interface DeleteTrafficPolicyInstanceResponse {}
-
-export namespace DeleteTrafficPolicyInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrafficPolicyInstanceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>No traffic policy instance exists with the specified ID.</p>
@@ -5237,28 +4571,10 @@ export interface DeleteVPCAssociationAuthorizationRequest {
   VPC: VPC | undefined;
 }
 
-export namespace DeleteVPCAssociationAuthorizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVPCAssociationAuthorizationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Empty response for the request.</p>
  */
 export interface DeleteVPCAssociationAuthorizationResponse {}
-
-export namespace DeleteVPCAssociationAuthorizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVPCAssociationAuthorizationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The VPC that you specified is not authorized to be associated with the hosted
@@ -5287,30 +4603,12 @@ export interface DisableHostedZoneDNSSECRequest {
   HostedZoneId: string | undefined;
 }
 
-export namespace DisableHostedZoneDNSSECRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableHostedZoneDNSSECRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableHostedZoneDNSSECResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
-}
-
-export namespace DisableHostedZoneDNSSECResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableHostedZoneDNSSECResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5355,15 +4653,6 @@ export interface DisassociateVPCFromHostedZoneRequest {
   Comment?: string;
 }
 
-export namespace DisassociateVPCFromHostedZoneRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateVPCFromHostedZoneRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the disassociate
  * 			request.</p>
@@ -5374,15 +4663,6 @@ export interface DisassociateVPCFromHostedZoneResponse {
    * 			zone.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
-}
-
-export namespace DisassociateVPCFromHostedZoneResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateVPCFromHostedZoneResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5432,30 +4712,12 @@ export interface EnableHostedZoneDNSSECRequest {
   HostedZoneId: string | undefined;
 }
 
-export namespace EnableHostedZoneDNSSECRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableHostedZoneDNSSECRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableHostedZoneDNSSECResponse {
   /**
    * <p>A complex type that describes change information about changes made to your hosted
    * 			zone.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
-}
-
-export namespace EnableHostedZoneDNSSECResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableHostedZoneDNSSECResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5538,15 +4800,6 @@ export interface GetAccountLimitRequest {
   Type: AccountLimitType | string | undefined;
 }
 
-export namespace GetAccountLimitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountLimitRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the requested limit. </p>
  */
@@ -5568,15 +4821,6 @@ export interface GetAccountLimitResponse {
   Count: number | undefined;
 }
 
-export namespace GetAccountLimitResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountLimitResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for a GetChange request.</p>
  */
@@ -5589,15 +4833,6 @@ export interface GetChangeRequest {
   Id: string | undefined;
 }
 
-export namespace GetChangeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChangeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the <code>ChangeInfo</code> element.</p>
  */
@@ -5606,15 +4841,6 @@ export interface GetChangeResponse {
    * <p>A complex type that contains information about the specified change batch.</p>
    */
   ChangeInfo: ChangeInfo | undefined;
-}
-
-export namespace GetChangeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChangeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5641,15 +4867,6 @@ export class NoSuchChange extends __BaseException {
  */
 export interface GetCheckerIpRangesRequest {}
 
-export namespace GetCheckerIpRangesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCheckerIpRangesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the <code>CheckerIpRanges</code> element.</p>
  */
@@ -5661,29 +4878,11 @@ export interface GetCheckerIpRangesResponse {
   CheckerIpRanges: string[] | undefined;
 }
 
-export namespace GetCheckerIpRangesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCheckerIpRangesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDNSSECRequest {
   /**
    * <p>A unique string used to identify a hosted zone.</p>
    */
   HostedZoneId: string | undefined;
-}
-
-export namespace GetDNSSECRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDNSSECRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5732,15 +4931,6 @@ export interface DNSSECStatus {
   StatusMessage?: string;
 }
 
-export namespace DNSSECStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DNSSECStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDNSSECResponse {
   /**
    * <p>A string repesenting the status of DNSSEC.</p>
@@ -5751,15 +4941,6 @@ export interface GetDNSSECResponse {
    * <p>The key-signing keys (KSKs) in your account.</p>
    */
   KeySigningKeys: KeySigningKey[] | undefined;
-}
-
-export namespace GetDNSSECResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDNSSECResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5819,15 +5000,6 @@ export interface GetGeoLocationRequest {
   SubdivisionCode?: string;
 }
 
-export namespace GetGeoLocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGeoLocationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the codes and full continent, country, and subdivision
  * 			names for the specified <code>geolocation</code> code.</p>
@@ -5869,15 +5041,6 @@ export interface GeoLocationDetails {
   SubdivisionName?: string;
 }
 
-export namespace GeoLocationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoLocationDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the specified geolocation
  * 			code.</p>
@@ -5888,15 +5051,6 @@ export interface GetGeoLocationResponse {
    * 			names for the specified geolocation code.</p>
    */
   GeoLocationDetails: GeoLocationDetails | undefined;
-}
-
-export namespace GetGeoLocationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGeoLocationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5932,15 +5086,6 @@ export interface GetHealthCheckRequest {
   HealthCheckId: string | undefined;
 }
 
-export namespace GetHealthCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHealthCheckRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response to a <code>GetHealthCheck</code>
  * 			request.</p>
@@ -5951,15 +5096,6 @@ export interface GetHealthCheckResponse {
    * 			with the current Amazon Web Services account.</p>
    */
   HealthCheck: HealthCheck | undefined;
-}
-
-export namespace GetHealthCheckResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHealthCheckResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5987,15 +5123,6 @@ export class IncompatibleVersion extends __BaseException {
  */
 export interface GetHealthCheckCountRequest {}
 
-export namespace GetHealthCheckCountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHealthCheckCountRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response to a <code>GetHealthCheckCount</code>
  * 			request.</p>
@@ -6005,15 +5132,6 @@ export interface GetHealthCheckCountResponse {
    * <p>The number of health checks associated with the current Amazon Web Services account.</p>
    */
   HealthCheckCount: number | undefined;
-}
-
-export namespace GetHealthCheckCountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHealthCheckCountResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6034,15 +5152,6 @@ export interface GetHealthCheckLastFailureReasonRequest {
   HealthCheckId: string | undefined;
 }
 
-export namespace GetHealthCheckLastFailureReasonRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHealthCheckLastFailureReasonRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the status that one Amazon Route 53 health checker
  * 			reports and the time of the health check.</p>
@@ -6060,15 +5169,6 @@ export interface StatusReport {
    * 			represents March 27, 2017 at 17:48:16.751 UTC.</p>
    */
   CheckedTime?: Date;
-}
-
-export namespace StatusReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatusReport): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6095,15 +5195,6 @@ export interface HealthCheckObservation {
   StatusReport?: StatusReport;
 }
 
-export namespace HealthCheckObservation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthCheckObservation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response to a
  * 				<code>GetHealthCheckLastFailureReason</code> request.</p>
@@ -6114,15 +5205,6 @@ export interface GetHealthCheckLastFailureReasonResponse {
    * 			health checker that is reporting a last failure reason. </p>
    */
   HealthCheckObservations: HealthCheckObservation[] | undefined;
-}
-
-export namespace GetHealthCheckLastFailureReasonResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHealthCheckLastFailureReasonResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6143,15 +5225,6 @@ export interface GetHealthCheckStatusRequest {
   HealthCheckId: string | undefined;
 }
 
-export namespace GetHealthCheckStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHealthCheckStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response to a <code>GetHealthCheck</code>
  * 			request.</p>
@@ -6165,15 +5238,6 @@ export interface GetHealthCheckStatusResponse {
   HealthCheckObservations: HealthCheckObservation[] | undefined;
 }
 
-export namespace GetHealthCheckStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHealthCheckStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to get information about a specified hosted zone. </p>
  */
@@ -6182,15 +5246,6 @@ export interface GetHostedZoneRequest {
    * <p>The ID of the hosted zone that you want to get information about.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetHostedZoneRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostedZoneRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6217,29 +5272,11 @@ export interface GetHostedZoneResponse {
   VPCs?: VPC[];
 }
 
-export namespace GetHostedZoneResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostedZoneResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to retrieve a count of all the hosted zones that are associated with the
  * 			current Amazon Web Services account.</p>
  */
 export interface GetHostedZoneCountRequest {}
-
-export namespace GetHostedZoneCountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostedZoneCountRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A complex type that contains the response to a <code>GetHostedZoneCount</code>
@@ -6251,15 +5288,6 @@ export interface GetHostedZoneCountResponse {
    * 			current Amazon Web Services account.</p>
    */
   HostedZoneCount: number | undefined;
-}
-
-export namespace GetHostedZoneCountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostedZoneCountResponse): any => ({
-    ...obj,
-  });
 }
 
 export type HostedZoneLimitType = "MAX_RRSETS_BY_ZONE" | "MAX_VPCS_ASSOCIATED_BY_ZONE";
@@ -6293,15 +5321,6 @@ export interface GetHostedZoneLimitRequest {
   HostedZoneId: string | undefined;
 }
 
-export namespace GetHostedZoneLimitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostedZoneLimitRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the type of limit that you specified in the request and
  * 			the current value for that limit.</p>
@@ -6331,15 +5350,6 @@ export interface HostedZoneLimit {
   Value: number | undefined;
 }
 
-export namespace HostedZoneLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedZoneLimit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the requested limit. </p>
  */
@@ -6359,15 +5369,6 @@ export interface GetHostedZoneLimitResponse {
    * 			number of records that you have created in the specified hosted zone.</p>
    */
   Count: number | undefined;
-}
-
-export namespace GetHostedZoneLimitResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostedZoneLimitResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6397,30 +5398,12 @@ export interface GetQueryLoggingConfigRequest {
   Id: string | undefined;
 }
 
-export namespace GetQueryLoggingConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryLoggingConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQueryLoggingConfigResponse {
   /**
    * <p>A complex type that contains information about the query logging configuration that
    * 			you specified in a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html">GetQueryLoggingConfig</a> request.</p>
    */
   QueryLoggingConfig: QueryLoggingConfig | undefined;
-}
-
-export namespace GetQueryLoggingConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryLoggingConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6434,15 +5417,6 @@ export interface GetReusableDelegationSetRequest {
   Id: string | undefined;
 }
 
-export namespace GetReusableDelegationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReusableDelegationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response to the <code>GetReusableDelegationSet</code>
  * 			request.</p>
@@ -6452,15 +5426,6 @@ export interface GetReusableDelegationSetResponse {
    * <p>A complex type that contains information about the reusable delegation set.</p>
    */
   DelegationSet: DelegationSet | undefined;
-}
-
-export namespace GetReusableDelegationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReusableDelegationSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export type ReusableDelegationSetLimitType = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET";
@@ -6482,15 +5447,6 @@ export interface GetReusableDelegationSetLimitRequest {
   DelegationSetId: string | undefined;
 }
 
-export namespace GetReusableDelegationSetLimitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReusableDelegationSetLimitRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the type of limit that you specified in the request and
  * 			the current value for that limit.</p>
@@ -6510,15 +5466,6 @@ export interface ReusableDelegationSetLimit {
   Value: number | undefined;
 }
 
-export namespace ReusableDelegationSetLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReusableDelegationSetLimit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the requested limit. </p>
  */
@@ -6534,15 +5481,6 @@ export interface GetReusableDelegationSetLimitResponse {
    * 			delegation set.</p>
    */
   Count: number | undefined;
-}
-
-export namespace GetReusableDelegationSetLimitResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReusableDelegationSetLimitResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6561,15 +5499,6 @@ export interface GetTrafficPolicyRequest {
   Version: number | undefined;
 }
 
-export namespace GetTrafficPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrafficPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
@@ -6580,15 +5509,6 @@ export interface GetTrafficPolicyResponse {
   TrafficPolicy: TrafficPolicy | undefined;
 }
 
-export namespace GetTrafficPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrafficPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Gets information about a specified traffic policy instance.</p>
  */
@@ -6597,15 +5517,6 @@ export interface GetTrafficPolicyInstanceRequest {
    * <p>The ID of the traffic policy instance that you want to get information about.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetTrafficPolicyInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrafficPolicyInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6619,29 +5530,11 @@ export interface GetTrafficPolicyInstanceResponse {
   TrafficPolicyInstance: TrafficPolicyInstance | undefined;
 }
 
-export namespace GetTrafficPolicyInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrafficPolicyInstanceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to get the number of traffic policy instances that are associated with the
  * 			current Amazon Web Services account.</p>
  */
 export interface GetTrafficPolicyInstanceCountRequest {}
-
-export namespace GetTrafficPolicyInstanceCountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrafficPolicyInstanceCountRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A complex type that contains information about the resource record sets that Amazon
@@ -6652,15 +5545,6 @@ export interface GetTrafficPolicyInstanceCountResponse {
    * <p>The number of traffic policy instances that are associated with the current Amazon Web Services account.</p>
    */
   TrafficPolicyInstanceCount: number | undefined;
-}
-
-export namespace GetTrafficPolicyInstanceCountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTrafficPolicyInstanceCountResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCidrBlocksRequest {
@@ -6686,15 +5570,6 @@ export interface ListCidrBlocksRequest {
   MaxResults?: number;
 }
 
-export namespace ListCidrBlocksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCidrBlocksRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that lists the CIDR blocks.</p>
  */
@@ -6710,15 +5585,6 @@ export interface CidrBlockSummary {
   LocationName?: string;
 }
 
-export namespace CidrBlockSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CidrBlockSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCidrBlocksResponse {
   /**
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
@@ -6731,15 +5597,6 @@ export interface ListCidrBlocksResponse {
    * <p>A complex type that contains information about the CIDR blocks.</p>
    */
   CidrBlocks?: CidrBlockSummary[];
-}
-
-export namespace ListCidrBlocksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCidrBlocksResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6777,15 +5634,6 @@ export interface ListCidrCollectionsRequest {
   MaxResults?: number;
 }
 
-export namespace ListCidrCollectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCidrCollectionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that is an entry in an <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CidrCollection.html">CidrCollection</a>
  * 			array.</p>
@@ -6815,15 +5663,6 @@ export interface CollectionSummary {
   Version?: number;
 }
 
-export namespace CollectionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CollectionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCidrCollectionsResponse {
   /**
    * <p>An opaque pagination token to indicate where the service is to begin enumerating
@@ -6836,15 +5675,6 @@ export interface ListCidrCollectionsResponse {
    * <p>A complex type with information about the CIDR collection.</p>
    */
   CidrCollections?: CollectionSummary[];
-}
-
-export namespace ListCidrCollectionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCidrCollectionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCidrLocationsRequest {
@@ -6866,15 +5696,6 @@ export interface ListCidrLocationsRequest {
   MaxResults?: number;
 }
 
-export namespace ListCidrLocationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCidrLocationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about the CIDR location.</p>
  */
@@ -6883,15 +5704,6 @@ export interface LocationSummary {
    * <p>A string that specifies a location name.</p>
    */
   LocationName?: string;
-}
-
-export namespace LocationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocationSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCidrLocationsResponse {
@@ -6906,15 +5718,6 @@ export interface ListCidrLocationsResponse {
    * <p>A complex type that contains information about the list of CIDR locations.</p>
    */
   CidrLocations?: LocationSummary[];
-}
-
-export namespace ListCidrLocationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCidrLocationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6962,15 +5765,6 @@ export interface ListGeoLocationsRequest {
    * 			<code>true</code>.</p>
    */
   MaxItems?: number;
-}
-
-export namespace ListGeoLocationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeoLocationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7024,15 +5818,6 @@ export interface ListGeoLocationsResponse {
   MaxItems: number | undefined;
 }
 
-export namespace ListGeoLocationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeoLocationsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to retrieve a list of the health checks that are associated with the current
  * 				Amazon Web Services account.</p>
@@ -7057,15 +5842,6 @@ export interface ListHealthChecksRequest {
    * 			only the first 100 health checks. </p>
    */
   MaxItems?: number;
-}
-
-export namespace ListHealthChecksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHealthChecksRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7109,15 +5885,6 @@ export interface ListHealthChecksResponse {
   MaxItems: number | undefined;
 }
 
-export namespace ListHealthChecksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHealthChecksResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to retrieve a list of the public and private hosted zones that are
  * 			associated with the current Amazon Web Services account.</p>
@@ -7150,15 +5917,6 @@ export interface ListHostedZonesRequest {
    * 			delegation set. </p>
    */
   DelegationSetId?: string;
-}
-
-export namespace ListHostedZonesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHostedZonesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListHostedZonesResponse {
@@ -7199,15 +5957,6 @@ export interface ListHostedZonesResponse {
   MaxItems: number | undefined;
 }
 
-export namespace ListHostedZonesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHostedZonesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Retrieves a list of the public and private hosted zones that are associated with the
  * 			current Amazon Web Services account in ASCII order by domain name. </p>
@@ -7245,15 +5994,6 @@ export interface ListHostedZonesByNameRequest {
    * 			zone in the next group of <code>maxitems</code> hosted zones. </p>
    */
   MaxItems?: number;
-}
-
-export namespace ListHostedZonesByNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHostedZonesByNameRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7313,15 +6053,6 @@ export interface ListHostedZonesByNameResponse {
   MaxItems: number | undefined;
 }
 
-export namespace ListHostedZonesByNameResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHostedZonesByNameResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The value that you specified to get the second or subsequent page of results is
  * 			invalid.</p>
@@ -7379,15 +6110,6 @@ export interface ListHostedZonesByVPCRequest {
   NextToken?: string;
 }
 
-export namespace ListHostedZonesByVPCRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHostedZonesByVPCRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that identifies a hosted zone that a specified Amazon VPC is associated
  * 			with and the owner of the hosted zone. If there is a value for
@@ -7412,15 +6134,6 @@ export interface HostedZoneOwner {
    * 			of <code>OwningService</code> is <code>efs.amazonaws.com</code>.</p>
    */
   OwningService?: string;
-}
-
-export namespace HostedZoneOwner {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedZoneOwner): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7450,15 +6163,6 @@ export interface HostedZoneSummary {
   Owner: HostedZoneOwner | undefined;
 }
 
-export namespace HostedZoneSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostedZoneSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHostedZonesByVPCResponse {
   /**
    * <p>A list that contains one <code>HostedZoneSummary</code> element for each hosted zone
@@ -7479,15 +6183,6 @@ export interface ListHostedZonesByVPCResponse {
    * 				<code>ListHostedZonesByVPC</code> request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListHostedZonesByVPCResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHostedZonesByVPCResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListQueryLoggingConfigsRequest {
@@ -7520,15 +6215,6 @@ export interface ListQueryLoggingConfigsRequest {
   MaxResults?: number;
 }
 
-export namespace ListQueryLoggingConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueryLoggingConfigsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQueryLoggingConfigsResponse {
   /**
    * <p>An array that contains one <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_QueryLoggingConfig.html">QueryLoggingConfig</a> element for each configuration for DNS query logging
@@ -7546,15 +6232,6 @@ export interface ListQueryLoggingConfigsResponse {
    * 				<code>NextToken</code> in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListQueryLoggingConfigsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueryLoggingConfigsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7648,15 +6325,6 @@ export interface ListResourceRecordSetsRequest {
   MaxItems?: number;
 }
 
-export namespace ListResourceRecordSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceRecordSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains list information for the resource record set.</p>
  */
@@ -7702,15 +6370,6 @@ export interface ListResourceRecordSetsResponse {
   MaxItems: number | undefined;
 }
 
-export namespace ListResourceRecordSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceRecordSetsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to get a list of the reusable delegation sets that are associated with the
  * 			current Amazon Web Services account.</p>
@@ -7734,15 +6393,6 @@ export interface ListReusableDelegationSetsRequest {
    * 			the first 100 reusable delegation sets.</p>
    */
   MaxItems?: number;
-}
-
-export namespace ListReusableDelegationSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReusableDelegationSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7784,15 +6434,6 @@ export interface ListReusableDelegationSetsResponse {
   MaxItems: number | undefined;
 }
 
-export namespace ListReusableDelegationSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListReusableDelegationSetsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type containing information about a request for a list of the tags that are
  * 			associated with an individual resource.</p>
@@ -7815,15 +6456,6 @@ export interface ListTagsForResourceRequest {
    * <p>The ID of the resource for which you want to retrieve tags.</p>
    */
   ResourceId: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7854,15 +6486,6 @@ export interface ResourceTagSet {
   Tags?: Tag[];
 }
 
-export namespace ResourceTagSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTagSet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about the health checks or hosted zones for
  * 			which you want to list tags.</p>
@@ -7873,15 +6496,6 @@ export interface ListTagsForResourceResponse {
    * 			resource.</p>
    */
   ResourceTagSet: ResourceTagSet | undefined;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7909,15 +6523,6 @@ export interface ListTagsForResourcesRequest {
   ResourceIds: string[] | undefined;
 }
 
-export namespace ListTagsForResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type containing tags for the specified resources.</p>
  */
@@ -7927,15 +6532,6 @@ export interface ListTagsForResourcesResponse {
    * 			resources.</p>
    */
   ResourceTagSets: ResourceTagSet[] | undefined;
-}
-
-export namespace ListTagsForResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7964,15 +6560,6 @@ export interface ListTrafficPoliciesRequest {
    * 			policy that Route 53 will return if you submit another request.</p>
    */
   MaxItems?: number;
-}
-
-export namespace ListTrafficPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrafficPoliciesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8007,15 +6594,6 @@ export interface TrafficPolicySummary {
   TrafficPolicyCount: number | undefined;
 }
 
-export namespace TrafficPolicySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrafficPolicySummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
@@ -8047,15 +6625,6 @@ export interface ListTrafficPoliciesResponse {
    * 				<code>ListTrafficPolicies</code> request that produced the current response.</p>
    */
   MaxItems: number | undefined;
-}
-
-export namespace ListTrafficPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrafficPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8114,15 +6683,6 @@ export interface ListTrafficPolicyInstancesRequest {
   MaxItems?: number;
 }
 
-export namespace ListTrafficPolicyInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
@@ -8174,15 +6734,6 @@ export interface ListTrafficPolicyInstancesResponse {
   MaxItems: number | undefined;
 }
 
-export namespace ListTrafficPolicyInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request for the traffic policy instances that you created in a specified hosted
  * 			zone.</p>
@@ -8231,15 +6782,6 @@ export interface ListTrafficPolicyInstancesByHostedZoneRequest {
   MaxItems?: number;
 }
 
-export namespace ListTrafficPolicyInstancesByHostedZoneRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesByHostedZoneRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
@@ -8281,15 +6823,6 @@ export interface ListTrafficPolicyInstancesByHostedZoneResponse {
    * 			current response.</p>
    */
   MaxItems: number | undefined;
-}
-
-export namespace ListTrafficPolicyInstancesByHostedZoneResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesByHostedZoneResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8364,15 +6897,6 @@ export interface ListTrafficPolicyInstancesByPolicyRequest {
   MaxItems?: number;
 }
 
-export namespace ListTrafficPolicyInstancesByPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesByPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
@@ -8423,15 +6947,6 @@ export interface ListTrafficPolicyInstancesByPolicyResponse {
   MaxItems: number | undefined;
 }
 
-export namespace ListTrafficPolicyInstancesByPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrafficPolicyInstancesByPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the information about the request to list your traffic
  * 			policies.</p>
@@ -8464,15 +6979,6 @@ export interface ListTrafficPolicyVersionsRequest {
    * 			Route 53 will return if you submit another request.</p>
    */
   MaxItems?: number;
-}
-
-export namespace ListTrafficPolicyVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrafficPolicyVersionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8512,15 +7018,6 @@ export interface ListTrafficPolicyVersionsResponse {
   MaxItems: number | undefined;
 }
 
-export namespace ListTrafficPolicyVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTrafficPolicyVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about that can be associated with your hosted
  * 			zone.</p>
@@ -8551,15 +7048,6 @@ export interface ListVPCAssociationAuthorizationsRequest {
   MaxResults?: number;
 }
 
-export namespace ListVPCAssociationAuthorizationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVPCAssociationAuthorizationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the request.</p>
  */
@@ -8583,15 +7071,6 @@ export interface ListVPCAssociationAuthorizationsResponse {
    * 			zone.</p>
    */
   VPCs: VPC[] | undefined;
-}
-
-export namespace ListVPCAssociationAuthorizationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVPCAssociationAuthorizationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8657,15 +7136,6 @@ export interface TestDNSAnswerRequest {
   EDNS0ClientSubnetMask?: string;
 }
 
-export namespace TestDNSAnswerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestDNSAnswerRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response to a <code>TestDNSAnswer</code> request.
  * 		</p>
@@ -8705,15 +7175,6 @@ export interface TestDNSAnswerResponse {
    * 				<code>UDP</code> or <code>TCP</code>. </p>
    */
   Protocol: string | undefined;
-}
-
-export namespace TestDNSAnswerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestDNSAnswerResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9116,15 +7577,6 @@ export interface UpdateHealthCheckRequest {
   ResetElements?: (ResettableElementName | string)[];
 }
 
-export namespace UpdateHealthCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHealthCheckRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response to the <code>UpdateHealthCheck</code>
  * 			request.</p>
@@ -9135,15 +7587,6 @@ export interface UpdateHealthCheckResponse {
    * 			request.</p>
    */
   HealthCheck: HealthCheck | undefined;
-}
-
-export namespace UpdateHealthCheckResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHealthCheckResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9163,15 +7606,6 @@ export interface UpdateHostedZoneCommentRequest {
   Comment?: string;
 }
 
-export namespace UpdateHostedZoneCommentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHostedZoneCommentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response to the <code>UpdateHostedZoneComment</code>
  * 			request.</p>
@@ -9182,15 +7616,6 @@ export interface UpdateHostedZoneCommentResponse {
    * 			request.</p>
    */
   HostedZone: HostedZone | undefined;
-}
-
-export namespace UpdateHostedZoneCommentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHostedZoneCommentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9216,15 +7641,6 @@ export interface UpdateTrafficPolicyCommentRequest {
   Comment: string | undefined;
 }
 
-export namespace UpdateTrafficPolicyCommentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrafficPolicyCommentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains the response information for the traffic policy.</p>
  */
@@ -9233,15 +7649,6 @@ export interface UpdateTrafficPolicyCommentResponse {
    * <p>A complex type that contains settings for the specified traffic policy.</p>
    */
   TrafficPolicy: TrafficPolicy | undefined;
-}
-
-export namespace UpdateTrafficPolicyCommentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrafficPolicyCommentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9295,15 +7702,6 @@ export interface UpdateTrafficPolicyInstanceRequest {
   TrafficPolicyVersion: number | undefined;
 }
 
-export namespace UpdateTrafficPolicyInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrafficPolicyInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains information about the resource record sets that Amazon
  * 			Route 53 created based on a specified traffic policy.</p>
@@ -9315,11 +7713,1301 @@ export interface UpdateTrafficPolicyInstanceResponse {
   TrafficPolicyInstance: TrafficPolicyInstance | undefined;
 }
 
-export namespace UpdateTrafficPolicyInstanceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrafficPolicyInstanceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountLimitFilterSensitiveLog = (obj: AccountLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateKeySigningKeyRequestFilterSensitiveLog = (obj: ActivateKeySigningKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeInfoFilterSensitiveLog = (obj: ChangeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateKeySigningKeyResponseFilterSensitiveLog = (obj: ActivateKeySigningKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmIdentifierFilterSensitiveLog = (obj: AlarmIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AliasTargetFilterSensitiveLog = (obj: AliasTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VPCFilterSensitiveLog = (obj: VPC): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateVPCWithHostedZoneRequestFilterSensitiveLog = (obj: AssociateVPCWithHostedZoneRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateVPCWithHostedZoneResponseFilterSensitiveLog = (obj: AssociateVPCWithHostedZoneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CidrCollectionChangeFilterSensitiveLog = (obj: CidrCollectionChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeCidrCollectionRequestFilterSensitiveLog = (obj: ChangeCidrCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeCidrCollectionResponseFilterSensitiveLog = (obj: ChangeCidrCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CidrRoutingConfigFilterSensitiveLog = (obj: CidrRoutingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeoLocationFilterSensitiveLog = (obj: GeoLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceRecordFilterSensitiveLog = (obj: ResourceRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceRecordSetFilterSensitiveLog = (obj: ResourceRecordSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeFilterSensitiveLog = (obj: Change): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeBatchFilterSensitiveLog = (obj: ChangeBatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeResourceRecordSetsRequestFilterSensitiveLog = (obj: ChangeResourceRecordSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeResourceRecordSetsResponseFilterSensitiveLog = (obj: ChangeResourceRecordSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeTagsForResourceRequestFilterSensitiveLog = (obj: ChangeTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeTagsForResourceResponseFilterSensitiveLog = (obj: ChangeTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCidrCollectionRequestFilterSensitiveLog = (obj: CreateCidrCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CidrCollectionFilterSensitiveLog = (obj: CidrCollection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCidrCollectionResponseFilterSensitiveLog = (obj: CreateCidrCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HealthCheckConfigFilterSensitiveLog = (obj: HealthCheckConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHealthCheckRequestFilterSensitiveLog = (obj: CreateHealthCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionFilterSensitiveLog = (obj: Dimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchAlarmConfigurationFilterSensitiveLog = (obj: CloudWatchAlarmConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LinkedServiceFilterSensitiveLog = (obj: LinkedService): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HealthCheckFilterSensitiveLog = (obj: HealthCheck): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHealthCheckResponseFilterSensitiveLog = (obj: CreateHealthCheckResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostedZoneConfigFilterSensitiveLog = (obj: HostedZoneConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHostedZoneRequestFilterSensitiveLog = (obj: CreateHostedZoneRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DelegationSetFilterSensitiveLog = (obj: DelegationSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostedZoneFilterSensitiveLog = (obj: HostedZone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHostedZoneResponseFilterSensitiveLog = (obj: CreateHostedZoneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeySigningKeyRequestFilterSensitiveLog = (obj: CreateKeySigningKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeySigningKeyFilterSensitiveLog = (obj: KeySigningKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeySigningKeyResponseFilterSensitiveLog = (obj: CreateKeySigningKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQueryLoggingConfigRequestFilterSensitiveLog = (obj: CreateQueryLoggingConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryLoggingConfigFilterSensitiveLog = (obj: QueryLoggingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateQueryLoggingConfigResponseFilterSensitiveLog = (obj: CreateQueryLoggingConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReusableDelegationSetRequestFilterSensitiveLog = (obj: CreateReusableDelegationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReusableDelegationSetResponseFilterSensitiveLog = (
+  obj: CreateReusableDelegationSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrafficPolicyRequestFilterSensitiveLog = (obj: CreateTrafficPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrafficPolicyFilterSensitiveLog = (obj: TrafficPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrafficPolicyResponseFilterSensitiveLog = (obj: CreateTrafficPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrafficPolicyInstanceRequestFilterSensitiveLog = (obj: CreateTrafficPolicyInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrafficPolicyInstanceFilterSensitiveLog = (obj: TrafficPolicyInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrafficPolicyInstanceResponseFilterSensitiveLog = (
+  obj: CreateTrafficPolicyInstanceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrafficPolicyVersionRequestFilterSensitiveLog = (obj: CreateTrafficPolicyVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrafficPolicyVersionResponseFilterSensitiveLog = (obj: CreateTrafficPolicyVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVPCAssociationAuthorizationRequestFilterSensitiveLog = (
+  obj: CreateVPCAssociationAuthorizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVPCAssociationAuthorizationResponseFilterSensitiveLog = (
+  obj: CreateVPCAssociationAuthorizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivateKeySigningKeyRequestFilterSensitiveLog = (obj: DeactivateKeySigningKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivateKeySigningKeyResponseFilterSensitiveLog = (obj: DeactivateKeySigningKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCidrCollectionRequestFilterSensitiveLog = (obj: DeleteCidrCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCidrCollectionResponseFilterSensitiveLog = (obj: DeleteCidrCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHealthCheckRequestFilterSensitiveLog = (obj: DeleteHealthCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHealthCheckResponseFilterSensitiveLog = (obj: DeleteHealthCheckResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHostedZoneRequestFilterSensitiveLog = (obj: DeleteHostedZoneRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHostedZoneResponseFilterSensitiveLog = (obj: DeleteHostedZoneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeySigningKeyRequestFilterSensitiveLog = (obj: DeleteKeySigningKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeySigningKeyResponseFilterSensitiveLog = (obj: DeleteKeySigningKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQueryLoggingConfigRequestFilterSensitiveLog = (obj: DeleteQueryLoggingConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQueryLoggingConfigResponseFilterSensitiveLog = (obj: DeleteQueryLoggingConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReusableDelegationSetRequestFilterSensitiveLog = (obj: DeleteReusableDelegationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReusableDelegationSetResponseFilterSensitiveLog = (
+  obj: DeleteReusableDelegationSetResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrafficPolicyRequestFilterSensitiveLog = (obj: DeleteTrafficPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrafficPolicyResponseFilterSensitiveLog = (obj: DeleteTrafficPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrafficPolicyInstanceRequestFilterSensitiveLog = (obj: DeleteTrafficPolicyInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrafficPolicyInstanceResponseFilterSensitiveLog = (
+  obj: DeleteTrafficPolicyInstanceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVPCAssociationAuthorizationRequestFilterSensitiveLog = (
+  obj: DeleteVPCAssociationAuthorizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVPCAssociationAuthorizationResponseFilterSensitiveLog = (
+  obj: DeleteVPCAssociationAuthorizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableHostedZoneDNSSECRequestFilterSensitiveLog = (obj: DisableHostedZoneDNSSECRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableHostedZoneDNSSECResponseFilterSensitiveLog = (obj: DisableHostedZoneDNSSECResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateVPCFromHostedZoneRequestFilterSensitiveLog = (
+  obj: DisassociateVPCFromHostedZoneRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateVPCFromHostedZoneResponseFilterSensitiveLog = (
+  obj: DisassociateVPCFromHostedZoneResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableHostedZoneDNSSECRequestFilterSensitiveLog = (obj: EnableHostedZoneDNSSECRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableHostedZoneDNSSECResponseFilterSensitiveLog = (obj: EnableHostedZoneDNSSECResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountLimitRequestFilterSensitiveLog = (obj: GetAccountLimitRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountLimitResponseFilterSensitiveLog = (obj: GetAccountLimitResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChangeRequestFilterSensitiveLog = (obj: GetChangeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChangeResponseFilterSensitiveLog = (obj: GetChangeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCheckerIpRangesRequestFilterSensitiveLog = (obj: GetCheckerIpRangesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCheckerIpRangesResponseFilterSensitiveLog = (obj: GetCheckerIpRangesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDNSSECRequestFilterSensitiveLog = (obj: GetDNSSECRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DNSSECStatusFilterSensitiveLog = (obj: DNSSECStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDNSSECResponseFilterSensitiveLog = (obj: GetDNSSECResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGeoLocationRequestFilterSensitiveLog = (obj: GetGeoLocationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeoLocationDetailsFilterSensitiveLog = (obj: GeoLocationDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGeoLocationResponseFilterSensitiveLog = (obj: GetGeoLocationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHealthCheckRequestFilterSensitiveLog = (obj: GetHealthCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHealthCheckResponseFilterSensitiveLog = (obj: GetHealthCheckResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHealthCheckCountRequestFilterSensitiveLog = (obj: GetHealthCheckCountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHealthCheckCountResponseFilterSensitiveLog = (obj: GetHealthCheckCountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHealthCheckLastFailureReasonRequestFilterSensitiveLog = (
+  obj: GetHealthCheckLastFailureReasonRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatusReportFilterSensitiveLog = (obj: StatusReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HealthCheckObservationFilterSensitiveLog = (obj: HealthCheckObservation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHealthCheckLastFailureReasonResponseFilterSensitiveLog = (
+  obj: GetHealthCheckLastFailureReasonResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHealthCheckStatusRequestFilterSensitiveLog = (obj: GetHealthCheckStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHealthCheckStatusResponseFilterSensitiveLog = (obj: GetHealthCheckStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHostedZoneRequestFilterSensitiveLog = (obj: GetHostedZoneRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHostedZoneResponseFilterSensitiveLog = (obj: GetHostedZoneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHostedZoneCountRequestFilterSensitiveLog = (obj: GetHostedZoneCountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHostedZoneCountResponseFilterSensitiveLog = (obj: GetHostedZoneCountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHostedZoneLimitRequestFilterSensitiveLog = (obj: GetHostedZoneLimitRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostedZoneLimitFilterSensitiveLog = (obj: HostedZoneLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHostedZoneLimitResponseFilterSensitiveLog = (obj: GetHostedZoneLimitResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryLoggingConfigRequestFilterSensitiveLog = (obj: GetQueryLoggingConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryLoggingConfigResponseFilterSensitiveLog = (obj: GetQueryLoggingConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReusableDelegationSetRequestFilterSensitiveLog = (obj: GetReusableDelegationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReusableDelegationSetResponseFilterSensitiveLog = (obj: GetReusableDelegationSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReusableDelegationSetLimitRequestFilterSensitiveLog = (
+  obj: GetReusableDelegationSetLimitRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReusableDelegationSetLimitFilterSensitiveLog = (obj: ReusableDelegationSetLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReusableDelegationSetLimitResponseFilterSensitiveLog = (
+  obj: GetReusableDelegationSetLimitResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrafficPolicyRequestFilterSensitiveLog = (obj: GetTrafficPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrafficPolicyResponseFilterSensitiveLog = (obj: GetTrafficPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrafficPolicyInstanceRequestFilterSensitiveLog = (obj: GetTrafficPolicyInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrafficPolicyInstanceResponseFilterSensitiveLog = (obj: GetTrafficPolicyInstanceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrafficPolicyInstanceCountRequestFilterSensitiveLog = (
+  obj: GetTrafficPolicyInstanceCountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTrafficPolicyInstanceCountResponseFilterSensitiveLog = (
+  obj: GetTrafficPolicyInstanceCountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCidrBlocksRequestFilterSensitiveLog = (obj: ListCidrBlocksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CidrBlockSummaryFilterSensitiveLog = (obj: CidrBlockSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCidrBlocksResponseFilterSensitiveLog = (obj: ListCidrBlocksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCidrCollectionsRequestFilterSensitiveLog = (obj: ListCidrCollectionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CollectionSummaryFilterSensitiveLog = (obj: CollectionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCidrCollectionsResponseFilterSensitiveLog = (obj: ListCidrCollectionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCidrLocationsRequestFilterSensitiveLog = (obj: ListCidrLocationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocationSummaryFilterSensitiveLog = (obj: LocationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCidrLocationsResponseFilterSensitiveLog = (obj: ListCidrLocationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGeoLocationsRequestFilterSensitiveLog = (obj: ListGeoLocationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGeoLocationsResponseFilterSensitiveLog = (obj: ListGeoLocationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHealthChecksRequestFilterSensitiveLog = (obj: ListHealthChecksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHealthChecksResponseFilterSensitiveLog = (obj: ListHealthChecksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostedZonesRequestFilterSensitiveLog = (obj: ListHostedZonesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostedZonesResponseFilterSensitiveLog = (obj: ListHostedZonesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostedZonesByNameRequestFilterSensitiveLog = (obj: ListHostedZonesByNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostedZonesByNameResponseFilterSensitiveLog = (obj: ListHostedZonesByNameResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostedZonesByVPCRequestFilterSensitiveLog = (obj: ListHostedZonesByVPCRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostedZoneOwnerFilterSensitiveLog = (obj: HostedZoneOwner): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostedZoneSummaryFilterSensitiveLog = (obj: HostedZoneSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostedZonesByVPCResponseFilterSensitiveLog = (obj: ListHostedZonesByVPCResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueryLoggingConfigsRequestFilterSensitiveLog = (obj: ListQueryLoggingConfigsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueryLoggingConfigsResponseFilterSensitiveLog = (obj: ListQueryLoggingConfigsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceRecordSetsRequestFilterSensitiveLog = (obj: ListResourceRecordSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceRecordSetsResponseFilterSensitiveLog = (obj: ListResourceRecordSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReusableDelegationSetsRequestFilterSensitiveLog = (obj: ListReusableDelegationSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListReusableDelegationSetsResponseFilterSensitiveLog = (obj: ListReusableDelegationSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTagSetFilterSensitiveLog = (obj: ResourceTagSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourcesRequestFilterSensitiveLog = (obj: ListTagsForResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourcesResponseFilterSensitiveLog = (obj: ListTagsForResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrafficPoliciesRequestFilterSensitiveLog = (obj: ListTrafficPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrafficPolicySummaryFilterSensitiveLog = (obj: TrafficPolicySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrafficPoliciesResponseFilterSensitiveLog = (obj: ListTrafficPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrafficPolicyInstancesRequestFilterSensitiveLog = (obj: ListTrafficPolicyInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrafficPolicyInstancesResponseFilterSensitiveLog = (obj: ListTrafficPolicyInstancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrafficPolicyInstancesByHostedZoneRequestFilterSensitiveLog = (
+  obj: ListTrafficPolicyInstancesByHostedZoneRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrafficPolicyInstancesByHostedZoneResponseFilterSensitiveLog = (
+  obj: ListTrafficPolicyInstancesByHostedZoneResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrafficPolicyInstancesByPolicyRequestFilterSensitiveLog = (
+  obj: ListTrafficPolicyInstancesByPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrafficPolicyInstancesByPolicyResponseFilterSensitiveLog = (
+  obj: ListTrafficPolicyInstancesByPolicyResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrafficPolicyVersionsRequestFilterSensitiveLog = (obj: ListTrafficPolicyVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTrafficPolicyVersionsResponseFilterSensitiveLog = (obj: ListTrafficPolicyVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVPCAssociationAuthorizationsRequestFilterSensitiveLog = (
+  obj: ListVPCAssociationAuthorizationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVPCAssociationAuthorizationsResponseFilterSensitiveLog = (
+  obj: ListVPCAssociationAuthorizationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestDNSAnswerRequestFilterSensitiveLog = (obj: TestDNSAnswerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestDNSAnswerResponseFilterSensitiveLog = (obj: TestDNSAnswerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHealthCheckRequestFilterSensitiveLog = (obj: UpdateHealthCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHealthCheckResponseFilterSensitiveLog = (obj: UpdateHealthCheckResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHostedZoneCommentRequestFilterSensitiveLog = (obj: UpdateHostedZoneCommentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHostedZoneCommentResponseFilterSensitiveLog = (obj: UpdateHostedZoneCommentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrafficPolicyCommentRequestFilterSensitiveLog = (obj: UpdateTrafficPolicyCommentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrafficPolicyCommentResponseFilterSensitiveLog = (obj: UpdateTrafficPolicyCommentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrafficPolicyInstanceRequestFilterSensitiveLog = (obj: UpdateTrafficPolicyInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrafficPolicyInstanceResponseFilterSensitiveLog = (
+  obj: UpdateTrafficPolicyInstanceResponse
+): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { EnableAddOnRequest, EnableAddOnResult } from "../models/models_0";
+import {
+  EnableAddOnRequest,
+  EnableAddOnRequestFilterSensitiveLog,
+  EnableAddOnResult,
+  EnableAddOnResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1EnableAddOnCommand,
   serializeAws_json1_1EnableAddOnCommand,
@@ -73,8 +78,8 @@ export class EnableAddOnCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableAddOnRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableAddOnResult.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableAddOnRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableAddOnResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import { CreateWorkspaceApiKeyRequest, CreateWorkspaceApiKeyResponse } from "../models/models_0";
+import {
+  CreateWorkspaceApiKeyRequest,
+  CreateWorkspaceApiKeyRequestFilterSensitiveLog,
+  CreateWorkspaceApiKeyResponse,
+  CreateWorkspaceApiKeyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateWorkspaceApiKeyCommand,
   serializeAws_restJson1CreateWorkspaceApiKeyCommand,
@@ -75,8 +80,8 @@ export class CreateWorkspaceApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkspaceApiKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkspaceApiKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateWorkspaceApiKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateWorkspaceApiKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

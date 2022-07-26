@@ -21,15 +21,6 @@ export interface CloudWatchLoggingOption {
   RoleARN: string | undefined;
 }
 
-export namespace CloudWatchLoggingOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLoggingOption): any => ({
-    ...obj,
-  });
-}
-
 export interface AddApplicationCloudWatchLoggingOptionRequest {
   /**
    * <p>The Kinesis Analytics application name.</p>
@@ -49,25 +40,7 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
   CloudWatchLoggingOption: CloudWatchLoggingOption | undefined;
 }
 
-export namespace AddApplicationCloudWatchLoggingOptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddApplicationCloudWatchLoggingOptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddApplicationCloudWatchLoggingOptionResponse {}
-
-export namespace AddApplicationCloudWatchLoggingOptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddApplicationCloudWatchLoggingOptionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>
@@ -179,15 +152,6 @@ export interface InputParallelism {
   Count?: number;
 }
 
-export namespace InputParallelism {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputParallelism): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains the Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that
  *             is used to preprocess records in the stream, and the ARN of the IAM role that is used to
@@ -210,15 +174,6 @@ export interface InputLambdaProcessor {
   RoleARN: string | undefined;
 }
 
-export namespace InputLambdaProcessor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputLambdaProcessor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides a description of a processor that is used to preprocess the records in the
  *             stream before being processed by your application code. Currently, the only input
@@ -231,15 +186,6 @@ export interface InputProcessingConfiguration {
    *             in the stream before being processed by your application code.</p>
    */
   InputLambdaProcessor: InputLambdaProcessor | undefined;
-}
-
-export namespace InputProcessingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputProcessingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -263,15 +209,6 @@ export interface RecordColumn {
    * <p>Type of column created in the in-application input stream or reference table.</p>
    */
   SqlType: string | undefined;
-}
-
-export namespace RecordColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordColumn): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -299,15 +236,6 @@ export interface CSVMappingParameters {
   RecordColumnDelimiter: string | undefined;
 }
 
-export namespace CSVMappingParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CSVMappingParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides additional mapping information when JSON is the record format on the streaming source.</p>
  */
@@ -316,15 +244,6 @@ export interface JSONMappingParameters {
    * <p>Path to the top-level parent that contains the records.</p>
    */
   RecordRowPath: string | undefined;
-}
-
-export namespace JSONMappingParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JSONMappingParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -345,15 +264,6 @@ export interface MappingParameters {
    *             (for example, CSV).</p>
    */
   CSVMappingParameters?: CSVMappingParameters;
-}
-
-export namespace MappingParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MappingParameters): any => ({
-    ...obj,
-  });
 }
 
 export enum RecordFormatType {
@@ -379,15 +289,6 @@ export interface RecordFormat {
   MappingParameters?: MappingParameters;
 }
 
-export namespace RecordFormat {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordFormat): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
  */
@@ -406,15 +307,6 @@ export interface SourceSchema {
    * <p>A list of <code>RecordColumn</code> objects.</p>
    */
   RecordColumns: RecordColumn[] | undefined;
-}
-
-export namespace SourceSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceSchema): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -436,15 +328,6 @@ export interface KinesisFirehoseInput {
   RoleARN: string | undefined;
 }
 
-export namespace KinesisFirehoseInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Identifies an Amazon Kinesis stream as the streaming source. You provide the
  *             stream's Amazon Resource Name (ARN) and an IAM role ARN that enables Amazon Kinesis
@@ -460,15 +343,6 @@ export interface KinesisStreamsInput {
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARN: string | undefined;
-}
-
-export namespace KinesisStreamsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -524,15 +398,6 @@ export interface Input {
   InputSchema: SourceSchema | undefined;
 }
 
-export namespace Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Input): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -554,28 +419,10 @@ export interface AddApplicationInputRequest {
   Input: Input | undefined;
 }
 
-export namespace AddApplicationInputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddApplicationInputRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
 export interface AddApplicationInputResponse {}
-
-export namespace AddApplicationInputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddApplicationInputResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>User-provided application code (query) is invalid. This can be a simple syntax error.</p>
@@ -621,25 +468,7 @@ export interface AddApplicationInputProcessingConfigurationRequest {
   InputProcessingConfiguration: InputProcessingConfiguration | undefined;
 }
 
-export namespace AddApplicationInputProcessingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddApplicationInputProcessingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddApplicationInputProcessingConfigurationResponse {}
-
-export namespace AddApplicationInputProcessingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddApplicationInputProcessingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Describes the data format when records are written to the destination.
@@ -654,15 +483,6 @@ export interface DestinationSchema {
    * <p>Specifies the format of the records on the output stream.</p>
    */
   RecordFormatType: RecordFormatType | string | undefined;
-}
-
-export namespace DestinationSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationSchema): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -683,15 +503,6 @@ export interface KinesisFirehoseOutput {
   RoleARN: string | undefined;
 }
 
-export namespace KinesisFirehoseOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>When configuring application output, identifies an Amazon Kinesis stream as the
  *             destination. You provide the stream Amazon Resource Name (ARN) and also an IAM role ARN
@@ -707,15 +518,6 @@ export interface KinesisStreamsOutput {
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination stream on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARN: string | undefined;
-}
-
-export namespace KinesisStreamsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -738,15 +540,6 @@ export interface LambdaOutput {
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>
    */
   RoleARN: string | undefined;
-}
-
-export namespace LambdaOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -791,15 +584,6 @@ export interface Output {
   DestinationSchema: DestinationSchema | undefined;
 }
 
-export namespace Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Output): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -826,28 +610,10 @@ export interface AddApplicationOutputRequest {
   Output: Output | undefined;
 }
 
-export namespace AddApplicationOutputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddApplicationOutputRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
 export interface AddApplicationOutputResponse {}
-
-export namespace AddApplicationOutputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddApplicationOutputResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Identifies the S3 bucket and object that contains the reference data. Also identifies the IAM role Amazon Kinesis Analytics can assume to read this object on your behalf.</p>
@@ -872,15 +638,6 @@ export interface S3ReferenceDataSource {
   ReferenceRoleARN: string | undefined;
 }
 
-export namespace S3ReferenceDataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ReferenceDataSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the reference data source by providing the source information (S3 bucket name and object key name), the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.</p>
  */
@@ -901,15 +658,6 @@ export interface ReferenceDataSource {
    * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
    */
   ReferenceSchema: SourceSchema | undefined;
-}
-
-export namespace ReferenceDataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferenceDataSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -935,28 +683,10 @@ export interface AddApplicationReferenceDataSourceRequest {
   ReferenceDataSource: ReferenceDataSource | undefined;
 }
 
-export namespace AddApplicationReferenceDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddApplicationReferenceDataSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
 export interface AddApplicationReferenceDataSourceResponse {}
-
-export namespace AddApplicationReferenceDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddApplicationReferenceDataSourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum ApplicationStatus {
   DELETING = "DELETING",
@@ -987,15 +717,6 @@ export interface CloudWatchLoggingOptionDescription {
   RoleARN: string | undefined;
 }
 
-export namespace CloudWatchLoggingOptionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLoggingOptionDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains the Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a> function that
  *             is used to preprocess records in the stream, and the ARN of the IAM role that is  used
@@ -1013,15 +734,6 @@ export interface InputLambdaProcessorDescription {
   RoleARN?: string;
 }
 
-export namespace InputLambdaProcessorDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputLambdaProcessorDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides configuration information about an input processor. Currently, the only input processor available is
  *             <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.</p>
@@ -1031,15 +743,6 @@ export interface InputProcessingConfigurationDescription {
    * <p>Provides configuration information about the associated <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessorDescription.html">InputLambdaProcessorDescription</a>.</p>
    */
   InputLambdaProcessorDescription?: InputLambdaProcessorDescription;
-}
-
-export namespace InputProcessingConfigurationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputProcessingConfigurationDescription): any => ({
-    ...obj,
-  });
 }
 
 export enum InputStartingPosition {
@@ -1078,15 +781,6 @@ export interface InputStartingPositionConfiguration {
   InputStartingPosition?: InputStartingPosition | string;
 }
 
-export namespace InputStartingPositionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputStartingPositionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Describes the Amazon Kinesis Firehose delivery stream that is configured as the streaming source
@@ -1105,15 +799,6 @@ export interface KinesisFirehoseInputDescription {
   RoleARN?: string;
 }
 
-export namespace KinesisFirehoseInputDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseInputDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Describes the Amazon Kinesis stream that is configured as the streaming source
@@ -1130,15 +815,6 @@ export interface KinesisStreamsInputDescription {
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>
    */
   RoleARN?: string;
-}
-
-export namespace KinesisStreamsInputDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamsInputDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1203,15 +879,6 @@ export interface InputDescription {
   InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
 }
 
-export namespace InputDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             For an application output, describes
@@ -1228,15 +895,6 @@ export interface KinesisFirehoseOutputDescription {
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream.</p>
    */
   RoleARN?: string;
-}
-
-export namespace KinesisFirehoseOutputDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseOutputDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1257,15 +915,6 @@ export interface KinesisStreamsOutputDescription {
   RoleARN?: string;
 }
 
-export namespace KinesisStreamsOutputDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamsOutputDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>For an application output, describes the AWS Lambda function configured as its
  *             destination. </p>
@@ -1280,15 +929,6 @@ export interface LambdaOutputDescription {
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function.</p>
    */
   RoleARN?: string;
-}
-
-export namespace LambdaOutputDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaOutputDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1333,15 +973,6 @@ export interface OutputDescription {
   DestinationSchema?: DestinationSchema;
 }
 
-export namespace OutputDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the bucket name and object key name that stores the reference data.</p>
  */
@@ -1360,15 +991,6 @@ export interface S3ReferenceDataSourceDescription {
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf to populate the in-application reference table.</p>
    */
   ReferenceRoleARN: string | undefined;
-}
-
-export namespace S3ReferenceDataSourceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ReferenceDataSourceDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1396,15 +1018,6 @@ export interface ReferenceDataSourceDescription {
    * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
    */
   ReferenceSchema?: SourceSchema;
-}
-
-export namespace ReferenceDataSourceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferenceDataSourceDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1491,15 +1104,6 @@ export interface ApplicationDetail {
   ApplicationVersionId: number | undefined;
 }
 
-export namespace ApplicationDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This documentation is for version 1 of the Amazon Kinesis Data Analytics API, which only supports SQL applications. Version 2 of the API supports SQL and Java applications. For more information about version 2, see <a href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics API V2 Documentation</a>.</p>
@@ -1523,15 +1127,6 @@ export interface ApplicationSummary {
   ApplicationStatus: ApplicationStatus | string | undefined;
 }
 
-export namespace ApplicationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes CloudWatch logging option updates.</p>
  */
@@ -1552,15 +1147,6 @@ export interface CloudWatchLoggingOptionUpdate {
   RoleARNUpdate?: string;
 }
 
-export namespace CloudWatchLoggingOptionUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLoggingOptionUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides updates to the parallelism count.</p>
  */
@@ -1570,15 +1156,6 @@ export interface InputParallelismUpdate {
    *             streaming source.</p>
    */
   CountUpdate?: number;
-}
-
-export namespace InputParallelismUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputParallelismUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1602,15 +1179,6 @@ export interface InputLambdaProcessorUpdate {
   RoleARNUpdate?: string;
 }
 
-export namespace InputLambdaProcessorUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputLambdaProcessorUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes updates to an <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputProcessingConfiguration.html">InputProcessingConfiguration</a>. </p>
  */
@@ -1619,15 +1187,6 @@ export interface InputProcessingConfigurationUpdate {
    * <p>Provides update information for an <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_InputLambdaProcessor.html">InputLambdaProcessor</a>.</p>
    */
   InputLambdaProcessorUpdate: InputLambdaProcessorUpdate | undefined;
-}
-
-export namespace InputProcessingConfigurationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputProcessingConfigurationUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1651,15 +1210,6 @@ export interface InputSchemaUpdate {
   RecordColumnUpdates?: RecordColumn[];
 }
 
-export namespace InputSchemaUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputSchemaUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>When updating application input configuration, provides information about an
  *             Amazon Kinesis Firehose delivery stream as the streaming source.</p>
@@ -1678,15 +1228,6 @@ export interface KinesisFirehoseInputUpdate {
   RoleARNUpdate?: string;
 }
 
-export namespace KinesisFirehoseInputUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseInputUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>When updating application input configuration, provides information about an
  *             Amazon Kinesis stream as the streaming source.</p>
@@ -1701,15 +1242,6 @@ export interface KinesisStreamsInputUpdate {
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARNUpdate?: string;
-}
-
-export namespace KinesisStreamsInputUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamsInputUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1758,15 +1290,6 @@ export interface InputUpdate {
   InputParallelismUpdate?: InputParallelismUpdate;
 }
 
-export namespace InputUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             When updating an output configuration using the
@@ -1786,15 +1309,6 @@ export interface KinesisFirehoseOutputUpdate {
    *             on your behalf. You need to grant the necessary permissions to this role.</p>
    */
   RoleARNUpdate?: string;
-}
-
-export namespace KinesisFirehoseOutputUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseOutputUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1817,15 +1331,6 @@ export interface KinesisStreamsOutputUpdate {
   RoleARNUpdate?: string;
 }
 
-export namespace KinesisStreamsOutputUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamsOutputUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>When updating an output configuration using the <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html">UpdateApplication</a>
  *             operation, provides information about an AWS Lambda function configured as the
@@ -1845,15 +1350,6 @@ export interface LambdaOutputUpdate {
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function on your behalf. You need to grant the necessary permissions to this role. </p>
    */
   RoleARNUpdate?: string;
-}
-
-export namespace LambdaOutputUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaOutputUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1897,15 +1393,6 @@ export interface OutputUpdate {
   DestinationSchemaUpdate?: DestinationSchema;
 }
 
-export namespace OutputUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the S3 bucket name, object key name, and IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object on your behalf and populate the in-application reference table.</p>
  */
@@ -1924,15 +1411,6 @@ export interface S3ReferenceDataSourceUpdate {
    * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to read the Amazon S3 object and populate the in-application.</p>
    */
   ReferenceRoleARNUpdate?: string;
-}
-
-export namespace S3ReferenceDataSourceUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ReferenceDataSourceUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1959,15 +1437,6 @@ export interface ReferenceDataSourceUpdate {
    * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. </p>
    */
   ReferenceSchemaUpdate?: SourceSchema;
-}
-
-export namespace ReferenceDataSourceUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferenceDataSourceUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2000,15 +1469,6 @@ export interface ApplicationUpdate {
   CloudWatchLoggingOptionUpdates?: CloudWatchLoggingOptionUpdate[];
 }
 
-export namespace ApplicationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. Note that
  *         the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
@@ -2024,15 +1484,6 @@ export interface Tag {
    * <p>The value of the key-value tag. The value is optional.</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2106,15 +1557,6 @@ export interface CreateApplicationRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>TBD</p>
  */
@@ -2125,15 +1567,6 @@ export interface CreateApplicationResponse {
    *             name, and status.</p>
    */
   ApplicationSummary: ApplicationSummary | undefined;
-}
-
-export namespace CreateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2191,28 +1624,10 @@ export interface DeleteApplicationRequest {
   CreateTimestamp: Date | undefined;
 }
 
-export namespace DeleteApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
 export interface DeleteApplicationResponse {}
-
-export namespace DeleteApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   /**
@@ -2232,25 +1647,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
   CloudWatchLoggingOptionId: string | undefined;
 }
 
-export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationCloudWatchLoggingOptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApplicationCloudWatchLoggingOptionResponse {}
-
-export namespace DeleteApplicationCloudWatchLoggingOptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationCloudWatchLoggingOptionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteApplicationInputProcessingConfigurationRequest {
   /**
@@ -2270,25 +1667,7 @@ export interface DeleteApplicationInputProcessingConfigurationRequest {
   InputId: string | undefined;
 }
 
-export namespace DeleteApplicationInputProcessingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationInputProcessingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApplicationInputProcessingConfigurationResponse {}
-
-export namespace DeleteApplicationInputProcessingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationInputProcessingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p></p>
@@ -2321,28 +1700,10 @@ export interface DeleteApplicationOutputRequest {
   OutputId: string | undefined;
 }
 
-export namespace DeleteApplicationOutputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationOutputRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
 export interface DeleteApplicationOutputResponse {}
-
-export namespace DeleteApplicationOutputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationOutputResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteApplicationReferenceDataSourceRequest {
   /**
@@ -2368,25 +1729,7 @@ export interface DeleteApplicationReferenceDataSourceRequest {
   ReferenceId: string | undefined;
 }
 
-export namespace DeleteApplicationReferenceDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationReferenceDataSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApplicationReferenceDataSourceResponse {}
-
-export namespace DeleteApplicationReferenceDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationReferenceDataSourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p></p>
@@ -2398,15 +1741,6 @@ export interface DescribeApplicationRequest {
   ApplicationName: string | undefined;
 }
 
-export namespace DescribeApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2415,15 +1749,6 @@ export interface DescribeApplicationResponse {
    * <p>Provides a description of the application, such as the application Amazon Resource Name (ARN), status, latest version, and input and output configuration details.</p>
    */
   ApplicationDetail: ApplicationDetail | undefined;
-}
-
-export namespace DescribeApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2446,15 +1771,6 @@ export interface S3Configuration {
    * <p>The name of the object that contains the data.</p>
    */
   FileKey: string | undefined;
-}
-
-export namespace S3Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Configuration): any => ({
-    ...obj,
-  });
 }
 
 export interface DiscoverInputSchemaRequest {
@@ -2485,15 +1801,6 @@ export interface DiscoverInputSchemaRequest {
   InputProcessingConfiguration?: InputProcessingConfiguration;
 }
 
-export namespace DiscoverInputSchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiscoverInputSchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2517,15 +1824,6 @@ export interface DiscoverInputSchemaResponse {
    * <p>Raw stream data that was sampled to infer the schema.</p>
    */
   RawInputRecords?: string[];
-}
-
-export namespace DiscoverInputSchemaResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiscoverInputSchemaResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2613,15 +1911,6 @@ export interface InputConfiguration {
   InputStartingPositionConfiguration: InputStartingPositionConfiguration | undefined;
 }
 
-export namespace InputConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>User-provided application configuration is not valid.</p>
  */
@@ -2656,15 +1945,6 @@ export interface ListApplicationsRequest {
   ExclusiveStartApplicationName?: string;
 }
 
-export namespace ListApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2680,15 +1960,6 @@ export interface ListApplicationsResponse {
   HasMoreApplications: boolean | undefined;
 }
 
-export namespace ListApplicationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the application for which to retrieve tags.</p>
@@ -2696,29 +1967,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The key-value tags assigned to the application.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2736,28 +1989,10 @@ export interface StartApplicationRequest {
   InputConfigurations: InputConfiguration[] | undefined;
 }
 
-export namespace StartApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
 export interface StartApplicationResponse {}
-
-export namespace StartApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartApplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p></p>
@@ -2769,28 +2004,10 @@ export interface StopApplicationRequest {
   ApplicationName: string | undefined;
 }
 
-export namespace StopApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
 export interface StopApplicationResponse {}
-
-export namespace StopApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopApplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -2804,25 +2021,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2836,25 +2035,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateApplicationRequest {
   /**
@@ -2874,22 +2055,681 @@ export interface UpdateApplicationRequest {
   ApplicationUpdate: ApplicationUpdate | undefined;
 }
 
-export namespace UpdateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApplicationResponse {}
 
-export namespace UpdateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CloudWatchLoggingOptionFilterSensitiveLog = (obj: CloudWatchLoggingOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog = (
+  obj: AddApplicationCloudWatchLoggingOptionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog = (
+  obj: AddApplicationCloudWatchLoggingOptionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputParallelismFilterSensitiveLog = (obj: InputParallelism): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputLambdaProcessorFilterSensitiveLog = (obj: InputLambdaProcessor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputProcessingConfigurationFilterSensitiveLog = (obj: InputProcessingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordColumnFilterSensitiveLog = (obj: RecordColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CSVMappingParametersFilterSensitiveLog = (obj: CSVMappingParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JSONMappingParametersFilterSensitiveLog = (obj: JSONMappingParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MappingParametersFilterSensitiveLog = (obj: MappingParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordFormatFilterSensitiveLog = (obj: RecordFormat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceSchemaFilterSensitiveLog = (obj: SourceSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseInputFilterSensitiveLog = (obj: KinesisFirehoseInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamsInputFilterSensitiveLog = (obj: KinesisStreamsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputFilterSensitiveLog = (obj: Input): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddApplicationInputRequestFilterSensitiveLog = (obj: AddApplicationInputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddApplicationInputResponseFilterSensitiveLog = (obj: AddApplicationInputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddApplicationInputProcessingConfigurationRequestFilterSensitiveLog = (
+  obj: AddApplicationInputProcessingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddApplicationInputProcessingConfigurationResponseFilterSensitiveLog = (
+  obj: AddApplicationInputProcessingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationSchemaFilterSensitiveLog = (obj: DestinationSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseOutputFilterSensitiveLog = (obj: KinesisFirehoseOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamsOutputFilterSensitiveLog = (obj: KinesisStreamsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaOutputFilterSensitiveLog = (obj: LambdaOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputFilterSensitiveLog = (obj: Output): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddApplicationOutputRequestFilterSensitiveLog = (obj: AddApplicationOutputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddApplicationOutputResponseFilterSensitiveLog = (obj: AddApplicationOutputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ReferenceDataSourceFilterSensitiveLog = (obj: S3ReferenceDataSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReferenceDataSourceFilterSensitiveLog = (obj: ReferenceDataSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddApplicationReferenceDataSourceRequestFilterSensitiveLog = (
+  obj: AddApplicationReferenceDataSourceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddApplicationReferenceDataSourceResponseFilterSensitiveLog = (
+  obj: AddApplicationReferenceDataSourceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLoggingOptionDescriptionFilterSensitiveLog = (obj: CloudWatchLoggingOptionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputLambdaProcessorDescriptionFilterSensitiveLog = (obj: InputLambdaProcessorDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputProcessingConfigurationDescriptionFilterSensitiveLog = (
+  obj: InputProcessingConfigurationDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputStartingPositionConfigurationFilterSensitiveLog = (obj: InputStartingPositionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseInputDescriptionFilterSensitiveLog = (obj: KinesisFirehoseInputDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamsInputDescriptionFilterSensitiveLog = (obj: KinesisStreamsInputDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDescriptionFilterSensitiveLog = (obj: InputDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseOutputDescriptionFilterSensitiveLog = (obj: KinesisFirehoseOutputDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamsOutputDescriptionFilterSensitiveLog = (obj: KinesisStreamsOutputDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaOutputDescriptionFilterSensitiveLog = (obj: LambdaOutputDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputDescriptionFilterSensitiveLog = (obj: OutputDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ReferenceDataSourceDescriptionFilterSensitiveLog = (obj: S3ReferenceDataSourceDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReferenceDataSourceDescriptionFilterSensitiveLog = (obj: ReferenceDataSourceDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationDetailFilterSensitiveLog = (obj: ApplicationDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLoggingOptionUpdateFilterSensitiveLog = (obj: CloudWatchLoggingOptionUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputParallelismUpdateFilterSensitiveLog = (obj: InputParallelismUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputLambdaProcessorUpdateFilterSensitiveLog = (obj: InputLambdaProcessorUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputProcessingConfigurationUpdateFilterSensitiveLog = (obj: InputProcessingConfigurationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputSchemaUpdateFilterSensitiveLog = (obj: InputSchemaUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseInputUpdateFilterSensitiveLog = (obj: KinesisFirehoseInputUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamsInputUpdateFilterSensitiveLog = (obj: KinesisStreamsInputUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputUpdateFilterSensitiveLog = (obj: InputUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseOutputUpdateFilterSensitiveLog = (obj: KinesisFirehoseOutputUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamsOutputUpdateFilterSensitiveLog = (obj: KinesisStreamsOutputUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaOutputUpdateFilterSensitiveLog = (obj: LambdaOutputUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputUpdateFilterSensitiveLog = (obj: OutputUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ReferenceDataSourceUpdateFilterSensitiveLog = (obj: S3ReferenceDataSourceUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReferenceDataSourceUpdateFilterSensitiveLog = (obj: ReferenceDataSourceUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationUpdateFilterSensitiveLog = (obj: ApplicationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationResponseFilterSensitiveLog = (obj: CreateApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationResponseFilterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationCloudWatchLoggingOptionRequestFilterSensitiveLog = (
+  obj: DeleteApplicationCloudWatchLoggingOptionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationCloudWatchLoggingOptionResponseFilterSensitiveLog = (
+  obj: DeleteApplicationCloudWatchLoggingOptionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationInputProcessingConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteApplicationInputProcessingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationInputProcessingConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteApplicationInputProcessingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationOutputRequestFilterSensitiveLog = (obj: DeleteApplicationOutputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationOutputResponseFilterSensitiveLog = (obj: DeleteApplicationOutputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationReferenceDataSourceRequestFilterSensitiveLog = (
+  obj: DeleteApplicationReferenceDataSourceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationReferenceDataSourceResponseFilterSensitiveLog = (
+  obj: DeleteApplicationReferenceDataSourceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationRequestFilterSensitiveLog = (obj: DescribeApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationResponseFilterSensitiveLog = (obj: DescribeApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ConfigurationFilterSensitiveLog = (obj: S3Configuration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiscoverInputSchemaRequestFilterSensitiveLog = (obj: DiscoverInputSchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiscoverInputSchemaResponseFilterSensitiveLog = (obj: DiscoverInputSchemaResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputConfigurationFilterSensitiveLog = (obj: InputConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartApplicationRequestFilterSensitiveLog = (obj: StartApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartApplicationResponseFilterSensitiveLog = (obj: StartApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopApplicationRequestFilterSensitiveLog = (obj: StopApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopApplicationResponseFilterSensitiveLog = (obj: StopApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationResponseFilterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
+  ...obj,
+});

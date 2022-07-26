@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { VerifyEmailIdentityRequest, VerifyEmailIdentityResponse } from "../models/models_0";
+import {
+  VerifyEmailIdentityRequest,
+  VerifyEmailIdentityRequestFilterSensitiveLog,
+  VerifyEmailIdentityResponse,
+  VerifyEmailIdentityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryVerifyEmailIdentityCommand,
   serializeAws_queryVerifyEmailIdentityCommand,
@@ -75,8 +80,8 @@ export class VerifyEmailIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyEmailIdentityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VerifyEmailIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: VerifyEmailIdentityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: VerifyEmailIdentityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

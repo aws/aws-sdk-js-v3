@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ExecuteStatementRequest, ExecuteStatementResponse } from "../models/models_0";
+import {
+  ExecuteStatementRequest,
+  ExecuteStatementRequestFilterSensitiveLog,
+  ExecuteStatementResponse,
+  ExecuteStatementResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ExecuteStatementCommand,
   serializeAws_restJson1ExecuteStatementCommand,
@@ -78,8 +83,8 @@ export class ExecuteStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteStatementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteStatementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExecuteStatementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExecuteStatementResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

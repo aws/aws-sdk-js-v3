@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { GetDeviceRequest, GetDeviceResponse } from "../models/models_0";
+import {
+  GetDeviceRequest,
+  GetDeviceRequestFilterSensitiveLog,
+  GetDeviceResponse,
+  GetDeviceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetDeviceCommand, serializeAws_json1_1GetDeviceCommand } from "../protocols/Aws_json1_1";
 
 export interface GetDeviceCommandInput extends GetDeviceRequest {}
@@ -75,8 +80,8 @@ export class GetDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDeviceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDeviceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

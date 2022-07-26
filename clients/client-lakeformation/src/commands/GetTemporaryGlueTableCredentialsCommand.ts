@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { GetTemporaryGlueTableCredentialsRequest, GetTemporaryGlueTableCredentialsResponse } from "../models/models_0";
+import {
+  GetTemporaryGlueTableCredentialsRequest,
+  GetTemporaryGlueTableCredentialsRequestFilterSensitiveLog,
+  GetTemporaryGlueTableCredentialsResponse,
+  GetTemporaryGlueTableCredentialsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommand,
   serializeAws_restJson1GetTemporaryGlueTableCredentialsCommand,
@@ -74,8 +79,8 @@ export class GetTemporaryGlueTableCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemporaryGlueTableCredentialsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTemporaryGlueTableCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTemporaryGlueTableCredentialsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTemporaryGlueTableCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

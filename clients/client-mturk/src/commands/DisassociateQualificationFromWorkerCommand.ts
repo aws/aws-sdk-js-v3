@@ -14,7 +14,9 @@ import {
 
 import {
   DisassociateQualificationFromWorkerRequest,
+  DisassociateQualificationFromWorkerRequestFilterSensitiveLog,
   DisassociateQualificationFromWorkerResponse,
+  DisassociateQualificationFromWorkerResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
@@ -84,8 +86,8 @@ export class DisassociateQualificationFromWorkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateQualificationFromWorkerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateQualificationFromWorkerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateQualificationFromWorkerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateQualificationFromWorkerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

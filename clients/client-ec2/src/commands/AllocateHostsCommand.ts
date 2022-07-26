@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AllocateHostsRequest, AllocateHostsResult } from "../models/models_0";
+import {
+  AllocateHostsRequest,
+  AllocateHostsRequestFilterSensitiveLog,
+  AllocateHostsResult,
+  AllocateHostsResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_ec2AllocateHostsCommand, serializeAws_ec2AllocateHostsCommand } from "../protocols/Aws_ec2";
 
 export interface AllocateHostsCommandInput extends AllocateHostsRequest {}
@@ -71,8 +76,8 @@ export class AllocateHostsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocateHostsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AllocateHostsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AllocateHostsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AllocateHostsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

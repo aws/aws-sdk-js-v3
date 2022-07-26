@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { EnableUserRequest, EnableUserResult } from "../models/models_0";
+import {
+  EnableUserRequest,
+  EnableUserRequestFilterSensitiveLog,
+  EnableUserResult,
+  EnableUserResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1EnableUserCommand,
   serializeAws_json1_1EnableUserCommand,
@@ -72,8 +77,8 @@ export class EnableUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableUserResult.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableUserResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

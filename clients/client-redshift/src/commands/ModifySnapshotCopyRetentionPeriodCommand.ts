@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifySnapshotCopyRetentionPeriodMessage, ModifySnapshotCopyRetentionPeriodResult } from "../models/models_1";
+import {
+  ModifySnapshotCopyRetentionPeriodMessage,
+  ModifySnapshotCopyRetentionPeriodMessageFilterSensitiveLog,
+  ModifySnapshotCopyRetentionPeriodResult,
+  ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand,
   serializeAws_queryModifySnapshotCopyRetentionPeriodCommand,
@@ -80,8 +85,8 @@ export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySnapshotCopyRetentionPeriodMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifySnapshotCopyRetentionPeriodResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifySnapshotCopyRetentionPeriodMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

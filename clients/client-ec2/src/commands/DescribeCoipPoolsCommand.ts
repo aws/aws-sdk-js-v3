@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeCoipPoolsRequest, DescribeCoipPoolsResult } from "../models/models_3";
+import {
+  DescribeCoipPoolsRequest,
+  DescribeCoipPoolsRequestFilterSensitiveLog,
+  DescribeCoipPoolsResult,
+  DescribeCoipPoolsResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeCoipPoolsCommand,
   serializeAws_ec2DescribeCoipPoolsCommand,
@@ -72,8 +77,8 @@ export class DescribeCoipPoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCoipPoolsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCoipPoolsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCoipPoolsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCoipPoolsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,15 +13,6 @@ export interface AcknowledgeActionConfiguration {
   note?: string;
 }
 
-export namespace AcknowledgeActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcknowledgeActionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information needed to acknowledge the alarm.</p>
  */
@@ -48,15 +39,6 @@ export interface AcknowledgeAlarmActionRequest {
   note?: string;
 }
 
-export namespace AcknowledgeAlarmActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcknowledgeAlarmActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum CustomerActionName {
   ACKNOWLEDGE = "ACKNOWLEDGE",
   DISABLE = "DISABLE",
@@ -75,15 +57,6 @@ export interface DisableActionConfiguration {
   note?: string;
 }
 
-export namespace DisableActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableActionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the configuration information of an enable action.</p>
  */
@@ -94,15 +67,6 @@ export interface EnableActionConfiguration {
   note?: string;
 }
 
-export namespace EnableActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableActionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the configuration information of a reset action.</p>
  */
@@ -111,15 +75,6 @@ export interface ResetActionConfiguration {
    * <p>The note that you can leave when you reset the alarm.</p>
    */
   note?: string;
-}
-
-export namespace ResetActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetActionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -135,15 +90,6 @@ export interface SnoozeActionConfiguration {
    * <p>The note that you can leave when you snooze the alarm.</p>
    */
   note?: string;
-}
-
-export namespace SnoozeActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnoozeActionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -204,15 +150,6 @@ export interface CustomerAction {
   resetActionConfiguration?: ResetActionConfiguration;
 }
 
-export namespace CustomerAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerAction): any => ({
-    ...obj,
-  });
-}
-
 export enum ComparisonOperator {
   EQUAL = "EQUAL",
   GREATER = "GREATER",
@@ -242,15 +179,6 @@ export interface SimpleRuleEvaluation {
   thresholdValue?: string;
 }
 
-export namespace SimpleRuleEvaluation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleRuleEvaluation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information needed to evaluate data.</p>
  */
@@ -259,15 +187,6 @@ export interface RuleEvaluation {
    * <p>Information needed to compare two values with a comparison operator.</p>
    */
   simpleRuleEvaluation?: SimpleRuleEvaluation;
-}
-
-export namespace RuleEvaluation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleEvaluation): any => ({
-    ...obj,
-  });
 }
 
 export enum AlarmStateName {
@@ -298,15 +217,6 @@ export interface StateChangeConfiguration {
   triggerType?: TriggerType | string;
 }
 
-export namespace StateChangeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateChangeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about alarm state changes.</p>
  */
@@ -321,15 +231,6 @@ export interface SystemEvent {
    * <p>Contains the configuration information of alarm state changes.</p>
    */
   stateChangeConfiguration?: StateChangeConfiguration;
-}
-
-export namespace SystemEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SystemEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -392,15 +293,6 @@ export interface AlarmState {
   systemEvent?: SystemEvent;
 }
 
-export namespace AlarmState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about an alarm.</p>
  */
@@ -440,15 +332,6 @@ export interface Alarm {
    * <p>The time the alarm was last updated, in the Unix epoch format.</p>
    */
   lastUpdateTime?: Date;
-}
-
-export namespace Alarm {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alarm): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -522,29 +405,11 @@ export interface AlarmSummary {
   lastUpdateTime?: Date;
 }
 
-export namespace AlarmSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchAcknowledgeAlarmRequest {
   /**
    * <p>The list of acknowledge action requests. You can specify up to 10 requests per operation.</p>
    */
   acknowledgeActionRequests: AcknowledgeAlarmActionRequest[] | undefined;
-}
-
-export namespace BatchAcknowledgeAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAcknowledgeAlarmRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ErrorCode {
@@ -602,30 +467,12 @@ export interface BatchAlarmActionErrorEntry {
   errorMessage?: string;
 }
 
-export namespace BatchAlarmActionErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAlarmActionErrorEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchAcknowledgeAlarmResponse {
   /**
    * <p>A list of errors associated with the request, or <code>null</code> if there are no errors.
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
-}
-
-export namespace BatchAcknowledgeAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAcknowledgeAlarmResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -724,29 +571,11 @@ export interface DeleteDetectorRequest {
   keyValue?: string;
 }
 
-export namespace DeleteDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteDetectorRequest {
   /**
    * <p>The list of one or more detectors to be deleted.</p>
    */
   detectors: DeleteDetectorRequest[] | undefined;
-}
-
-export namespace BatchDeleteDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDetectorRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -769,29 +598,11 @@ export interface BatchDeleteDetectorErrorEntry {
   errorMessage?: string;
 }
 
-export namespace BatchDeleteDetectorErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDetectorErrorEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteDetectorResponse {
   /**
    * <p>A list of errors associated with the request, or an empty array (<code>[]</code>) if there are no errors. Each error entry contains a <code>messageId</code> that helps you identify the entry that failed.</p>
    */
   batchDeleteDetectorErrorEntries?: BatchDeleteDetectorErrorEntry[];
-}
-
-export namespace BatchDeleteDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDetectorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -820,29 +631,11 @@ export interface DisableAlarmActionRequest {
   note?: string;
 }
 
-export namespace DisableAlarmActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableAlarmActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDisableAlarmRequest {
   /**
    * <p>The list of disable action requests. You can specify up to 10 requests per operation.</p>
    */
   disableActionRequests: DisableAlarmActionRequest[] | undefined;
-}
-
-export namespace BatchDisableAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisableAlarmRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDisableAlarmResponse {
@@ -851,15 +644,6 @@ export interface BatchDisableAlarmResponse {
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
-}
-
-export namespace BatchDisableAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisableAlarmResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -888,29 +672,11 @@ export interface EnableAlarmActionRequest {
   note?: string;
 }
 
-export namespace EnableAlarmActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAlarmActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchEnableAlarmRequest {
   /**
    * <p>The list of enable action requests. You can specify up to 10 requests per operation.</p>
    */
   enableActionRequests: EnableAlarmActionRequest[] | undefined;
-}
-
-export namespace BatchEnableAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEnableAlarmRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchEnableAlarmResponse {
@@ -921,15 +687,6 @@ export interface BatchEnableAlarmResponse {
   errorEntries?: BatchAlarmActionErrorEntry[];
 }
 
-export namespace BatchEnableAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEnableAlarmResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a timestamp.</p>
  */
@@ -938,15 +695,6 @@ export interface TimestampValue {
    * <p>The value of the timestamp, in the Unix epoch format.</p>
    */
   timeInMillis?: number;
-}
-
-export namespace TimestampValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestampValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -976,15 +724,6 @@ export interface Message {
   timestamp?: TimestampValue;
 }
 
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchPutMessageRequest {
   /**
    * <p>The list of messages to send. Each message has the following format: <code>'{ "messageId":
@@ -992,15 +731,6 @@ export interface BatchPutMessageRequest {
    *          </p>
    */
   messages: Message[] | undefined;
-}
-
-export namespace BatchPutMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1024,29 +754,11 @@ export interface BatchPutMessageErrorEntry {
   errorMessage?: string;
 }
 
-export namespace BatchPutMessageErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchPutMessageResponse {
   /**
    * <p>A list of any errors encountered when sending the messages.</p>
    */
   BatchPutMessageErrorEntries?: BatchPutMessageErrorEntry[];
-}
-
-export namespace BatchPutMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1075,29 +787,11 @@ export interface ResetAlarmActionRequest {
   note?: string;
 }
 
-export namespace ResetAlarmActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetAlarmActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchResetAlarmRequest {
   /**
    * <p>The list of reset action requests. You can specify up to 10 requests per operation.</p>
    */
   resetActionRequests: ResetAlarmActionRequest[] | undefined;
-}
-
-export namespace BatchResetAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchResetAlarmRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchResetAlarmResponse {
@@ -1106,15 +800,6 @@ export interface BatchResetAlarmResponse {
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
-}
-
-export namespace BatchResetAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchResetAlarmResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1148,29 +833,11 @@ export interface SnoozeAlarmActionRequest {
   snoozeDuration: number | undefined;
 }
 
-export namespace SnoozeAlarmActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnoozeAlarmActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchSnoozeAlarmRequest {
   /**
    * <p>The list of snooze action requests. You can specify up to 10 requests per operation.</p>
    */
   snoozeActionRequests: SnoozeAlarmActionRequest[] | undefined;
-}
-
-export namespace BatchSnoozeAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchSnoozeAlarmRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchSnoozeAlarmResponse {
@@ -1179,15 +846,6 @@ export interface BatchSnoozeAlarmResponse {
    * Each error entry contains an entry ID that helps you identify the entry that failed.</p>
    */
   errorEntries?: BatchAlarmActionErrorEntry[];
-}
-
-export namespace BatchSnoozeAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchSnoozeAlarmResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1205,15 +863,6 @@ export interface TimerDefinition {
   seconds: number | undefined;
 }
 
-export namespace TimerDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimerDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The new value of the variable.</p>
  */
@@ -1227,15 +876,6 @@ export interface VariableDefinition {
    * <p>The new value of the variable.</p>
    */
   value: string | undefined;
-}
-
-export namespace VariableDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VariableDefinition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1258,15 +898,6 @@ export interface DetectorStateDefinition {
    *       and its timeout event won't occur.</p>
    */
   timers: TimerDefinition[] | undefined;
-}
-
-export namespace DetectorStateDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorStateDefinition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1296,29 +927,11 @@ export interface UpdateDetectorRequest {
   state: DetectorStateDefinition | undefined;
 }
 
-export namespace UpdateDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchUpdateDetectorRequest {
   /**
    * <p>The list of detectors (instances) to update, along with the values to update.</p>
    */
   detectors: UpdateDetectorRequest[] | undefined;
-}
-
-export namespace BatchUpdateDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateDetectorRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1342,30 +955,12 @@ export interface BatchUpdateDetectorErrorEntry {
   errorMessage?: string;
 }
 
-export namespace BatchUpdateDetectorErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateDetectorErrorEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchUpdateDetectorResponse {
   /**
    * <p>A list of those detector updates that resulted in errors. (If an error is listed here, the
    *       specific update did not occur.)</p>
    */
   batchUpdateDetectorErrorEntries?: BatchUpdateDetectorErrorEntry[];
-}
-
-export namespace BatchUpdateDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateDetectorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAlarmRequest {
@@ -1381,29 +976,11 @@ export interface DescribeAlarmRequest {
   keyValue?: string;
 }
 
-export namespace DescribeAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlarmRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAlarmResponse {
   /**
    * <p>Contains information about an alarm.</p>
    */
   alarm?: Alarm;
-}
-
-export namespace DescribeAlarmResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlarmResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1439,15 +1016,6 @@ export interface DescribeDetectorRequest {
   keyValue?: string;
 }
 
-export namespace DescribeDetectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The current state of a timer.</p>
  */
@@ -1463,15 +1031,6 @@ export interface Timer {
   timestamp: Date | undefined;
 }
 
-export namespace Timer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Timer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The current state of the variable.</p>
  */
@@ -1485,15 +1044,6 @@ export interface Variable {
    * <p>The current value of the variable.</p>
    */
   value: string | undefined;
-}
-
-export namespace Variable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Variable): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1514,15 +1064,6 @@ export interface DetectorState {
    * <p>The current state of the detector's timers.</p>
    */
   timers: Timer[] | undefined;
-}
-
-export namespace DetectorState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1561,29 +1102,11 @@ export interface Detector {
   lastUpdateTime?: Date;
 }
 
-export namespace Detector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Detector): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDetectorResponse {
   /**
    * <p>Information about the detector (instance).</p>
    */
   detector?: Detector;
-}
-
-export namespace DescribeDetectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDetectorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1594,15 +1117,6 @@ export interface DetectorStateSummary {
    * <p>The name of the state.</p>
    */
   stateName?: string;
-}
-
-export namespace DetectorStateSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorStateSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1641,15 +1155,6 @@ export interface DetectorSummary {
   lastUpdateTime?: Date;
 }
 
-export namespace DetectorSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectorSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAlarmsRequest {
   /**
    * <p>The name of the alarm model.</p>
@@ -1667,15 +1172,6 @@ export interface ListAlarmsRequest {
   maxResults?: number;
 }
 
-export namespace ListAlarmsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAlarmsResponse {
   /**
    * <p>A list that summarizes each alarm.</p>
@@ -1687,15 +1183,6 @@ export interface ListAlarmsResponse {
    * or <code>null</code> if there are no more results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAlarmsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlarmsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDetectorsRequest {
@@ -1720,15 +1207,6 @@ export interface ListDetectorsRequest {
   maxResults?: number;
 }
 
-export namespace ListDetectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDetectorsResponse {
   /**
    * <p>A list of summary information about the detectors (instances).</p>
@@ -1742,11 +1220,415 @@ export interface ListDetectorsResponse {
   nextToken?: string;
 }
 
-export namespace ListDetectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDetectorsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcknowledgeActionConfigurationFilterSensitiveLog = (obj: AcknowledgeActionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcknowledgeAlarmActionRequestFilterSensitiveLog = (obj: AcknowledgeAlarmActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableActionConfigurationFilterSensitiveLog = (obj: DisableActionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableActionConfigurationFilterSensitiveLog = (obj: EnableActionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetActionConfigurationFilterSensitiveLog = (obj: ResetActionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnoozeActionConfigurationFilterSensitiveLog = (obj: SnoozeActionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerActionFilterSensitiveLog = (obj: CustomerAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SimpleRuleEvaluationFilterSensitiveLog = (obj: SimpleRuleEvaluation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleEvaluationFilterSensitiveLog = (obj: RuleEvaluation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StateChangeConfigurationFilterSensitiveLog = (obj: StateChangeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SystemEventFilterSensitiveLog = (obj: SystemEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmStateFilterSensitiveLog = (obj: AlarmState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmSummaryFilterSensitiveLog = (obj: AlarmSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAcknowledgeAlarmRequestFilterSensitiveLog = (obj: BatchAcknowledgeAlarmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAlarmActionErrorEntryFilterSensitiveLog = (obj: BatchAlarmActionErrorEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAcknowledgeAlarmResponseFilterSensitiveLog = (obj: BatchAcknowledgeAlarmResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDetectorRequestFilterSensitiveLog = (obj: DeleteDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDetectorRequestFilterSensitiveLog = (obj: BatchDeleteDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDetectorErrorEntryFilterSensitiveLog = (obj: BatchDeleteDetectorErrorEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDetectorResponseFilterSensitiveLog = (obj: BatchDeleteDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableAlarmActionRequestFilterSensitiveLog = (obj: DisableAlarmActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisableAlarmRequestFilterSensitiveLog = (obj: BatchDisableAlarmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisableAlarmResponseFilterSensitiveLog = (obj: BatchDisableAlarmResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableAlarmActionRequestFilterSensitiveLog = (obj: EnableAlarmActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchEnableAlarmRequestFilterSensitiveLog = (obj: BatchEnableAlarmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchEnableAlarmResponseFilterSensitiveLog = (obj: BatchEnableAlarmResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestampValueFilterSensitiveLog = (obj: TimestampValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutMessageRequestFilterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutMessageErrorEntryFilterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutMessageResponseFilterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetAlarmActionRequestFilterSensitiveLog = (obj: ResetAlarmActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchResetAlarmRequestFilterSensitiveLog = (obj: BatchResetAlarmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchResetAlarmResponseFilterSensitiveLog = (obj: BatchResetAlarmResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnoozeAlarmActionRequestFilterSensitiveLog = (obj: SnoozeAlarmActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchSnoozeAlarmRequestFilterSensitiveLog = (obj: BatchSnoozeAlarmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchSnoozeAlarmResponseFilterSensitiveLog = (obj: BatchSnoozeAlarmResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimerDefinitionFilterSensitiveLog = (obj: TimerDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VariableDefinitionFilterSensitiveLog = (obj: VariableDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorStateDefinitionFilterSensitiveLog = (obj: DetectorStateDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDetectorRequestFilterSensitiveLog = (obj: UpdateDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateDetectorRequestFilterSensitiveLog = (obj: BatchUpdateDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateDetectorErrorEntryFilterSensitiveLog = (obj: BatchUpdateDetectorErrorEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateDetectorResponseFilterSensitiveLog = (obj: BatchUpdateDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAlarmRequestFilterSensitiveLog = (obj: DescribeAlarmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAlarmResponseFilterSensitiveLog = (obj: DescribeAlarmResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDetectorRequestFilterSensitiveLog = (obj: DescribeDetectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimerFilterSensitiveLog = (obj: Timer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VariableFilterSensitiveLog = (obj: Variable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorStateFilterSensitiveLog = (obj: DetectorState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorFilterSensitiveLog = (obj: Detector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDetectorResponseFilterSensitiveLog = (obj: DescribeDetectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorStateSummaryFilterSensitiveLog = (obj: DetectorStateSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorSummaryFilterSensitiveLog = (obj: DetectorSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlarmsRequestFilterSensitiveLog = (obj: ListAlarmsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlarmsResponseFilterSensitiveLog = (obj: ListAlarmsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDetectorsRequestFilterSensitiveLog = (obj: ListDetectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDetectorsResponseFilterSensitiveLog = (obj: ListDetectorsResponse): any => ({
+  ...obj,
+});

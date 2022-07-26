@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { ListAppliedSchemaArnsRequest, ListAppliedSchemaArnsResponse } from "../models/models_0";
+import {
+  ListAppliedSchemaArnsRequest,
+  ListAppliedSchemaArnsRequestFilterSensitiveLog,
+  ListAppliedSchemaArnsResponse,
+  ListAppliedSchemaArnsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAppliedSchemaArnsCommand,
   serializeAws_restJson1ListAppliedSchemaArnsCommand,
@@ -72,8 +77,8 @@ export class ListAppliedSchemaArnsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppliedSchemaArnsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAppliedSchemaArnsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAppliedSchemaArnsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAppliedSchemaArnsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

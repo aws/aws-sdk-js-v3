@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateSegmentRequest, CreateSegmentResponse } from "../models/models_0";
+import {
+  CreateSegmentRequest,
+  CreateSegmentRequestFilterSensitiveLog,
+  CreateSegmentResponse,
+  CreateSegmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1CreateSegmentCommand,
@@ -72,8 +77,8 @@ export class CreateSegmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSegmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSegmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSegmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSegmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

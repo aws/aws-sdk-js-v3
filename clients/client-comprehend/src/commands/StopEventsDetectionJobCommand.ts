@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopEventsDetectionJobRequest, StopEventsDetectionJobResponse } from "../models/models_0";
+import {
+  StopEventsDetectionJobRequest,
+  StopEventsDetectionJobRequestFilterSensitiveLog,
+  StopEventsDetectionJobResponse,
+  StopEventsDetectionJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopEventsDetectionJobCommand,
   serializeAws_json1_1StopEventsDetectionJobCommand,
@@ -72,8 +77,8 @@ export class StopEventsDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopEventsDetectionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopEventsDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopEventsDetectionJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopEventsDetectionJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

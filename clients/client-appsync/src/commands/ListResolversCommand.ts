@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { ListResolversRequest, ListResolversResponse } from "../models/models_0";
+import {
+  ListResolversRequest,
+  ListResolversRequestFilterSensitiveLog,
+  ListResolversResponse,
+  ListResolversResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListResolversCommand,
   serializeAws_restJson1ListResolversCommand,
@@ -72,8 +77,8 @@ export class ListResolversCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResolversRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListResolversResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResolversRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListResolversResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

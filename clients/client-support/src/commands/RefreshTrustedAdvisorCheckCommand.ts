@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RefreshTrustedAdvisorCheckRequest, RefreshTrustedAdvisorCheckResponse } from "../models/models_0";
+import {
+  RefreshTrustedAdvisorCheckRequest,
+  RefreshTrustedAdvisorCheckRequestFilterSensitiveLog,
+  RefreshTrustedAdvisorCheckResponse,
+  RefreshTrustedAdvisorCheckResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand,
   serializeAws_json1_1RefreshTrustedAdvisorCheckCommand,
@@ -95,8 +100,8 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RefreshTrustedAdvisorCheckRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RefreshTrustedAdvisorCheckResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RefreshTrustedAdvisorCheckRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RefreshTrustedAdvisorCheckResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

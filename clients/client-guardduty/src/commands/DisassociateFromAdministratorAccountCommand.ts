@@ -15,7 +15,9 @@ import {
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import {
   DisassociateFromAdministratorAccountRequest,
+  DisassociateFromAdministratorAccountRequestFilterSensitiveLog,
   DisassociateFromAdministratorAccountResponse,
+  DisassociateFromAdministratorAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateFromAdministratorAccountCommand,
@@ -77,8 +79,8 @@ export class DisassociateFromAdministratorAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFromAdministratorAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFromAdministratorAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateFromAdministratorAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateFromAdministratorAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

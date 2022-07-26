@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetServiceGraphRequest, GetServiceGraphResult } from "../models/models_0";
+import {
+  GetServiceGraphRequest,
+  GetServiceGraphRequestFilterSensitiveLog,
+  GetServiceGraphResult,
+  GetServiceGraphResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetServiceGraphCommand,
   serializeAws_restJson1GetServiceGraphCommand,
@@ -76,8 +81,8 @@ export class GetServiceGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceGraphRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceGraphResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetServiceGraphRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetServiceGraphResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

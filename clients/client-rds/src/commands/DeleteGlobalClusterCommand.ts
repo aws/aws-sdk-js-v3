@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/models_0";
+import {
+  DeleteGlobalClusterMessage,
+  DeleteGlobalClusterMessageFilterSensitiveLog,
+  DeleteGlobalClusterResult,
+  DeleteGlobalClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteGlobalClusterCommand,
   serializeAws_queryDeleteGlobalClusterCommand,
@@ -76,8 +81,8 @@ export class DeleteGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGlobalClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGlobalClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGlobalClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGlobalClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

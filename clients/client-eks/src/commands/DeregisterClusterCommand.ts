@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { DeregisterClusterRequest, DeregisterClusterResponse } from "../models/models_0";
+import {
+  DeregisterClusterRequest,
+  DeregisterClusterRequestFilterSensitiveLog,
+  DeregisterClusterResponse,
+  DeregisterClusterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeregisterClusterCommand,
   serializeAws_restJson1DeregisterClusterCommand,
@@ -73,8 +78,8 @@ export class DeregisterClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterClusterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterClusterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterClusterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterClusterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

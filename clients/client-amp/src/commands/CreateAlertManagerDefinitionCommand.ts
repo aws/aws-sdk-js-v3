@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { CreateAlertManagerDefinitionRequest, CreateAlertManagerDefinitionResponse } from "../models/models_0";
+import {
+  CreateAlertManagerDefinitionRequest,
+  CreateAlertManagerDefinitionRequestFilterSensitiveLog,
+  CreateAlertManagerDefinitionResponse,
+  CreateAlertManagerDefinitionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAlertManagerDefinitionCommand,
   serializeAws_restJson1CreateAlertManagerDefinitionCommand,
@@ -74,8 +79,8 @@ export class CreateAlertManagerDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAlertManagerDefinitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAlertManagerDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAlertManagerDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAlertManagerDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

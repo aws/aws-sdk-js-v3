@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelArchivalInput, CancelArchivalOutput } from "../models/models_0";
+import {
+  CancelArchivalInput,
+  CancelArchivalInputFilterSensitiveLog,
+  CancelArchivalOutput,
+  CancelArchivalOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CancelArchivalCommand,
   serializeAws_json1_1CancelArchivalCommand,
@@ -73,8 +78,8 @@ export class CancelArchivalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelArchivalInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelArchivalOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelArchivalInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelArchivalOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

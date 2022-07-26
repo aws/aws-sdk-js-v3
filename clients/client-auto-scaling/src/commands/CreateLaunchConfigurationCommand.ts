@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { CreateLaunchConfigurationType } from "../models/models_0";
+import { CreateLaunchConfigurationType, CreateLaunchConfigurationTypeFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryCreateLaunchConfigurationCommand,
   serializeAws_queryCreateLaunchConfigurationCommand,
@@ -78,7 +78,7 @@ export class CreateLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLaunchConfigurationType.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLaunchConfigurationTypeFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

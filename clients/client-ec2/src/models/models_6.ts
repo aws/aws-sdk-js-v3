@@ -77,15 +77,6 @@ export interface RegisterInstanceTagAttributeRequest {
   InstanceTagKeys?: string[];
 }
 
-export namespace RegisterInstanceTagAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterInstanceTagAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterInstanceEventNotificationAttributesRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -100,29 +91,11 @@ export interface RegisterInstanceEventNotificationAttributesRequest {
   InstanceTagAttribute?: RegisterInstanceTagAttributeRequest;
 }
 
-export namespace RegisterInstanceEventNotificationAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterInstanceEventNotificationAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterInstanceEventNotificationAttributesResult {
   /**
    * <p>The resulting set of tag keys.</p>
    */
   InstanceTagAttribute?: InstanceTagNotificationAttribute;
-}
-
-export namespace RegisterInstanceEventNotificationAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterInstanceEventNotificationAttributesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterTransitGatewayMulticastGroupMembersRequest {
@@ -149,15 +122,6 @@ export interface RegisterTransitGatewayMulticastGroupMembersRequest {
   DryRun?: boolean;
 }
 
-export namespace RegisterTransitGatewayMulticastGroupMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the registered  transit gateway multicast group members.</p>
  */
@@ -178,29 +142,11 @@ export interface TransitGatewayMulticastRegisteredGroupMembers {
   GroupIpAddress?: string;
 }
 
-export namespace TransitGatewayMulticastRegisteredGroupMembers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupMembers): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterTransitGatewayMulticastGroupMembersResult {
   /**
    * <p>Information about the registered  transit gateway multicast group members.</p>
    */
   RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers;
-}
-
-export namespace RegisterTransitGatewayMulticastGroupMembersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupMembersResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
@@ -227,15 +173,6 @@ export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
   DryRun?: boolean;
 }
 
-export namespace RegisterTransitGatewayMulticastGroupSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the members registered with the  transit gateway multicast group.</p>
  */
@@ -256,29 +193,11 @@ export interface TransitGatewayMulticastRegisteredGroupSources {
   GroupIpAddress?: string;
 }
 
-export namespace TransitGatewayMulticastRegisteredGroupSources {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitGatewayMulticastRegisteredGroupSources): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterTransitGatewayMulticastGroupSourcesResult {
   /**
    * <p>Information about the  transit gateway multicast group sources.</p>
    */
   RegisteredMulticastGroupSources?: TransitGatewayMulticastRegisteredGroupSources;
-}
-
-export namespace RegisterTransitGatewayMulticastGroupSourcesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTransitGatewayMulticastGroupSourcesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RejectTransitGatewayMulticastDomainAssociationsRequest {
@@ -305,29 +224,11 @@ export interface RejectTransitGatewayMulticastDomainAssociationsRequest {
   DryRun?: boolean;
 }
 
-export namespace RejectTransitGatewayMulticastDomainAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayMulticastDomainAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectTransitGatewayMulticastDomainAssociationsResult {
   /**
    * <p>Describes the multicast domain associations.</p>
    */
   Associations?: TransitGatewayMulticastDomainAssociations;
-}
-
-export namespace RejectTransitGatewayMulticastDomainAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayMulticastDomainAssociationsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RejectTransitGatewayPeeringAttachmentRequest {
@@ -344,29 +245,11 @@ export interface RejectTransitGatewayPeeringAttachmentRequest {
   DryRun?: boolean;
 }
 
-export namespace RejectTransitGatewayPeeringAttachmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectTransitGatewayPeeringAttachmentResult {
   /**
    * <p>The transit gateway peering attachment.</p>
    */
   TransitGatewayPeeringAttachment?: TransitGatewayPeeringAttachment;
-}
-
-export namespace RejectTransitGatewayPeeringAttachmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayPeeringAttachmentResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RejectTransitGatewayVpcAttachmentRequest {
@@ -383,29 +266,11 @@ export interface RejectTransitGatewayVpcAttachmentRequest {
   DryRun?: boolean;
 }
 
-export namespace RejectTransitGatewayVpcAttachmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectTransitGatewayVpcAttachmentResult {
   /**
    * <p>Information about the attachment.</p>
    */
   TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
-}
-
-export namespace RejectTransitGatewayVpcAttachmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectTransitGatewayVpcAttachmentResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RejectVpcEndpointConnectionsRequest {
@@ -427,29 +292,11 @@ export interface RejectVpcEndpointConnectionsRequest {
   VpcEndpointIds: string[] | undefined;
 }
 
-export namespace RejectVpcEndpointConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectVpcEndpointConnectionsResult {
   /**
    * <p>Information about the endpoints that were not rejected, if applicable.</p>
    */
   Unsuccessful?: UnsuccessfulItem[];
-}
-
-export namespace RejectVpcEndpointConnectionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectVpcEndpointConnectionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RejectVpcPeeringConnectionRequest {
@@ -466,29 +313,11 @@ export interface RejectVpcPeeringConnectionRequest {
   VpcPeeringConnectionId: string | undefined;
 }
 
-export namespace RejectVpcPeeringConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectVpcPeeringConnectionResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
   Return?: boolean;
-}
-
-export namespace RejectVpcPeeringConnectionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectVpcPeeringConnectionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ReleaseAddressRequest {
@@ -519,29 +348,11 @@ export interface ReleaseAddressRequest {
   DryRun?: boolean;
 }
 
-export namespace ReleaseAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseAddressRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ReleaseHostsRequest {
   /**
    * <p>The IDs of the Dedicated Hosts to release.</p>
    */
   HostIds: string[] | undefined;
-}
-
-export namespace ReleaseHostsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseHostsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ReleaseHostsResult {
@@ -555,15 +366,6 @@ export interface ReleaseHostsResult {
    *             message.</p>
    */
   Unsuccessful?: UnsuccessfulItem[];
-}
-
-export namespace ReleaseHostsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseHostsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ReleaseIpamPoolAllocationRequest {
@@ -590,29 +392,11 @@ export interface ReleaseIpamPoolAllocationRequest {
   IpamPoolAllocationId: string | undefined;
 }
 
-export namespace ReleaseIpamPoolAllocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseIpamPoolAllocationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ReleaseIpamPoolAllocationResult {
   /**
    * <p>Indicates if the release was successful.</p>
    */
   Success?: boolean;
-}
-
-export namespace ReleaseIpamPoolAllocationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseIpamPoolAllocationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ReplaceIamInstanceProfileAssociationRequest {
@@ -627,29 +411,11 @@ export interface ReplaceIamInstanceProfileAssociationRequest {
   AssociationId: string | undefined;
 }
 
-export namespace ReplaceIamInstanceProfileAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ReplaceIamInstanceProfileAssociationResult {
   /**
    * <p>Information about the IAM instance profile association.</p>
    */
   IamInstanceProfileAssociation?: IamInstanceProfileAssociation;
-}
-
-export namespace ReplaceIamInstanceProfileAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceIamInstanceProfileAssociationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ReplaceNetworkAclAssociationRequest {
@@ -671,29 +437,11 @@ export interface ReplaceNetworkAclAssociationRequest {
   NetworkAclId: string | undefined;
 }
 
-export namespace ReplaceNetworkAclAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ReplaceNetworkAclAssociationResult {
   /**
    * <p>The ID of the new association.</p>
    */
   NewAssociationId?: string;
-}
-
-export namespace ReplaceNetworkAclAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceNetworkAclAssociationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ReplaceNetworkAclEntryRequest {
@@ -758,15 +506,6 @@ export interface ReplaceNetworkAclEntryRequest {
    * <p>The rule number of the entry to replace.</p>
    */
   RuleNumber: number | undefined;
-}
-
-export namespace ReplaceNetworkAclEntryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceNetworkAclEntryRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ReplaceRouteRequest {
@@ -860,15 +599,6 @@ export interface ReplaceRouteRequest {
   CoreNetworkArn?: string;
 }
 
-export namespace ReplaceRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceRouteRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ReplaceRouteTableAssociationRequest {
   /**
    * <p>The association ID.</p>
@@ -888,15 +618,6 @@ export interface ReplaceRouteTableAssociationRequest {
   RouteTableId: string | undefined;
 }
 
-export namespace ReplaceRouteTableAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ReplaceRouteTableAssociationResult {
   /**
    * <p>The ID of the new association.</p>
@@ -907,15 +628,6 @@ export interface ReplaceRouteTableAssociationResult {
    * <p>The state of the association.</p>
    */
   AssociationState?: RouteTableAssociationState;
-}
-
-export namespace ReplaceRouteTableAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceRouteTableAssociationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ReplaceTransitGatewayRouteRequest {
@@ -947,29 +659,11 @@ export interface ReplaceTransitGatewayRouteRequest {
   DryRun?: boolean;
 }
 
-export namespace ReplaceTransitGatewayRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ReplaceTransitGatewayRouteResult {
   /**
    * <p>Information about the modified route.</p>
    */
   Route?: TransitGatewayRoute;
-}
-
-export namespace ReplaceTransitGatewayRouteResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplaceTransitGatewayRouteResult): any => ({
-    ...obj,
-  });
 }
 
 export type ReportInstanceReasonCodes =
@@ -1068,15 +762,6 @@ export interface ReportInstanceStatusRequest {
   Status: ReportStatusType | string | undefined;
 }
 
-export namespace ReportInstanceStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for RequestSpotFleet.</p>
  */
@@ -1095,15 +780,6 @@ export interface RequestSpotFleetRequest {
   SpotFleetRequestConfig: SpotFleetRequestConfigData | undefined;
 }
 
-export namespace RequestSpotFleetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of RequestSpotFleet.</p>
  */
@@ -1112,15 +788,6 @@ export interface RequestSpotFleetResponse {
    * <p>The ID of the Spot Fleet request.</p>
    */
   SpotFleetRequestId?: string;
-}
-
-export namespace RequestSpotFleetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestSpotFleetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1212,15 +879,6 @@ export interface RequestSpotLaunchSpecification {
    * <p>The Base64-encoded user data for the instance. User data is limited to 16 KB.</p>
    */
   UserData?: string;
-}
-
-export namespace RequestSpotLaunchSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1343,15 +1001,6 @@ export interface RequestSpotInstancesRequest {
   InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
 }
 
-export namespace RequestSpotInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of RequestSpotInstances.</p>
  */
@@ -1360,15 +1009,6 @@ export interface RequestSpotInstancesResult {
    * <p>One or more Spot Instance requests.</p>
    */
   SpotInstanceRequests?: SpotInstanceRequest[];
-}
-
-export namespace RequestSpotInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ResetAddressAttributeRequest {
@@ -1390,29 +1030,11 @@ export interface ResetAddressAttributeRequest {
   DryRun?: boolean;
 }
 
-export namespace ResetAddressAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetAddressAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetAddressAttributeResult {
   /**
    * <p>Information about the IP address.</p>
    */
   Address?: AddressAttribute;
-}
-
-export namespace ResetAddressAttributeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetAddressAttributeResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ResetEbsDefaultKmsKeyIdRequest {
@@ -1424,29 +1046,11 @@ export interface ResetEbsDefaultKmsKeyIdRequest {
   DryRun?: boolean;
 }
 
-export namespace ResetEbsDefaultKmsKeyIdRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetEbsDefaultKmsKeyIdResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the default KMS key for EBS encryption by default.</p>
    */
   KmsKeyId?: string;
-}
-
-export namespace ResetEbsDefaultKmsKeyIdResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdResult): any => ({
-    ...obj,
-  });
 }
 
 export type ResetFpgaImageAttributeName = "loadPermission";
@@ -1470,29 +1074,11 @@ export interface ResetFpgaImageAttributeRequest {
   Attribute?: ResetFpgaImageAttributeName | string;
 }
 
-export namespace ResetFpgaImageAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetFpgaImageAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetFpgaImageAttributeResult {
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
    */
   Return?: boolean;
-}
-
-export namespace ResetFpgaImageAttributeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetFpgaImageAttributeResult): any => ({
-    ...obj,
-  });
 }
 
 export type ResetImageAttributeName = "launchPermission";
@@ -1519,15 +1105,6 @@ export interface ResetImageAttributeRequest {
   DryRun?: boolean;
 }
 
-export namespace ResetImageAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetImageAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetInstanceAttributeRequest {
   /**
    * <p>The attribute to reset.</p>
@@ -1549,15 +1126,6 @@ export interface ResetInstanceAttributeRequest {
    * <p>The ID of the instance.</p>
    */
   InstanceId: string | undefined;
-}
-
-export namespace ResetInstanceAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetInstanceAttributeRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1582,15 +1150,6 @@ export interface ResetNetworkInterfaceAttributeRequest {
   SourceDestCheck?: string;
 }
 
-export namespace ResetNetworkInterfaceAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetNetworkInterfaceAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetSnapshotAttributeRequest {
   /**
    * <p>The attribute to reset. Currently, only the attribute for permission to create volumes can
@@ -1611,15 +1170,6 @@ export interface ResetSnapshotAttributeRequest {
   DryRun?: boolean;
 }
 
-export namespace ResetSnapshotAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetSnapshotAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreAddressToClassicRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1634,15 +1184,6 @@ export interface RestoreAddressToClassicRequest {
   PublicIp: string | undefined;
 }
 
-export namespace RestoreAddressToClassicRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreAddressToClassicRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreAddressToClassicResult {
   /**
    * <p>The Elastic IP address.</p>
@@ -1653,15 +1194,6 @@ export interface RestoreAddressToClassicResult {
    * <p>The move status for the IP address.</p>
    */
   Status?: Status | string;
-}
-
-export namespace RestoreAddressToClassicResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreAddressToClassicResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreImageFromRecycleBinRequest {
@@ -1678,29 +1210,11 @@ export interface RestoreImageFromRecycleBinRequest {
   DryRun?: boolean;
 }
 
-export namespace RestoreImageFromRecycleBinRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreImageFromRecycleBinRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreImageFromRecycleBinResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
   Return?: boolean;
-}
-
-export namespace RestoreImageFromRecycleBinResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreImageFromRecycleBinResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreManagedPrefixListVersionRequest {
@@ -1727,29 +1241,11 @@ export interface RestoreManagedPrefixListVersionRequest {
   CurrentVersion: number | undefined;
 }
 
-export namespace RestoreManagedPrefixListVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreManagedPrefixListVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreManagedPrefixListVersionResult {
   /**
    * <p>Information about the prefix list.</p>
    */
   PrefixList?: ManagedPrefixList;
-}
-
-export namespace RestoreManagedPrefixListVersionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreManagedPrefixListVersionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreSnapshotFromRecycleBinRequest {
@@ -1764,15 +1260,6 @@ export interface RestoreSnapshotFromRecycleBinRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-}
-
-export namespace RestoreSnapshotFromRecycleBinRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreSnapshotFromRecycleBinRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreSnapshotFromRecycleBinResult {
@@ -1828,15 +1315,6 @@ export interface RestoreSnapshotFromRecycleBinResult {
   VolumeSize?: number;
 }
 
-export namespace RestoreSnapshotFromRecycleBinResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreSnapshotFromRecycleBinResult): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreSnapshotTierRequest {
   /**
    * <p>The ID of the snapshot to restore.</p>
@@ -1868,15 +1346,6 @@ export interface RestoreSnapshotTierRequest {
   DryRun?: boolean;
 }
 
-export namespace RestoreSnapshotTierRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreSnapshotTierRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreSnapshotTierResult {
   /**
    * <p>The ID of the snapshot.</p>
@@ -1899,15 +1368,6 @@ export interface RestoreSnapshotTierResult {
    *       restore. <code>false</code> indicates a temporary restore.</p>
    */
   IsPermanentRestore?: boolean;
-}
-
-export namespace RestoreSnapshotTierResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreSnapshotTierResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RevokeClientVpnIngressRequest {
@@ -1937,29 +1397,11 @@ export interface RevokeClientVpnIngressRequest {
   DryRun?: boolean;
 }
 
-export namespace RevokeClientVpnIngressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeClientVpnIngressRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeClientVpnIngressResult {
   /**
    * <p>The current state of the authorization rule.</p>
    */
   Status?: ClientVpnAuthorizationRuleStatus;
-}
-
-export namespace RevokeClientVpnIngressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeClientVpnIngressResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RevokeSecurityGroupEgressRequest {
@@ -2019,15 +1461,6 @@ export interface RevokeSecurityGroupEgressRequest {
   SourceSecurityGroupOwnerId?: string;
 }
 
-export namespace RevokeSecurityGroupEgressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeSecurityGroupEgressRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeSecurityGroupEgressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -2040,15 +1473,6 @@ export interface RevokeSecurityGroupEgressResult {
    *             parameter. </p>
    */
   UnknownIpPermissions?: IpPermission[];
-}
-
-export namespace RevokeSecurityGroupEgressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeSecurityGroupEgressResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RevokeSecurityGroupIngressRequest {
@@ -2117,15 +1541,6 @@ export interface RevokeSecurityGroupIngressRequest {
   SecurityGroupRuleIds?: string[];
 }
 
-export namespace RevokeSecurityGroupIngressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeSecurityGroupIngressRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeSecurityGroupIngressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
@@ -2138,15 +1553,6 @@ export interface RevokeSecurityGroupIngressResult {
    *             parameter. </p>
    */
   UnknownIpPermissions?: IpPermission[];
-}
-
-export namespace RevokeSecurityGroupIngressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeSecurityGroupIngressResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2165,15 +1571,6 @@ export interface CpuOptionsRequest {
    *                 <code>2</code>.</p>
    */
   ThreadsPerCore?: number;
-}
-
-export namespace CpuOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CpuOptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2198,15 +1595,6 @@ export interface ElasticInferenceAccelerator {
   Count?: number;
 }
 
-export namespace ElasticInferenceAccelerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
  *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro
@@ -2219,15 +1607,6 @@ export interface EnclaveOptionsRequest {
    *                 <code>true</code>.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace EnclaveOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnclaveOptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2244,15 +1623,6 @@ export interface HibernationOptionsRequest {
    *          </p>
    */
   Configured?: boolean;
-}
-
-export namespace HibernationOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HibernationOptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2305,15 +1675,6 @@ export interface SpotMarketOptions {
   InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
 }
 
-export namespace SpotMarketOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpotMarketOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the market (purchasing) option for the instances.</p>
  */
@@ -2327,15 +1688,6 @@ export interface InstanceMarketOptionsRequest {
    * <p>The options for Spot Instances.</p>
    */
   SpotOptions?: SpotMarketOptions;
-}
-
-export namespace InstanceMarketOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMarketOptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2362,15 +1714,6 @@ export interface LaunchTemplateSpecification {
   Version?: string;
 }
 
-export namespace LaunchTemplateSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a license configuration.</p>
  */
@@ -2379,15 +1722,6 @@ export interface LicenseConfigurationRequest {
    * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
    */
   LicenseConfigurationArn?: string;
-}
-
-export namespace LicenseConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2399,15 +1733,6 @@ export interface InstanceMaintenanceOptionsRequest {
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
    */
   AutoRecovery?: InstanceAutoRecoveryState | string;
-}
-
-export namespace InstanceMaintenanceOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMaintenanceOptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2462,15 +1787,6 @@ export interface InstanceMetadataOptionsRequest {
   InstanceMetadataTags?: InstanceMetadataTagsState | string;
 }
 
-export namespace InstanceMetadataOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMetadataOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the options for instance hostnames.</p>
  */
@@ -2494,15 +1810,6 @@ export interface PrivateDnsNameOptionsRequest {
    *             records.</p>
    */
   EnableResourceNameDnsAAAARecord?: boolean;
-}
-
-export namespace PrivateDnsNameOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateDnsNameOptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RunInstancesRequest {
@@ -2852,16 +2159,6 @@ export interface RunInstancesRequest {
   DisableApiStop?: boolean;
 }
 
-export namespace RunInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunInstancesRequest): any => ({
-    ...obj,
-    ...(obj.UserData && { UserData: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Describes an EBS volume for a Scheduled Instance.</p>
  */
@@ -2908,15 +2205,6 @@ export interface ScheduledInstancesEbs {
   VolumeType?: string;
 }
 
-export namespace ScheduledInstancesEbs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledInstancesEbs): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a block device mapping for a Scheduled Instance.</p>
  */
@@ -2949,15 +2237,6 @@ export interface ScheduledInstancesBlockDeviceMapping {
   VirtualName?: string;
 }
 
-export namespace ScheduledInstancesBlockDeviceMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledInstancesBlockDeviceMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an IAM instance profile for a Scheduled Instance.</p>
  */
@@ -2973,15 +2252,6 @@ export interface ScheduledInstancesIamInstanceProfile {
   Name?: string;
 }
 
-export namespace ScheduledInstancesIamInstanceProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledInstancesIamInstanceProfile): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes whether monitoring is enabled for a Scheduled Instance.</p>
  */
@@ -2992,15 +2262,6 @@ export interface ScheduledInstancesMonitoring {
   Enabled?: boolean;
 }
 
-export namespace ScheduledInstancesMonitoring {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledInstancesMonitoring): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an IPv6 address.</p>
  */
@@ -3009,15 +2270,6 @@ export interface ScheduledInstancesIpv6Address {
    * <p>The IPv6 address.</p>
    */
   Ipv6Address?: string;
-}
-
-export namespace ScheduledInstancesIpv6Address {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledInstancesIpv6Address): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3033,15 +2285,6 @@ export interface ScheduledInstancesPrivateIpAddressConfig {
    * <p>The IPv4 address.</p>
    */
   PrivateIpAddress?: string;
-}
-
-export namespace ScheduledInstancesPrivateIpAddressConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledInstancesPrivateIpAddressConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3113,15 +2356,6 @@ export interface ScheduledInstancesNetworkInterface {
   SubnetId?: string;
 }
 
-export namespace ScheduledInstancesNetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledInstancesNetworkInterface): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the placement for a Scheduled Instance.</p>
  */
@@ -3135,15 +2369,6 @@ export interface ScheduledInstancesPlacement {
    * <p>The name of the placement group.</p>
    */
   GroupName?: string;
-}
-
-export namespace ScheduledInstancesPlacement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledInstancesPlacement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3225,15 +2450,6 @@ export interface ScheduledInstancesLaunchSpecification {
   UserData?: string;
 }
 
-export namespace ScheduledInstancesLaunchSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledInstancesLaunchSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for RunScheduledInstances.</p>
  */
@@ -3269,15 +2485,6 @@ export interface RunScheduledInstancesRequest {
   ScheduledInstanceId: string | undefined;
 }
 
-export namespace RunScheduledInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunScheduledInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of RunScheduledInstances.</p>
  */
@@ -3286,15 +2493,6 @@ export interface RunScheduledInstancesResult {
    * <p>The IDs of the newly launched instances.</p>
    */
   InstanceIdSet?: string[];
-}
-
-export namespace RunScheduledInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RunScheduledInstancesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchLocalGatewayRoutesRequest {
@@ -3355,15 +2553,6 @@ export interface SearchLocalGatewayRoutesRequest {
   DryRun?: boolean;
 }
 
-export namespace SearchLocalGatewayRoutesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchLocalGatewayRoutesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchLocalGatewayRoutesResult {
   /**
    * <p>Information about the routes.</p>
@@ -3374,15 +2563,6 @@ export interface SearchLocalGatewayRoutesResult {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace SearchLocalGatewayRoutesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchLocalGatewayRoutesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchTransitGatewayMulticastGroupsRequest {
@@ -3453,15 +2633,6 @@ export interface SearchTransitGatewayMulticastGroupsRequest {
   DryRun?: boolean;
 }
 
-export namespace SearchTransitGatewayMulticastGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchTransitGatewayMulticastGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export type MembershipType = "igmp" | "static";
 
 /**
@@ -3524,15 +2695,6 @@ export interface TransitGatewayMulticastGroup {
   SourceType?: MembershipType | string;
 }
 
-export namespace TransitGatewayMulticastGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitGatewayMulticastGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchTransitGatewayMulticastGroupsResult {
   /**
    * <p>Information about the  transit gateway multicast group.</p>
@@ -3543,15 +2705,6 @@ export interface SearchTransitGatewayMulticastGroupsResult {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace SearchTransitGatewayMulticastGroupsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchTransitGatewayMulticastGroupsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchTransitGatewayRoutesRequest {
@@ -3623,15 +2776,6 @@ export interface SearchTransitGatewayRoutesRequest {
   DryRun?: boolean;
 }
 
-export namespace SearchTransitGatewayRoutesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchTransitGatewayRoutesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchTransitGatewayRoutesResult {
   /**
    * <p>Information about the routes.</p>
@@ -3642,15 +2786,6 @@ export interface SearchTransitGatewayRoutesResult {
    * <p>Indicates whether there are additional routes available.</p>
    */
   AdditionalRoutesAvailable?: boolean;
-}
-
-export namespace SearchTransitGatewayRoutesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchTransitGatewayRoutesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface SendDiagnosticInterruptRequest {
@@ -3665,15 +2800,6 @@ export interface SendDiagnosticInterruptRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-}
-
-export namespace SendDiagnosticInterruptRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendDiagnosticInterruptRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartInstancesRequest {
@@ -3693,15 +2819,6 @@ export interface StartInstancesRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-}
-
-export namespace StartInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInstancesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3724,29 +2841,11 @@ export interface InstanceStateChange {
   PreviousState?: InstanceState;
 }
 
-export namespace InstanceStateChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceStateChange): any => ({
-    ...obj,
-  });
-}
-
 export interface StartInstancesResult {
   /**
    * <p>Information about the started instances.</p>
    */
   StartingInstances?: InstanceStateChange[];
-}
-
-export namespace StartInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInstancesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StartNetworkInsightsAccessScopeAnalysisRequest {
@@ -3774,29 +2873,11 @@ export interface StartNetworkInsightsAccessScopeAnalysisRequest {
   ClientToken?: string;
 }
 
-export namespace StartNetworkInsightsAccessScopeAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartNetworkInsightsAccessScopeAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartNetworkInsightsAccessScopeAnalysisResult {
   /**
    * <p>The Network Access Scope analysis.</p>
    */
   NetworkInsightsAccessScopeAnalysis?: NetworkInsightsAccessScopeAnalysis;
-}
-
-export namespace StartNetworkInsightsAccessScopeAnalysisResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartNetworkInsightsAccessScopeAnalysisResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StartNetworkInsightsAnalysisRequest {
@@ -3829,29 +2910,11 @@ export interface StartNetworkInsightsAnalysisRequest {
   ClientToken?: string;
 }
 
-export namespace StartNetworkInsightsAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartNetworkInsightsAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartNetworkInsightsAnalysisResult {
   /**
    * <p>Information about the network insights analysis.</p>
    */
   NetworkInsightsAnalysis?: NetworkInsightsAnalysis;
-}
-
-export namespace StartNetworkInsightsAnalysisResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartNetworkInsightsAnalysisResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
@@ -3868,29 +2931,11 @@ export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
   ServiceId: string | undefined;
 }
 
-export namespace StartVpcEndpointServicePrivateDnsVerificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartVpcEndpointServicePrivateDnsVerificationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartVpcEndpointServicePrivateDnsVerificationResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
    */
   ReturnValue?: boolean;
-}
-
-export namespace StartVpcEndpointServicePrivateDnsVerificationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartVpcEndpointServicePrivateDnsVerificationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StopInstancesRequest {
@@ -3927,29 +2972,11 @@ export interface StopInstancesRequest {
   Force?: boolean;
 }
 
-export namespace StopInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopInstancesResult {
   /**
    * <p>Information about the stopped instances.</p>
    */
   StoppingInstances?: InstanceStateChange[];
-}
-
-export namespace StopInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopInstancesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface TerminateClientVpnConnectionsRequest {
@@ -3975,15 +3002,6 @@ export interface TerminateClientVpnConnectionsRequest {
   DryRun?: boolean;
 }
 
-export namespace TerminateClientVpnConnectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateClientVpnConnectionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a terminated Client VPN endpoint client connection.</p>
  */
@@ -4004,15 +3022,6 @@ export interface TerminateConnectionStatus {
   CurrentStatus?: ClientVpnConnectionStatus;
 }
 
-export namespace TerminateConnectionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateConnectionStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateClientVpnConnectionsResult {
   /**
    * <p>The ID of the Client VPN endpoint.</p>
@@ -4028,15 +3037,6 @@ export interface TerminateClientVpnConnectionsResult {
    * <p>The current state of the client connections.</p>
    */
   ConnectionStatuses?: TerminateConnectionStatus[];
-}
-
-export namespace TerminateClientVpnConnectionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateClientVpnConnectionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface TerminateInstancesRequest {
@@ -4055,29 +3055,11 @@ export interface TerminateInstancesRequest {
   DryRun?: boolean;
 }
 
-export namespace TerminateInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateInstancesResult {
   /**
    * <p>Information about the terminated instances.</p>
    */
   TerminatingInstances?: InstanceStateChange[];
-}
-
-export namespace TerminateInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateInstancesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UnassignIpv6AddressesRequest {
@@ -4097,15 +3079,6 @@ export interface UnassignIpv6AddressesRequest {
   NetworkInterfaceId: string | undefined;
 }
 
-export namespace UnassignIpv6AddressesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnassignIpv6AddressesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UnassignIpv6AddressesResult {
   /**
    * <p>The ID of the network interface.</p>
@@ -4121,15 +3094,6 @@ export interface UnassignIpv6AddressesResult {
    * <p>The IPv4 prefixes that have been unassigned from  the network interface.</p>
    */
   UnassignedIpv6Prefixes?: string[];
-}
-
-export namespace UnassignIpv6AddressesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnassignIpv6AddressesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4152,15 +3116,6 @@ export interface UnassignPrivateIpAddressesRequest {
   Ipv4Prefixes?: string[];
 }
 
-export namespace UnassignPrivateIpAddressesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnassignPrivateIpAddressesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UnmonitorInstancesRequest {
   /**
    * <p>The IDs of the instances.</p>
@@ -4175,29 +3130,11 @@ export interface UnmonitorInstancesRequest {
   DryRun?: boolean;
 }
 
-export namespace UnmonitorInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnmonitorInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UnmonitorInstancesResult {
   /**
    * <p>The monitoring information.</p>
    */
   InstanceMonitorings?: InstanceMonitoring[];
-}
-
-export namespace UnmonitorInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnmonitorInstancesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4214,15 +3151,6 @@ export interface SecurityGroupRuleDescription {
    * <p>The description of the security group rule.</p>
    */
   Description?: string;
-}
-
-export namespace SecurityGroupRuleDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupRuleDescription): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
@@ -4259,29 +3187,11 @@ export interface UpdateSecurityGroupRuleDescriptionsEgressRequest {
   SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
 }
 
-export namespace UpdateSecurityGroupRuleDescriptionsEgressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsEgressRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSecurityGroupRuleDescriptionsEgressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
    */
   Return?: boolean;
-}
-
-export namespace UpdateSecurityGroupRuleDescriptionsEgressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsEgressResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
@@ -4318,29 +3228,11 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressRequest {
   SecurityGroupRuleDescriptions?: SecurityGroupRuleDescription[];
 }
 
-export namespace UpdateSecurityGroupRuleDescriptionsIngressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsIngressRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSecurityGroupRuleDescriptionsIngressResult {
   /**
    * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
    */
   Return?: boolean;
-}
-
-export namespace UpdateSecurityGroupRuleDescriptionsIngressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSecurityGroupRuleDescriptionsIngressResult): any => ({
-    ...obj,
-  });
 }
 
 export interface WithdrawByoipCidrRequest {
@@ -4357,15 +3249,6 @@ export interface WithdrawByoipCidrRequest {
   DryRun?: boolean;
 }
 
-export namespace WithdrawByoipCidrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface WithdrawByoipCidrResult {
   /**
    * <p>Information about the address pool.</p>
@@ -4373,11 +3256,962 @@ export interface WithdrawByoipCidrResult {
   ByoipCidr?: ByoipCidr;
 }
 
-export namespace WithdrawByoipCidrResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WithdrawByoipCidrResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RegisterInstanceTagAttributeRequestFilterSensitiveLog = (
+  obj: RegisterInstanceTagAttributeRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterInstanceEventNotificationAttributesRequestFilterSensitiveLog = (
+  obj: RegisterInstanceEventNotificationAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterInstanceEventNotificationAttributesResultFilterSensitiveLog = (
+  obj: RegisterInstanceEventNotificationAttributesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTransitGatewayMulticastGroupMembersRequestFilterSensitiveLog = (
+  obj: RegisterTransitGatewayMulticastGroupMembersRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransitGatewayMulticastRegisteredGroupMembersFilterSensitiveLog = (
+  obj: TransitGatewayMulticastRegisteredGroupMembers
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTransitGatewayMulticastGroupMembersResultFilterSensitiveLog = (
+  obj: RegisterTransitGatewayMulticastGroupMembersResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTransitGatewayMulticastGroupSourcesRequestFilterSensitiveLog = (
+  obj: RegisterTransitGatewayMulticastGroupSourcesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransitGatewayMulticastRegisteredGroupSourcesFilterSensitiveLog = (
+  obj: TransitGatewayMulticastRegisteredGroupSources
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTransitGatewayMulticastGroupSourcesResultFilterSensitiveLog = (
+  obj: RegisterTransitGatewayMulticastGroupSourcesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectTransitGatewayMulticastDomainAssociationsRequestFilterSensitiveLog = (
+  obj: RejectTransitGatewayMulticastDomainAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectTransitGatewayMulticastDomainAssociationsResultFilterSensitiveLog = (
+  obj: RejectTransitGatewayMulticastDomainAssociationsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectTransitGatewayPeeringAttachmentRequestFilterSensitiveLog = (
+  obj: RejectTransitGatewayPeeringAttachmentRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectTransitGatewayPeeringAttachmentResultFilterSensitiveLog = (
+  obj: RejectTransitGatewayPeeringAttachmentResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectTransitGatewayVpcAttachmentRequestFilterSensitiveLog = (
+  obj: RejectTransitGatewayVpcAttachmentRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectTransitGatewayVpcAttachmentResultFilterSensitiveLog = (
+  obj: RejectTransitGatewayVpcAttachmentResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectVpcEndpointConnectionsRequestFilterSensitiveLog = (
+  obj: RejectVpcEndpointConnectionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectVpcEndpointConnectionsResultFilterSensitiveLog = (obj: RejectVpcEndpointConnectionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectVpcPeeringConnectionRequestFilterSensitiveLog = (obj: RejectVpcPeeringConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectVpcPeeringConnectionResultFilterSensitiveLog = (obj: RejectVpcPeeringConnectionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseAddressRequestFilterSensitiveLog = (obj: ReleaseAddressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseHostsRequestFilterSensitiveLog = (obj: ReleaseHostsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseHostsResultFilterSensitiveLog = (obj: ReleaseHostsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseIpamPoolAllocationRequestFilterSensitiveLog = (obj: ReleaseIpamPoolAllocationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseIpamPoolAllocationResultFilterSensitiveLog = (obj: ReleaseIpamPoolAllocationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceIamInstanceProfileAssociationRequestFilterSensitiveLog = (
+  obj: ReplaceIamInstanceProfileAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceIamInstanceProfileAssociationResultFilterSensitiveLog = (
+  obj: ReplaceIamInstanceProfileAssociationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceNetworkAclAssociationRequestFilterSensitiveLog = (
+  obj: ReplaceNetworkAclAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceNetworkAclAssociationResultFilterSensitiveLog = (obj: ReplaceNetworkAclAssociationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceNetworkAclEntryRequestFilterSensitiveLog = (obj: ReplaceNetworkAclEntryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceRouteRequestFilterSensitiveLog = (obj: ReplaceRouteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceRouteTableAssociationRequestFilterSensitiveLog = (
+  obj: ReplaceRouteTableAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceRouteTableAssociationResultFilterSensitiveLog = (obj: ReplaceRouteTableAssociationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceTransitGatewayRouteRequestFilterSensitiveLog = (obj: ReplaceTransitGatewayRouteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplaceTransitGatewayRouteResultFilterSensitiveLog = (obj: ReplaceTransitGatewayRouteResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportInstanceStatusRequestFilterSensitiveLog = (obj: ReportInstanceStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestSpotFleetRequestFilterSensitiveLog = (obj: RequestSpotFleetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestSpotFleetResponseFilterSensitiveLog = (obj: RequestSpotFleetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestSpotLaunchSpecificationFilterSensitiveLog = (obj: RequestSpotLaunchSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestSpotInstancesRequestFilterSensitiveLog = (obj: RequestSpotInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestSpotInstancesResultFilterSensitiveLog = (obj: RequestSpotInstancesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetAddressAttributeRequestFilterSensitiveLog = (obj: ResetAddressAttributeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetAddressAttributeResultFilterSensitiveLog = (obj: ResetAddressAttributeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetEbsDefaultKmsKeyIdRequestFilterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetEbsDefaultKmsKeyIdResultFilterSensitiveLog = (obj: ResetEbsDefaultKmsKeyIdResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetFpgaImageAttributeRequestFilterSensitiveLog = (obj: ResetFpgaImageAttributeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetFpgaImageAttributeResultFilterSensitiveLog = (obj: ResetFpgaImageAttributeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetImageAttributeRequestFilterSensitiveLog = (obj: ResetImageAttributeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetInstanceAttributeRequestFilterSensitiveLog = (obj: ResetInstanceAttributeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetNetworkInterfaceAttributeRequestFilterSensitiveLog = (
+  obj: ResetNetworkInterfaceAttributeRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetSnapshotAttributeRequestFilterSensitiveLog = (obj: ResetSnapshotAttributeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreAddressToClassicRequestFilterSensitiveLog = (obj: RestoreAddressToClassicRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreAddressToClassicResultFilterSensitiveLog = (obj: RestoreAddressToClassicResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreImageFromRecycleBinRequestFilterSensitiveLog = (obj: RestoreImageFromRecycleBinRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreImageFromRecycleBinResultFilterSensitiveLog = (obj: RestoreImageFromRecycleBinResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreManagedPrefixListVersionRequestFilterSensitiveLog = (
+  obj: RestoreManagedPrefixListVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreManagedPrefixListVersionResultFilterSensitiveLog = (
+  obj: RestoreManagedPrefixListVersionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreSnapshotFromRecycleBinRequestFilterSensitiveLog = (
+  obj: RestoreSnapshotFromRecycleBinRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreSnapshotFromRecycleBinResultFilterSensitiveLog = (
+  obj: RestoreSnapshotFromRecycleBinResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreSnapshotTierRequestFilterSensitiveLog = (obj: RestoreSnapshotTierRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreSnapshotTierResultFilterSensitiveLog = (obj: RestoreSnapshotTierResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeClientVpnIngressRequestFilterSensitiveLog = (obj: RevokeClientVpnIngressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeClientVpnIngressResultFilterSensitiveLog = (obj: RevokeClientVpnIngressResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeSecurityGroupEgressRequestFilterSensitiveLog = (obj: RevokeSecurityGroupEgressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeSecurityGroupEgressResultFilterSensitiveLog = (obj: RevokeSecurityGroupEgressResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeSecurityGroupIngressRequestFilterSensitiveLog = (obj: RevokeSecurityGroupIngressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeSecurityGroupIngressResultFilterSensitiveLog = (obj: RevokeSecurityGroupIngressResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CpuOptionsRequestFilterSensitiveLog = (obj: CpuOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticInferenceAcceleratorFilterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnclaveOptionsRequestFilterSensitiveLog = (obj: EnclaveOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HibernationOptionsRequestFilterSensitiveLog = (obj: HibernationOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpotMarketOptionsFilterSensitiveLog = (obj: SpotMarketOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceMarketOptionsRequestFilterSensitiveLog = (obj: InstanceMarketOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchTemplateSpecificationFilterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseConfigurationRequestFilterSensitiveLog = (obj: LicenseConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceMaintenanceOptionsRequestFilterSensitiveLog = (obj: InstanceMaintenanceOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceMetadataOptionsRequestFilterSensitiveLog = (obj: InstanceMetadataOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrivateDnsNameOptionsRequestFilterSensitiveLog = (obj: PrivateDnsNameOptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunInstancesRequestFilterSensitiveLog = (obj: RunInstancesRequest): any => ({
+  ...obj,
+  ...(obj.UserData && { UserData: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ScheduledInstancesEbsFilterSensitiveLog = (obj: ScheduledInstancesEbs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledInstancesBlockDeviceMappingFilterSensitiveLog = (
+  obj: ScheduledInstancesBlockDeviceMapping
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledInstancesIamInstanceProfileFilterSensitiveLog = (
+  obj: ScheduledInstancesIamInstanceProfile
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledInstancesMonitoringFilterSensitiveLog = (obj: ScheduledInstancesMonitoring): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledInstancesIpv6AddressFilterSensitiveLog = (obj: ScheduledInstancesIpv6Address): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledInstancesPrivateIpAddressConfigFilterSensitiveLog = (
+  obj: ScheduledInstancesPrivateIpAddressConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledInstancesNetworkInterfaceFilterSensitiveLog = (obj: ScheduledInstancesNetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledInstancesPlacementFilterSensitiveLog = (obj: ScheduledInstancesPlacement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledInstancesLaunchSpecificationFilterSensitiveLog = (
+  obj: ScheduledInstancesLaunchSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunScheduledInstancesRequestFilterSensitiveLog = (obj: RunScheduledInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RunScheduledInstancesResultFilterSensitiveLog = (obj: RunScheduledInstancesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchLocalGatewayRoutesRequestFilterSensitiveLog = (obj: SearchLocalGatewayRoutesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchLocalGatewayRoutesResultFilterSensitiveLog = (obj: SearchLocalGatewayRoutesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchTransitGatewayMulticastGroupsRequestFilterSensitiveLog = (
+  obj: SearchTransitGatewayMulticastGroupsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransitGatewayMulticastGroupFilterSensitiveLog = (obj: TransitGatewayMulticastGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchTransitGatewayMulticastGroupsResultFilterSensitiveLog = (
+  obj: SearchTransitGatewayMulticastGroupsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchTransitGatewayRoutesRequestFilterSensitiveLog = (obj: SearchTransitGatewayRoutesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchTransitGatewayRoutesResultFilterSensitiveLog = (obj: SearchTransitGatewayRoutesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendDiagnosticInterruptRequestFilterSensitiveLog = (obj: SendDiagnosticInterruptRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInstancesRequestFilterSensitiveLog = (obj: StartInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceStateChangeFilterSensitiveLog = (obj: InstanceStateChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInstancesResultFilterSensitiveLog = (obj: StartInstancesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartNetworkInsightsAccessScopeAnalysisRequestFilterSensitiveLog = (
+  obj: StartNetworkInsightsAccessScopeAnalysisRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartNetworkInsightsAccessScopeAnalysisResultFilterSensitiveLog = (
+  obj: StartNetworkInsightsAccessScopeAnalysisResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartNetworkInsightsAnalysisRequestFilterSensitiveLog = (
+  obj: StartNetworkInsightsAnalysisRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartNetworkInsightsAnalysisResultFilterSensitiveLog = (obj: StartNetworkInsightsAnalysisResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartVpcEndpointServicePrivateDnsVerificationRequestFilterSensitiveLog = (
+  obj: StartVpcEndpointServicePrivateDnsVerificationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartVpcEndpointServicePrivateDnsVerificationResultFilterSensitiveLog = (
+  obj: StartVpcEndpointServicePrivateDnsVerificationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopInstancesRequestFilterSensitiveLog = (obj: StopInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopInstancesResultFilterSensitiveLog = (obj: StopInstancesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateClientVpnConnectionsRequestFilterSensitiveLog = (
+  obj: TerminateClientVpnConnectionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateConnectionStatusFilterSensitiveLog = (obj: TerminateConnectionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateClientVpnConnectionsResultFilterSensitiveLog = (
+  obj: TerminateClientVpnConnectionsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateInstancesRequestFilterSensitiveLog = (obj: TerminateInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateInstancesResultFilterSensitiveLog = (obj: TerminateInstancesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnassignIpv6AddressesRequestFilterSensitiveLog = (obj: UnassignIpv6AddressesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnassignIpv6AddressesResultFilterSensitiveLog = (obj: UnassignIpv6AddressesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnassignPrivateIpAddressesRequestFilterSensitiveLog = (obj: UnassignPrivateIpAddressesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnmonitorInstancesRequestFilterSensitiveLog = (obj: UnmonitorInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnmonitorInstancesResultFilterSensitiveLog = (obj: UnmonitorInstancesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityGroupRuleDescriptionFilterSensitiveLog = (obj: SecurityGroupRuleDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSecurityGroupRuleDescriptionsEgressRequestFilterSensitiveLog = (
+  obj: UpdateSecurityGroupRuleDescriptionsEgressRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSecurityGroupRuleDescriptionsEgressResultFilterSensitiveLog = (
+  obj: UpdateSecurityGroupRuleDescriptionsEgressResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSecurityGroupRuleDescriptionsIngressRequestFilterSensitiveLog = (
+  obj: UpdateSecurityGroupRuleDescriptionsIngressRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSecurityGroupRuleDescriptionsIngressResultFilterSensitiveLog = (
+  obj: UpdateSecurityGroupRuleDescriptionsIngressResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WithdrawByoipCidrRequestFilterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WithdrawByoipCidrResultFilterSensitiveLog = (obj: WithdrawByoipCidrResult): any => ({
+  ...obj,
+});

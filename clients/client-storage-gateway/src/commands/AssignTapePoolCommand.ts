@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssignTapePoolInput, AssignTapePoolOutput } from "../models/models_0";
+import {
+  AssignTapePoolInput,
+  AssignTapePoolInputFilterSensitiveLog,
+  AssignTapePoolOutput,
+  AssignTapePoolOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssignTapePoolCommand,
   serializeAws_json1_1AssignTapePoolCommand,
@@ -75,8 +80,8 @@ export class AssignTapePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignTapePoolInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AssignTapePoolOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AssignTapePoolInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AssignTapePoolOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

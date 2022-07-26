@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeletePermissionSetRequest, DeletePermissionSetResponse } from "../models/models_0";
+import {
+  DeletePermissionSetRequest,
+  DeletePermissionSetRequestFilterSensitiveLog,
+  DeletePermissionSetResponse,
+  DeletePermissionSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePermissionSetCommand,
   serializeAws_json1_1DeletePermissionSetCommand,
@@ -72,8 +77,8 @@ export class DeletePermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePermissionSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePermissionSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

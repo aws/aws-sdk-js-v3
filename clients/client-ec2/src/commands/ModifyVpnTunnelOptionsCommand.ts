@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVpnTunnelOptionsRequest, ModifyVpnTunnelOptionsResult } from "../models/models_5";
+import {
+  ModifyVpnTunnelOptionsRequest,
+  ModifyVpnTunnelOptionsRequestFilterSensitiveLog,
+  ModifyVpnTunnelOptionsResult,
+  ModifyVpnTunnelOptionsResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyVpnTunnelOptionsCommand,
   serializeAws_ec2ModifyVpnTunnelOptionsCommand,
@@ -75,8 +80,8 @@ export class ModifyVpnTunnelOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVpnTunnelOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVpnTunnelOptionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyVpnTunnelOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyVpnTunnelOptionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

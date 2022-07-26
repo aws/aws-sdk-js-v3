@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { AssociateApprovedOriginRequest } from "../models/models_0";
+import { AssociateApprovedOriginRequest, AssociateApprovedOriginRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateApprovedOriginCommand,
   serializeAws_restJson1AssociateApprovedOriginCommand,
@@ -73,7 +73,7 @@ export class AssociateApprovedOriginCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateApprovedOriginRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateApprovedOriginRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

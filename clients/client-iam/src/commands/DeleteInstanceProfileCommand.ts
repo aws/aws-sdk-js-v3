@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteInstanceProfileRequest } from "../models/models_0";
+import { DeleteInstanceProfileRequest, DeleteInstanceProfileRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteInstanceProfileCommand,
   serializeAws_queryDeleteInstanceProfileCommand,
@@ -81,7 +81,7 @@ export class DeleteInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceProfileRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInstanceProfileRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

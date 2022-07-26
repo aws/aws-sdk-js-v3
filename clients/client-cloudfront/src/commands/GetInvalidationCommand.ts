@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetInvalidationRequest, GetInvalidationResult } from "../models/models_1";
+import {
+  GetInvalidationRequest,
+  GetInvalidationRequestFilterSensitiveLog,
+  GetInvalidationResult,
+  GetInvalidationResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlGetInvalidationCommand,
   serializeAws_restXmlGetInvalidationCommand,
@@ -72,8 +77,8 @@ export class GetInvalidationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInvalidationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInvalidationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInvalidationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInvalidationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

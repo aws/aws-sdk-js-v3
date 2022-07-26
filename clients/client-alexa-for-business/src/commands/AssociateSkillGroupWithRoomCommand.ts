@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { AssociateSkillGroupWithRoomRequest, AssociateSkillGroupWithRoomResponse } from "../models/models_0";
+import {
+  AssociateSkillGroupWithRoomRequest,
+  AssociateSkillGroupWithRoomRequestFilterSensitiveLog,
+  AssociateSkillGroupWithRoomResponse,
+  AssociateSkillGroupWithRoomResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateSkillGroupWithRoomCommand,
   serializeAws_json1_1AssociateSkillGroupWithRoomCommand,
@@ -75,8 +80,8 @@ export class AssociateSkillGroupWithRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSkillGroupWithRoomRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSkillGroupWithRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateSkillGroupWithRoomRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSkillGroupWithRoomResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

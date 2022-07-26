@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopInferenceRecommendationsJobRequest } from "../models/models_3";
+import {
+  StopInferenceRecommendationsJobRequest,
+  StopInferenceRecommendationsJobRequestFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_json1_1StopInferenceRecommendationsJobCommand,
   serializeAws_json1_1StopInferenceRecommendationsJobCommand,
@@ -72,7 +75,7 @@ export class StopInferenceRecommendationsJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopInferenceRecommendationsJobRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StopInferenceRecommendationsJobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

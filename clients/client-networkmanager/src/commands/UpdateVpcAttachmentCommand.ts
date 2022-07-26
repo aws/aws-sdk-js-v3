@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateVpcAttachmentRequest, UpdateVpcAttachmentResponse } from "../models/models_0";
+import {
+  UpdateVpcAttachmentRequest,
+  UpdateVpcAttachmentRequestFilterSensitiveLog,
+  UpdateVpcAttachmentResponse,
+  UpdateVpcAttachmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1UpdateVpcAttachmentCommand,
@@ -72,8 +77,8 @@ export class UpdateVpcAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVpcAttachmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVpcAttachmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVpcAttachmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVpcAttachmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

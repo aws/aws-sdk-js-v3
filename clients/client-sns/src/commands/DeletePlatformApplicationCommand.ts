@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeletePlatformApplicationInput } from "../models/models_0";
+import { DeletePlatformApplicationInput, DeletePlatformApplicationInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeletePlatformApplicationCommand,
   serializeAws_queryDeletePlatformApplicationCommand,
@@ -75,7 +75,7 @@ export class DeletePlatformApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePlatformApplicationInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePlatformApplicationInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

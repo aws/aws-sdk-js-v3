@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import { UpdateDestinationInput, UpdateDestinationOutput } from "../models/models_0";
+import {
+  UpdateDestinationInput,
+  UpdateDestinationInputFilterSensitiveLog,
+  UpdateDestinationOutput,
+  UpdateDestinationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDestinationCommand,
   serializeAws_json1_1UpdateDestinationCommand,
@@ -95,8 +100,8 @@ export class UpdateDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDestinationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDestinationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDestinationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDestinationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

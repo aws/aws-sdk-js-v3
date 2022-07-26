@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import { DeleteHsmRequest, DeleteHsmResponse } from "../models/models_0";
+import {
+  DeleteHsmRequest,
+  DeleteHsmRequestFilterSensitiveLog,
+  DeleteHsmResponse,
+  DeleteHsmResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1DeleteHsmCommand, serializeAws_json1_1DeleteHsmCommand } from "../protocols/Aws_json1_1";
 
 export interface DeleteHsmCommandInput extends DeleteHsmRequest {}
@@ -71,8 +76,8 @@ export class DeleteHsmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHsmRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHsmResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteHsmRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHsmResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

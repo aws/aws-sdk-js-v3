@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { DeleteNetworkProfileRequest, DeleteNetworkProfileResult } from "../models/models_0";
+import {
+  DeleteNetworkProfileRequest,
+  DeleteNetworkProfileRequestFilterSensitiveLog,
+  DeleteNetworkProfileResult,
+  DeleteNetworkProfileResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteNetworkProfileCommand,
   serializeAws_json1_1DeleteNetworkProfileCommand,
@@ -72,8 +77,8 @@ export class DeleteNetworkProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkProfileResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNetworkProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteNetworkProfileResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

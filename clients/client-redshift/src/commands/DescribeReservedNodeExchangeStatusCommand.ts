@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeReservedNodeExchangeStatusInputMessage,
+  DescribeReservedNodeExchangeStatusInputMessageFilterSensitiveLog,
   DescribeReservedNodeExchangeStatusOutputMessage,
+  DescribeReservedNodeExchangeStatusOutputMessageFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_queryDescribeReservedNodeExchangeStatusCommand,
@@ -79,8 +81,8 @@ export class DescribeReservedNodeExchangeStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedNodeExchangeStatusInputMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservedNodeExchangeStatusOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReservedNodeExchangeStatusInputMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReservedNodeExchangeStatusOutputMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateAppRequest, CreateAppResponse } from "../models/models_0";
+import {
+  CreateAppRequest,
+  CreateAppRequestFilterSensitiveLog,
+  CreateAppResponse,
+  CreateAppResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1CreateAppCommand, serializeAws_json1_1CreateAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
@@ -66,8 +71,8 @@ export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAppRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAppResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

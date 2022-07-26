@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendTestEventNotificationRequest, SendTestEventNotificationResponse } from "../models/models_0";
+import {
+  SendTestEventNotificationRequest,
+  SendTestEventNotificationRequestFilterSensitiveLog,
+  SendTestEventNotificationResponse,
+  SendTestEventNotificationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1SendTestEventNotificationCommand,
@@ -78,8 +83,8 @@ export class SendTestEventNotificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendTestEventNotificationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendTestEventNotificationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendTestEventNotificationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendTestEventNotificationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

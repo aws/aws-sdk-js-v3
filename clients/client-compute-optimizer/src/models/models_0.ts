@@ -57,15 +57,6 @@ export interface AccountEnrollmentStatus {
   lastUpdatedTimestamp?: Date;
 }
 
-export namespace AccountEnrollmentStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountEnrollmentStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the configuration of an Auto Scaling group.</p>
  */
@@ -91,15 +82,6 @@ export interface AutoScalingGroupConfiguration {
    * <p>The instance type for the Auto Scaling group.</p>
    */
   instanceType?: string;
-}
-
-export namespace AutoScalingGroupConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingGroupConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum CurrentPerformanceRisk {
@@ -169,15 +151,6 @@ export interface EffectiveRecommendationPreferences {
    *             applied to recommendations.</p>
    */
   inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
-}
-
-export namespace EffectiveRecommendationPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EffectiveRecommendationPreferences): any => ({
-    ...obj,
-  });
 }
 
 export enum Finding {
@@ -369,15 +342,6 @@ export interface UtilizationMetric {
   value?: number;
 }
 
-export namespace UtilizationMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UtilizationMetric): any => ({
-    ...obj,
-  });
-}
-
 export enum Currency {
   CNY = "CNY",
   USD = "USD",
@@ -400,15 +364,6 @@ export interface EstimatedMonthlySavings {
    * <p>The value of the estimated monthly savings.</p>
    */
   value?: number;
-}
-
-export namespace EstimatedMonthlySavings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EstimatedMonthlySavings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -442,15 +397,6 @@ export interface SavingsOpportunity {
    *             resource.</p>
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings;
-}
-
-export namespace SavingsOpportunity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SavingsOpportunity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -518,15 +464,6 @@ export interface AutoScalingGroupRecommendationOption {
    *             same CPU architecture.</p>
    */
   migrationEffort?: MigrationEffort | string;
-}
-
-export namespace AutoScalingGroupRecommendationOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingGroupRecommendationOption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -662,15 +599,6 @@ export interface AutoScalingGroupRecommendation {
   inferredWorkloadTypes?: (InferredWorkloadType | string)[];
 }
 
-export namespace AutoScalingGroupRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingGroupRecommendation): any => ({
-    ...obj,
-  });
-}
-
 export enum RecommendationPreferenceName {
   ENHANCED_INFRASTRUCTURE_METRICS = "EnhancedInfrastructureMetrics",
   INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
@@ -758,15 +686,6 @@ export interface Scope {
   value?: string;
 }
 
-export namespace Scope {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scope): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRecommendationPreferencesRequest {
   /**
    * <p>The target resource type of the recommendation preference to delete.</p>
@@ -799,25 +718,7 @@ export interface DeleteRecommendationPreferencesRequest {
   recommendationPreferenceNames: (RecommendationPreferenceName | string)[] | undefined;
 }
 
-export namespace DeleteRecommendationPreferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRecommendationPreferencesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRecommendationPreferencesResponse {}
-
-export namespace DeleteRecommendationPreferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRecommendationPreferencesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An internal error has occurred. Try your call again.</p>
@@ -997,15 +898,6 @@ export interface JobFilter {
   values?: string[];
 }
 
-export namespace JobFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRecommendationExportJobsRequest {
   /**
    * <p>The identification numbers of the export jobs to return.</p>
@@ -1034,15 +926,6 @@ export interface DescribeRecommendationExportJobsRequest {
   maxResults?: number;
 }
 
-export namespace DescribeRecommendationExportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecommendationExportJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
  *             object keys of a recommendations export file, and its associated metadata file.</p>
@@ -1067,15 +950,6 @@ export interface S3Destination {
   metadataKey?: string;
 }
 
-export namespace S3Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Destination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the destination of the recommendations export and metadata files.</p>
  */
@@ -1086,15 +960,6 @@ export interface ExportDestination {
    *             metadata file.</p>
    */
   s3?: S3Destination;
-}
-
-export namespace ExportDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportDestination): any => ({
-    ...obj,
-  });
 }
 
 export enum JobStatus {
@@ -1148,15 +1013,6 @@ export interface RecommendationExportJob {
   failureReason?: string;
 }
 
-export namespace RecommendationExportJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationExportJob): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRecommendationExportJobsResponse {
   /**
    * <p>An array of objects that describe recommendation export jobs.</p>
@@ -1168,15 +1024,6 @@ export interface DescribeRecommendationExportJobsResponse {
    *         <p>This value is null when there are no more pages of export jobs to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeRecommendationExportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecommendationExportJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ExportableAutoScalingGroupField {
@@ -1436,15 +1283,6 @@ export interface Filter {
   values?: string[];
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the recommendation preferences to return in the response of a <a>GetAutoScalingGroupRecommendations</a>, <a>GetEC2InstanceRecommendations</a>, and <a>GetEC2RecommendationProjectedMetrics</a> request.</p>
  */
@@ -1470,15 +1308,6 @@ export interface RecommendationPreferences {
   cpuVendorArchitectures?: (CpuVendorArchitecture | string)[];
 }
 
-export namespace RecommendationPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationPreferences): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
  *             key prefix for a recommendations export job.</p>
@@ -1501,15 +1330,6 @@ export interface S3DestinationConfig {
    * <p>The Amazon S3 bucket prefix for an export job.</p>
    */
   keyPrefix?: string;
-}
-
-export namespace S3DestinationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface ExportAutoScalingGroupRecommendationsRequest {
@@ -1580,15 +1400,6 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
   recommendationPreferences?: RecommendationPreferences;
 }
 
-export namespace ExportAutoScalingGroupRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportAutoScalingGroupRecommendationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportAutoScalingGroupRecommendationsResponse {
   /**
    * <p>The identification number of the export job.</p>
@@ -1602,15 +1413,6 @@ export interface ExportAutoScalingGroupRecommendationsResponse {
    *             export file.</p>
    */
   s3Destination?: S3Destination;
-}
-
-export namespace ExportAutoScalingGroupRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportAutoScalingGroupRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1689,15 +1491,6 @@ export interface EBSFilter {
   values?: string[];
 }
 
-export namespace EBSFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EBSFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportEBSVolumeRecommendationsRequest {
   /**
    * <p>The IDs of the Amazon Web Services accounts for which to export Amazon EBS
@@ -1760,15 +1553,6 @@ export interface ExportEBSVolumeRecommendationsRequest {
   includeMemberAccounts?: boolean;
 }
 
-export namespace ExportEBSVolumeRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportEBSVolumeRecommendationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportEBSVolumeRecommendationsResponse {
   /**
    * <p>The identification number of the export job.</p>
@@ -1782,15 +1566,6 @@ export interface ExportEBSVolumeRecommendationsResponse {
    *             object keys of a recommendations export file, and its associated metadata file.</p>
    */
   s3Destination?: S3Destination;
-}
-
-export namespace ExportEBSVolumeRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportEBSVolumeRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ExportableInstanceField {
@@ -1916,15 +1691,6 @@ export interface ExportEC2InstanceRecommendationsRequest {
   recommendationPreferences?: RecommendationPreferences;
 }
 
-export namespace ExportEC2InstanceRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportEC2InstanceRecommendationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportEC2InstanceRecommendationsResponse {
   /**
    * <p>The identification number of the export job.</p>
@@ -1938,15 +1704,6 @@ export interface ExportEC2InstanceRecommendationsResponse {
    *             export file.</p>
    */
   s3Destination?: S3Destination;
-}
-
-export namespace ExportEC2InstanceRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportEC2InstanceRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ExportableLambdaFunctionField {
@@ -2021,15 +1778,6 @@ export interface LambdaFunctionRecommendationFilter {
   values?: string[];
 }
 
-export namespace LambdaFunctionRecommendationFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionRecommendationFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportLambdaFunctionRecommendationsRequest {
   /**
    * <p>The IDs of the Amazon Web Services accounts for which to export Lambda
@@ -2092,15 +1840,6 @@ export interface ExportLambdaFunctionRecommendationsRequest {
   includeMemberAccounts?: boolean;
 }
 
-export namespace ExportLambdaFunctionRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportLambdaFunctionRecommendationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportLambdaFunctionRecommendationsResponse {
   /**
    * <p>The identification number of the export job.</p>
@@ -2114,15 +1853,6 @@ export interface ExportLambdaFunctionRecommendationsResponse {
    *             object keys of a recommendations export file, and its associated metadata file.</p>
    */
   s3Destination?: S3Destination;
-}
-
-export namespace ExportLambdaFunctionRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportLambdaFunctionRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAutoScalingGroupRecommendationsRequest {
@@ -2168,15 +1898,6 @@ export interface GetAutoScalingGroupRecommendationsRequest {
   recommendationPreferences?: RecommendationPreferences;
 }
 
-export namespace GetAutoScalingGroupRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAutoScalingGroupRecommendationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an error experienced when getting recommendations.</p>
  *         <p>For example, an error is returned if you request recommendations for an unsupported
@@ -2200,15 +1921,6 @@ export interface GetRecommendationError {
   message?: string;
 }
 
-export namespace GetRecommendationError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationError): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAutoScalingGroupRecommendationsResponse {
   /**
    * <p>The token to use to advance to the next page of Auto Scaling group
@@ -2229,15 +1941,6 @@ export interface GetAutoScalingGroupRecommendationsResponse {
    *                 Auto Scaling group.</p>
    */
   errors?: GetRecommendationError[];
-}
-
-export namespace GetAutoScalingGroupRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAutoScalingGroupRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEBSVolumeRecommendationsRequest {
@@ -2273,15 +1976,6 @@ export interface GetEBSVolumeRecommendationsRequest {
    *         <p>Only one account ID can be specified per request.</p>
    */
   accountIds?: string[];
-}
-
-export namespace GetEBSVolumeRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEBSVolumeRecommendationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2322,15 +2016,6 @@ export interface VolumeConfiguration {
    * <p>The burst throughput of the volume.</p>
    */
   volumeBurstThroughput?: number;
-}
-
-export namespace VolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum EBSFinding {
@@ -2407,15 +2092,6 @@ export interface EBSUtilizationMetric {
   value?: number;
 }
 
-export namespace EBSUtilizationMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EBSUtilizationMetric): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a recommendation option for an Amazon Elastic Block Store (Amazon EBS)
  *             instance.</p>
@@ -2450,15 +2126,6 @@ export interface VolumeRecommendationOption {
    *             percentage.</p>
    */
   savingsOpportunity?: SavingsOpportunity;
-}
-
-export namespace VolumeRecommendationOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeRecommendationOption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2536,15 +2203,6 @@ export interface VolumeRecommendation {
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 }
 
-export namespace VolumeRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeRecommendation): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEBSVolumeRecommendationsResponse {
   /**
    * <p>The token to use to advance to the next page of volume recommendations.</p>
@@ -2564,15 +2222,6 @@ export interface GetEBSVolumeRecommendationsResponse {
    *             volume.</p>
    */
   errors?: GetRecommendationError[];
-}
-
-export namespace GetEBSVolumeRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEBSVolumeRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEC2InstanceRecommendationsRequest {
@@ -2614,15 +2263,6 @@ export interface GetEC2InstanceRecommendationsRequest {
    *             recommendations to return in the response.</p>
    */
   recommendationPreferences?: RecommendationPreferences;
-}
-
-export namespace GetEC2InstanceRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEC2InstanceRecommendationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceRecommendationFindingReasonCode {
@@ -2820,15 +2460,6 @@ export interface InstanceRecommendationOption {
   migrationEffort?: MigrationEffort | string;
 }
 
-export namespace InstanceRecommendationOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceRecommendationOption): any => ({
-    ...obj,
-  });
-}
-
 export enum RecommendationSourceType {
   AUTO_SCALING_GROUP = "AutoScalingGroup",
   EBS_VOLUME = "EbsVolume",
@@ -2850,15 +2481,6 @@ export interface RecommendationSource {
    * <p>The resource type of the recommendation source.</p>
    */
   recommendationSourceType?: RecommendationSourceType | string;
-}
-
-export namespace RecommendationSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3209,15 +2831,6 @@ export interface InstanceRecommendation {
   inferredWorkloadTypes?: (InferredWorkloadType | string)[];
 }
 
-export namespace InstanceRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceRecommendation): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEC2InstanceRecommendationsResponse {
   /**
    * <p>The token to use to advance to the next page of instance recommendations.</p>
@@ -3237,15 +2850,6 @@ export interface GetEC2InstanceRecommendationsResponse {
    *             unsupported instance family.</p>
    */
   errors?: GetRecommendationError[];
-}
-
-export namespace GetEC2InstanceRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEC2InstanceRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEC2RecommendationProjectedMetricsRequest {
@@ -3280,15 +2884,6 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
    *             projected metrics to return in the response.</p>
    */
   recommendationPreferences?: RecommendationPreferences;
-}
-
-export namespace GetEC2RecommendationProjectedMetricsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEC2RecommendationProjectedMetricsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3350,15 +2945,6 @@ export interface ProjectedMetric {
   values?: number[];
 }
 
-export namespace ProjectedMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectedMetric): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a projected utilization metric of a recommendation option.</p>
  *         <note>
@@ -3389,29 +2975,11 @@ export interface RecommendedOptionProjectedMetric {
   projectedMetrics?: ProjectedMetric[];
 }
 
-export namespace RecommendedOptionProjectedMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendedOptionProjectedMetric): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEC2RecommendationProjectedMetricsResponse {
   /**
    * <p>An array of objects that describes projected metrics.</p>
    */
   recommendedOptionProjectedMetrics?: RecommendedOptionProjectedMetric[];
-}
-
-export namespace GetEC2RecommendationProjectedMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEC2RecommendationProjectedMetricsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEffectiveRecommendationPreferencesRequest {
@@ -3421,15 +2989,6 @@ export interface GetEffectiveRecommendationPreferencesRequest {
    *             currently supported.</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace GetEffectiveRecommendationPreferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEffectiveRecommendationPreferencesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEffectiveRecommendationPreferencesResponse {
@@ -3450,25 +3009,7 @@ export interface GetEffectiveRecommendationPreferencesResponse {
   enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
 }
 
-export namespace GetEffectiveRecommendationPreferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEffectiveRecommendationPreferencesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEnrollmentStatusRequest {}
-
-export namespace GetEnrollmentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnrollmentStatusRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetEnrollmentStatusResponse {
   /**
@@ -3502,15 +3043,6 @@ export interface GetEnrollmentStatusResponse {
   numberOfMemberAccountsOptedIn?: number;
 }
 
-export namespace GetEnrollmentStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnrollmentStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum EnrollmentFilterName {
   STATUS = "Status",
 }
@@ -3536,15 +3068,6 @@ export interface EnrollmentFilter {
   values?: string[];
 }
 
-export namespace EnrollmentFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnrollmentFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEnrollmentStatusesForOrganizationRequest {
   /**
    * <p>An array of objects to specify a filter that returns a more specific list of account
@@ -3566,15 +3089,6 @@ export interface GetEnrollmentStatusesForOrganizationRequest {
   maxResults?: number;
 }
 
-export namespace GetEnrollmentStatusesForOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnrollmentStatusesForOrganizationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEnrollmentStatusesForOrganizationResponse {
   /**
    * <p>An array of objects that describe the enrollment statuses of organization member
@@ -3588,15 +3102,6 @@ export interface GetEnrollmentStatusesForOrganizationResponse {
    *             return.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetEnrollmentStatusesForOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnrollmentStatusesForOrganizationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLambdaFunctionRecommendationsRequest {
@@ -3639,15 +3144,6 @@ export interface GetLambdaFunctionRecommendationsRequest {
    *                 <code>nextToken</code> value.</p>
    */
   maxResults?: number;
-}
-
-export namespace GetLambdaFunctionRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLambdaFunctionRecommendationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum LambdaFunctionRecommendationFinding {
@@ -3694,15 +3190,6 @@ export interface LambdaFunctionMemoryProjectedMetric {
   value?: number;
 }
 
-export namespace LambdaFunctionMemoryProjectedMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionMemoryProjectedMetric): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a recommendation option for an Lambda function.</p>
  */
@@ -3730,15 +3217,6 @@ export interface LambdaFunctionMemoryRecommendationOption {
    *             and percentage.</p>
    */
   savingsOpportunity?: SavingsOpportunity;
-}
-
-export namespace LambdaFunctionMemoryRecommendationOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionMemoryRecommendationOption): any => ({
-    ...obj,
-  });
 }
 
 export enum LambdaFunctionMetricName {
@@ -3792,15 +3270,6 @@ export interface LambdaFunctionUtilizationMetric {
    * <p>The value of the utilization metric.</p>
    */
   value?: number;
-}
-
-export namespace LambdaFunctionUtilizationMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionUtilizationMetric): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3962,15 +3431,6 @@ export interface LambdaFunctionRecommendation {
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 }
 
-export namespace LambdaFunctionRecommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionRecommendation): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLambdaFunctionRecommendationsResponse {
   /**
    * <p>The token to use to advance to the next page of function recommendations.</p>
@@ -3983,15 +3443,6 @@ export interface GetLambdaFunctionRecommendationsResponse {
    * <p>An array of objects that describe function recommendations.</p>
    */
   lambdaFunctionRecommendations?: LambdaFunctionRecommendation[];
-}
-
-export namespace GetLambdaFunctionRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLambdaFunctionRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRecommendationPreferencesRequest {
@@ -4030,15 +3481,6 @@ export interface GetRecommendationPreferencesRequest {
    *                 <code>nextToken</code> value.</p>
    */
   maxResults?: number;
-}
-
-export namespace GetRecommendationPreferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationPreferencesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4084,15 +3526,6 @@ export interface RecommendationPreferencesDetail {
   inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
 }
 
-export namespace RecommendationPreferencesDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationPreferencesDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecommendationPreferencesResponse {
   /**
    * <p>The token to use to advance to the next page of recommendation preferences.</p>
@@ -4105,15 +3538,6 @@ export interface GetRecommendationPreferencesResponse {
    * <p>An array of objects that describe recommendation preferences.</p>
    */
   recommendationPreferencesDetails?: RecommendationPreferencesDetail[];
-}
-
-export namespace GetRecommendationPreferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationPreferencesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRecommendationSummariesRequest {
@@ -4137,15 +3561,6 @@ export interface GetRecommendationSummariesRequest {
    *                 <code>nextToken</code> value.</p>
    */
   maxResults?: number;
-}
-
-export namespace GetRecommendationSummariesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationSummariesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4177,15 +3592,6 @@ export interface CurrentPerformanceRiskRatings {
   veryLow?: number;
 }
 
-export namespace CurrentPerformanceRiskRatings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CurrentPerformanceRiskRatings): any => ({
-    ...obj,
-  });
-}
-
 export enum FindingReasonCode {
   MEMORY_OVER_PROVISIONED = "MemoryOverprovisioned",
   MEMORY_UNDER_PROVISIONED = "MemoryUnderprovisioned",
@@ -4206,15 +3612,6 @@ export interface ReasonCodeSummary {
   value?: number;
 }
 
-export namespace ReasonCodeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReasonCodeSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The summary of a recommendation.</p>
  */
@@ -4233,15 +3630,6 @@ export interface Summary {
    * <p>An array of objects that summarize a finding reason code.</p>
    */
   reasonCodeSummaries?: ReasonCodeSummary[];
-}
-
-export namespace Summary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Summary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4276,15 +3664,6 @@ export interface RecommendationSummary {
   currentPerformanceRiskRatings?: CurrentPerformanceRiskRatings;
 }
 
-export namespace RecommendationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecommendationSummariesResponse {
   /**
    * <p>The token to use to advance to the next page of recommendation summaries.</p>
@@ -4297,15 +3676,6 @@ export interface GetRecommendationSummariesResponse {
    * <p>An array of objects that summarize a recommendation.</p>
    */
   recommendationSummaries?: RecommendationSummary[];
-}
-
-export namespace GetRecommendationSummariesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationSummariesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutRecommendationPreferencesRequest {
@@ -4370,25 +3740,7 @@ export interface PutRecommendationPreferencesRequest {
   inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
 }
 
-export namespace PutRecommendationPreferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRecommendationPreferencesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRecommendationPreferencesResponse {}
-
-export namespace PutRecommendationPreferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRecommendationPreferencesResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateEnrollmentStatusRequest {
   /**
@@ -4424,15 +3776,6 @@ export interface UpdateEnrollmentStatusRequest {
   includeMemberAccounts?: boolean;
 }
 
-export namespace UpdateEnrollmentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnrollmentStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEnrollmentStatusResponse {
   /**
    * <p>The enrollment status of the account.</p>
@@ -4447,11 +3790,584 @@ export interface UpdateEnrollmentStatusResponse {
   statusReason?: string;
 }
 
-export namespace UpdateEnrollmentStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnrollmentStatusResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountEnrollmentStatusFilterSensitiveLog = (obj: AccountEnrollmentStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingGroupConfigurationFilterSensitiveLog = (obj: AutoScalingGroupConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EffectiveRecommendationPreferencesFilterSensitiveLog = (obj: EffectiveRecommendationPreferences): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UtilizationMetricFilterSensitiveLog = (obj: UtilizationMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EstimatedMonthlySavingsFilterSensitiveLog = (obj: EstimatedMonthlySavings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SavingsOpportunityFilterSensitiveLog = (obj: SavingsOpportunity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingGroupRecommendationOptionFilterSensitiveLog = (
+  obj: AutoScalingGroupRecommendationOption
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingGroupRecommendationFilterSensitiveLog = (obj: AutoScalingGroupRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScopeFilterSensitiveLog = (obj: Scope): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRecommendationPreferencesRequestFilterSensitiveLog = (
+  obj: DeleteRecommendationPreferencesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRecommendationPreferencesResponseFilterSensitiveLog = (
+  obj: DeleteRecommendationPreferencesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobFilterFilterSensitiveLog = (obj: JobFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecommendationExportJobsRequestFilterSensitiveLog = (
+  obj: DescribeRecommendationExportJobsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportDestinationFilterSensitiveLog = (obj: ExportDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationExportJobFilterSensitiveLog = (obj: RecommendationExportJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecommendationExportJobsResponseFilterSensitiveLog = (
+  obj: DescribeRecommendationExportJobsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationPreferencesFilterSensitiveLog = (obj: RecommendationPreferences): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationConfigFilterSensitiveLog = (obj: S3DestinationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportAutoScalingGroupRecommendationsRequestFilterSensitiveLog = (
+  obj: ExportAutoScalingGroupRecommendationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportAutoScalingGroupRecommendationsResponseFilterSensitiveLog = (
+  obj: ExportAutoScalingGroupRecommendationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EBSFilterFilterSensitiveLog = (obj: EBSFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportEBSVolumeRecommendationsRequestFilterSensitiveLog = (
+  obj: ExportEBSVolumeRecommendationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportEBSVolumeRecommendationsResponseFilterSensitiveLog = (
+  obj: ExportEBSVolumeRecommendationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportEC2InstanceRecommendationsRequestFilterSensitiveLog = (
+  obj: ExportEC2InstanceRecommendationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportEC2InstanceRecommendationsResponseFilterSensitiveLog = (
+  obj: ExportEC2InstanceRecommendationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionRecommendationFilterFilterSensitiveLog = (obj: LambdaFunctionRecommendationFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportLambdaFunctionRecommendationsRequestFilterSensitiveLog = (
+  obj: ExportLambdaFunctionRecommendationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportLambdaFunctionRecommendationsResponseFilterSensitiveLog = (
+  obj: ExportLambdaFunctionRecommendationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAutoScalingGroupRecommendationsRequestFilterSensitiveLog = (
+  obj: GetAutoScalingGroupRecommendationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationErrorFilterSensitiveLog = (obj: GetRecommendationError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAutoScalingGroupRecommendationsResponseFilterSensitiveLog = (
+  obj: GetAutoScalingGroupRecommendationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEBSVolumeRecommendationsRequestFilterSensitiveLog = (obj: GetEBSVolumeRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeConfigurationFilterSensitiveLog = (obj: VolumeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EBSUtilizationMetricFilterSensitiveLog = (obj: EBSUtilizationMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeRecommendationOptionFilterSensitiveLog = (obj: VolumeRecommendationOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeRecommendationFilterSensitiveLog = (obj: VolumeRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEBSVolumeRecommendationsResponseFilterSensitiveLog = (
+  obj: GetEBSVolumeRecommendationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEC2InstanceRecommendationsRequestFilterSensitiveLog = (
+  obj: GetEC2InstanceRecommendationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceRecommendationOptionFilterSensitiveLog = (obj: InstanceRecommendationOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationSourceFilterSensitiveLog = (obj: RecommendationSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceRecommendationFilterSensitiveLog = (obj: InstanceRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEC2InstanceRecommendationsResponseFilterSensitiveLog = (
+  obj: GetEC2InstanceRecommendationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEC2RecommendationProjectedMetricsRequestFilterSensitiveLog = (
+  obj: GetEC2RecommendationProjectedMetricsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectedMetricFilterSensitiveLog = (obj: ProjectedMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendedOptionProjectedMetricFilterSensitiveLog = (obj: RecommendedOptionProjectedMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEC2RecommendationProjectedMetricsResponseFilterSensitiveLog = (
+  obj: GetEC2RecommendationProjectedMetricsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEffectiveRecommendationPreferencesRequestFilterSensitiveLog = (
+  obj: GetEffectiveRecommendationPreferencesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEffectiveRecommendationPreferencesResponseFilterSensitiveLog = (
+  obj: GetEffectiveRecommendationPreferencesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnrollmentStatusRequestFilterSensitiveLog = (obj: GetEnrollmentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnrollmentStatusResponseFilterSensitiveLog = (obj: GetEnrollmentStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnrollmentFilterFilterSensitiveLog = (obj: EnrollmentFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnrollmentStatusesForOrganizationRequestFilterSensitiveLog = (
+  obj: GetEnrollmentStatusesForOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnrollmentStatusesForOrganizationResponseFilterSensitiveLog = (
+  obj: GetEnrollmentStatusesForOrganizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLambdaFunctionRecommendationsRequestFilterSensitiveLog = (
+  obj: GetLambdaFunctionRecommendationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionMemoryProjectedMetricFilterSensitiveLog = (
+  obj: LambdaFunctionMemoryProjectedMetric
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionMemoryRecommendationOptionFilterSensitiveLog = (
+  obj: LambdaFunctionMemoryRecommendationOption
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionUtilizationMetricFilterSensitiveLog = (obj: LambdaFunctionUtilizationMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionRecommendationFilterSensitiveLog = (obj: LambdaFunctionRecommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLambdaFunctionRecommendationsResponseFilterSensitiveLog = (
+  obj: GetLambdaFunctionRecommendationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationPreferencesRequestFilterSensitiveLog = (
+  obj: GetRecommendationPreferencesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationPreferencesDetailFilterSensitiveLog = (obj: RecommendationPreferencesDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationPreferencesResponseFilterSensitiveLog = (
+  obj: GetRecommendationPreferencesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationSummariesRequestFilterSensitiveLog = (obj: GetRecommendationSummariesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CurrentPerformanceRiskRatingsFilterSensitiveLog = (obj: CurrentPerformanceRiskRatings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReasonCodeSummaryFilterSensitiveLog = (obj: ReasonCodeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SummaryFilterSensitiveLog = (obj: Summary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationSummaryFilterSensitiveLog = (obj: RecommendationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationSummariesResponseFilterSensitiveLog = (obj: GetRecommendationSummariesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRecommendationPreferencesRequestFilterSensitiveLog = (
+  obj: PutRecommendationPreferencesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRecommendationPreferencesResponseFilterSensitiveLog = (
+  obj: PutRecommendationPreferencesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnrollmentStatusRequestFilterSensitiveLog = (obj: UpdateEnrollmentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnrollmentStatusResponseFilterSensitiveLog = (obj: UpdateEnrollmentStatusResponse): any => ({
+  ...obj,
+});

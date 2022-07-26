@@ -159,15 +159,6 @@ export interface BeginTransactionRequest {
   schema?: string;
 }
 
-export namespace BeginTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BeginTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response elements represent the output of a request to start a SQL
  *             transaction.</p>
@@ -177,15 +168,6 @@ export interface BeginTransactionResponse {
    * <p>The transaction ID of the transaction started by the call.</p>
    */
   transactionId?: string;
-}
-
-export namespace BeginTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BeginTransactionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -263,15 +245,6 @@ export interface ColumnMetadata {
   arrayBaseColumnType?: number;
 }
 
-export namespace ColumnMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request parameters represent the input of a commit transaction request.</p>
  */
@@ -292,15 +265,6 @@ export interface CommitTransactionRequest {
   transactionId: string | undefined;
 }
 
-export namespace CommitTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response elements represent the output of a commit transaction request.</p>
  */
@@ -309,15 +273,6 @@ export interface CommitTransactionResponse {
    * <p>The status of the commit operation.</p>
    */
   transactionStatus?: string;
-}
-
-export namespace CommitTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitTransactionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -380,15 +335,6 @@ export interface ExecuteSqlRequest {
   schema?: string;
 }
 
-export namespace ExecuteSqlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteSqlRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The metadata of the result set returned by a SQL statement.</p>
  */
@@ -402,15 +348,6 @@ export interface ResultSetMetadata {
    * <p>The metadata of the columns in the result set.</p>
    */
   columnMetadata?: ColumnMetadata[];
-}
-
-export namespace ResultSetMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
-    ...obj,
-  });
 }
 
 export enum RecordsFormatType {
@@ -450,15 +387,6 @@ export interface ResultSetOptions {
   longReturnType?: LongReturnType | string;
 }
 
-export namespace ResultSetOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultSetOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request parameters represent the input of a request to perform a rollback of a
  *             transaction.</p>
@@ -480,15 +408,6 @@ export interface RollbackTransactionRequest {
   transactionId: string | undefined;
 }
 
-export namespace RollbackTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response elements represent the output of a request to perform a rollback of a
  *             transaction.</p>
@@ -498,15 +417,6 @@ export interface RollbackTransactionResponse {
    * <p>The status of the rollback operation.</p>
    */
   transactionStatus?: string;
-}
-
-export namespace RollbackTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackTransactionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -606,19 +516,6 @@ export namespace ArrayValue {
     if (value.stringValues !== undefined) return visitor.stringValues(value.stringValues);
     if (value.arrayValues !== undefined) return visitor.arrayValues(value.arrayValues);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArrayValue): any => {
-    if (obj.booleanValues !== undefined) return { booleanValues: obj.booleanValues };
-    if (obj.longValues !== undefined) return { longValues: obj.longValues };
-    if (obj.doubleValues !== undefined) return { doubleValues: obj.doubleValues };
-    if (obj.stringValues !== undefined) return { stringValues: obj.stringValues };
-    if (obj.arrayValues !== undefined)
-      return { arrayValues: obj.arrayValues.map((item) => ArrayValue.filterSensitiveLog(item)) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -766,20 +663,6 @@ export namespace Field {
     if (value.arrayValue !== undefined) return visitor.arrayValue(value.arrayValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Field): any => {
-    if (obj.isNull !== undefined) return { isNull: obj.isNull };
-    if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
-    if (obj.longValue !== undefined) return { longValue: obj.longValue };
-    if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
-    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
-    if (obj.arrayValue !== undefined) return { arrayValue: ArrayValue.filterSensitiveLog(obj.arrayValue) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -836,16 +719,6 @@ export interface SqlParameter {
   typeHint?: TypeHint | string;
 }
 
-export namespace SqlParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlParameter): any => ({
-    ...obj,
-    ...(obj.value && { value: Field.filterSensitiveLog(obj.value) }),
-  });
-}
-
 /**
  * <p>The response elements represent the results of an update.</p>
  */
@@ -854,16 +727,6 @@ export interface UpdateResult {
    * <p>Values for fields generated during the request.</p>
    */
   generatedFields?: Field[];
-}
-
-export namespace UpdateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResult): any => ({
-    ...obj,
-    ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -1099,24 +962,6 @@ export namespace Value {
     if (value.structValue !== undefined) return visitor.structValue(value.structValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Value): any => {
-    if (obj.isNull !== undefined) return { isNull: obj.isNull };
-    if (obj.bitValue !== undefined) return { bitValue: obj.bitValue };
-    if (obj.bigIntValue !== undefined) return { bigIntValue: obj.bigIntValue };
-    if (obj.intValue !== undefined) return { intValue: obj.intValue };
-    if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
-    if (obj.realValue !== undefined) return { realValue: obj.realValue };
-    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
-    if (obj.arrayValues !== undefined)
-      return { arrayValues: obj.arrayValues.map((item) => Value.filterSensitiveLog(item)) };
-    if (obj.structValue !== undefined) return { structValue: StructValue.filterSensitiveLog(obj.structValue) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -1204,16 +1049,6 @@ export interface ExecuteStatementRequest {
   formatRecordsAs?: RecordsFormatType | string;
 }
 
-export namespace ExecuteStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
-    ...obj,
-    ...(obj.parameters && { parameters: obj.parameters.map((item) => SqlParameter.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>A structure value returned by a call.</p>
  *         <important>
@@ -1226,16 +1061,6 @@ export interface StructValue {
    * <p>The attributes returned in the record.</p>
    */
   attributes?: Value[];
-}
-
-export namespace StructValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StructValue): any => ({
-    ...obj,
-    ...(obj.attributes && { attributes: obj.attributes.map((item) => Value.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -1298,18 +1123,6 @@ export interface BatchExecuteStatementRequest {
   transactionId?: string;
 }
 
-export namespace BatchExecuteStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchExecuteStatementRequest): any => ({
-    ...obj,
-    ...(obj.parameterSets && {
-      parameterSets: obj.parameterSets.map((item) => item.map((item) => SqlParameter.filterSensitiveLog(item))),
-    }),
-  });
-}
-
 /**
  * <p>The response elements represent the output of a SQL statement over an array of
  *             data.</p>
@@ -1319,16 +1132,6 @@ export interface BatchExecuteStatementResponse {
    * <p>The execution results of each batch entry.</p>
    */
   updateResults?: UpdateResult[];
-}
-
-export namespace BatchExecuteStatementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchExecuteStatementResponse): any => ({
-    ...obj,
-    ...(obj.updateResults && { updateResults: obj.updateResults.map((item) => UpdateResult.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -1343,16 +1146,6 @@ export interface _Record {
    * <p>The values returned in the record.</p>
    */
   values?: Value[];
-}
-
-export namespace _Record {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj,
-    ...(obj.values && { values: obj.values.map((item) => Value.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -1399,17 +1192,6 @@ export interface ExecuteStatementResponse {
   formattedRecords?: string;
 }
 
-export namespace ExecuteStatementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
-    ...obj,
-    ...(obj.records && { records: obj.records.map((item) => item.map((item) => Field.filterSensitiveLog(item))) }),
-    ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>The result set returned by a SQL statement.</p>
  *         <important>
@@ -1427,16 +1209,6 @@ export interface ResultFrame {
    * <p>The records in the result set.</p>
    */
   records?: _Record[];
-}
-
-export namespace ResultFrame {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultFrame): any => ({
-    ...obj,
-    ...(obj.records && { records: obj.records.map((item) => _Record.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -1459,15 +1231,6 @@ export interface SqlStatementResult {
   numberOfRecordsUpdated?: number;
 }
 
-export namespace SqlStatementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlStatementResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response elements represent the output of a request to run one or more SQL
  *             statements.</p>
@@ -1479,11 +1242,206 @@ export interface ExecuteSqlResponse {
   sqlStatementResults?: SqlStatementResult[];
 }
 
-export namespace ExecuteSqlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteSqlResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const BeginTransactionRequestFilterSensitiveLog = (obj: BeginTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BeginTransactionResponseFilterSensitiveLog = (obj: BeginTransactionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnMetadataFilterSensitiveLog = (obj: ColumnMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommitTransactionRequestFilterSensitiveLog = (obj: CommitTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommitTransactionResponseFilterSensitiveLog = (obj: CommitTransactionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteSqlRequestFilterSensitiveLog = (obj: ExecuteSqlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultSetMetadataFilterSensitiveLog = (obj: ResultSetMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultSetOptionsFilterSensitiveLog = (obj: ResultSetOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RollbackTransactionRequestFilterSensitiveLog = (obj: RollbackTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RollbackTransactionResponseFilterSensitiveLog = (obj: RollbackTransactionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArrayValueFilterSensitiveLog = (obj: ArrayValue): any => {
+  if (obj.booleanValues !== undefined) return { booleanValues: obj.booleanValues };
+  if (obj.longValues !== undefined) return { longValues: obj.longValues };
+  if (obj.doubleValues !== undefined) return { doubleValues: obj.doubleValues };
+  if (obj.stringValues !== undefined) return { stringValues: obj.stringValues };
+  if (obj.arrayValues !== undefined)
+    return { arrayValues: obj.arrayValues.map((item) => ArrayValueFilterSensitiveLog(item)) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FieldFilterSensitiveLog = (obj: Field): any => {
+  if (obj.isNull !== undefined) return { isNull: obj.isNull };
+  if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
+  if (obj.longValue !== undefined) return { longValue: obj.longValue };
+  if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
+  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+  if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
+  if (obj.arrayValue !== undefined) return { arrayValue: ArrayValueFilterSensitiveLog(obj.arrayValue) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SqlParameterFilterSensitiveLog = (obj: SqlParameter): any => ({
+  ...obj,
+  ...(obj.value && { value: FieldFilterSensitiveLog(obj.value) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateResultFilterSensitiveLog = (obj: UpdateResult): any => ({
+  ...obj,
+  ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => FieldFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ValueFilterSensitiveLog = (obj: Value): any => {
+  if (obj.isNull !== undefined) return { isNull: obj.isNull };
+  if (obj.bitValue !== undefined) return { bitValue: obj.bitValue };
+  if (obj.bigIntValue !== undefined) return { bigIntValue: obj.bigIntValue };
+  if (obj.intValue !== undefined) return { intValue: obj.intValue };
+  if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
+  if (obj.realValue !== undefined) return { realValue: obj.realValue };
+  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+  if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
+  if (obj.arrayValues !== undefined)
+    return { arrayValues: obj.arrayValues.map((item) => ValueFilterSensitiveLog(item)) };
+  if (obj.structValue !== undefined) return { structValue: StructValueFilterSensitiveLog(obj.structValue) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ExecuteStatementRequestFilterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
+  ...obj,
+  ...(obj.parameters && { parameters: obj.parameters.map((item) => SqlParameterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StructValueFilterSensitiveLog = (obj: StructValue): any => ({
+  ...obj,
+  ...(obj.attributes && { attributes: obj.attributes.map((item) => ValueFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchExecuteStatementRequestFilterSensitiveLog = (obj: BatchExecuteStatementRequest): any => ({
+  ...obj,
+  ...(obj.parameterSets && {
+    parameterSets: obj.parameterSets.map((item) => item.map((item) => SqlParameterFilterSensitiveLog(item))),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchExecuteStatementResponseFilterSensitiveLog = (obj: BatchExecuteStatementResponse): any => ({
+  ...obj,
+  ...(obj.updateResults && { updateResults: obj.updateResults.map((item) => UpdateResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
+  ...obj,
+  ...(obj.values && { values: obj.values.map((item) => ValueFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ExecuteStatementResponseFilterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
+  ...obj,
+  ...(obj.records && { records: obj.records.map((item) => item.map((item) => FieldFilterSensitiveLog(item))) }),
+  ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => FieldFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ResultFrameFilterSensitiveLog = (obj: ResultFrame): any => ({
+  ...obj,
+  ...(obj.records && { records: obj.records.map((item) => _RecordFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SqlStatementResultFilterSensitiveLog = (obj: SqlStatementResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteSqlResponseFilterSensitiveLog = (obj: ExecuteSqlResponse): any => ({
+  ...obj,
+});

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PublishAppVersionRequest, PublishAppVersionResponse } from "../models/models_0";
+import {
+  PublishAppVersionRequest,
+  PublishAppVersionRequestFilterSensitiveLog,
+  PublishAppVersionResponse,
+  PublishAppVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PublishAppVersionCommand,
   serializeAws_restJson1PublishAppVersionCommand,
@@ -72,8 +77,8 @@ export class PublishAppVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishAppVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PublishAppVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PublishAppVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PublishAppVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

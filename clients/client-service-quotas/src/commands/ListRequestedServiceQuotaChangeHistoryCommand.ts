@@ -14,7 +14,9 @@ import {
 
 import {
   ListRequestedServiceQuotaChangeHistoryRequest,
+  ListRequestedServiceQuotaChangeHistoryRequestFilterSensitiveLog,
   ListRequestedServiceQuotaChangeHistoryResponse,
+  ListRequestedServiceQuotaChangeHistoryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommand,
@@ -78,8 +80,8 @@ export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListRequestedServiceQuotaChangeHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

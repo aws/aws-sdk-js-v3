@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { UpdateAssessmentFrameworkShareRequest, UpdateAssessmentFrameworkShareResponse } from "../models/models_0";
+import {
+  UpdateAssessmentFrameworkShareRequest,
+  UpdateAssessmentFrameworkShareRequestFilterSensitiveLog,
+  UpdateAssessmentFrameworkShareResponse,
+  UpdateAssessmentFrameworkShareResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAssessmentFrameworkShareCommand,
   serializeAws_restJson1UpdateAssessmentFrameworkShareCommand,
@@ -74,8 +79,8 @@ export class UpdateAssessmentFrameworkShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAssessmentFrameworkShareRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAssessmentFrameworkShareResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAssessmentFrameworkShareRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAssessmentFrameworkShareResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

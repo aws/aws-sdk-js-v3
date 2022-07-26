@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreatePoolRequest, CreatePoolResult } from "../models/models_0";
+import {
+  CreatePoolRequest,
+  CreatePoolRequestFilterSensitiveLog,
+  CreatePoolResult,
+  CreatePoolResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -84,8 +89,8 @@ export class CreatePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePoolRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePoolResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePoolRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePoolResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

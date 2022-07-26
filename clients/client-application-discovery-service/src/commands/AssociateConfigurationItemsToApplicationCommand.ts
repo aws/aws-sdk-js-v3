@@ -19,7 +19,9 @@ import {
 } from "../ApplicationDiscoveryServiceClient";
 import {
   AssociateConfigurationItemsToApplicationRequest,
+  AssociateConfigurationItemsToApplicationRequestFilterSensitiveLog,
   AssociateConfigurationItemsToApplicationResponse,
+  AssociateConfigurationItemsToApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommand,
@@ -85,8 +87,8 @@ export class AssociateConfigurationItemsToApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateConfigurationItemsToApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateConfigurationItemsToApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateConfigurationItemsToApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateConfigurationItemsToApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,30 +45,12 @@ export interface BatchGetRecordIdentifier {
   FeatureNames?: string[];
 }
 
-export namespace BatchGetRecordIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetRecordIdentifier): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetRecordRequest {
   /**
    * <p>A list of <code>FeatureGroup</code> names, with their corresponding <code>RecordIdentifier</code> value, and Feature name
    *       that have been requested to be retrieved in batch.</p>
    */
   Identifiers: BatchGetRecordIdentifier[] | undefined;
-}
-
-export namespace BatchGetRecordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetRecordRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -97,15 +79,6 @@ export interface BatchGetRecordError {
   ErrorMessage: string | undefined;
 }
 
-export namespace BatchGetRecordError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetRecordError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The value associated with a feature.</p>
  */
@@ -120,15 +93,6 @@ export interface FeatureValue {
    *          String, Integral, or Fractional. This value represents all three types as a string.</p>
    */
   ValueAsString: string | undefined;
-}
-
-export namespace FeatureValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FeatureValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -151,15 +115,6 @@ export interface BatchGetRecordResultDetail {
   Record: FeatureValue[] | undefined;
 }
 
-export namespace BatchGetRecordResultDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetRecordResultDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetRecordResponse {
   /**
    * <p>A list of Records you requested to be retrieved in batch.</p>
@@ -176,15 +131,6 @@ export interface BatchGetRecordResponse {
    *        and Feature name.</p>
    */
   UnprocessedIdentifiers: BatchGetRecordIdentifier[] | undefined;
-}
-
-export namespace BatchGetRecordResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetRecordResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -270,15 +216,6 @@ export interface DeleteRecordRequest {
   EventTime: string | undefined;
 }
 
-export namespace DeleteRecordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRecordRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecordRequest {
   /**
    * <p>The name of the feature group in which you want to put the records.</p>
@@ -298,29 +235,11 @@ export interface GetRecordRequest {
   FeatureNames?: string[];
 }
 
-export namespace GetRecordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecordRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecordResponse {
   /**
    * <p>The record you requested. A list of <code>FeatureValues</code>.</p>
    */
   Record?: FeatureValue[];
-}
-
-export namespace GetRecordResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecordResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -368,11 +287,72 @@ export interface PutRecordRequest {
   Record: FeatureValue[] | undefined;
 }
 
-export namespace PutRecordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRecordRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const BatchGetRecordIdentifierFilterSensitiveLog = (obj: BatchGetRecordIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetRecordRequestFilterSensitiveLog = (obj: BatchGetRecordRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetRecordErrorFilterSensitiveLog = (obj: BatchGetRecordError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FeatureValueFilterSensitiveLog = (obj: FeatureValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetRecordResultDetailFilterSensitiveLog = (obj: BatchGetRecordResultDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetRecordResponseFilterSensitiveLog = (obj: BatchGetRecordResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRecordRequestFilterSensitiveLog = (obj: DeleteRecordRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecordRequestFilterSensitiveLog = (obj: GetRecordRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecordResponseFilterSensitiveLog = (obj: GetRecordResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRecordRequestFilterSensitiveLog = (obj: PutRecordRequest): any => ({
+  ...obj,
+});

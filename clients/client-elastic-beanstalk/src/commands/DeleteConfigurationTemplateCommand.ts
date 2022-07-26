@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { DeleteConfigurationTemplateMessage } from "../models/models_0";
+import {
+  DeleteConfigurationTemplateMessage,
+  DeleteConfigurationTemplateMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteConfigurationTemplateCommand,
   serializeAws_queryDeleteConfigurationTemplateCommand,
@@ -77,7 +80,7 @@ export class DeleteConfigurationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationTemplateMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConfigurationTemplateMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -32,30 +32,12 @@ export interface CancelQueryRequest {
   QueryId: string | undefined;
 }
 
-export namespace CancelQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelQueryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelQueryResponse {
   /**
    * <p> A <code>CancellationMessage</code> is returned when a <code>CancelQuery</code>
    *             request for the query specified by <code>QueryId</code> has already been issued. </p>
    */
   CancellationMessage?: string;
-}
-
-export namespace CancelQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelQueryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -206,15 +188,6 @@ export interface S3Configuration {
   EncryptionOption?: S3EncryptionOption | string;
 }
 
-export namespace S3Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Configuration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration required for error reporting.</p>
  */
@@ -225,15 +198,6 @@ export interface ErrorReportConfiguration {
   S3Configuration: S3Configuration | undefined;
 }
 
-export namespace ErrorReportConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorReportConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details on SNS that are required to send the notification.</p>
  */
@@ -242,15 +206,6 @@ export interface SnsConfiguration {
    * <p>SNS topic ARN that the scheduled query status notifications will be sent to.</p>
    */
   TopicArn: string | undefined;
-}
-
-export namespace SnsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -264,15 +219,6 @@ export interface NotificationConfiguration {
   SnsConfiguration: SnsConfiguration | undefined;
 }
 
-export namespace NotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration of the schedule of the query.</p>
  */
@@ -282,15 +228,6 @@ export interface ScheduleConfiguration {
    *             expression or a rate expression. </p>
    */
   ScheduleExpression: string | undefined;
-}
-
-export namespace ScheduleConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -311,15 +248,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export enum DimensionValueType {
   VARCHAR = "VARCHAR",
 }
@@ -338,15 +266,6 @@ export interface DimensionMapping {
    * <p>Type for the dimension. </p>
    */
   DimensionValueType: DimensionValueType | string | undefined;
-}
-
-export namespace DimensionMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionMapping): any => ({
-    ...obj,
-  });
 }
 
 export enum MeasureValueType {
@@ -386,15 +305,6 @@ export interface MultiMeasureAttributeMapping {
   MeasureValueType: ScalarMeasureValueType | string | undefined;
 }
 
-export namespace MultiMeasureAttributeMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiMeasureAttributeMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>MixedMeasureMappings are mappings that can be used to ingest data into a mixture of
  *             narrow and multi measures in the derived table.</p>
@@ -431,15 +341,6 @@ export interface MixedMeasureMapping {
   MultiMeasureAttributeMappings?: MultiMeasureAttributeMapping[];
 }
 
-export namespace MixedMeasureMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MixedMeasureMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided.
  *             MultiMeasureMappings can be used to ingest data as multi measures in the derived
@@ -458,15 +359,6 @@ export interface MultiMeasureMappings {
    *             multi-measure attributes.</p>
    */
   MultiMeasureAttributeMappings: MultiMeasureAttributeMapping[] | undefined;
-}
-
-export namespace MultiMeasureMappings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiMeasureMappings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -514,15 +406,6 @@ export interface TimestreamConfiguration {
   MeasureNameColumn?: string;
 }
 
-export namespace TimestreamConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestreamConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration used for writing the output of a query.</p>
  */
@@ -531,15 +414,6 @@ export interface TargetConfiguration {
    * <p>Configuration needed to write data into the Timestream database and table.</p>
    */
   TimestreamConfiguration: TimestreamConfiguration | undefined;
-}
-
-export namespace TargetConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateScheduledQueryRequest {
@@ -618,31 +492,11 @@ export interface CreateScheduledQueryRequest {
   ErrorReportConfiguration: ErrorReportConfiguration | undefined;
 }
 
-export namespace CreateScheduledQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScheduledQueryRequest): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-    ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateScheduledQueryResponse {
   /**
    * <p>ARN for the created scheduled query.</p>
    */
   Arn: string | undefined;
-}
-
-export namespace CreateScheduledQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScheduledQueryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -673,15 +527,6 @@ export interface DeleteScheduledQueryRequest {
   ScheduledQueryArn: string | undefined;
 }
 
-export namespace DeleteScheduledQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduledQueryRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested resource could not be found.</p>
  */
@@ -710,15 +555,6 @@ export class ResourceNotFoundException extends __BaseException {
 
 export interface DescribeEndpointsRequest {}
 
-export namespace DescribeEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an available endpoint against which to make API calls against, as well as
  *             the TTL for that endpoint.</p>
@@ -735,15 +571,6 @@ export interface Endpoint {
   CachePeriodInMinutes: number | undefined;
 }
 
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEndpointsResponse {
   /**
    * <p>An <code>Endpoints</code> object is returned when a <code>DescribeEndpoints</code>
@@ -752,29 +579,11 @@ export interface DescribeEndpointsResponse {
   Endpoints: Endpoint[] | undefined;
 }
 
-export namespace DescribeEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeScheduledQueryRequest {
   /**
    * <p>The ARN of the scheduled query.</p>
    */
   ScheduledQueryArn: string | undefined;
-}
-
-export namespace DescribeScheduledQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledQueryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -792,15 +601,6 @@ export interface S3ReportLocation {
   ObjectKey?: string;
 }
 
-export namespace S3ReportLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ReportLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This contains the location of the error report for a single scheduled query call.
  *         </p>
@@ -810,15 +610,6 @@ export interface ErrorReportLocation {
    * <p>The S3 location where error reports are written.</p>
    */
   S3ReportLocation?: S3ReportLocation;
-}
-
-export namespace ErrorReportLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorReportLocation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -850,15 +641,6 @@ export interface ExecutionStats {
    *             destination data source.</p>
    */
   QueryResultRows?: number;
-}
-
-export namespace ExecutionStats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionStats): any => ({
-    ...obj,
-  });
 }
 
 export enum ScheduledQueryRunStatus {
@@ -903,15 +685,6 @@ export interface ScheduledQueryRunSummary {
    *             the error report to get more detailed error reasons. </p>
    */
   FailureReason?: string;
-}
-
-export namespace ScheduledQueryRunSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledQueryRunSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum ScheduledQueryState {
@@ -999,31 +772,11 @@ export interface ScheduledQueryDescription {
   RecentlyFailedRuns?: ScheduledQueryRunSummary[];
 }
 
-export namespace ScheduledQueryDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledQueryDescription): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeScheduledQueryResponse {
   /**
    * <p>The scheduled query.</p>
    */
   ScheduledQuery: ScheduledQueryDescription | undefined;
-}
-
-export namespace DescribeScheduledQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledQueryResponse): any => ({
-    ...obj,
-    ...(obj.ScheduledQuery && { ScheduledQuery: ScheduledQueryDescription.filterSensitiveLog(obj.ScheduledQuery) }),
-  });
 }
 
 export interface ExecuteScheduledQueryRequest {
@@ -1043,16 +796,6 @@ export interface ExecuteScheduledQueryRequest {
   ClientToken?: string;
 }
 
-export namespace ExecuteScheduledQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteScheduledQueryRequest): any => ({
-    ...obj,
-    ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListScheduledQueriesRequest {
   /**
    * <p>The maximum number of items to return in the output. If the total number of items
@@ -1066,15 +809,6 @@ export interface ListScheduledQueriesRequest {
    * <p> A pagination token to resume pagination.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListScheduledQueriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScheduledQueriesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1092,15 +826,6 @@ export interface TimestreamDestination {
   TableName?: string;
 }
 
-export namespace TimestreamDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestreamDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Destination details to write data for a target data source. Current supported data
  *             source is Timestream.</p>
@@ -1110,15 +835,6 @@ export interface TargetDestination {
    * <p>Query result destination details for Timestream data source.</p>
    */
   TimestreamDestination?: TimestreamDestination;
-}
-
-export namespace TargetDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1171,15 +887,6 @@ export interface ScheduledQuery {
   LastRunStatus?: ScheduledQueryRunStatus | string;
 }
 
-export namespace ScheduledQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledQuery): any => ({
-    ...obj,
-  });
-}
-
 export interface ListScheduledQueriesResponse {
   /**
    * <p>A list of scheduled queries.</p>
@@ -1191,15 +898,6 @@ export interface ListScheduledQueriesResponse {
    *             truncated response.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListScheduledQueriesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScheduledQueriesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -1220,15 +918,6 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags currently associated with the Timestream resource. </p>
@@ -1240,15 +929,6 @@ export interface ListTagsForResourceResponse {
    *                 <code>ListTagsForResourceResponse</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PrepareQueryRequest {
@@ -1265,16 +945,6 @@ export interface PrepareQueryRequest {
    *             use.</p>
    */
   ValidateOnly?: boolean;
-}
-
-export namespace PrepareQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrepareQueryRequest): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1404,17 +1074,6 @@ export interface QueryRequest {
   MaxRows?: number;
 }
 
-export namespace QueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryRequest): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-    ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Information about the status of the query, including progress and bytes
  *             scanned.</p>
@@ -1440,15 +1099,6 @@ export interface QueryStatus {
   CumulativeBytesMetered?: number;
 }
 
-export namespace QueryStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>Identifies the Timestream resource to which tags should be added. This value is an
@@ -1462,25 +1112,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1496,25 +1128,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateScheduledQueryRequest {
   /**
@@ -1526,15 +1140,6 @@ export interface UpdateScheduledQueryRequest {
    * <p>State of the scheduled query. </p>
    */
   State: ScheduledQueryState | string | undefined;
-}
-
-export namespace UpdateScheduledQueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateScheduledQueryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1554,15 +1159,6 @@ export interface ColumnInfo {
    *             types are types such as arrays, rows, and others. </p>
    */
   Type: Type | undefined;
-}
-
-export namespace ColumnInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1592,15 +1188,6 @@ export interface Type {
    * <p>Indicates if the column is a row.</p>
    */
   RowColumnInfo?: ColumnInfo[];
-}
-
-export namespace Type {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Type): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1634,15 +1221,6 @@ export interface Datum {
   NullValue?: boolean;
 }
 
-export namespace Datum {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Datum): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Mapping for named parameters.</p>
  */
@@ -1659,15 +1237,6 @@ export interface ParameterMapping {
    *             and timeseries.</p>
    */
   Type: Type | undefined;
-}
-
-export namespace ParameterMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterMapping): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1703,15 +1272,6 @@ export interface SelectColumn {
   Aliased?: boolean;
 }
 
-export namespace SelectColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectColumn): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The timeseries data type represents the values of a measure over time. A time series
  *             is an array of rows of timestamps and measure values, with rows sorted in ascending
@@ -1730,15 +1290,6 @@ export interface TimeSeriesDataPoint {
   Value: Datum | undefined;
 }
 
-export namespace TimeSeriesDataPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeSeriesDataPoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a single row in the query results.</p>
  */
@@ -1747,15 +1298,6 @@ export interface Row {
    * <p>List of data points in a single row of the result set.</p>
    */
   Data: Datum[] | undefined;
-}
-
-export namespace Row {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Row): any => ({
-    ...obj,
-  });
 }
 
 export interface QueryResponse {
@@ -1787,15 +1329,6 @@ export interface QueryResponse {
   QueryStatus?: QueryStatus;
 }
 
-export namespace QueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PrepareQueryResponse {
   /**
    * <p>The query string that you want prepare.</p>
@@ -1813,12 +1346,375 @@ export interface PrepareQueryResponse {
   Parameters: ParameterMapping[] | undefined;
 }
 
-export namespace PrepareQueryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrepareQueryResponse): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const CancelQueryRequestFilterSensitiveLog = (obj: CancelQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelQueryResponseFilterSensitiveLog = (obj: CancelQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ConfigurationFilterSensitiveLog = (obj: S3Configuration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorReportConfigurationFilterSensitiveLog = (obj: ErrorReportConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnsConfigurationFilterSensitiveLog = (obj: SnsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationConfigurationFilterSensitiveLog = (obj: NotificationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleConfigurationFilterSensitiveLog = (obj: ScheduleConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionMappingFilterSensitiveLog = (obj: DimensionMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiMeasureAttributeMappingFilterSensitiveLog = (obj: MultiMeasureAttributeMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MixedMeasureMappingFilterSensitiveLog = (obj: MixedMeasureMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiMeasureMappingsFilterSensitiveLog = (obj: MultiMeasureMappings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestreamConfigurationFilterSensitiveLog = (obj: TimestreamConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetConfigurationFilterSensitiveLog = (obj: TargetConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScheduledQueryRequestFilterSensitiveLog = (obj: CreateScheduledQueryRequest): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateScheduledQueryResponseFilterSensitiveLog = (obj: CreateScheduledQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScheduledQueryRequestFilterSensitiveLog = (obj: DeleteScheduledQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointsRequestFilterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduledQueryRequestFilterSensitiveLog = (obj: DescribeScheduledQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ReportLocationFilterSensitiveLog = (obj: S3ReportLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorReportLocationFilterSensitiveLog = (obj: ErrorReportLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionStatsFilterSensitiveLog = (obj: ExecutionStats): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledQueryRunSummaryFilterSensitiveLog = (obj: ScheduledQueryRunSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledQueryDescriptionFilterSensitiveLog = (obj: ScheduledQueryDescription): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduledQueryResponseFilterSensitiveLog = (obj: DescribeScheduledQueryResponse): any => ({
+  ...obj,
+  ...(obj.ScheduledQuery && { ScheduledQuery: ScheduledQueryDescriptionFilterSensitiveLog(obj.ScheduledQuery) }),
+});
+
+/**
+ * @internal
+ */
+export const ExecuteScheduledQueryRequestFilterSensitiveLog = (obj: ExecuteScheduledQueryRequest): any => ({
+  ...obj,
+  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListScheduledQueriesRequestFilterSensitiveLog = (obj: ListScheduledQueriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestreamDestinationFilterSensitiveLog = (obj: TimestreamDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetDestinationFilterSensitiveLog = (obj: TargetDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledQueryFilterSensitiveLog = (obj: ScheduledQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListScheduledQueriesResponseFilterSensitiveLog = (obj: ListScheduledQueriesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrepareQueryRequestFilterSensitiveLog = (obj: PrepareQueryRequest): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const QueryRequestFilterSensitiveLog = (obj: QueryRequest): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+  ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const QueryStatusFilterSensitiveLog = (obj: QueryStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScheduledQueryRequestFilterSensitiveLog = (obj: UpdateScheduledQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnInfoFilterSensitiveLog = (obj: ColumnInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TypeFilterSensitiveLog = (obj: Type): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatumFilterSensitiveLog = (obj: Datum): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterMappingFilterSensitiveLog = (obj: ParameterMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectColumnFilterSensitiveLog = (obj: SelectColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeSeriesDataPointFilterSensitiveLog = (obj: TimeSeriesDataPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RowFilterSensitiveLog = (obj: Row): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryResponseFilterSensitiveLog = (obj: QueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrepareQueryResponseFilterSensitiveLog = (obj: PrepareQueryResponse): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { DisassociateTeamMemberRequest, DisassociateTeamMemberResult } from "../models/models_0";
+import {
+  DisassociateTeamMemberRequest,
+  DisassociateTeamMemberRequestFilterSensitiveLog,
+  DisassociateTeamMemberResult,
+  DisassociateTeamMemberResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateTeamMemberCommand,
   serializeAws_json1_1DisassociateTeamMemberCommand,
@@ -75,8 +80,8 @@ export class DisassociateTeamMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTeamMemberRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTeamMemberResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateTeamMemberRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateTeamMemberResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

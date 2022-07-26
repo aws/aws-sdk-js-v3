@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UntagAttendeeRequest } from "../models/models_1";
+import { UntagAttendeeRequest, UntagAttendeeRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1UntagAttendeeCommand,
   serializeAws_restJson1UntagAttendeeCommand,
@@ -72,7 +72,7 @@ export class UntagAttendeeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagAttendeeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagAttendeeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

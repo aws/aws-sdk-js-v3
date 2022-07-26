@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ReloadTablesMessage, ReloadTablesResponse } from "../models/models_0";
+import {
+  ReloadTablesMessage,
+  ReloadTablesMessageFilterSensitiveLog,
+  ReloadTablesResponse,
+  ReloadTablesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ReloadTablesCommand,
   serializeAws_json1_1ReloadTablesCommand,
@@ -78,8 +83,8 @@ export class ReloadTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReloadTablesMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ReloadTablesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReloadTablesMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ReloadTablesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

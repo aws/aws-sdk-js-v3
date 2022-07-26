@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetRoleCredentialsRequest, GetRoleCredentialsResponse } from "../models/models_0";
+import {
+  GetRoleCredentialsRequest,
+  GetRoleCredentialsRequestFilterSensitiveLog,
+  GetRoleCredentialsResponse,
+  GetRoleCredentialsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetRoleCredentialsCommand,
   serializeAws_restJson1GetRoleCredentialsCommand,
@@ -73,8 +78,8 @@ export class GetRoleCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoleCredentialsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRoleCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRoleCredentialsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRoleCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

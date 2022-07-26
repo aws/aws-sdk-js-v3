@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
+import {
+  StopApplicationRequest,
+  StopApplicationRequestFilterSensitiveLog,
+  StopApplicationResponse,
+  StopApplicationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopApplicationCommand,
   serializeAws_json1_1StopApplicationCommand,
@@ -82,8 +87,8 @@ export class StopApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

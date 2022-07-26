@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
+import {
+  CrlDetailResponse,
+  CrlDetailResponseFilterSensitiveLog,
+  ScalarCrlRequest,
+  ScalarCrlRequestFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_restJson1GetCrlCommand, serializeAws_restJson1GetCrlCommand } from "../protocols/Aws_restJson1";
 import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 
@@ -73,8 +78,8 @@ export class GetCrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarCrlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CrlDetailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ScalarCrlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CrlDetailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

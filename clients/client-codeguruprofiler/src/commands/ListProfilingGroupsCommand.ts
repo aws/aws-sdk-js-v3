@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import { ListProfilingGroupsRequest, ListProfilingGroupsResponse } from "../models/models_0";
+import {
+  ListProfilingGroupsRequest,
+  ListProfilingGroupsRequestFilterSensitiveLog,
+  ListProfilingGroupsResponse,
+  ListProfilingGroupsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListProfilingGroupsCommand,
   serializeAws_restJson1ListProfilingGroupsCommand,
@@ -78,8 +83,8 @@ export class ListProfilingGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProfilingGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListProfilingGroupsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListProfilingGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListProfilingGroupsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

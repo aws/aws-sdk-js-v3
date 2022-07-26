@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_2";
+import {
+  TestInvokeAuthorizerRequest,
+  TestInvokeAuthorizerRequestFilterSensitiveLog,
+  TestInvokeAuthorizerResponse,
+  TestInvokeAuthorizerResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1TestInvokeAuthorizerCommand,
   serializeAws_restJson1TestInvokeAuthorizerCommand,
@@ -75,8 +80,8 @@ export class TestInvokeAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestInvokeAuthorizerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestInvokeAuthorizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestInvokeAuthorizerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestInvokeAuthorizerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

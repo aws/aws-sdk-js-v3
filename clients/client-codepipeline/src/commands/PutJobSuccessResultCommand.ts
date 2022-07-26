@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { PutJobSuccessResultInput } from "../models/models_0";
+import { PutJobSuccessResultInput, PutJobSuccessResultInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1PutJobSuccessResultCommand,
   serializeAws_json1_1PutJobSuccessResultCommand,
@@ -73,7 +73,7 @@ export class PutJobSuccessResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutJobSuccessResultInput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutJobSuccessResultInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

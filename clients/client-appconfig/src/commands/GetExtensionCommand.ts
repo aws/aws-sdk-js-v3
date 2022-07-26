@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { Extension, GetExtensionRequest } from "../models/models_0";
+import {
+  Extension,
+  ExtensionFilterSensitiveLog,
+  GetExtensionRequest,
+  GetExtensionRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetExtensionCommand,
   serializeAws_restJson1GetExtensionCommand,
@@ -72,8 +77,8 @@ export class GetExtensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExtensionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Extension.filterSensitiveLog,
+      inputFilterSensitiveLog: GetExtensionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExtensionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

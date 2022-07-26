@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_0";
+import {
+  RestoreDBClusterToPointInTimeMessage,
+  RestoreDBClusterToPointInTimeMessageFilterSensitiveLog,
+  RestoreDBClusterToPointInTimeResult,
+  RestoreDBClusterToPointInTimeResultFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryRestoreDBClusterToPointInTimeCommand,
@@ -86,8 +91,8 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBClusterToPointInTimeMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBClusterToPointInTimeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreDBClusterToPointInTimeMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RestoreDBClusterToPointInTimeResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

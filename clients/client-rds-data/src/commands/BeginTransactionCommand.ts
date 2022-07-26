@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { BeginTransactionRequest, BeginTransactionResponse } from "../models/models_0";
+import {
+  BeginTransactionRequest,
+  BeginTransactionRequestFilterSensitiveLog,
+  BeginTransactionResponse,
+  BeginTransactionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BeginTransactionCommand,
   serializeAws_restJson1BeginTransactionCommand,
@@ -83,8 +88,8 @@ export class BeginTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BeginTransactionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BeginTransactionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BeginTransactionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BeginTransactionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

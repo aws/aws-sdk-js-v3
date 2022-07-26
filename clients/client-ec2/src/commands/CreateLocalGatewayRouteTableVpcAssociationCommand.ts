@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   CreateLocalGatewayRouteTableVpcAssociationRequest,
+  CreateLocalGatewayRouteTableVpcAssociationRequestFilterSensitiveLog,
   CreateLocalGatewayRouteTableVpcAssociationResult,
+  CreateLocalGatewayRouteTableVpcAssociationResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand,
@@ -81,8 +83,8 @@ export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLocalGatewayRouteTableVpcAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocalGatewayRouteTableVpcAssociationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLocalGatewayRouteTableVpcAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLocalGatewayRouteTableVpcAssociationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

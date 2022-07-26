@@ -15,7 +15,9 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   ListDistributionsByRealtimeLogConfigRequest,
+  ListDistributionsByRealtimeLogConfigRequestFilterSensitiveLog,
   ListDistributionsByRealtimeLogConfigResult,
+  ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommand,
@@ -86,8 +88,8 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsByRealtimeLogConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDistributionsByRealtimeLogConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDistributionsByRealtimeLogConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

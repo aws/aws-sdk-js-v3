@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRecommenderConfigurationRequest, DeleteRecommenderConfigurationResponse } from "../models/models_0";
+import {
+  DeleteRecommenderConfigurationRequest,
+  DeleteRecommenderConfigurationRequestFilterSensitiveLog,
+  DeleteRecommenderConfigurationResponse,
+  DeleteRecommenderConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1DeleteRecommenderConfigurationCommand,
@@ -74,8 +79,8 @@ export class DeleteRecommenderConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecommenderConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRecommenderConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRecommenderConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRecommenderConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

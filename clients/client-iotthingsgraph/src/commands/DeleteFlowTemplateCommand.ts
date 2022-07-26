@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { DeleteFlowTemplateRequest, DeleteFlowTemplateResponse } from "../models/models_0";
+import {
+  DeleteFlowTemplateRequest,
+  DeleteFlowTemplateRequestFilterSensitiveLog,
+  DeleteFlowTemplateResponse,
+  DeleteFlowTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFlowTemplateCommand,
   serializeAws_json1_1DeleteFlowTemplateCommand,
@@ -73,8 +78,8 @@ export class DeleteFlowTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlowTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlowTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFlowTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFlowTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

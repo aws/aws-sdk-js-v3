@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { HostedConfigurationVersions, ListHostedConfigurationVersionsRequest } from "../models/models_0";
+import {
+  HostedConfigurationVersions,
+  HostedConfigurationVersionsFilterSensitiveLog,
+  ListHostedConfigurationVersionsRequest,
+  ListHostedConfigurationVersionsRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListHostedConfigurationVersionsCommand,
   serializeAws_restJson1ListHostedConfigurationVersionsCommand,
@@ -73,8 +78,8 @@ export class ListHostedConfigurationVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHostedConfigurationVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: HostedConfigurationVersions.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHostedConfigurationVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: HostedConfigurationVersionsFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

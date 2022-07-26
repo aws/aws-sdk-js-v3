@@ -18,15 +18,6 @@ export interface ArrayProperties {
   size?: number;
 }
 
-export namespace ArrayProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArrayProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing the array properties of a job.</p>
  */
@@ -49,15 +40,6 @@ export interface ArrayPropertiesDetail {
   index?: number;
 }
 
-export namespace ArrayPropertiesDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArrayPropertiesDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing the array properties of a job.</p>
  */
@@ -72,15 +54,6 @@ export interface ArrayPropertiesSummary {
    *    jobs.</p>
    */
   index?: number;
-}
-
-export namespace ArrayPropertiesSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArrayPropertiesSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum AssignPublicIp {
@@ -106,15 +79,6 @@ export interface NetworkInterface {
    * <p>The private IPv4 address for the network interface.</p>
    */
   privateIpv4Address?: string;
-}
-
-export namespace NetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -156,15 +120,6 @@ export interface AttemptContainerDetail {
   networkInterfaces?: NetworkInterface[];
 }
 
-export namespace AttemptContainerDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttemptContainerDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing a job attempt.</p>
  */
@@ -192,15 +147,6 @@ export interface AttemptDetail {
   statusReason?: string;
 }
 
-export namespace AttemptDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttemptDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for <code>CancelJob</code>.</p>
  */
@@ -218,25 +164,7 @@ export interface CancelJobRequest {
   reason: string | undefined;
 }
 
-export namespace CancelJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelJobResponse {}
-
-export namespace CancelJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that
@@ -335,15 +263,6 @@ export interface Ec2Configuration {
   imageIdOverride?: string;
 }
 
-export namespace Ec2Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ec2Configuration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing a launch template associated with a compute resource. You must specify either the launch
  *    template ID or launch template name in the request, but not both.</p>
@@ -382,15 +301,6 @@ export interface LaunchTemplateSpecification {
    *          <p>Default: <code>$Default</code>.</p>
    */
   version?: string;
-}
-
-export namespace LaunchTemplateSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
-    ...obj,
-  });
 }
 
 export enum CRType {
@@ -656,15 +566,6 @@ export interface ComputeResource {
   ec2Configuration?: Ec2Configuration[];
 }
 
-export namespace ComputeResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComputeResource): any => ({
-    ...obj,
-  });
-}
-
 export enum CEState {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -754,15 +655,6 @@ export interface CreateComputeEnvironmentRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateComputeEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComputeEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateComputeEnvironmentResponse {
   /**
    * <p>The name of the compute environment. It can be up to 128 letters long. It can contain uppercase and
@@ -774,15 +666,6 @@ export interface CreateComputeEnvironmentResponse {
    * <p>The Amazon Resource Name (ARN) of the compute environment.</p>
    */
   computeEnvironmentArn?: string;
-}
-
-export namespace CreateComputeEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComputeEnvironmentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -809,15 +692,6 @@ export interface ComputeEnvironmentOrder {
    * <p>The Amazon Resource Name (ARN) of the compute environment.</p>
    */
   computeEnvironment: string | undefined;
-}
-
-export namespace ComputeEnvironmentOrder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComputeEnvironmentOrder): any => ({
-    ...obj,
-  });
 }
 
 export enum JQState {
@@ -885,15 +759,6 @@ export interface CreateJobQueueRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateJobQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobQueueRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateJobQueueResponse {
   /**
    * <p>The name of the job queue.</p>
@@ -904,15 +769,6 @@ export interface CreateJobQueueResponse {
    * <p>The Amazon Resource Name (ARN) of the job queue.</p>
    */
   jobQueueArn: string | undefined;
-}
-
-export namespace CreateJobQueueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobQueueResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -938,15 +794,6 @@ export interface ShareAttributes {
    *          <p>The smallest supported value is 0.0001, and the largest supported value is 999.9999.</p>
    */
   weightFactor?: number;
-}
-
-export namespace ShareAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -985,15 +832,6 @@ export interface FairsharePolicy {
   shareDistribution?: ShareAttributes[];
 }
 
-export namespace FairsharePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FairsharePolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for <code>CreateSchedulingPolicy</code>.</p>
  */
@@ -1018,15 +856,6 @@ export interface CreateSchedulingPolicyRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateSchedulingPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSchedulingPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSchedulingPolicyResponse {
   /**
    * <p>The name of the scheduling policy.</p>
@@ -1043,15 +872,6 @@ export interface CreateSchedulingPolicyResponse {
   arn: string | undefined;
 }
 
-export namespace CreateSchedulingPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSchedulingPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for <code>DeleteComputeEnvironment</code>.</p>
  */
@@ -1062,25 +882,7 @@ export interface DeleteComputeEnvironmentRequest {
   computeEnvironment: string | undefined;
 }
 
-export namespace DeleteComputeEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteComputeEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteComputeEnvironmentResponse {}
-
-export namespace DeleteComputeEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteComputeEnvironmentResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the parameters for <code>DeleteJobQueue</code>.</p>
@@ -1092,25 +894,7 @@ export interface DeleteJobQueueRequest {
   jobQueue: string | undefined;
 }
 
-export namespace DeleteJobQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobQueueRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteJobQueueResponse {}
-
-export namespace DeleteJobQueueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobQueueResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the parameters for <code>DeleteSchedulingPolicy</code>.</p>
@@ -1122,25 +906,7 @@ export interface DeleteSchedulingPolicyRequest {
   arn: string | undefined;
 }
 
-export namespace DeleteSchedulingPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSchedulingPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSchedulingPolicyResponse {}
-
-export namespace DeleteSchedulingPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSchedulingPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeregisterJobDefinitionRequest {
   /**
@@ -1149,25 +915,7 @@ export interface DeregisterJobDefinitionRequest {
   jobDefinition: string | undefined;
 }
 
-export namespace DeregisterJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterJobDefinitionResponse {}
-
-export namespace DeregisterJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterJobDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the parameters for <code>DescribeComputeEnvironments</code>.</p>
@@ -1202,15 +950,6 @@ export interface DescribeComputeEnvironmentsRequest {
   nextToken?: string;
 }
 
-export namespace DescribeComputeEnvironmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeComputeEnvironmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum CEStatus {
   CREATING = "CREATING",
   DELETED = "DELETED",
@@ -1237,15 +976,6 @@ export interface UpdatePolicy {
    *    is 30.</p>
    */
   jobExecutionTimeoutMinutes?: number;
-}
-
-export namespace UpdatePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1329,15 +1059,6 @@ export interface ComputeEnvironmentDetail {
   updatePolicy?: UpdatePolicy;
 }
 
-export namespace ComputeEnvironmentDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComputeEnvironmentDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeComputeEnvironmentsResponse {
   /**
    * <p>The list of compute environments.</p>
@@ -1351,15 +1072,6 @@ export interface DescribeComputeEnvironmentsResponse {
    *    return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeComputeEnvironmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeComputeEnvironmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1407,15 +1119,6 @@ export interface DescribeJobDefinitionsRequest {
   nextToken?: string;
 }
 
-export namespace DescribeJobDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key-value pair object.</p>
  */
@@ -1432,15 +1135,6 @@ export interface KeyValuePair {
   value?: string;
 }
 
-export namespace KeyValuePair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyValuePair): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The platform configuration for jobs that are running on Fargate resources. Jobs that run on EC2 resources must
  *    not specify this parameter.</p>
@@ -1453,15 +1147,6 @@ export interface FargatePlatformConfiguration {
    *    information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
-}
-
-export namespace FargatePlatformConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FargatePlatformConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum DeviceCgroupPermission {
@@ -1495,15 +1180,6 @@ export interface Device {
   permissions?: (DeviceCgroupPermission | string)[];
 }
 
-export namespace Device {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Device): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container path, mount options, and size of the tmpfs mount.</p>
  *          <note>
@@ -1533,15 +1209,6 @@ export interface Tmpfs {
    *     "<code>gid</code>" | "<code>nr_inodes</code>" | "<code>nr_blocks</code>" | "<code>mpol</code>"</p>
    */
   mountOptions?: string[];
-}
-
-export namespace Tmpfs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tmpfs): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1641,15 +1308,6 @@ export interface LinuxParameters {
   swappiness?: number;
 }
 
-export namespace LinuxParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LinuxParameters): any => ({
-    ...obj,
-  });
-}
-
 export enum LogDriver {
   AWSLOGS = "awslogs",
   FLUENTD = "fluentd",
@@ -1692,15 +1350,6 @@ export interface Secret {
    *          </note>
    */
   valueFrom: string | undefined;
-}
-
-export namespace Secret {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Secret): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1784,15 +1433,6 @@ export interface LogConfiguration {
   secretOptions?: Secret[];
 }
 
-export namespace LogConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details on a Docker volume mount point that's used in a job's container properties. This parameter maps to
  *     <code>Volumes</code> in the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container">Create a
@@ -1816,15 +1456,6 @@ export interface MountPoint {
   sourceVolume?: string;
 }
 
-export namespace MountPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MountPoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The network configuration for jobs that are running on Fargate resources. Jobs that are running on EC2
  *    resources must not specify this parameter.</p>
@@ -1837,15 +1468,6 @@ export interface NetworkConfiguration {
    *    default value is "DISABLED".</p>
    */
   assignPublicIp?: AssignPublicIp | string;
-}
-
-export namespace NetworkConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -1987,15 +1609,6 @@ export interface ResourceRequirement {
   type: ResourceType | string | undefined;
 }
 
-export namespace ResourceRequirement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceRequirement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>ulimit</code> settings to pass to the container.</p>
  *          <note>
@@ -2017,15 +1630,6 @@ export interface Ulimit {
    * <p>The soft limit for the <code>ulimit</code> type.</p>
    */
   softLimit: number | undefined;
-}
-
-export namespace Ulimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ulimit): any => ({
-    ...obj,
-  });
 }
 
 export enum EFSAuthorizationConfigIAM {
@@ -2054,15 +1658,6 @@ export interface EFSAuthorizationConfig {
    *     <code>ENABLED</code> and that a <code>JobRoleArn</code> is specified.</p>
    */
   iam?: EFSAuthorizationConfigIAM | string;
-}
-
-export namespace EFSAuthorizationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EFSAuthorizationConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum EFSTransitEncryption {
@@ -2112,15 +1707,6 @@ export interface EFSVolumeConfiguration {
   authorizationConfig?: EFSAuthorizationConfig;
 }
 
-export namespace EFSVolumeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EFSVolumeConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Determine whether your data volume persists on the host container instance and where it is stored. If this
  *    parameter is empty, then the Docker daemon assigns a host path for your data volume, but the data isn't guaranteed to
@@ -2138,15 +1724,6 @@ export interface Host {
    *          </note>
    */
   sourcePath?: string;
-}
-
-export namespace Host {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Host): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2177,15 +1754,6 @@ export interface Volume {
    *    on Fargate resources must specify a <code>platformVersion</code> of at least <code>1.4.0</code>.</p>
    */
   efsVolumeConfiguration?: EFSVolumeConfiguration;
-}
-
-export namespace Volume {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Volume): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2404,15 +1972,6 @@ export interface ContainerProperties {
   fargatePlatformConfiguration?: FargatePlatformConfiguration;
 }
 
-export namespace ContainerProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing the properties of the node range for a multi-node parallel job.</p>
  */
@@ -2431,15 +1990,6 @@ export interface NodeRangeProperty {
    * <p>The container details for the node range.</p>
    */
   container?: ContainerProperties;
-}
-
-export namespace NodeRangeProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeRangeProperty): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2461,15 +2011,6 @@ export interface NodeProperties {
    * <p>A list of node ranges and their properties associated with a multi-node parallel job.</p>
    */
   nodeRangeProperties: NodeRangeProperty[] | undefined;
-}
-
-export namespace NodeProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeProperties): any => ({
-    ...obj,
-  });
 }
 
 export enum PlatformCapability {
@@ -2521,15 +2062,6 @@ export interface EvaluateOnExit {
   action: RetryAction | string | undefined;
 }
 
-export namespace EvaluateOnExit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluateOnExit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The retry strategy associated with a job. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html">Automated job retries</a> in the <i>Batch User Guide</i>.</p>
  */
@@ -2548,15 +2080,6 @@ export interface RetryStrategy {
   evaluateOnExit?: EvaluateOnExit[];
 }
 
-export namespace RetryStrategy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryStrategy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing a job timeout configuration.</p>
  */
@@ -2566,15 +2089,6 @@ export interface JobTimeout {
    *    Batch terminates your jobs if they have not finished. The minimum value for the timeout is 60 seconds.</p>
    */
   attemptDurationSeconds?: number;
-}
-
-export namespace JobTimeout {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobTimeout): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2668,15 +2182,6 @@ export interface JobDefinition {
   platformCapabilities?: (PlatformCapability | string)[];
 }
 
-export namespace JobDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobDefinition): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobDefinitionsResponse {
   /**
    * <p>The list of job definitions.</p>
@@ -2689,15 +2194,6 @@ export interface DescribeJobDefinitionsResponse {
    *    retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeJobDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2730,15 +2226,6 @@ export interface DescribeJobQueuesRequest {
    *          </note>
    */
   nextToken?: string;
-}
-
-export namespace DescribeJobQueuesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobQueuesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum JQStatus {
@@ -2813,15 +2300,6 @@ export interface JobQueueDetail {
   tags?: Record<string, string>;
 }
 
-export namespace JobQueueDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobQueueDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobQueuesResponse {
   /**
    * <p>The list of job queues.</p>
@@ -2836,15 +2314,6 @@ export interface DescribeJobQueuesResponse {
   nextToken?: string;
 }
 
-export namespace DescribeJobQueuesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobQueuesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for <code>DescribeJobs</code>.</p>
  */
@@ -2853,15 +2322,6 @@ export interface DescribeJobsRequest {
    * <p>A list of up to 100 job IDs.</p>
    */
   jobs: string[] | undefined;
-}
-
-export namespace DescribeJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3063,15 +2523,6 @@ export interface ContainerDetail {
   fargatePlatformConfiguration?: FargatePlatformConfiguration;
 }
 
-export namespace ContainerDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing an Batch job dependency.</p>
  */
@@ -3085,15 +2536,6 @@ export interface JobDependency {
    * <p>The type of the job dependency.</p>
    */
   type?: ArrayJobDependency | string;
-}
-
-export namespace JobDependency {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobDependency): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3110,15 +2552,6 @@ export interface NodeDetails {
    * <p>Specifies whether the current node is the main node for a multi-node parallel job.</p>
    */
   isMainNode?: boolean;
-}
-
-export namespace NodeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum JobStatus {
@@ -3275,29 +2708,11 @@ export interface JobDetail {
   platformCapabilities?: (PlatformCapability | string)[];
 }
 
-export namespace JobDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobsResponse {
   /**
    * <p>The list of jobs.</p>
    */
   jobs?: JobDetail[];
-}
-
-export namespace DescribeJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3308,15 +2723,6 @@ export interface DescribeSchedulingPoliciesRequest {
    * <p>A list of up to 100 scheduling policy Amazon Resource Name (ARN) entries.</p>
    */
   arns: string[] | undefined;
-}
-
-export namespace DescribeSchedulingPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSchedulingPoliciesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3348,29 +2754,11 @@ export interface SchedulingPolicyDetail {
   tags?: Record<string, string>;
 }
 
-export namespace SchedulingPolicyDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchedulingPolicyDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSchedulingPoliciesResponse {
   /**
    * <p>The list of scheduling policies.</p>
    */
   schedulingPolicies?: SchedulingPolicyDetail[];
-}
-
-export namespace DescribeSchedulingPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSchedulingPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3387,15 +2775,6 @@ export interface KeyValuesPair {
    * <p>The filter values.</p>
    */
   values?: string[];
-}
-
-export namespace KeyValuesPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyValuesPair): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3491,15 +2870,6 @@ export interface ListJobsRequest {
   filters?: KeyValuesPair[];
 }
 
-export namespace ListJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing summary details of a container within a job.</p>
  */
@@ -3514,15 +2884,6 @@ export interface ContainerSummary {
    *    container.</p>
    */
   reason?: string;
-}
-
-export namespace ContainerSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3544,15 +2905,6 @@ export interface NodePropertiesSummary {
    *    the <code>AWS_BATCH_JOB_NODE_INDEX</code> environment variable.</p>
    */
   nodeIndex?: number;
-}
-
-export namespace NodePropertiesSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodePropertiesSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3628,15 +2980,6 @@ export interface JobSummary {
   jobDefinition?: string;
 }
 
-export namespace JobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListJobsResponse {
   /**
    * <p>A list of job summaries that match the request.</p>
@@ -3649,15 +2992,6 @@ export interface ListJobsResponse {
    *    results. This value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3689,15 +3023,6 @@ export interface ListSchedulingPoliciesRequest {
   nextToken?: string;
 }
 
-export namespace ListSchedulingPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSchedulingPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains the details of a scheduling policy that's returned in a
  *     <code>ListSchedulingPolicy</code> action.</p>
@@ -3707,15 +3032,6 @@ export interface SchedulingPolicyListingDetail {
    * <p>Amazon Resource Name (ARN) of the scheduling policy.</p>
    */
   arn: string | undefined;
-}
-
-export namespace SchedulingPolicyListingDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchedulingPolicyListingDetail): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSchedulingPoliciesResponse {
@@ -3732,15 +3048,6 @@ export interface ListSchedulingPoliciesResponse {
   nextToken?: string;
 }
 
-export namespace ListSchedulingPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSchedulingPoliciesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for <code>ListTagsForResource</code>.</p>
  */
@@ -3752,29 +3059,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum JobDefinitionType {
@@ -3876,15 +3165,6 @@ export interface RegisterJobDefinitionRequest {
   platformCapabilities?: (PlatformCapability | string)[];
 }
 
-export namespace RegisterJobDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterJobDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterJobDefinitionResponse {
   /**
    * <p>The name of the job definition.</p>
@@ -3900,15 +3180,6 @@ export interface RegisterJobDefinitionResponse {
    * <p>The revision of the job definition.</p>
    */
   revision: number | undefined;
-}
-
-export namespace RegisterJobDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterJobDefinitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3976,15 +3247,6 @@ export interface ContainerOverrides {
   resourceRequirements?: ResourceRequirement[];
 }
 
-export namespace ContainerOverrides {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerOverrides): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Object representing any node overrides to a job definition that's used in a <a>SubmitJob</a> API
  *    operation.</p>
@@ -4002,15 +3264,6 @@ export interface NodePropertyOverride {
    * <p>The overrides that should be sent to a node range.</p>
    */
   containerOverrides?: ContainerOverrides;
-}
-
-export namespace NodePropertyOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodePropertyOverride): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4046,15 +3299,6 @@ export interface NodeOverrides {
    * <p>The node property overrides for the job.</p>
    */
   nodePropertyOverrides?: NodePropertyOverride[];
-}
-
-export namespace NodeOverrides {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeOverrides): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4168,15 +3412,6 @@ export interface SubmitJobRequest {
   tags?: Record<string, string>;
 }
 
-export namespace SubmitJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SubmitJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the job.</p>
@@ -4192,15 +3427,6 @@ export interface SubmitJobResponse {
    * <p>The unique identifier for the job.</p>
    */
   jobId: string | undefined;
-}
-
-export namespace SubmitJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4221,25 +3447,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the parameters for <code>TerminateJob</code>.</p>
@@ -4258,25 +3466,7 @@ export interface TerminateJobRequest {
   reason: string | undefined;
 }
 
-export namespace TerminateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateJobResponse {}
-
-export namespace TerminateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateJobResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the parameters for <code>UntagResource</code>.</p>
@@ -4294,25 +3484,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum CRUpdateAllocationStrategy {
   BEST_FIT_PROGRESSIVE = "BEST_FIT_PROGRESSIVE",
@@ -4594,15 +3766,6 @@ export interface ComputeResourceUpdate {
   imageId?: string;
 }
 
-export namespace ComputeResourceUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComputeResourceUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for <code>UpdateComputeEnvironment</code>.</p>
  */
@@ -4670,15 +3833,6 @@ export interface UpdateComputeEnvironmentRequest {
   updatePolicy?: UpdatePolicy;
 }
 
-export namespace UpdateComputeEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateComputeEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateComputeEnvironmentResponse {
   /**
    * <p>The name of the compute environment. It can be up to 128 letters long. It can contain uppercase and
@@ -4690,15 +3844,6 @@ export interface UpdateComputeEnvironmentResponse {
    * <p>The Amazon Resource Name (ARN) of the compute environment.</p>
    */
   computeEnvironmentArn?: string;
-}
-
-export namespace UpdateComputeEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateComputeEnvironmentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4751,15 +3896,6 @@ export interface UpdateJobQueueRequest {
   computeEnvironmentOrder?: ComputeEnvironmentOrder[];
 }
 
-export namespace UpdateJobQueueRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobQueueRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateJobQueueResponse {
   /**
    * <p>The name of the job queue.</p>
@@ -4770,15 +3906,6 @@ export interface UpdateJobQueueResponse {
    * <p>The Amazon Resource Name (ARN) of the job queue.</p>
    */
   jobQueueArn?: string;
-}
-
-export namespace UpdateJobQueueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobQueueResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4796,22 +3923,699 @@ export interface UpdateSchedulingPolicyRequest {
   fairsharePolicy?: FairsharePolicy;
 }
 
-export namespace UpdateSchedulingPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSchedulingPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSchedulingPolicyResponse {}
 
-export namespace UpdateSchedulingPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSchedulingPolicyResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ArrayPropertiesFilterSensitiveLog = (obj: ArrayProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArrayPropertiesDetailFilterSensitiveLog = (obj: ArrayPropertiesDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArrayPropertiesSummaryFilterSensitiveLog = (obj: ArrayPropertiesSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttemptContainerDetailFilterSensitiveLog = (obj: AttemptContainerDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttemptDetailFilterSensitiveLog = (obj: AttemptDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobResponseFilterSensitiveLog = (obj: CancelJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const Ec2ConfigurationFilterSensitiveLog = (obj: Ec2Configuration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchTemplateSpecificationFilterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComputeResourceFilterSensitiveLog = (obj: ComputeResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComputeEnvironmentRequestFilterSensitiveLog = (obj: CreateComputeEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComputeEnvironmentResponseFilterSensitiveLog = (obj: CreateComputeEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComputeEnvironmentOrderFilterSensitiveLog = (obj: ComputeEnvironmentOrder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobQueueRequestFilterSensitiveLog = (obj: CreateJobQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobQueueResponseFilterSensitiveLog = (obj: CreateJobQueueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShareAttributesFilterSensitiveLog = (obj: ShareAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FairsharePolicyFilterSensitiveLog = (obj: FairsharePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSchedulingPolicyRequestFilterSensitiveLog = (obj: CreateSchedulingPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSchedulingPolicyResponseFilterSensitiveLog = (obj: CreateSchedulingPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteComputeEnvironmentRequestFilterSensitiveLog = (obj: DeleteComputeEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteComputeEnvironmentResponseFilterSensitiveLog = (obj: DeleteComputeEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobQueueRequestFilterSensitiveLog = (obj: DeleteJobQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobQueueResponseFilterSensitiveLog = (obj: DeleteJobQueueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSchedulingPolicyRequestFilterSensitiveLog = (obj: DeleteSchedulingPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSchedulingPolicyResponseFilterSensitiveLog = (obj: DeleteSchedulingPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterJobDefinitionRequestFilterSensitiveLog = (obj: DeregisterJobDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterJobDefinitionResponseFilterSensitiveLog = (obj: DeregisterJobDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeComputeEnvironmentsRequestFilterSensitiveLog = (obj: DescribeComputeEnvironmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyFilterSensitiveLog = (obj: UpdatePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComputeEnvironmentDetailFilterSensitiveLog = (obj: ComputeEnvironmentDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeComputeEnvironmentsResponseFilterSensitiveLog = (
+  obj: DescribeComputeEnvironmentsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobDefinitionsRequestFilterSensitiveLog = (obj: DescribeJobDefinitionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyValuePairFilterSensitiveLog = (obj: KeyValuePair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FargatePlatformConfigurationFilterSensitiveLog = (obj: FargatePlatformConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceFilterSensitiveLog = (obj: Device): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TmpfsFilterSensitiveLog = (obj: Tmpfs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LinuxParametersFilterSensitiveLog = (obj: LinuxParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecretFilterSensitiveLog = (obj: Secret): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogConfigurationFilterSensitiveLog = (obj: LogConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MountPointFilterSensitiveLog = (obj: MountPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceRequirementFilterSensitiveLog = (obj: ResourceRequirement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UlimitFilterSensitiveLog = (obj: Ulimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EFSAuthorizationConfigFilterSensitiveLog = (obj: EFSAuthorizationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EFSVolumeConfigurationFilterSensitiveLog = (obj: EFSVolumeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostFilterSensitiveLog = (obj: Host): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeFilterSensitiveLog = (obj: Volume): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerPropertiesFilterSensitiveLog = (obj: ContainerProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeRangePropertyFilterSensitiveLog = (obj: NodeRangeProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodePropertiesFilterSensitiveLog = (obj: NodeProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluateOnExitFilterSensitiveLog = (obj: EvaluateOnExit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryStrategyFilterSensitiveLog = (obj: RetryStrategy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobTimeoutFilterSensitiveLog = (obj: JobTimeout): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobDefinitionFilterSensitiveLog = (obj: JobDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobDefinitionsResponseFilterSensitiveLog = (obj: DescribeJobDefinitionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobQueuesRequestFilterSensitiveLog = (obj: DescribeJobQueuesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobQueueDetailFilterSensitiveLog = (obj: JobQueueDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobQueuesResponseFilterSensitiveLog = (obj: DescribeJobQueuesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobsRequestFilterSensitiveLog = (obj: DescribeJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerDetailFilterSensitiveLog = (obj: ContainerDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobDependencyFilterSensitiveLog = (obj: JobDependency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeDetailsFilterSensitiveLog = (obj: NodeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobDetailFilterSensitiveLog = (obj: JobDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobsResponseFilterSensitiveLog = (obj: DescribeJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSchedulingPoliciesRequestFilterSensitiveLog = (obj: DescribeSchedulingPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchedulingPolicyDetailFilterSensitiveLog = (obj: SchedulingPolicyDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSchedulingPoliciesResponseFilterSensitiveLog = (obj: DescribeSchedulingPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyValuesPairFilterSensitiveLog = (obj: KeyValuesPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerSummaryFilterSensitiveLog = (obj: ContainerSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodePropertiesSummaryFilterSensitiveLog = (obj: NodePropertiesSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobSummaryFilterSensitiveLog = (obj: JobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsResponseFilterSensitiveLog = (obj: ListJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchedulingPoliciesRequestFilterSensitiveLog = (obj: ListSchedulingPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchedulingPolicyListingDetailFilterSensitiveLog = (obj: SchedulingPolicyListingDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchedulingPoliciesResponseFilterSensitiveLog = (obj: ListSchedulingPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterJobDefinitionRequestFilterSensitiveLog = (obj: RegisterJobDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterJobDefinitionResponseFilterSensitiveLog = (obj: RegisterJobDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerOverridesFilterSensitiveLog = (obj: ContainerOverrides): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodePropertyOverrideFilterSensitiveLog = (obj: NodePropertyOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeOverridesFilterSensitiveLog = (obj: NodeOverrides): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitJobRequestFilterSensitiveLog = (obj: SubmitJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitJobResponseFilterSensitiveLog = (obj: SubmitJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateJobRequestFilterSensitiveLog = (obj: TerminateJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateJobResponseFilterSensitiveLog = (obj: TerminateJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComputeResourceUpdateFilterSensitiveLog = (obj: ComputeResourceUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateComputeEnvironmentRequestFilterSensitiveLog = (obj: UpdateComputeEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateComputeEnvironmentResponseFilterSensitiveLog = (obj: UpdateComputeEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobQueueRequestFilterSensitiveLog = (obj: UpdateJobQueueRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobQueueResponseFilterSensitiveLog = (obj: UpdateJobQueueResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSchedulingPolicyRequestFilterSensitiveLog = (obj: UpdateSchedulingPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSchedulingPolicyResponseFilterSensitiveLog = (obj: UpdateSchedulingPolicyResponse): any => ({
+  ...obj,
+});

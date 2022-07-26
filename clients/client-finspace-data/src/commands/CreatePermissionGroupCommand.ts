@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import { CreatePermissionGroupRequest, CreatePermissionGroupResponse } from "../models/models_0";
+import {
+  CreatePermissionGroupRequest,
+  CreatePermissionGroupRequestFilterSensitiveLog,
+  CreatePermissionGroupResponse,
+  CreatePermissionGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePermissionGroupCommand,
   serializeAws_restJson1CreatePermissionGroupCommand,
@@ -72,8 +77,8 @@ export class CreatePermissionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePermissionGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePermissionGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePermissionGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePermissionGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

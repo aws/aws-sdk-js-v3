@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/models_0";
+import {
+  DescribeSMBSettingsInput,
+  DescribeSMBSettingsInputFilterSensitiveLog,
+  DescribeSMBSettingsOutput,
+  DescribeSMBSettingsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeSMBSettingsCommand,
   serializeAws_json1_1DescribeSMBSettingsCommand,
@@ -73,8 +78,8 @@ export class DescribeSMBSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSMBSettingsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSMBSettingsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSMBSettingsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSMBSettingsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

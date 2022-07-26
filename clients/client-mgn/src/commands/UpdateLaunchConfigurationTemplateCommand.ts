@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { LaunchConfigurationTemplate, UpdateLaunchConfigurationTemplateRequest } from "../models/models_0";
+import {
+  LaunchConfigurationTemplate,
+  LaunchConfigurationTemplateFilterSensitiveLog,
+  UpdateLaunchConfigurationTemplateRequest,
+  UpdateLaunchConfigurationTemplateRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommand,
   serializeAws_restJson1UpdateLaunchConfigurationTemplateCommand,
@@ -72,8 +77,8 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLaunchConfigurationTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: LaunchConfigurationTemplate.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLaunchConfigurationTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: LaunchConfigurationTemplateFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

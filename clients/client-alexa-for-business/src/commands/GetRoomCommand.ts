@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { GetRoomRequest, GetRoomResponse } from "../models/models_0";
+import {
+  GetRoomRequest,
+  GetRoomRequestFilterSensitiveLog,
+  GetRoomResponse,
+  GetRoomResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetRoomCommand, serializeAws_json1_1GetRoomCommand } from "../protocols/Aws_json1_1";
 
 export interface GetRoomCommandInput extends GetRoomRequest {}
@@ -69,8 +74,8 @@ export class GetRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoomRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRoomResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRoomRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRoomResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

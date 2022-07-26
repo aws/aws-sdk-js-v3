@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateQueueOutboundCallerConfigRequest } from "../models/models_1";
+import {
+  UpdateQueueOutboundCallerConfigRequest,
+  UpdateQueueOutboundCallerConfigRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateQueueOutboundCallerConfigCommand,
   serializeAws_restJson1UpdateQueueOutboundCallerConfigCommand,
@@ -74,7 +77,7 @@ export class UpdateQueueOutboundCallerConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQueueOutboundCallerConfigRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateQueueOutboundCallerConfigRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DescribeQueryDefinitionsRequest, DescribeQueryDefinitionsResponse } from "../models/models_0";
+import {
+  DescribeQueryDefinitionsRequest,
+  DescribeQueryDefinitionsRequestFilterSensitiveLog,
+  DescribeQueryDefinitionsResponse,
+  DescribeQueryDefinitionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeQueryDefinitionsCommand,
   serializeAws_json1_1DescribeQueryDefinitionsCommand,
@@ -74,8 +79,8 @@ export class DescribeQueryDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeQueryDefinitionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeQueryDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeQueryDefinitionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeQueryDefinitionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

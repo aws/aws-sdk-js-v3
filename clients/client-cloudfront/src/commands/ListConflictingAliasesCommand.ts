@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListConflictingAliasesRequest, ListConflictingAliasesResult } from "../models/models_1";
+import {
+  ListConflictingAliasesRequest,
+  ListConflictingAliasesRequestFilterSensitiveLog,
+  ListConflictingAliasesResult,
+  ListConflictingAliasesResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlListConflictingAliasesCommand,
   serializeAws_restXmlListConflictingAliasesCommand,
@@ -94,8 +99,8 @@ export class ListConflictingAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConflictingAliasesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListConflictingAliasesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListConflictingAliasesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListConflictingAliasesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

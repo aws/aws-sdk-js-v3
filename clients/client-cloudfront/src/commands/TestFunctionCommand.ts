@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { TestFunctionRequest, TestFunctionResult } from "../models/models_1";
+import {
+  TestFunctionRequest,
+  TestFunctionRequestFilterSensitiveLog,
+  TestFunctionResult,
+  TestFunctionResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlTestFunctionCommand,
   serializeAws_restXmlTestFunctionCommand,
@@ -81,8 +86,8 @@ export class TestFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestFunctionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestFunctionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: TestFunctionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestFunctionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

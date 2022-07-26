@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListWebACLsRequest, ListWebACLsResponse } from "../models/models_0";
+import {
+  ListWebACLsRequest,
+  ListWebACLsRequestFilterSensitiveLog,
+  ListWebACLsResponse,
+  ListWebACLsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListWebACLsCommand,
   serializeAws_json1_1ListWebACLsCommand,
@@ -73,8 +78,8 @@ export class ListWebACLsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWebACLsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListWebACLsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListWebACLsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListWebACLsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

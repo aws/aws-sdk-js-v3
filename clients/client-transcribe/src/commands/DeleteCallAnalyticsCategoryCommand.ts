@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCallAnalyticsCategoryRequest, DeleteCallAnalyticsCategoryResponse } from "../models/models_0";
+import {
+  DeleteCallAnalyticsCategoryRequest,
+  DeleteCallAnalyticsCategoryRequestFilterSensitiveLog,
+  DeleteCallAnalyticsCategoryResponse,
+  DeleteCallAnalyticsCategoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCallAnalyticsCategoryCommand,
   serializeAws_json1_1DeleteCallAnalyticsCategoryCommand,
@@ -76,8 +81,8 @@ export class DeleteCallAnalyticsCategoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCallAnalyticsCategoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCallAnalyticsCategoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCallAnalyticsCategoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCallAnalyticsCategoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

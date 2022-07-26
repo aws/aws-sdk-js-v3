@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { SetUICustomizationRequest, SetUICustomizationResponse } from "../models/models_0";
+import {
+  SetUICustomizationRequest,
+  SetUICustomizationRequestFilterSensitiveLog,
+  SetUICustomizationResponse,
+  SetUICustomizationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SetUICustomizationCommand,
   serializeAws_json1_1SetUICustomizationCommand,
@@ -90,8 +95,8 @@ export class SetUICustomizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetUICustomizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SetUICustomizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetUICustomizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SetUICustomizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

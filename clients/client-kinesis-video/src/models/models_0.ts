@@ -102,15 +102,6 @@ export interface SingleMasterConfiguration {
   MessageTtlSeconds?: number;
 }
 
-export namespace SingleMasterConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SingleMasterConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that encapsulates a signaling channel's metadata and properties.</p>
  */
@@ -152,15 +143,6 @@ export interface ChannelInfo {
   Version?: string;
 }
 
-export namespace ChannelInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelInfo): any => ({
-    ...obj,
-  });
-}
-
 export enum ComparisonOperator {
   BEGINS_WITH = "BEGINS_WITH",
 }
@@ -182,15 +164,6 @@ export interface ChannelNameCondition {
    * <p>A value to compare.</p>
    */
   ComparisonValue?: string;
-}
-
-export namespace ChannelNameCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelNameCondition): any => ({
-    ...obj,
-  });
 }
 
 export enum ChannelProtocol {
@@ -245,15 +218,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSignalingChannelInput {
   /**
    * <p>A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.</p>
@@ -278,29 +242,11 @@ export interface CreateSignalingChannelInput {
   Tags?: Tag[];
 }
 
-export namespace CreateSignalingChannelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSignalingChannelInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSignalingChannelOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the created channel.</p>
    */
   ChannelARN?: string;
-}
-
-export namespace CreateSignalingChannelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSignalingChannelOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -427,29 +373,11 @@ export interface CreateStreamInput {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStreamOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    */
   StreamARN?: string;
-}
-
-export namespace CreateStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -510,25 +438,7 @@ export interface DeleteSignalingChannelInput {
   CurrentVersion?: string;
 }
 
-export namespace DeleteSignalingChannelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSignalingChannelInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSignalingChannelOutput {}
-
-export namespace DeleteSignalingChannelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSignalingChannelOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
@@ -590,25 +500,7 @@ export interface DeleteStreamInput {
   CurrentVersion?: string;
 }
 
-export namespace DeleteStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStreamOutput {}
-
-export namespace DeleteStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The caller is not authorized to perform this operation.</p>
@@ -643,15 +535,6 @@ export interface DescribeImageGenerationConfigurationInput {
   StreamARN?: string;
 }
 
-export namespace DescribeImageGenerationConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageGenerationConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure that contains the information required to deliver images to a customer.</p>
  */
@@ -665,15 +548,6 @@ export interface ImageGenerationDestinationConfig {
    * <p>The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.</p>
    */
   DestinationRegion: string | undefined;
-}
-
-export namespace ImageGenerationDestinationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageGenerationDestinationConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum Format {
@@ -746,29 +620,11 @@ export interface ImageGenerationConfiguration {
   HeightPixels?: number;
 }
 
-export namespace ImageGenerationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageGenerationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeImageGenerationConfigurationOutput {
   /**
    * <p>The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.</p>
    */
   ImageGenerationConfiguration?: ImageGenerationConfiguration;
-}
-
-export namespace DescribeImageGenerationConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageGenerationConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeNotificationConfigurationInput {
@@ -783,15 +639,6 @@ export interface DescribeNotificationConfigurationInput {
   StreamARN?: string;
 }
 
-export namespace DescribeNotificationConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotificationConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure that contains the information required to deliver a notification to a customer.</p>
  */
@@ -800,15 +647,6 @@ export interface NotificationDestinationConfig {
    * <p>The Uniform Resource Idenifier (URI) that identifies where the images will be delivered.</p>
    */
   Uri: string | undefined;
-}
-
-export namespace NotificationDestinationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationDestinationConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -826,29 +664,11 @@ export interface NotificationConfiguration {
   DestinationConfig: NotificationDestinationConfig | undefined;
 }
 
-export namespace NotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeNotificationConfigurationOutput {
   /**
    * <p>The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
    */
   NotificationConfiguration?: NotificationConfiguration;
-}
-
-export namespace DescribeNotificationConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotificationConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSignalingChannelInput {
@@ -863,30 +683,12 @@ export interface DescribeSignalingChannelInput {
   ChannelARN?: string;
 }
 
-export namespace DescribeSignalingChannelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSignalingChannelInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSignalingChannelOutput {
   /**
    * <p>A structure that encapsulates the specified signaling channel's metadata and
    *             properties.</p>
    */
   ChannelInfo?: ChannelInfo;
-}
-
-export namespace DescribeSignalingChannelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSignalingChannelOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeStreamInput {
@@ -899,15 +701,6 @@ export interface DescribeStreamInput {
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    */
   StreamARN?: string;
-}
-
-export namespace DescribeStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStreamInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -961,29 +754,11 @@ export interface StreamInfo {
   DataRetentionInHours?: number;
 }
 
-export namespace StreamInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStreamOutput {
   /**
    * <p>An object that describes the stream.</p>
    */
   StreamInfo?: StreamInfo;
-}
-
-export namespace DescribeStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDataEndpointInput {
@@ -1006,30 +781,12 @@ export interface GetDataEndpointInput {
   APIName: APIName | string | undefined;
 }
 
-export namespace GetDataEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataEndpointInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDataEndpointOutput {
   /**
    * <p>The endpoint value. To read data from the stream or to write data to it, specify
    *             this endpoint in your application.</p>
    */
   DataEndpoint?: string;
-}
-
-export namespace GetDataEndpointOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataEndpointOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1056,15 +813,6 @@ export interface SingleMasterChannelEndpointConfiguration {
   Role?: ChannelRole | string;
 }
 
-export namespace SingleMasterChannelEndpointConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SingleMasterChannelEndpointConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSignalingChannelEndpointInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an
@@ -1077,15 +825,6 @@ export interface GetSignalingChannelEndpointInput {
    *             channel type.</p>
    */
   SingleMasterChannelEndpointConfiguration?: SingleMasterChannelEndpointConfiguration;
-}
-
-export namespace GetSignalingChannelEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSignalingChannelEndpointInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1106,29 +845,11 @@ export interface ResourceEndpointListItem {
   ResourceEndpoint?: string;
 }
 
-export namespace ResourceEndpointListItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceEndpointListItem): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSignalingChannelEndpointOutput {
   /**
    * <p>A list of endpoints for the specified signaling channel.</p>
    */
   ResourceEndpointList?: ResourceEndpointListItem[];
-}
-
-export namespace GetSignalingChannelEndpointOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSignalingChannelEndpointOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1171,15 +892,6 @@ export interface ListSignalingChannelsInput {
   ChannelNameCondition?: ChannelNameCondition;
 }
 
-export namespace ListSignalingChannelsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSignalingChannelsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSignalingChannelsOutput {
   /**
    * <p>An array of <code>ChannelInfo</code> objects.</p>
@@ -1191,15 +903,6 @@ export interface ListSignalingChannelsOutput {
    *             next batch of streams, use this token in your next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSignalingChannelsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSignalingChannelsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1219,15 +922,6 @@ export interface StreamNameCondition {
    * <p>A value to compare.</p>
    */
   ComparisonValue?: string;
-}
-
-export namespace StreamNameCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamNameCondition): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStreamsInput {
@@ -1251,15 +945,6 @@ export interface ListStreamsInput {
   StreamNameCondition?: StreamNameCondition;
 }
 
-export namespace ListStreamsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStreamsOutput {
   /**
    * <p>An array of <code>StreamInfo</code> objects.</p>
@@ -1271,15 +956,6 @@ export interface ListStreamsOutput {
    *             the next batch of streams, use this token in your next request. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListStreamsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceInput {
@@ -1297,15 +973,6 @@ export interface ListTagsForResourceInput {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>If you specify this parameter and the result of a <code>ListTagsForResource</code>
@@ -1318,15 +985,6 @@ export interface ListTagsForResourceOutput {
    * <p>A map of tag keys and values associated with the specified signaling channel.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForStreamInput {
@@ -1349,15 +1007,6 @@ export interface ListTagsForStreamInput {
   StreamName?: string;
 }
 
-export namespace ListTagsForStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForStreamOutput {
   /**
    * <p>If you specify this parameter and the result of a <code>ListTags</code> call is
@@ -1370,15 +1019,6 @@ export interface ListTagsForStreamOutput {
    * <p>A map of tag keys and values associated with the specified stream.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForStreamOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceInput {
@@ -1395,25 +1035,7 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceOutput {}
-
-export namespace TagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface TagStreamInput {
   /**
@@ -1434,25 +1056,7 @@ export interface TagStreamInput {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagStreamOutput {}
-
-export namespace TagStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagStreamOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceInput {
   /**
@@ -1467,25 +1071,7 @@ export interface UntagResourceInput {
   TagKeyList: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceOutput {}
-
-export namespace UntagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagStreamInput {
   /**
@@ -1505,25 +1091,7 @@ export interface UntagStreamInput {
   TagKeyList: string[] | undefined;
 }
 
-export namespace UntagStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagStreamOutput {}
-
-export namespace UntagStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagStreamOutput): any => ({
-    ...obj,
-  });
-}
 
 export enum UpdateDataRetentionOperation {
   DECREASE_DATA_RETENTION = "DECREASE_DATA_RETENTION",
@@ -1561,25 +1129,7 @@ export interface UpdateDataRetentionInput {
   DataRetentionChangeInHours: number | undefined;
 }
 
-export namespace UpdateDataRetentionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataRetentionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDataRetentionOutput {}
-
-export namespace UpdateDataRetentionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataRetentionOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The Stream data retention in hours is equal to zero.</p>
@@ -1620,25 +1170,7 @@ export interface UpdateImageGenerationConfigurationInput {
   ImageGenerationConfiguration?: ImageGenerationConfiguration;
 }
 
-export namespace UpdateImageGenerationConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateImageGenerationConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateImageGenerationConfigurationOutput {}
-
-export namespace UpdateImageGenerationConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateImageGenerationConfigurationOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateNotificationConfigurationInput {
   /**
@@ -1657,25 +1189,7 @@ export interface UpdateNotificationConfigurationInput {
   NotificationConfiguration?: NotificationConfiguration;
 }
 
-export namespace UpdateNotificationConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotificationConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateNotificationConfigurationOutput {}
-
-export namespace UpdateNotificationConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNotificationConfigurationOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateSignalingChannelInput {
   /**
@@ -1696,25 +1210,7 @@ export interface UpdateSignalingChannelInput {
   SingleMasterConfiguration?: SingleMasterConfiguration;
 }
 
-export namespace UpdateSignalingChannelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSignalingChannelInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSignalingChannelOutput {}
-
-export namespace UpdateSignalingChannelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSignalingChannelOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateStreamInput {
   /**
@@ -1756,22 +1252,428 @@ export interface UpdateStreamInput {
   MediaType?: string;
 }
 
-export namespace UpdateStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateStreamOutput {}
 
-export namespace UpdateStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStreamOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SingleMasterConfigurationFilterSensitiveLog = (obj: SingleMasterConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelInfoFilterSensitiveLog = (obj: ChannelInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelNameConditionFilterSensitiveLog = (obj: ChannelNameCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSignalingChannelInputFilterSensitiveLog = (obj: CreateSignalingChannelInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSignalingChannelOutputFilterSensitiveLog = (obj: CreateSignalingChannelOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamInputFilterSensitiveLog = (obj: CreateStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamOutputFilterSensitiveLog = (obj: CreateStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSignalingChannelInputFilterSensitiveLog = (obj: DeleteSignalingChannelInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSignalingChannelOutputFilterSensitiveLog = (obj: DeleteSignalingChannelOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStreamInputFilterSensitiveLog = (obj: DeleteStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStreamOutputFilterSensitiveLog = (obj: DeleteStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImageGenerationConfigurationInputFilterSensitiveLog = (
+  obj: DescribeImageGenerationConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageGenerationDestinationConfigFilterSensitiveLog = (obj: ImageGenerationDestinationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageGenerationConfigurationFilterSensitiveLog = (obj: ImageGenerationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImageGenerationConfigurationOutputFilterSensitiveLog = (
+  obj: DescribeImageGenerationConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNotificationConfigurationInputFilterSensitiveLog = (
+  obj: DescribeNotificationConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationDestinationConfigFilterSensitiveLog = (obj: NotificationDestinationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationConfigurationFilterSensitiveLog = (obj: NotificationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNotificationConfigurationOutputFilterSensitiveLog = (
+  obj: DescribeNotificationConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSignalingChannelInputFilterSensitiveLog = (obj: DescribeSignalingChannelInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSignalingChannelOutputFilterSensitiveLog = (obj: DescribeSignalingChannelOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStreamInputFilterSensitiveLog = (obj: DescribeStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamInfoFilterSensitiveLog = (obj: StreamInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStreamOutputFilterSensitiveLog = (obj: DescribeStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataEndpointInputFilterSensitiveLog = (obj: GetDataEndpointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataEndpointOutputFilterSensitiveLog = (obj: GetDataEndpointOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SingleMasterChannelEndpointConfigurationFilterSensitiveLog = (
+  obj: SingleMasterChannelEndpointConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSignalingChannelEndpointInputFilterSensitiveLog = (obj: GetSignalingChannelEndpointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceEndpointListItemFilterSensitiveLog = (obj: ResourceEndpointListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSignalingChannelEndpointOutputFilterSensitiveLog = (obj: GetSignalingChannelEndpointOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSignalingChannelsInputFilterSensitiveLog = (obj: ListSignalingChannelsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSignalingChannelsOutputFilterSensitiveLog = (obj: ListSignalingChannelsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamNameConditionFilterSensitiveLog = (obj: StreamNameCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamsInputFilterSensitiveLog = (obj: ListStreamsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamsOutputFilterSensitiveLog = (obj: ListStreamsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForStreamInputFilterSensitiveLog = (obj: ListTagsForStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForStreamOutputFilterSensitiveLog = (obj: ListTagsForStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagStreamInputFilterSensitiveLog = (obj: TagStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagStreamOutputFilterSensitiveLog = (obj: TagStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagStreamInputFilterSensitiveLog = (obj: UntagStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagStreamOutputFilterSensitiveLog = (obj: UntagStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataRetentionInputFilterSensitiveLog = (obj: UpdateDataRetentionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataRetentionOutputFilterSensitiveLog = (obj: UpdateDataRetentionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImageGenerationConfigurationInputFilterSensitiveLog = (
+  obj: UpdateImageGenerationConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImageGenerationConfigurationOutputFilterSensitiveLog = (
+  obj: UpdateImageGenerationConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotificationConfigurationInputFilterSensitiveLog = (
+  obj: UpdateNotificationConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNotificationConfigurationOutputFilterSensitiveLog = (
+  obj: UpdateNotificationConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSignalingChannelInputFilterSensitiveLog = (obj: UpdateSignalingChannelInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSignalingChannelOutputFilterSensitiveLog = (obj: UpdateSignalingChannelOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStreamInputFilterSensitiveLog = (obj: UpdateStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStreamOutputFilterSensitiveLog = (obj: UpdateStreamOutput): any => ({
+  ...obj,
+});

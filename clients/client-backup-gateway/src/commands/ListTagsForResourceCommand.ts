@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
+import {
+  ListTagsForResourceInput,
+  ListTagsForResourceInputFilterSensitiveLog,
+  ListTagsForResourceOutput,
+  ListTagsForResourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ListTagsForResourceCommand,
   serializeAws_json1_0ListTagsForResourceCommand,
@@ -73,8 +78,8 @@ export class ListTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateLedgerPermissionsModeRequest, UpdateLedgerPermissionsModeResponse } from "../models/models_0";
+import {
+  UpdateLedgerPermissionsModeRequest,
+  UpdateLedgerPermissionsModeRequestFilterSensitiveLog,
+  UpdateLedgerPermissionsModeResponse,
+  UpdateLedgerPermissionsModeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateLedgerPermissionsModeCommand,
   serializeAws_restJson1UpdateLedgerPermissionsModeCommand,
@@ -80,8 +85,8 @@ export class UpdateLedgerPermissionsModeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLedgerPermissionsModeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLedgerPermissionsModeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLedgerPermissionsModeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLedgerPermissionsModeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -73,15 +73,6 @@ export interface CreateAlertManagerDefinitionRequest {
   clientToken?: string;
 }
 
-export namespace CreateAlertManagerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAlertManagerDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum AlertManagerDefinitionStatusCode {
   /**
    * Definition has been created/updated. Update/Deletion is disallowed until definition is ACTIVE and workspace status is ACTIVE.
@@ -124,15 +115,6 @@ export interface AlertManagerDefinitionStatus {
   statusReason?: string;
 }
 
-export namespace AlertManagerDefinitionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlertManagerDefinitionStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the output of a CreateAlertManagerDefinition operation.
  */
@@ -141,15 +123,6 @@ export interface CreateAlertManagerDefinitionResponse {
    * The status of alert manager definition.
    */
   status: AlertManagerDefinitionStatus | undefined;
-}
-
-export namespace CreateAlertManagerDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAlertManagerDefinitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -305,15 +278,6 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -367,15 +331,6 @@ export interface DeleteAlertManagerDefinitionRequest {
   clientToken?: string;
 }
 
-export namespace DeleteAlertManagerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlertManagerDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the input of a DescribeAlertManagerDefinition operation.
  */
@@ -384,15 +339,6 @@ export interface DescribeAlertManagerDefinitionRequest {
    * The ID of the workspace to describe.
    */
   workspaceId: string | undefined;
-}
-
-export namespace DescribeAlertManagerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlertManagerDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -420,15 +366,6 @@ export interface AlertManagerDefinitionDescription {
   modifiedAt: Date | undefined;
 }
 
-export namespace AlertManagerDefinitionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlertManagerDefinitionDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the output of a DescribeAlertManagerDefinition operation.
  */
@@ -437,15 +374,6 @@ export interface DescribeAlertManagerDefinitionResponse {
    * The properties of the selected workspace's alert manager definition.
    */
   alertManagerDefinition: AlertManagerDefinitionDescription | undefined;
-}
-
-export namespace DescribeAlertManagerDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAlertManagerDefinitionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -468,15 +396,6 @@ export interface PutAlertManagerDefinitionRequest {
   clientToken?: string;
 }
 
-export namespace PutAlertManagerDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAlertManagerDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the output of a PutAlertManagerDefinition operation.
  */
@@ -487,15 +406,6 @@ export interface PutAlertManagerDefinitionResponse {
   status: AlertManagerDefinitionStatus | undefined;
 }
 
-export namespace PutAlertManagerDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAlertManagerDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * The ARN of the resource.
@@ -503,29 +413,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * The list of tags assigned to the resource.
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -540,25 +432,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -572,25 +446,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * Represents the input of a CreateWorkspace operation.
@@ -610,15 +466,6 @@ export interface CreateWorkspaceRequest {
    * Optional, user-provided tags for this workspace.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkspaceStatusCode {
@@ -654,15 +501,6 @@ export interface WorkspaceStatus {
   statusCode: WorkspaceStatusCode | string | undefined;
 }
 
-export namespace WorkspaceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the output of a CreateWorkspace operation.
  */
@@ -688,15 +526,6 @@ export interface CreateWorkspaceResponse {
   tags?: Record<string, string>;
 }
 
-export namespace CreateWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the input of a DeleteWorkspace operation.
  */
@@ -712,15 +541,6 @@ export interface DeleteWorkspaceRequest {
   clientToken?: string;
 }
 
-export namespace DeleteWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the input of a DescribeWorkspace operation.
  */
@@ -729,15 +549,6 @@ export interface DescribeWorkspaceRequest {
    * The ID of the workspace to describe.
    */
   workspaceId: string | undefined;
-}
-
-export namespace DescribeWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -780,15 +591,6 @@ export interface WorkspaceDescription {
   tags?: Record<string, string>;
 }
 
-export namespace WorkspaceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the output of a DescribeWorkspace operation.
  */
@@ -797,15 +599,6 @@ export interface DescribeWorkspaceResponse {
    * The properties of the selected workspace.
    */
   workspace: WorkspaceDescription | undefined;
-}
-
-export namespace DescribeWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -826,15 +619,6 @@ export interface ListWorkspacesRequest {
    * Maximum results to return in response (default=100, maximum=1000).
    */
   maxResults?: number;
-}
-
-export namespace ListWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkspacesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -872,15 +656,6 @@ export interface WorkspaceSummary {
   tags?: Record<string, string>;
 }
 
-export namespace WorkspaceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the output of a ListWorkspaces operation.
  */
@@ -894,15 +669,6 @@ export interface ListWorkspacesResponse {
    * Pagination token to use when requesting the next page in this list.
    */
   nextToken?: string;
-}
-
-export namespace ListWorkspacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkspacesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -933,15 +699,6 @@ export interface CreateRuleGroupsNamespaceRequest {
    * Optional, user-provided tags for this rule groups namespace.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateRuleGroupsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleGroupsNamespaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RuleGroupsNamespaceStatusCode {
@@ -986,15 +743,6 @@ export interface RuleGroupsNamespaceStatus {
   statusReason?: string;
 }
 
-export namespace RuleGroupsNamespaceStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupsNamespaceStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the output of a CreateRuleGroupsNamespace operation.
  */
@@ -1020,15 +768,6 @@ export interface CreateRuleGroupsNamespaceResponse {
   tags?: Record<string, string>;
 }
 
-export namespace CreateRuleGroupsNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleGroupsNamespaceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the input of a DeleteRuleGroupsNamespace operation.
  */
@@ -1049,15 +788,6 @@ export interface DeleteRuleGroupsNamespaceRequest {
   clientToken?: string;
 }
 
-export namespace DeleteRuleGroupsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleGroupsNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the input of a DescribeRuleGroupsNamespace operation.
  */
@@ -1071,15 +801,6 @@ export interface DescribeRuleGroupsNamespaceRequest {
    * The rule groups namespace.
    */
   name: string | undefined;
-}
-
-export namespace DescribeRuleGroupsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuleGroupsNamespaceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1122,15 +843,6 @@ export interface RuleGroupsNamespaceDescription {
   tags?: Record<string, string>;
 }
 
-export namespace RuleGroupsNamespaceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupsNamespaceDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the output of a DescribeRuleGroupsNamespace operation.
  */
@@ -1139,15 +851,6 @@ export interface DescribeRuleGroupsNamespaceResponse {
    * The selected rule groups namespace.
    */
   ruleGroupsNamespace: RuleGroupsNamespaceDescription | undefined;
-}
-
-export namespace DescribeRuleGroupsNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuleGroupsNamespaceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1173,15 +876,6 @@ export interface ListRuleGroupsNamespacesRequest {
    * Maximum results to return in response (default=100, maximum=1000).
    */
   maxResults?: number;
-}
-
-export namespace ListRuleGroupsNamespacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleGroupsNamespacesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1219,15 +913,6 @@ export interface RuleGroupsNamespaceSummary {
   tags?: Record<string, string>;
 }
 
-export namespace RuleGroupsNamespaceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupsNamespaceSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the output of a ListRuleGroupsNamespaces operation.
  */
@@ -1241,15 +926,6 @@ export interface ListRuleGroupsNamespacesResponse {
    * Pagination token to use when requesting the next page in this list.
    */
   nextToken?: string;
-}
-
-export namespace ListRuleGroupsNamespacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleGroupsNamespacesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1277,15 +953,6 @@ export interface PutRuleGroupsNamespaceRequest {
   clientToken?: string;
 }
 
-export namespace PutRuleGroupsNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRuleGroupsNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the output of a PutRuleGroupsNamespace operation.
  */
@@ -1311,15 +978,6 @@ export interface PutRuleGroupsNamespaceResponse {
   tags?: Record<string, string>;
 }
 
-export namespace PutRuleGroupsNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRuleGroupsNamespaceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Represents the input of an UpdateWorkspaceAlias operation.
  */
@@ -1340,11 +998,287 @@ export interface UpdateWorkspaceAliasRequest {
   clientToken?: string;
 }
 
-export namespace UpdateWorkspaceAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceAliasRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CreateAlertManagerDefinitionRequestFilterSensitiveLog = (
+  obj: CreateAlertManagerDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlertManagerDefinitionStatusFilterSensitiveLog = (obj: AlertManagerDefinitionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAlertManagerDefinitionResponseFilterSensitiveLog = (
+  obj: CreateAlertManagerDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAlertManagerDefinitionRequestFilterSensitiveLog = (
+  obj: DeleteAlertManagerDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAlertManagerDefinitionRequestFilterSensitiveLog = (
+  obj: DescribeAlertManagerDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlertManagerDefinitionDescriptionFilterSensitiveLog = (obj: AlertManagerDefinitionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAlertManagerDefinitionResponseFilterSensitiveLog = (
+  obj: DescribeAlertManagerDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAlertManagerDefinitionRequestFilterSensitiveLog = (obj: PutAlertManagerDefinitionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAlertManagerDefinitionResponseFilterSensitiveLog = (obj: PutAlertManagerDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceRequestFilterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceStatusFilterSensitiveLog = (obj: WorkspaceStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceResponseFilterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceRequestFilterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceRequestFilterSensitiveLog = (obj: DescribeWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceDescriptionFilterSensitiveLog = (obj: WorkspaceDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceResponseFilterSensitiveLog = (obj: DescribeWorkspaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkspacesRequestFilterSensitiveLog = (obj: ListWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceSummaryFilterSensitiveLog = (obj: WorkspaceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkspacesResponseFilterSensitiveLog = (obj: ListWorkspacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleGroupsNamespaceRequestFilterSensitiveLog = (obj: CreateRuleGroupsNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupsNamespaceStatusFilterSensitiveLog = (obj: RuleGroupsNamespaceStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleGroupsNamespaceResponseFilterSensitiveLog = (obj: CreateRuleGroupsNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleGroupsNamespaceRequestFilterSensitiveLog = (obj: DeleteRuleGroupsNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuleGroupsNamespaceRequestFilterSensitiveLog = (obj: DescribeRuleGroupsNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupsNamespaceDescriptionFilterSensitiveLog = (obj: RuleGroupsNamespaceDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuleGroupsNamespaceResponseFilterSensitiveLog = (
+  obj: DescribeRuleGroupsNamespaceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRuleGroupsNamespacesRequestFilterSensitiveLog = (obj: ListRuleGroupsNamespacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupsNamespaceSummaryFilterSensitiveLog = (obj: RuleGroupsNamespaceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRuleGroupsNamespacesResponseFilterSensitiveLog = (obj: ListRuleGroupsNamespacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRuleGroupsNamespaceRequestFilterSensitiveLog = (obj: PutRuleGroupsNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRuleGroupsNamespaceResponseFilterSensitiveLog = (obj: PutRuleGroupsNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceAliasRequestFilterSensitiveLog = (obj: UpdateWorkspaceAliasRequest): any => ({
+  ...obj,
+});

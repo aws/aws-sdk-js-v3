@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import { GetTableRequest, GetTableResponse } from "../models/models_0";
+import {
+  GetTableRequest,
+  GetTableRequestFilterSensitiveLog,
+  GetTableResponse,
+  GetTableResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_0GetTableCommand, serializeAws_json1_0GetTableCommand } from "../protocols/Aws_json1_0";
 
 export interface GetTableCommandInput extends GetTableRequest {}
@@ -72,8 +77,8 @@ export class GetTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTableRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTableResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

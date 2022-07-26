@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteServiceSpecificCredentialRequest } from "../models/models_0";
+import {
+  DeleteServiceSpecificCredentialRequest,
+  DeleteServiceSpecificCredentialRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteServiceSpecificCredentialCommand,
   serializeAws_queryDeleteServiceSpecificCredentialCommand,
@@ -72,7 +75,7 @@ export class DeleteServiceSpecificCredentialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceSpecificCredentialRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteServiceSpecificCredentialRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

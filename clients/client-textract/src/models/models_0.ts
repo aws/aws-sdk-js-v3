@@ -59,15 +59,6 @@ export interface S3Object {
   Version?: string;
 }
 
-export namespace S3Object {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Object): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input document, either as bytes or as an S3 object.</p>
  *          <p>You pass image bytes to an Amazon Textract API operation by using the <code>Bytes</code>
@@ -103,15 +94,6 @@ export interface Document {
   S3Object?: S3Object;
 }
 
-export namespace Document {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Document): any => ({
-    ...obj,
-  });
-}
-
 export enum FeatureType {
   FORMS = "FORMS",
   QUERIES = "QUERIES",
@@ -135,15 +117,6 @@ export interface HumanLoopDataAttributes {
   ContentClassifiers?: (ContentClassifier | string)[];
 }
 
-export namespace HumanLoopDataAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Sets up the human review workflow the document will be sent to if one of the conditions
  *          is met. You can also set certain attributes of the image before review. </p>
@@ -164,15 +137,6 @@ export interface HumanLoopConfig {
    * <p>Sets attributes of the input data.</p>
    */
   DataAttributes?: HumanLoopDataAttributes;
-}
-
-export namespace HumanLoopConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -215,15 +179,6 @@ export interface Query {
   Pages?: string[];
 }
 
-export namespace Query {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Query): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -232,15 +187,6 @@ export interface QueriesConfig {
    * <p></p>
    */
   Queries: Query[] | undefined;
-}
-
-export namespace QueriesConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueriesConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface AnalyzeDocumentRequest {
@@ -271,15 +217,6 @@ export interface AnalyzeDocumentRequest {
    * <p>Contains Queries and the alias for those Queries, as determined by the input. </p>
    */
   QueriesConfig?: QueriesConfig;
-}
-
-export namespace AnalyzeDocumentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyzeDocumentRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum BlockType {
@@ -342,15 +279,6 @@ export interface BoundingBox {
   Top?: number;
 }
 
-export namespace BoundingBox {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BoundingBox): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The X and Y coordinates of a point on a document page. The X and Y
  *          values that are returned are ratios of the overall document page size. For example, if the
@@ -374,15 +302,6 @@ export interface Point {
   Y?: number;
 }
 
-export namespace Point {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Point): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about where the following items are located on a document page: detected
  *          page, text, key-value pairs, tables, table cells, and selection elements.</p>
@@ -398,15 +317,6 @@ export interface Geometry {
    * <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
    */
   Polygon?: Point[];
-}
-
-export namespace Geometry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Geometry): any => ({
-    ...obj,
-  });
 }
 
 export enum RelationshipType {
@@ -442,15 +352,6 @@ export interface Relationship {
    *             <code>Type</code> element.</p>
    */
   Ids?: string[];
-}
-
-export namespace Relationship {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Relationship): any => ({
-    ...obj,
-  });
 }
 
 export enum SelectionStatus {
@@ -669,15 +570,6 @@ export interface Block {
   Query?: Query;
 }
 
-export namespace Block {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Block): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the input document.</p>
  */
@@ -686,15 +578,6 @@ export interface DocumentMetadata {
    * <p>The number of pages that are detected in the document.</p>
    */
   Pages?: number;
-}
-
-export namespace DocumentMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -719,15 +602,6 @@ export interface HumanLoopActivationOutput {
   HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
 }
 
-export namespace HumanLoopActivationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HumanLoopActivationOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface AnalyzeDocumentResponse {
   /**
    * <p>Metadata about the analyzed document. An example is the number of pages.</p>
@@ -748,15 +622,6 @@ export interface AnalyzeDocumentResponse {
    * <p>The version of the model used to analyze the document.</p>
    */
   AnalyzeDocumentModelVersion?: string;
-}
-
-export namespace AnalyzeDocumentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyzeDocumentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1019,15 +884,6 @@ export interface AnalyzeExpenseRequest {
   Document: Document | undefined;
 }
 
-export namespace AnalyzeExpenseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyzeExpenseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object used to store information about the Value or Label detected by Amazon Textract.</p>
  */
@@ -1049,15 +905,6 @@ export interface ExpenseDetection {
   Confidence?: number;
 }
 
-export namespace ExpenseDetection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpenseDetection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object used to store information about the Type detected by Amazon Textract.</p>
  */
@@ -1071,15 +918,6 @@ export interface ExpenseType {
    * <p>The confidence of accuracy, as a percentage.</p>
    */
   Confidence?: number;
-}
-
-export namespace ExpenseType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpenseType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1108,15 +946,6 @@ export interface ExpenseField {
   PageNumber?: number;
 }
 
-export namespace ExpenseField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpenseField): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that holds information about the different lines found in a document's tables.</p>
  */
@@ -1125,15 +954,6 @@ export interface LineItemFields {
    * <p>ExpenseFields used to show information from detected lines on a table.</p>
    */
   LineItemExpenseFields?: ExpenseField[];
-}
-
-export namespace LineItemFields {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LineItemFields): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1149,15 +969,6 @@ export interface LineItemGroup {
    * <p>The breakdown of information on a particular line of a table. </p>
    */
   LineItems?: LineItemFields[];
-}
-
-export namespace LineItemGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LineItemGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1181,15 +992,6 @@ export interface ExpenseDocument {
   LineItemGroups?: LineItemGroup[];
 }
 
-export namespace ExpenseDocument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpenseDocument): any => ({
-    ...obj,
-  });
-}
-
 export interface AnalyzeExpenseResponse {
   /**
    * <p>Information about the input document.</p>
@@ -1202,29 +1004,11 @@ export interface AnalyzeExpenseResponse {
   ExpenseDocuments?: ExpenseDocument[];
 }
 
-export namespace AnalyzeExpenseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyzeExpenseResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface AnalyzeIDRequest {
   /**
    * <p>The document being passed to AnalyzeID.</p>
    */
   DocumentPages: Document[] | undefined;
-}
-
-export namespace AnalyzeIDRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyzeIDRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ValueType {
@@ -1245,15 +1029,6 @@ export interface NormalizedValue {
    * <p>The normalized type of the value detected. In this case, DATE.</p>
    */
   ValueType?: ValueType | string;
-}
-
-export namespace NormalizedValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NormalizedValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1277,15 +1052,6 @@ export interface AnalyzeIDDetections {
   Confidence?: number;
 }
 
-export namespace AnalyzeIDDetections {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyzeIDDetections): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Structure containing both the normalized type of the extracted information
  *          and the text associated with it. These are extracted as Type and Value respectively.</p>
@@ -1300,15 +1066,6 @@ export interface IdentityDocumentField {
    * <p>Used to contain the information detected by an AnalyzeID operation.</p>
    */
   ValueDetection?: AnalyzeIDDetections;
-}
-
-export namespace IdentityDocumentField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityDocumentField): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1326,15 +1083,6 @@ export interface IdentityDocument {
    *          Contains both normalized field and value of the extracted text.</p>
    */
   IdentityDocumentFields?: IdentityDocumentField[];
-}
-
-export namespace IdentityDocument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityDocument): any => ({
-    ...obj,
-  });
 }
 
 export interface AnalyzeIDResponse {
@@ -1355,15 +1103,6 @@ export interface AnalyzeIDResponse {
   AnalyzeIDModelVersion?: string;
 }
 
-export namespace AnalyzeIDResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyzeIDResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectDocumentTextRequest {
   /**
    * <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
@@ -1373,15 +1112,6 @@ export interface DetectDocumentTextRequest {
    *          image bytes that are passed using the <code>Bytes</code> field. </p>
    */
   Document: Document | undefined;
-}
-
-export namespace DetectDocumentTextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectDocumentTextRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DetectDocumentTextResponse {
@@ -1403,15 +1133,6 @@ export interface DetectDocumentTextResponse {
   DetectDocumentTextModelVersion?: string;
 }
 
-export namespace DetectDocumentTextResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectDocumentTextResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous
  *          operations such as <a>StartDocumentTextDetection</a>.</p>
@@ -1423,15 +1144,6 @@ export interface DocumentLocation {
    * <p>The Amazon S3 bucket that contains the input document.</p>
    */
   S3Object?: S3Object;
-}
-
-export namespace DocumentLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentLocation): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDocumentAnalysisRequest {
@@ -1455,15 +1167,6 @@ export interface GetDocumentAnalysisRequest {
   NextToken?: string;
 }
 
-export namespace GetDocumentAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum JobStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -1484,15 +1187,6 @@ export interface Warning {
    * <p>A list of the pages that the warning applies to.</p>
    */
   Pages?: number[];
-}
-
-export namespace Warning {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Warning): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDocumentAnalysisResponse {
@@ -1532,15 +1226,6 @@ export interface GetDocumentAnalysisResponse {
    * <p></p>
    */
   AnalyzeDocumentModelVersion?: string;
-}
-
-export namespace GetDocumentAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentAnalysisResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1612,15 +1297,6 @@ export interface GetDocumentTextDetectionRequest {
   NextToken?: string;
 }
 
-export namespace GetDocumentTextDetectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentTextDetectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDocumentTextDetectionResponse {
   /**
    * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
@@ -1661,15 +1337,6 @@ export interface GetDocumentTextDetectionResponse {
   DetectDocumentTextModelVersion?: string;
 }
 
-export namespace GetDocumentTextDetectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentTextDetectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetExpenseAnalysisRequest {
   /**
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
@@ -1689,15 +1356,6 @@ export interface GetExpenseAnalysisRequest {
    *    token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetExpenseAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExpenseAnalysisRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetExpenseAnalysisResponse {
@@ -1738,15 +1396,6 @@ export interface GetExpenseAnalysisResponse {
    * <p>The current model version of AnalyzeExpense.</p>
    */
   AnalyzeExpenseModelVersion?: string;
-}
-
-export namespace GetExpenseAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExpenseAnalysisResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1817,15 +1466,6 @@ export interface NotificationChannel {
   RoleArn: string | undefined;
 }
 
-export namespace NotificationChannel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationChannel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
  *          of the bucket, and the prefix on the output file.</p>
@@ -1855,15 +1495,6 @@ export interface OutputConfig {
    *          prefix will be “textract_output".</p>
    */
   S3Prefix?: string;
-}
-
-export namespace OutputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface StartDocumentAnalysisRequest {
@@ -1926,15 +1557,6 @@ export interface StartDocumentAnalysisRequest {
   QueriesConfig?: QueriesConfig;
 }
 
-export namespace StartDocumentAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDocumentAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDocumentAnalysisResponse {
   /**
    * <p>The identifier for the document text detection job. Use <code>JobId</code> to identify
@@ -1942,15 +1564,6 @@ export interface StartDocumentAnalysisResponse {
    *          is only valid for 7 days.</p>
    */
   JobId?: string;
-}
-
-export namespace StartDocumentAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDocumentAnalysisResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartDocumentTextDetectionRequest {
@@ -1998,15 +1611,6 @@ export interface StartDocumentTextDetectionRequest {
   KMSKeyId?: string;
 }
 
-export namespace StartDocumentTextDetectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDocumentTextDetectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDocumentTextDetectionResponse {
   /**
    * <p>The identifier of the text detection job for the document. Use <code>JobId</code> to
@@ -2014,15 +1618,6 @@ export interface StartDocumentTextDetectionResponse {
    *          A <code>JobId</code> value is only valid for 7 days.</p>
    */
   JobId?: string;
-}
-
-export namespace StartDocumentTextDetectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDocumentTextDetectionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartExpenseAnalysisRequest {
@@ -2070,15 +1665,6 @@ export interface StartExpenseAnalysisRequest {
   KMSKeyId?: string;
 }
 
-export namespace StartExpenseAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartExpenseAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartExpenseAnalysisResponse {
   /**
    * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
@@ -2087,11 +1673,331 @@ export interface StartExpenseAnalysisResponse {
   JobId?: string;
 }
 
-export namespace StartExpenseAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartExpenseAnalysisResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentFilterSensitiveLog = (obj: Document): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HumanLoopDataAttributesFilterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HumanLoopConfigFilterSensitiveLog = (obj: HumanLoopConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryFilterSensitiveLog = (obj: Query): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueriesConfigFilterSensitiveLog = (obj: QueriesConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyzeDocumentRequestFilterSensitiveLog = (obj: AnalyzeDocumentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BoundingBoxFilterSensitiveLog = (obj: BoundingBox): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PointFilterSensitiveLog = (obj: Point): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeometryFilterSensitiveLog = (obj: Geometry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationshipFilterSensitiveLog = (obj: Relationship): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlockFilterSensitiveLog = (obj: Block): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentMetadataFilterSensitiveLog = (obj: DocumentMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HumanLoopActivationOutputFilterSensitiveLog = (obj: HumanLoopActivationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyzeDocumentResponseFilterSensitiveLog = (obj: AnalyzeDocumentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyzeExpenseRequestFilterSensitiveLog = (obj: AnalyzeExpenseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpenseDetectionFilterSensitiveLog = (obj: ExpenseDetection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpenseTypeFilterSensitiveLog = (obj: ExpenseType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpenseFieldFilterSensitiveLog = (obj: ExpenseField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LineItemFieldsFilterSensitiveLog = (obj: LineItemFields): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LineItemGroupFilterSensitiveLog = (obj: LineItemGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExpenseDocumentFilterSensitiveLog = (obj: ExpenseDocument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyzeExpenseResponseFilterSensitiveLog = (obj: AnalyzeExpenseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyzeIDRequestFilterSensitiveLog = (obj: AnalyzeIDRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NormalizedValueFilterSensitiveLog = (obj: NormalizedValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyzeIDDetectionsFilterSensitiveLog = (obj: AnalyzeIDDetections): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityDocumentFieldFilterSensitiveLog = (obj: IdentityDocumentField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityDocumentFilterSensitiveLog = (obj: IdentityDocument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyzeIDResponseFilterSensitiveLog = (obj: AnalyzeIDResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectDocumentTextRequestFilterSensitiveLog = (obj: DetectDocumentTextRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectDocumentTextResponseFilterSensitiveLog = (obj: DetectDocumentTextResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentLocationFilterSensitiveLog = (obj: DocumentLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentAnalysisRequestFilterSensitiveLog = (obj: GetDocumentAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WarningFilterSensitiveLog = (obj: Warning): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentAnalysisResponseFilterSensitiveLog = (obj: GetDocumentAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentTextDetectionRequestFilterSensitiveLog = (obj: GetDocumentTextDetectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentTextDetectionResponseFilterSensitiveLog = (obj: GetDocumentTextDetectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExpenseAnalysisRequestFilterSensitiveLog = (obj: GetExpenseAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExpenseAnalysisResponseFilterSensitiveLog = (obj: GetExpenseAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationChannelFilterSensitiveLog = (obj: NotificationChannel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputConfigFilterSensitiveLog = (obj: OutputConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDocumentAnalysisRequestFilterSensitiveLog = (obj: StartDocumentAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDocumentAnalysisResponseFilterSensitiveLog = (obj: StartDocumentAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDocumentTextDetectionRequestFilterSensitiveLog = (obj: StartDocumentTextDetectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDocumentTextDetectionResponseFilterSensitiveLog = (obj: StartDocumentTextDetectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartExpenseAnalysisRequestFilterSensitiveLog = (obj: StartExpenseAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartExpenseAnalysisResponseFilterSensitiveLog = (obj: StartExpenseAnalysisResponse): any => ({
+  ...obj,
+});

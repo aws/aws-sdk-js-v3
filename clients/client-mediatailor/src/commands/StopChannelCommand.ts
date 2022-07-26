@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import { StopChannelRequest, StopChannelResponse } from "../models/models_0";
+import {
+  StopChannelRequest,
+  StopChannelRequestFilterSensitiveLog,
+  StopChannelResponse,
+  StopChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopChannelCommand,
   serializeAws_restJson1StopChannelCommand,
@@ -72,8 +77,8 @@ export class StopChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

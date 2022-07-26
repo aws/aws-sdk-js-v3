@@ -14,7 +14,9 @@ import {
 
 import {
   DisassociateTransitGatewayConnectPeerRequest,
+  DisassociateTransitGatewayConnectPeerRequestFilterSensitiveLog,
   DisassociateTransitGatewayConnectPeerResponse,
+  DisassociateTransitGatewayConnectPeerResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
@@ -78,8 +80,8 @@ export class DisassociateTransitGatewayConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTransitGatewayConnectPeerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTransitGatewayConnectPeerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateTransitGatewayConnectPeerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateTransitGatewayConnectPeerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

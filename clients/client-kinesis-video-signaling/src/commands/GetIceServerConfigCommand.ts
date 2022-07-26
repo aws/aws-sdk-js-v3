@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
-import { GetIceServerConfigRequest, GetIceServerConfigResponse } from "../models/models_0";
+import {
+  GetIceServerConfigRequest,
+  GetIceServerConfigRequestFilterSensitiveLog,
+  GetIceServerConfigResponse,
+  GetIceServerConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetIceServerConfigCommand,
   serializeAws_restJson1GetIceServerConfigCommand,
@@ -89,8 +94,8 @@ export class GetIceServerConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIceServerConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIceServerConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIceServerConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetIceServerConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

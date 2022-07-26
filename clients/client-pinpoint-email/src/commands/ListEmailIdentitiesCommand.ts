@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListEmailIdentitiesRequest, ListEmailIdentitiesResponse } from "../models/models_0";
+import {
+  ListEmailIdentitiesRequest,
+  ListEmailIdentitiesRequestFilterSensitiveLog,
+  ListEmailIdentitiesResponse,
+  ListEmailIdentitiesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
   deserializeAws_restJson1ListEmailIdentitiesCommand,
@@ -74,8 +79,8 @@ export class ListEmailIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEmailIdentitiesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEmailIdentitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEmailIdentitiesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEmailIdentitiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

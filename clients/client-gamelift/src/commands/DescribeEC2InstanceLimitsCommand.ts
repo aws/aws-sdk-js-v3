@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeEC2InstanceLimitsInput, DescribeEC2InstanceLimitsOutput } from "../models/models_0";
+import {
+  DescribeEC2InstanceLimitsInput,
+  DescribeEC2InstanceLimitsInputFilterSensitiveLog,
+  DescribeEC2InstanceLimitsOutput,
+  DescribeEC2InstanceLimitsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEC2InstanceLimitsCommand,
   serializeAws_json1_1DescribeEC2InstanceLimitsCommand,
@@ -142,8 +147,8 @@ export class DescribeEC2InstanceLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEC2InstanceLimitsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEC2InstanceLimitsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEC2InstanceLimitsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEC2InstanceLimitsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

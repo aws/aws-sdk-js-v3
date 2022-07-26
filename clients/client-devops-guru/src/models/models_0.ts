@@ -45,15 +45,6 @@ export interface AccountInsightHealth {
   OpenReactiveInsights?: number;
 }
 
-export namespace AccountInsightHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountInsightHealth): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Returns the number of open reactive insights, the number of open proactive insights,
  * 			and the number of metrics analyzed in your Amazon Web Services account. Use these numbers to gauge the
@@ -73,15 +64,6 @@ export interface AccountHealth {
   Insight?: AccountInsightHealth;
 }
 
-export namespace AccountHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountHealth): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. </p>
  *          <p>If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission
@@ -98,15 +80,6 @@ export interface SnsChannelConfig {
    * <p> The Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic. </p>
    */
   TopicArn?: string;
-}
-
-export namespace SnsChannelConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnsChannelConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -130,15 +103,6 @@ export interface NotificationChannelConfig {
   Sns: SnsChannelConfig | undefined;
 }
 
-export namespace NotificationChannelConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationChannelConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface AddNotificationChannelRequest {
   /**
    * <p> A <code>NotificationChannelConfig</code> object that specifies what type of
@@ -148,29 +112,11 @@ export interface AddNotificationChannelRequest {
   Config: NotificationChannelConfig | undefined;
 }
 
-export namespace AddNotificationChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddNotificationChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddNotificationChannelResponse {
   /**
    * <p> The ID of the added notification channel. </p>
    */
   Id: string | undefined;
-}
-
-export namespace AddNotificationChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddNotificationChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -340,15 +286,6 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -411,15 +348,6 @@ export interface AmazonCodeGuruProfilerIntegration {
    * 			consume recommendations that are generated from Amazon CodeGuru Profiler.</p>
    */
   Status?: EventSourceOptInStatus | string;
-}
-
-export namespace AmazonCodeGuruProfilerIntegration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmazonCodeGuruProfilerIntegration): any => ({
-    ...obj,
-  });
 }
 
 export enum LogAnomalyType {
@@ -489,15 +417,6 @@ export interface LogAnomalyClass {
   LogEventTimestamp?: Date;
 }
 
-export namespace LogAnomalyClass {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogAnomalyClass): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  * 			A cluster of similar anomalous log events found within a log group.
@@ -510,15 +429,6 @@ export interface LogAnomalyShowcase {
    * 		</p>
    */
   LogAnomalyClasses?: LogAnomalyClass[];
-}
-
-export namespace LogAnomalyShowcase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogAnomalyShowcase): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -563,15 +473,6 @@ export interface AnomalousLogGroup {
   LogAnomalyShowcases?: LogAnomalyShowcase[];
 }
 
-export namespace AnomalousLogGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalousLogGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A time range that specifies when DevOps Guru opens and then closes an anomaly. This
  * 			is different from <code>AnomalyTimeRange</code>, which specifies the time range when
@@ -587,15 +488,6 @@ export interface AnomalyReportedTimeRange {
    * <p> The time when an anomaly is closed. </p>
    */
   CloseTime?: Date;
-}
-
-export namespace AnomalyReportedTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyReportedTimeRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -614,15 +506,6 @@ export interface AnomalyResource {
    * <p>The type of the Amazon Web Services resource.</p>
    */
   Type?: string;
-}
-
-export namespace AnomalyResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyResource): any => ({
-    ...obj,
-  });
 }
 
 export enum AnomalySeverity {
@@ -649,15 +532,6 @@ export interface CloudWatchMetricsDimension {
   Value?: string;
 }
 
-export namespace CloudWatchMetricsDimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchMetricsDimension): any => ({
-    ...obj,
-  });
-}
-
 export enum CloudWatchMetricDataStatusCode {
   COMPLETE = "Complete",
   INTERNAL_ERROR = "InternalError",
@@ -679,15 +553,6 @@ export interface TimestampMetricValuePair {
   MetricValue?: number;
 }
 
-export namespace TimestampMetricValuePair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestampMetricValuePair): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the analyzed metrics that displayed anomalous behavior.
  * 		</p>
@@ -703,15 +568,6 @@ export interface CloudWatchMetricsDataSummary {
    * 			or complete data, or if there was an error.</p>
    */
   StatusCode?: CloudWatchMetricDataStatusCode | string;
-}
-
-export namespace CloudWatchMetricsDataSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchMetricsDataSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum CloudWatchMetricsStat {
@@ -766,15 +622,6 @@ export interface CloudWatchMetricsDetail {
    * <p>This object returns anomaly metric data.</p>
    */
   MetricDataSummary?: CloudWatchMetricsDataSummary;
-}
-
-export namespace CloudWatchMetricsDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchMetricsDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -957,15 +804,6 @@ export interface PerformanceInsightsMetricDimensionGroup {
   Limit?: number;
 }
 
-export namespace PerformanceInsightsMetricDimensionGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PerformanceInsightsMetricDimensionGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A single query to be processed. Use these parameters to query the Performance Insights
  * 				<code>GetResourceMetrics</code> API to retrieve the metrics for an anomaly. For more
@@ -1046,15 +884,6 @@ export interface PerformanceInsightsMetricQuery {
   Filter?: Record<string, string>;
 }
 
-export namespace PerformanceInsightsMetricQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PerformanceInsightsMetricQuery): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a reference metric used to evaluate Performance Insights.</p>
  */
@@ -1063,15 +892,6 @@ export interface PerformanceInsightsReferenceMetric {
    * <p>A query to be processed on the metric.</p>
    */
   MetricQuery?: PerformanceInsightsMetricQuery;
-}
-
-export namespace PerformanceInsightsReferenceMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PerformanceInsightsReferenceMetric): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1083,15 +903,6 @@ export interface PerformanceInsightsReferenceScalar {
    * <p>The reference value.</p>
    */
   Value?: number;
-}
-
-export namespace PerformanceInsightsReferenceScalar {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PerformanceInsightsReferenceScalar): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1115,15 +926,6 @@ export interface PerformanceInsightsReferenceComparisonValues {
   ReferenceMetric?: PerformanceInsightsReferenceMetric;
 }
 
-export namespace PerformanceInsightsReferenceComparisonValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PerformanceInsightsReferenceComparisonValues): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Reference data used to evaluate Performance Insights to determine if its performance is anomalous or
  * 			not.</p>
@@ -1143,15 +945,6 @@ export interface PerformanceInsightsReferenceData {
   ComparisonValues?: PerformanceInsightsReferenceComparisonValues;
 }
 
-export namespace PerformanceInsightsReferenceData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PerformanceInsightsReferenceData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A statistic in a Performance Insights collection.</p>
  */
@@ -1165,15 +958,6 @@ export interface PerformanceInsightsStat {
    * <p>The value of the statistic.</p>
    */
   Value?: number;
-}
-
-export namespace PerformanceInsightsStat {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PerformanceInsightsStat): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1235,15 +1019,6 @@ export interface PerformanceInsightsMetricsDetail {
   StatsAtBaseline?: PerformanceInsightsStat[];
 }
 
-export namespace PerformanceInsightsMetricsDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PerformanceInsightsMetricsDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Details about the source of the anomalous operational data that triggered the
  * 			anomaly.</p>
@@ -1260,15 +1035,6 @@ export interface AnomalySourceDetails {
    * 			information about analyzed Performance Insights metrics that show anomalous behavior.</p>
    */
   PerformanceInsightsMetrics?: PerformanceInsightsMetricsDetail[];
-}
-
-export namespace AnomalySourceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalySourceDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1290,15 +1056,6 @@ export interface AnomalySourceMetadata {
    * <p>The anomaly's resource type.</p>
    */
   SourceResourceType?: string;
-}
-
-export namespace AnomalySourceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalySourceMetadata): any => ({
-    ...obj,
-  });
 }
 
 export enum AnomalyStatus {
@@ -1323,15 +1080,6 @@ export interface AnomalyTimeRange {
   EndTime?: Date;
 }
 
-export namespace AnomalyTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyTimeRange): any => ({
-    ...obj,
-  });
-}
-
 export enum AnomalyType {
   CAUSAL = "CAUSAL",
   CONTEXTUAL = "CONTEXTUAL",
@@ -1344,36 +1092,9 @@ export interface DeleteInsightRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteInsightRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInsightRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInsightResponse {}
 
-export namespace DeleteInsightResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInsightResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountHealthRequest {}
-
-export namespace DescribeAccountHealthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountHealthRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeAccountHealthResponse {
   /**
@@ -1401,15 +1122,6 @@ export interface DescribeAccountHealthResponse {
   ResourceHours: number | undefined;
 }
 
-export namespace DescribeAccountHealthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountHealthResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountOverviewRequest {
   /**
    * <p> The start of the time range passed in. The start time granularity is at the day
@@ -1424,15 +1136,6 @@ export interface DescribeAccountOverviewRequest {
    * 			this is not specified, then the current day is used. </p>
    */
   ToTime?: Date;
-}
-
-export namespace DescribeAccountOverviewRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountOverviewRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountOverviewResponse {
@@ -1455,15 +1158,6 @@ export interface DescribeAccountOverviewResponse {
   MeanTimeToRecoverInMilliseconds: number | undefined;
 }
 
-export namespace DescribeAccountOverviewResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountOverviewResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAnomalyRequest {
   /**
    * <p> The ID of the anomaly. </p>
@@ -1474,15 +1168,6 @@ export interface DescribeAnomalyRequest {
    * <p>The ID of the member account.</p>
    */
   AccountId?: string;
-}
-
-export namespace DescribeAnomalyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnomalyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1502,15 +1187,6 @@ export interface PredictionTimeRange {
   EndTime?: Date;
 }
 
-export namespace PredictionTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictionTimeRange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about Amazon Web Services CloudFormation stacks. You can use up to 500
  * 			stacks to specify which Amazon Web Services resources in your account to analyze. For more
@@ -1522,15 +1198,6 @@ export interface CloudFormationCollection {
    * <p> An array of CloudFormation stack names. </p>
    */
   StackNames?: string[];
-}
-
-export namespace CloudFormationCollection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFormationCollection): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1600,15 +1267,6 @@ export interface TagCollection {
   TagValues: string[] | undefined;
 }
 
-export namespace TagCollection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagCollection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A collection of Amazon Web Services resources supported by DevOps Guru.
  * 			The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and
@@ -1659,15 +1317,6 @@ export interface ResourceCollection {
    * 	        </important>
    */
   Tags?: TagCollection[];
-}
-
-export namespace ResourceCollection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceCollection): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1753,15 +1402,6 @@ export interface ProactiveAnomaly {
    * <p>Information about a resource in which DevOps Guru detected anomalous behavior.</p>
    */
   AnomalyResources?: AnomalyResource[];
-}
-
-export namespace ProactiveAnomaly {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProactiveAnomaly): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1858,15 +1498,6 @@ export interface ReactiveAnomaly {
   AnomalyResources?: AnomalyResource[];
 }
 
-export namespace ReactiveAnomaly {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReactiveAnomaly): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAnomalyResponse {
   /**
    * <p> A <code>ProactiveAnomaly</code> object that represents the requested anomaly. </p>
@@ -1879,25 +1510,7 @@ export interface DescribeAnomalyResponse {
   ReactiveAnomaly?: ReactiveAnomaly;
 }
 
-export namespace DescribeAnomalyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnomalyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventSourcesConfigRequest {}
-
-export namespace DescribeEventSourcesConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventSourcesConfigRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Information about the integration of DevOps Guru as consumer with another AWS service, such
@@ -1911,15 +1524,6 @@ export interface EventSourcesConfig {
   AmazonCodeGuruProfiler?: AmazonCodeGuruProfilerIntegration;
 }
 
-export namespace EventSourcesConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSourcesConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEventSourcesConfigResponse {
   /**
    * <p>Lists the event sources in the configuration.</p>
@@ -1927,29 +1531,11 @@ export interface DescribeEventSourcesConfigResponse {
   EventSources?: EventSourcesConfig;
 }
 
-export namespace DescribeEventSourcesConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventSourcesConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFeedbackRequest {
   /**
    * <p> The ID of the insight for which the feedback was provided. </p>
    */
   InsightId?: string;
-}
-
-export namespace DescribeFeedbackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFeedbackRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum InsightFeedbackOption {
@@ -1975,29 +1561,11 @@ export interface InsightFeedback {
   Feedback?: InsightFeedbackOption | string;
 }
 
-export namespace InsightFeedback {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsightFeedback): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFeedbackResponse {
   /**
    * <p> Information about insight feedback received from a customer. </p>
    */
   InsightFeedback?: InsightFeedback;
-}
-
-export namespace DescribeFeedbackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFeedbackResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeInsightRequest {
@@ -2010,15 +1578,6 @@ export interface DescribeInsightRequest {
    * <p>The ID of the member account in the organization.</p>
    */
   AccountId?: string;
-}
-
-export namespace DescribeInsightRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInsightRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2035,15 +1594,6 @@ export interface InsightTimeRange {
    * <p> The time when the behavior described in an insight ended. </p>
    */
   EndTime?: Date;
-}
-
-export namespace InsightTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsightTimeRange): any => ({
-    ...obj,
-  });
 }
 
 export enum InsightSeverity {
@@ -2116,15 +1666,6 @@ export interface ProactiveInsight {
   Description?: string;
 }
 
-export namespace ProactiveInsight {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProactiveInsight): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about a reactive insight. This object is returned by
  * 				<code>ListInsights</code>. </p>
@@ -2178,15 +1719,6 @@ export interface ReactiveInsight {
   Description?: string;
 }
 
-export namespace ReactiveInsight {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReactiveInsight): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInsightResponse {
   /**
    * <p> A <code>ProactiveInsight</code> object that represents the requested insight. </p>
@@ -2199,15 +1731,6 @@ export interface DescribeInsightResponse {
   ReactiveInsight?: ReactiveInsight;
 }
 
-export namespace DescribeInsightResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInsightResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationHealthRequest {
   /**
    * <p>The ID of the Amazon Web Services account.</p>
@@ -2218,15 +1741,6 @@ export interface DescribeOrganizationHealthRequest {
    * <p>The ID of the organizational unit.</p>
    */
   OrganizationalUnitIds?: string[];
-}
-
-export namespace DescribeOrganizationHealthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationHealthRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOrganizationHealthResponse {
@@ -2255,15 +1769,6 @@ export interface DescribeOrganizationHealthResponse {
   ResourceHours: number | undefined;
 }
 
-export namespace DescribeOrganizationHealthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationHealthResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationOverviewRequest {
   /**
    * <p> The start of the time range passed in. The start time granularity is at the day
@@ -2290,15 +1795,6 @@ export interface DescribeOrganizationOverviewRequest {
   OrganizationalUnitIds?: string[];
 }
 
-export namespace DescribeOrganizationOverviewRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationOverviewRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationOverviewResponse {
   /**
    * <p>An integer that specifies the number of open reactive insights in your Amazon Web Services
@@ -2311,15 +1807,6 @@ export interface DescribeOrganizationOverviewResponse {
    * 			account.</p>
    */
   ProactiveInsights: number | undefined;
-}
-
-export namespace DescribeOrganizationOverviewResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationOverviewResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum OrganizationResourceCollectionType {
@@ -2361,15 +1848,6 @@ export interface DescribeOrganizationResourceCollectionHealthRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeOrganizationResourceCollectionHealthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationResourceCollectionHealthRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about the number of open reactive and proactive insights that can be used
  * 			to gauge the health of your system. </p>
@@ -2391,15 +1869,6 @@ export interface InsightHealth {
   MeanTimeToRecoverInMilliseconds?: number;
 }
 
-export namespace InsightHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsightHealth): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about the health of Amazon Web Services resources in your account that are specified by
  * 			an Amazon Web Services CloudFormation stack. </p>
@@ -2418,15 +1887,6 @@ export interface CloudFormationHealth {
   Insight?: InsightHealth;
 }
 
-export namespace CloudFormationHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFormationHealth): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the number of open proactive and reactive insights in an analyzed Amazon Web Services
  * 			service.</p>
@@ -2441,15 +1901,6 @@ export interface ServiceInsightHealth {
    * <p>The number of open reactive insights in the Amazon Web Services service</p>
    */
   OpenReactiveInsights?: number;
-}
-
-export namespace ServiceInsightHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceInsightHealth): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceName {
@@ -2497,15 +1948,6 @@ export interface ServiceHealth {
   Insight?: ServiceInsightHealth;
 }
 
-export namespace ServiceHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceHealth): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about the health of Amazon Web Services resources in your account that are specified by
  * 			an Amazon Web Services tag <i>key</i>. </p>
@@ -2546,15 +1988,6 @@ export interface TagHealth {
    * 			Mean Time to Recover (MTTR) of closed insights. </p>
    */
   Insight?: InsightHealth;
-}
-
-export namespace TagHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagHealth): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOrganizationResourceCollectionHealthResponse {
@@ -2620,15 +2053,6 @@ export interface DescribeOrganizationResourceCollectionHealthResponse {
   Tags?: TagHealth[];
 }
 
-export namespace DescribeOrganizationResourceCollectionHealthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationResourceCollectionHealthResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum ResourceCollectionType {
   AWS_CLOUD_FORMATION = "AWS_CLOUD_FORMATION",
   AWS_SERVICE = "AWS_SERVICE",
@@ -2649,15 +2073,6 @@ export interface DescribeResourceCollectionHealthRequest {
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeResourceCollectionHealthRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceCollectionHealthRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeResourceCollectionHealthResponse {
@@ -2719,25 +2134,7 @@ export interface DescribeResourceCollectionHealthResponse {
   Tags?: TagHealth[];
 }
 
-export namespace DescribeResourceCollectionHealthResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceCollectionHealthResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeServiceIntegrationRequest {}
-
-export namespace DescribeServiceIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceIntegrationRequest): any => ({
-    ...obj,
-  });
-}
 
 export enum OptInStatus {
   DISABLED = "DISABLED",
@@ -2756,15 +2153,6 @@ export interface LogsAnomalyDetectionIntegration {
   OptInStatus?: OptInStatus | string;
 }
 
-export namespace LogsAnomalyDetectionIntegration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogsAnomalyDetectionIntegration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about whether DevOps Guru is configured to create an OpsItem in Amazon Web Services Systems Manager
  * 			OpsCenter for each created insight. </p>
@@ -2775,15 +2163,6 @@ export interface OpsCenterIntegration {
    * 			insight. </p>
    */
   OptInStatus?: OptInStatus | string;
-}
-
-export namespace OpsCenterIntegration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsCenterIntegration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2805,15 +2184,6 @@ export interface ServiceIntegrationConfig {
   LogsAnomalyDetection?: LogsAnomalyDetectionIntegration;
 }
 
-export namespace ServiceIntegrationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceIntegrationConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeServiceIntegrationResponse {
   /**
    * <p> Information about the integration of DevOps Guru with another Amazon Web Services service, such as
@@ -2822,30 +2192,12 @@ export interface DescribeServiceIntegrationResponse {
   ServiceIntegration?: ServiceIntegrationConfig;
 }
 
-export namespace DescribeServiceIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceIntegrationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCostEstimationRequest {
   /**
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetCostEstimationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCostEstimationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CostEstimationServiceResourceState {
@@ -2896,15 +2248,6 @@ export interface ServiceResourceCost {
   Cost?: number;
 }
 
-export namespace ServiceResourceCost {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceResourceCost): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an Amazon Web Services CloudFormation stack used to create a monthly cost estimate
  * 			for DevOps Guru to analyze Amazon Web Services resources. The maximum number of stacks you can specify for a
@@ -2917,15 +2260,6 @@ export interface CloudFormationCostEstimationResourceCollectionFilter {
    * <p>An array of CloudFormation stack names. Its size is fixed at 1 item.</p>
    */
   StackNames?: string[];
-}
-
-export namespace CloudFormationCostEstimationResourceCollectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFormationCostEstimationResourceCollectionFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2965,15 +2299,6 @@ export interface TagCostEstimationResourceCollectionFilter {
    *    				case-sensitive. You can specify a maximum of 256 characters for a tag value.</p>
    */
   TagValues: string[] | undefined;
-}
-
-export namespace TagCostEstimationResourceCollectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagCostEstimationResourceCollectionFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3030,15 +2355,6 @@ export interface CostEstimationResourceCollectionFilter {
   Tags?: TagCostEstimationResourceCollectionFilter[];
 }
 
-export namespace CostEstimationResourceCollectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostEstimationResourceCollectionFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum CostEstimationStatus {
   COMPLETED = "COMPLETED",
   ONGOING = "ONGOING",
@@ -3057,15 +2373,6 @@ export interface CostEstimationTimeRange {
    * <p>The end time of the cost estimation.</p>
    */
   EndTime?: Date;
-}
-
-export namespace CostEstimationTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CostEstimationTimeRange): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCostEstimationResponse {
@@ -3107,15 +2414,6 @@ export interface GetCostEstimationResponse {
   NextToken?: string;
 }
 
-export namespace GetCostEstimationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCostEstimationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceCollectionRequest {
   /**
    * <p> The type of Amazon Web Services resource collections to return. The one valid value is
@@ -3130,15 +2428,6 @@ export interface GetResourceCollectionRequest {
   NextToken?: string;
 }
 
-export namespace GetResourceCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceCollectionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about Amazon Web Services CloudFormation stacks. You can use up to 500
  * 			stacks to specify which Amazon Web Services resources in your account to analyze. For more
@@ -3150,15 +2439,6 @@ export interface CloudFormationCollectionFilter {
    * <p> An array of CloudFormation stack names. </p>
    */
   StackNames?: string[];
-}
-
-export namespace CloudFormationCollectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFormationCollectionFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3194,15 +2474,6 @@ export interface TagCollectionFilter {
    *    				case-sensitive. You can specify a maximum of 256 characters for a tag value.</p>
    */
   TagValues: string[] | undefined;
-}
-
-export namespace TagCollectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagCollectionFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3257,15 +2528,6 @@ export interface ResourceCollectionFilter {
   Tags?: TagCollectionFilter[];
 }
 
-export namespace ResourceCollectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceCollectionFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceCollectionResponse {
   /**
    * <p> The requested list of Amazon Web Services resource collections.
@@ -3282,15 +2544,6 @@ export interface GetResourceCollectionResponse {
   NextToken?: string;
 }
 
-export namespace GetResourceCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceCollectionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A time range used to specify when the behavior of an insight or anomaly started.
  * 		</p>
@@ -3305,15 +2558,6 @@ export interface StartTimeRange {
    * <p> The end time of the time range. </p>
    */
   ToTime?: Date;
-}
-
-export namespace StartTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTimeRange): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAnomaliesForInsightRequest {
@@ -3344,15 +2588,6 @@ export interface ListAnomaliesForInsightRequest {
    * <p>The ID of the Amazon Web Services account. </p>
    */
   AccountId?: string;
-}
-
-export namespace ListAnomaliesForInsightRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomaliesForInsightRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3439,15 +2674,6 @@ export interface ProactiveAnomalySummary {
    * <p>Information about a resource in which DevOps Guru detected anomalous behavior.</p>
    */
   AnomalyResources?: AnomalyResource[];
-}
-
-export namespace ProactiveAnomalySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProactiveAnomalySummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3545,15 +2771,6 @@ export interface ReactiveAnomalySummary {
   AnomalyResources?: AnomalyResource[];
 }
 
-export namespace ReactiveAnomalySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReactiveAnomalySummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAnomaliesForInsightResponse {
   /**
    * <p> An array of <code>ProactiveAnomalySummary</code> objects that represent the requested
@@ -3572,15 +2789,6 @@ export interface ListAnomaliesForInsightResponse {
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAnomaliesForInsightResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomaliesForInsightResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAnomalousLogGroupsRequest {
@@ -3604,15 +2812,6 @@ export interface ListAnomalousLogGroupsRequest {
   NextToken?: string;
 }
 
-export namespace ListAnomalousLogGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomalousLogGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAnomalousLogGroupsResponse {
   /**
    * <p>
@@ -3633,15 +2832,6 @@ export interface ListAnomalousLogGroupsResponse {
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAnomalousLogGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnomalousLogGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum EventDataSource {
@@ -3672,15 +2862,6 @@ export interface EventTimeRange {
    * <p> The time when the event ended. </p>
    */
   ToTime: Date | undefined;
-}
-
-export namespace EventTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventTimeRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3724,15 +2905,6 @@ export interface ListEventsFilters {
   ResourceCollection?: ResourceCollection;
 }
 
-export namespace ListEventsFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventsFilters): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventsRequest {
   /**
    * <p> A <code>ListEventsFilters</code> object used to specify which events to return.
@@ -3758,15 +2930,6 @@ export interface ListEventsRequest {
   AccountId?: string;
 }
 
-export namespace ListEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The Amazon Web Services resource that emitted an event. Amazon Web Services resource events and metrics are
  * 			analyzed by DevOps Guru to find anomalous behavior and provide recommendations to improve your
@@ -3787,15 +2950,6 @@ export interface EventResource {
    * <p> The Amazon Resource Name (ARN) of the resource that emitted an event. </p>
    */
   Arn?: string;
-}
-
-export namespace EventResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventResource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3851,15 +3005,6 @@ export interface Event {
   Resources?: EventResource[];
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventsResponse {
   /**
    * <p> A list of the requested events. </p>
@@ -3871,15 +3016,6 @@ export interface ListEventsResponse {
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum InsightType {
@@ -3904,15 +3040,6 @@ export interface ListInsightsAnyStatusFilter {
   StartTimeRange: StartTimeRange | undefined;
 }
 
-export namespace ListInsightsAnyStatusFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInsightsAnyStatusFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A range of time that specifies when anomalous behavior in an anomaly or insight
  * 			ended. </p>
@@ -3927,15 +3054,6 @@ export interface EndTimeRange {
    * <p> The latest end time in the time range. </p>
    */
   ToTime?: Date;
-}
-
-export namespace EndTimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndTimeRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3955,15 +3073,6 @@ export interface ListInsightsClosedStatusFilter {
   EndTimeRange: EndTimeRange | undefined;
 }
 
-export namespace ListInsightsClosedStatusFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInsightsClosedStatusFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Used to filter for insights that have the status <code>ONGOING</code>. </p>
  */
@@ -3973,15 +3082,6 @@ export interface ListInsightsOngoingStatusFilter {
    * 		</p>
    */
   Type: InsightType | string | undefined;
-}
-
-export namespace ListInsightsOngoingStatusFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInsightsOngoingStatusFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4008,15 +3108,6 @@ export interface ListInsightsStatusFilter {
   Any?: ListInsightsAnyStatusFilter;
 }
 
-export namespace ListInsightsStatusFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInsightsStatusFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInsightsRequest {
   /**
    * <p> A filter used to filter the returned insights by their status. You can specify one
@@ -4037,15 +3128,6 @@ export interface ListInsightsRequest {
   NextToken?: string;
 }
 
-export namespace ListInsightsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInsightsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A collection of the names of Amazon Web Services services.</p>
  */
@@ -4054,15 +3136,6 @@ export interface ServiceCollection {
    * <p>An array of strings that each specifies the name of an Amazon Web Services service.</p>
    */
   ServiceNames?: (ServiceName | string)[];
-}
-
-export namespace ServiceCollection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceCollection): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4125,15 +3198,6 @@ export interface ProactiveInsightSummary {
   AssociatedResourceArns?: string[];
 }
 
-export namespace ProactiveInsightSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProactiveInsightSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about a reactive insight. This object is returned by
  * 				<code>DescribeInsight.</code>
@@ -4188,15 +3252,6 @@ export interface ReactiveInsightSummary {
   AssociatedResourceArns?: string[];
 }
 
-export namespace ReactiveInsightSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReactiveInsightSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInsightsResponse {
   /**
    * <p> The returned list of proactive insights. </p>
@@ -4213,15 +3268,6 @@ export interface ListInsightsResponse {
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListInsightsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInsightsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourcePermission {
@@ -4254,15 +3300,6 @@ export interface ListMonitoredResourcesFilters {
   ResourceTypeFilters: (ResourceTypeFilter | string)[] | undefined;
 }
 
-export namespace ListMonitoredResourcesFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMonitoredResourcesFilters): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMonitoredResourcesRequest {
   /**
    * <p>
@@ -4282,15 +3319,6 @@ export interface ListMonitoredResourcesRequest {
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMonitoredResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMonitoredResourcesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4321,15 +3349,6 @@ export interface MonitoredResourceIdentifier {
   ResourcePermission?: ResourcePermission | string;
 }
 
-export namespace MonitoredResourceIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoredResourceIdentifier): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMonitoredResourcesResponse {
   /**
    * <p>
@@ -4345,30 +3364,12 @@ export interface ListMonitoredResourcesResponse {
   NextToken?: string;
 }
 
-export namespace ListMonitoredResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMonitoredResourcesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNotificationChannelsRequest {
   /**
    * <p>The pagination token to use to retrieve
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListNotificationChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNotificationChannelsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4397,15 +3398,6 @@ export interface NotificationChannel {
   Config?: NotificationChannelConfig;
 }
 
-export namespace NotificationChannel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationChannel): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNotificationChannelsResponse {
   /**
    * <p> An array that contains the requested notification channels. </p>
@@ -4417,15 +3409,6 @@ export interface ListNotificationChannelsResponse {
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListNotificationChannelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNotificationChannelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOrganizationInsightsRequest {
@@ -4456,15 +3439,6 @@ export interface ListOrganizationInsightsRequest {
    *    the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOrganizationInsightsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationInsightsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4531,15 +3505,6 @@ export interface ProactiveOrganizationInsightSummary {
   ServiceCollection?: ServiceCollection;
 }
 
-export namespace ProactiveOrganizationInsightSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProactiveOrganizationInsightSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a reactive insight. This object is returned by
  * 				<code>DescribeInsight</code>.</p>
@@ -4598,15 +3563,6 @@ export interface ReactiveOrganizationInsightSummary {
   ServiceCollection?: ServiceCollection;
 }
 
-export namespace ReactiveOrganizationInsightSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReactiveOrganizationInsightSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOrganizationInsightsResponse {
   /**
    * <p>An integer that specifies the number of open proactive insights in your Amazon Web Services
@@ -4625,15 +3581,6 @@ export interface ListOrganizationInsightsResponse {
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOrganizationInsightsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationInsightsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Locale {
@@ -4673,15 +3620,6 @@ export interface ListRecommendationsRequest {
   AccountId?: string;
 }
 
-export namespace ListRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecommendationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about a resource in which DevOps Guru detected anomalous behavior. </p>
  */
@@ -4701,15 +3639,6 @@ export interface RecommendationRelatedAnomalyResource {
   Type?: string;
 }
 
-export namespace RecommendationRelatedAnomalyResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationRelatedAnomalyResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about an Amazon CloudWatch metric that is analyzed by DevOps Guru. It is one of many
  * 			analyzed metrics that are used to generate insights. </p>
@@ -4726,15 +3655,6 @@ export interface RecommendationRelatedCloudWatchMetricsSourceDetail {
   Namespace?: string;
 }
 
-export namespace RecommendationRelatedCloudWatchMetricsSourceDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationRelatedCloudWatchMetricsSourceDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Contains an array of <code>RecommendationRelatedCloudWatchMetricsSourceDetail</code>
  * 			objects that contain the name and namespace of an Amazon CloudWatch metric. </p>
@@ -4745,15 +3665,6 @@ export interface RecommendationRelatedAnomalySourceDetail {
    * 			about the analyzed metrics that displayed anomalous behavior. </p>
    */
   CloudWatchMetrics?: RecommendationRelatedCloudWatchMetricsSourceDetail[];
-}
-
-export namespace RecommendationRelatedAnomalySourceDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationRelatedAnomalySourceDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4778,15 +3689,6 @@ export interface RecommendationRelatedAnomaly {
   AnomalyId?: string;
 }
 
-export namespace RecommendationRelatedAnomaly {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationRelatedAnomaly): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about an Amazon Web Services resource that emitted and event that is related to a
  * 			recommendation in an insight. </p>
@@ -4805,15 +3707,6 @@ export interface RecommendationRelatedEventResource {
   Type?: string;
 }
 
-export namespace RecommendationRelatedEventResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationRelatedEventResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about an event that is related to a recommendation. </p>
  */
@@ -4829,15 +3722,6 @@ export interface RecommendationRelatedEvent {
    * 			CloudFormation stacks. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>
    */
   Resources?: RecommendationRelatedEventResource[];
-}
-
-export namespace RecommendationRelatedEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendationRelatedEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4883,15 +3767,6 @@ export interface Recommendation {
   Category?: string;
 }
 
-export namespace Recommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Recommendation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRecommendationsResponse {
   /**
    * <p> An array of the requested recommendations. </p>
@@ -4905,15 +3780,6 @@ export interface ListRecommendationsResponse {
   NextToken?: string;
 }
 
-export namespace ListRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecommendationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutFeedbackRequest {
   /**
    * <p> The feedback from customers is about the recommendations in this insight. </p>
@@ -4921,25 +3787,7 @@ export interface PutFeedbackRequest {
   InsightFeedback?: InsightFeedback;
 }
 
-export namespace PutFeedbackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFeedbackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutFeedbackResponse {}
-
-export namespace PutFeedbackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFeedbackResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface RemoveNotificationChannelRequest {
   /**
@@ -4948,25 +3796,7 @@ export interface RemoveNotificationChannelRequest {
   Id: string | undefined;
 }
 
-export namespace RemoveNotificationChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveNotificationChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveNotificationChannelResponse {}
-
-export namespace RemoveNotificationChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveNotificationChannelResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> Specifies one or more severity values and one or more status values that are used to
@@ -4995,15 +3825,6 @@ export interface SearchInsightsFilters {
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
-}
-
-export namespace SearchInsightsFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchInsightsFilters): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchInsightsRequest {
@@ -5038,15 +3859,6 @@ export interface SearchInsightsRequest {
   Type: InsightType | string | undefined;
 }
 
-export namespace SearchInsightsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchInsightsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchInsightsResponse {
   /**
    * <p> The returned proactive insights. </p>
@@ -5063,15 +3875,6 @@ export interface SearchInsightsResponse {
    *    the next page of results for this operation. If there are no more pages, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace SearchInsightsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchInsightsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5101,15 +3904,6 @@ export interface SearchOrganizationInsightsFilters {
    * <p>A collection of the names of Amazon Web Services services.</p>
    */
   ServiceCollection?: ServiceCollection;
-}
-
-export namespace SearchOrganizationInsightsFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchOrganizationInsightsFilters): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchOrganizationInsightsRequest {
@@ -5149,15 +3943,6 @@ export interface SearchOrganizationInsightsRequest {
   Type: InsightType | string | undefined;
 }
 
-export namespace SearchOrganizationInsightsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchOrganizationInsightsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchOrganizationInsightsResponse {
   /**
    * <p>An integer that specifies the number of open proactive insights in your Amazon Web Services
@@ -5178,15 +3963,6 @@ export interface SearchOrganizationInsightsResponse {
   NextToken?: string;
 }
 
-export namespace SearchOrganizationInsightsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchOrganizationInsightsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartCostEstimationRequest {
   /**
    * <p>The collection of Amazon Web Services resources used to create a monthly DevOps Guru cost estimate.</p>
@@ -5199,25 +3975,7 @@ export interface StartCostEstimationRequest {
   ClientToken?: string;
 }
 
-export namespace StartCostEstimationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCostEstimationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartCostEstimationResponse {}
-
-export namespace StartCostEstimationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCostEstimationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateEventSourcesConfigRequest {
   /**
@@ -5227,25 +3985,7 @@ export interface UpdateEventSourcesConfigRequest {
   EventSources?: EventSourcesConfig;
 }
 
-export namespace UpdateEventSourcesConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventSourcesConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEventSourcesConfigResponse {}
-
-export namespace UpdateEventSourcesConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventSourcesConfigResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum UpdateResourceCollectionAction {
   ADD = "ADD",
@@ -5262,15 +4002,6 @@ export interface UpdateCloudFormationCollectionFilter {
    * 		</p>
    */
   StackNames?: string[];
-}
-
-export namespace UpdateCloudFormationCollectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCloudFormationCollectionFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5306,15 +4037,6 @@ export interface UpdateTagCollectionFilter {
    *    				case-sensitive. You can specify a maximum of 256 characters for a tag value.</p>
    */
   TagValues: string[] | undefined;
-}
-
-export namespace UpdateTagCollectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTagCollectionFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5365,15 +4087,6 @@ export interface UpdateResourceCollectionFilter {
   Tags?: UpdateTagCollectionFilter[];
 }
 
-export namespace UpdateResourceCollectionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceCollectionFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResourceCollectionRequest {
   /**
    * <p> Specifies if the resource collection in the request is added or deleted to the
@@ -5387,25 +4100,7 @@ export interface UpdateResourceCollectionRequest {
   ResourceCollection: UpdateResourceCollectionFilter | undefined;
 }
 
-export namespace UpdateResourceCollectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceCollectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResourceCollectionResponse {}
-
-export namespace UpdateResourceCollectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceCollectionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>
@@ -5419,15 +4114,6 @@ export interface LogsAnomalyDetectionIntegrationConfig {
   OptInStatus?: OptInStatus | string;
 }
 
-export namespace LogsAnomalyDetectionIntegrationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogsAnomalyDetectionIntegrationConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about whether DevOps Guru is configured to create an OpsItem in Amazon Web Services Systems Manager
  * 			OpsCenter for each created insight. You can use this to update the configuration.</p>
@@ -5438,15 +4124,6 @@ export interface OpsCenterIntegrationConfig {
    * 			insight. </p>
    */
   OptInStatus?: OptInStatus | string;
-}
-
-export namespace OpsCenterIntegrationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsCenterIntegrationConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5468,15 +4145,6 @@ export interface UpdateServiceIntegrationConfig {
   LogsAnomalyDetection?: LogsAnomalyDetectionIntegrationConfig;
 }
 
-export namespace UpdateServiceIntegrationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceIntegrationConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateServiceIntegrationRequest {
   /**
    * <p> An <code>IntegratedServiceConfig</code> object used to specify the integrated service
@@ -5485,22 +4153,1088 @@ export interface UpdateServiceIntegrationRequest {
   ServiceIntegration: UpdateServiceIntegrationConfig | undefined;
 }
 
-export namespace UpdateServiceIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceIntegrationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateServiceIntegrationResponse {}
 
-export namespace UpdateServiceIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceIntegrationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountInsightHealthFilterSensitiveLog = (obj: AccountInsightHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountHealthFilterSensitiveLog = (obj: AccountHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnsChannelConfigFilterSensitiveLog = (obj: SnsChannelConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationChannelConfigFilterSensitiveLog = (obj: NotificationChannelConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddNotificationChannelRequestFilterSensitiveLog = (obj: AddNotificationChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddNotificationChannelResponseFilterSensitiveLog = (obj: AddNotificationChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonCodeGuruProfilerIntegrationFilterSensitiveLog = (obj: AmazonCodeGuruProfilerIntegration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogAnomalyClassFilterSensitiveLog = (obj: LogAnomalyClass): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogAnomalyShowcaseFilterSensitiveLog = (obj: LogAnomalyShowcase): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalousLogGroupFilterSensitiveLog = (obj: AnomalousLogGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyReportedTimeRangeFilterSensitiveLog = (obj: AnomalyReportedTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyResourceFilterSensitiveLog = (obj: AnomalyResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchMetricsDimensionFilterSensitiveLog = (obj: CloudWatchMetricsDimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestampMetricValuePairFilterSensitiveLog = (obj: TimestampMetricValuePair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchMetricsDataSummaryFilterSensitiveLog = (obj: CloudWatchMetricsDataSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchMetricsDetailFilterSensitiveLog = (obj: CloudWatchMetricsDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PerformanceInsightsMetricDimensionGroupFilterSensitiveLog = (
+  obj: PerformanceInsightsMetricDimensionGroup
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PerformanceInsightsMetricQueryFilterSensitiveLog = (obj: PerformanceInsightsMetricQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PerformanceInsightsReferenceMetricFilterSensitiveLog = (obj: PerformanceInsightsReferenceMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PerformanceInsightsReferenceScalarFilterSensitiveLog = (obj: PerformanceInsightsReferenceScalar): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PerformanceInsightsReferenceComparisonValuesFilterSensitiveLog = (
+  obj: PerformanceInsightsReferenceComparisonValues
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PerformanceInsightsReferenceDataFilterSensitiveLog = (obj: PerformanceInsightsReferenceData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PerformanceInsightsStatFilterSensitiveLog = (obj: PerformanceInsightsStat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PerformanceInsightsMetricsDetailFilterSensitiveLog = (obj: PerformanceInsightsMetricsDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalySourceDetailsFilterSensitiveLog = (obj: AnomalySourceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalySourceMetadataFilterSensitiveLog = (obj: AnomalySourceMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyTimeRangeFilterSensitiveLog = (obj: AnomalyTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInsightRequestFilterSensitiveLog = (obj: DeleteInsightRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInsightResponseFilterSensitiveLog = (obj: DeleteInsightResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountHealthRequestFilterSensitiveLog = (obj: DescribeAccountHealthRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountHealthResponseFilterSensitiveLog = (obj: DescribeAccountHealthResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountOverviewRequestFilterSensitiveLog = (obj: DescribeAccountOverviewRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountOverviewResponseFilterSensitiveLog = (obj: DescribeAccountOverviewResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnomalyRequestFilterSensitiveLog = (obj: DescribeAnomalyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictionTimeRangeFilterSensitiveLog = (obj: PredictionTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFormationCollectionFilterSensitiveLog = (obj: CloudFormationCollection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagCollectionFilterSensitiveLog = (obj: TagCollection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceCollectionFilterSensitiveLog = (obj: ResourceCollection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProactiveAnomalyFilterSensitiveLog = (obj: ProactiveAnomaly): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReactiveAnomalyFilterSensitiveLog = (obj: ReactiveAnomaly): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnomalyResponseFilterSensitiveLog = (obj: DescribeAnomalyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventSourcesConfigRequestFilterSensitiveLog = (obj: DescribeEventSourcesConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventSourcesConfigFilterSensitiveLog = (obj: EventSourcesConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventSourcesConfigResponseFilterSensitiveLog = (obj: DescribeEventSourcesConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFeedbackRequestFilterSensitiveLog = (obj: DescribeFeedbackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsightFeedbackFilterSensitiveLog = (obj: InsightFeedback): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFeedbackResponseFilterSensitiveLog = (obj: DescribeFeedbackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInsightRequestFilterSensitiveLog = (obj: DescribeInsightRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsightTimeRangeFilterSensitiveLog = (obj: InsightTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProactiveInsightFilterSensitiveLog = (obj: ProactiveInsight): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReactiveInsightFilterSensitiveLog = (obj: ReactiveInsight): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInsightResponseFilterSensitiveLog = (obj: DescribeInsightResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationHealthRequestFilterSensitiveLog = (obj: DescribeOrganizationHealthRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationHealthResponseFilterSensitiveLog = (obj: DescribeOrganizationHealthResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationOverviewRequestFilterSensitiveLog = (
+  obj: DescribeOrganizationOverviewRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationOverviewResponseFilterSensitiveLog = (
+  obj: DescribeOrganizationOverviewResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationResourceCollectionHealthRequestFilterSensitiveLog = (
+  obj: DescribeOrganizationResourceCollectionHealthRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsightHealthFilterSensitiveLog = (obj: InsightHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFormationHealthFilterSensitiveLog = (obj: CloudFormationHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceInsightHealthFilterSensitiveLog = (obj: ServiceInsightHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceHealthFilterSensitiveLog = (obj: ServiceHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagHealthFilterSensitiveLog = (obj: TagHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationResourceCollectionHealthResponseFilterSensitiveLog = (
+  obj: DescribeOrganizationResourceCollectionHealthResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceCollectionHealthRequestFilterSensitiveLog = (
+  obj: DescribeResourceCollectionHealthRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceCollectionHealthResponseFilterSensitiveLog = (
+  obj: DescribeResourceCollectionHealthResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceIntegrationRequestFilterSensitiveLog = (obj: DescribeServiceIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogsAnomalyDetectionIntegrationFilterSensitiveLog = (obj: LogsAnomalyDetectionIntegration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsCenterIntegrationFilterSensitiveLog = (obj: OpsCenterIntegration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceIntegrationConfigFilterSensitiveLog = (obj: ServiceIntegrationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceIntegrationResponseFilterSensitiveLog = (obj: DescribeServiceIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostEstimationRequestFilterSensitiveLog = (obj: GetCostEstimationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceResourceCostFilterSensitiveLog = (obj: ServiceResourceCost): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFormationCostEstimationResourceCollectionFilterFilterSensitiveLog = (
+  obj: CloudFormationCostEstimationResourceCollectionFilter
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagCostEstimationResourceCollectionFilterFilterSensitiveLog = (
+  obj: TagCostEstimationResourceCollectionFilter
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostEstimationResourceCollectionFilterFilterSensitiveLog = (
+  obj: CostEstimationResourceCollectionFilter
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CostEstimationTimeRangeFilterSensitiveLog = (obj: CostEstimationTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCostEstimationResponseFilterSensitiveLog = (obj: GetCostEstimationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceCollectionRequestFilterSensitiveLog = (obj: GetResourceCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFormationCollectionFilterFilterSensitiveLog = (obj: CloudFormationCollectionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagCollectionFilterFilterSensitiveLog = (obj: TagCollectionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceCollectionFilterFilterSensitiveLog = (obj: ResourceCollectionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceCollectionResponseFilterSensitiveLog = (obj: GetResourceCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTimeRangeFilterSensitiveLog = (obj: StartTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomaliesForInsightRequestFilterSensitiveLog = (obj: ListAnomaliesForInsightRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProactiveAnomalySummaryFilterSensitiveLog = (obj: ProactiveAnomalySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReactiveAnomalySummaryFilterSensitiveLog = (obj: ReactiveAnomalySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomaliesForInsightResponseFilterSensitiveLog = (obj: ListAnomaliesForInsightResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomalousLogGroupsRequestFilterSensitiveLog = (obj: ListAnomalousLogGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnomalousLogGroupsResponseFilterSensitiveLog = (obj: ListAnomalousLogGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventTimeRangeFilterSensitiveLog = (obj: EventTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventsFiltersFilterSensitiveLog = (obj: ListEventsFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventsRequestFilterSensitiveLog = (obj: ListEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventResourceFilterSensitiveLog = (obj: EventResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFilterSensitiveLog = (obj: Event): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventsResponseFilterSensitiveLog = (obj: ListEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInsightsAnyStatusFilterFilterSensitiveLog = (obj: ListInsightsAnyStatusFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndTimeRangeFilterSensitiveLog = (obj: EndTimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInsightsClosedStatusFilterFilterSensitiveLog = (obj: ListInsightsClosedStatusFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInsightsOngoingStatusFilterFilterSensitiveLog = (obj: ListInsightsOngoingStatusFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInsightsStatusFilterFilterSensitiveLog = (obj: ListInsightsStatusFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInsightsRequestFilterSensitiveLog = (obj: ListInsightsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceCollectionFilterSensitiveLog = (obj: ServiceCollection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProactiveInsightSummaryFilterSensitiveLog = (obj: ProactiveInsightSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReactiveInsightSummaryFilterSensitiveLog = (obj: ReactiveInsightSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInsightsResponseFilterSensitiveLog = (obj: ListInsightsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMonitoredResourcesFiltersFilterSensitiveLog = (obj: ListMonitoredResourcesFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMonitoredResourcesRequestFilterSensitiveLog = (obj: ListMonitoredResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitoredResourceIdentifierFilterSensitiveLog = (obj: MonitoredResourceIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMonitoredResourcesResponseFilterSensitiveLog = (obj: ListMonitoredResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationChannelsRequestFilterSensitiveLog = (obj: ListNotificationChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationChannelFilterSensitiveLog = (obj: NotificationChannel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationChannelsResponseFilterSensitiveLog = (obj: ListNotificationChannelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationInsightsRequestFilterSensitiveLog = (obj: ListOrganizationInsightsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProactiveOrganizationInsightSummaryFilterSensitiveLog = (
+  obj: ProactiveOrganizationInsightSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReactiveOrganizationInsightSummaryFilterSensitiveLog = (obj: ReactiveOrganizationInsightSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationInsightsResponseFilterSensitiveLog = (obj: ListOrganizationInsightsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecommendationsRequestFilterSensitiveLog = (obj: ListRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationRelatedAnomalyResourceFilterSensitiveLog = (
+  obj: RecommendationRelatedAnomalyResource
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationRelatedCloudWatchMetricsSourceDetailFilterSensitiveLog = (
+  obj: RecommendationRelatedCloudWatchMetricsSourceDetail
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationRelatedAnomalySourceDetailFilterSensitiveLog = (
+  obj: RecommendationRelatedAnomalySourceDetail
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationRelatedAnomalyFilterSensitiveLog = (obj: RecommendationRelatedAnomaly): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationRelatedEventResourceFilterSensitiveLog = (obj: RecommendationRelatedEventResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationRelatedEventFilterSensitiveLog = (obj: RecommendationRelatedEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecommendationsResponseFilterSensitiveLog = (obj: ListRecommendationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFeedbackRequestFilterSensitiveLog = (obj: PutFeedbackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFeedbackResponseFilterSensitiveLog = (obj: PutFeedbackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveNotificationChannelRequestFilterSensitiveLog = (obj: RemoveNotificationChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveNotificationChannelResponseFilterSensitiveLog = (obj: RemoveNotificationChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchInsightsFiltersFilterSensitiveLog = (obj: SearchInsightsFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchInsightsRequestFilterSensitiveLog = (obj: SearchInsightsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchInsightsResponseFilterSensitiveLog = (obj: SearchInsightsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchOrganizationInsightsFiltersFilterSensitiveLog = (obj: SearchOrganizationInsightsFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchOrganizationInsightsRequestFilterSensitiveLog = (obj: SearchOrganizationInsightsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchOrganizationInsightsResponseFilterSensitiveLog = (obj: SearchOrganizationInsightsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCostEstimationRequestFilterSensitiveLog = (obj: StartCostEstimationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCostEstimationResponseFilterSensitiveLog = (obj: StartCostEstimationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventSourcesConfigRequestFilterSensitiveLog = (obj: UpdateEventSourcesConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventSourcesConfigResponseFilterSensitiveLog = (obj: UpdateEventSourcesConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCloudFormationCollectionFilterFilterSensitiveLog = (
+  obj: UpdateCloudFormationCollectionFilter
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTagCollectionFilterFilterSensitiveLog = (obj: UpdateTagCollectionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceCollectionFilterFilterSensitiveLog = (obj: UpdateResourceCollectionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceCollectionRequestFilterSensitiveLog = (obj: UpdateResourceCollectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceCollectionResponseFilterSensitiveLog = (obj: UpdateResourceCollectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogsAnomalyDetectionIntegrationConfigFilterSensitiveLog = (
+  obj: LogsAnomalyDetectionIntegrationConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsCenterIntegrationConfigFilterSensitiveLog = (obj: OpsCenterIntegrationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceIntegrationConfigFilterSensitiveLog = (obj: UpdateServiceIntegrationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceIntegrationRequestFilterSensitiveLog = (obj: UpdateServiceIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceIntegrationResponseFilterSensitiveLog = (obj: UpdateServiceIntegrationResponse): any => ({
+  ...obj,
+});

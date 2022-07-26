@@ -15,7 +15,9 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   UpdateLicenseSpecificationsForResourceRequest,
+  UpdateLicenseSpecificationsForResourceRequestFilterSensitiveLog,
   UpdateLicenseSpecificationsForResourceResponse,
+  UpdateLicenseSpecificationsForResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand,
@@ -81,8 +83,8 @@ export class UpdateLicenseSpecificationsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLicenseSpecificationsForResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLicenseSpecificationsForResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLicenseSpecificationsForResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLicenseSpecificationsForResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

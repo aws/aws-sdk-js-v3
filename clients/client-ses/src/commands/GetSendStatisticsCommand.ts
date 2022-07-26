@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSendStatisticsResponse } from "../models/models_0";
+import { GetSendStatisticsResponse, GetSendStatisticsResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryGetSendStatisticsCommand,
   serializeAws_queryGetSendStatisticsCommand,
@@ -76,7 +76,7 @@ export class GetSendStatisticsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetSendStatisticsResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: GetSendStatisticsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

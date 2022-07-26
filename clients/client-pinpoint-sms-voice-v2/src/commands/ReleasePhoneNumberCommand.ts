@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ReleasePhoneNumberRequest, ReleasePhoneNumberResult } from "../models/models_0";
+import {
+  ReleasePhoneNumberRequest,
+  ReleasePhoneNumberRequestFilterSensitiveLog,
+  ReleasePhoneNumberResult,
+  ReleasePhoneNumberResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -79,8 +84,8 @@ export class ReleasePhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleasePhoneNumberRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ReleasePhoneNumberResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ReleasePhoneNumberRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ReleasePhoneNumberResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

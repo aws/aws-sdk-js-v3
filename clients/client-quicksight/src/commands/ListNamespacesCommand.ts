@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListNamespacesRequest, ListNamespacesResponse } from "../models/models_1";
+import {
+  ListNamespacesRequest,
+  ListNamespacesRequestFilterSensitiveLog,
+  ListNamespacesResponse,
+  ListNamespacesResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListNamespacesCommand,
   serializeAws_restJson1ListNamespacesCommand,
@@ -72,8 +77,8 @@ export class ListNamespacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNamespacesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListNamespacesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNamespacesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListNamespacesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

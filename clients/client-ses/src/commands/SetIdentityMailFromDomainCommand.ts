@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse } from "../models/models_0";
+import {
+  SetIdentityMailFromDomainRequest,
+  SetIdentityMailFromDomainRequestFilterSensitiveLog,
+  SetIdentityMailFromDomainResponse,
+  SetIdentityMailFromDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_querySetIdentityMailFromDomainCommand,
   serializeAws_querySetIdentityMailFromDomainCommand,
@@ -81,8 +86,8 @@ export class SetIdentityMailFromDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIdentityMailFromDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SetIdentityMailFromDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetIdentityMailFromDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SetIdentityMailFromDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

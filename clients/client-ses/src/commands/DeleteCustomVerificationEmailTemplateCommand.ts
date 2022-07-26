@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCustomVerificationEmailTemplateRequest } from "../models/models_0";
+import {
+  DeleteCustomVerificationEmailTemplateRequest,
+  DeleteCustomVerificationEmailTemplateRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteCustomVerificationEmailTemplateCommand,
   serializeAws_queryDeleteCustomVerificationEmailTemplateCommand,
@@ -76,7 +79,7 @@ export class DeleteCustomVerificationEmailTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomVerificationEmailTemplateRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomVerificationEmailTemplateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

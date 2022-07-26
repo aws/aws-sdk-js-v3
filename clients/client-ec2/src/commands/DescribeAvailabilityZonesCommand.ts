@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeAvailabilityZonesRequest, DescribeAvailabilityZonesResult } from "../models/models_2";
+import {
+  DescribeAvailabilityZonesRequest,
+  DescribeAvailabilityZonesRequestFilterSensitiveLog,
+  DescribeAvailabilityZonesResult,
+  DescribeAvailabilityZonesResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2DescribeAvailabilityZonesCommand,
   serializeAws_ec2DescribeAvailabilityZonesCommand,
@@ -77,8 +82,8 @@ export class DescribeAvailabilityZonesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAvailabilityZonesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAvailabilityZonesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAvailabilityZonesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAvailabilityZonesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

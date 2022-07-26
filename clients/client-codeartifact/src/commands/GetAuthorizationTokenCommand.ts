@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { GetAuthorizationTokenRequest, GetAuthorizationTokenResult } from "../models/models_0";
+import {
+  GetAuthorizationTokenRequest,
+  GetAuthorizationTokenRequestFilterSensitiveLog,
+  GetAuthorizationTokenResult,
+  GetAuthorizationTokenResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetAuthorizationTokenCommand,
   serializeAws_restJson1GetAuthorizationTokenCommand,
@@ -92,8 +97,8 @@ export class GetAuthorizationTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAuthorizationTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAuthorizationTokenResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAuthorizationTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAuthorizationTokenResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

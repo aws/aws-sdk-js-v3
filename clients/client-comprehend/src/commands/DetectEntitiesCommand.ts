@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DetectEntitiesRequest, DetectEntitiesResponse } from "../models/models_0";
+import {
+  DetectEntitiesRequest,
+  DetectEntitiesRequestFilterSensitiveLog,
+  DetectEntitiesResponse,
+  DetectEntitiesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DetectEntitiesCommand,
   serializeAws_json1_1DetectEntitiesCommand,
@@ -73,8 +78,8 @@ export class DetectEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectEntitiesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetectEntitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectEntitiesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetectEntitiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

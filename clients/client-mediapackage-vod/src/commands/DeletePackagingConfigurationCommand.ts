@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import { DeletePackagingConfigurationRequest, DeletePackagingConfigurationResponse } from "../models/models_0";
+import {
+  DeletePackagingConfigurationRequest,
+  DeletePackagingConfigurationRequestFilterSensitiveLog,
+  DeletePackagingConfigurationResponse,
+  DeletePackagingConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePackagingConfigurationCommand,
   serializeAws_restJson1DeletePackagingConfigurationCommand,
@@ -74,8 +79,8 @@ export class DeletePackagingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePackagingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePackagingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePackagingConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePackagingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

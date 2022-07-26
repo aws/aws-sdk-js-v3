@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { DisableMacieRequest, DisableMacieResponse } from "../models/models_0";
+import {
+  DisableMacieRequest,
+  DisableMacieRequestFilterSensitiveLog,
+  DisableMacieResponse,
+  DisableMacieResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisableMacieCommand,
   serializeAws_restJson1DisableMacieCommand,
@@ -72,8 +77,8 @@ export class DisableMacieCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableMacieRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableMacieResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableMacieRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableMacieResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

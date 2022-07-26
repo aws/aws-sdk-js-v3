@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCheckerIpRangesRequest, GetCheckerIpRangesResponse } from "../models/models_0";
+import {
+  GetCheckerIpRangesRequest,
+  GetCheckerIpRangesRequestFilterSensitiveLog,
+  GetCheckerIpRangesResponse,
+  GetCheckerIpRangesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetCheckerIpRangesCommand,
   serializeAws_restXmlGetCheckerIpRangesCommand,
@@ -81,8 +86,8 @@ export class GetCheckerIpRangesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCheckerIpRangesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCheckerIpRangesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCheckerIpRangesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCheckerIpRangesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { CreateTagsRequest } from "../models/models_0";
+import { CreateTagsRequest, CreateTagsRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTagsCommand,
   serializeAws_restJson1CreateTagsCommand,
@@ -83,7 +83,7 @@ export class CreateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTagsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTagsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

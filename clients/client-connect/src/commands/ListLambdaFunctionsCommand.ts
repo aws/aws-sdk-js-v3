@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListLambdaFunctionsRequest, ListLambdaFunctionsResponse } from "../models/models_0";
+import {
+  ListLambdaFunctionsRequest,
+  ListLambdaFunctionsRequestFilterSensitiveLog,
+  ListLambdaFunctionsResponse,
+  ListLambdaFunctionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListLambdaFunctionsCommand,
   serializeAws_restJson1ListLambdaFunctionsCommand,
@@ -74,8 +79,8 @@ export class ListLambdaFunctionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLambdaFunctionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListLambdaFunctionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListLambdaFunctionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListLambdaFunctionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

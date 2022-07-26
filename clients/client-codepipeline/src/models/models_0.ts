@@ -21,15 +21,6 @@ export interface AcknowledgeJobInput {
   nonce: string | undefined;
 }
 
-export namespace AcknowledgeJobInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcknowledgeJobInput): any => ({
-    ...obj,
-  });
-}
-
 export enum JobStatus {
   Created = "Created",
   Dispatched = "Dispatched",
@@ -48,15 +39,6 @@ export interface AcknowledgeJobOutput {
    * <p>Whether the job worker has received the specified job.</p>
    */
   status?: JobStatus | string;
-}
-
-export namespace AcknowledgeJobOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcknowledgeJobOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -138,15 +120,6 @@ export interface AcknowledgeThirdPartyJobInput {
   clientToken: string | undefined;
 }
 
-export namespace AcknowledgeThirdPartyJobInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcknowledgeThirdPartyJobInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of an AcknowledgeThirdPartyJob action.</p>
  */
@@ -155,15 +128,6 @@ export interface AcknowledgeThirdPartyJobOutput {
    * <p>The status information for the third party job, if any.</p>
    */
   status?: JobStatus | string;
-}
-
-export namespace AcknowledgeThirdPartyJobOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcknowledgeThirdPartyJobOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -202,15 +166,6 @@ export interface ActionConfiguration {
    * <p>The configuration data for the action.</p>
    */
   configuration?: Record<string, string>;
-}
-
-export namespace ActionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ActionConfigurationPropertyType {
@@ -270,15 +225,6 @@ export interface ActionConfigurationProperty {
   type?: ActionConfigurationPropertyType | string;
 }
 
-export namespace ActionConfigurationProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionConfigurationProperty): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the context of an action in the stage of a pipeline to a job
  *             worker.</p>
@@ -293,15 +239,6 @@ export interface ActionContext {
    * <p>The system-generated unique ID that corresponds to an action's execution.</p>
    */
   actionExecutionId?: string;
-}
-
-export namespace ActionContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionContext): any => ({
-    ...obj,
-  });
 }
 
 export enum ActionOwner {
@@ -363,15 +300,6 @@ export interface ActionTypeId {
   version: string | undefined;
 }
 
-export namespace ActionTypeId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTypeId): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents information about an artifact to be worked on, such as a test or build
  *             artifact.</p>
@@ -388,15 +316,6 @@ export interface InputArtifact {
   name: string | undefined;
 }
 
-export namespace InputArtifact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputArtifact): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents information about the output of an action.</p>
  */
@@ -411,15 +330,6 @@ export interface OutputArtifact {
    *         <p>Output artifact names must be unique within a pipeline.</p>
    */
   name: string | undefined;
-}
-
-export namespace OutputArtifact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputArtifact): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -489,15 +399,6 @@ export interface ActionDeclaration {
   namespace?: string;
 }
 
-export namespace ActionDeclaration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionDeclaration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents information about an error in AWS CodePipeline.</p>
  */
@@ -511,15 +412,6 @@ export interface ErrorDetails {
    * <p>The text of the error message.</p>
    */
   message?: string;
-}
-
-export namespace ErrorDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum ActionExecutionStatus {
@@ -594,15 +486,6 @@ export interface ActionExecution {
   errorDetails?: ErrorDetails;
 }
 
-export namespace ActionExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionExecution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon S3 artifact location for an action's artifacts.</p>
  */
@@ -618,15 +501,6 @@ export interface S3Location {
   key?: string;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Artifact details for the action execution, such as the artifact location.</p>
  */
@@ -640,15 +514,6 @@ export interface ArtifactDetail {
    * <p>The Amazon S3 artifact location for the action execution.</p>
    */
   s3location?: S3Location;
-}
-
-export namespace ArtifactDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArtifactDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -695,15 +560,6 @@ export interface ActionExecutionInput {
   namespace?: string;
 }
 
-export namespace ActionExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionExecutionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Execution result information, such as the external execution ID.</p>
  */
@@ -723,15 +579,6 @@ export interface ActionExecutionResult {
    *             deployment endpoint) that is used when running the action.</p>
    */
   externalExecutionUrl?: string;
-}
-
-export namespace ActionExecutionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionExecutionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -756,15 +603,6 @@ export interface ActionExecutionOutput {
    *             execution.</p>
    */
   outputVariables?: Record<string, string>;
-}
-
-export namespace ActionExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionExecutionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -825,15 +663,6 @@ export interface ActionExecutionDetail {
   output?: ActionExecutionOutput;
 }
 
-export namespace ActionExecutionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionExecutionDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filter values for the action execution.</p>
  */
@@ -842,15 +671,6 @@ export interface ActionExecutionFilter {
    * <p>The pipeline execution ID used to filter action execution history.</p>
    */
   pipelineExecutionId?: string;
-}
-
-export namespace ActionExecutionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionExecutionFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -895,15 +715,6 @@ export interface ActionRevision {
   created: Date | undefined;
 }
 
-export namespace ActionRevision {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionRevision): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents information about the state of an action.</p>
  */
@@ -936,15 +747,6 @@ export interface ActionState {
   revisionUrl?: string;
 }
 
-export namespace ActionState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about the details of an artifact.</p>
  */
@@ -958,15 +760,6 @@ export interface ArtifactDetails {
    * <p>The maximum number of artifacts allowed for the action type.</p>
    */
   maximumCount: number | undefined;
-}
-
-export namespace ArtifactDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArtifactDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1002,15 +795,6 @@ export interface ActionTypeSettings {
   revisionUrlTemplate?: string;
 }
 
-export namespace ActionTypeSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTypeSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about the details of an action type.</p>
  */
@@ -1041,15 +825,6 @@ export interface ActionType {
   outputArtifactDetails: ArtifactDetails | undefined;
 }
 
-export namespace ActionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about parameters for artifacts associated with the action type, such as
  *             the minimum and maximum artifacts allowed.</p>
@@ -1070,15 +845,6 @@ export interface ActionTypeArtifactDetails {
   maximumCount: number | undefined;
 }
 
-export namespace ActionTypeArtifactDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTypeArtifactDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the polling configuration for the <code>JobWorker</code> action engine,
  *             or executor.</p>
@@ -1097,15 +863,6 @@ export interface JobWorkerExecutorConfiguration {
   pollingServicePrincipals?: string[];
 }
 
-export namespace JobWorkerExecutorConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobWorkerExecutorConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the configuration for the <code>Lambda</code> action engine, or
  *             executor.</p>
@@ -1115,15 +872,6 @@ export interface LambdaExecutorConfiguration {
    * <p>The ARN of the Lambda function used by the action engine.</p>
    */
   lambdaFunctionArn: string | undefined;
-}
-
-export namespace LambdaExecutorConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaExecutorConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1141,15 +889,6 @@ export interface ExecutorConfiguration {
    * <p>Details about the <code>JobWorker</code> executor of the action type.</p>
    */
   jobWorkerExecutorConfiguration?: JobWorkerExecutorConfiguration;
-}
-
-export namespace ExecutorConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutorConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ExecutorType {
@@ -1193,15 +932,6 @@ export interface ActionTypeExecutor {
    *             is the timeout for a single job, not the entire action execution.</p>
    */
   jobTimeout?: number;
-}
-
-export namespace ActionTypeExecutor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTypeExecutor): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1263,15 +993,6 @@ export interface ActionTypeIdentifier {
   version: string | undefined;
 }
 
-export namespace ActionTypeIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTypeIdentifier): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details identifying the users with permissions to use the action type.</p>
  */
@@ -1281,15 +1002,6 @@ export interface ActionTypePermissions {
    *             pipelines.</p>
    */
   allowedAccounts: string[] | undefined;
-}
-
-export namespace ActionTypePermissions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTypePermissions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1333,15 +1045,6 @@ export interface ActionTypeProperty {
   description?: string;
 }
 
-export namespace ActionTypeProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTypeProperty): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about URLs for web pages that display to customers as links on the
  *             pipeline view, such as an external configuration page for the action type.</p>
@@ -1372,15 +1075,6 @@ export interface ActionTypeUrls {
    *             customers can update or change the configuration of the external action.</p>
    */
   revisionUrlTemplate?: string;
-}
-
-export namespace ActionTypeUrls {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTypeUrls): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1432,15 +1126,6 @@ export interface ActionTypeDeclaration {
    * <p>The links associated with the action type to be updated.</p>
    */
   urls?: ActionTypeUrls;
-}
-
-export namespace ActionTypeDeclaration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTypeDeclaration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1502,15 +1187,6 @@ export interface ApprovalResult {
   status: ApprovalStatus | string | undefined;
 }
 
-export namespace ApprovalResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The location of the S3 bucket that contains a revision.</p>
  */
@@ -1525,15 +1201,6 @@ export interface S3ArtifactLocation {
    *             bucket.</p>
    */
   objectKey: string | undefined;
-}
-
-export namespace S3ArtifactLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ArtifactLocation): any => ({
-    ...obj,
-  });
 }
 
 export enum ArtifactLocationType {
@@ -1553,15 +1220,6 @@ export interface ArtifactLocation {
    * <p>The S3 bucket that contains the artifact.</p>
    */
   s3Location?: S3ArtifactLocation;
-}
-
-export namespace ArtifactLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArtifactLocation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1584,15 +1242,6 @@ export interface Artifact {
    * <p>The location of an artifact.</p>
    */
   location?: ArtifactLocation;
-}
-
-export namespace Artifact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Artifact): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1637,15 +1286,6 @@ export interface ArtifactRevision {
   revisionUrl?: string;
 }
 
-export namespace ArtifactRevision {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArtifactRevision): any => ({
-    ...obj,
-  });
-}
-
 export enum EncryptionKeyType {
   KMS = "KMS",
 }
@@ -1671,15 +1311,6 @@ export interface EncryptionKey {
    *             When creating or updating a pipeline, the value must be set to 'KMS'.</p>
    */
   type: EncryptionKeyType | string | undefined;
-}
-
-export namespace EncryptionKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionKey): any => ({
-    ...obj,
-  });
 }
 
 export enum ArtifactStoreType {
@@ -1718,15 +1349,6 @@ export interface ArtifactStore {
   encryptionKey?: EncryptionKey;
 }
 
-export namespace ArtifactStore {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArtifactStore): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an AWS session credentials object. These credentials are temporary
  *             credentials that are issued by AWS Secure Token Service (STS). They can be used to
@@ -1750,18 +1372,6 @@ export interface AWSSessionCredentials {
   sessionToken: string | undefined;
 }
 
-export namespace AWSSessionCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AWSSessionCredentials): any => ({
-    ...obj,
-    ...(obj.accessKeyId && { accessKeyId: SENSITIVE_STRING }),
-    ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
-    ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
-  });
-}
-
 export enum BlockerType {
   Schedule = "Schedule",
 }
@@ -1779,15 +1389,6 @@ export interface BlockerDeclaration {
    * <p>Reserved for future use.</p>
    */
   type: BlockerType | string | undefined;
-}
-
-export namespace BlockerDeclaration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlockerDeclaration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1822,15 +1423,6 @@ export interface Tag {
    * <p>The tag's value.</p>
    */
   value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1887,15 +1479,6 @@ export interface CreateCustomActionTypeInput {
   tags?: Tag[];
 }
 
-export namespace CreateCustomActionTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomActionTypeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>CreateCustomActionType</code> operation.</p>
  */
@@ -1909,15 +1492,6 @@ export interface CreateCustomActionTypeOutput {
    * <p>Specifies the tags applied to the custom action.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateCustomActionTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomActionTypeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1998,15 +1572,6 @@ export interface StageDeclaration {
   actions: ActionDeclaration[] | undefined;
 }
 
-export namespace StageDeclaration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageDeclaration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the structure of actions and stages to be performed in the
  *             pipeline.</p>
@@ -2061,15 +1626,6 @@ export interface PipelineDeclaration {
   version?: number;
 }
 
-export namespace PipelineDeclaration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineDeclaration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>CreatePipeline</code> action.</p>
  */
@@ -2086,15 +1642,6 @@ export interface CreatePipelineInput {
   tags?: Tag[];
 }
 
-export namespace CreatePipelineInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePipelineInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>CreatePipeline</code> action.</p>
  */
@@ -2109,15 +1656,6 @@ export interface CreatePipelineOutput {
    * <p>Specifies the tags applied to the pipeline.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreatePipelineOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePipelineOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2238,15 +1776,6 @@ export interface DeleteCustomActionTypeInput {
   version: string | undefined;
 }
 
-export namespace DeleteCustomActionTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomActionTypeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>DeletePipeline</code> action.</p>
  */
@@ -2257,15 +1786,6 @@ export interface DeletePipelineInput {
   name: string | undefined;
 }
 
-export namespace DeletePipelineInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePipelineInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWebhookInput {
   /**
    * <p>The name of the webhook you want to delete.</p>
@@ -2273,25 +1793,7 @@ export interface DeleteWebhookInput {
   name: string | undefined;
 }
 
-export namespace DeleteWebhookInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWebhookInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWebhookOutput {}
-
-export namespace DeleteWebhookOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWebhookOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeregisterWebhookWithThirdPartyInput {
   /**
@@ -2300,25 +1802,7 @@ export interface DeregisterWebhookWithThirdPartyInput {
   webhookName?: string;
 }
 
-export namespace DeregisterWebhookWithThirdPartyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterWebhookWithThirdPartyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterWebhookWithThirdPartyOutput {}
-
-export namespace DeregisterWebhookWithThirdPartyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterWebhookWithThirdPartyOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified webhook was entered in an invalid format or cannot be
@@ -2375,15 +1859,6 @@ export interface DisableStageTransitionInput {
    *             UI.</p>
    */
   reason: string | undefined;
-}
-
-export namespace DisableStageTransitionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableStageTransitionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2448,15 +1923,6 @@ export interface EnableStageTransitionInput {
   transitionType: StageTransitionType | string | undefined;
 }
 
-export namespace EnableStageTransitionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableStageTransitionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetActionTypeInput {
   /**
    * <p>Defines what kind of action can be taken in the stage. The following are the valid
@@ -2514,30 +1980,12 @@ export interface GetActionTypeInput {
   version: string | undefined;
 }
 
-export namespace GetActionTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetActionTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetActionTypeOutput {
   /**
    * <p>The action type information for the requested action type, such as the action type
    *             ID.</p>
    */
   actionType?: ActionTypeDeclaration;
-}
-
-export namespace GetActionTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetActionTypeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2550,15 +1998,6 @@ export interface GetJobDetailsInput {
   jobId: string | undefined;
 }
 
-export namespace GetJobDetailsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobDetailsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents information about a stage to a job worker.</p>
  */
@@ -2567,15 +2006,6 @@ export interface StageContext {
    * <p>The name of the stage.</p>
    */
   name?: string;
-}
-
-export namespace StageContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageContext): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2613,15 +2043,6 @@ export interface PipelineContext {
    * <p>The execution ID of the pipeline.</p>
    */
   pipelineExecutionId?: string;
-}
-
-export namespace PipelineContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineContext): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2679,16 +2100,6 @@ export interface JobData {
   encryptionKey?: EncryptionKey;
 }
 
-export namespace JobData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobData): any => ({
-    ...obj,
-    ...(obj.artifactCredentials && { artifactCredentials: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents information about the details of a job.</p>
  */
@@ -2710,16 +2121,6 @@ export interface JobDetails {
   accountId?: string;
 }
 
-export namespace JobDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobDetails): any => ({
-    ...obj,
-    ...(obj.data && { data: JobData.filterSensitiveLog(obj.data) }),
-  });
-}
-
 /**
  * <p>Represents the output of a <code>GetJobDetails</code> action.</p>
  */
@@ -2732,16 +2133,6 @@ export interface GetJobDetailsOutput {
    *         </note>
    */
   jobDetails?: JobDetails;
-}
-
-export namespace GetJobDetailsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobDetailsOutput): any => ({
-    ...obj,
-    ...(obj.jobDetails && { jobDetails: JobDetails.filterSensitiveLog(obj.jobDetails) }),
-  });
 }
 
 /**
@@ -2759,15 +2150,6 @@ export interface GetPipelineInput {
    *             the current version.</p>
    */
   version?: number;
-}
-
-export namespace GetPipelineInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPipelineInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2790,15 +2172,6 @@ export interface PipelineMetadata {
   updated?: Date;
 }
 
-export namespace PipelineMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>GetPipeline</code> action.</p>
  */
@@ -2814,15 +2187,6 @@ export interface GetPipelineOutput {
    *                 <code>GetPipeline</code> action.</p>
    */
   metadata?: PipelineMetadata;
-}
-
-export namespace GetPipelineOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPipelineOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2859,15 +2223,6 @@ export interface GetPipelineExecutionInput {
    *             details.</p>
    */
   pipelineExecutionId: string | undefined;
-}
-
-export namespace GetPipelineExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPipelineExecutionInput): any => ({
-    ...obj,
-  });
 }
 
 export enum PipelineExecutionStatus {
@@ -2945,15 +2300,6 @@ export interface PipelineExecution {
   artifactRevisions?: ArtifactRevision[];
 }
 
-export namespace PipelineExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineExecution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>GetPipelineExecution</code> action.</p>
  */
@@ -2962,15 +2308,6 @@ export interface GetPipelineExecutionOutput {
    * <p>Represents information about the execution of a pipeline.</p>
    */
   pipelineExecution?: PipelineExecution;
-}
-
-export namespace GetPipelineExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPipelineExecutionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3003,15 +2340,6 @@ export interface GetPipelineStateInput {
   name: string | undefined;
 }
 
-export namespace GetPipelineStateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPipelineStateInput): any => ({
-    ...obj,
-  });
-}
-
 export enum StageExecutionStatus {
   Cancelled = "Cancelled",
   Failed = "Failed",
@@ -3041,15 +2369,6 @@ export interface StageExecution {
   status: StageExecutionStatus | string | undefined;
 }
 
-export namespace StageExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageExecution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents information about the state of transitions between one stage and another
  *             stage.</p>
@@ -3076,15 +2395,6 @@ export interface TransitionState {
    *             disabled.</p>
    */
   disabledReason?: string;
-}
-
-export namespace TransitionState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitionState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3116,15 +2426,6 @@ export interface StageState {
    *             status.</p>
    */
   latestExecution?: StageExecution;
-}
-
-export namespace StageState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3162,15 +2463,6 @@ export interface GetPipelineStateOutput {
   updated?: Date;
 }
 
-export namespace GetPipelineStateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPipelineStateOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>GetThirdPartyJobDetails</code> action.</p>
  */
@@ -3185,15 +2477,6 @@ export interface GetThirdPartyJobDetailsInput {
    *             the calling entity is allowed access to the job and its details.</p>
    */
   clientToken: string | undefined;
-}
-
-export namespace GetThirdPartyJobDetailsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetThirdPartyJobDetailsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3256,16 +2539,6 @@ export interface ThirdPartyJobData {
   encryptionKey?: EncryptionKey;
 }
 
-export namespace ThirdPartyJobData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThirdPartyJobData): any => ({
-    ...obj,
-    ...(obj.artifactCredentials && { artifactCredentials: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The details of a job sent in response to a <code>GetThirdPartyJobDetails</code>
  *             request.</p>
@@ -3288,16 +2561,6 @@ export interface ThirdPartyJobDetails {
   nonce?: string;
 }
 
-export namespace ThirdPartyJobDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThirdPartyJobDetails): any => ({
-    ...obj,
-    ...(obj.data && { data: ThirdPartyJobData.filterSensitiveLog(obj.data) }),
-  });
-}
-
 /**
  * <p>Represents the output of a <code>GetThirdPartyJobDetails</code> action.</p>
  */
@@ -3307,16 +2570,6 @@ export interface GetThirdPartyJobDetailsOutput {
    *             job.</p>
    */
   jobDetails?: ThirdPartyJobDetails;
-}
-
-export namespace GetThirdPartyJobDetailsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetThirdPartyJobDetailsOutput): any => ({
-    ...obj,
-    ...(obj.jobDetails && { jobDetails: ThirdPartyJobDetails.filterSensitiveLog(obj.jobDetails) }),
-  });
 }
 
 /**
@@ -3388,15 +2641,6 @@ export interface ListActionExecutionsInput {
   nextToken?: string;
 }
 
-export namespace ListActionExecutionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListActionExecutionsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListActionExecutionsOutput {
   /**
    * <p>The details for a list of recent executions, such as action execution ID.</p>
@@ -3409,15 +2653,6 @@ export interface ListActionExecutionsOutput {
    *             return the next set of action executions in the list.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListActionExecutionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListActionExecutionsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3441,15 +2676,6 @@ export interface ListActionTypesInput {
   regionFilter?: string;
 }
 
-export namespace ListActionTypesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListActionTypesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>ListActionTypes</code> action.</p>
  */
@@ -3465,15 +2691,6 @@ export interface ListActionTypesOutput {
    *             of action types in the list.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListActionTypesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListActionTypesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3500,15 +2717,6 @@ export interface ListPipelineExecutionsInput {
    *             list.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListPipelineExecutionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPipelineExecutionsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3543,15 +2751,6 @@ export interface SourceRevision {
   revisionUrl?: string;
 }
 
-export namespace SourceRevision {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceRevision): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The interaction that stopped a pipeline execution.</p>
  */
@@ -3560,15 +2759,6 @@ export interface StopExecutionTrigger {
    * <p>The user-specified reason the pipeline was stopped.</p>
    */
   reason?: string;
-}
-
-export namespace StopExecutionTrigger {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopExecutionTrigger): any => ({
-    ...obj,
-  });
 }
 
 export enum TriggerType {
@@ -3596,15 +2786,6 @@ export interface ExecutionTrigger {
    *             user-initiated <code>start-pipeline-execution</code> CLI command.</p>
    */
   triggerDetail?: string;
-}
-
-export namespace ExecutionTrigger {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionTrigger): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3675,15 +2856,6 @@ export interface PipelineExecutionSummary {
   stopTrigger?: StopExecutionTrigger;
 }
 
-export namespace PipelineExecutionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineExecutionSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>ListPipelineExecutions</code> action.</p>
  */
@@ -3699,15 +2871,6 @@ export interface ListPipelineExecutionsOutput {
    *             until no more nextToken values are returned.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListPipelineExecutionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPipelineExecutionsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3726,15 +2889,6 @@ export interface ListPipelinesInput {
    *             can specify is 1. The maximum accepted value is 1000.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListPipelinesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPipelinesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3763,15 +2917,6 @@ export interface PipelineSummary {
   updated?: Date;
 }
 
-export namespace PipelineSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>ListPipelines</code> action.</p>
  */
@@ -3787,15 +2932,6 @@ export interface ListPipelinesOutput {
    *             pipelines in the list.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListPipelinesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPipelinesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3836,15 +2972,6 @@ export interface ListTagsForResourceInput {
   maxResults?: number;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>The tags for the resource.</p>
@@ -3858,15 +2985,6 @@ export interface ListTagsForResourceOutput {
    *             pagination.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3902,15 +3020,6 @@ export interface ListWebhooksInput {
   MaxResults?: number;
 }
 
-export namespace ListWebhooksInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebhooksInput): any => ({
-    ...obj,
-  });
-}
-
 export enum WebhookAuthenticationType {
   GITHUB_HMAC = "GITHUB_HMAC",
   IP = "IP",
@@ -3933,15 +3042,6 @@ export interface WebhookAuthConfiguration {
    *                 <code>SecretToken</code> property must be set.</p>
    */
   SecretToken?: string;
-}
-
-export namespace WebhookAuthConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebhookAuthConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3969,15 +3069,6 @@ export interface WebhookFilterRule {
    *             action configuration properties for built-in action types, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Pipeline Structure Reference Action Requirements</a>.</p>
    */
   matchEquals?: string;
-}
-
-export namespace WebhookFilterRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebhookFilterRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4038,15 +3129,6 @@ export interface WebhookDefinition {
   authenticationConfiguration: WebhookAuthConfiguration | undefined;
 }
 
-export namespace WebhookDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebhookDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The detail returned for each webhook after listing webhooks, such as the webhook
  *             URL, the webhook name, and the webhook ARN.</p>
@@ -4093,15 +3175,6 @@ export interface ListWebhookItem {
   tags?: Tag[];
 }
 
-export namespace ListWebhookItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebhookItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWebhooksOutput {
   /**
    * <p>The JSON detail returned for each webhook in the list output for the ListWebhooks
@@ -4115,15 +3188,6 @@ export interface ListWebhooksOutput {
    *             webhooks in the list. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListWebhooksOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebhooksOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4147,15 +3211,6 @@ export interface PollForJobsInput {
    *             configuration matches the mapped value are returned.</p>
    */
   queryParam?: Record<string, string>;
-}
-
-export namespace PollForJobsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PollForJobsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4184,16 +3239,6 @@ export interface Job {
   accountId?: string;
 }
 
-export namespace Job {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Job): any => ({
-    ...obj,
-    ...(obj.data && { data: JobData.filterSensitiveLog(obj.data) }),
-  });
-}
-
 /**
  * <p>Represents the output of a <code>PollForJobs</code> action.</p>
  */
@@ -4202,16 +3247,6 @@ export interface PollForJobsOutput {
    * <p>Information about the jobs to take action on.</p>
    */
   jobs?: Job[];
-}
-
-export namespace PollForJobsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PollForJobsOutput): any => ({
-    ...obj,
-    ...(obj.jobs && { jobs: obj.jobs.map((item) => Job.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -4227,15 +3262,6 @@ export interface PollForThirdPartyJobsInput {
    * <p>The maximum number of jobs to return in a poll for jobs call.</p>
    */
   maxBatchSize?: number;
-}
-
-export namespace PollForThirdPartyJobsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PollForThirdPartyJobsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4256,15 +3282,6 @@ export interface ThirdPartyJob {
   jobId?: string;
 }
 
-export namespace ThirdPartyJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThirdPartyJob): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>PollForThirdPartyJobs</code> action.</p>
  */
@@ -4273,15 +3290,6 @@ export interface PollForThirdPartyJobsOutput {
    * <p>Information about the jobs to take action on.</p>
    */
   jobs?: ThirdPartyJob[];
-}
-
-export namespace PollForThirdPartyJobsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PollForThirdPartyJobsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4310,15 +3318,6 @@ export interface PutActionRevisionInput {
   actionRevision: ActionRevision | undefined;
 }
 
-export namespace PutActionRevisionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutActionRevisionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>PutActionRevision</code> action.</p>
  */
@@ -4333,15 +3332,6 @@ export interface PutActionRevisionOutput {
    * <p>The ID of the current workflow state of the pipeline.</p>
    */
   pipelineExecutionId?: string;
-}
-
-export namespace PutActionRevisionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutActionRevisionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4395,15 +3385,6 @@ export interface PutApprovalResultInput {
   token: string | undefined;
 }
 
-export namespace PutApprovalResultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutApprovalResultInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>PutApprovalResult</code> action.</p>
  */
@@ -4412,15 +3393,6 @@ export interface PutApprovalResultOutput {
    * <p>The timestamp showing when the approval or rejection was submitted.</p>
    */
   approvedAt?: Date;
-}
-
-export namespace PutApprovalResultOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutApprovalResultOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4471,15 +3443,6 @@ export interface FailureDetails {
   externalExecutionId?: string;
 }
 
-export namespace FailureDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailureDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>PutJobFailureResult</code> action.</p>
  */
@@ -4494,15 +3457,6 @@ export interface PutJobFailureResultInput {
    * <p>The details about the failure of a job.</p>
    */
   failureDetails: FailureDetails | undefined;
-}
-
-export namespace PutJobFailureResultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutJobFailureResultInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4550,15 +3504,6 @@ export interface CurrentRevision {
   revisionSummary?: string;
 }
 
-export namespace CurrentRevision {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CurrentRevision): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details of the actions taken and results produced on an artifact as it passes
  *             through stages in the pipeline.</p>
@@ -4580,15 +3525,6 @@ export interface ExecutionDetails {
    *             percent.</p>
    */
   percentComplete?: number;
-}
-
-export namespace ExecutionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4630,15 +3566,6 @@ export interface PutJobSuccessResultInput {
   outputVariables?: Record<string, string>;
 }
 
-export namespace PutJobSuccessResultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutJobSuccessResultInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>PutThirdPartyJobFailureResult</code>
  *             action.</p>
@@ -4660,15 +3587,6 @@ export interface PutThirdPartyJobFailureResultInput {
    * <p>Represents information about failure details.</p>
    */
   failureDetails: FailureDetails | undefined;
-}
-
-export namespace PutThirdPartyJobFailureResultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutThirdPartyJobFailureResultInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4707,15 +3625,6 @@ export interface PutThirdPartyJobSuccessResultInput {
    *             through stages in the pipeline. </p>
    */
   executionDetails?: ExecutionDetails;
-}
-
-export namespace PutThirdPartyJobSuccessResultInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutThirdPartyJobSuccessResultInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4771,30 +3680,12 @@ export interface PutWebhookInput {
   tags?: Tag[];
 }
 
-export namespace PutWebhookInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutWebhookInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutWebhookOutput {
   /**
    * <p>The detail returned from creating the webhook, such as the webhook name, webhook
    *             URL, and webhook ARN.</p>
    */
   webhook?: ListWebhookItem;
-}
-
-export namespace PutWebhookOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutWebhookOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterWebhookWithThirdPartyInput {
@@ -4805,25 +3696,7 @@ export interface RegisterWebhookWithThirdPartyInput {
   webhookName?: string;
 }
 
-export namespace RegisterWebhookWithThirdPartyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterWebhookWithThirdPartyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterWebhookWithThirdPartyOutput {}
-
-export namespace RegisterWebhookWithThirdPartyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterWebhookWithThirdPartyOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Your request cannot be handled because the pipeline is busy handling ongoing
@@ -4896,15 +3769,6 @@ export interface RetryStageExecutionInput {
   retryMode: StageRetryMode | string | undefined;
 }
 
-export namespace RetryStageExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryStageExecutionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>RetryStageExecution</code> action.</p>
  */
@@ -4913,15 +3777,6 @@ export interface RetryStageExecutionOutput {
    * <p>The ID of the current workflow execution in the failed stage.</p>
    */
   pipelineExecutionId?: string;
-}
-
-export namespace RetryStageExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryStageExecutionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4961,15 +3816,6 @@ export interface StartPipelineExecutionInput {
   clientRequestToken?: string;
 }
 
-export namespace StartPipelineExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartPipelineExecutionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>StartPipelineExecution</code> action.</p>
  */
@@ -4979,15 +3825,6 @@ export interface StartPipelineExecutionOutput {
    *             started.</p>
    */
   pipelineExecutionId?: string;
-}
-
-export namespace StartPipelineExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartPipelineExecutionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5061,29 +3898,11 @@ export interface StopPipelineExecutionInput {
   reason?: string;
 }
 
-export namespace StopPipelineExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopPipelineExecutionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StopPipelineExecutionOutput {
   /**
    * <p>The unique system-generated ID of the pipeline execution that was stopped.</p>
    */
   pipelineExecutionId?: string;
-}
-
-export namespace StopPipelineExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopPipelineExecutionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceInput {
@@ -5098,25 +3917,7 @@ export interface TagResourceInput {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceOutput {}
-
-export namespace TagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceInput {
   /**
@@ -5130,25 +3931,7 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceOutput {}
-
-export namespace UntagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The request failed because of an unknown error, exception, or failure.</p>
@@ -5176,15 +3959,6 @@ export interface UpdateActionTypeInput {
   actionType: ActionTypeDeclaration | undefined;
 }
 
-export namespace UpdateActionTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateActionTypeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of an <code>UpdatePipeline</code> action.</p>
  */
@@ -5193,15 +3967,6 @@ export interface UpdatePipelineInput {
    * <p>The name of the pipeline to be updated.</p>
    */
   pipeline: PipelineDeclaration | undefined;
-}
-
-export namespace UpdatePipelineInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5214,11 +3979,978 @@ export interface UpdatePipelineOutput {
   pipeline?: PipelineDeclaration;
 }
 
-export namespace UpdatePipelineOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcknowledgeJobInputFilterSensitiveLog = (obj: AcknowledgeJobInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcknowledgeJobOutputFilterSensitiveLog = (obj: AcknowledgeJobOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcknowledgeThirdPartyJobInputFilterSensitiveLog = (obj: AcknowledgeThirdPartyJobInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcknowledgeThirdPartyJobOutputFilterSensitiveLog = (obj: AcknowledgeThirdPartyJobOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionConfigurationFilterSensitiveLog = (obj: ActionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionConfigurationPropertyFilterSensitiveLog = (obj: ActionConfigurationProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionContextFilterSensitiveLog = (obj: ActionContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTypeIdFilterSensitiveLog = (obj: ActionTypeId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputArtifactFilterSensitiveLog = (obj: InputArtifact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputArtifactFilterSensitiveLog = (obj: OutputArtifact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionDeclarationFilterSensitiveLog = (obj: ActionDeclaration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorDetailsFilterSensitiveLog = (obj: ErrorDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionExecutionFilterSensitiveLog = (obj: ActionExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtifactDetailFilterSensitiveLog = (obj: ArtifactDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionExecutionInputFilterSensitiveLog = (obj: ActionExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionExecutionResultFilterSensitiveLog = (obj: ActionExecutionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionExecutionOutputFilterSensitiveLog = (obj: ActionExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionExecutionDetailFilterSensitiveLog = (obj: ActionExecutionDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionExecutionFilterFilterSensitiveLog = (obj: ActionExecutionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionRevisionFilterSensitiveLog = (obj: ActionRevision): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionStateFilterSensitiveLog = (obj: ActionState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtifactDetailsFilterSensitiveLog = (obj: ArtifactDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTypeSettingsFilterSensitiveLog = (obj: ActionTypeSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTypeFilterSensitiveLog = (obj: ActionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTypeArtifactDetailsFilterSensitiveLog = (obj: ActionTypeArtifactDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobWorkerExecutorConfigurationFilterSensitiveLog = (obj: JobWorkerExecutorConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaExecutorConfigurationFilterSensitiveLog = (obj: LambdaExecutorConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutorConfigurationFilterSensitiveLog = (obj: ExecutorConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTypeExecutorFilterSensitiveLog = (obj: ActionTypeExecutor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTypeIdentifierFilterSensitiveLog = (obj: ActionTypeIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTypePermissionsFilterSensitiveLog = (obj: ActionTypePermissions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTypePropertyFilterSensitiveLog = (obj: ActionTypeProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTypeUrlsFilterSensitiveLog = (obj: ActionTypeUrls): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionTypeDeclarationFilterSensitiveLog = (obj: ActionTypeDeclaration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApprovalResultFilterSensitiveLog = (obj: ApprovalResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ArtifactLocationFilterSensitiveLog = (obj: S3ArtifactLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtifactLocationFilterSensitiveLog = (obj: ArtifactLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtifactFilterSensitiveLog = (obj: Artifact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtifactRevisionFilterSensitiveLog = (obj: ArtifactRevision): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionKeyFilterSensitiveLog = (obj: EncryptionKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtifactStoreFilterSensitiveLog = (obj: ArtifactStore): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AWSSessionCredentialsFilterSensitiveLog = (obj: AWSSessionCredentials): any => ({
+  ...obj,
+  ...(obj.accessKeyId && { accessKeyId: SENSITIVE_STRING }),
+  ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
+  ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BlockerDeclarationFilterSensitiveLog = (obj: BlockerDeclaration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomActionTypeInputFilterSensitiveLog = (obj: CreateCustomActionTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomActionTypeOutputFilterSensitiveLog = (obj: CreateCustomActionTypeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageDeclarationFilterSensitiveLog = (obj: StageDeclaration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineDeclarationFilterSensitiveLog = (obj: PipelineDeclaration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePipelineInputFilterSensitiveLog = (obj: CreatePipelineInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePipelineOutputFilterSensitiveLog = (obj: CreatePipelineOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomActionTypeInputFilterSensitiveLog = (obj: DeleteCustomActionTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePipelineInputFilterSensitiveLog = (obj: DeletePipelineInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWebhookInputFilterSensitiveLog = (obj: DeleteWebhookInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWebhookOutputFilterSensitiveLog = (obj: DeleteWebhookOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterWebhookWithThirdPartyInputFilterSensitiveLog = (
+  obj: DeregisterWebhookWithThirdPartyInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterWebhookWithThirdPartyOutputFilterSensitiveLog = (
+  obj: DeregisterWebhookWithThirdPartyOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableStageTransitionInputFilterSensitiveLog = (obj: DisableStageTransitionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableStageTransitionInputFilterSensitiveLog = (obj: EnableStageTransitionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetActionTypeInputFilterSensitiveLog = (obj: GetActionTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetActionTypeOutputFilterSensitiveLog = (obj: GetActionTypeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobDetailsInputFilterSensitiveLog = (obj: GetJobDetailsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageContextFilterSensitiveLog = (obj: StageContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineContextFilterSensitiveLog = (obj: PipelineContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobDataFilterSensitiveLog = (obj: JobData): any => ({
+  ...obj,
+  ...(obj.artifactCredentials && { artifactCredentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const JobDetailsFilterSensitiveLog = (obj: JobDetails): any => ({
+  ...obj,
+  ...(obj.data && { data: JobDataFilterSensitiveLog(obj.data) }),
+});
+
+/**
+ * @internal
+ */
+export const GetJobDetailsOutputFilterSensitiveLog = (obj: GetJobDetailsOutput): any => ({
+  ...obj,
+  ...(obj.jobDetails && { jobDetails: JobDetailsFilterSensitiveLog(obj.jobDetails) }),
+});
+
+/**
+ * @internal
+ */
+export const GetPipelineInputFilterSensitiveLog = (obj: GetPipelineInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineMetadataFilterSensitiveLog = (obj: PipelineMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPipelineOutputFilterSensitiveLog = (obj: GetPipelineOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPipelineExecutionInputFilterSensitiveLog = (obj: GetPipelineExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineExecutionFilterSensitiveLog = (obj: PipelineExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPipelineExecutionOutputFilterSensitiveLog = (obj: GetPipelineExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPipelineStateInputFilterSensitiveLog = (obj: GetPipelineStateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageExecutionFilterSensitiveLog = (obj: StageExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransitionStateFilterSensitiveLog = (obj: TransitionState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageStateFilterSensitiveLog = (obj: StageState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPipelineStateOutputFilterSensitiveLog = (obj: GetPipelineStateOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetThirdPartyJobDetailsInputFilterSensitiveLog = (obj: GetThirdPartyJobDetailsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThirdPartyJobDataFilterSensitiveLog = (obj: ThirdPartyJobData): any => ({
+  ...obj,
+  ...(obj.artifactCredentials && { artifactCredentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ThirdPartyJobDetailsFilterSensitiveLog = (obj: ThirdPartyJobDetails): any => ({
+  ...obj,
+  ...(obj.data && { data: ThirdPartyJobDataFilterSensitiveLog(obj.data) }),
+});
+
+/**
+ * @internal
+ */
+export const GetThirdPartyJobDetailsOutputFilterSensitiveLog = (obj: GetThirdPartyJobDetailsOutput): any => ({
+  ...obj,
+  ...(obj.jobDetails && { jobDetails: ThirdPartyJobDetailsFilterSensitiveLog(obj.jobDetails) }),
+});
+
+/**
+ * @internal
+ */
+export const ListActionExecutionsInputFilterSensitiveLog = (obj: ListActionExecutionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListActionExecutionsOutputFilterSensitiveLog = (obj: ListActionExecutionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListActionTypesInputFilterSensitiveLog = (obj: ListActionTypesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListActionTypesOutputFilterSensitiveLog = (obj: ListActionTypesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPipelineExecutionsInputFilterSensitiveLog = (obj: ListPipelineExecutionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceRevisionFilterSensitiveLog = (obj: SourceRevision): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopExecutionTriggerFilterSensitiveLog = (obj: StopExecutionTrigger): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionTriggerFilterSensitiveLog = (obj: ExecutionTrigger): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineExecutionSummaryFilterSensitiveLog = (obj: PipelineExecutionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPipelineExecutionsOutputFilterSensitiveLog = (obj: ListPipelineExecutionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPipelinesInputFilterSensitiveLog = (obj: ListPipelinesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineSummaryFilterSensitiveLog = (obj: PipelineSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPipelinesOutputFilterSensitiveLog = (obj: ListPipelinesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebhooksInputFilterSensitiveLog = (obj: ListWebhooksInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebhookAuthConfigurationFilterSensitiveLog = (obj: WebhookAuthConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebhookFilterRuleFilterSensitiveLog = (obj: WebhookFilterRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebhookDefinitionFilterSensitiveLog = (obj: WebhookDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebhookItemFilterSensitiveLog = (obj: ListWebhookItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebhooksOutputFilterSensitiveLog = (obj: ListWebhooksOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PollForJobsInputFilterSensitiveLog = (obj: PollForJobsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobFilterSensitiveLog = (obj: Job): any => ({
+  ...obj,
+  ...(obj.data && { data: JobDataFilterSensitiveLog(obj.data) }),
+});
+
+/**
+ * @internal
+ */
+export const PollForJobsOutputFilterSensitiveLog = (obj: PollForJobsOutput): any => ({
+  ...obj,
+  ...(obj.jobs && { jobs: obj.jobs.map((item) => JobFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PollForThirdPartyJobsInputFilterSensitiveLog = (obj: PollForThirdPartyJobsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThirdPartyJobFilterSensitiveLog = (obj: ThirdPartyJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PollForThirdPartyJobsOutputFilterSensitiveLog = (obj: PollForThirdPartyJobsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutActionRevisionInputFilterSensitiveLog = (obj: PutActionRevisionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutActionRevisionOutputFilterSensitiveLog = (obj: PutActionRevisionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutApprovalResultInputFilterSensitiveLog = (obj: PutApprovalResultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutApprovalResultOutputFilterSensitiveLog = (obj: PutApprovalResultOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailureDetailsFilterSensitiveLog = (obj: FailureDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutJobFailureResultInputFilterSensitiveLog = (obj: PutJobFailureResultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CurrentRevisionFilterSensitiveLog = (obj: CurrentRevision): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionDetailsFilterSensitiveLog = (obj: ExecutionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutJobSuccessResultInputFilterSensitiveLog = (obj: PutJobSuccessResultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutThirdPartyJobFailureResultInputFilterSensitiveLog = (obj: PutThirdPartyJobFailureResultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutThirdPartyJobSuccessResultInputFilterSensitiveLog = (obj: PutThirdPartyJobSuccessResultInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutWebhookInputFilterSensitiveLog = (obj: PutWebhookInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutWebhookOutputFilterSensitiveLog = (obj: PutWebhookOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterWebhookWithThirdPartyInputFilterSensitiveLog = (obj: RegisterWebhookWithThirdPartyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterWebhookWithThirdPartyOutputFilterSensitiveLog = (
+  obj: RegisterWebhookWithThirdPartyOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryStageExecutionInputFilterSensitiveLog = (obj: RetryStageExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryStageExecutionOutputFilterSensitiveLog = (obj: RetryStageExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartPipelineExecutionInputFilterSensitiveLog = (obj: StartPipelineExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartPipelineExecutionOutputFilterSensitiveLog = (obj: StartPipelineExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopPipelineExecutionInputFilterSensitiveLog = (obj: StopPipelineExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopPipelineExecutionOutputFilterSensitiveLog = (obj: StopPipelineExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateActionTypeInputFilterSensitiveLog = (obj: UpdateActionTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePipelineInputFilterSensitiveLog = (obj: UpdatePipelineInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePipelineOutputFilterSensitiveLog = (obj: UpdatePipelineOutput): any => ({
+  ...obj,
+});

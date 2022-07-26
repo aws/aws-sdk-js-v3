@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetContactReachabilityStatusRequest, GetContactReachabilityStatusResponse } from "../models/models_0";
+import {
+  GetContactReachabilityStatusRequest,
+  GetContactReachabilityStatusRequestFilterSensitiveLog,
+  GetContactReachabilityStatusResponse,
+  GetContactReachabilityStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetContactReachabilityStatusCommand,
   serializeAws_json1_1GetContactReachabilityStatusCommand,
@@ -76,8 +81,8 @@ export class GetContactReachabilityStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactReachabilityStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetContactReachabilityStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetContactReachabilityStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetContactReachabilityStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

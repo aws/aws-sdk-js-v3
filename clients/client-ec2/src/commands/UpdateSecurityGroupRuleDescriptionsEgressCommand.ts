@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
+  UpdateSecurityGroupRuleDescriptionsEgressRequestFilterSensitiveLog,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
+  UpdateSecurityGroupRuleDescriptionsEgressResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand,
@@ -84,8 +86,8 @@ export class UpdateSecurityGroupRuleDescriptionsEgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsEgressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsEgressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsEgressRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSecurityGroupRuleDescriptionsEgressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

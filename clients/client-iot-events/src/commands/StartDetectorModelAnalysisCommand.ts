@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import { StartDetectorModelAnalysisRequest, StartDetectorModelAnalysisResponse } from "../models/models_0";
+import {
+  StartDetectorModelAnalysisRequest,
+  StartDetectorModelAnalysisRequestFilterSensitiveLog,
+  StartDetectorModelAnalysisResponse,
+  StartDetectorModelAnalysisResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartDetectorModelAnalysisCommand,
   serializeAws_restJson1StartDetectorModelAnalysisCommand,
@@ -74,8 +79,8 @@ export class StartDetectorModelAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDetectorModelAnalysisRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartDetectorModelAnalysisResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDetectorModelAnalysisRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartDetectorModelAnalysisResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

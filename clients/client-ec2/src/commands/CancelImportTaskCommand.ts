@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CancelImportTaskRequest, CancelImportTaskResult } from "../models/models_0";
+import {
+  CancelImportTaskRequest,
+  CancelImportTaskRequestFilterSensitiveLog,
+  CancelImportTaskResult,
+  CancelImportTaskResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2CancelImportTaskCommand,
   serializeAws_ec2CancelImportTaskCommand,
@@ -72,8 +77,8 @@ export class CancelImportTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelImportTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelImportTaskResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelImportTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelImportTaskResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteClusterSecurityGroupMessage } from "../models/models_0";
+import {
+  DeleteClusterSecurityGroupMessage,
+  DeleteClusterSecurityGroupMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteClusterSecurityGroupCommand,
   serializeAws_queryDeleteClusterSecurityGroupCommand,
@@ -80,7 +83,7 @@ export class DeleteClusterSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClusterSecurityGroupMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteClusterSecurityGroupMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

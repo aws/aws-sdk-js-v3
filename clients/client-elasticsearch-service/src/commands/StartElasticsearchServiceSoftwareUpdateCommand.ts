@@ -19,7 +19,9 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   StartElasticsearchServiceSoftwareUpdateRequest,
+  StartElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog,
   StartElasticsearchServiceSoftwareUpdateResponse,
+  StartElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,
@@ -85,8 +87,8 @@ export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartElasticsearchServiceSoftwareUpdateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartElasticsearchServiceSoftwareUpdateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartElasticsearchServiceSoftwareUpdateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartElasticsearchServiceSoftwareUpdateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CopyOptionGroupMessage, CopyOptionGroupResult } from "../models/models_0";
+import {
+  CopyOptionGroupMessage,
+  CopyOptionGroupMessageFilterSensitiveLog,
+  CopyOptionGroupResult,
+  CopyOptionGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCopyOptionGroupCommand,
   serializeAws_queryCopyOptionGroupCommand,
@@ -72,8 +77,8 @@ export class CopyOptionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyOptionGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CopyOptionGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyOptionGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CopyOptionGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

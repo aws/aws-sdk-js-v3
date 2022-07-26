@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { ListSegmentReferencesRequest, ListSegmentReferencesResponse } from "../models/models_0";
+import {
+  ListSegmentReferencesRequest,
+  ListSegmentReferencesRequestFilterSensitiveLog,
+  ListSegmentReferencesResponse,
+  ListSegmentReferencesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListSegmentReferencesCommand,
   serializeAws_restJson1ListSegmentReferencesCommand,
@@ -72,8 +77,8 @@ export class ListSegmentReferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSegmentReferencesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSegmentReferencesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSegmentReferencesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSegmentReferencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

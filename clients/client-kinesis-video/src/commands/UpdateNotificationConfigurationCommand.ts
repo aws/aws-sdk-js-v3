@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import { UpdateNotificationConfigurationInput, UpdateNotificationConfigurationOutput } from "../models/models_0";
+import {
+  UpdateNotificationConfigurationInput,
+  UpdateNotificationConfigurationInputFilterSensitiveLog,
+  UpdateNotificationConfigurationOutput,
+  UpdateNotificationConfigurationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateNotificationConfigurationCommand,
   serializeAws_restJson1UpdateNotificationConfigurationCommand,
@@ -74,8 +79,8 @@ export class UpdateNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNotificationConfigurationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNotificationConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNotificationConfigurationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNotificationConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

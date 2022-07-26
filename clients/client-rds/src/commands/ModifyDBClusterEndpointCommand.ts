@@ -12,8 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBClusterEndpoint } from "../models/models_0";
-import { ModifyDBClusterEndpointMessage } from "../models/models_1";
+import { DBClusterEndpoint, DBClusterEndpointFilterSensitiveLog } from "../models/models_0";
+import { ModifyDBClusterEndpointMessage, ModifyDBClusterEndpointMessageFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryModifyDBClusterEndpointCommand,
   serializeAws_queryModifyDBClusterEndpointCommand,
@@ -76,8 +76,8 @@ export class ModifyDBClusterEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBClusterEndpointMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterEndpoint.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyDBClusterEndpointMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterEndpointFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

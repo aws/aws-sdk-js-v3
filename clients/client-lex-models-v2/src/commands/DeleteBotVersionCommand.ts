@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DeleteBotVersionRequest, DeleteBotVersionResponse } from "../models/models_0";
+import {
+  DeleteBotVersionRequest,
+  DeleteBotVersionRequestFilterSensitiveLog,
+  DeleteBotVersionResponse,
+  DeleteBotVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBotVersionCommand,
   serializeAws_restJson1DeleteBotVersionCommand,
@@ -73,8 +78,8 @@ export class DeleteBotVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBotVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBotVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBotVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBotVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

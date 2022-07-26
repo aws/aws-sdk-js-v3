@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { GetIntentRequest, GetIntentResponse } from "../models/models_0";
+import {
+  GetIntentRequest,
+  GetIntentRequestFilterSensitiveLog,
+  GetIntentResponse,
+  GetIntentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetIntentCommand,
   serializeAws_restJson1GetIntentCommand,
@@ -79,8 +84,8 @@ export class GetIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIntentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIntentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetIntentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

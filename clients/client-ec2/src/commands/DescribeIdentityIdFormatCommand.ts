@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/models_3";
+import {
+  DescribeIdentityIdFormatRequest,
+  DescribeIdentityIdFormatRequestFilterSensitiveLog,
+  DescribeIdentityIdFormatResult,
+  DescribeIdentityIdFormatResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeIdentityIdFormatCommand,
   serializeAws_ec2DescribeIdentityIdFormatCommand,
@@ -90,8 +95,8 @@ export class DescribeIdentityIdFormatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIdentityIdFormatRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIdentityIdFormatResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeIdentityIdFormatRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIdentityIdFormatResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

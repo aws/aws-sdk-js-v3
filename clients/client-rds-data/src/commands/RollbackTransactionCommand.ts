@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RollbackTransactionRequest, RollbackTransactionResponse } from "../models/models_0";
+import {
+  RollbackTransactionRequest,
+  RollbackTransactionRequestFilterSensitiveLog,
+  RollbackTransactionResponse,
+  RollbackTransactionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RollbackTransactionCommand,
   serializeAws_restJson1RollbackTransactionCommand,
@@ -72,8 +77,8 @@ export class RollbackTransactionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RollbackTransactionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RollbackTransactionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RollbackTransactionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RollbackTransactionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

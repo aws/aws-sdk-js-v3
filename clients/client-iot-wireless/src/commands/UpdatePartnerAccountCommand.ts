@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { UpdatePartnerAccountRequest, UpdatePartnerAccountResponse } from "../models/models_1";
+import {
+  UpdatePartnerAccountRequest,
+  UpdatePartnerAccountRequestFilterSensitiveLog,
+  UpdatePartnerAccountResponse,
+  UpdatePartnerAccountResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdatePartnerAccountCommand,
   serializeAws_restJson1UpdatePartnerAccountCommand,
@@ -72,8 +77,8 @@ export class UpdatePartnerAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePartnerAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePartnerAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePartnerAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePartnerAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

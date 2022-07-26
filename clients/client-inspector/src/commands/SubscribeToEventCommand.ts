@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { SubscribeToEventRequest } from "../models/models_0";
+import { SubscribeToEventRequest, SubscribeToEventRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1SubscribeToEventCommand,
   serializeAws_json1_1SubscribeToEventCommand,
@@ -73,7 +73,7 @@ export class SubscribeToEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubscribeToEventRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: SubscribeToEventRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

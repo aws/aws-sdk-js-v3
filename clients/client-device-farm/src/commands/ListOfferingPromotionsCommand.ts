@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListOfferingPromotionsRequest, ListOfferingPromotionsResult } from "../models/models_0";
+import {
+  ListOfferingPromotionsRequest,
+  ListOfferingPromotionsRequestFilterSensitiveLog,
+  ListOfferingPromotionsResult,
+  ListOfferingPromotionsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListOfferingPromotionsCommand,
   serializeAws_json1_1ListOfferingPromotionsCommand,
@@ -74,8 +79,8 @@ export class ListOfferingPromotionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOfferingPromotionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListOfferingPromotionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListOfferingPromotionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListOfferingPromotionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -86,15 +86,6 @@ export interface Address {
   Municipality?: string;
 }
 
-export namespace Address {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Address): any => ({
-    ...obj,
-  });
-}
-
 export enum AddressType {
   OPERATING_ADDRESS = "OPERATING_ADDRESS",
   SHIPPING_ADDRESS = "SHIPPING_ADDRESS",
@@ -114,15 +105,6 @@ export interface AssetLocation {
   RackElevation?: number;
 }
 
-export namespace AssetLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetLocation): any => ({
-    ...obj,
-  });
-}
-
 export enum AssetType {
   COMPUTE = "COMPUTE",
 }
@@ -139,15 +121,6 @@ export interface ComputeAttributes {
    *     </p>
    */
   HostId?: string;
-}
-
-export namespace ComputeAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComputeAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -192,15 +165,6 @@ export interface AssetInfo {
   AssetLocation?: AssetLocation;
 }
 
-export namespace AssetInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelOrderInput {
   /**
    * <p>
@@ -210,25 +174,7 @@ export interface CancelOrderInput {
   OrderId: string | undefined;
 }
 
-export namespace CancelOrderInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelOrderInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelOrderOutput {}
-
-export namespace CancelOrderOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelOrderOutput): any => ({
-    ...obj,
-  });
-}
 
 export enum ResourceType {
   ORDER = "ORDER",
@@ -356,15 +302,6 @@ export interface EC2Capacity {
   Quantity?: string;
 }
 
-export namespace EC2Capacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2Capacity): any => ({
-    ...obj,
-  });
-}
-
 export enum CatalogItemStatus {
   AVAILABLE = "AVAILABLE",
   DISCONTINUED = "DISCONTINUED",
@@ -428,15 +365,6 @@ export interface CatalogItem {
   SupportedStorage?: (SupportedStorageEnum | string)[];
 }
 
-export namespace CatalogItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CatalogItem): any => ({
-    ...obj,
-  });
-}
-
 export enum CatalogItemClass {
   RACK = "RACK",
   SERVER = "SERVER",
@@ -491,15 +419,6 @@ export interface ConnectionDetails {
   AllowedIps?: string[];
 }
 
-export namespace ConnectionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a line item request.</p>
  */
@@ -513,15 +432,6 @@ export interface LineItemRequest {
    * <p>The quantity of a line item request.</p>
    */
   Quantity?: number;
-}
-
-export namespace LineItemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LineItemRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PaymentOption {
@@ -558,15 +468,6 @@ export interface CreateOrderInput {
   PaymentTerm?: PaymentTerm | string;
 }
 
-export namespace CreateOrderInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOrderInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Information about a line item asset.
@@ -586,15 +487,6 @@ export interface LineItemAssetInformation {
    *     </p>
    */
   MacAddressList?: string[];
-}
-
-export namespace LineItemAssetInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LineItemAssetInformation): any => ({
-    ...obj,
-  });
 }
 
 export enum ShipmentCarrier {
@@ -623,15 +515,6 @@ export interface ShipmentInformation {
    *     </p>
    */
   ShipmentCarrier?: ShipmentCarrier | string;
-}
-
-export namespace ShipmentInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShipmentInformation): any => ({
-    ...obj,
-  });
 }
 
 export enum LineItemStatus {
@@ -684,15 +567,6 @@ export interface LineItem {
    *     </p>
    */
   AssetInformationList?: LineItemAssetInformation[];
-}
-
-export namespace LineItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LineItem): any => ({
-    ...obj,
-  });
 }
 
 export enum OrderStatus {
@@ -778,29 +652,11 @@ export interface Order {
   OrderFulfilledDate?: Date;
 }
 
-export namespace Order {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Order): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateOrderOutput {
   /**
    * <p>Information about this order.</p>
    */
   Order?: Order;
-}
-
-export namespace CreateOrderOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOrderOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -876,15 +732,6 @@ export interface CreateOutpostInput {
   SupportedHardwareType?: SupportedHardwareType | string;
 }
 
-export namespace CreateOutpostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOutpostInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an Outpost.</p>
  */
@@ -956,29 +803,11 @@ export interface Outpost {
   SupportedHardwareType?: SupportedHardwareType | string;
 }
 
-export namespace Outpost {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Outpost): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateOutpostOutput {
   /**
    * <p>Information about an Outpost.</p>
    */
   Outpost?: Outpost;
-}
-
-export namespace CreateOutpostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOutpostOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum FiberOpticCableType {
@@ -1112,15 +941,6 @@ export interface RackPhysicalProperties {
   MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;
 }
 
-export namespace RackPhysicalProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RackPhysicalProperties): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSiteInput {
   /**
    * <p>The name of the site.</p>
@@ -1170,15 +990,6 @@ export interface CreateSiteInput {
    *         </p>
    */
   RackPhysicalProperties?: RackPhysicalProperties;
-}
-
-export namespace CreateSiteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSiteInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1251,29 +1062,11 @@ export interface Site {
   RackPhysicalProperties?: RackPhysicalProperties;
 }
 
-export namespace Site {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Site): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSiteOutput {
   /**
    * <p>Information about a site.</p>
    */
   Site?: Site;
-}
-
-export namespace CreateSiteOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSiteOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteOutpostInput {
@@ -1291,25 +1084,7 @@ export interface DeleteOutpostInput {
   OutpostId: string | undefined;
 }
 
-export namespace DeleteOutpostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOutpostInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteOutpostOutput {}
-
-export namespace DeleteOutpostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOutpostOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSiteInput {
   /**
@@ -1326,40 +1101,13 @@ export interface DeleteSiteInput {
   SiteId: string | undefined;
 }
 
-export namespace DeleteSiteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSiteInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSiteOutput {}
-
-export namespace DeleteSiteOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSiteOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface GetCatalogItemInput {
   /**
    * <p>The ID of the catalog item.</p>
    */
   CatalogItemId: string | undefined;
-}
-
-export namespace GetCatalogItemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCatalogItemInput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCatalogItemOutput {
@@ -1369,15 +1117,6 @@ export interface GetCatalogItemOutput {
   CatalogItem?: CatalogItem;
 }
 
-export namespace GetCatalogItemOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCatalogItemOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConnectionRequest {
   /**
    * <p>
@@ -1385,15 +1124,6 @@ export interface GetConnectionRequest {
    *     </p>
    */
   ConnectionId: string | undefined;
-}
-
-export namespace GetConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetConnectionResponse {
@@ -1412,15 +1142,6 @@ export interface GetConnectionResponse {
   ConnectionDetails?: ConnectionDetails;
 }
 
-export namespace GetConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOrderInput {
   /**
    * <p>The ID of the order.</p>
@@ -1428,29 +1149,11 @@ export interface GetOrderInput {
   OrderId: string | undefined;
 }
 
-export namespace GetOrderInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrderInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOrderOutput {
   /**
    * <p>Information about an order.</p>
    */
   Order?: Order;
-}
-
-export namespace GetOrderOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrderOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetOutpostInput {
@@ -1468,29 +1171,11 @@ export interface GetOutpostInput {
   OutpostId: string | undefined;
 }
 
-export namespace GetOutpostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOutpostInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOutpostOutput {
   /**
    * <p>Information about an Outpost.</p>
    */
   Outpost?: Outpost;
-}
-
-export namespace GetOutpostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOutpostOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetOutpostInstanceTypesInput {
@@ -1518,15 +1203,6 @@ export interface GetOutpostInstanceTypesInput {
   MaxResults?: number;
 }
 
-export namespace GetOutpostInstanceTypesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOutpostInstanceTypesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an instance type.</p>
  */
@@ -1535,15 +1211,6 @@ export interface InstanceTypeItem {
    * <p>The instance type.</p>
    */
   InstanceType?: string;
-}
-
-export namespace InstanceTypeItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceTypeItem): any => ({
-    ...obj,
-  });
 }
 
 export interface GetOutpostInstanceTypesOutput {
@@ -1576,15 +1243,6 @@ export interface GetOutpostInstanceTypesOutput {
   OutpostArn?: string;
 }
 
-export namespace GetOutpostInstanceTypesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOutpostInstanceTypesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSiteInput {
   /**
    * <p>
@@ -1600,29 +1258,11 @@ export interface GetSiteInput {
   SiteId: string | undefined;
 }
 
-export namespace GetSiteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSiteInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSiteOutput {
   /**
    * <p>Information about a site.</p>
    */
   Site?: Site;
-}
-
-export namespace GetSiteOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSiteOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSiteAddressInput {
@@ -1645,15 +1285,6 @@ export interface GetSiteAddressInput {
   AddressType: AddressType | string | undefined;
 }
 
-export namespace GetSiteAddressInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSiteAddressInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSiteAddressOutput {
   /**
    * <p>
@@ -1673,15 +1304,6 @@ export interface GetSiteAddressOutput {
    *     </p>
    */
   Address?: Address;
-}
-
-export namespace GetSiteAddressOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSiteAddressOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssetsInput {
@@ -1713,15 +1335,6 @@ export interface ListAssetsInput {
   NextToken?: string;
 }
 
-export namespace ListAssetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssetsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssetsOutput {
   /**
    * <p>
@@ -1734,15 +1347,6 @@ export interface ListAssetsOutput {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAssetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssetsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCatalogItemsInput {
@@ -1787,15 +1391,6 @@ export interface ListCatalogItemsInput {
   EC2FamilyFilter?: string[];
 }
 
-export namespace ListCatalogItemsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCatalogItemsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCatalogItemsOutput {
   /**
    * <p>Information about the catalog items.</p>
@@ -1806,15 +1401,6 @@ export interface ListCatalogItemsOutput {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCatalogItemsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCatalogItemsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOrdersInput {
@@ -1834,15 +1420,6 @@ export interface ListOrdersInput {
    * <p>The maximum page size.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListOrdersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrdersInput): any => ({
-    ...obj,
-  });
 }
 
 export enum OrderType {
@@ -1932,15 +1509,6 @@ export interface OrderSummary {
   OrderFulfilledDate?: Date;
 }
 
-export namespace OrderSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrderSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOrdersOutput {
   /**
    * <p>
@@ -1953,15 +1521,6 @@ export interface ListOrdersOutput {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOrdersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrdersOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOutpostsInput {
@@ -2006,15 +1565,6 @@ export interface ListOutpostsInput {
   AvailabilityZoneIdFilter?: string[];
 }
 
-export namespace ListOutpostsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOutpostsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOutpostsOutput {
   /**
    * <p>Information about the Outposts.</p>
@@ -2025,15 +1575,6 @@ export interface ListOutpostsOutput {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOutpostsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOutpostsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSitesInput {
@@ -2074,15 +1615,6 @@ export interface ListSitesInput {
   OperatingAddressCityFilter?: string[];
 }
 
-export namespace ListSitesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSitesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSitesOutput {
   /**
    * <p>Information about the sites.</p>
@@ -2095,15 +1627,6 @@ export interface ListSitesOutput {
   NextToken?: string;
 }
 
-export namespace ListSitesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSitesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2111,29 +1634,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The resource tags.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartConnectionRequest {
@@ -2166,15 +1671,6 @@ export interface StartConnectionRequest {
   NetworkInterfaceDeviceIndex: number | undefined;
 }
 
-export namespace StartConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartConnectionResponse {
   /**
    * <p>
@@ -2191,15 +1687,6 @@ export interface StartConnectionResponse {
   UnderlayIpAddress?: string;
 }
 
-export namespace StartConnectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConnectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
@@ -2212,25 +1699,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2244,25 +1713,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateOutpostInput {
   /**
@@ -2296,29 +1747,11 @@ export interface UpdateOutpostInput {
   SupportedHardwareType?: SupportedHardwareType | string;
 }
 
-export namespace UpdateOutpostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOutpostInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateOutpostOutput {
   /**
    * <p>Information about an Outpost.</p>
    */
   Outpost?: Outpost;
-}
-
-export namespace UpdateOutpostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOutpostOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSiteInput {
@@ -2353,29 +1786,11 @@ export interface UpdateSiteInput {
   Notes?: string;
 }
 
-export namespace UpdateSiteInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSiteOutput {
   /**
    * <p>Information about a site.</p>
    */
   Site?: Site;
-}
-
-export namespace UpdateSiteOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSiteAddressInput {
@@ -2407,15 +1822,6 @@ export interface UpdateSiteAddressInput {
   Address: Address | undefined;
 }
 
-export namespace UpdateSiteAddressInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteAddressInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSiteAddressOutput {
   /**
    * <p>
@@ -2430,15 +1836,6 @@ export interface UpdateSiteAddressOutput {
    *     </p>
    */
   Address?: Address;
-}
-
-export namespace UpdateSiteAddressOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteAddressOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSiteRackPhysicalPropertiesInput {
@@ -2619,15 +2016,6 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
   MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;
 }
 
-export namespace UpdateSiteRackPhysicalPropertiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteRackPhysicalPropertiesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSiteRackPhysicalPropertiesOutput {
   /**
    * <p>Information about a site.</p>
@@ -2635,11 +2023,489 @@ export interface UpdateSiteRackPhysicalPropertiesOutput {
   Site?: Site;
 }
 
-export namespace UpdateSiteRackPhysicalPropertiesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSiteRackPhysicalPropertiesOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AddressFilterSensitiveLog = (obj: Address): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssetLocationFilterSensitiveLog = (obj: AssetLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComputeAttributesFilterSensitiveLog = (obj: ComputeAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssetInfoFilterSensitiveLog = (obj: AssetInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelOrderInputFilterSensitiveLog = (obj: CancelOrderInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelOrderOutputFilterSensitiveLog = (obj: CancelOrderOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2CapacityFilterSensitiveLog = (obj: EC2Capacity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CatalogItemFilterSensitiveLog = (obj: CatalogItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionDetailsFilterSensitiveLog = (obj: ConnectionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LineItemRequestFilterSensitiveLog = (obj: LineItemRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOrderInputFilterSensitiveLog = (obj: CreateOrderInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LineItemAssetInformationFilterSensitiveLog = (obj: LineItemAssetInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShipmentInformationFilterSensitiveLog = (obj: ShipmentInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LineItemFilterSensitiveLog = (obj: LineItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrderFilterSensitiveLog = (obj: Order): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOrderOutputFilterSensitiveLog = (obj: CreateOrderOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOutpostInputFilterSensitiveLog = (obj: CreateOutpostInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutpostFilterSensitiveLog = (obj: Outpost): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOutpostOutputFilterSensitiveLog = (obj: CreateOutpostOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RackPhysicalPropertiesFilterSensitiveLog = (obj: RackPhysicalProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSiteInputFilterSensitiveLog = (obj: CreateSiteInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SiteFilterSensitiveLog = (obj: Site): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSiteOutputFilterSensitiveLog = (obj: CreateSiteOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOutpostInputFilterSensitiveLog = (obj: DeleteOutpostInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOutpostOutputFilterSensitiveLog = (obj: DeleteOutpostOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSiteInputFilterSensitiveLog = (obj: DeleteSiteInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSiteOutputFilterSensitiveLog = (obj: DeleteSiteOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCatalogItemInputFilterSensitiveLog = (obj: GetCatalogItemInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCatalogItemOutputFilterSensitiveLog = (obj: GetCatalogItemOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectionRequestFilterSensitiveLog = (obj: GetConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectionResponseFilterSensitiveLog = (obj: GetConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOrderInputFilterSensitiveLog = (obj: GetOrderInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOrderOutputFilterSensitiveLog = (obj: GetOrderOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOutpostInputFilterSensitiveLog = (obj: GetOutpostInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOutpostOutputFilterSensitiveLog = (obj: GetOutpostOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOutpostInstanceTypesInputFilterSensitiveLog = (obj: GetOutpostInstanceTypesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceTypeItemFilterSensitiveLog = (obj: InstanceTypeItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOutpostInstanceTypesOutputFilterSensitiveLog = (obj: GetOutpostInstanceTypesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSiteInputFilterSensitiveLog = (obj: GetSiteInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSiteOutputFilterSensitiveLog = (obj: GetSiteOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSiteAddressInputFilterSensitiveLog = (obj: GetSiteAddressInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSiteAddressOutputFilterSensitiveLog = (obj: GetSiteAddressOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssetsInputFilterSensitiveLog = (obj: ListAssetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssetsOutputFilterSensitiveLog = (obj: ListAssetsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCatalogItemsInputFilterSensitiveLog = (obj: ListCatalogItemsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCatalogItemsOutputFilterSensitiveLog = (obj: ListCatalogItemsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrdersInputFilterSensitiveLog = (obj: ListOrdersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrderSummaryFilterSensitiveLog = (obj: OrderSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrdersOutputFilterSensitiveLog = (obj: ListOrdersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOutpostsInputFilterSensitiveLog = (obj: ListOutpostsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOutpostsOutputFilterSensitiveLog = (obj: ListOutpostsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSitesInputFilterSensitiveLog = (obj: ListSitesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSitesOutputFilterSensitiveLog = (obj: ListSitesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartConnectionRequestFilterSensitiveLog = (obj: StartConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartConnectionResponseFilterSensitiveLog = (obj: StartConnectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOutpostInputFilterSensitiveLog = (obj: UpdateOutpostInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOutpostOutputFilterSensitiveLog = (obj: UpdateOutpostOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSiteInputFilterSensitiveLog = (obj: UpdateSiteInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSiteOutputFilterSensitiveLog = (obj: UpdateSiteOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSiteAddressInputFilterSensitiveLog = (obj: UpdateSiteAddressInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSiteAddressOutputFilterSensitiveLog = (obj: UpdateSiteAddressOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSiteRackPhysicalPropertiesInputFilterSensitiveLog = (
+  obj: UpdateSiteRackPhysicalPropertiesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSiteRackPhysicalPropertiesOutputFilterSensitiveLog = (
+  obj: UpdateSiteRackPhysicalPropertiesOutput
+): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetDomainsRequest, GetDomainsResult } from "../models/models_0";
+import {
+  GetDomainsRequest,
+  GetDomainsRequestFilterSensitiveLog,
+  GetDomainsResult,
+  GetDomainsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDomainsCommand,
   serializeAws_json1_1GetDomainsCommand,
@@ -72,8 +77,8 @@ export class GetDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDomainsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDomainsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

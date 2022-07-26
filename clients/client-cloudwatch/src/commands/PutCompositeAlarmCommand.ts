@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { PutCompositeAlarmInput } from "../models/models_0";
+import { PutCompositeAlarmInput, PutCompositeAlarmInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryPutCompositeAlarmCommand,
   serializeAws_queryPutCompositeAlarmCommand,
@@ -112,7 +112,7 @@ export class PutCompositeAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutCompositeAlarmInput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutCompositeAlarmInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

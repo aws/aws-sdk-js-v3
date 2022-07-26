@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ClusterDbRevisionsMessage, DescribeClusterDbRevisionsMessage } from "../models/models_0";
+import {
+  ClusterDbRevisionsMessage,
+  ClusterDbRevisionsMessageFilterSensitiveLog,
+  DescribeClusterDbRevisionsMessage,
+  DescribeClusterDbRevisionsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeClusterDbRevisionsCommand,
   serializeAws_queryDescribeClusterDbRevisionsCommand,
@@ -72,8 +77,8 @@ export class DescribeClusterDbRevisionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterDbRevisionsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ClusterDbRevisionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClusterDbRevisionsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ClusterDbRevisionsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

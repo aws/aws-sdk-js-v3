@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteFirewallRuleGroupRequest, DeleteFirewallRuleGroupResponse } from "../models/models_0";
+import {
+  DeleteFirewallRuleGroupRequest,
+  DeleteFirewallRuleGroupRequestFilterSensitiveLog,
+  DeleteFirewallRuleGroupResponse,
+  DeleteFirewallRuleGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFirewallRuleGroupCommand,
   serializeAws_json1_1DeleteFirewallRuleGroupCommand,
@@ -72,8 +77,8 @@ export class DeleteFirewallRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFirewallRuleGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFirewallRuleGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFirewallRuleGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFirewallRuleGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

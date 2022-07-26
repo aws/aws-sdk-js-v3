@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateResourceSharePermissionRequest, AssociateResourceSharePermissionResponse } from "../models/models_0";
+import {
+  AssociateResourceSharePermissionRequest,
+  AssociateResourceSharePermissionRequestFilterSensitiveLog,
+  AssociateResourceSharePermissionResponse,
+  AssociateResourceSharePermissionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateResourceSharePermissionCommand,
   serializeAws_restJson1AssociateResourceSharePermissionCommand,
@@ -77,8 +82,8 @@ export class AssociateResourceSharePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateResourceSharePermissionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateResourceSharePermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateResourceSharePermissionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateResourceSharePermissionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

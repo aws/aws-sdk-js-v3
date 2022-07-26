@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import { UpdateExperimentTemplateRequest, UpdateExperimentTemplateResponse } from "../models/models_0";
+import {
+  UpdateExperimentTemplateRequest,
+  UpdateExperimentTemplateRequestFilterSensitiveLog,
+  UpdateExperimentTemplateResponse,
+  UpdateExperimentTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateExperimentTemplateCommand,
   serializeAws_restJson1UpdateExperimentTemplateCommand,
@@ -72,8 +77,8 @@ export class UpdateExperimentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExperimentTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateExperimentTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateExperimentTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateExperimentTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

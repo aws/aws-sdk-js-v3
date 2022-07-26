@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { CancelFindingsReportRequest, CancelFindingsReportResponse } from "../models/models_0";
+import {
+  CancelFindingsReportRequest,
+  CancelFindingsReportRequestFilterSensitiveLog,
+  CancelFindingsReportResponse,
+  CancelFindingsReportResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CancelFindingsReportCommand,
   serializeAws_restJson1CancelFindingsReportCommand,
@@ -72,8 +77,8 @@ export class CancelFindingsReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelFindingsReportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelFindingsReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelFindingsReportRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelFindingsReportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

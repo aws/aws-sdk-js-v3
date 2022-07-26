@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import { StartBatchJobRequest, StartBatchJobResponse } from "../models/models_0";
+import {
+  StartBatchJobRequest,
+  StartBatchJobRequestFilterSensitiveLog,
+  StartBatchJobResponse,
+  StartBatchJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartBatchJobCommand,
   serializeAws_restJson1StartBatchJobCommand,
@@ -73,8 +78,8 @@ export class StartBatchJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartBatchJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartBatchJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartBatchJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartBatchJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

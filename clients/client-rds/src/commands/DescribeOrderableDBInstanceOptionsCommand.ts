@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/models_1";
+import {
+  DescribeOrderableDBInstanceOptionsMessage,
+  DescribeOrderableDBInstanceOptionsMessageFilterSensitiveLog,
+  OrderableDBInstanceOptionsMessage,
+  OrderableDBInstanceOptionsMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
   serializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
@@ -74,8 +79,8 @@ export class DescribeOrderableDBInstanceOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrderableDBInstanceOptionsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: OrderableDBInstanceOptionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeOrderableDBInstanceOptionsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: OrderableDBInstanceOptionsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

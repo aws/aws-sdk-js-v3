@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { VirtualGateways } from "../models/models_0";
+import { VirtualGateways, VirtualGatewaysFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeVirtualGatewaysCommand,
   serializeAws_json1_1DescribeVirtualGatewaysCommand,
@@ -74,7 +74,7 @@ export class DescribeVirtualGatewaysCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: VirtualGateways.filterSensitiveLog,
+      outputFilterSensitiveLog: VirtualGatewaysFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

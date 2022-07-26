@@ -20,16 +20,6 @@ export interface AbortDocumentVersionUploadRequest {
   VersionId: string | undefined;
 }
 
-export namespace AbortDocumentVersionUploadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortDocumentVersionUploadRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The resource does not exist.</p>
  */
@@ -174,16 +164,6 @@ export interface ActivateUserRequest {
   AuthenticationToken?: string;
 }
 
-export namespace ActivateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateUserRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export enum LocaleType {
   DE = "de",
   DEFAULT = "default",
@@ -224,15 +204,6 @@ export interface StorageRuleType {
   StorageType?: StorageType | string;
 }
 
-export namespace StorageRuleType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageRuleType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the storage for a user.</p>
  */
@@ -246,15 +217,6 @@ export interface UserStorageMetadata {
    * <p>The storage for a user.</p>
    */
   StorageRule?: StorageRuleType;
-}
-
-export namespace UserStorageMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserStorageMetadata): any => ({
-    ...obj,
-  });
 }
 
 export enum UserType {
@@ -345,29 +307,11 @@ export interface User {
   Storage?: UserStorageMetadata;
 }
 
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-  });
-}
-
 export interface ActivateUserResponse {
   /**
    * <p>The user information.</p>
    */
   User?: User;
-}
-
-export namespace ActivateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateUserResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum CommentStatusType {
@@ -406,15 +350,6 @@ export interface CommentMetadata {
   RecipientId?: string;
 }
 
-export namespace CommentMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommentMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the metadata of the user.</p>
  */
@@ -443,15 +378,6 @@ export interface UserMetadata {
    * <p>The email address of the user.</p>
    */
   EmailAddress?: string;
-}
-
-export namespace UserMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserMetadata): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -500,15 +426,6 @@ export interface ResourceMetadata {
   ParentId?: string;
 }
 
-export namespace ResourceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the metadata of a user group.</p>
  */
@@ -524,15 +441,6 @@ export interface GroupMetadata {
   Name?: string;
 }
 
-export namespace GroupMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the users or user groups.</p>
  */
@@ -546,15 +454,6 @@ export interface Participants {
    * <p>The list of user groups.</p>
    */
   Groups?: GroupMetadata[];
-}
-
-export namespace Participants {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Participants): any => ({
-    ...obj,
-  });
 }
 
 export enum ActivityType {
@@ -650,15 +549,6 @@ export interface Activity {
   CommentMetadata?: CommentMetadata;
 }
 
-export namespace Activity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Activity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Set of options which defines notification preferences of given action.</p>
  */
@@ -673,16 +563,6 @@ export interface NotificationOptions {
    * <p>Text value to be included in the email body.</p>
    */
   EmailMessage?: string;
-}
-
-export namespace NotificationOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationOptions): any => ({
-    ...obj,
-    ...(obj.EmailMessage && { EmailMessage: SENSITIVE_STRING }),
-  });
 }
 
 export enum RoleType {
@@ -720,15 +600,6 @@ export interface SharePrincipal {
   Role: RoleType | string | undefined;
 }
 
-export namespace SharePrincipal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SharePrincipal): any => ({
-    ...obj,
-  });
-}
-
 export interface AddResourcePermissionsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
@@ -749,19 +620,6 @@ export interface AddResourcePermissionsRequest {
    * <p>The notification options.</p>
    */
   NotificationOptions?: NotificationOptions;
-}
-
-export namespace AddResourcePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddResourcePermissionsRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-    ...(obj.NotificationOptions && {
-      NotificationOptions: NotificationOptions.filterSensitiveLog(obj.NotificationOptions),
-    }),
-  });
 }
 
 export enum ShareStatusType {
@@ -804,31 +662,11 @@ export interface ShareResult {
   StatusMessage?: string;
 }
 
-export namespace ShareResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareResult): any => ({
-    ...obj,
-    ...(obj.StatusMessage && { StatusMessage: SENSITIVE_STRING }),
-  });
-}
-
 export interface AddResourcePermissionsResponse {
   /**
    * <p>The share results.</p>
    */
   ShareResults?: ShareResult[];
-}
-
-export namespace AddResourcePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddResourcePermissionsResponse): any => ({
-    ...obj,
-    ...(obj.ShareResults && { ShareResults: obj.ShareResults.map((item) => ShareResult.filterSensitiveLog(item)) }),
-  });
 }
 
 export enum CommentVisibilityType {
@@ -879,17 +717,6 @@ export interface CreateCommentRequest {
    *             the comment is created.</p>
    */
   NotifyCollaborators?: boolean;
-}
-
-export namespace CreateCommentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCommentRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-    ...(obj.Text && { Text: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -945,31 +772,11 @@ export interface Comment {
   RecipientId?: string;
 }
 
-export namespace Comment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Comment): any => ({
-    ...obj,
-    ...(obj.Text && { Text: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateCommentResponse {
   /**
    * <p>The comment that has been created.</p>
    */
   Comment?: Comment;
-}
-
-export namespace CreateCommentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCommentResponse): any => ({
-    ...obj,
-    ...(obj.Comment && { Comment: Comment.filterSensitiveLog(obj.Comment) }),
-  });
 }
 
 /**
@@ -1038,26 +845,7 @@ export interface CreateCustomMetadataRequest {
   CustomMetadata: Record<string, string> | undefined;
 }
 
-export namespace CreateCustomMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomMetadataRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateCustomMetadataResponse {}
-
-export namespace CreateCustomMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomMetadataResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The limit has been reached on the number of custom properties for the specified
@@ -1117,16 +905,6 @@ export interface CreateFolderRequest {
    * <p>The ID of the parent folder.</p>
    */
   ParentFolderId: string | undefined;
-}
-
-export namespace CreateFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFolderRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
 }
 
 export enum ResourceStateType {
@@ -1197,29 +975,11 @@ export interface FolderMetadata {
   LatestVersionSize?: number;
 }
 
-export namespace FolderMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FolderMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFolderResponse {
   /**
    * <p>The metadata of the folder.</p>
    */
   Metadata?: FolderMetadata;
-}
-
-export namespace CreateFolderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFolderResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1281,26 +1041,7 @@ export interface CreateLabelsRequest {
   AuthenticationToken?: string;
 }
 
-export namespace CreateLabelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLabelsRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateLabelsResponse {}
-
-export namespace CreateLabelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLabelsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The limit has been reached on the number of labels for the specified
@@ -1356,15 +1097,6 @@ export interface CreateNotificationSubscriptionRequest {
   SubscriptionType: SubscriptionType | string | undefined;
 }
 
-export namespace CreateNotificationSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNotificationSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a subscription.</p>
  */
@@ -1385,29 +1117,11 @@ export interface Subscription {
   Protocol?: SubscriptionProtocolType | string;
 }
 
-export namespace Subscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subscription): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateNotificationSubscriptionResponse {
   /**
    * <p>The subscription.</p>
    */
   Subscription?: Subscription;
-}
-
-export namespace CreateNotificationSubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNotificationSubscriptionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1479,31 +1193,11 @@ export interface CreateUserRequest {
   AuthenticationToken?: string;
 }
 
-export namespace CreateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateUserResponse {
   /**
    * <p>The user information.</p>
    */
   User?: User;
-}
-
-export namespace CreateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeactivateUserRequest {
@@ -1516,16 +1210,6 @@ export interface DeactivateUserRequest {
    * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
    */
   AuthenticationToken?: string;
-}
-
-export namespace DeactivateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivateUserRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface DeleteCommentRequest {
@@ -1548,16 +1232,6 @@ export interface DeleteCommentRequest {
    * <p>The ID of the comment.</p>
    */
   CommentId: string | undefined;
-}
-
-export namespace DeleteCommentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCommentRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface DeleteCustomMetadataRequest {
@@ -1589,26 +1263,7 @@ export interface DeleteCustomMetadataRequest {
   DeleteAll?: boolean;
 }
 
-export namespace DeleteCustomMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomMetadataRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteCustomMetadataResponse {}
-
-export namespace DeleteCustomMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomMetadataResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The resource hierarchy is changing.</p>
@@ -1643,16 +1298,6 @@ export interface DeleteDocumentRequest {
   DocumentId: string | undefined;
 }
 
-export namespace DeleteDocumentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDocumentRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteFolderRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
@@ -1665,16 +1310,6 @@ export interface DeleteFolderRequest {
   FolderId: string | undefined;
 }
 
-export namespace DeleteFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFolderRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteFolderContentsRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
@@ -1685,16 +1320,6 @@ export interface DeleteFolderContentsRequest {
    * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
-}
-
-export namespace DeleteFolderContentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFolderContentsRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface DeleteLabelsRequest {
@@ -1719,26 +1344,7 @@ export interface DeleteLabelsRequest {
   DeleteAll?: boolean;
 }
 
-export namespace DeleteLabelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLabelsRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteLabelsResponse {}
-
-export namespace DeleteLabelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLabelsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteNotificationSubscriptionRequest {
   /**
@@ -1752,15 +1358,6 @@ export interface DeleteNotificationSubscriptionRequest {
   OrganizationId: string | undefined;
 }
 
-export namespace DeleteNotificationSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNotificationSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Do not set this field when using
@@ -1772,16 +1369,6 @@ export interface DeleteUserRequest {
    * <p>The ID of the user.</p>
    */
   UserId: string | undefined;
-}
-
-export namespace DeleteUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface DescribeActivitiesRequest {
@@ -1845,16 +1432,6 @@ export interface DescribeActivitiesRequest {
   Marker?: string;
 }
 
-export namespace DescribeActivitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActivitiesRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeActivitiesResponse {
   /**
    * <p>The list of activities for the specified user and time period.</p>
@@ -1865,15 +1442,6 @@ export interface DescribeActivitiesResponse {
    * <p>The marker for the next set of results.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeActivitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActivitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1925,16 +1493,6 @@ export interface DescribeCommentsRequest {
   Marker?: string;
 }
 
-export namespace DescribeCommentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCommentsRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeCommentsResponse {
   /**
    * <p>The list of comments for the specified document version.</p>
@@ -1946,16 +1504,6 @@ export interface DescribeCommentsResponse {
    *             call.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeCommentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCommentsResponse): any => ({
-    ...obj,
-    ...(obj.Comments && { Comments: obj.Comments.map((item) => Comment.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface DescribeDocumentVersionsRequest {
@@ -1991,16 +1539,6 @@ export interface DescribeDocumentVersionsRequest {
    *             document.</p>
    */
   Fields?: string;
-}
-
-export namespace DescribeDocumentVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDocumentVersionsRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
 }
 
 export enum DocumentSourceType {
@@ -2089,17 +1627,6 @@ export interface DocumentVersionMetadata {
   Source?: Record<string, string>;
 }
 
-export namespace DocumentVersionMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentVersionMetadata): any => ({
-    ...obj,
-    ...(obj.Thumbnail && { Thumbnail: SENSITIVE_STRING }),
-    ...(obj.Source && { Source: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeDocumentVersionsResponse {
   /**
    * <p>The document versions.</p>
@@ -2111,18 +1638,6 @@ export interface DescribeDocumentVersionsResponse {
    *             additional results, the string is empty.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeDocumentVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDocumentVersionsResponse): any => ({
-    ...obj,
-    ...(obj.DocumentVersions && {
-      DocumentVersions: obj.DocumentVersions.map((item) => DocumentVersionMetadata.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export enum OrderType {
@@ -2185,16 +1700,6 @@ export interface DescribeFolderContentsRequest {
   Include?: string;
 }
 
-export namespace DescribeFolderContentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFolderContentsRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Describes the document.</p>
  */
@@ -2240,18 +1745,6 @@ export interface DocumentMetadata {
   Labels?: string[];
 }
 
-export namespace DocumentMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentMetadata): any => ({
-    ...obj,
-    ...(obj.LatestVersionMetadata && {
-      LatestVersionMetadata: DocumentVersionMetadata.filterSensitiveLog(obj.LatestVersionMetadata),
-    }),
-  });
-}
-
 export interface DescribeFolderContentsResponse {
   /**
    * <p>The subfolders in the specified folder.</p>
@@ -2268,16 +1761,6 @@ export interface DescribeFolderContentsResponse {
    *             additional results, the string is empty.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeFolderContentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFolderContentsResponse): any => ({
-    ...obj,
-    ...(obj.Documents && { Documents: obj.Documents.map((item) => DocumentMetadata.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface DescribeGroupsRequest {
@@ -2308,17 +1791,6 @@ export interface DescribeGroupsRequest {
   Limit?: number;
 }
 
-export namespace DescribeGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGroupsRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-    ...(obj.SearchQuery && { SearchQuery: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeGroupsResponse {
   /**
    * <p>The list of groups.</p>
@@ -2330,15 +1802,6 @@ export interface DescribeGroupsResponse {
    *             results, the string is empty.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeNotificationSubscriptionsRequest {
@@ -2359,15 +1822,6 @@ export interface DescribeNotificationSubscriptionsRequest {
   Limit?: number;
 }
 
-export namespace DescribeNotificationSubscriptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotificationSubscriptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeNotificationSubscriptionsResponse {
   /**
    * <p>The subscriptions.</p>
@@ -2379,15 +1833,6 @@ export interface DescribeNotificationSubscriptionsResponse {
    *             additional results, the string is empty.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeNotificationSubscriptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotificationSubscriptionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeResourcePermissionsRequest {
@@ -2418,16 +1863,6 @@ export interface DescribeResourcePermissionsRequest {
   Marker?: string;
 }
 
-export namespace DescribeResourcePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourcePermissionsRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export enum RolePermissionType {
   DIRECT = "DIRECT",
   INHERITED = "INHERITED",
@@ -2446,15 +1881,6 @@ export interface PermissionInfo {
    * <p>The type of permissions.</p>
    */
   Type?: RolePermissionType | string;
-}
-
-export namespace PermissionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2477,15 +1903,6 @@ export interface Principal {
   Roles?: PermissionInfo[];
 }
 
-export namespace Principal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Principal): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResourcePermissionsResponse {
   /**
    * <p>The principals.</p>
@@ -2497,15 +1914,6 @@ export interface DescribeResourcePermissionsResponse {
    *             additional results, the string is empty.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeResourcePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourcePermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRootFoldersRequest {
@@ -2526,16 +1934,6 @@ export interface DescribeRootFoldersRequest {
   Marker?: string;
 }
 
-export namespace DescribeRootFoldersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRootFoldersRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeRootFoldersResponse {
   /**
    * <p>The user's special folders.</p>
@@ -2546,15 +1944,6 @@ export interface DescribeRootFoldersResponse {
    * <p>The marker for the next set of results.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeRootFoldersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRootFoldersResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum UserFilterType {
@@ -2624,17 +2013,6 @@ export interface DescribeUsersRequest {
   Fields?: string;
 }
 
-export namespace DescribeUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUsersRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-    ...(obj.Query && { Query: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeUsersResponse {
   /**
    * <p>The users.</p>
@@ -2653,15 +2031,6 @@ export interface DescribeUsersResponse {
    *             additional results, the string is empty.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUsersResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2692,30 +2061,11 @@ export interface GetCurrentUserRequest {
   AuthenticationToken: string | undefined;
 }
 
-export namespace GetCurrentUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCurrentUserRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetCurrentUserResponse {
   /**
    * <p>Metadata of the user.</p>
    */
   User?: User;
-}
-
-export namespace GetCurrentUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCurrentUserResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDocumentRequest {
@@ -2735,16 +2085,6 @@ export interface GetDocumentRequest {
   IncludeCustomMetadata?: boolean;
 }
 
-export namespace GetDocumentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetDocumentResponse {
   /**
    * <p>The metadata details of the document.</p>
@@ -2755,16 +2095,6 @@ export interface GetDocumentResponse {
    * <p>The custom metadata on the document.</p>
    */
   CustomMetadata?: Record<string, string>;
-}
-
-export namespace GetDocumentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentResponse): any => ({
-    ...obj,
-    ...(obj.Metadata && { Metadata: DocumentMetadata.filterSensitiveLog(obj.Metadata) }),
-  });
 }
 
 /**
@@ -2816,16 +2146,6 @@ export interface GetDocumentPathRequest {
   Marker?: string;
 }
 
-export namespace GetDocumentPathRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentPathRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Describes the resource path.</p>
  */
@@ -2841,15 +2161,6 @@ export interface ResourcePathComponent {
   Name?: string;
 }
 
-export namespace ResourcePathComponent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourcePathComponent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the path information of a resource.</p>
  */
@@ -2860,29 +2171,11 @@ export interface ResourcePath {
   Components?: ResourcePathComponent[];
 }
 
-export namespace ResourcePath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourcePath): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDocumentPathResponse {
   /**
    * <p>The path information.</p>
    */
   Path?: ResourcePath;
-}
-
-export namespace GetDocumentPathResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentPathResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDocumentVersionRequest {
@@ -2913,16 +2206,6 @@ export interface GetDocumentVersionRequest {
   IncludeCustomMetadata?: boolean;
 }
 
-export namespace GetDocumentVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentVersionRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetDocumentVersionResponse {
   /**
    * <p>The version metadata.</p>
@@ -2933,16 +2216,6 @@ export interface GetDocumentVersionResponse {
    * <p>The custom metadata on the document version.</p>
    */
   CustomMetadata?: Record<string, string>;
-}
-
-export namespace GetDocumentVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentVersionResponse): any => ({
-    ...obj,
-    ...(obj.Metadata && { Metadata: DocumentVersionMetadata.filterSensitiveLog(obj.Metadata) }),
-  });
 }
 
 export interface GetFolderRequest {
@@ -2962,16 +2235,6 @@ export interface GetFolderRequest {
   IncludeCustomMetadata?: boolean;
 }
 
-export namespace GetFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFolderRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetFolderResponse {
   /**
    * <p>The metadata of the folder.</p>
@@ -2982,15 +2245,6 @@ export interface GetFolderResponse {
    * <p>The custom metadata on the folder.</p>
    */
   CustomMetadata?: Record<string, string>;
-}
-
-export namespace GetFolderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFolderResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFolderPathRequest {
@@ -3021,30 +2275,11 @@ export interface GetFolderPathRequest {
   Marker?: string;
 }
 
-export namespace GetFolderPathRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFolderPathRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetFolderPathResponse {
   /**
    * <p>The path information.</p>
    */
   Path?: ResourcePath;
-}
-
-export namespace GetFolderPathResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFolderPathResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceCollectionType {
@@ -3079,16 +2314,6 @@ export interface GetResourcesRequest {
   Marker?: string;
 }
 
-export namespace GetResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcesRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetResourcesResponse {
   /**
    * <p>The folders in the specified folder.</p>
@@ -3104,16 +2329,6 @@ export interface GetResourcesResponse {
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
    */
   Marker?: string;
-}
-
-export namespace GetResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcesResponse): any => ({
-    ...obj,
-    ...(obj.Documents && { Documents: obj.Documents.map((item) => DocumentMetadata.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -3180,16 +2395,6 @@ export interface InitiateDocumentVersionUploadRequest {
   ParentFolderId: string | undefined;
 }
 
-export namespace InitiateDocumentVersionUploadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateDocumentVersionUploadRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Describes the upload.</p>
  */
@@ -3205,16 +2410,6 @@ export interface UploadMetadata {
   SignedHeaders?: Record<string, string>;
 }
 
-export namespace UploadMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadMetadata): any => ({
-    ...obj,
-    ...(obj.UploadUrl && { UploadUrl: SENSITIVE_STRING }),
-  });
-}
-
 export interface InitiateDocumentVersionUploadResponse {
   /**
    * <p>The document metadata.</p>
@@ -3225,17 +2420,6 @@ export interface InitiateDocumentVersionUploadResponse {
    * <p>The upload metadata.</p>
    */
   UploadMetadata?: UploadMetadata;
-}
-
-export namespace InitiateDocumentVersionUploadResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitiateDocumentVersionUploadResponse): any => ({
-    ...obj,
-    ...(obj.Metadata && { Metadata: DocumentMetadata.filterSensitiveLog(obj.Metadata) }),
-    ...(obj.UploadMetadata && { UploadMetadata: UploadMetadata.filterSensitiveLog(obj.UploadMetadata) }),
-  });
 }
 
 /**
@@ -3313,16 +2497,6 @@ export interface RemoveAllResourcePermissionsRequest {
   ResourceId: string | undefined;
 }
 
-export namespace RemoveAllResourcePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveAllResourcePermissionsRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface RemoveResourcePermissionRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
@@ -3343,16 +2517,6 @@ export interface RemoveResourcePermissionRequest {
    * <p>The principal type of the resource.</p>
    */
   PrincipalType?: PrincipalType | string;
-}
-
-export namespace RemoveResourcePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveResourcePermissionRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdateDocumentRequest {
@@ -3381,16 +2545,6 @@ export interface UpdateDocumentRequest {
    *             supported.</p>
    */
   ResourceState?: ResourceStateType | string;
-}
-
-export namespace UpdateDocumentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -3440,16 +2594,6 @@ export interface UpdateDocumentVersionRequest {
   VersionStatus?: DocumentVersionStatus | string;
 }
 
-export namespace UpdateDocumentVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentVersionRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateFolderRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.</p>
@@ -3476,16 +2620,6 @@ export interface UpdateFolderRequest {
    *             the API.</p>
    */
   ResourceState?: ResourceStateType | string;
-}
-
-export namespace UpdateFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFolderRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -3584,16 +2718,6 @@ export interface UpdateUserRequest {
   GrantPoweruserPrivileges?: BooleanEnumType | string;
 }
 
-export namespace UpdateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
-    ...obj,
-    ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateUserResponse {
   /**
    * <p>The user information.</p>
@@ -3601,11 +2725,723 @@ export interface UpdateUserResponse {
   User?: User;
 }
 
-export namespace UpdateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AbortDocumentVersionUploadRequestFilterSensitiveLog = (obj: AbortDocumentVersionUploadRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ActivateUserRequestFilterSensitiveLog = (obj: ActivateUserRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StorageRuleTypeFilterSensitiveLog = (obj: StorageRuleType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserStorageMetadataFilterSensitiveLog = (obj: UserStorageMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateUserResponseFilterSensitiveLog = (obj: ActivateUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommentMetadataFilterSensitiveLog = (obj: CommentMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserMetadataFilterSensitiveLog = (obj: UserMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceMetadataFilterSensitiveLog = (obj: ResourceMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupMetadataFilterSensitiveLog = (obj: GroupMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParticipantsFilterSensitiveLog = (obj: Participants): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityFilterSensitiveLog = (obj: Activity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationOptionsFilterSensitiveLog = (obj: NotificationOptions): any => ({
+  ...obj,
+  ...(obj.EmailMessage && { EmailMessage: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SharePrincipalFilterSensitiveLog = (obj: SharePrincipal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddResourcePermissionsRequestFilterSensitiveLog = (obj: AddResourcePermissionsRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+  ...(obj.NotificationOptions && {
+    NotificationOptions: NotificationOptionsFilterSensitiveLog(obj.NotificationOptions),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ShareResultFilterSensitiveLog = (obj: ShareResult): any => ({
+  ...obj,
+  ...(obj.StatusMessage && { StatusMessage: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AddResourcePermissionsResponseFilterSensitiveLog = (obj: AddResourcePermissionsResponse): any => ({
+  ...obj,
+  ...(obj.ShareResults && { ShareResults: obj.ShareResults.map((item) => ShareResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCommentRequestFilterSensitiveLog = (obj: CreateCommentRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CommentFilterSensitiveLog = (obj: Comment): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCommentResponseFilterSensitiveLog = (obj: CreateCommentResponse): any => ({
+  ...obj,
+  ...(obj.Comment && { Comment: CommentFilterSensitiveLog(obj.Comment) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomMetadataRequestFilterSensitiveLog = (obj: CreateCustomMetadataRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomMetadataResponseFilterSensitiveLog = (obj: CreateCustomMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFolderRequestFilterSensitiveLog = (obj: CreateFolderRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FolderMetadataFilterSensitiveLog = (obj: FolderMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFolderResponseFilterSensitiveLog = (obj: CreateFolderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLabelsRequestFilterSensitiveLog = (obj: CreateLabelsRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLabelsResponseFilterSensitiveLog = (obj: CreateLabelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNotificationSubscriptionRequestFilterSensitiveLog = (
+  obj: CreateNotificationSubscriptionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNotificationSubscriptionResponseFilterSensitiveLog = (
+  obj: CreateNotificationSubscriptionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivateUserRequestFilterSensitiveLog = (obj: DeactivateUserRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteCommentRequestFilterSensitiveLog = (obj: DeleteCommentRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomMetadataRequestFilterSensitiveLog = (obj: DeleteCustomMetadataRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomMetadataResponseFilterSensitiveLog = (obj: DeleteCustomMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDocumentRequestFilterSensitiveLog = (obj: DeleteDocumentRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteFolderRequestFilterSensitiveLog = (obj: DeleteFolderRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteFolderContentsRequestFilterSensitiveLog = (obj: DeleteFolderContentsRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteLabelsRequestFilterSensitiveLog = (obj: DeleteLabelsRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteLabelsResponseFilterSensitiveLog = (obj: DeleteLabelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNotificationSubscriptionRequestFilterSensitiveLog = (
+  obj: DeleteNotificationSubscriptionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeActivitiesRequestFilterSensitiveLog = (obj: DescribeActivitiesRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeActivitiesResponseFilterSensitiveLog = (obj: DescribeActivitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCommentsRequestFilterSensitiveLog = (obj: DescribeCommentsRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeCommentsResponseFilterSensitiveLog = (obj: DescribeCommentsResponse): any => ({
+  ...obj,
+  ...(obj.Comments && { Comments: obj.Comments.map((item) => CommentFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeDocumentVersionsRequestFilterSensitiveLog = (obj: DescribeDocumentVersionsRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DocumentVersionMetadataFilterSensitiveLog = (obj: DocumentVersionMetadata): any => ({
+  ...obj,
+  ...(obj.Thumbnail && { Thumbnail: SENSITIVE_STRING }),
+  ...(obj.Source && { Source: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeDocumentVersionsResponseFilterSensitiveLog = (obj: DescribeDocumentVersionsResponse): any => ({
+  ...obj,
+  ...(obj.DocumentVersions && {
+    DocumentVersions: obj.DocumentVersions.map((item) => DocumentVersionMetadataFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeFolderContentsRequestFilterSensitiveLog = (obj: DescribeFolderContentsRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DocumentMetadataFilterSensitiveLog = (obj: DocumentMetadata): any => ({
+  ...obj,
+  ...(obj.LatestVersionMetadata && {
+    LatestVersionMetadata: DocumentVersionMetadataFilterSensitiveLog(obj.LatestVersionMetadata),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeFolderContentsResponseFilterSensitiveLog = (obj: DescribeFolderContentsResponse): any => ({
+  ...obj,
+  ...(obj.Documents && { Documents: obj.Documents.map((item) => DocumentMetadataFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupsRequestFilterSensitiveLog = (obj: DescribeGroupsRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+  ...(obj.SearchQuery && { SearchQuery: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupsResponseFilterSensitiveLog = (obj: DescribeGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNotificationSubscriptionsRequestFilterSensitiveLog = (
+  obj: DescribeNotificationSubscriptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNotificationSubscriptionsResponseFilterSensitiveLog = (
+  obj: DescribeNotificationSubscriptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourcePermissionsRequestFilterSensitiveLog = (obj: DescribeResourcePermissionsRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PermissionInfoFilterSensitiveLog = (obj: PermissionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrincipalFilterSensitiveLog = (obj: Principal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourcePermissionsResponseFilterSensitiveLog = (
+  obj: DescribeResourcePermissionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRootFoldersRequestFilterSensitiveLog = (obj: DescribeRootFoldersRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeRootFoldersResponseFilterSensitiveLog = (obj: DescribeRootFoldersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUsersRequestFilterSensitiveLog = (obj: DescribeUsersRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+  ...(obj.Query && { Query: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeUsersResponseFilterSensitiveLog = (obj: DescribeUsersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCurrentUserRequestFilterSensitiveLog = (obj: GetCurrentUserRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetCurrentUserResponseFilterSensitiveLog = (obj: GetCurrentUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentRequestFilterSensitiveLog = (obj: GetDocumentRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentResponseFilterSensitiveLog = (obj: GetDocumentResponse): any => ({
+  ...obj,
+  ...(obj.Metadata && { Metadata: DocumentMetadataFilterSensitiveLog(obj.Metadata) }),
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentPathRequestFilterSensitiveLog = (obj: GetDocumentPathRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResourcePathComponentFilterSensitiveLog = (obj: ResourcePathComponent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourcePathFilterSensitiveLog = (obj: ResourcePath): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentPathResponseFilterSensitiveLog = (obj: GetDocumentPathResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentVersionRequestFilterSensitiveLog = (obj: GetDocumentVersionRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentVersionResponseFilterSensitiveLog = (obj: GetDocumentVersionResponse): any => ({
+  ...obj,
+  ...(obj.Metadata && { Metadata: DocumentVersionMetadataFilterSensitiveLog(obj.Metadata) }),
+});
+
+/**
+ * @internal
+ */
+export const GetFolderRequestFilterSensitiveLog = (obj: GetFolderRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetFolderResponseFilterSensitiveLog = (obj: GetFolderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFolderPathRequestFilterSensitiveLog = (obj: GetFolderPathRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetFolderPathResponseFilterSensitiveLog = (obj: GetFolderPathResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcesRequestFilterSensitiveLog = (obj: GetResourcesRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetResourcesResponseFilterSensitiveLog = (obj: GetResourcesResponse): any => ({
+  ...obj,
+  ...(obj.Documents && { Documents: obj.Documents.map((item) => DocumentMetadataFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const InitiateDocumentVersionUploadRequestFilterSensitiveLog = (
+  obj: InitiateDocumentVersionUploadRequest
+): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UploadMetadataFilterSensitiveLog = (obj: UploadMetadata): any => ({
+  ...obj,
+  ...(obj.UploadUrl && { UploadUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InitiateDocumentVersionUploadResponseFilterSensitiveLog = (
+  obj: InitiateDocumentVersionUploadResponse
+): any => ({
+  ...obj,
+  ...(obj.Metadata && { Metadata: DocumentMetadataFilterSensitiveLog(obj.Metadata) }),
+  ...(obj.UploadMetadata && { UploadMetadata: UploadMetadataFilterSensitiveLog(obj.UploadMetadata) }),
+});
+
+/**
+ * @internal
+ */
+export const RemoveAllResourcePermissionsRequestFilterSensitiveLog = (
+  obj: RemoveAllResourcePermissionsRequest
+): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RemoveResourcePermissionRequestFilterSensitiveLog = (obj: RemoveResourcePermissionRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentRequestFilterSensitiveLog = (obj: UpdateDocumentRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentVersionRequestFilterSensitiveLog = (obj: UpdateDocumentVersionRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFolderRequestFilterSensitiveLog = (obj: UpdateFolderRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
+  ...obj,
+});

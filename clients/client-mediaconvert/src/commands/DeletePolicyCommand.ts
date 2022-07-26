@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeletePolicyRequest, DeletePolicyResponse } from "../models/models_1";
+import {
+  DeletePolicyRequest,
+  DeletePolicyRequestFilterSensitiveLog,
+  DeletePolicyResponse,
+  DeletePolicyResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeletePolicyCommand,
   serializeAws_restJson1DeletePolicyCommand,
@@ -72,8 +77,8 @@ export class DeletePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { GetCurrentUserDataRequest, GetCurrentUserDataResponse } from "../models/models_0";
+import {
+  GetCurrentUserDataRequest,
+  GetCurrentUserDataRequestFilterSensitiveLog,
+  GetCurrentUserDataResponse,
+  GetCurrentUserDataResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetCurrentUserDataCommand,
   serializeAws_restJson1GetCurrentUserDataCommand,
@@ -72,8 +77,8 @@ export class GetCurrentUserDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCurrentUserDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCurrentUserDataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCurrentUserDataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCurrentUserDataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

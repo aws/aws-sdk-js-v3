@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { ListImagePackagesRequest, ListImagePackagesResponse } from "../models/models_0";
+import {
+  ListImagePackagesRequest,
+  ListImagePackagesRequestFilterSensitiveLog,
+  ListImagePackagesResponse,
+  ListImagePackagesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListImagePackagesCommand,
   serializeAws_restJson1ListImagePackagesCommand,
@@ -72,8 +77,8 @@ export class ListImagePackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImagePackagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListImagePackagesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListImagePackagesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListImagePackagesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

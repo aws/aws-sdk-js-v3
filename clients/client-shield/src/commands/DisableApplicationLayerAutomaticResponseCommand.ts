@@ -14,7 +14,9 @@ import {
 
 import {
   DisableApplicationLayerAutomaticResponseRequest,
+  DisableApplicationLayerAutomaticResponseRequestFilterSensitiveLog,
   DisableApplicationLayerAutomaticResponseResponse,
+  DisableApplicationLayerAutomaticResponseResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableApplicationLayerAutomaticResponseCommand,
@@ -82,8 +84,8 @@ export class DisableApplicationLayerAutomaticResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableApplicationLayerAutomaticResponseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableApplicationLayerAutomaticResponseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableApplicationLayerAutomaticResponseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableApplicationLayerAutomaticResponseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

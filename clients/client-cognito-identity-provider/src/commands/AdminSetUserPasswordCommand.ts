@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminSetUserPasswordRequest, AdminSetUserPasswordResponse } from "../models/models_0";
+import {
+  AdminSetUserPasswordRequest,
+  AdminSetUserPasswordRequestFilterSensitiveLog,
+  AdminSetUserPasswordResponse,
+  AdminSetUserPasswordResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AdminSetUserPasswordCommand,
   serializeAws_json1_1AdminSetUserPasswordCommand,
@@ -87,8 +92,8 @@ export class AdminSetUserPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminSetUserPasswordRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AdminSetUserPasswordResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminSetUserPasswordRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AdminSetUserPasswordResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

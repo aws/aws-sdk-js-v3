@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import { UpdatePermissionsRequest, UpdatePermissionsResponse } from "../models/models_0";
+import {
+  UpdatePermissionsRequest,
+  UpdatePermissionsRequestFilterSensitiveLog,
+  UpdatePermissionsResponse,
+  UpdatePermissionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePermissionsCommand,
   serializeAws_restJson1UpdatePermissionsCommand,
@@ -72,8 +77,8 @@ export class UpdatePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateScheduledQueryRequest, CreateScheduledQueryResponse } from "../models/models_0";
+import {
+  CreateScheduledQueryRequest,
+  CreateScheduledQueryRequestFilterSensitiveLog,
+  CreateScheduledQueryResponse,
+  CreateScheduledQueryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CreateScheduledQueryCommand,
   serializeAws_json1_0CreateScheduledQueryCommand,
@@ -80,8 +85,8 @@ export class CreateScheduledQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateScheduledQueryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateScheduledQueryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateScheduledQueryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateScheduledQueryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

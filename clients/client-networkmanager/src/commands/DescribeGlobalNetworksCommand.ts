@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeGlobalNetworksRequest, DescribeGlobalNetworksResponse } from "../models/models_0";
+import {
+  DescribeGlobalNetworksRequest,
+  DescribeGlobalNetworksRequestFilterSensitiveLog,
+  DescribeGlobalNetworksResponse,
+  DescribeGlobalNetworksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1DescribeGlobalNetworksCommand,
@@ -75,8 +80,8 @@ export class DescribeGlobalNetworksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGlobalNetworksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGlobalNetworksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGlobalNetworksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGlobalNetworksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

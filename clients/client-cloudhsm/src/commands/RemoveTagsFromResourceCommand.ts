@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResponse } from "../models/models_0";
+import {
+  RemoveTagsFromResourceRequest,
+  RemoveTagsFromResourceRequestFilterSensitiveLog,
+  RemoveTagsFromResourceResponse,
+  RemoveTagsFromResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsFromResourceCommand,
   serializeAws_json1_1RemoveTagsFromResourceCommand,
@@ -84,8 +89,8 @@ export class RemoveTagsFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTagsFromResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTagsFromResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveTagsFromResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import { ListBatchJobDefinitionsRequest, ListBatchJobDefinitionsResponse } from "../models/models_0";
+import {
+  ListBatchJobDefinitionsRequest,
+  ListBatchJobDefinitionsRequestFilterSensitiveLog,
+  ListBatchJobDefinitionsResponse,
+  ListBatchJobDefinitionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListBatchJobDefinitionsCommand,
   serializeAws_restJson1ListBatchJobDefinitionsCommand,
@@ -74,8 +79,8 @@ export class ListBatchJobDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBatchJobDefinitionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBatchJobDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBatchJobDefinitionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBatchJobDefinitionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

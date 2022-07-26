@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeConstraintInput, DescribeConstraintOutput } from "../models/models_0";
+import {
+  DescribeConstraintInput,
+  DescribeConstraintInputFilterSensitiveLog,
+  DescribeConstraintOutput,
+  DescribeConstraintOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConstraintCommand,
   serializeAws_json1_1DescribeConstraintCommand,
@@ -72,8 +77,8 @@ export class DescribeConstraintCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConstraintInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConstraintOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeConstraintInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConstraintOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

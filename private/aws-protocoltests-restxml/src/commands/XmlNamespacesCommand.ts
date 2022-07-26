@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlNamespacesInputOutput } from "../models/models_0";
+import { XmlNamespacesInputOutput, XmlNamespacesInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlXmlNamespacesCommand,
   serializeAws_restXmlXmlNamespacesCommand,
@@ -55,8 +55,8 @@ export class XmlNamespacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlNamespacesInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: XmlNamespacesInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlNamespacesInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: XmlNamespacesInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

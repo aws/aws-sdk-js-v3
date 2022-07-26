@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDeviceFleetReportRequest, GetDeviceFleetReportResponse } from "../models/models_2";
+import {
+  GetDeviceFleetReportRequest,
+  GetDeviceFleetReportRequestFilterSensitiveLog,
+  GetDeviceFleetReportResponse,
+  GetDeviceFleetReportResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1GetDeviceFleetReportCommand,
   serializeAws_json1_1GetDeviceFleetReportCommand,
@@ -72,8 +77,8 @@ export class GetDeviceFleetReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceFleetReportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDeviceFleetReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDeviceFleetReportRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDeviceFleetReportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

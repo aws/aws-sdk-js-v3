@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { GetPackageVersionHistoryRequest, GetPackageVersionHistoryResponse } from "../models/models_0";
+import {
+  GetPackageVersionHistoryRequest,
+  GetPackageVersionHistoryRequestFilterSensitiveLog,
+  GetPackageVersionHistoryResponse,
+  GetPackageVersionHistoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetPackageVersionHistoryCommand,
   serializeAws_restJson1GetPackageVersionHistoryCommand,
@@ -76,8 +81,8 @@ export class GetPackageVersionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPackageVersionHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPackageVersionHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPackageVersionHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPackageVersionHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,9 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   PurchaseReservedCacheNodesOfferingMessage,
+  PurchaseReservedCacheNodesOfferingMessageFilterSensitiveLog,
   PurchaseReservedCacheNodesOfferingResult,
+  PurchaseReservedCacheNodesOfferingResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand,
@@ -80,8 +82,8 @@ export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedCacheNodesOfferingMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedCacheNodesOfferingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseReservedCacheNodesOfferingMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseReservedCacheNodesOfferingResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

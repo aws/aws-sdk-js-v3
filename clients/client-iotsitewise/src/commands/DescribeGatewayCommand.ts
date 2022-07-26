@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DescribeGatewayRequest, DescribeGatewayResponse } from "../models/models_0";
+import {
+  DescribeGatewayRequest,
+  DescribeGatewayRequestFilterSensitiveLog,
+  DescribeGatewayResponse,
+  DescribeGatewayResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeGatewayCommand,
   serializeAws_restJson1DescribeGatewayCommand,
@@ -72,8 +77,8 @@ export class DescribeGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGatewayRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGatewayResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGatewayRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeGatewayResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

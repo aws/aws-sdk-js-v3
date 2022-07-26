@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MigrateWorkspaceRequest, MigrateWorkspaceResult } from "../models/models_0";
+import {
+  MigrateWorkspaceRequest,
+  MigrateWorkspaceRequestFilterSensitiveLog,
+  MigrateWorkspaceResult,
+  MigrateWorkspaceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1MigrateWorkspaceCommand,
   serializeAws_json1_1MigrateWorkspaceCommand,
@@ -82,8 +87,8 @@ export class MigrateWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MigrateWorkspaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: MigrateWorkspaceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: MigrateWorkspaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: MigrateWorkspaceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

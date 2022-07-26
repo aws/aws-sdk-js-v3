@@ -34,15 +34,6 @@ export interface Account {
   accountID?: string;
 }
 
-export namespace Account {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Account): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  */
@@ -106,15 +97,6 @@ export interface ConversionProperties {
   volumeToVolumeSize?: Record<string, number>;
 }
 
-export namespace ConversionProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConversionProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a server's CPU.</p>
  */
@@ -130,15 +112,6 @@ export interface CPU {
   modelName?: string;
 }
 
-export namespace CPU {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CPU): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateExtendedSourceServerRequest {
   /**
    * <p>This defines the ARN of the source server in staging Account based on which you want to create an extended source server.</p>
@@ -149,16 +122,6 @@ export interface CreateExtendedSourceServerRequest {
    * <p>A list of tags associated with the extended source server.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateExtendedSourceServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExtendedSourceServerRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
 }
 
 export enum DataReplicationErrorString {
@@ -191,15 +154,6 @@ export interface DataReplicationError {
    * <p>Error in data replication.</p>
    */
   rawError?: string;
-}
-
-export namespace DataReplicationError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataReplicationError): any => ({
-    ...obj,
-  });
 }
 
 export enum DataReplicationInitiationStepName {
@@ -239,15 +193,6 @@ export interface DataReplicationInitiationStep {
   status?: DataReplicationInitiationStepStatus | string;
 }
 
-export namespace DataReplicationInitiationStep {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataReplicationInitiationStep): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Data replication initiation.</p>
  */
@@ -266,15 +211,6 @@ export interface DataReplicationInitiation {
    * <p>The steps of the current attempt to initiate data replication.</p>
    */
   steps?: DataReplicationInitiationStep[];
-}
-
-export namespace DataReplicationInitiation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataReplicationInitiation): any => ({
-    ...obj,
-  });
 }
 
 export enum DataReplicationState {
@@ -320,15 +256,6 @@ export interface DataReplicationInfoReplicatedDisk {
   backloggedStorageBytes?: number;
 }
 
-export namespace DataReplicationInfoReplicatedDisk {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataReplicationInfoReplicatedDisk): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about Data Replication</p>
  */
@@ -364,15 +291,6 @@ export interface DataReplicationInfo {
   dataReplicationError?: DataReplicationError;
 }
 
-export namespace DataReplicationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataReplicationInfo): any => ({
-    ...obj,
-  });
-}
-
 export enum LastLaunchResult {
   FAILED = "FAILED",
   NOT_STARTED = "NOT_STARTED",
@@ -405,15 +323,6 @@ export interface LifeCycleLastLaunchInitiated {
   type?: LastLaunchType | string;
 }
 
-export namespace LifeCycleLastLaunchInitiated {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifeCycleLastLaunchInitiated): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object containing information regarding the last launch of a Source Server.</p>
  */
@@ -422,15 +331,6 @@ export interface LifeCycleLastLaunch {
    * <p>An object containing information regarding the initiation of the last launch of a Source Server.</p>
    */
   initiated?: LifeCycleLastLaunchInitiated;
-}
-
-export namespace LifeCycleLastLaunch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifeCycleLastLaunch): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -463,15 +363,6 @@ export interface LifeCycle {
   lastLaunch?: LifeCycleLastLaunch;
 }
 
-export namespace LifeCycle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifeCycle): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing a data storage device on a server.</p>
  */
@@ -485,15 +376,6 @@ export interface Disk {
    * <p>The amount of storage on the disk in bytes.</p>
    */
   bytes?: number;
-}
-
-export namespace Disk {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Disk): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -521,15 +403,6 @@ export interface IdentificationHints {
   awsInstanceID?: string;
 }
 
-export namespace IdentificationHints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentificationHints): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Network interface.</p>
  */
@@ -550,15 +423,6 @@ export interface NetworkInterface {
   isPrimary?: boolean;
 }
 
-export namespace NetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Operating System.</p>
  */
@@ -567,15 +431,6 @@ export interface OS {
    * <p>The long name of the Operating System.</p>
    */
   fullString?: string;
-}
-
-export namespace OS {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OS): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -623,15 +478,6 @@ export interface SourceProperties {
   os?: OS;
 }
 
-export namespace SourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceProperties): any => ({
-    ...obj,
-  });
-}
-
 export enum ExtensionStatus {
   EXTENDED = "EXTENDED",
   EXTENSION_ERROR = "EXTENSION_ERROR",
@@ -664,15 +510,6 @@ export interface StagingArea {
    * <p>Shows an error message that occurred when DRS tried to access the staging source server. In this case StagingArea$status will have value EXTENSION_ERROR</p>
    */
   errorMessage?: string;
-}
-
-export namespace StagingArea {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StagingArea): any => ({
-    ...obj,
-  });
 }
 
 export interface SourceServer {
@@ -722,31 +559,11 @@ export interface SourceServer {
   stagingArea?: StagingArea;
 }
 
-export namespace SourceServer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceServer): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateExtendedSourceServerResponse {
   /**
    * <p>Created extended source server.</p>
    */
   sourceServer?: SourceServer;
-}
-
-export namespace CreateExtendedSourceServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExtendedSourceServerResponse): any => ({
-    ...obj,
-    ...(obj.sourceServer && { sourceServer: SourceServer.filterSensitiveLog(obj.sourceServer) }),
-  });
 }
 
 /**
@@ -925,15 +742,6 @@ export interface ValidationExceptionField {
   message?: string;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -1027,15 +835,6 @@ export interface PITPolicyRule {
   enabled?: boolean;
 }
 
-export namespace PITPolicyRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PITPolicyRule): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateReplicationConfigurationTemplateRequest {
   /**
    * <p>The subnet to be used by the replication staging area.</p>
@@ -1106,17 +905,6 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * <p>A set of tags to be associated with the Replication Configuration Template resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateReplicationConfigurationTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReplicationConfigurationTemplateRequest): any => ({
-    ...obj,
-    ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
 }
 
 export interface ReplicationConfigurationTemplate {
@@ -1201,17 +989,6 @@ export interface ReplicationConfigurationTemplate {
   pitPolicy?: PITPolicyRule[];
 }
 
-export namespace ReplicationConfigurationTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationConfigurationTemplate): any => ({
-    ...obj,
-    ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteJobRequest {
   /**
    * <p>The ID of the Job to be deleted.</p>
@@ -1219,40 +996,13 @@ export interface DeleteJobRequest {
   jobID: string | undefined;
 }
 
-export namespace DeleteJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteJobResponse {}
-
-export namespace DeleteJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRecoveryInstanceRequest {
   /**
    * <p>The ID of the Recovery Instance to be deleted.</p>
    */
   recoveryInstanceID: string | undefined;
-}
-
-export namespace DeleteRecoveryInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRecoveryInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteReplicationConfigurationTemplateRequest {
@@ -1262,25 +1012,7 @@ export interface DeleteReplicationConfigurationTemplateRequest {
   replicationConfigurationTemplateID: string | undefined;
 }
 
-export namespace DeleteReplicationConfigurationTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReplicationConfigurationTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteReplicationConfigurationTemplateResponse {}
-
-export namespace DeleteReplicationConfigurationTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReplicationConfigurationTemplateResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSourceServerRequest {
   /**
@@ -1289,25 +1021,7 @@ export interface DeleteSourceServerRequest {
   sourceServerID: string | undefined;
 }
 
-export namespace DeleteSourceServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSourceServerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSourceServerResponse {}
-
-export namespace DeleteSourceServerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSourceServerResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeJobLogItemsRequest {
   /**
@@ -1324,15 +1038,6 @@ export interface DescribeJobLogItemsRequest {
    * <p>The token of the next Job log items to retrieve.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeJobLogItemsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobLogItemsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum JobLogEvent {
@@ -1385,15 +1090,6 @@ export interface JobLogEventData {
   conversionProperties?: ConversionProperties;
 }
 
-export namespace JobLogEventData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobLogEventData): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A log outputted by a Job.</p>
  */
@@ -1414,15 +1110,6 @@ export interface JobLog {
   eventData?: JobLogEventData;
 }
 
-export namespace JobLog {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobLog): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobLogItemsResponse {
   /**
    * <p>An array of Job log items.</p>
@@ -1433,15 +1120,6 @@ export interface DescribeJobLogItemsResponse {
    * <p>The token of the next Job log items to retrieve.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeJobLogItemsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobLogItemsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1464,15 +1142,6 @@ export interface DescribeJobsRequestFilters {
   toDate?: string;
 }
 
-export namespace DescribeJobsRequestFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobsRequestFilters): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobsRequest {
   /**
    * <p>A set of filters by which to return Jobs.</p>
@@ -1488,15 +1157,6 @@ export interface DescribeJobsRequest {
    * <p>The token of the next Job to retrieve.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum InitiatedBy {
@@ -1534,15 +1194,6 @@ export interface ParticipatingServer {
    * <p>The launch status of a participating server.</p>
    */
   launchStatus?: LaunchStatus | string;
-}
-
-export namespace ParticipatingServer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParticipatingServer): any => ({
-    ...obj,
-  });
 }
 
 export enum JobStatus {
@@ -1607,16 +1258,6 @@ export interface Job {
   tags?: Record<string, string>;
 }
 
-export namespace Job {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Job): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeJobsResponse {
   /**
    * <p>An array of Jobs.</p>
@@ -1627,16 +1268,6 @@ export interface DescribeJobsResponse {
    * <p>The token of the next Job to retrieve.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobsResponse): any => ({
-    ...obj,
-    ...(obj.items && { items: obj.items.map((item) => Job.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -1654,15 +1285,6 @@ export interface DescribeRecoveryInstancesRequestFilters {
   sourceServerIDs?: string[];
 }
 
-export namespace DescribeRecoveryInstancesRequestFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecoveryInstancesRequestFilters): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRecoveryInstancesRequest {
   /**
    * <p>A set of filters by which to return Recovery Instances.</p>
@@ -1678,15 +1300,6 @@ export interface DescribeRecoveryInstancesRequest {
    * <p>The token of the next Recovery Instance to retrieve.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeRecoveryInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecoveryInstancesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FailbackReplicationError {
@@ -1714,15 +1327,6 @@ export interface RecoveryInstanceDataReplicationError {
    * <p>Error in data replication.</p>
    */
   rawError?: string;
-}
-
-export namespace RecoveryInstanceDataReplicationError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryInstanceDataReplicationError): any => ({
-    ...obj,
-  });
 }
 
 export enum RecoveryInstanceDataReplicationInitiationStepName {
@@ -1758,15 +1362,6 @@ export interface RecoveryInstanceDataReplicationInitiationStep {
   status?: RecoveryInstanceDataReplicationInitiationStepStatus | string;
 }
 
-export namespace RecoveryInstanceDataReplicationInitiationStep {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryInstanceDataReplicationInitiationStep): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Data replication initiation.</p>
  */
@@ -1780,15 +1375,6 @@ export interface RecoveryInstanceDataReplicationInitiation {
    * <p>The steps of the current attempt to initiate data replication.</p>
    */
   steps?: RecoveryInstanceDataReplicationInitiationStep[];
-}
-
-export namespace RecoveryInstanceDataReplicationInitiation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryInstanceDataReplicationInitiation): any => ({
-    ...obj,
-  });
 }
 
 export enum RecoveryInstanceDataReplicationState {
@@ -1834,15 +1420,6 @@ export interface RecoveryInstanceDataReplicationInfoReplicatedDisk {
   backloggedStorageBytes?: number;
 }
 
-export namespace RecoveryInstanceDataReplicationInfoReplicatedDisk {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryInstanceDataReplicationInfoReplicatedDisk): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about Data Replication</p>
  */
@@ -1876,15 +1453,6 @@ export interface RecoveryInstanceDataReplicationInfo {
    * <p>Information about Data Replication</p>
    */
   dataReplicationError?: RecoveryInstanceDataReplicationError;
-}
-
-export namespace RecoveryInstanceDataReplicationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryInstanceDataReplicationInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum EC2InstanceState {
@@ -1955,15 +1523,6 @@ export interface RecoveryInstanceFailback {
   elapsedReplicationDuration?: string;
 }
 
-export namespace RecoveryInstanceFailback {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryInstanceFailback): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing a block storage device on the Recovery Instance.</p>
  */
@@ -1982,15 +1541,6 @@ export interface RecoveryInstanceDisk {
    * <p>The EBS Volume ID of this disk.</p>
    */
   ebsVolumeID?: string;
-}
-
-export namespace RecoveryInstanceDisk {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryInstanceDisk): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2031,15 +1581,6 @@ export interface RecoveryInstanceProperties {
    * <p>Operating system.</p>
    */
   os?: OS;
-}
-
-export namespace RecoveryInstanceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryInstanceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2107,16 +1648,6 @@ export interface RecoveryInstance {
   isDrill?: boolean;
 }
 
-export namespace RecoveryInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoveryInstance): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeRecoveryInstancesResponse {
   /**
    * <p>The token of the next Recovery Instance to retrieve.</p>
@@ -2127,16 +1658,6 @@ export interface DescribeRecoveryInstancesResponse {
    * <p>An array of Recovery Instances.</p>
    */
   items?: RecoveryInstance[];
-}
-
-export namespace DescribeRecoveryInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecoveryInstancesResponse): any => ({
-    ...obj,
-    ...(obj.items && { items: obj.items.map((item) => RecoveryInstance.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -2152,15 +1673,6 @@ export interface DescribeRecoverySnapshotsRequestFilters {
    * <p>The end date in a date range query.</p>
    */
   toDateTime?: string;
-}
-
-export namespace DescribeRecoverySnapshotsRequestFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecoverySnapshotsRequestFilters): any => ({
-    ...obj,
-  });
 }
 
 export enum RecoverySnapshotsOrder {
@@ -2195,15 +1707,6 @@ export interface DescribeRecoverySnapshotsRequest {
   nextToken?: string;
 }
 
-export namespace DescribeRecoverySnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecoverySnapshotsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A snapshot of a Source Server used during recovery.</p>
  */
@@ -2234,15 +1737,6 @@ export interface RecoverySnapshot {
   ebsSnapshots?: string[];
 }
 
-export namespace RecoverySnapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecoverySnapshot): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRecoverySnapshotsResponse {
   /**
    * <p>An array of Recovery Snapshots.</p>
@@ -2253,15 +1747,6 @@ export interface DescribeRecoverySnapshotsResponse {
    * <p>The token of the next Recovery Snapshot to retrieve.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeRecoverySnapshotsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecoverySnapshotsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeReplicationConfigurationTemplatesRequest {
@@ -2281,15 +1766,6 @@ export interface DescribeReplicationConfigurationTemplatesRequest {
   nextToken?: string;
 }
 
-export namespace DescribeReplicationConfigurationTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReplicationConfigurationTemplatesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeReplicationConfigurationTemplatesResponse {
   /**
    * <p>An array of Replication Configuration Templates.</p>
@@ -2300,16 +1776,6 @@ export interface DescribeReplicationConfigurationTemplatesResponse {
    * <p>The token of the next Replication Configuration Template to retrieve.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeReplicationConfigurationTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReplicationConfigurationTemplatesResponse): any => ({
-    ...obj,
-    ...(obj.items && { items: obj.items.map((item) => ReplicationConfigurationTemplate.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -2332,15 +1798,6 @@ export interface DescribeSourceServersRequestFilters {
   stagingAccountIDs?: string[];
 }
 
-export namespace DescribeSourceServersRequestFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSourceServersRequestFilters): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSourceServersRequest {
   /**
    * <p>A set of filters by which to return Source Servers.</p>
@@ -2358,15 +1815,6 @@ export interface DescribeSourceServersRequest {
   nextToken?: string;
 }
 
-export namespace DescribeSourceServersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSourceServersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSourceServersResponse {
   /**
    * <p>An array of Source Servers.</p>
@@ -2379,30 +1827,11 @@ export interface DescribeSourceServersResponse {
   nextToken?: string;
 }
 
-export namespace DescribeSourceServersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSourceServersResponse): any => ({
-    ...obj,
-    ...(obj.items && { items: obj.items.map((item) => SourceServer.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface DisconnectRecoveryInstanceRequest {
   /**
    * <p>The ID of the Recovery Instance to disconnect.</p>
    */
   recoveryInstanceID: string | undefined;
-}
-
-export namespace DisconnectRecoveryInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisconnectRecoveryInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisconnectSourceServerRequest {
@@ -2412,36 +1841,9 @@ export interface DisconnectSourceServerRequest {
   sourceServerID: string | undefined;
 }
 
-export namespace DisconnectSourceServerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisconnectSourceServerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface InitializeServiceRequest {}
 
-export namespace InitializeServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitializeServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface InitializeServiceResponse {}
-
-export namespace InitializeServiceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InitializeServiceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ListExtensibleSourceServersRequest {
   /**
@@ -2458,15 +1860,6 @@ export interface ListExtensibleSourceServersRequest {
    * <p>The token of the next extensible source server to retrieve.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListExtensibleSourceServersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExtensibleSourceServersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2489,16 +1882,6 @@ export interface StagingSourceServer {
   tags?: Record<string, string>;
 }
 
-export namespace StagingSourceServer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StagingSourceServer): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListExtensibleSourceServersResponse {
   /**
    * <p>A list of source servers on a staging Account that are extensible.</p>
@@ -2509,16 +1892,6 @@ export interface ListExtensibleSourceServersResponse {
    * <p>The token of the next extensible source server to retrieve.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListExtensibleSourceServersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExtensibleSourceServersResponse): any => ({
-    ...obj,
-    ...(obj.items && { items: obj.items.map((item) => StagingSourceServer.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListStagingAccountsRequest {
@@ -2533,15 +1906,6 @@ export interface ListStagingAccountsRequest {
   nextToken?: string;
 }
 
-export namespace ListStagingAccountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStagingAccountsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStagingAccountsResponse {
   /**
    * <p>An array of staging AWS Accounts.</p>
@@ -2554,29 +1918,11 @@ export interface ListStagingAccountsResponse {
   nextToken?: string;
 }
 
-export namespace ListStagingAccountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStagingAccountsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource whose tags should be returned.</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -2586,30 +1932,11 @@ export interface ListTagsForResourceResponse {
   tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetFailbackReplicationConfigurationRequest {
   /**
    * <p>The ID of the Recovery Instance whose failback replication configuration should be returned.</p>
    */
   recoveryInstanceID: string | undefined;
-}
-
-export namespace GetFailbackReplicationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFailbackReplicationConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFailbackReplicationConfigurationResponse {
@@ -2634,15 +1961,6 @@ export interface GetFailbackReplicationConfigurationResponse {
   usePrivateIP?: boolean;
 }
 
-export namespace GetFailbackReplicationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFailbackReplicationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartFailbackLaunchRequest {
   /**
    * <p>The IDs of the Recovery Instance whose failback launch we want to request.</p>
@@ -2655,31 +1973,11 @@ export interface StartFailbackLaunchRequest {
   tags?: Record<string, string>;
 }
 
-export namespace StartFailbackLaunchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFailbackLaunchRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface StartFailbackLaunchResponse {
   /**
    * <p>The failback launch Job.</p>
    */
   job?: Job;
-}
-
-export namespace StartFailbackLaunchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFailbackLaunchResponse): any => ({
-    ...obj,
-    ...(obj.job && { job: Job.filterSensitiveLog(obj.job) }),
-  });
 }
 
 export interface StopFailbackRequest {
@@ -2689,15 +1987,6 @@ export interface StopFailbackRequest {
   recoveryInstanceID: string | undefined;
 }
 
-export namespace StopFailbackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopFailbackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateRecoveryInstancesRequest {
   /**
    * <p>The IDs of the Recovery Instances that should be terminated.</p>
@@ -2705,30 +1994,11 @@ export interface TerminateRecoveryInstancesRequest {
   recoveryInstanceIDs: string[] | undefined;
 }
 
-export namespace TerminateRecoveryInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateRecoveryInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateRecoveryInstancesResponse {
   /**
    * <p>The Job for terminating the Recovery Instances.</p>
    */
   job?: Job;
-}
-
-export namespace TerminateRecoveryInstancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateRecoveryInstancesResponse): any => ({
-    ...obj,
-    ...(obj.job && { job: Job.filterSensitiveLog(obj.job) }),
-  });
 }
 
 export interface UpdateFailbackReplicationConfigurationRequest {
@@ -2751,15 +2021,6 @@ export interface UpdateFailbackReplicationConfigurationRequest {
    * <p>Whether to use Private IP for the failback replication of the Recovery Instance.</p>
    */
   usePrivateIP?: boolean;
-}
-
-export namespace UpdateFailbackReplicationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFailbackReplicationConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateReplicationConfigurationTemplateRequest {
@@ -2839,30 +2100,11 @@ export interface UpdateReplicationConfigurationTemplateRequest {
   pitPolicy?: PITPolicyRule[];
 }
 
-export namespace UpdateReplicationConfigurationTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReplicationConfigurationTemplateRequest): any => ({
-    ...obj,
-    ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetLaunchConfigurationRequest {
   /**
    * <p>The ID of the Source Server that we want to retrieve a Launch Configuration for.</p>
    */
   sourceServerID: string | undefined;
-}
-
-export namespace GetLaunchConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLaunchConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum LaunchDisposition {
@@ -2878,15 +2120,6 @@ export interface Licensing {
    * <p>Whether to enable "Bring your own license" or not.</p>
    */
   osByol?: boolean;
-}
-
-export namespace Licensing {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Licensing): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetInstanceTypeRightSizingMethod {
@@ -2936,29 +2169,11 @@ export interface LaunchConfiguration {
   licensing?: Licensing;
 }
 
-export namespace LaunchConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReplicationConfigurationRequest {
   /**
    * <p>The ID of the Source Serve for this Replication Configuration.r</p>
    */
   sourceServerID: string | undefined;
-}
-
-export namespace GetReplicationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReplicationConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ReplicationConfigurationReplicatedDiskStagingDiskType {
@@ -3004,15 +2219,6 @@ export interface ReplicationConfigurationReplicatedDisk {
    * <p>The Staging Disk EBS volume type to be used during replication when <code>stagingDiskType</code> is set to Auto. This is a read-only field.</p>
    */
   optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
-}
-
-export namespace ReplicationConfigurationReplicatedDisk {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationConfigurationReplicatedDisk): any => ({
-    ...obj,
-  });
 }
 
 export interface ReplicationConfiguration {
@@ -3097,30 +2303,11 @@ export interface ReplicationConfiguration {
   pitPolicy?: PITPolicyRule[];
 }
 
-export namespace ReplicationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationConfiguration): any => ({
-    ...obj,
-    ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
-  });
-}
-
 export interface RetryDataReplicationRequest {
   /**
    * <p>The ID of the Source Server whose data replication should be retried.</p>
    */
   sourceServerID: string | undefined;
-}
-
-export namespace RetryDataReplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryDataReplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3136,15 +2323,6 @@ export interface StartRecoveryRequestSourceServer {
    * <p>The ID of a Recovery Snapshot we want to recover from. Omit this field to launch from the latest data by taking an on-demand snapshot.</p>
    */
   recoverySnapshotID?: string;
-}
-
-export namespace StartRecoveryRequestSourceServer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRecoveryRequestSourceServer): any => ({
-    ...obj,
-  });
 }
 
 export interface StartRecoveryRequest {
@@ -3164,31 +2342,11 @@ export interface StartRecoveryRequest {
   tags?: Record<string, string>;
 }
 
-export namespace StartRecoveryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRecoveryRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface StartRecoveryResponse {
   /**
    * <p>The Recovery Job.</p>
    */
   job?: Job;
-}
-
-export namespace StartRecoveryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRecoveryResponse): any => ({
-    ...obj,
-    ...(obj.job && { job: Job.filterSensitiveLog(obj.job) }),
-  });
 }
 
 export interface UpdateLaunchConfigurationRequest {
@@ -3226,15 +2384,6 @@ export interface UpdateLaunchConfigurationRequest {
    * <p>The licensing configuration to be used for this launch configuration.</p>
    */
   licensing?: Licensing;
-}
-
-export namespace UpdateLaunchConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLaunchConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateReplicationConfigurationRequest {
@@ -3319,16 +2468,6 @@ export interface UpdateReplicationConfigurationRequest {
   pitPolicy?: PITPolicyRule[];
 }
 
-export namespace UpdateReplicationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReplicationConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>ARN of the resource for which tags are to be added or updated.</p>
@@ -3339,16 +2478,6 @@ export interface TagResourceRequest {
    * <p>Array of tags to be added or updated.</p>
    */
   tags: Record<string, string> | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
 }
 
 export interface UntagResourceRequest {
@@ -3363,12 +2492,733 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-    ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const AccountFilterSensitiveLog = (obj: Account): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConversionPropertiesFilterSensitiveLog = (obj: ConversionProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CPUFilterSensitiveLog = (obj: CPU): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExtendedSourceServerRequestFilterSensitiveLog = (obj: CreateExtendedSourceServerRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DataReplicationErrorFilterSensitiveLog = (obj: DataReplicationError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataReplicationInitiationStepFilterSensitiveLog = (obj: DataReplicationInitiationStep): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataReplicationInitiationFilterSensitiveLog = (obj: DataReplicationInitiation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataReplicationInfoReplicatedDiskFilterSensitiveLog = (obj: DataReplicationInfoReplicatedDisk): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataReplicationInfoFilterSensitiveLog = (obj: DataReplicationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifeCycleLastLaunchInitiatedFilterSensitiveLog = (obj: LifeCycleLastLaunchInitiated): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifeCycleLastLaunchFilterSensitiveLog = (obj: LifeCycleLastLaunch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifeCycleFilterSensitiveLog = (obj: LifeCycle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiskFilterSensitiveLog = (obj: Disk): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentificationHintsFilterSensitiveLog = (obj: IdentificationHints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OSFilterSensitiveLog = (obj: OS): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourcePropertiesFilterSensitiveLog = (obj: SourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StagingAreaFilterSensitiveLog = (obj: StagingArea): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceServerFilterSensitiveLog = (obj: SourceServer): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateExtendedSourceServerResponseFilterSensitiveLog = (obj: CreateExtendedSourceServerResponse): any => ({
+  ...obj,
+  ...(obj.sourceServer && { sourceServer: SourceServerFilterSensitiveLog(obj.sourceServer) }),
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PITPolicyRuleFilterSensitiveLog = (obj: PITPolicyRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReplicationConfigurationTemplateRequestFilterSensitiveLog = (
+  obj: CreateReplicationConfigurationTemplateRequest
+): any => ({
+  ...obj,
+  ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ReplicationConfigurationTemplateFilterSensitiveLog = (obj: ReplicationConfigurationTemplate): any => ({
+  ...obj,
+  ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobRequestFilterSensitiveLog = (obj: DeleteJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobResponseFilterSensitiveLog = (obj: DeleteJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRecoveryInstanceRequestFilterSensitiveLog = (obj: DeleteRecoveryInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReplicationConfigurationTemplateRequestFilterSensitiveLog = (
+  obj: DeleteReplicationConfigurationTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReplicationConfigurationTemplateResponseFilterSensitiveLog = (
+  obj: DeleteReplicationConfigurationTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSourceServerRequestFilterSensitiveLog = (obj: DeleteSourceServerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSourceServerResponseFilterSensitiveLog = (obj: DeleteSourceServerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobLogItemsRequestFilterSensitiveLog = (obj: DescribeJobLogItemsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobLogEventDataFilterSensitiveLog = (obj: JobLogEventData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobLogFilterSensitiveLog = (obj: JobLog): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobLogItemsResponseFilterSensitiveLog = (obj: DescribeJobLogItemsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobsRequestFiltersFilterSensitiveLog = (obj: DescribeJobsRequestFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobsRequestFilterSensitiveLog = (obj: DescribeJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParticipatingServerFilterSensitiveLog = (obj: ParticipatingServer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobFilterSensitiveLog = (obj: Job): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobsResponseFilterSensitiveLog = (obj: DescribeJobsResponse): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => JobFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecoveryInstancesRequestFiltersFilterSensitiveLog = (
+  obj: DescribeRecoveryInstancesRequestFilters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecoveryInstancesRequestFilterSensitiveLog = (obj: DescribeRecoveryInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryInstanceDataReplicationErrorFilterSensitiveLog = (
+  obj: RecoveryInstanceDataReplicationError
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryInstanceDataReplicationInitiationStepFilterSensitiveLog = (
+  obj: RecoveryInstanceDataReplicationInitiationStep
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryInstanceDataReplicationInitiationFilterSensitiveLog = (
+  obj: RecoveryInstanceDataReplicationInitiation
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryInstanceDataReplicationInfoReplicatedDiskFilterSensitiveLog = (
+  obj: RecoveryInstanceDataReplicationInfoReplicatedDisk
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryInstanceDataReplicationInfoFilterSensitiveLog = (
+  obj: RecoveryInstanceDataReplicationInfo
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryInstanceFailbackFilterSensitiveLog = (obj: RecoveryInstanceFailback): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryInstanceDiskFilterSensitiveLog = (obj: RecoveryInstanceDisk): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryInstancePropertiesFilterSensitiveLog = (obj: RecoveryInstanceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoveryInstanceFilterSensitiveLog = (obj: RecoveryInstance): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecoveryInstancesResponseFilterSensitiveLog = (obj: DescribeRecoveryInstancesResponse): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => RecoveryInstanceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecoverySnapshotsRequestFiltersFilterSensitiveLog = (
+  obj: DescribeRecoverySnapshotsRequestFilters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecoverySnapshotsRequestFilterSensitiveLog = (obj: DescribeRecoverySnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecoverySnapshotFilterSensitiveLog = (obj: RecoverySnapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecoverySnapshotsResponseFilterSensitiveLog = (obj: DescribeRecoverySnapshotsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReplicationConfigurationTemplatesRequestFilterSensitiveLog = (
+  obj: DescribeReplicationConfigurationTemplatesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog = (
+  obj: DescribeReplicationConfigurationTemplatesResponse
+): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => ReplicationConfigurationTemplateFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeSourceServersRequestFiltersFilterSensitiveLog = (
+  obj: DescribeSourceServersRequestFilters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSourceServersRequestFilterSensitiveLog = (obj: DescribeSourceServersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSourceServersResponseFilterSensitiveLog = (obj: DescribeSourceServersResponse): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => SourceServerFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DisconnectRecoveryInstanceRequestFilterSensitiveLog = (obj: DisconnectRecoveryInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisconnectSourceServerRequestFilterSensitiveLog = (obj: DisconnectSourceServerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitializeServiceRequestFilterSensitiveLog = (obj: InitializeServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitializeServiceResponseFilterSensitiveLog = (obj: InitializeServiceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExtensibleSourceServersRequestFilterSensitiveLog = (obj: ListExtensibleSourceServersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StagingSourceServerFilterSensitiveLog = (obj: StagingSourceServer): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListExtensibleSourceServersResponseFilterSensitiveLog = (
+  obj: ListExtensibleSourceServersResponse
+): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => StagingSourceServerFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListStagingAccountsRequestFilterSensitiveLog = (obj: ListStagingAccountsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStagingAccountsResponseFilterSensitiveLog = (obj: ListStagingAccountsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetFailbackReplicationConfigurationRequestFilterSensitiveLog = (
+  obj: GetFailbackReplicationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFailbackReplicationConfigurationResponseFilterSensitiveLog = (
+  obj: GetFailbackReplicationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFailbackLaunchRequestFilterSensitiveLog = (obj: StartFailbackLaunchRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartFailbackLaunchResponseFilterSensitiveLog = (obj: StartFailbackLaunchResponse): any => ({
+  ...obj,
+  ...(obj.job && { job: JobFilterSensitiveLog(obj.job) }),
+});
+
+/**
+ * @internal
+ */
+export const StopFailbackRequestFilterSensitiveLog = (obj: StopFailbackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateRecoveryInstancesRequestFilterSensitiveLog = (obj: TerminateRecoveryInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateRecoveryInstancesResponseFilterSensitiveLog = (obj: TerminateRecoveryInstancesResponse): any => ({
+  ...obj,
+  ...(obj.job && { job: JobFilterSensitiveLog(obj.job) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFailbackReplicationConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateFailbackReplicationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReplicationConfigurationTemplateRequestFilterSensitiveLog = (
+  obj: UpdateReplicationConfigurationTemplateRequest
+): any => ({
+  ...obj,
+  ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetLaunchConfigurationRequestFilterSensitiveLog = (obj: GetLaunchConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicensingFilterSensitiveLog = (obj: Licensing): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchConfigurationFilterSensitiveLog = (obj: LaunchConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReplicationConfigurationRequestFilterSensitiveLog = (obj: GetReplicationConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationConfigurationReplicatedDiskFilterSensitiveLog = (
+  obj: ReplicationConfigurationReplicatedDisk
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationConfigurationFilterSensitiveLog = (obj: ReplicationConfiguration): any => ({
+  ...obj,
+  ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RetryDataReplicationRequestFilterSensitiveLog = (obj: RetryDataReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRecoveryRequestSourceServerFilterSensitiveLog = (obj: StartRecoveryRequestSourceServer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRecoveryRequestFilterSensitiveLog = (obj: StartRecoveryRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartRecoveryResponseFilterSensitiveLog = (obj: StartRecoveryResponse): any => ({
+  ...obj,
+  ...(obj.job && { job: JobFilterSensitiveLog(obj.job) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLaunchConfigurationRequestFilterSensitiveLog = (obj: UpdateLaunchConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReplicationConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateReplicationConfigurationRequest
+): any => ({
+  ...obj,
+  ...(obj.stagingAreaTags && { stagingAreaTags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
+});

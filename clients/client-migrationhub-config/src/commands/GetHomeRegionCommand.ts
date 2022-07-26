@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient";
-import { GetHomeRegionRequest, GetHomeRegionResult } from "../models/models_0";
+import {
+  GetHomeRegionRequest,
+  GetHomeRegionRequestFilterSensitiveLog,
+  GetHomeRegionResult,
+  GetHomeRegionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetHomeRegionCommand,
   serializeAws_json1_1GetHomeRegionCommand,
@@ -80,8 +85,8 @@ export class GetHomeRegionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHomeRegionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetHomeRegionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetHomeRegionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetHomeRegionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

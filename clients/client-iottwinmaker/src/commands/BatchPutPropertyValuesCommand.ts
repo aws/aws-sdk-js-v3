@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import { BatchPutPropertyValuesRequest, BatchPutPropertyValuesResponse } from "../models/models_0";
+import {
+  BatchPutPropertyValuesRequest,
+  BatchPutPropertyValuesRequestFilterSensitiveLog,
+  BatchPutPropertyValuesResponse,
+  BatchPutPropertyValuesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchPutPropertyValuesCommand,
   serializeAws_restJson1BatchPutPropertyValuesCommand,
@@ -72,8 +77,8 @@ export class BatchPutPropertyValuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutPropertyValuesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutPropertyValuesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchPutPropertyValuesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchPutPropertyValuesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

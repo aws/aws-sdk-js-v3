@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetFindingsRequest, GetFindingsResponse } from "../models/models_0";
+import {
+  GetFindingsRequest,
+  GetFindingsRequestFilterSensitiveLog,
+  GetFindingsResponse,
+  GetFindingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetFindingsCommand,
   serializeAws_restJson1GetFindingsCommand,
@@ -72,8 +77,8 @@ export class GetFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFindingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetFindingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

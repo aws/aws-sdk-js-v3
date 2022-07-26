@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import { ListDatasetEntriesRequest, ListDatasetEntriesResponse } from "../models/models_0";
+import {
+  ListDatasetEntriesRequest,
+  ListDatasetEntriesRequestFilterSensitiveLog,
+  ListDatasetEntriesResponse,
+  ListDatasetEntriesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListDatasetEntriesCommand,
   serializeAws_restJson1ListDatasetEntriesCommand,
@@ -75,8 +80,8 @@ export class ListDatasetEntriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasetEntriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasetEntriesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDatasetEntriesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDatasetEntriesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

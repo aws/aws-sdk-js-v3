@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { UpdateSnapshotRequest, UpdateSnapshotResponse } from "../models/models_0";
+import {
+  UpdateSnapshotRequest,
+  UpdateSnapshotRequestFilterSensitiveLog,
+  UpdateSnapshotResponse,
+  UpdateSnapshotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSnapshotCommand,
   serializeAws_json1_1UpdateSnapshotCommand,
@@ -72,8 +77,8 @@ export class UpdateSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSnapshotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

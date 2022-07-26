@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { GetFindingRequest, GetFindingResponse } from "../models/models_0";
+import {
+  GetFindingRequest,
+  GetFindingRequestFilterSensitiveLog,
+  GetFindingResponse,
+  GetFindingResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetFindingCommand,
   serializeAws_restJson1GetFindingCommand,
@@ -72,8 +77,8 @@ export class GetFindingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFindingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetFindingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

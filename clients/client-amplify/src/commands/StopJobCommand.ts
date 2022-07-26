@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { StopJobRequest, StopJobResult } from "../models/models_0";
+import {
+  StopJobRequest,
+  StopJobRequestFilterSensitiveLog,
+  StopJobResult,
+  StopJobResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopJobCommand,
   serializeAws_restJson1StopJobCommand,
@@ -68,8 +73,8 @@ export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopJobResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopJobResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

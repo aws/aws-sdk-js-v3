@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { UpdateRealtimeLogConfigRequest, UpdateRealtimeLogConfigResult } from "../models/models_1";
+import {
+  UpdateRealtimeLogConfigRequest,
+  UpdateRealtimeLogConfigRequestFilterSensitiveLog,
+  UpdateRealtimeLogConfigResult,
+  UpdateRealtimeLogConfigResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlUpdateRealtimeLogConfigCommand,
   serializeAws_restXmlUpdateRealtimeLogConfigCommand,
@@ -92,8 +97,8 @@ export class UpdateRealtimeLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRealtimeLogConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRealtimeLogConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRealtimeLogConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRealtimeLogConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

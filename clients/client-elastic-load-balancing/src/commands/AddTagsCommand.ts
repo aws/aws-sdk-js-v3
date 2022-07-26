@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { AddTagsInput, AddTagsOutput } from "../models/models_0";
+import {
+  AddTagsInput,
+  AddTagsInputFilterSensitiveLog,
+  AddTagsOutput,
+  AddTagsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryAddTagsCommand, serializeAws_queryAddTagsCommand } from "../protocols/Aws_query";
 
 export interface AddTagsCommandInput extends AddTagsInput {}
@@ -79,8 +84,8 @@ export class AddTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AddTagsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AddTagsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

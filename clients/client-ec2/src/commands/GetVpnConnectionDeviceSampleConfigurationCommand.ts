@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetVpnConnectionDeviceSampleConfigurationRequest,
+  GetVpnConnectionDeviceSampleConfigurationRequestFilterSensitiveLog,
   GetVpnConnectionDeviceSampleConfigurationResult,
+  GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand,
@@ -82,8 +84,8 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVpnConnectionDeviceSampleConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetVpnConnectionDeviceSampleConfigurationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetVpnConnectionDeviceSampleConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

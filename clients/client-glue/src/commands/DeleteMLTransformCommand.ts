@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { DeleteMLTransformRequest, DeleteMLTransformResponse } from "../models/models_1";
+import {
+  DeleteMLTransformRequest,
+  DeleteMLTransformRequestFilterSensitiveLog,
+  DeleteMLTransformResponse,
+  DeleteMLTransformResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteMLTransformCommand,
   serializeAws_json1_1DeleteMLTransformCommand,
@@ -77,8 +82,8 @@ export class DeleteMLTransformCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMLTransformRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMLTransformResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMLTransformRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMLTransformResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateConstraintInput, CreateConstraintOutput } from "../models/models_0";
+import {
+  CreateConstraintInput,
+  CreateConstraintInputFilterSensitiveLog,
+  CreateConstraintOutput,
+  CreateConstraintOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateConstraintCommand,
   serializeAws_json1_1CreateConstraintCommand,
@@ -73,8 +78,8 @@ export class CreateConstraintCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConstraintInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateConstraintOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConstraintInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateConstraintOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

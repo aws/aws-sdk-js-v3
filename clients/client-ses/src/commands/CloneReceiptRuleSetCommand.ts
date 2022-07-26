@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse } from "../models/models_0";
+import {
+  CloneReceiptRuleSetRequest,
+  CloneReceiptRuleSetRequestFilterSensitiveLog,
+  CloneReceiptRuleSetResponse,
+  CloneReceiptRuleSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCloneReceiptRuleSetCommand,
   serializeAws_queryCloneReceiptRuleSetCommand,
@@ -77,8 +82,8 @@ export class CloneReceiptRuleSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CloneReceiptRuleSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CloneReceiptRuleSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CloneReceiptRuleSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CloneReceiptRuleSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

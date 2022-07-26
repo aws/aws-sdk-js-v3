@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { CreateSubnetGroupRequest, CreateSubnetGroupResponse } from "../models/models_0";
+import {
+  CreateSubnetGroupRequest,
+  CreateSubnetGroupRequestFilterSensitiveLog,
+  CreateSubnetGroupResponse,
+  CreateSubnetGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSubnetGroupCommand,
   serializeAws_json1_1CreateSubnetGroupCommand,
@@ -72,8 +77,8 @@ export class CreateSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSubnetGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSubnetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSubnetGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSubnetGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

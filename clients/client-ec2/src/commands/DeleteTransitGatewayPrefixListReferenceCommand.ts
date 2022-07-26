@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteTransitGatewayPrefixListReferenceRequest,
+  DeleteTransitGatewayPrefixListReferenceRequestFilterSensitiveLog,
   DeleteTransitGatewayPrefixListReferenceResult,
+  DeleteTransitGatewayPrefixListReferenceResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommand,
@@ -81,8 +83,8 @@ export class DeleteTransitGatewayPrefixListReferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTransitGatewayPrefixListReferenceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTransitGatewayPrefixListReferenceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTransitGatewayPrefixListReferenceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTransitGatewayPrefixListReferenceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

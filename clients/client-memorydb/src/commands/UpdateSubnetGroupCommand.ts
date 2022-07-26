@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { UpdateSubnetGroupRequest, UpdateSubnetGroupResponse } from "../models/models_0";
+import {
+  UpdateSubnetGroupRequest,
+  UpdateSubnetGroupRequestFilterSensitiveLog,
+  UpdateSubnetGroupResponse,
+  UpdateSubnetGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSubnetGroupCommand,
   serializeAws_json1_1UpdateSubnetGroupCommand,
@@ -73,8 +78,8 @@ export class UpdateSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubnetGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubnetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSubnetGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSubnetGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

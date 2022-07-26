@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import { DeleteRecommendationPreferencesRequest, DeleteRecommendationPreferencesResponse } from "../models/models_0";
+import {
+  DeleteRecommendationPreferencesRequest,
+  DeleteRecommendationPreferencesRequestFilterSensitiveLog,
+  DeleteRecommendationPreferencesResponse,
+  DeleteRecommendationPreferencesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteRecommendationPreferencesCommand,
   serializeAws_json1_0DeleteRecommendationPreferencesCommand,
@@ -77,8 +82,8 @@ export class DeleteRecommendationPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRecommendationPreferencesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRecommendationPreferencesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRecommendationPreferencesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRecommendationPreferencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

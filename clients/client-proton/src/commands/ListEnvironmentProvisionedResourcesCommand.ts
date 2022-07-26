@@ -14,7 +14,9 @@ import {
 
 import {
   ListEnvironmentProvisionedResourcesInput,
+  ListEnvironmentProvisionedResourcesInputFilterSensitiveLog,
   ListEnvironmentProvisionedResourcesOutput,
+  ListEnvironmentProvisionedResourcesOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0ListEnvironmentProvisionedResourcesCommand,
@@ -77,8 +79,8 @@ export class ListEnvironmentProvisionedResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentProvisionedResourcesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEnvironmentProvisionedResourcesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEnvironmentProvisionedResourcesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEnvironmentProvisionedResourcesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
-import { ListMediaCapturePipelinesRequest, ListMediaCapturePipelinesResponse } from "../models/models_0";
+import {
+  ListMediaCapturePipelinesRequest,
+  ListMediaCapturePipelinesRequestFilterSensitiveLog,
+  ListMediaCapturePipelinesResponse,
+  ListMediaCapturePipelinesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListMediaCapturePipelinesCommand,
   serializeAws_restJson1ListMediaCapturePipelinesCommand,
@@ -76,8 +81,8 @@ export class ListMediaCapturePipelinesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMediaCapturePipelinesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMediaCapturePipelinesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMediaCapturePipelinesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListMediaCapturePipelinesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

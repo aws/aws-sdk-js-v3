@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { ListTagsRequest, ListTagsResponse } from "../models/models_0";
+import {
+  ListTagsRequest,
+  ListTagsRequestFilterSensitiveLog,
+  ListTagsResponse,
+  ListTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListTagsCommand, serializeAws_json1_1ListTagsCommand } from "../protocols/Aws_json1_1";
 
 export interface ListTagsCommandInput extends ListTagsRequest {}
@@ -69,8 +74,8 @@ export class ListTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

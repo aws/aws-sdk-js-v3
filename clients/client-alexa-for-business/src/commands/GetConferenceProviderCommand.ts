@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { GetConferenceProviderRequest, GetConferenceProviderResponse } from "../models/models_0";
+import {
+  GetConferenceProviderRequest,
+  GetConferenceProviderRequestFilterSensitiveLog,
+  GetConferenceProviderResponse,
+  GetConferenceProviderResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetConferenceProviderCommand,
   serializeAws_json1_1GetConferenceProviderCommand,
@@ -72,8 +77,8 @@ export class GetConferenceProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConferenceProviderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetConferenceProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetConferenceProviderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetConferenceProviderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

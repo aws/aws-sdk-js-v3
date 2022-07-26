@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateEdgeDeploymentStageRequest } from "../models/models_0";
+import {
+  CreateEdgeDeploymentStageRequest,
+  CreateEdgeDeploymentStageRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEdgeDeploymentStageCommand,
   serializeAws_json1_1CreateEdgeDeploymentStageCommand,
@@ -72,7 +75,7 @@ export class CreateEdgeDeploymentStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEdgeDeploymentStageRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEdgeDeploymentStageRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

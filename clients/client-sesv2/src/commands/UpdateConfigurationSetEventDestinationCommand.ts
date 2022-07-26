@@ -14,7 +14,9 @@ import {
 
 import {
   UpdateConfigurationSetEventDestinationRequest,
+  UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog,
   UpdateConfigurationSetEventDestinationResponse,
+  UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommand,
@@ -84,8 +86,8 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfigurationSetEventDestinationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfigurationSetEventDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

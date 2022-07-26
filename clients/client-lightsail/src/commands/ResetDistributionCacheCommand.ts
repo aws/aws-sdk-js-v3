@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { ResetDistributionCacheRequest, ResetDistributionCacheResult } from "../models/models_1";
+import {
+  ResetDistributionCacheRequest,
+  ResetDistributionCacheRequestFilterSensitiveLog,
+  ResetDistributionCacheResult,
+  ResetDistributionCacheResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ResetDistributionCacheCommand,
   serializeAws_json1_1ResetDistributionCacheCommand,
@@ -75,8 +80,8 @@ export class ResetDistributionCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetDistributionCacheRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetDistributionCacheResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetDistributionCacheRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetDistributionCacheResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

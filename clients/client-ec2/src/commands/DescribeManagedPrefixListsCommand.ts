@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeManagedPrefixListsRequest, DescribeManagedPrefixListsResult } from "../models/models_3";
+import {
+  DescribeManagedPrefixListsRequest,
+  DescribeManagedPrefixListsRequestFilterSensitiveLog,
+  DescribeManagedPrefixListsResult,
+  DescribeManagedPrefixListsResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeManagedPrefixListsCommand,
   serializeAws_ec2DescribeManagedPrefixListsCommand,
@@ -73,8 +78,8 @@ export class DescribeManagedPrefixListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeManagedPrefixListsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeManagedPrefixListsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeManagedPrefixListsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeManagedPrefixListsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

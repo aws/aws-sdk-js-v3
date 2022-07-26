@@ -12,8 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetOpsSummaryResult } from "../models/models_1";
-import { GetOpsSummaryRequest } from "../models/models_2";
+import { GetOpsSummaryResult, GetOpsSummaryResultFilterSensitiveLog } from "../models/models_1";
+import { GetOpsSummaryRequest, GetOpsSummaryRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_json1_1GetOpsSummaryCommand,
   serializeAws_json1_1GetOpsSummaryCommand,
@@ -76,8 +76,8 @@ export class GetOpsSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOpsSummaryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetOpsSummaryResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOpsSummaryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetOpsSummaryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

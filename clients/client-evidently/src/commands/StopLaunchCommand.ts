@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { StopLaunchRequest, StopLaunchResponse } from "../models/models_0";
+import {
+  StopLaunchRequest,
+  StopLaunchRequestFilterSensitiveLog,
+  StopLaunchResponse,
+  StopLaunchResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopLaunchCommand,
   serializeAws_restJson1StopLaunchCommand,
@@ -76,8 +81,8 @@ export class StopLaunchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopLaunchRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopLaunchResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopLaunchRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopLaunchResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

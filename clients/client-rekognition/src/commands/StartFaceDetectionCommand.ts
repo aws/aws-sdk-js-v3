@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartFaceDetectionRequest, StartFaceDetectionResponse } from "../models/models_0";
+import {
+  StartFaceDetectionRequest,
+  StartFaceDetectionRequestFilterSensitiveLog,
+  StartFaceDetectionResponse,
+  StartFaceDetectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartFaceDetectionCommand,
   serializeAws_json1_1StartFaceDetectionCommand,
@@ -84,8 +89,8 @@ export class StartFaceDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFaceDetectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartFaceDetectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartFaceDetectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartFaceDetectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

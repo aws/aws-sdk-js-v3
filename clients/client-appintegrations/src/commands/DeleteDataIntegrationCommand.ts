@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import { DeleteDataIntegrationRequest, DeleteDataIntegrationResponse } from "../models/models_0";
+import {
+  DeleteDataIntegrationRequest,
+  DeleteDataIntegrationRequestFilterSensitiveLog,
+  DeleteDataIntegrationResponse,
+  DeleteDataIntegrationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDataIntegrationCommand,
   serializeAws_restJson1DeleteDataIntegrationCommand,
@@ -79,8 +84,8 @@ export class DeleteDataIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataIntegrationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataIntegrationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDataIntegrationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDataIntegrationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

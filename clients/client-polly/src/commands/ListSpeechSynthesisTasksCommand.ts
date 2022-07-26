@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListSpeechSynthesisTasksInput, ListSpeechSynthesisTasksOutput } from "../models/models_0";
+import {
+  ListSpeechSynthesisTasksInput,
+  ListSpeechSynthesisTasksInputFilterSensitiveLog,
+  ListSpeechSynthesisTasksOutput,
+  ListSpeechSynthesisTasksOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import {
   deserializeAws_restJson1ListSpeechSynthesisTasksCommand,
@@ -74,8 +79,8 @@ export class ListSpeechSynthesisTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSpeechSynthesisTasksInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSpeechSynthesisTasksOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSpeechSynthesisTasksInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSpeechSynthesisTasksOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

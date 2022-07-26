@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { LookupPolicyRequest, LookupPolicyResponse } from "../models/models_0";
+import {
+  LookupPolicyRequest,
+  LookupPolicyRequestFilterSensitiveLog,
+  LookupPolicyResponse,
+  LookupPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1LookupPolicyCommand,
   serializeAws_restJson1LookupPolicyCommand,
@@ -77,8 +82,8 @@ export class LookupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LookupPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: LookupPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: LookupPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: LookupPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

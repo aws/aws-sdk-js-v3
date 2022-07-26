@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSecretValueRequest, GetSecretValueResponse } from "../models/models_0";
+import {
+  GetSecretValueRequest,
+  GetSecretValueRequestFilterSensitiveLog,
+  GetSecretValueResponse,
+  GetSecretValueResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetSecretValueCommand,
   serializeAws_json1_1GetSecretValueCommand,
@@ -86,8 +91,8 @@ export class GetSecretValueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSecretValueRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSecretValueResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSecretValueRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSecretValueResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

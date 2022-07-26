@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeEmailMonitoringConfigurationRequest,
+  DescribeEmailMonitoringConfigurationRequestFilterSensitiveLog,
   DescribeEmailMonitoringConfigurationResponse,
+  DescribeEmailMonitoringConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEmailMonitoringConfigurationCommand,
@@ -77,8 +79,8 @@ export class DescribeEmailMonitoringConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEmailMonitoringConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEmailMonitoringConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEmailMonitoringConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEmailMonitoringConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

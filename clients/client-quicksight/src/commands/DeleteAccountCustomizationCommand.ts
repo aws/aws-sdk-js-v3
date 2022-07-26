@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse } from "../models/models_0";
+import {
+  DeleteAccountCustomizationRequest,
+  DeleteAccountCustomizationRequestFilterSensitiveLog,
+  DeleteAccountCustomizationResponse,
+  DeleteAccountCustomizationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAccountCustomizationCommand,
   serializeAws_restJson1DeleteAccountCustomizationCommand,
@@ -73,8 +78,8 @@ export class DeleteAccountCustomizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccountCustomizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAccountCustomizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAccountCustomizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAccountCustomizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

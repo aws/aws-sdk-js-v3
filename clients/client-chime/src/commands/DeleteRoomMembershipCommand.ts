@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteRoomMembershipRequest } from "../models/models_0";
+import { DeleteRoomMembershipRequest, DeleteRoomMembershipRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRoomMembershipCommand,
   serializeAws_restJson1DeleteRoomMembershipCommand,
@@ -72,7 +72,7 @@ export class DeleteRoomMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRoomMembershipRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRoomMembershipRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

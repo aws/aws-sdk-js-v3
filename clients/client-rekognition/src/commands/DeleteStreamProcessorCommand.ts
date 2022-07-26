@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/models_0";
+import {
+  DeleteStreamProcessorRequest,
+  DeleteStreamProcessorRequestFilterSensitiveLog,
+  DeleteStreamProcessorResponse,
+  DeleteStreamProcessorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteStreamProcessorCommand,
   serializeAws_json1_1DeleteStreamProcessorCommand,
@@ -73,8 +78,8 @@ export class DeleteStreamProcessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamProcessorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStreamProcessorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStreamProcessorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStreamProcessorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

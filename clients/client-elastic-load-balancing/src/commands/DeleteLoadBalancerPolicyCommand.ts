@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { DeleteLoadBalancerPolicyInput, DeleteLoadBalancerPolicyOutput } from "../models/models_0";
+import {
+  DeleteLoadBalancerPolicyInput,
+  DeleteLoadBalancerPolicyInputFilterSensitiveLog,
+  DeleteLoadBalancerPolicyOutput,
+  DeleteLoadBalancerPolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteLoadBalancerPolicyCommand,
   serializeAws_queryDeleteLoadBalancerPolicyCommand,
@@ -76,8 +81,8 @@ export class DeleteLoadBalancerPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLoadBalancerPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLoadBalancerPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLoadBalancerPolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLoadBalancerPolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -122,15 +122,6 @@ export interface AppMonitorConfiguration {
   EnableXRay?: boolean;
 }
 
-export namespace AppMonitorConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppMonitorConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains the information about whether the app monitor stores copies of the data
  *       that RUM collects in CloudWatch Logs. If it does, this structure also contains the name of the log group.</p>
@@ -148,15 +139,6 @@ export interface CwLog {
   CwLogGroup?: string;
 }
 
-export namespace CwLog {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CwLog): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains information about whether this app monitor stores a copy of
  *          the telemetry data that RUM collects using CloudWatch Logs.</p>
@@ -167,15 +149,6 @@ export interface DataStorage {
    *          that RUM collects in CloudWatch Logs. If it does, this structure also contains the name of the log group.</p>
    */
   CwLog?: CwLog;
-}
-
-export namespace DataStorage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataStorage): any => ({
-    ...obj,
-  });
 }
 
 export enum StateEnum {
@@ -237,15 +210,6 @@ export interface AppMonitor {
   DataStorage?: DataStorage;
 }
 
-export namespace AppMonitor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppMonitor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains information about the RUM app monitor.</p>
  */
@@ -264,15 +228,6 @@ export interface AppMonitorDetails {
    * <p>The version of the app monitor.</p>
    */
   version?: string;
-}
-
-export namespace AppMonitorDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppMonitorDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -350,29 +305,11 @@ export interface CreateAppMonitorRequest {
   CwLogEnabled?: boolean;
 }
 
-export namespace CreateAppMonitorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppMonitorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAppMonitorResponse {
   /**
    * <p>The unique ID of the new app monitor.</p>
    */
   Id?: string;
-}
-
-export namespace CreateAppMonitorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppMonitorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -486,25 +423,7 @@ export interface DeleteAppMonitorRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteAppMonitorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppMonitorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppMonitorResponse {}
-
-export namespace DeleteAppMonitorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppMonitorResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Resource not found.</p>
@@ -544,29 +463,11 @@ export interface GetAppMonitorRequest {
   Name: string | undefined;
 }
 
-export namespace GetAppMonitorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppMonitorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppMonitorResponse {
   /**
    * <p>A structure containing all the configuration information for the app monitor.</p>
    */
   AppMonitor?: AppMonitor;
-}
-
-export namespace GetAppMonitorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppMonitorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -599,15 +500,6 @@ export interface QueryFilter {
   Values?: string[];
 }
 
-export namespace QueryFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that defines the time range that you want to retrieve results from.</p>
  */
@@ -622,15 +514,6 @@ export interface TimeRange {
    *       range extends to the time that this operation is performed.</p>
    */
   Before?: number;
-}
-
-export namespace TimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeRange): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAppMonitorDataRequest {
@@ -661,15 +544,6 @@ export interface GetAppMonitorDataRequest {
   NextToken?: string;
 }
 
-export namespace GetAppMonitorDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppMonitorDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppMonitorDataResponse {
   /**
    * <p>The events that RUM collected that match your request.</p>
@@ -683,15 +557,6 @@ export interface GetAppMonitorDataResponse {
   NextToken?: string;
 }
 
-export namespace GetAppMonitorDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppMonitorDataResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppMonitorsRequest {
   /**
    * <p>The maximum number of results to return in one operation. </p>
@@ -702,15 +567,6 @@ export interface ListAppMonitorsRequest {
    * <p>Use the token returned by the previous operation to request the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAppMonitorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppMonitorsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -743,15 +599,6 @@ export interface AppMonitorSummary {
   State?: StateEnum | string;
 }
 
-export namespace AppMonitorSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppMonitorSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppMonitorsResponse {
   /**
    * <p>A token that you can use in a subsequent operation to retrieve the next set of
@@ -763,15 +610,6 @@ export interface ListAppMonitorsResponse {
    * <p>An array of structures that contain information about the returned app monitors.</p>
    */
   AppMonitorSummaries?: AppMonitorSummary[];
-}
-
-export namespace ListAppMonitorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppMonitorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAppMonitorRequest {
@@ -804,40 +642,13 @@ export interface UpdateAppMonitorRequest {
   CwLogEnabled?: boolean;
 }
 
-export namespace UpdateAppMonitorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppMonitorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAppMonitorResponse {}
-
-export namespace UpdateAppMonitorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppMonitorResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource that you want to see the tags of.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -850,15 +661,6 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tag keys and values associated with the resource you specified.</p>
    */
   Tags: Record<string, string> | undefined;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -894,15 +696,6 @@ export interface RumEvent {
   details: __LazyJsonString | string | undefined;
 }
 
-export namespace RumEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RumEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains information about the user session that this batch of events was collected from.</p>
  */
@@ -917,15 +710,6 @@ export interface UserDetails {
    * <p>The session ID that the performance events are from.</p>
    */
   sessionId?: string;
-}
-
-export namespace UserDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserDetails): any => ({
-    ...obj,
-  });
 }
 
 export interface PutRumEventsRequest {
@@ -955,25 +739,7 @@ export interface PutRumEventsRequest {
   RumEvents: RumEvent[] | undefined;
 }
 
-export namespace PutRumEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRumEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRumEventsResponse {}
-
-export namespace PutRumEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRumEventsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -987,25 +753,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1019,22 +767,214 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AppMonitorConfigurationFilterSensitiveLog = (obj: AppMonitorConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CwLogFilterSensitiveLog = (obj: CwLog): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataStorageFilterSensitiveLog = (obj: DataStorage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppMonitorFilterSensitiveLog = (obj: AppMonitor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppMonitorDetailsFilterSensitiveLog = (obj: AppMonitorDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAppMonitorRequestFilterSensitiveLog = (obj: CreateAppMonitorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAppMonitorResponseFilterSensitiveLog = (obj: CreateAppMonitorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppMonitorRequestFilterSensitiveLog = (obj: DeleteAppMonitorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppMonitorResponseFilterSensitiveLog = (obj: DeleteAppMonitorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppMonitorRequestFilterSensitiveLog = (obj: GetAppMonitorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppMonitorResponseFilterSensitiveLog = (obj: GetAppMonitorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryFilterFilterSensitiveLog = (obj: QueryFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppMonitorDataRequestFilterSensitiveLog = (obj: GetAppMonitorDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppMonitorDataResponseFilterSensitiveLog = (obj: GetAppMonitorDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppMonitorsRequestFilterSensitiveLog = (obj: ListAppMonitorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppMonitorSummaryFilterSensitiveLog = (obj: AppMonitorSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppMonitorsResponseFilterSensitiveLog = (obj: ListAppMonitorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppMonitorRequestFilterSensitiveLog = (obj: UpdateAppMonitorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppMonitorResponseFilterSensitiveLog = (obj: UpdateAppMonitorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RumEventFilterSensitiveLog = (obj: RumEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserDetailsFilterSensitiveLog = (obj: UserDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRumEventsRequestFilterSensitiveLog = (obj: PutRumEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRumEventsResponseFilterSensitiveLog = (obj: PutRumEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

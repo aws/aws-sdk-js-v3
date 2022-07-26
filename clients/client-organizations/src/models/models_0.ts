@@ -12,15 +12,6 @@ export interface AcceptHandshakeRequest {
   HandshakeId: string | undefined;
 }
 
-export namespace AcceptHandshakeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptHandshakeRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ActionType {
   ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE = "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
   APPROVE_ALL_FEATURES = "APPROVE_ALL_FEATURES",
@@ -49,16 +40,6 @@ export interface HandshakeParty {
    * <p>The type of party.</p>
    */
   Type: HandshakePartyType | string | undefined;
-}
-
-export namespace HandshakeParty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HandshakeParty): any => ({
-    ...obj,
-    ...(obj.Id && { Id: SENSITIVE_STRING }),
-  });
 }
 
 export enum HandshakeResourceType {
@@ -599,17 +580,6 @@ export interface Account {
   JoinedTimestamp?: Date;
 }
 
-export namespace Account {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Account): any => ({
-    ...obj,
-    ...(obj.Email && { Email: SENSITIVE_STRING }),
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>You attempted to close an account that is already closed.</p>
  */
@@ -779,15 +749,6 @@ export interface AttachPolicyRequest {
    *          </ul>
    */
   TargetId: string | undefined;
-}
-
-export namespace AttachPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ConstraintViolationExceptionReason {
@@ -1182,30 +1143,12 @@ export interface CancelHandshakeRequest {
   HandshakeId: string | undefined;
 }
 
-export namespace CancelHandshakeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelHandshakeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CloseAccountRequest {
   /**
    * <p>Retrieves the Amazon Web Services account Id for the current <code>CloseAccount</code> API request.
    *         </p>
    */
   AccountId: string | undefined;
-}
-
-export namespace CloseAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloseAccountRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1264,15 +1207,6 @@ export interface Tag {
    *             tag to an empty string, but you can't set the value of a tag to null.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAccountRequest {
@@ -1376,17 +1310,6 @@ export interface CreateAccountRequest {
    *         </note>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountRequest): any => ({
-    ...obj,
-    ...(obj.Email && { Email: SENSITIVE_STRING }),
-    ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
-  });
 }
 
 export enum CreateAccountFailureReason {
@@ -1530,16 +1453,6 @@ export interface CreateAccountStatus {
   FailureReason?: CreateAccountFailureReason | string;
 }
 
-export namespace CreateAccountStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountStatus): any => ({
-    ...obj,
-    ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateAccountResponse {
   /**
    * <p>A structure that contains details about the request to create an account. This
@@ -1552,18 +1465,6 @@ export interface CreateAccountResponse {
    *             <i>Organizations User Guide</i>.</p>
    */
   CreateAccountStatus?: CreateAccountStatus;
-}
-
-export namespace CreateAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountResponse): any => ({
-    ...obj,
-    ...(obj.CreateAccountStatus && {
-      CreateAccountStatus: CreateAccountStatus.filterSensitiveLog(obj.CreateAccountStatus),
-    }),
-  });
 }
 
 /**
@@ -1691,35 +1592,12 @@ export interface CreateGovCloudAccountRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateGovCloudAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGovCloudAccountRequest): any => ({
-    ...obj,
-    ...(obj.Email && { Email: SENSITIVE_STRING }),
-    ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateGovCloudAccountResponse {
   /**
    * <p>Contains the status about a <a>CreateAccount</a> or <a>CreateGovCloudAccount</a> request to create an Amazon Web Services account or an Amazon Web Services
    *             GovCloud (US) account in an organization.</p>
    */
   CreateAccountStatus?: CreateAccountStatus;
-}
-
-export namespace CreateGovCloudAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGovCloudAccountResponse): any => ({
-    ...obj,
-    ...(obj.CreateAccountStatus && {
-      CreateAccountStatus: CreateAccountStatus.filterSensitiveLog(obj.CreateAccountStatus),
-    }),
-  });
 }
 
 export enum OrganizationFeatureSet {
@@ -1756,15 +1634,6 @@ export interface CreateOrganizationRequest {
   FeatureSet?: OrganizationFeatureSet | string;
 }
 
-export namespace CreateOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOrganizationRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum PolicyTypeStatus {
   ENABLED = "ENABLED",
   PENDING_DISABLE = "PENDING_DISABLE",
@@ -1793,15 +1662,6 @@ export interface PolicyTypeSummary {
    *             available in the organization and enabled for that root.</p>
    */
   Status?: PolicyTypeStatus | string;
-}
-
-export namespace PolicyTypeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyTypeSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1865,31 +1725,11 @@ export interface Organization {
   AvailablePolicyTypes?: PolicyTypeSummary[];
 }
 
-export namespace Organization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Organization): any => ({
-    ...obj,
-    ...(obj.MasterAccountEmail && { MasterAccountEmail: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateOrganizationResponse {
   /**
    * <p>A structure that contains details about the newly created organization.</p>
    */
   Organization?: Organization;
-}
-
-export namespace CreateOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOrganizationResponse): any => ({
-    ...obj,
-    ...(obj.Organization && { Organization: Organization.filterSensitiveLog(obj.Organization) }),
-  });
 }
 
 export interface CreateOrganizationalUnitRequest {
@@ -1933,15 +1773,6 @@ export interface CreateOrganizationalUnitRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateOrganizationalUnitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOrganizationalUnitRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about an organizational unit (OU). An OU is a container of Amazon Web Services
  *             accounts within a root of an organization. Policies that are attached to an OU apply to
@@ -1973,29 +1804,11 @@ export interface OrganizationalUnit {
   Name?: string;
 }
 
-export namespace OrganizationalUnit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationalUnit): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateOrganizationalUnitResponse {
   /**
    * <p>A structure that contains details about the newly created OU.</p>
    */
   OrganizationalUnit?: OrganizationalUnit;
-}
-
-export namespace CreateOrganizationalUnitResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOrganizationalUnitResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2101,15 +1914,6 @@ export interface CreatePolicyRequest {
   Tags?: Tag[];
 }
 
-export namespace CreatePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a policy, but does not include the content. To see the
  *             content of a policy, see <a>DescribePolicy</a>.</p>
@@ -2155,15 +1959,6 @@ export interface PolicySummary {
   AwsManaged?: boolean;
 }
 
-export namespace PolicySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicySummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains rules to be applied to the affected accounts. Policies can be attached
  *             directly to accounts, or to roots and OUs to affect all accounts in those
@@ -2181,29 +1976,11 @@ export interface Policy {
   Content?: string;
 }
 
-export namespace Policy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Policy): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePolicyResponse {
   /**
    * <p>A structure that contains details about the newly created policy.</p>
    */
   Policy?: Policy;
-}
-
-export namespace CreatePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2287,15 +2064,6 @@ export interface DeclineHandshakeRequest {
   HandshakeId: string | undefined;
 }
 
-export namespace DeclineHandshakeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeclineHandshakeRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The organization isn't empty. To delete an organization, you must first remove all
  *             accounts except the management account, delete all OUs, and delete all policies.</p>
@@ -2328,15 +2096,6 @@ export interface DeleteOrganizationalUnitRequest {
    *     or digits.</p>
    */
   OrganizationalUnitId: string | undefined;
-}
-
-export namespace DeleteOrganizationalUnitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOrganizationalUnitRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2394,15 +2153,6 @@ export interface DeletePolicyRequest {
   PolicyId: string | undefined;
 }
 
-export namespace DeletePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The policy is attached to one or more entities. You must detach it from all roots,
  *             OUs, and accounts before performing this operation.</p>
@@ -2443,15 +2193,6 @@ export interface DeregisterDelegatedAdministratorRequest {
   ServicePrincipal: string | undefined;
 }
 
-export namespace DeregisterDelegatedAdministratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterDelegatedAdministratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountRequest {
   /**
    * <p>The unique identifier (ID) of the Amazon Web Services account that you want information about. You
@@ -2462,30 +2203,11 @@ export interface DescribeAccountRequest {
   AccountId: string | undefined;
 }
 
-export namespace DescribeAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountResponse {
   /**
    * <p>A structure that contains information about the requested account.</p>
    */
   Account?: Account;
-}
-
-export namespace DescribeAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountResponse): any => ({
-    ...obj,
-    ...(obj.Account && { Account: Account.filterSensitiveLog(obj.Account) }),
-  });
 }
 
 /**
@@ -2521,32 +2243,11 @@ export interface DescribeCreateAccountStatusRequest {
   CreateAccountRequestId: string | undefined;
 }
 
-export namespace DescribeCreateAccountStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCreateAccountStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCreateAccountStatusResponse {
   /**
    * <p>A structure that contains the current status of an account creation request.</p>
    */
   CreateAccountStatus?: CreateAccountStatus;
-}
-
-export namespace DescribeCreateAccountStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCreateAccountStatusResponse): any => ({
-    ...obj,
-    ...(obj.CreateAccountStatus && {
-      CreateAccountStatus: CreateAccountStatus.filterSensitiveLog(obj.CreateAccountStatus),
-    }),
-  });
 }
 
 export enum EffectivePolicyType {
@@ -2587,15 +2288,6 @@ export interface DescribeEffectivePolicyRequest {
   TargetId?: string;
 }
 
-export namespace DescribeEffectivePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEffectivePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains rules to be applied to the affected accounts. The effective policy is the
  *             aggregation of any policies the account inherits, plus any policy directly attached to
@@ -2623,29 +2315,11 @@ export interface EffectivePolicy {
   PolicyType?: EffectivePolicyType | string;
 }
 
-export namespace EffectivePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EffectivePolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEffectivePolicyResponse {
   /**
    * <p>The contents of the effective policy.</p>
    */
   EffectivePolicy?: EffectivePolicy;
-}
-
-export namespace DescribeEffectivePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEffectivePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2683,15 +2357,6 @@ export interface DescribeHandshakeRequest {
   HandshakeId: string | undefined;
 }
 
-export namespace DescribeHandshakeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHandshakeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationResponse {
   /**
    * <p>A structure that contains information about the organization.</p>
@@ -2707,16 +2372,6 @@ export interface DescribeOrganizationResponse {
   Organization?: Organization;
 }
 
-export namespace DescribeOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationResponse): any => ({
-    ...obj,
-    ...(obj.Organization && { Organization: Organization.filterSensitiveLog(obj.Organization) }),
-  });
-}
-
 export interface DescribeOrganizationalUnitRequest {
   /**
    * <p>The unique identifier (ID) of the organizational unit that you want details about. You
@@ -2730,29 +2385,11 @@ export interface DescribeOrganizationalUnitRequest {
   OrganizationalUnitId: string | undefined;
 }
 
-export namespace DescribeOrganizationalUnitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationalUnitRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationalUnitResponse {
   /**
    * <p>A structure that contains details about the specified OU.</p>
    */
   OrganizationalUnit?: OrganizationalUnit;
-}
-
-export namespace DescribeOrganizationalUnitResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationalUnitResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePolicyRequest {
@@ -2766,29 +2403,11 @@ export interface DescribePolicyRequest {
   PolicyId: string | undefined;
 }
 
-export namespace DescribePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePolicyResponse {
   /**
    * <p>A structure that contains details about the specified policy.</p>
    */
   Policy?: Policy;
-}
-
-export namespace DescribePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DetachPolicyRequest {
@@ -2828,15 +2447,6 @@ export interface DetachPolicyRequest {
   TargetId: string | undefined;
 }
 
-export namespace DetachPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The policy isn't attached to the specified target in the specified root.</p>
  */
@@ -2866,15 +2476,6 @@ export interface DisableAWSServiceAccessRequest {
    *                <i>service-abbreviation</i>.amazonaws.com</code>.</p>
    */
   ServicePrincipal: string | undefined;
-}
-
-export namespace DisableAWSServiceAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableAWSServiceAccessRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisablePolicyTypeRequest {
@@ -2913,15 +2514,6 @@ export interface DisablePolicyTypeRequest {
    *          </ul>
    */
   PolicyType: PolicyType | string | undefined;
-}
-
-export namespace DisablePolicyTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisablePolicyTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2965,29 +2557,11 @@ export interface Root {
   PolicyTypes?: PolicyTypeSummary[];
 }
 
-export namespace Root {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Root): any => ({
-    ...obj,
-  });
-}
-
 export interface DisablePolicyTypeResponse {
   /**
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
    */
   Root?: Root;
-}
-
-export namespace DisablePolicyTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisablePolicyTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3013,15 +2587,6 @@ export class RootNotFoundException extends __BaseException {
 
 export interface EnableAllFeaturesRequest {}
 
-export namespace EnableAllFeaturesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAllFeaturesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableAWSServiceAccessRequest {
   /**
    * <p>The service principal name of the Amazon Web Services service for which you want to enable
@@ -3030,15 +2595,6 @@ export interface EnableAWSServiceAccessRequest {
    *                <i>service-abbreviation</i>.amazonaws.com</code>.</p>
    */
   ServicePrincipal: string | undefined;
-}
-
-export namespace EnableAWSServiceAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAWSServiceAccessRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface EnablePolicyTypeRequest {
@@ -3079,29 +2635,11 @@ export interface EnablePolicyTypeRequest {
   PolicyType: PolicyType | string | undefined;
 }
 
-export namespace EnablePolicyTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnablePolicyTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnablePolicyTypeResponse {
   /**
    * <p>A structure that shows the root with the updated list of enabled policy types.</p>
    */
   Root?: Root;
-}
-
-export namespace EnablePolicyTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnablePolicyTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3205,17 +2743,6 @@ export interface InviteAccountToOrganizationRequest {
   Tags?: Tag[];
 }
 
-export namespace InviteAccountToOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InviteAccountToOrganizationRequest): any => ({
-    ...obj,
-    ...(obj.Target && { Target: HandshakeParty.filterSensitiveLog(obj.Target) }),
-    ...(obj.Notes && { Notes: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>You can't remove a management account from an organization. If you want the management
  *             account to become a member account in another organization, you must first delete the
@@ -3262,15 +2789,6 @@ export interface ListAccountsRequest {
   MaxResults?: number;
 }
 
-export namespace ListAccountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountsResponse {
   /**
    * <p>A list of objects in the organization.</p>
@@ -3284,16 +2802,6 @@ export interface ListAccountsResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAccountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
-    ...obj,
-    ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => Account.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListAccountsForParentRequest {
@@ -3325,15 +2833,6 @@ export interface ListAccountsForParentRequest {
   MaxResults?: number;
 }
 
-export namespace ListAccountsForParentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountsForParentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountsForParentResponse {
   /**
    * <p>A list of the accounts in the specified root or OU.</p>
@@ -3347,16 +2846,6 @@ export interface ListAccountsForParentResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAccountsForParentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountsForParentResponse): any => ({
-    ...obj,
-    ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => Account.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListAWSServiceAccessForOrganizationRequest {
@@ -3382,15 +2871,6 @@ export interface ListAWSServiceAccessForOrganizationRequest {
   MaxResults?: number;
 }
 
-export namespace ListAWSServiceAccessForOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAWSServiceAccessForOrganizationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains details of a service principal that represents an Amazon Web Services
  *             service that is enabled to integrate with Organizations.</p>
@@ -3409,15 +2889,6 @@ export interface EnabledServicePrincipal {
   DateEnabled?: Date;
 }
 
-export namespace EnabledServicePrincipal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnabledServicePrincipal): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAWSServiceAccessForOrganizationResponse {
   /**
    * <p>A list of the service principals for the services that are enabled to integrate with
@@ -3433,15 +2904,6 @@ export interface ListAWSServiceAccessForOrganizationResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAWSServiceAccessForOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAWSServiceAccessForOrganizationResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ChildType {
@@ -3498,15 +2960,6 @@ export interface ListChildrenRequest {
   MaxResults?: number;
 }
 
-export namespace ListChildrenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChildrenRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a list of child entities, either OUs or accounts.</p>
  */
@@ -3537,15 +2990,6 @@ export interface Child {
   Type?: ChildType | string;
 }
 
-export namespace Child {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Child): any => ({
-    ...obj,
-  });
-}
-
 export interface ListChildrenResponse {
   /**
    * <p>The list of children of the specified parent container.</p>
@@ -3559,15 +3003,6 @@ export interface ListChildrenResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListChildrenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChildrenResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCreateAccountStatusRequest {
@@ -3599,15 +3034,6 @@ export interface ListCreateAccountStatusRequest {
   MaxResults?: number;
 }
 
-export namespace ListCreateAccountStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCreateAccountStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCreateAccountStatusResponse {
   /**
    * <p>A list of objects with details about the requests. Certain elements, such as the
@@ -3623,18 +3049,6 @@ export interface ListCreateAccountStatusResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCreateAccountStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCreateAccountStatusResponse): any => ({
-    ...obj,
-    ...(obj.CreateAccountStatuses && {
-      CreateAccountStatuses: obj.CreateAccountStatuses.map((item) => CreateAccountStatus.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListDelegatedAdministratorsRequest {
@@ -3666,15 +3080,6 @@ export interface ListDelegatedAdministratorsRequest {
    *     that you receive all of the results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDelegatedAdministratorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDelegatedAdministratorsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3725,17 +3130,6 @@ export interface DelegatedAdministrator {
   DelegationEnabledDate?: Date;
 }
 
-export namespace DelegatedAdministrator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegatedAdministrator): any => ({
-    ...obj,
-    ...(obj.Email && { Email: SENSITIVE_STRING }),
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListDelegatedAdministratorsResponse {
   /**
    * <p>The list of delegated administrators in your organization.</p>
@@ -3749,20 +3143,6 @@ export interface ListDelegatedAdministratorsResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDelegatedAdministratorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDelegatedAdministratorsResponse): any => ({
-    ...obj,
-    ...(obj.DelegatedAdministrators && {
-      DelegatedAdministrators: obj.DelegatedAdministrators.map((item) =>
-        DelegatedAdministrator.filterSensitiveLog(item)
-      ),
-    }),
-  });
 }
 
 export interface ListDelegatedServicesForAccountRequest {
@@ -3793,15 +3173,6 @@ export interface ListDelegatedServicesForAccountRequest {
   MaxResults?: number;
 }
 
-export namespace ListDelegatedServicesForAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDelegatedServicesForAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the Amazon Web Services service for which the account is a delegated
  *             administrator.</p>
@@ -3821,15 +3192,6 @@ export interface DelegatedService {
   DelegationEnabledDate?: Date;
 }
 
-export namespace DelegatedService {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegatedService): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDelegatedServicesForAccountResponse {
   /**
    * <p>The services for which the account is a delegated administrator.</p>
@@ -3843,15 +3205,6 @@ export interface ListDelegatedServicesForAccountResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDelegatedServicesForAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDelegatedServicesForAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3875,15 +3228,6 @@ export interface HandshakeFilter {
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    */
   ParentHandshakeId?: string;
-}
-
-export namespace HandshakeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HandshakeFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListHandshakesForAccountRequest {
@@ -3920,15 +3264,6 @@ export interface ListHandshakesForAccountRequest {
   MaxResults?: number;
 }
 
-export namespace ListHandshakesForAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHandshakesForAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHandshakesForOrganizationRequest {
   /**
    * <p>A filter of the handshakes that you want included in the response. The default is all
@@ -3961,15 +3296,6 @@ export interface ListHandshakesForOrganizationRequest {
    *     that you receive all of the results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListHandshakesForOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHandshakesForOrganizationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOrganizationalUnitsForParentRequest {
@@ -4015,15 +3341,6 @@ export interface ListOrganizationalUnitsForParentRequest {
   MaxResults?: number;
 }
 
-export namespace ListOrganizationalUnitsForParentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationalUnitsForParentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOrganizationalUnitsForParentResponse {
   /**
    * <p>A list of the OUs in the specified root or parent OU.</p>
@@ -4037,15 +3354,6 @@ export interface ListOrganizationalUnitsForParentResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOrganizationalUnitsForParentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationalUnitsForParentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4114,15 +3422,6 @@ export interface ListParentsRequest {
   MaxResults?: number;
 }
 
-export namespace ListParentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListParentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ParentType {
   ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
   ROOT = "ROOT",
@@ -4159,15 +3458,6 @@ export interface Parent {
   Type?: ParentType | string;
 }
 
-export namespace Parent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Parent): any => ({
-    ...obj,
-  });
-}
-
 export interface ListParentsResponse {
   /**
    * <p>A list of parents for the specified child account or OU.</p>
@@ -4181,15 +3471,6 @@ export interface ListParentsResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListParentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListParentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPoliciesRequest {
@@ -4243,15 +3524,6 @@ export interface ListPoliciesRequest {
   MaxResults?: number;
 }
 
-export namespace ListPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPoliciesResponse {
   /**
    * <p>A list of policies that match the filter criteria in the request. The output list
@@ -4266,15 +3538,6 @@ export interface ListPoliciesResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPoliciesForTargetRequest {
@@ -4353,15 +3616,6 @@ export interface ListPoliciesForTargetRequest {
   MaxResults?: number;
 }
 
-export namespace ListPoliciesForTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPoliciesForTargetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPoliciesForTargetResponse {
   /**
    * <p>The list of policies that match the criteria in the request.</p>
@@ -4375,15 +3629,6 @@ export interface ListPoliciesForTargetResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPoliciesForTargetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPoliciesForTargetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRootsRequest {
@@ -4409,15 +3654,6 @@ export interface ListRootsRequest {
   MaxResults?: number;
 }
 
-export namespace ListRootsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRootsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRootsResponse {
   /**
    * <p>A list of roots that are defined in an organization.</p>
@@ -4431,15 +3667,6 @@ export interface ListRootsResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRootsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRootsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -4482,15 +3709,6 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the resource.</p>
@@ -4504,15 +3722,6 @@ export interface ListTagsForResourceResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTargetsForPolicyRequest {
@@ -4543,15 +3752,6 @@ export interface ListTargetsForPolicyRequest {
    *     that you receive all of the results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListTargetsForPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetType {
@@ -4609,15 +3809,6 @@ export interface PolicyTargetSummary {
   Type?: TargetType | string;
 }
 
-export namespace PolicyTargetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyTargetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTargetsForPolicyResponse {
   /**
    * <p>A list of structures, each of which contains details about one of the entities to
@@ -4632,15 +3823,6 @@ export interface ListTargetsForPolicyResponse {
    *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTargetsForPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4737,15 +3919,6 @@ export interface MoveAccountRequest {
   DestinationParentId: string | undefined;
 }
 
-export namespace MoveAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MoveAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>We can't find a source root or OU with the <code>ParentId</code> that you
  *             specified.</p>
@@ -4782,15 +3955,6 @@ export interface RegisterDelegatedAdministratorRequest {
   ServicePrincipal: string | undefined;
 }
 
-export namespace RegisterDelegatedAdministratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterDelegatedAdministratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveAccountFromOrganizationRequest {
   /**
    * <p>The unique identifier (ID) of the member account that you want to remove from the
@@ -4799,15 +3963,6 @@ export interface RemoveAccountFromOrganizationRequest {
    *     digits.</p>
    */
   AccountId: string | undefined;
-}
-
-export namespace RemoveAccountFromOrganizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveAccountFromOrganizationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4852,15 +4007,6 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The ID of the resource to remove a tag from.</p>
@@ -4897,15 +4043,6 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateOrganizationalUnitRequest {
   /**
    * <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from
@@ -4926,30 +4063,12 @@ export interface UpdateOrganizationalUnitRequest {
   Name?: string;
 }
 
-export namespace UpdateOrganizationalUnitRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOrganizationalUnitRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateOrganizationalUnitResponse {
   /**
    * <p>A structure that contains the details about the specified OU, including its new
    *             name.</p>
    */
   OrganizationalUnit?: OrganizationalUnit;
-}
-
-export namespace UpdateOrganizationalUnitResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOrganizationalUnitResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePolicyRequest {
@@ -4982,30 +4101,12 @@ export interface UpdatePolicyRequest {
   Content?: string;
 }
 
-export namespace UpdatePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePolicyResponse {
   /**
    * <p>A structure that contains details about the updated policy, showing the requested
    *             changes.</p>
    */
   Policy?: Policy;
-}
-
-export namespace UpdatePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5059,17 +4160,6 @@ export interface HandshakeResource {
    *             objects.</p>
    */
   Resources?: HandshakeResource[];
-}
-
-export namespace HandshakeResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HandshakeResource): any => ({
-    ...obj,
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-    ...(obj.Resources && { Resources: obj.Resources.map((item) => HandshakeResource.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -5196,17 +4286,6 @@ export interface Handshake {
   Resources?: HandshakeResource[];
 }
 
-export namespace Handshake {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Handshake): any => ({
-    ...obj,
-    ...(obj.Parties && { Parties: obj.Parties.map((item) => HandshakeParty.filterSensitiveLog(item)) }),
-    ...(obj.Resources && { Resources: obj.Resources.map((item) => HandshakeResource.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface AcceptHandshakeResponse {
   /**
    * <p>A structure that contains details about the accepted handshake.</p>
@@ -5214,31 +4293,11 @@ export interface AcceptHandshakeResponse {
   Handshake?: Handshake;
 }
 
-export namespace AcceptHandshakeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptHandshakeResponse): any => ({
-    ...obj,
-    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
-  });
-}
-
 export interface CancelHandshakeResponse {
   /**
    * <p>A structure that contains details about the handshake that you canceled.</p>
    */
   Handshake?: Handshake;
-}
-
-export namespace CancelHandshakeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelHandshakeResponse): any => ({
-    ...obj,
-    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
-  });
 }
 
 export interface DeclineHandshakeResponse {
@@ -5249,31 +4308,11 @@ export interface DeclineHandshakeResponse {
   Handshake?: Handshake;
 }
 
-export namespace DeclineHandshakeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeclineHandshakeResponse): any => ({
-    ...obj,
-    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
-  });
-}
-
 export interface DescribeHandshakeResponse {
   /**
    * <p>A structure that contains information about the specified handshake.</p>
    */
   Handshake?: Handshake;
-}
-
-export namespace DescribeHandshakeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHandshakeResponse): any => ({
-    ...obj,
-    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
-  });
 }
 
 export interface EnableAllFeaturesResponse {
@@ -5284,32 +4323,12 @@ export interface EnableAllFeaturesResponse {
   Handshake?: Handshake;
 }
 
-export namespace EnableAllFeaturesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableAllFeaturesResponse): any => ({
-    ...obj,
-    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
-  });
-}
-
 export interface InviteAccountToOrganizationResponse {
   /**
    * <p>A structure that contains details about the handshake that is created to support this
    *             invitation request.</p>
    */
   Handshake?: Handshake;
-}
-
-export namespace InviteAccountToOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InviteAccountToOrganizationResponse): any => ({
-    ...obj,
-    ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
-  });
 }
 
 export interface ListHandshakesForAccountResponse {
@@ -5328,15 +4347,6 @@ export interface ListHandshakesForAccountResponse {
   NextToken?: string;
 }
 
-export namespace ListHandshakesForAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHandshakesForAccountResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHandshakesForOrganizationResponse {
   /**
    * <p>A list of <a>Handshake</a> objects with details about each of the
@@ -5353,11 +4363,815 @@ export interface ListHandshakesForOrganizationResponse {
   NextToken?: string;
 }
 
-export namespace ListHandshakesForOrganizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHandshakesForOrganizationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptHandshakeRequestFilterSensitiveLog = (obj: AcceptHandshakeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HandshakePartyFilterSensitiveLog = (obj: HandshakeParty): any => ({
+  ...obj,
+  ...(obj.Id && { Id: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AccountFilterSensitiveLog = (obj: Account): any => ({
+  ...obj,
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AttachPolicyRequestFilterSensitiveLog = (obj: AttachPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelHandshakeRequestFilterSensitiveLog = (obj: CancelHandshakeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloseAccountRequestFilterSensitiveLog = (obj: CloseAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountRequestFilterSensitiveLog = (obj: CreateAccountRequest): any => ({
+  ...obj,
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+  ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountStatusFilterSensitiveLog = (obj: CreateAccountStatus): any => ({
+  ...obj,
+  ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountResponseFilterSensitiveLog = (obj: CreateAccountResponse): any => ({
+  ...obj,
+  ...(obj.CreateAccountStatus && {
+    CreateAccountStatus: CreateAccountStatusFilterSensitiveLog(obj.CreateAccountStatus),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateGovCloudAccountRequestFilterSensitiveLog = (obj: CreateGovCloudAccountRequest): any => ({
+  ...obj,
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+  ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateGovCloudAccountResponseFilterSensitiveLog = (obj: CreateGovCloudAccountResponse): any => ({
+  ...obj,
+  ...(obj.CreateAccountStatus && {
+    CreateAccountStatus: CreateAccountStatusFilterSensitiveLog(obj.CreateAccountStatus),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateOrganizationRequestFilterSensitiveLog = (obj: CreateOrganizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyTypeSummaryFilterSensitiveLog = (obj: PolicyTypeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationFilterSensitiveLog = (obj: Organization): any => ({
+  ...obj,
+  ...(obj.MasterAccountEmail && { MasterAccountEmail: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateOrganizationResponseFilterSensitiveLog = (obj: CreateOrganizationResponse): any => ({
+  ...obj,
+  ...(obj.Organization && { Organization: OrganizationFilterSensitiveLog(obj.Organization) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateOrganizationalUnitRequestFilterSensitiveLog = (obj: CreateOrganizationalUnitRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationalUnitFilterSensitiveLog = (obj: OrganizationalUnit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOrganizationalUnitResponseFilterSensitiveLog = (obj: CreateOrganizationalUnitResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyRequestFilterSensitiveLog = (obj: CreatePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicySummaryFilterSensitiveLog = (obj: PolicySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyFilterSensitiveLog = (obj: Policy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyResponseFilterSensitiveLog = (obj: CreatePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeclineHandshakeRequestFilterSensitiveLog = (obj: DeclineHandshakeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOrganizationalUnitRequestFilterSensitiveLog = (obj: DeleteOrganizationalUnitRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterDelegatedAdministratorRequestFilterSensitiveLog = (
+  obj: DeregisterDelegatedAdministratorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountRequestFilterSensitiveLog = (obj: DescribeAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountResponseFilterSensitiveLog = (obj: DescribeAccountResponse): any => ({
+  ...obj,
+  ...(obj.Account && { Account: AccountFilterSensitiveLog(obj.Account) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeCreateAccountStatusRequestFilterSensitiveLog = (obj: DescribeCreateAccountStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCreateAccountStatusResponseFilterSensitiveLog = (
+  obj: DescribeCreateAccountStatusResponse
+): any => ({
+  ...obj,
+  ...(obj.CreateAccountStatus && {
+    CreateAccountStatus: CreateAccountStatusFilterSensitiveLog(obj.CreateAccountStatus),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeEffectivePolicyRequestFilterSensitiveLog = (obj: DescribeEffectivePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EffectivePolicyFilterSensitiveLog = (obj: EffectivePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEffectivePolicyResponseFilterSensitiveLog = (obj: DescribeEffectivePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHandshakeRequestFilterSensitiveLog = (obj: DescribeHandshakeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationResponseFilterSensitiveLog = (obj: DescribeOrganizationResponse): any => ({
+  ...obj,
+  ...(obj.Organization && { Organization: OrganizationFilterSensitiveLog(obj.Organization) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationalUnitRequestFilterSensitiveLog = (obj: DescribeOrganizationalUnitRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationalUnitResponseFilterSensitiveLog = (obj: DescribeOrganizationalUnitResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePolicyRequestFilterSensitiveLog = (obj: DescribePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePolicyResponseFilterSensitiveLog = (obj: DescribePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachPolicyRequestFilterSensitiveLog = (obj: DetachPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableAWSServiceAccessRequestFilterSensitiveLog = (obj: DisableAWSServiceAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisablePolicyTypeRequestFilterSensitiveLog = (obj: DisablePolicyTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RootFilterSensitiveLog = (obj: Root): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisablePolicyTypeResponseFilterSensitiveLog = (obj: DisablePolicyTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableAllFeaturesRequestFilterSensitiveLog = (obj: EnableAllFeaturesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableAWSServiceAccessRequestFilterSensitiveLog = (obj: EnableAWSServiceAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnablePolicyTypeRequestFilterSensitiveLog = (obj: EnablePolicyTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnablePolicyTypeResponseFilterSensitiveLog = (obj: EnablePolicyTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InviteAccountToOrganizationRequestFilterSensitiveLog = (obj: InviteAccountToOrganizationRequest): any => ({
+  ...obj,
+  ...(obj.Target && { Target: HandshakePartyFilterSensitiveLog(obj.Target) }),
+  ...(obj.Notes && { Notes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAccountsRequestFilterSensitiveLog = (obj: ListAccountsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountsResponseFilterSensitiveLog = (obj: ListAccountsResponse): any => ({
+  ...obj,
+  ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => AccountFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListAccountsForParentRequestFilterSensitiveLog = (obj: ListAccountsForParentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountsForParentResponseFilterSensitiveLog = (obj: ListAccountsForParentResponse): any => ({
+  ...obj,
+  ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => AccountFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListAWSServiceAccessForOrganizationRequestFilterSensitiveLog = (
+  obj: ListAWSServiceAccessForOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnabledServicePrincipalFilterSensitiveLog = (obj: EnabledServicePrincipal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAWSServiceAccessForOrganizationResponseFilterSensitiveLog = (
+  obj: ListAWSServiceAccessForOrganizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChildrenRequestFilterSensitiveLog = (obj: ListChildrenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChildFilterSensitiveLog = (obj: Child): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChildrenResponseFilterSensitiveLog = (obj: ListChildrenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCreateAccountStatusRequestFilterSensitiveLog = (obj: ListCreateAccountStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCreateAccountStatusResponseFilterSensitiveLog = (obj: ListCreateAccountStatusResponse): any => ({
+  ...obj,
+  ...(obj.CreateAccountStatuses && {
+    CreateAccountStatuses: obj.CreateAccountStatuses.map((item) => CreateAccountStatusFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListDelegatedAdministratorsRequestFilterSensitiveLog = (obj: ListDelegatedAdministratorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DelegatedAdministratorFilterSensitiveLog = (obj: DelegatedAdministrator): any => ({
+  ...obj,
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListDelegatedAdministratorsResponseFilterSensitiveLog = (
+  obj: ListDelegatedAdministratorsResponse
+): any => ({
+  ...obj,
+  ...(obj.DelegatedAdministrators && {
+    DelegatedAdministrators: obj.DelegatedAdministrators.map((item) => DelegatedAdministratorFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListDelegatedServicesForAccountRequestFilterSensitiveLog = (
+  obj: ListDelegatedServicesForAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DelegatedServiceFilterSensitiveLog = (obj: DelegatedService): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDelegatedServicesForAccountResponseFilterSensitiveLog = (
+  obj: ListDelegatedServicesForAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HandshakeFilterFilterSensitiveLog = (obj: HandshakeFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHandshakesForAccountRequestFilterSensitiveLog = (obj: ListHandshakesForAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHandshakesForOrganizationRequestFilterSensitiveLog = (
+  obj: ListHandshakesForOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationalUnitsForParentRequestFilterSensitiveLog = (
+  obj: ListOrganizationalUnitsForParentRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationalUnitsForParentResponseFilterSensitiveLog = (
+  obj: ListOrganizationalUnitsForParentResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListParentsRequestFilterSensitiveLog = (obj: ListParentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParentFilterSensitiveLog = (obj: Parent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListParentsResponseFilterSensitiveLog = (obj: ListParentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPoliciesRequestFilterSensitiveLog = (obj: ListPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPoliciesResponseFilterSensitiveLog = (obj: ListPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPoliciesForTargetRequestFilterSensitiveLog = (obj: ListPoliciesForTargetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPoliciesForTargetResponseFilterSensitiveLog = (obj: ListPoliciesForTargetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRootsRequestFilterSensitiveLog = (obj: ListRootsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRootsResponseFilterSensitiveLog = (obj: ListRootsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForPolicyRequestFilterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyTargetSummaryFilterSensitiveLog = (obj: PolicyTargetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForPolicyResponseFilterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MoveAccountRequestFilterSensitiveLog = (obj: MoveAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterDelegatedAdministratorRequestFilterSensitiveLog = (
+  obj: RegisterDelegatedAdministratorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveAccountFromOrganizationRequestFilterSensitiveLog = (
+  obj: RemoveAccountFromOrganizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOrganizationalUnitRequestFilterSensitiveLog = (obj: UpdateOrganizationalUnitRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOrganizationalUnitResponseFilterSensitiveLog = (obj: UpdateOrganizationalUnitResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyRequestFilterSensitiveLog = (obj: UpdatePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyResponseFilterSensitiveLog = (obj: UpdatePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HandshakeResourceFilterSensitiveLog = (obj: HandshakeResource): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+  ...(obj.Resources && { Resources: obj.Resources.map((item) => HandshakeResourceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const HandshakeFilterSensitiveLog = (obj: Handshake): any => ({
+  ...obj,
+  ...(obj.Parties && { Parties: obj.Parties.map((item) => HandshakePartyFilterSensitiveLog(item)) }),
+  ...(obj.Resources && { Resources: obj.Resources.map((item) => HandshakeResourceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const AcceptHandshakeResponseFilterSensitiveLog = (obj: AcceptHandshakeResponse): any => ({
+  ...obj,
+  ...(obj.Handshake && { Handshake: HandshakeFilterSensitiveLog(obj.Handshake) }),
+});
+
+/**
+ * @internal
+ */
+export const CancelHandshakeResponseFilterSensitiveLog = (obj: CancelHandshakeResponse): any => ({
+  ...obj,
+  ...(obj.Handshake && { Handshake: HandshakeFilterSensitiveLog(obj.Handshake) }),
+});
+
+/**
+ * @internal
+ */
+export const DeclineHandshakeResponseFilterSensitiveLog = (obj: DeclineHandshakeResponse): any => ({
+  ...obj,
+  ...(obj.Handshake && { Handshake: HandshakeFilterSensitiveLog(obj.Handshake) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeHandshakeResponseFilterSensitiveLog = (obj: DescribeHandshakeResponse): any => ({
+  ...obj,
+  ...(obj.Handshake && { Handshake: HandshakeFilterSensitiveLog(obj.Handshake) }),
+});
+
+/**
+ * @internal
+ */
+export const EnableAllFeaturesResponseFilterSensitiveLog = (obj: EnableAllFeaturesResponse): any => ({
+  ...obj,
+  ...(obj.Handshake && { Handshake: HandshakeFilterSensitiveLog(obj.Handshake) }),
+});
+
+/**
+ * @internal
+ */
+export const InviteAccountToOrganizationResponseFilterSensitiveLog = (
+  obj: InviteAccountToOrganizationResponse
+): any => ({
+  ...obj,
+  ...(obj.Handshake && { Handshake: HandshakeFilterSensitiveLog(obj.Handshake) }),
+});
+
+/**
+ * @internal
+ */
+export const ListHandshakesForAccountResponseFilterSensitiveLog = (obj: ListHandshakesForAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHandshakesForOrganizationResponseFilterSensitiveLog = (
+  obj: ListHandshakesForOrganizationResponse
+): any => ({
+  ...obj,
+});

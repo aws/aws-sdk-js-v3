@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartMaintenanceRequest, StartMaintenanceResponse } from "../models/models_0";
+import {
+  StartMaintenanceRequest,
+  StartMaintenanceRequestFilterSensitiveLog,
+  StartMaintenanceResponse,
+  StartMaintenanceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1StartMaintenanceCommand,
@@ -79,8 +84,8 @@ export class StartMaintenanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMaintenanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartMaintenanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMaintenanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartMaintenanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

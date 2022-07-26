@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteAlarmRequest, DeleteAlarmResult } from "../models/models_0";
+import {
+  DeleteAlarmRequest,
+  DeleteAlarmRequestFilterSensitiveLog,
+  DeleteAlarmResult,
+  DeleteAlarmResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAlarmCommand,
   serializeAws_json1_1DeleteAlarmCommand,
@@ -76,8 +81,8 @@ export class DeleteAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlarmRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAlarmResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAlarmRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAlarmResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

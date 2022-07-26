@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { StopFailbackRequest } from "../models/models_0";
+import { StopFailbackRequest, StopFailbackRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1StopFailbackCommand,
   serializeAws_restJson1StopFailbackCommand,
@@ -72,7 +72,7 @@ export class StopFailbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopFailbackRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StopFailbackRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

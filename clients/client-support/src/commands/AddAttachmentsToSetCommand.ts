@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddAttachmentsToSetRequest, AddAttachmentsToSetResponse } from "../models/models_0";
+import {
+  AddAttachmentsToSetRequest,
+  AddAttachmentsToSetRequestFilterSensitiveLog,
+  AddAttachmentsToSetResponse,
+  AddAttachmentsToSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AddAttachmentsToSetCommand,
   serializeAws_json1_1AddAttachmentsToSetCommand,
@@ -89,8 +94,8 @@ export class AddAttachmentsToSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddAttachmentsToSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddAttachmentsToSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddAttachmentsToSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddAttachmentsToSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

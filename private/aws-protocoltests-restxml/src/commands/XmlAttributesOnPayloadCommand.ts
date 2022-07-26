@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlAttributesOnPayloadInputOutput } from "../models/models_0";
+import {
+  XmlAttributesOnPayloadInputOutput,
+  XmlAttributesOnPayloadInputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlXmlAttributesOnPayloadCommand,
   serializeAws_restXmlXmlAttributesOnPayloadCommand,
@@ -72,8 +75,8 @@ export class XmlAttributesOnPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlAttributesOnPayloadInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: XmlAttributesOnPayloadInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlAttributesOnPayloadInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: XmlAttributesOnPayloadInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import { StopModelRequest, StopModelResponse } from "../models/models_0";
+import {
+  StopModelRequest,
+  StopModelRequestFilterSensitiveLog,
+  StopModelResponse,
+  StopModelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopModelCommand,
   serializeAws_restJson1StopModelCommand,
@@ -76,8 +81,8 @@ export class StopModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopModelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopModelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopModelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopModelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

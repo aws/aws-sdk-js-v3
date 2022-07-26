@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { DeleteEnvironmentRequest, DeleteEnvironmentResult } from "../models/models_0";
+import {
+  DeleteEnvironmentRequest,
+  DeleteEnvironmentRequestFilterSensitiveLog,
+  DeleteEnvironmentResult,
+  DeleteEnvironmentResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEnvironmentCommand,
   serializeAws_json1_1DeleteEnvironmentCommand,
@@ -73,8 +78,8 @@ export class DeleteEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEnvironmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEnvironmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEnvironmentResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

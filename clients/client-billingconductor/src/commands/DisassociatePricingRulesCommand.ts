@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import { DisassociatePricingRulesInput, DisassociatePricingRulesOutput } from "../models/models_0";
+import {
+  DisassociatePricingRulesInput,
+  DisassociatePricingRulesInputFilterSensitiveLog,
+  DisassociatePricingRulesOutput,
+  DisassociatePricingRulesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociatePricingRulesCommand,
   serializeAws_restJson1DisassociatePricingRulesCommand,
@@ -74,8 +79,8 @@ export class DisassociatePricingRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociatePricingRulesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociatePricingRulesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociatePricingRulesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociatePricingRulesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

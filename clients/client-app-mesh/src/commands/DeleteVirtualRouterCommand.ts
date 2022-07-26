@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DeleteVirtualRouterInput, DeleteVirtualRouterOutput } from "../models/models_0";
+import {
+  DeleteVirtualRouterInput,
+  DeleteVirtualRouterInputFilterSensitiveLog,
+  DeleteVirtualRouterOutput,
+  DeleteVirtualRouterOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVirtualRouterCommand,
   serializeAws_restJson1DeleteVirtualRouterCommand,
@@ -74,8 +79,8 @@ export class DeleteVirtualRouterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualRouterInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVirtualRouterOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVirtualRouterInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVirtualRouterOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

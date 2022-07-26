@@ -34,15 +34,6 @@ export interface BatchGetChannelRequest {
   arns: string[] | undefined;
 }
 
-export namespace BatchGetChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ChannelLatencyMode {
   LowLatency = "LOW",
   NormalLatency = "NORMAL",
@@ -126,15 +117,6 @@ export interface Channel {
   tags?: Record<string, string>;
 }
 
-export namespace Channel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Channel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Error related to a specific channel, specified by its ARN.</p>
  */
@@ -155,15 +137,6 @@ export interface BatchError {
   message?: string;
 }
 
-export namespace BatchError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetChannelResponse {
   /**
    * <p/>
@@ -176,29 +149,11 @@ export interface BatchGetChannelResponse {
   errors?: BatchError[];
 }
 
-export namespace BatchGetChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetStreamKeyRequest {
   /**
    * <p>Array of ARNs, one per channel.</p>
    */
   arns: string[] | undefined;
-}
-
-export namespace BatchGetStreamKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetStreamKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -226,16 +181,6 @@ export interface StreamKey {
   tags?: Record<string, string>;
 }
 
-export namespace StreamKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamKey): any => ({
-    ...obj,
-    ...(obj.value && { value: SENSITIVE_STRING }),
-  });
-}
-
 export interface BatchGetStreamKeyResponse {
   /**
    * <p/>
@@ -246,16 +191,6 @@ export interface BatchGetStreamKeyResponse {
    * <p/>
    */
   errors?: BatchError[];
-}
-
-export namespace BatchGetStreamKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetStreamKeyResponse): any => ({
-    ...obj,
-    ...(obj.streamKeys && { streamKeys: obj.streamKeys.map((item) => StreamKey.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface CreateChannelRequest {
@@ -311,15 +246,6 @@ export interface CreateChannelRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateChannelResponse {
   /**
    * <p/>
@@ -330,16 +256,6 @@ export interface CreateChannelResponse {
    * <p/>
    */
   streamKey?: StreamKey;
-}
-
-export namespace CreateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
-    ...obj,
-    ...(obj.streamKey && { streamKey: StreamKey.filterSensitiveLog(obj.streamKey) }),
-  });
 }
 
 /**
@@ -472,15 +388,6 @@ export interface S3DestinationConfiguration {
   bucketName: string | undefined;
 }
 
-export namespace S3DestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that describes a location where recorded videos will be stored. Each member
  *       represents a type of destination configuration. For recording, you define one and only one
@@ -491,15 +398,6 @@ export interface DestinationConfiguration {
    * <p>An S3 destination configuration where recorded videos will be stored.</p>
    */
   s3?: S3DestinationConfiguration;
-}
-
-export namespace DestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum RecordingMode {
@@ -529,15 +427,6 @@ export interface ThumbnailConfiguration {
   targetIntervalSeconds?: number;
 }
 
-export namespace ThumbnailConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThumbnailConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRecordingConfigurationRequest {
   /**
    * <p>Recording-configuration name. The value does not need to be unique.</p>
@@ -560,15 +449,6 @@ export interface CreateRecordingConfigurationRequest {
    *       session and modify the interval at which thumbnails are generated for the live session.</p>
    */
   thumbnailConfiguration?: ThumbnailConfiguration;
-}
-
-export namespace CreateRecordingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRecordingConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RecordingConfigurationState {
@@ -614,29 +494,11 @@ export interface RecordingConfiguration {
   thumbnailConfiguration?: ThumbnailConfiguration;
 }
 
-export namespace RecordingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRecordingConfigurationResponse {
   /**
    *
    */
   recordingConfiguration?: RecordingConfiguration;
-}
-
-export namespace CreateRecordingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRecordingConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -675,30 +537,11 @@ export interface CreateStreamKeyRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateStreamKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStreamKeyResponse {
   /**
    * <p>Stream key used to authenticate an RTMPS stream for ingestion.</p>
    */
   streamKey?: StreamKey;
-}
-
-export namespace CreateStreamKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStreamKeyResponse): any => ({
-    ...obj,
-    ...(obj.streamKey && { streamKey: StreamKey.filterSensitiveLog(obj.streamKey) }),
-  });
 }
 
 export interface DeleteChannelRequest {
@@ -708,15 +551,6 @@ export interface DeleteChannelRequest {
   arn: string | undefined;
 }
 
-export namespace DeleteChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePlaybackKeyPairRequest {
   /**
    * <p>ARN of the key pair to be deleted.</p>
@@ -724,40 +558,13 @@ export interface DeletePlaybackKeyPairRequest {
   arn: string | undefined;
 }
 
-export namespace DeletePlaybackKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlaybackKeyPairRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePlaybackKeyPairResponse {}
-
-export namespace DeletePlaybackKeyPairResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlaybackKeyPairResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRecordingConfigurationRequest {
   /**
    * <p>ARN of the recording configuration to be deleted.</p>
    */
   arn: string | undefined;
-}
-
-export namespace DeleteRecordingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRecordingConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteStreamKeyRequest {
@@ -767,29 +574,11 @@ export interface DeleteStreamKeyRequest {
   arn: string | undefined;
 }
 
-export namespace DeleteStreamKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetChannelRequest {
   /**
    * <p>ARN of the channel for which the configuration is to be retrieved.</p>
    */
   arn: string | undefined;
-}
-
-export namespace GetChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetChannelResponse {
@@ -799,29 +588,11 @@ export interface GetChannelResponse {
   channel?: Channel;
 }
 
-export namespace GetChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPlaybackKeyPairRequest {
   /**
    * <p>ARN of the key pair to be returned.</p>
    */
   arn: string | undefined;
-}
-
-export namespace GetPlaybackKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPlaybackKeyPairRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -849,29 +620,11 @@ export interface PlaybackKeyPair {
   tags?: Record<string, string>;
 }
 
-export namespace PlaybackKeyPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlaybackKeyPair): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPlaybackKeyPairResponse {
   /**
    *
    */
   keyPair?: PlaybackKeyPair;
-}
-
-export namespace GetPlaybackKeyPairResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPlaybackKeyPairResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRecordingConfigurationRequest {
@@ -881,29 +634,11 @@ export interface GetRecordingConfigurationRequest {
   arn: string | undefined;
 }
 
-export namespace GetRecordingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecordingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRecordingConfigurationResponse {
   /**
    *
    */
   recordingConfiguration?: RecordingConfiguration;
-}
-
-export namespace GetRecordingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecordingConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -935,15 +670,6 @@ export interface GetStreamRequest {
    * <p>Channel ARN for stream to be accessed.</p>
    */
   channelArn: string | undefined;
-}
-
-export namespace GetStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum StreamHealth {
@@ -1000,29 +726,11 @@ export interface _Stream {
   viewerCount?: number;
 }
 
-export namespace _Stream {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Stream): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStreamResponse {
   /**
    * <p/>
    */
   stream?: _Stream;
-}
-
-export namespace GetStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetStreamKeyRequest {
@@ -1032,30 +740,11 @@ export interface GetStreamKeyRequest {
   arn: string | undefined;
 }
 
-export namespace GetStreamKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStreamKeyResponse {
   /**
    *
    */
   streamKey?: StreamKey;
-}
-
-export namespace GetStreamKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamKeyResponse): any => ({
-    ...obj,
-    ...(obj.streamKey && { streamKey: StreamKey.filterSensitiveLog(obj.streamKey) }),
-  });
 }
 
 export interface GetStreamSessionRequest {
@@ -1070,15 +759,6 @@ export interface GetStreamSessionRequest {
    *       channel, if it exists.</p>
    */
   streamId?: string;
-}
-
-export namespace GetStreamSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamSessionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1104,15 +784,6 @@ export interface AudioConfiguration {
    * <p>Number of audio channels.</p>
    */
   channels?: number;
-}
-
-export namespace AudioConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1162,15 +833,6 @@ export interface VideoConfiguration {
   videoWidth?: number;
 }
 
-export namespace VideoConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Object specifying the ingest configuration set up by the broadcaster, usually in an
  *       encoder.</p>
@@ -1185,15 +847,6 @@ export interface IngestConfiguration {
    * <p>Encoder settings for audio.</p>
    */
   audio?: AudioConfiguration;
-}
-
-export namespace IngestConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IngestConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1215,15 +868,6 @@ export interface StreamEvent {
    * <p>UTC ISO-8601 formatted timestamp of when the event occurred.</p>
    */
   eventTime?: Date;
-}
-
-export namespace StreamEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1271,29 +915,11 @@ export interface StreamSession {
   truncatedEvents?: StreamEvent[];
 }
 
-export namespace StreamSession {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamSession): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStreamSessionResponse {
   /**
    * <p>List of stream details.</p>
    */
   streamSession?: StreamSession;
-}
-
-export namespace GetStreamSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStreamSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportPlaybackKeyPairRequest {
@@ -1313,29 +939,11 @@ export interface ImportPlaybackKeyPairRequest {
   tags?: Record<string, string>;
 }
 
-export namespace ImportPlaybackKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportPlaybackKeyPairRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportPlaybackKeyPairResponse {
   /**
    * <p/>
    */
   keyPair?: PlaybackKeyPair;
-}
-
-export namespace ImportPlaybackKeyPairResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportPlaybackKeyPairResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListChannelsRequest {
@@ -1359,15 +967,6 @@ export interface ListChannelsRequest {
    * <p>Maximum number of channels to return. Default: 50.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1410,15 +1009,6 @@ export interface ChannelSummary {
   tags?: Record<string, string>;
 }
 
-export namespace ChannelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListChannelsResponse {
   /**
    * <p>List of the matching channels.</p>
@@ -1432,15 +1022,6 @@ export interface ListChannelsResponse {
   nextToken?: string;
 }
 
-export namespace ListChannelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPlaybackKeyPairsRequest {
   /**
    * <p>Maximum number of key pairs to return.</p>
@@ -1452,15 +1033,6 @@ export interface ListPlaybackKeyPairsRequest {
    *         <code>nextToken</code> response field. Default: 50.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListPlaybackKeyPairsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlaybackKeyPairsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1483,15 +1055,6 @@ export interface PlaybackKeyPairSummary {
   tags?: Record<string, string>;
 }
 
-export namespace PlaybackKeyPairSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlaybackKeyPairSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPlaybackKeyPairsResponse {
   /**
    * <p>List of key pairs.</p>
@@ -1505,15 +1068,6 @@ export interface ListPlaybackKeyPairsResponse {
   nextToken?: string;
 }
 
-export namespace ListPlaybackKeyPairsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlaybackKeyPairsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRecordingConfigurationsRequest {
   /**
    * <p>The first recording configuration to retrieve. This is used for pagination; see the
@@ -1525,15 +1079,6 @@ export interface ListRecordingConfigurationsRequest {
    * <p>Maximum number of recording configurations to return. Default: 50. </p>
    */
   maxResults?: number;
-}
-
-export namespace ListRecordingConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecordingConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1567,15 +1112,6 @@ export interface RecordingConfigurationSummary {
   tags?: Record<string, string>;
 }
 
-export namespace RecordingConfigurationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordingConfigurationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRecordingConfigurationsResponse {
   /**
    * <p>List of the matching recording configurations.</p>
@@ -1587,15 +1123,6 @@ export interface ListRecordingConfigurationsResponse {
    *         <code>nextToken</code> in the request to get the next set.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListRecordingConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecordingConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStreamKeysRequest {
@@ -1614,15 +1141,6 @@ export interface ListStreamKeysRequest {
    * <p>Maximum number of streamKeys to return. Default: 50.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListStreamKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamKeysRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1645,15 +1163,6 @@ export interface StreamKeySummary {
   tags?: Record<string, string>;
 }
 
-export namespace StreamKeySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamKeySummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStreamKeysResponse {
   /**
    * <p>List of stream keys.</p>
@@ -1667,15 +1176,6 @@ export interface ListStreamKeysResponse {
   nextToken?: string;
 }
 
-export namespace ListStreamKeysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamKeysResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Object specifying the stream attribute on which to filter.</p>
  */
@@ -1684,15 +1184,6 @@ export interface StreamFilters {
    * <p>The stream’s health.</p>
    */
   health?: StreamHealth | string;
-}
-
-export namespace StreamFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamFilters): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStreamsRequest {
@@ -1711,15 +1202,6 @@ export interface ListStreamsRequest {
    * <p>Maximum number of streams to return. Default: 50.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListStreamsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1760,15 +1242,6 @@ export interface StreamSummary {
   startTime?: Date;
 }
 
-export namespace StreamSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStreamsResponse {
   /**
    * <p>List of streams.</p>
@@ -1780,15 +1253,6 @@ export interface ListStreamsResponse {
    *       request to get the next set.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListStreamsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStreamSessionsRequest {
@@ -1807,15 +1271,6 @@ export interface ListStreamSessionsRequest {
    * <p>Maximum number of streams to return. Default: 50.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListStreamSessionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamSessionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1844,15 +1299,6 @@ export interface StreamSessionSummary {
   hasErrorEvent?: boolean;
 }
 
-export namespace StreamSessionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamSessionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStreamSessionsResponse {
   /**
    * <p>List of stream sessions.</p>
@@ -1866,15 +1312,6 @@ export interface ListStreamSessionsResponse {
   nextToken?: string;
 }
 
-export namespace ListStreamSessionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamSessionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource to be retrieved.</p>
@@ -1882,29 +1319,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p/>
    */
   tags: Record<string, string> | undefined;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutMetadataRequest {
@@ -1918,16 +1337,6 @@ export interface PutMetadataRequest {
    * <p>Metadata to insert into the stream. Maximum: 1 KB per request.</p>
    */
   metadata: string | undefined;
-}
-
-export namespace PutMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMetadataRequest): any => ({
-    ...obj,
-    ...(obj.metadata && { metadata: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1961,25 +1370,7 @@ export interface StopStreamRequest {
   channelArn: string | undefined;
 }
 
-export namespace StopStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopStreamRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopStreamResponse {}
-
-export namespace StopStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopStreamResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p/>
@@ -2017,25 +1408,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2049,25 +1422,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateChannelRequest {
   /**
@@ -2122,15 +1477,6 @@ export interface UpdateChannelRequest {
   recordingConfigurationArn?: string;
 }
 
-export namespace UpdateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateChannelResponse {
   /**
    * <p>Object specifying a channel.</p>
@@ -2138,11 +1484,527 @@ export interface UpdateChannelResponse {
   channel?: Channel;
 }
 
-export namespace UpdateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const BatchGetChannelRequestFilterSensitiveLog = (obj: BatchGetChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchErrorFilterSensitiveLog = (obj: BatchError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetChannelResponseFilterSensitiveLog = (obj: BatchGetChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetStreamKeyRequestFilterSensitiveLog = (obj: BatchGetStreamKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamKeyFilterSensitiveLog = (obj: StreamKey): any => ({
+  ...obj,
+  ...(obj.value && { value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetStreamKeyResponseFilterSensitiveLog = (obj: BatchGetStreamKeyResponse): any => ({
+  ...obj,
+  ...(obj.streamKeys && { streamKeys: obj.streamKeys.map((item) => StreamKeyFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
+  ...obj,
+  ...(obj.streamKey && { streamKey: StreamKeyFilterSensitiveLog(obj.streamKey) }),
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationConfigurationFilterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationConfigurationFilterSensitiveLog = (obj: DestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThumbnailConfigurationFilterSensitiveLog = (obj: ThumbnailConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRecordingConfigurationRequestFilterSensitiveLog = (
+  obj: CreateRecordingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordingConfigurationFilterSensitiveLog = (obj: RecordingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRecordingConfigurationResponseFilterSensitiveLog = (
+  obj: CreateRecordingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamKeyRequestFilterSensitiveLog = (obj: CreateStreamKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamKeyResponseFilterSensitiveLog = (obj: CreateStreamKeyResponse): any => ({
+  ...obj,
+  ...(obj.streamKey && { streamKey: StreamKeyFilterSensitiveLog(obj.streamKey) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlaybackKeyPairRequestFilterSensitiveLog = (obj: DeletePlaybackKeyPairRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlaybackKeyPairResponseFilterSensitiveLog = (obj: DeletePlaybackKeyPairResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRecordingConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteRecordingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStreamKeyRequestFilterSensitiveLog = (obj: DeleteStreamKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelRequestFilterSensitiveLog = (obj: GetChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelResponseFilterSensitiveLog = (obj: GetChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPlaybackKeyPairRequestFilterSensitiveLog = (obj: GetPlaybackKeyPairRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlaybackKeyPairFilterSensitiveLog = (obj: PlaybackKeyPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPlaybackKeyPairResponseFilterSensitiveLog = (obj: GetPlaybackKeyPairResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecordingConfigurationRequestFilterSensitiveLog = (obj: GetRecordingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecordingConfigurationResponseFilterSensitiveLog = (obj: GetRecordingConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamRequestFilterSensitiveLog = (obj: GetStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _StreamFilterSensitiveLog = (obj: _Stream): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamResponseFilterSensitiveLog = (obj: GetStreamResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamKeyRequestFilterSensitiveLog = (obj: GetStreamKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamKeyResponseFilterSensitiveLog = (obj: GetStreamKeyResponse): any => ({
+  ...obj,
+  ...(obj.streamKey && { streamKey: StreamKeyFilterSensitiveLog(obj.streamKey) }),
+});
+
+/**
+ * @internal
+ */
+export const GetStreamSessionRequestFilterSensitiveLog = (obj: GetStreamSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioConfigurationFilterSensitiveLog = (obj: AudioConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoConfigurationFilterSensitiveLog = (obj: VideoConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IngestConfigurationFilterSensitiveLog = (obj: IngestConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamEventFilterSensitiveLog = (obj: StreamEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamSessionFilterSensitiveLog = (obj: StreamSession): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamSessionResponseFilterSensitiveLog = (obj: GetStreamSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportPlaybackKeyPairRequestFilterSensitiveLog = (obj: ImportPlaybackKeyPairRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportPlaybackKeyPairResponseFilterSensitiveLog = (obj: ImportPlaybackKeyPairResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelSummaryFilterSensitiveLog = (obj: ChannelSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlaybackKeyPairsRequestFilterSensitiveLog = (obj: ListPlaybackKeyPairsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlaybackKeyPairSummaryFilterSensitiveLog = (obj: PlaybackKeyPairSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlaybackKeyPairsResponseFilterSensitiveLog = (obj: ListPlaybackKeyPairsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecordingConfigurationsRequestFilterSensitiveLog = (obj: ListRecordingConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordingConfigurationSummaryFilterSensitiveLog = (obj: RecordingConfigurationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecordingConfigurationsResponseFilterSensitiveLog = (
+  obj: ListRecordingConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamKeysRequestFilterSensitiveLog = (obj: ListStreamKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamKeySummaryFilterSensitiveLog = (obj: StreamKeySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamKeysResponseFilterSensitiveLog = (obj: ListStreamKeysResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamFiltersFilterSensitiveLog = (obj: StreamFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamsRequestFilterSensitiveLog = (obj: ListStreamsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamSummaryFilterSensitiveLog = (obj: StreamSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamsResponseFilterSensitiveLog = (obj: ListStreamsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamSessionsRequestFilterSensitiveLog = (obj: ListStreamSessionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamSessionSummaryFilterSensitiveLog = (obj: StreamSessionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamSessionsResponseFilterSensitiveLog = (obj: ListStreamSessionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMetadataRequestFilterSensitiveLog = (obj: PutMetadataRequest): any => ({
+  ...obj,
+  ...(obj.metadata && { metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StopStreamRequestFilterSensitiveLog = (obj: StopStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopStreamResponseFilterSensitiveLog = (obj: StopStreamResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
+  ...obj,
+});

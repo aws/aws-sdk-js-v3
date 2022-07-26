@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse } from "../models/models_1";
+import {
+  EnableOrganizationAdminAccountRequest,
+  EnableOrganizationAdminAccountRequestFilterSensitiveLog,
+  EnableOrganizationAdminAccountResponse,
+  EnableOrganizationAdminAccountResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1EnableOrganizationAdminAccountCommand,
   serializeAws_restJson1EnableOrganizationAdminAccountCommand,
@@ -75,8 +80,8 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableOrganizationAdminAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableOrganizationAdminAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableOrganizationAdminAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableOrganizationAdminAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

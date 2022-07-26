@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeFileSystemAssociationsInput, DescribeFileSystemAssociationsOutput } from "../models/models_0";
+import {
+  DescribeFileSystemAssociationsInput,
+  DescribeFileSystemAssociationsInputFilterSensitiveLog,
+  DescribeFileSystemAssociationsOutput,
+  DescribeFileSystemAssociationsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFileSystemAssociationsCommand,
   serializeAws_json1_1DescribeFileSystemAssociationsCommand,
@@ -75,8 +80,8 @@ export class DescribeFileSystemAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFileSystemAssociationsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFileSystemAssociationsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFileSystemAssociationsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFileSystemAssociationsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTagsRequest, ListTagsResponse } from "../models/models_0";
+import {
+  ListTagsRequest,
+  ListTagsRequestFilterSensitiveLog,
+  ListTagsResponse,
+  ListTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
   deserializeAws_restJson1ListTagsCommand,
@@ -68,8 +73,8 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

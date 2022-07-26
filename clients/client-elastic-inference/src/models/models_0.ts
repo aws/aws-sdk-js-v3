@@ -17,15 +17,6 @@ export interface MemoryInfo {
   sizeInMiB?: number;
 }
 
-export namespace MemoryInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemoryInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             A throughput entry for an Elastic Inference Accelerator type.
@@ -47,15 +38,6 @@ export interface KeyValuePair {
    *         </p>
    */
   value?: number;
-}
-
-export namespace KeyValuePair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyValuePair): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -84,15 +66,6 @@ export interface AcceleratorType {
    *         </p>
    */
   throughputInfo?: KeyValuePair[];
-}
-
-export namespace AcceleratorType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceleratorType): any => ({
-    ...obj,
-  });
 }
 
 export type LocationType = "availability-zone" | "availability-zone-id" | "region";
@@ -127,15 +100,6 @@ export interface AcceleratorTypeOffering {
    *         </p>
    */
   location?: string;
-}
-
-export namespace AcceleratorTypeOffering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceleratorTypeOffering): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -178,15 +142,6 @@ export interface DescribeAcceleratorOfferingsRequest {
   acceleratorTypes?: string[];
 }
 
-export namespace DescribeAcceleratorOfferingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorOfferingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAcceleratorOfferingsResponse {
   /**
    * <p>
@@ -194,15 +149,6 @@ export interface DescribeAcceleratorOfferingsResponse {
    *         </p>
    */
   acceleratorTypeOfferings?: AcceleratorTypeOffering[];
-}
-
-export namespace DescribeAcceleratorOfferingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorOfferingsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -270,15 +216,6 @@ export interface Filter {
   values?: string[];
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAcceleratorsRequest {
   /**
    * <p>
@@ -313,15 +250,6 @@ export interface DescribeAcceleratorsRequest {
   nextToken?: string;
 }
 
-export namespace DescribeAcceleratorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             The health details of an Elastic Inference Accelerator.
@@ -334,15 +262,6 @@ export interface ElasticInferenceAcceleratorHealth {
    *         </p>
    */
   status?: string;
-}
-
-export namespace ElasticInferenceAcceleratorHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticInferenceAcceleratorHealth): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -387,15 +306,6 @@ export interface ElasticInferenceAccelerator {
   attachedResource?: string;
 }
 
-export namespace ElasticInferenceAccelerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAcceleratorsResponse {
   /**
    * <p>
@@ -412,25 +322,7 @@ export interface DescribeAcceleratorsResponse {
   nextToken?: string;
 }
 
-export namespace DescribeAcceleratorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAcceleratorTypesRequest {}
-
-export namespace DescribeAcceleratorTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorTypesRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeAcceleratorTypesResponse {
   /**
@@ -439,15 +331,6 @@ export interface DescribeAcceleratorTypesResponse {
    *         </p>
    */
   acceleratorTypes?: AcceleratorType[];
-}
-
-export namespace DescribeAcceleratorTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorTypesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -459,15 +342,6 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResult {
   /**
    * <p>
@@ -475,15 +349,6 @@ export interface ListTagsForResourceResult {
    *         </p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -502,25 +367,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResult {}
-
-export namespace TagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -538,22 +385,141 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResult {}
 
-export namespace UntagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const MemoryInfoFilterSensitiveLog = (obj: MemoryInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyValuePairFilterSensitiveLog = (obj: KeyValuePair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceleratorTypeFilterSensitiveLog = (obj: AcceleratorType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceleratorTypeOfferingFilterSensitiveLog = (obj: AcceleratorTypeOffering): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAcceleratorOfferingsRequestFilterSensitiveLog = (
+  obj: DescribeAcceleratorOfferingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAcceleratorOfferingsResponseFilterSensitiveLog = (
+  obj: DescribeAcceleratorOfferingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAcceleratorsRequestFilterSensitiveLog = (obj: DescribeAcceleratorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticInferenceAcceleratorHealthFilterSensitiveLog = (obj: ElasticInferenceAcceleratorHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticInferenceAcceleratorFilterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAcceleratorsResponseFilterSensitiveLog = (obj: DescribeAcceleratorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAcceleratorTypesRequestFilterSensitiveLog = (obj: DescribeAcceleratorTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAcceleratorTypesResponseFilterSensitiveLog = (obj: DescribeAcceleratorTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
+  ...obj,
+});

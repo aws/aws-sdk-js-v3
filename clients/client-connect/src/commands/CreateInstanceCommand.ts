@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { CreateInstanceRequest, CreateInstanceResponse } from "../models/models_0";
+import {
+  CreateInstanceRequest,
+  CreateInstanceRequestFilterSensitiveLog,
+  CreateInstanceResponse,
+  CreateInstanceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateInstanceCommand,
   serializeAws_restJson1CreateInstanceCommand,
@@ -78,8 +83,8 @@ export class CreateInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateInstanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

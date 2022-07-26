@@ -14,7 +14,9 @@ import {
 
 import {
   DeleteTextMessageSpendLimitOverrideRequest,
+  DeleteTextMessageSpendLimitOverrideRequestFilterSensitiveLog,
   DeleteTextMessageSpendLimitOverrideResult,
+  DeleteTextMessageSpendLimitOverrideResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
@@ -85,8 +87,8 @@ export class DeleteTextMessageSpendLimitOverrideCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTextMessageSpendLimitOverrideRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTextMessageSpendLimitOverrideResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTextMessageSpendLimitOverrideRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTextMessageSpendLimitOverrideResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

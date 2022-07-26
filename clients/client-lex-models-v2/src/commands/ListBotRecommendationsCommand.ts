@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { ListBotRecommendationsRequest, ListBotRecommendationsResponse } from "../models/models_0";
+import {
+  ListBotRecommendationsRequest,
+  ListBotRecommendationsRequestFilterSensitiveLog,
+  ListBotRecommendationsResponse,
+  ListBotRecommendationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListBotRecommendationsCommand,
   serializeAws_restJson1ListBotRecommendationsCommand,
@@ -73,8 +78,8 @@ export class ListBotRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotRecommendationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBotRecommendationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBotRecommendationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBotRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

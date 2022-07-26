@@ -40,15 +40,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface AddTagsToCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate to which the tag is to be applied.
@@ -66,15 +57,6 @@ export interface AddTagsToCertificateRequest {
    * <p>The key-value pair that defines the tag. The tag value is optional.</p>
    */
   Tags: Tag[] | undefined;
-}
-
-export namespace AddTagsToCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsToCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -239,15 +221,6 @@ export interface ResourceRecord {
   Value: string | undefined;
 }
 
-export namespace ResourceRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceRecord): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationMethod {
   DNS = "DNS",
   EMAIL = "EMAIL",
@@ -314,15 +287,6 @@ export interface DomainValidation {
    * <p>Specifies the domain validation method.</p>
    */
   ValidationMethod?: ValidationMethod | string;
-}
-
-export namespace DomainValidation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainValidation): any => ({
-    ...obj,
-  });
 }
 
 export enum ExtendedKeyUsageName {
@@ -406,15 +370,6 @@ export interface ExtendedKeyUsage {
   OID?: string;
 }
 
-export namespace ExtendedKeyUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtendedKeyUsage): any => ({
-    ...obj,
-  });
-}
-
 export enum FailureReason {
   ADDITIONAL_VERIFICATION_REQUIRED = "ADDITIONAL_VERIFICATION_REQUIRED",
   CAA_ERROR = "CAA_ERROR",
@@ -470,15 +425,6 @@ export interface KeyUsage {
   Name?: KeyUsageName | string;
 }
 
-export namespace KeyUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyUsage): any => ({
-    ...obj,
-  });
-}
-
 export enum CertificateTransparencyLoggingPreference {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -499,15 +445,6 @@ export interface CertificateOptions {
    *         <code>DISABLED</code> option. Opt in by specifying <code>ENABLED</code>. </p>
    */
   CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | string;
-}
-
-export namespace CertificateOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateOptions): any => ({
-    ...obj,
-  });
 }
 
 export enum RenewalEligibility {
@@ -550,15 +487,6 @@ export interface RenewalSummary {
    * <p>The time at which the renewal summary was last updated.</p>
    */
   UpdatedAt: Date | undefined;
-}
-
-export namespace RenewalSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenewalSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum RevocationReason {
@@ -761,15 +689,6 @@ export interface CertificateDetail {
   Options?: CertificateOptions;
 }
 
-export namespace CertificateDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate to be deleted. This must be of the
@@ -780,15 +699,6 @@ export interface DeleteCertificateRequest {
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn: string | undefined;
-}
-
-export namespace DeleteCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -823,29 +733,11 @@ export interface DescribeCertificateRequest {
   CertificateArn: string | undefined;
 }
 
-export namespace DescribeCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCertificateResponse {
   /**
    * <p>Metadata about an ACM certificate.</p>
    */
   Certificate?: CertificateDetail;
-}
-
-export namespace DescribeCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ExportCertificateRequest {
@@ -868,16 +760,6 @@ export interface ExportCertificateRequest {
   Passphrase: Uint8Array | undefined;
 }
 
-export namespace ExportCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportCertificateRequest): any => ({
-    ...obj,
-    ...(obj.Passphrase && { Passphrase: SENSITIVE_STRING }),
-  });
-}
-
 export interface ExportCertificateResponse {
   /**
    * <p>The base64 PEM-encoded certificate.</p>
@@ -895,16 +777,6 @@ export interface ExportCertificateResponse {
    *       output in PKCS #8 format and is base64 PEM-encoded. </p>
    */
   PrivateKey?: string;
-}
-
-export namespace ExportCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportCertificateResponse): any => ({
-    ...obj,
-    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -941,30 +813,12 @@ export interface ExpiryEventsConfiguration {
   DaysBeforeExpiry?: number;
 }
 
-export namespace ExpiryEventsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiryEventsConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccountConfigurationResponse {
   /**
    * <p>Expiration events
    *       configuration options associated with the Amazon Web Services account.</p>
    */
   ExpiryEvents?: ExpiryEventsConfiguration;
-}
-
-export namespace GetAccountConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCertificateRequest {
@@ -976,15 +830,6 @@ export interface GetCertificateRequest {
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn: string | undefined;
-}
-
-export namespace GetCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCertificateResponse {
@@ -999,15 +844,6 @@ export interface GetCertificateResponse {
    *     </p>
    */
   CertificateChain?: string;
-}
-
-export namespace GetCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCertificateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportCertificateRequest {
@@ -1040,31 +876,12 @@ export interface ImportCertificateRequest {
   Tags?: Tag[];
 }
 
-export namespace ImportCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportCertificateRequest): any => ({
-    ...obj,
-    ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
-  });
-}
-
 export interface ImportCertificateResponse {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name
    *         (ARN)</a> of the imported certificate.</p>
    */
   CertificateArn?: string;
-}
-
-export namespace ImportCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportCertificateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1131,15 +948,6 @@ export interface Filters {
   keyTypes?: (KeyAlgorithm | string)[];
 }
 
-export namespace Filters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filters): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCertificatesRequest {
   /**
    * <p>Filter the certificate list by status value.</p>
@@ -1168,15 +976,6 @@ export interface ListCertificatesRequest {
   MaxItems?: number;
 }
 
-export namespace ListCertificatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCertificatesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure is returned in the response object of <a>ListCertificates</a>
  *       action. </p>
@@ -1200,15 +999,6 @@ export interface CertificateSummary {
   DomainName?: string;
 }
 
-export namespace CertificateSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCertificatesResponse {
   /**
    * <p>When the list is truncated, this value is present and contains the value to use for the
@@ -1220,15 +1010,6 @@ export interface ListCertificatesResponse {
    * <p>A list of ACM certificates.</p>
    */
   CertificateSummaryList?: CertificateSummary[];
-}
-
-export namespace ListCertificatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCertificatesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForCertificateRequest {
@@ -1243,29 +1024,11 @@ export interface ListTagsForCertificateRequest {
   CertificateArn: string | undefined;
 }
 
-export namespace ListTagsForCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForCertificateResponse {
   /**
    * <p>The key-value pairs that define the applied tags.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForCertificateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1307,15 +1070,6 @@ export interface PutAccountConfigurationRequest {
   IdempotencyToken: string | undefined;
 }
 
-export namespace PutAccountConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The supplied input
  *       failed to satisfy constraints of an Amazon Web Services service.</p>
@@ -1355,15 +1109,6 @@ export interface RemoveTagsFromCertificateRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace RemoveTagsFromCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RenewCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate to be renewed. This must be of the
@@ -1374,15 +1119,6 @@ export interface RenewCertificateRequest {
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    */
   CertificateArn: string | undefined;
-}
-
-export namespace RenewCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenewCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1441,15 +1177,6 @@ export interface DomainValidationOption {
    *          </ul>
    */
   ValidationDomain: string | undefined;
-}
-
-export namespace DomainValidationOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainValidationOption): any => ({
-    ...obj,
-  });
 }
 
 export interface RequestCertificateRequest {
@@ -1546,15 +1273,6 @@ export interface RequestCertificateRequest {
   Tags?: Tag[];
 }
 
-export namespace RequestCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RequestCertificateResponse {
   /**
    * <p>String that contains the ARN of the issued certificate. This must be of the form:</p>
@@ -1563,15 +1281,6 @@ export interface RequestCertificateResponse {
    *          </p>
    */
   CertificateArn?: string;
-}
-
-export namespace RequestCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestCertificateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1640,15 +1349,6 @@ export interface ResendValidationEmailRequest {
   ValidationDomain: string | undefined;
 }
 
-export namespace ResendValidationEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResendValidationEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCertificateOptionsRequest {
   /**
    * <p>ARN of the requested certificate to update. This must be of the form:</p>
@@ -1668,11 +1368,243 @@ export interface UpdateCertificateOptionsRequest {
   Options: CertificateOptions | undefined;
 }
 
-export namespace UpdateCertificateOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCertificateOptionsRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsToCertificateRequestFilterSensitiveLog = (obj: AddTagsToCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceRecordFilterSensitiveLog = (obj: ResourceRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainValidationFilterSensitiveLog = (obj: DomainValidation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtendedKeyUsageFilterSensitiveLog = (obj: ExtendedKeyUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyUsageFilterSensitiveLog = (obj: KeyUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateOptionsFilterSensitiveLog = (obj: CertificateOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RenewalSummaryFilterSensitiveLog = (obj: RenewalSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateDetailFilterSensitiveLog = (obj: CertificateDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCertificateRequestFilterSensitiveLog = (obj: DeleteCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCertificateRequestFilterSensitiveLog = (obj: DescribeCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCertificateResponseFilterSensitiveLog = (obj: DescribeCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportCertificateRequestFilterSensitiveLog = (obj: ExportCertificateRequest): any => ({
+  ...obj,
+  ...(obj.Passphrase && { Passphrase: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ExportCertificateResponseFilterSensitiveLog = (obj: ExportCertificateResponse): any => ({
+  ...obj,
+  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ExpiryEventsConfigurationFilterSensitiveLog = (obj: ExpiryEventsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountConfigurationResponseFilterSensitiveLog = (obj: GetAccountConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCertificateRequestFilterSensitiveLog = (obj: GetCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCertificateResponseFilterSensitiveLog = (obj: GetCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportCertificateRequestFilterSensitiveLog = (obj: ImportCertificateRequest): any => ({
+  ...obj,
+  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportCertificateResponseFilterSensitiveLog = (obj: ImportCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FiltersFilterSensitiveLog = (obj: Filters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCertificatesRequestFilterSensitiveLog = (obj: ListCertificatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateSummaryFilterSensitiveLog = (obj: CertificateSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCertificatesResponseFilterSensitiveLog = (obj: ListCertificatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForCertificateRequestFilterSensitiveLog = (obj: ListTagsForCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForCertificateResponseFilterSensitiveLog = (obj: ListTagsForCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountConfigurationRequestFilterSensitiveLog = (obj: PutAccountConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromCertificateRequestFilterSensitiveLog = (obj: RemoveTagsFromCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RenewCertificateRequestFilterSensitiveLog = (obj: RenewCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainValidationOptionFilterSensitiveLog = (obj: DomainValidationOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestCertificateRequestFilterSensitiveLog = (obj: RequestCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestCertificateResponseFilterSensitiveLog = (obj: RequestCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResendValidationEmailRequestFilterSensitiveLog = (obj: ResendValidationEmailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCertificateOptionsRequestFilterSensitiveLog = (obj: UpdateCertificateOptionsRequest): any => ({
+  ...obj,
+});

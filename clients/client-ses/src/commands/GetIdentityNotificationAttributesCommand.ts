@@ -14,7 +14,9 @@ import {
 
 import {
   GetIdentityNotificationAttributesRequest,
+  GetIdentityNotificationAttributesRequestFilterSensitiveLog,
   GetIdentityNotificationAttributesResponse,
+  GetIdentityNotificationAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryGetIdentityNotificationAttributesCommand,
@@ -82,8 +84,8 @@ export class GetIdentityNotificationAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityNotificationAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityNotificationAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIdentityNotificationAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetIdentityNotificationAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import { DescribeHealthServiceStatusForOrganizationResponse } from "../models/models_0";
+import {
+  DescribeHealthServiceStatusForOrganizationResponse,
+  DescribeHealthServiceStatusForOrganizationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,
   serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,
@@ -81,7 +84,7 @@ export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeHealthServiceStatusForOrganizationResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeHealthServiceStatusForOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,15 +18,6 @@ export interface ActionRequired {
   ActionRequiredInfo?: string;
 }
 
-export namespace ActionRequired {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionRequired): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Name of the availability zone.</p>
  */
@@ -35,15 +26,6 @@ export interface AvailabilityZone {
    * <p>Id for the availability zone.</p>
    */
   Name?: string;
-}
-
-export namespace AvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj,
-  });
 }
 
 export enum EngineType {
@@ -61,15 +43,6 @@ export interface EngineVersion {
   Name?: string;
 }
 
-export namespace EngineVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EngineVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Types of broker engines.</p>
  */
@@ -83,15 +56,6 @@ export interface BrokerEngineType {
    * <p>The list of engine versions.</p>
    */
   EngineVersions?: EngineVersion[];
-}
-
-export namespace BrokerEngineType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerEngineType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -112,15 +76,6 @@ export interface BrokerInstance {
    * <p>The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers.</p>
    */
   IpAddress?: string;
-}
-
-export namespace BrokerInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerInstance): any => ({
-    ...obj,
-  });
 }
 
 export enum BrokerStorageType {
@@ -167,15 +122,6 @@ export interface BrokerInstanceOption {
    * <p>The list of supported engine versions.</p>
    */
   SupportedEngineVersions?: string[];
-}
-
-export namespace BrokerInstanceOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerInstanceOption): any => ({
-    ...obj,
-  });
 }
 
 export enum BrokerState {
@@ -232,15 +178,6 @@ export interface BrokerSummary {
   HostInstanceType?: string;
 }
 
-export namespace BrokerSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BrokerSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum AuthenticationStrategy {
   LDAP = "LDAP",
   SIMPLE = "SIMPLE",
@@ -264,15 +201,6 @@ export interface ConfigurationRevision {
    * <p>Required. The revision number of the configuration.</p>
    */
   Revision: number | undefined;
-}
-
-export namespace ConfigurationRevision {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationRevision): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -330,15 +258,6 @@ export interface Configuration {
   Tags?: Record<string, string>;
 }
 
-export namespace Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Configuration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of information about the configuration.</p> <important><p>Does not apply to RabbitMQ brokers.</p></important>
  */
@@ -352,15 +271,6 @@ export interface ConfigurationId {
    * <p>The revision number of the configuration.</p>
    */
   Revision?: number;
-}
-
-export namespace ConfigurationId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationId): any => ({
-    ...obj,
-  });
 }
 
 export enum SanitizationWarningReason {
@@ -389,15 +299,6 @@ export interface SanitizationWarning {
   Reason: SanitizationWarningReason | string | undefined;
 }
 
-export namespace SanitizationWarning {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SanitizationWarning): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A user associated with the broker. For RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</p>
  */
@@ -423,15 +324,6 @@ export interface User {
   Username: string | undefined;
 }
 
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-  });
-}
-
 export enum ChangeType {
   CREATE = "CREATE",
   DELETE = "DELETE",
@@ -451,15 +343,6 @@ export interface UserSummary {
    * <p>Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
    */
   Username: string | undefined;
-}
-
-export namespace UserSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -512,15 +395,6 @@ export interface Configurations {
   Pending?: ConfigurationId;
 }
 
-export namespace Configurations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Configurations): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns information about an error.</p>
  */
@@ -564,15 +438,6 @@ export interface EncryptionOptions {
    * <p>Enables the use of an AWS owned CMK using AWS Key Management Service (KMS). Set to true by default, if no value is provided, for example, for RabbitMQ brokers.</p>
    */
   UseAwsOwnedKey: boolean | undefined;
-}
-
-export namespace EncryptionOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -640,15 +505,6 @@ export interface LdapServerMetadataInput {
   UserSearchSubtree?: boolean;
 }
 
-export namespace LdapServerMetadataInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LdapServerMetadataInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The list of information about logs to be enabled for the specified broker.</p>
  */
@@ -662,15 +518,6 @@ export interface Logs {
    * <p>Enables general logging.</p>
    */
   General?: boolean;
-}
-
-export namespace Logs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Logs): any => ({
-    ...obj,
-  });
 }
 
 export enum DayOfWeek {
@@ -701,15 +548,6 @@ export interface WeeklyStartTime {
    * <p>The time zone, UTC by default, in either the Country/City format, or the UTC offset format.</p>
    */
   TimeZone?: string;
-}
-
-export namespace WeeklyStartTime {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WeeklyStartTime): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -812,15 +650,6 @@ export interface CreateBrokerRequest {
   Users: User[] | undefined;
 }
 
-export namespace CreateBrokerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBrokerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBrokerResponse {
   /**
    * <p>The broker's Amazon Resource Name (ARN).</p>
@@ -831,15 +660,6 @@ export interface CreateBrokerResponse {
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
    */
   BrokerId?: string;
-}
-
-export namespace CreateBrokerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBrokerResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -962,15 +782,6 @@ export interface CreateConfigurationRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConfigurationResponse {
   /**
    * <p>Required. The Amazon Resource Name (ARN) of the configuration.</p>
@@ -1003,15 +814,6 @@ export interface CreateConfigurationResponse {
   Name?: string;
 }
 
-export namespace CreateConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A map of the key-value pairs for the resource tag.</p>
  */
@@ -1025,15 +827,6 @@ export interface CreateTagsRequest {
    * <p>The key-value pair for the resource tag.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1096,25 +889,7 @@ export interface CreateUserRequest {
   Username: string | undefined;
 }
 
-export namespace CreateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserResponse {}
-
-export namespace CreateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteBrokerRequest {
   /**
@@ -1123,29 +898,11 @@ export interface DeleteBrokerRequest {
   BrokerId: string | undefined;
 }
 
-export namespace DeleteBrokerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBrokerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBrokerResponse {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
    */
   BrokerId?: string;
-}
-
-export namespace DeleteBrokerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBrokerResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteTagsRequest {
@@ -1160,15 +917,6 @@ export interface DeleteTagsRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace DeleteTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -1181,40 +929,13 @@ export interface DeleteUserRequest {
   Username: string | undefined;
 }
 
-export namespace DeleteUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserResponse {}
-
-export namespace DeleteUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeBrokerRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
    */
   BrokerId: string | undefined;
-}
-
-export namespace DescribeBrokerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBrokerRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1276,15 +997,6 @@ export interface LdapServerMetadataOutput {
   UserSearchSubtree?: boolean;
 }
 
-export namespace LdapServerMetadataOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LdapServerMetadataOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The list of information about logs to be enabled for the specified broker.</p>
  */
@@ -1298,15 +1010,6 @@ export interface PendingLogs {
    * <p>Enables general logging.</p>
    */
   General?: boolean;
-}
-
-export namespace PendingLogs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingLogs): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1337,15 +1040,6 @@ export interface LogsSummary {
    * <p>The list of information about logs pending to be deployed for the specified broker.</p>
    */
   Pending?: PendingLogs;
-}
-
-export namespace LogsSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogsSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBrokerResponse {
@@ -1495,15 +1189,6 @@ export interface DescribeBrokerResponse {
   Users?: UserSummary[];
 }
 
-export namespace DescribeBrokerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBrokerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBrokerEngineTypesRequest {
   /**
    * <p>Filter response by engine type.</p>
@@ -1521,15 +1206,6 @@ export interface DescribeBrokerEngineTypesRequest {
   NextToken?: string;
 }
 
-export namespace DescribeBrokerEngineTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBrokerEngineTypesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBrokerEngineTypesResponse {
   /**
    * <p>List of available engine types and versions.</p>
@@ -1545,15 +1221,6 @@ export interface DescribeBrokerEngineTypesResponse {
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeBrokerEngineTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBrokerEngineTypesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBrokerInstanceOptionsRequest {
@@ -1583,15 +1250,6 @@ export interface DescribeBrokerInstanceOptionsRequest {
   StorageType?: string;
 }
 
-export namespace DescribeBrokerInstanceOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBrokerInstanceOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBrokerInstanceOptionsResponse {
   /**
    * <p>List of available broker instance options.</p>
@@ -1609,29 +1267,11 @@ export interface DescribeBrokerInstanceOptionsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeBrokerInstanceOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBrokerInstanceOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConfigurationRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
    */
   ConfigurationId: string | undefined;
-}
-
-export namespace DescribeConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConfigurationResponse {
@@ -1686,15 +1326,6 @@ export interface DescribeConfigurationResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConfigurationRevisionRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
@@ -1705,15 +1336,6 @@ export interface DescribeConfigurationRevisionRequest {
    * <p>The revision of the configuration.</p>
    */
   ConfigurationRevision: string | undefined;
-}
-
-export namespace DescribeConfigurationRevisionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRevisionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConfigurationRevisionResponse {
@@ -1738,15 +1360,6 @@ export interface DescribeConfigurationRevisionResponse {
   Description?: string;
 }
 
-export namespace DescribeConfigurationRevisionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationRevisionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -1757,15 +1370,6 @@ export interface DescribeUserRequest {
    * <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
    */
   Username: string | undefined;
-}
-
-export namespace DescribeUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1786,15 +1390,6 @@ export interface UserPendingChanges {
    * <p>Required. The type of change pending for the ActiveMQ user.</p>
    */
   PendingChange: ChangeType | string | undefined;
-}
-
-export namespace UserPendingChanges {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPendingChanges): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUserResponse {
@@ -1824,15 +1419,6 @@ export interface DescribeUserResponse {
   Username?: string;
 }
 
-export namespace DescribeUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBrokersRequest {
   /**
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
@@ -1845,15 +1431,6 @@ export interface ListBrokersRequest {
   NextToken?: string;
 }
 
-export namespace ListBrokersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBrokersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBrokersResponse {
   /**
    * <p>A list of information about all brokers.</p>
@@ -1864,15 +1441,6 @@ export interface ListBrokersResponse {
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListBrokersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBrokersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConfigurationRevisionsRequest {
@@ -1890,15 +1458,6 @@ export interface ListConfigurationRevisionsRequest {
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListConfigurationRevisionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationRevisionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConfigurationRevisionsResponse {
@@ -1923,15 +1482,6 @@ export interface ListConfigurationRevisionsResponse {
   Revisions?: ConfigurationRevision[];
 }
 
-export namespace ListConfigurationRevisionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationRevisionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConfigurationsRequest {
   /**
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
@@ -1942,15 +1492,6 @@ export interface ListConfigurationsRequest {
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConfigurationsResponse {
@@ -1970,15 +1511,6 @@ export interface ListConfigurationsResponse {
   NextToken?: string;
 }
 
-export namespace ListConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource tag.</p>
@@ -1986,29 +1518,11 @@ export interface ListTagsRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsResponse {
   /**
    * <p>The key-value pair for the resource tag.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUsersRequest {
@@ -2026,15 +1540,6 @@ export interface ListUsersRequest {
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListUsersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListUsersResponse {
@@ -2059,15 +1564,6 @@ export interface ListUsersResponse {
   Users?: UserSummary[];
 }
 
-export namespace ListUsersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListUsersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootBrokerRequest {
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -2075,25 +1571,7 @@ export interface RebootBrokerRequest {
   BrokerId: string | undefined;
 }
 
-export namespace RebootBrokerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootBrokerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootBrokerResponse {}
-
-export namespace RebootBrokerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootBrokerResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Updates the broker using the specified properties.</p>
@@ -2150,15 +1628,6 @@ export interface UpdateBrokerRequest {
   SecurityGroups?: string[];
 }
 
-export namespace UpdateBrokerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBrokerResponse {
   /**
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
@@ -2211,15 +1680,6 @@ export interface UpdateBrokerResponse {
   SecurityGroups?: string[];
 }
 
-export namespace UpdateBrokerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBrokerResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates the specified configuration.</p>
  */
@@ -2238,15 +1698,6 @@ export interface UpdateConfigurationRequest {
    * <p>The description of the configuration.</p>
    */
   Description?: string;
-}
-
-export namespace UpdateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateConfigurationResponse {
@@ -2281,15 +1732,6 @@ export interface UpdateConfigurationResponse {
   Warnings?: SanitizationWarning[];
 }
 
-export namespace UpdateConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates the information for an ActiveMQ user.</p>
  */
@@ -2320,22 +1762,460 @@ export interface UpdateUserRequest {
   Username: string | undefined;
 }
 
-export namespace UpdateUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateUserResponse {}
 
-export namespace UpdateUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ActionRequiredFilterSensitiveLog = (obj: ActionRequired): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EngineVersionFilterSensitiveLog = (obj: EngineVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BrokerEngineTypeFilterSensitiveLog = (obj: BrokerEngineType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BrokerInstanceFilterSensitiveLog = (obj: BrokerInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BrokerInstanceOptionFilterSensitiveLog = (obj: BrokerInstanceOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BrokerSummaryFilterSensitiveLog = (obj: BrokerSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationRevisionFilterSensitiveLog = (obj: ConfigurationRevision): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationIdFilterSensitiveLog = (obj: ConfigurationId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SanitizationWarningFilterSensitiveLog = (obj: SanitizationWarning): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserSummaryFilterSensitiveLog = (obj: UserSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationsFilterSensitiveLog = (obj: Configurations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionOptionsFilterSensitiveLog = (obj: EncryptionOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LdapServerMetadataInputFilterSensitiveLog = (obj: LdapServerMetadataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogsFilterSensitiveLog = (obj: Logs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WeeklyStartTimeFilterSensitiveLog = (obj: WeeklyStartTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBrokerRequestFilterSensitiveLog = (obj: CreateBrokerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBrokerResponseFilterSensitiveLog = (obj: CreateBrokerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationRequestFilterSensitiveLog = (obj: CreateConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationResponseFilterSensitiveLog = (obj: CreateConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBrokerRequestFilterSensitiveLog = (obj: DeleteBrokerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBrokerResponseFilterSensitiveLog = (obj: DeleteBrokerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsRequestFilterSensitiveLog = (obj: DeleteTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserResponseFilterSensitiveLog = (obj: DeleteUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBrokerRequestFilterSensitiveLog = (obj: DescribeBrokerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LdapServerMetadataOutputFilterSensitiveLog = (obj: LdapServerMetadataOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingLogsFilterSensitiveLog = (obj: PendingLogs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogsSummaryFilterSensitiveLog = (obj: LogsSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBrokerResponseFilterSensitiveLog = (obj: DescribeBrokerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBrokerEngineTypesRequestFilterSensitiveLog = (obj: DescribeBrokerEngineTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBrokerEngineTypesResponseFilterSensitiveLog = (obj: DescribeBrokerEngineTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBrokerInstanceOptionsRequestFilterSensitiveLog = (
+  obj: DescribeBrokerInstanceOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBrokerInstanceOptionsResponseFilterSensitiveLog = (
+  obj: DescribeBrokerInstanceOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationRequestFilterSensitiveLog = (obj: DescribeConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationResponseFilterSensitiveLog = (obj: DescribeConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationRevisionRequestFilterSensitiveLog = (
+  obj: DescribeConfigurationRevisionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationRevisionResponseFilterSensitiveLog = (
+  obj: DescribeConfigurationRevisionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserPendingChangesFilterSensitiveLog = (obj: UserPendingChanges): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBrokersRequestFilterSensitiveLog = (obj: ListBrokersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBrokersResponseFilterSensitiveLog = (obj: ListBrokersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationRevisionsRequestFilterSensitiveLog = (obj: ListConfigurationRevisionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationRevisionsResponseFilterSensitiveLog = (obj: ListConfigurationRevisionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationsRequestFilterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationsResponseFilterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersRequestFilterSensitiveLog = (obj: ListUsersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootBrokerRequestFilterSensitiveLog = (obj: RebootBrokerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootBrokerResponseFilterSensitiveLog = (obj: RebootBrokerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBrokerRequestFilterSensitiveLog = (obj: UpdateBrokerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBrokerResponseFilterSensitiveLog = (obj: UpdateBrokerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationRequestFilterSensitiveLog = (obj: UpdateConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationResponseFilterSensitiveLog = (obj: UpdateConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
+  ...obj,
+});

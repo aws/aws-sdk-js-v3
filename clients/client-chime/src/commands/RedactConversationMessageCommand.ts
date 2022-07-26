@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { RedactConversationMessageRequest, RedactConversationMessageResponse } from "../models/models_1";
+import {
+  RedactConversationMessageRequest,
+  RedactConversationMessageRequestFilterSensitiveLog,
+  RedactConversationMessageResponse,
+  RedactConversationMessageResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1RedactConversationMessageCommand,
   serializeAws_restJson1RedactConversationMessageCommand,
@@ -72,8 +77,8 @@ export class RedactConversationMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RedactConversationMessageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RedactConversationMessageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RedactConversationMessageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RedactConversationMessageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

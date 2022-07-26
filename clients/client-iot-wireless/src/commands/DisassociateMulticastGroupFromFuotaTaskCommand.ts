@@ -15,7 +15,9 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   DisassociateMulticastGroupFromFuotaTaskRequest,
+  DisassociateMulticastGroupFromFuotaTaskRequestFilterSensitiveLog,
   DisassociateMulticastGroupFromFuotaTaskResponse,
+  DisassociateMulticastGroupFromFuotaTaskResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommand,
@@ -81,8 +83,8 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMulticastGroupFromFuotaTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateMulticastGroupFromFuotaTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateMulticastGroupFromFuotaTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateMulticastGroupFromFuotaTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

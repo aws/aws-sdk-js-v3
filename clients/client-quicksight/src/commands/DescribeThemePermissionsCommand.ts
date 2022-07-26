@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeThemePermissionsRequest, DescribeThemePermissionsResponse } from "../models/models_1";
+import {
+  DescribeThemePermissionsRequest,
+  DescribeThemePermissionsRequestFilterSensitiveLog,
+  DescribeThemePermissionsResponse,
+  DescribeThemePermissionsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeThemePermissionsCommand,
   serializeAws_restJson1DescribeThemePermissionsCommand,
@@ -72,8 +77,8 @@ export class DescribeThemePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeThemePermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeThemePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeThemePermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeThemePermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

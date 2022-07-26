@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { ListDomainsRequest, ListDomainsResult } from "../models/models_0";
+import {
+  ListDomainsRequest,
+  ListDomainsRequestFilterSensitiveLog,
+  ListDomainsResult,
+  ListDomainsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListDomainsCommand,
   serializeAws_restJson1ListDomainsCommand,
@@ -74,8 +79,8 @@ export class ListDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDomainsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDomainsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

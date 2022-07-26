@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { DescribePullThroughCacheRulesRequest, DescribePullThroughCacheRulesResponse } from "../models/models_0";
+import {
+  DescribePullThroughCacheRulesRequest,
+  DescribePullThroughCacheRulesRequestFilterSensitiveLog,
+  DescribePullThroughCacheRulesResponse,
+  DescribePullThroughCacheRulesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePullThroughCacheRulesCommand,
   serializeAws_json1_1DescribePullThroughCacheRulesCommand,
@@ -74,8 +79,8 @@ export class DescribePullThroughCacheRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePullThroughCacheRulesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePullThroughCacheRulesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePullThroughCacheRulesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribePullThroughCacheRulesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

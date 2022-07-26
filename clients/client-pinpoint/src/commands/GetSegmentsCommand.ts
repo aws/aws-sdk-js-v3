@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSegmentsRequest, GetSegmentsResponse } from "../models/models_1";
+import {
+  GetSegmentsRequest,
+  GetSegmentsRequestFilterSensitiveLog,
+  GetSegmentsResponse,
+  GetSegmentsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetSegmentsCommand,
@@ -72,8 +77,8 @@ export class GetSegmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSegmentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSegmentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSegmentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSegmentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

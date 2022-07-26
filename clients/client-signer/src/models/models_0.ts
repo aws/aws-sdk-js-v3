@@ -57,29 +57,11 @@ export interface AddProfilePermissionRequest {
   statementId: string | undefined;
 }
 
-export namespace AddProfilePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddProfilePermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddProfilePermissionResponse {
   /**
    * <p>A unique identifier for the current profile revision.</p>
    */
   revisionId?: string;
-}
-
-export namespace AddProfilePermissionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddProfilePermissionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -238,15 +220,6 @@ export interface CancelSigningProfileRequest {
   profileName: string | undefined;
 }
 
-export namespace CancelSigningProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelSigningProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export type Category = "AWSIoT";
 
 export interface DescribeSigningJobRequest {
@@ -254,15 +227,6 @@ export interface DescribeSigningJobRequest {
    * <p>The ID of the signing job on input.</p>
    */
   jobId: string | undefined;
-}
-
-export namespace DescribeSigningJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSigningJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export type EncryptionAlgorithm = "ECDSA" | "RSA";
@@ -285,15 +249,6 @@ export interface SigningConfigurationOverrides {
    * 			job.</p>
    */
   hashAlgorithm?: HashAlgorithm | string;
-}
-
-export namespace SigningConfigurationOverrides {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningConfigurationOverrides): any => ({
-    ...obj,
-  });
 }
 
 export type ImageFormat = "JSON" | "JSONDetached" | "JSONEmbedded";
@@ -320,15 +275,6 @@ export interface SigningPlatformOverrides {
   signingImageFormat?: ImageFormat | string;
 }
 
-export namespace SigningPlatformOverrides {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningPlatformOverrides): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Revocation information for a signing job.</p>
  */
@@ -349,15 +295,6 @@ export interface SigningJobRevocationRecord {
   revokedBy?: string;
 }
 
-export namespace SigningJobRevocationRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningJobRevocationRecord): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The S3 bucket name and key where code signing saved your signed code image.</p>
  */
@@ -373,15 +310,6 @@ export interface S3SignedObject {
   key?: string;
 }
 
-export namespace S3SignedObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SignedObject): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Points to an <code>S3SignedObject</code> object that contains information about your
  * 			signed code image.</p>
@@ -393,15 +321,6 @@ export interface SignedObject {
   s3?: S3SignedObject;
 }
 
-export namespace SignedObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignedObject): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ACM certificate that is used to sign your code.</p>
  */
@@ -411,15 +330,6 @@ export interface SigningMaterial {
    * 			code.</p>
    */
   certificateArn: string | undefined;
-}
-
-export namespace SigningMaterial {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningMaterial): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -442,15 +352,6 @@ export interface S3Source {
   version: string | undefined;
 }
 
-export namespace S3Source {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Source): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An <code>S3Source</code> object that contains information about the S3 bucket where
  * 			you saved your unsigned code.</p>
@@ -460,15 +361,6 @@ export interface Source {
    * <p>The <code>S3Source</code> object.</p>
    */
   s3?: S3Source;
-}
-
-export namespace Source {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Source): any => ({
-    ...obj,
-  });
 }
 
 export type SigningStatus = "Failed" | "InProgress" | "Succeeded";
@@ -573,15 +465,6 @@ export interface DescribeSigningJobResponse {
   jobInvoker?: string;
 }
 
-export namespace DescribeSigningJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSigningJobResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The name and prefix of the S3 bucket where code signing saves your signed objects.</p>
  */
@@ -598,15 +481,6 @@ export interface S3Destination {
   prefix?: string;
 }
 
-export namespace S3Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Destination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Points to an <code>S3Destination</code> object that contains information about your S3
  * 			bucket.</p>
@@ -616,15 +490,6 @@ export interface Destination {
    * <p>The <code>S3Destination</code> object.</p>
    */
   s3?: S3Destination;
-}
-
-export namespace Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -642,29 +507,11 @@ export interface EncryptionAlgorithmOptions {
   defaultValue: EncryptionAlgorithm | string | undefined;
 }
 
-export namespace EncryptionAlgorithmOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionAlgorithmOptions): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSigningPlatformRequest {
   /**
    * <p>The ID of the target signing platform.</p>
    */
   platformId: string | undefined;
-}
-
-export namespace GetSigningPlatformRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSigningPlatformRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -682,15 +529,6 @@ export interface HashAlgorithmOptions {
   defaultValue: HashAlgorithm | string | undefined;
 }
 
-export namespace HashAlgorithmOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HashAlgorithmOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration of a code signing operation.</p>
  */
@@ -706,15 +544,6 @@ export interface SigningConfiguration {
   hashAlgorithmOptions: HashAlgorithmOptions | undefined;
 }
 
-export namespace SigningConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The image format of a code signing platform or profile.</p>
  */
@@ -728,15 +557,6 @@ export interface SigningImageFormat {
    * <p>The default format of a code signing image.</p>
    */
   defaultFormat: ImageFormat | string | undefined;
-}
-
-export namespace SigningImageFormat {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningImageFormat): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSigningPlatformResponse {
@@ -788,15 +608,6 @@ export interface GetSigningPlatformResponse {
   revocationSupported?: boolean;
 }
 
-export namespace GetSigningPlatformResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSigningPlatformResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSigningProfileRequest {
   /**
    * <p>The name of the target signing profile.</p>
@@ -807,15 +618,6 @@ export interface GetSigningProfileRequest {
    * <p>The AWS account ID of the profile owner.</p>
    */
   profileOwner?: string;
-}
-
-export namespace GetSigningProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSigningProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -838,15 +640,6 @@ export interface SigningProfileRevocationRecord {
   revokedBy?: string;
 }
 
-export namespace SigningProfileRevocationRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningProfileRevocationRecord): any => ({
-    ...obj,
-  });
-}
-
 export type ValidityType = "DAYS" | "MONTHS" | "YEARS";
 
 /**
@@ -863,15 +656,6 @@ export interface SignatureValidityPeriod {
    * 			validity.</p>
    */
   type?: ValidityType | string;
-}
-
-export namespace SignatureValidityPeriod {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignatureValidityPeriod): any => ({
-    ...obj,
-  });
 }
 
 export type SigningProfileStatus = "Active" | "Canceled" | "Revoked";
@@ -951,15 +735,6 @@ export interface GetSigningProfileResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetSigningProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSigningProfileResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProfilePermissionsRequest {
   /**
    * <p>Name of the signing profile containing the cross-account permissions.</p>
@@ -970,15 +745,6 @@ export interface ListProfilePermissionsRequest {
    * <p>String for specifying the next set of paginated results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListProfilePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfilePermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1006,15 +772,6 @@ export interface Permission {
   profileVersion?: string;
 }
 
-export namespace Permission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Permission): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProfilePermissionsResponse {
   /**
    * <p>The identifier for the current revision of profile permissions.</p>
@@ -1035,15 +792,6 @@ export interface ListProfilePermissionsResponse {
    * <p>String for specifying the next set of paginated results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListProfilePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfilePermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSigningJobsRequest {
@@ -1101,15 +849,6 @@ export interface ListSigningJobsRequest {
    * 			entity.</p>
    */
   jobInvoker?: string;
-}
-
-export namespace ListSigningJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSigningJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1190,15 +929,6 @@ export interface SigningJob {
   jobInvoker?: string;
 }
 
-export namespace SigningJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningJob): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSigningJobsResponse {
   /**
    * <p>A list of your signing jobs.</p>
@@ -1209,15 +939,6 @@ export interface ListSigningJobsResponse {
    * <p>String for specifying the next set of paginated results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListSigningJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSigningJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSigningPlatformsRequest {
@@ -1247,15 +968,6 @@ export interface ListSigningPlatformsRequest {
    * 			the value of <code>nextToken</code> from the response that you just received.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListSigningPlatformsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSigningPlatformsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1310,15 +1022,6 @@ export interface SigningPlatform {
   revocationSupported?: boolean;
 }
 
-export namespace SigningPlatform {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningPlatform): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSigningPlatformsResponse {
   /**
    * <p>A list of all platforms that match the request parameters.</p>
@@ -1329,15 +1032,6 @@ export interface ListSigningPlatformsResponse {
    * <p>Value for specifying the next set of paginated results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListSigningPlatformsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSigningPlatformsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSigningProfilesRequest {
@@ -1370,15 +1064,6 @@ export interface ListSigningProfilesRequest {
    * 			list.</p>
    */
   statuses?: (SigningProfileStatus | string)[];
-}
-
-export namespace ListSigningProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSigningProfilesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1442,15 +1127,6 @@ export interface SigningProfile {
   tags?: Record<string, string>;
 }
 
-export namespace SigningProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SigningProfile): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSigningProfilesResponse {
   /**
    * <p>A list of profiles that are available in the AWS account. This includes profiles with
@@ -1465,15 +1141,6 @@ export interface ListSigningProfilesResponse {
   nextToken?: string;
 }
 
-export namespace ListSigningProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSigningProfilesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
@@ -1481,29 +1148,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags associated with the signing profile.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1569,15 +1218,6 @@ export interface PutSigningProfileRequest {
   tags?: Record<string, string>;
 }
 
-export namespace PutSigningProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSigningProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutSigningProfileResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the signing profile created.</p>
@@ -1593,15 +1233,6 @@ export interface PutSigningProfileResponse {
    * <p>The signing profile ARN, including the profile version.</p>
    */
   profileVersionArn?: string;
-}
-
-export namespace PutSigningProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSigningProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveProfilePermissionRequest {
@@ -1621,29 +1252,11 @@ export interface RemoveProfilePermissionRequest {
   statementId: string | undefined;
 }
 
-export namespace RemoveProfilePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveProfilePermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveProfilePermissionResponse {
   /**
    * <p>An identifier for the current revision of the profile permissions.</p>
    */
   revisionId?: string;
-}
-
-export namespace RemoveProfilePermissionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveProfilePermissionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RevokeSignatureRequest {
@@ -1661,15 +1274,6 @@ export interface RevokeSignatureRequest {
    * <p>The reason for revoking the signing job.</p>
    */
   reason: string | undefined;
-}
-
-export namespace RevokeSignatureRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeSignatureRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RevokeSigningProfileRequest {
@@ -1694,15 +1298,6 @@ export interface RevokeSigningProfileRequest {
    * 			trusted.</p>
    */
   effectiveTime: Date | undefined;
-}
-
-export namespace RevokeSigningProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeSigningProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartSigningJobRequest {
@@ -1735,15 +1330,6 @@ export interface StartSigningJobRequest {
   profileOwner?: string;
 }
 
-export namespace StartSigningJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSigningJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartSigningJobResponse {
   /**
    * <p>The ID of your signing job.</p>
@@ -1754,15 +1340,6 @@ export interface StartSigningJobResponse {
    * <p>The AWS account ID of the signing job owner.</p>
    */
   jobOwner?: string;
-}
-
-export namespace StartSigningJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSigningJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1801,25 +1378,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1833,22 +1392,361 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AddProfilePermissionRequestFilterSensitiveLog = (obj: AddProfilePermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddProfilePermissionResponseFilterSensitiveLog = (obj: AddProfilePermissionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelSigningProfileRequestFilterSensitiveLog = (obj: CancelSigningProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSigningJobRequestFilterSensitiveLog = (obj: DescribeSigningJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningConfigurationOverridesFilterSensitiveLog = (obj: SigningConfigurationOverrides): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningPlatformOverridesFilterSensitiveLog = (obj: SigningPlatformOverrides): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningJobRevocationRecordFilterSensitiveLog = (obj: SigningJobRevocationRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SignedObjectFilterSensitiveLog = (obj: S3SignedObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignedObjectFilterSensitiveLog = (obj: SignedObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningMaterialFilterSensitiveLog = (obj: SigningMaterial): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SourceFilterSensitiveLog = (obj: S3Source): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceFilterSensitiveLog = (obj: Source): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSigningJobResponseFilterSensitiveLog = (obj: DescribeSigningJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationFilterSensitiveLog = (obj: S3Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionAlgorithmOptionsFilterSensitiveLog = (obj: EncryptionAlgorithmOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSigningPlatformRequestFilterSensitiveLog = (obj: GetSigningPlatformRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HashAlgorithmOptionsFilterSensitiveLog = (obj: HashAlgorithmOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningConfigurationFilterSensitiveLog = (obj: SigningConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningImageFormatFilterSensitiveLog = (obj: SigningImageFormat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSigningPlatformResponseFilterSensitiveLog = (obj: GetSigningPlatformResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSigningProfileRequestFilterSensitiveLog = (obj: GetSigningProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningProfileRevocationRecordFilterSensitiveLog = (obj: SigningProfileRevocationRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignatureValidityPeriodFilterSensitiveLog = (obj: SignatureValidityPeriod): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSigningProfileResponseFilterSensitiveLog = (obj: GetSigningProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfilePermissionsRequestFilterSensitiveLog = (obj: ListProfilePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PermissionFilterSensitiveLog = (obj: Permission): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfilePermissionsResponseFilterSensitiveLog = (obj: ListProfilePermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSigningJobsRequestFilterSensitiveLog = (obj: ListSigningJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningJobFilterSensitiveLog = (obj: SigningJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSigningJobsResponseFilterSensitiveLog = (obj: ListSigningJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSigningPlatformsRequestFilterSensitiveLog = (obj: ListSigningPlatformsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningPlatformFilterSensitiveLog = (obj: SigningPlatform): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSigningPlatformsResponseFilterSensitiveLog = (obj: ListSigningPlatformsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSigningProfilesRequestFilterSensitiveLog = (obj: ListSigningProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SigningProfileFilterSensitiveLog = (obj: SigningProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSigningProfilesResponseFilterSensitiveLog = (obj: ListSigningProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSigningProfileRequestFilterSensitiveLog = (obj: PutSigningProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSigningProfileResponseFilterSensitiveLog = (obj: PutSigningProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveProfilePermissionRequestFilterSensitiveLog = (obj: RemoveProfilePermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveProfilePermissionResponseFilterSensitiveLog = (obj: RemoveProfilePermissionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeSignatureRequestFilterSensitiveLog = (obj: RevokeSignatureRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeSigningProfileRequestFilterSensitiveLog = (obj: RevokeSigningProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSigningJobRequestFilterSensitiveLog = (obj: StartSigningJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSigningJobResponseFilterSensitiveLog = (obj: StartSigningJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

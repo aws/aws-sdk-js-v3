@@ -61,15 +61,6 @@ export interface AWSAccount {
   name?: string;
 }
 
-export namespace AWSAccount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AWSAccount): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A comment that's posted by a user on a control. This includes the author's name, the
  *          comment text, and a timestamp. </p>
@@ -89,15 +80,6 @@ export interface ControlComment {
    * <p> The time when the comment was posted. </p>
    */
   postedDate?: Date;
-}
-
-export namespace ControlComment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ControlComment): any => ({
-    ...obj,
-  });
 }
 
 export enum ControlResponse {
@@ -161,15 +143,6 @@ export interface AssessmentControl {
    * <p> The amount of evidence in the assessment report. </p>
    */
   assessmentReportEvidenceCount?: number;
-}
-
-export namespace AssessmentControl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentControl): any => ({
-    ...obj,
-  });
 }
 
 export enum RoleType {
@@ -251,15 +224,6 @@ export interface Delegation {
   createdBy?: string;
 }
 
-export namespace Delegation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Delegation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The wrapper that contains the Audit Manager role information of the current
  *          user. This includes the role type and IAM Amazon Resource Name (ARN).
@@ -283,15 +247,6 @@ export interface Role {
    * <p> The Amazon Resource Name (ARN) of the IAM role. </p>
    */
   roleArn: string | undefined;
-}
-
-export namespace Role {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Role): any => ({
-    ...obj,
-  });
 }
 
 export enum ControlSetStatus {
@@ -348,15 +303,6 @@ export interface AssessmentControlSet {
   manualEvidenceCount?: number;
 }
 
-export namespace AssessmentControlSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentControlSet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The metadata of a framework, such as the name, ID, or description. </p>
  */
@@ -381,15 +327,6 @@ export interface FrameworkMetadata {
    *          be PCI DSS or HIPAA. </p>
    */
   complianceType?: string;
-}
-
-export namespace FrameworkMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FrameworkMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -418,15 +355,6 @@ export interface AssessmentFramework {
   controlSets?: AssessmentControlSet[];
 }
 
-export namespace AssessmentFramework {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentFramework): any => ({
-    ...obj,
-  });
-}
-
 export enum AssessmentReportDestinationType {
   S3 = "S3",
 }
@@ -447,15 +375,6 @@ export interface AssessmentReportsDestination {
   destination?: string;
 }
 
-export namespace AssessmentReportsDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentReportsDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> An Amazon Web Service such as Amazon S3 or CloudTrail.
  *       </p>
@@ -465,15 +384,6 @@ export interface AWSService {
    * <p> The name of the Amazon Web Service. </p>
    */
   serviceName?: string;
-}
-
-export namespace AWSService {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AWSService): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -492,15 +402,6 @@ export interface Scope {
    *       </p>
    */
   awsServices?: AWSService[];
-}
-
-export namespace Scope {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Scope): any => ({
-    ...obj,
-  });
 }
 
 export enum AssessmentStatus {
@@ -570,15 +471,6 @@ export interface AssessmentMetadata {
   lastUpdated?: Date;
 }
 
-export namespace AssessmentMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
  *          An Audit Manager assessment is an implementation of an Audit Manager
@@ -609,15 +501,6 @@ export interface Assessment {
    * <p> The tags that are associated with the assessment. </p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace Assessment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Assessment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -721,15 +604,6 @@ export interface AssessmentEvidenceFolder {
   evidenceAwsServiceSourceCount?: number;
 }
 
-export namespace AssessmentEvidenceFolder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentEvidenceFolder): any => ({
-    ...obj,
-  });
-}
-
 export enum FrameworkType {
   CUSTOM = "Custom",
   STANDARD = "Standard",
@@ -794,15 +668,6 @@ export interface AssessmentFrameworkMetadata {
    * <p> Specifies when the framework was most recently updated. </p>
    */
   lastUpdatedAt?: Date;
-}
-
-export namespace AssessmentFrameworkMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentFrameworkMetadata): any => ({
-    ...obj,
-  });
 }
 
 export enum ShareRequestStatus {
@@ -896,15 +761,6 @@ export interface AssessmentFrameworkShareRequest {
   complianceType?: string;
 }
 
-export namespace AssessmentFrameworkShareRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentFrameworkShareRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A metadata object that's associated with an assessment in Audit Manager.
  *       </p>
@@ -950,15 +806,6 @@ export interface AssessmentMetadataItem {
    * <p> The time of the most recent update. </p>
    */
   lastUpdated?: Date;
-}
-
-export namespace AssessmentMetadataItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentMetadataItem): any => ({
-    ...obj,
-  });
 }
 
 export enum AssessmentReportStatus {
@@ -1020,15 +867,6 @@ export interface AssessmentReport {
   creationTime?: Date;
 }
 
-export namespace AssessmentReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentReport): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> An error entity for the <code>AssessmentReportEvidence</code> API. This is used to
  *          provide more meaningful errors than a simple string message. </p>
@@ -1048,15 +886,6 @@ export interface AssessmentReportEvidenceError {
    * <p> The error message that the <code>AssessmentReportEvidence</code> API returned. </p>
    */
   errorMessage?: string;
-}
-
-export namespace AssessmentReportEvidenceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentReportEvidenceError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1104,15 +933,6 @@ export interface AssessmentReportMetadata {
   creationTime?: Date;
 }
 
-export namespace AssessmentReportMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssessmentReportMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateAssessmentReportEvidenceFolderRequest {
   /**
    * <p> The identifier for the assessment. </p>
@@ -1125,25 +945,7 @@ export interface AssociateAssessmentReportEvidenceFolderRequest {
   evidenceFolderId: string | undefined;
 }
 
-export namespace AssociateAssessmentReportEvidenceFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAssessmentReportEvidenceFolderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateAssessmentReportEvidenceFolderResponse {}
-
-export namespace AssociateAssessmentReportEvidenceFolderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAssessmentReportEvidenceFolderResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> An internal service error occurred during the processing of your request. Try again
@@ -1211,15 +1013,6 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "cannotParse",
   FIELD_VALIDATION_FAILED = "fieldValidationFailed",
@@ -1275,15 +1068,6 @@ export interface BatchAssociateAssessmentReportEvidenceRequest {
   evidenceIds: string[] | undefined;
 }
 
-export namespace BatchAssociateAssessmentReportEvidenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateAssessmentReportEvidenceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchAssociateAssessmentReportEvidenceResponse {
   /**
    * <p> The list of evidence identifiers. </p>
@@ -1295,15 +1079,6 @@ export interface BatchAssociateAssessmentReportEvidenceResponse {
    *          returned. </p>
    */
   errors?: AssessmentReportEvidenceError[];
-}
-
-export namespace BatchAssociateAssessmentReportEvidenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateAssessmentReportEvidenceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1340,15 +1115,6 @@ export interface CreateDelegationRequest {
   roleType?: RoleType | string;
 }
 
-export namespace CreateDelegationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDelegationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchCreateDelegationByAssessmentRequest {
   /**
    * <p> The API request to batch create delegations in Audit Manager. </p>
@@ -1359,15 +1125,6 @@ export interface BatchCreateDelegationByAssessmentRequest {
    * <p> The identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
-}
-
-export namespace BatchCreateDelegationByAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateDelegationByAssessmentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1393,15 +1150,6 @@ export interface BatchCreateDelegationByAssessmentError {
   errorMessage?: string;
 }
 
-export namespace BatchCreateDelegationByAssessmentError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateDelegationByAssessmentError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchCreateDelegationByAssessmentResponse {
   /**
    * <p> The delegations that are associated with the assessment. </p>
@@ -1415,15 +1163,6 @@ export interface BatchCreateDelegationByAssessmentResponse {
   errors?: BatchCreateDelegationByAssessmentError[];
 }
 
-export namespace BatchCreateDelegationByAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateDelegationByAssessmentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteDelegationByAssessmentRequest {
   /**
    * <p> The identifiers for the delegations. </p>
@@ -1434,15 +1173,6 @@ export interface BatchDeleteDelegationByAssessmentRequest {
    * <p> The identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
-}
-
-export namespace BatchDeleteDelegationByAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDelegationByAssessmentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1468,30 +1198,12 @@ export interface BatchDeleteDelegationByAssessmentError {
   errorMessage?: string;
 }
 
-export namespace BatchDeleteDelegationByAssessmentError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDelegationByAssessmentError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteDelegationByAssessmentResponse {
   /**
    * <p> A list of errors that the <code>BatchDeleteDelegationByAssessment</code> API returned.
    *       </p>
    */
   errors?: BatchDeleteDelegationByAssessmentError[];
-}
-
-export namespace BatchDeleteDelegationByAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteDelegationByAssessmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDisassociateAssessmentReportEvidenceRequest {
@@ -1511,15 +1223,6 @@ export interface BatchDisassociateAssessmentReportEvidenceRequest {
   evidenceIds: string[] | undefined;
 }
 
-export namespace BatchDisassociateAssessmentReportEvidenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateAssessmentReportEvidenceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDisassociateAssessmentReportEvidenceResponse {
   /**
    * <p> The identifier for the evidence. </p>
@@ -1533,15 +1236,6 @@ export interface BatchDisassociateAssessmentReportEvidenceResponse {
   errors?: AssessmentReportEvidenceError[];
 }
 
-export namespace BatchDisassociateAssessmentReportEvidenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateAssessmentReportEvidenceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Evidence that's uploaded to Audit Manager manually. </p>
  */
@@ -1550,15 +1244,6 @@ export interface ManualEvidence {
    * <p> The Amazon S3 URL that points to a manual evidence object. </p>
    */
   s3ResourcePath?: string;
-}
-
-export namespace ManualEvidence {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManualEvidence): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchImportEvidenceToAssessmentControlRequest {
@@ -1581,15 +1266,6 @@ export interface BatchImportEvidenceToAssessmentControlRequest {
    * <p> The list of manual evidence objects. </p>
    */
   manualEvidence: ManualEvidence[] | undefined;
-}
-
-export namespace BatchImportEvidenceToAssessmentControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchImportEvidenceToAssessmentControlRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1615,30 +1291,12 @@ export interface BatchImportEvidenceToAssessmentControlError {
   errorMessage?: string;
 }
 
-export namespace BatchImportEvidenceToAssessmentControlError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchImportEvidenceToAssessmentControlError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchImportEvidenceToAssessmentControlResponse {
   /**
    * <p> A list of errors that the <code>BatchImportEvidenceToAssessmentControl</code> API
    *          returned. </p>
    */
   errors?: BatchImportEvidenceToAssessmentControlError[];
-}
-
-export namespace BatchImportEvidenceToAssessmentControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchImportEvidenceToAssessmentControlResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAssessmentRequest {
@@ -1679,15 +1337,6 @@ export interface CreateAssessmentRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAssessmentResponse {
   /**
    * <p> An entity that defines the scope of audit evidence collected by Audit Manager.
@@ -1695,15 +1344,6 @@ export interface CreateAssessmentResponse {
    *          framework. </p>
    */
   assessment?: Assessment;
-}
-
-export namespace CreateAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1715,15 +1355,6 @@ export interface CreateAssessmentFrameworkControl {
    * <p> The unique identifier of the control. </p>
    */
   id: string | undefined;
-}
-
-export namespace CreateAssessmentFrameworkControl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentFrameworkControl): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1740,15 +1371,6 @@ export interface CreateAssessmentFrameworkControlSet {
    *       </p>
    */
   controls?: CreateAssessmentFrameworkControl[];
-}
-
-export namespace CreateAssessmentFrameworkControlSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentFrameworkControlSet): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAssessmentFrameworkRequest {
@@ -1777,15 +1399,6 @@ export interface CreateAssessmentFrameworkRequest {
    * <p> The tags that are associated with the framework. </p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateAssessmentFrameworkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentFrameworkRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SourceFrequency {
@@ -1877,15 +1490,6 @@ export interface SourceKeyword {
   keywordValue?: string;
 }
 
-export namespace SourceKeyword {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceKeyword): any => ({
-    ...obj,
-  });
-}
-
 export enum SourceSetUpOption {
   PROCEDURAL_CONTROLS_MAPPING = "Procedural_Controls_Mapping",
   SYSTEM_CONTROLS_MAPPING = "System_Controls_Mapping",
@@ -1945,15 +1549,6 @@ export interface ControlMappingSource {
    * <p> The instructions for troubleshooting the control. </p>
    */
   troubleshootingText?: string;
-}
-
-export namespace ControlMappingSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ControlMappingSource): any => ({
-    ...obj,
-  });
 }
 
 export enum ControlType {
@@ -2043,15 +1638,6 @@ export interface Control {
   tags?: Record<string, string>;
 }
 
-export namespace Control {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Control): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A set of controls in Audit Manager. </p>
  */
@@ -2071,15 +1657,6 @@ export interface ControlSet {
    * <p> The list of controls within the control set. </p>
    */
   controls?: Control[];
-}
-
-export namespace ControlSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ControlSet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2159,30 +1736,12 @@ export interface Framework {
   tags?: Record<string, string>;
 }
 
-export namespace Framework {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Framework): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAssessmentFrameworkResponse {
   /**
    * <p> The name of the new framework that the <code>CreateAssessmentFramework</code> API
    *          returned. </p>
    */
   framework?: Framework;
-}
-
-export namespace CreateAssessmentFrameworkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentFrameworkResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAssessmentReportRequest {
@@ -2202,30 +1761,12 @@ export interface CreateAssessmentReportRequest {
   assessmentId: string | undefined;
 }
 
-export namespace CreateAssessmentReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentReportRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAssessmentReportResponse {
   /**
    * <p> The new assessment report that the <code>CreateAssessmentReport</code> API returned.
    *       </p>
    */
   assessmentReport?: AssessmentReport;
-}
-
-export namespace CreateAssessmentReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssessmentReportResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2272,15 +1813,6 @@ export interface CreateControlMappingSource {
   troubleshootingText?: string;
 }
 
-export namespace CreateControlMappingSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateControlMappingSource): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateControlRequest {
   /**
    * <p> The name of the control. </p>
@@ -2318,29 +1850,11 @@ export interface CreateControlRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateControlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateControlResponse {
   /**
    * <p> The new control that the <code>CreateControl</code> API returned. </p>
    */
   control?: Control;
-}
-
-export namespace CreateControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateControlResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAssessmentRequest {
@@ -2350,25 +1864,7 @@ export interface DeleteAssessmentRequest {
   assessmentId: string | undefined;
 }
 
-export namespace DeleteAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAssessmentResponse {}
-
-export namespace DeleteAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAssessmentFrameworkRequest {
   /**
@@ -2377,25 +1873,7 @@ export interface DeleteAssessmentFrameworkRequest {
   frameworkId: string | undefined;
 }
 
-export namespace DeleteAssessmentFrameworkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentFrameworkRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAssessmentFrameworkResponse {}
-
-export namespace DeleteAssessmentFrameworkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentFrameworkResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum ShareRequestType {
   RECEIVED = "RECEIVED",
@@ -2414,25 +1892,7 @@ export interface DeleteAssessmentFrameworkShareRequest {
   requestType: ShareRequestType | string | undefined;
 }
 
-export namespace DeleteAssessmentFrameworkShareRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentFrameworkShareRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAssessmentFrameworkShareResponse {}
-
-export namespace DeleteAssessmentFrameworkShareResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentFrameworkShareResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAssessmentReportRequest {
   /**
@@ -2446,25 +1906,7 @@ export interface DeleteAssessmentReportRequest {
   assessmentReportId: string | undefined;
 }
 
-export namespace DeleteAssessmentReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentReportRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAssessmentReportResponse {}
-
-export namespace DeleteAssessmentReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssessmentReportResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteControlRequest {
   /**
@@ -2473,51 +1915,15 @@ export interface DeleteControlRequest {
   controlId: string | undefined;
 }
 
-export namespace DeleteControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteControlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteControlResponse {}
 
-export namespace DeleteControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteControlResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterAccountRequest {}
-
-export namespace DeregisterAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DeregisterAccountResponse {
   /**
    * <p> The registration status of the account. </p>
    */
   status?: AccountStatus | string;
-}
-
-export namespace DeregisterAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterOrganizationAdminAccountRequest {
@@ -2527,25 +1933,7 @@ export interface DeregisterOrganizationAdminAccountRequest {
   adminAccountId?: string;
 }
 
-export namespace DeregisterOrganizationAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterOrganizationAdminAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterOrganizationAdminAccountResponse {}
-
-export namespace DeregisterOrganizationAdminAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterOrganizationAdminAccountResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateAssessmentReportEvidenceFolderRequest {
   /**
@@ -2559,36 +1947,9 @@ export interface DisassociateAssessmentReportEvidenceFolderRequest {
   evidenceFolderId: string | undefined;
 }
 
-export namespace DisassociateAssessmentReportEvidenceFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAssessmentReportEvidenceFolderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateAssessmentReportEvidenceFolderResponse {}
 
-export namespace DisassociateAssessmentReportEvidenceFolderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAssessmentReportEvidenceFolderResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccountStatusRequest {}
-
-export namespace GetAccountStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountStatusRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAccountStatusResponse {
   /**
@@ -2597,29 +1958,11 @@ export interface GetAccountStatusResponse {
   status?: AccountStatus | string;
 }
 
-export namespace GetAccountStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssessmentRequest {
   /**
    * <p>The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
-}
-
-export namespace GetAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssessmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAssessmentResponse {
@@ -2638,15 +1981,6 @@ export interface GetAssessmentResponse {
   userRole?: Role;
 }
 
-export namespace GetAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssessmentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssessmentFrameworkRequest {
   /**
    * <p> The identifier for the framework. </p>
@@ -2654,29 +1988,11 @@ export interface GetAssessmentFrameworkRequest {
   frameworkId: string | undefined;
 }
 
-export namespace GetAssessmentFrameworkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssessmentFrameworkRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssessmentFrameworkResponse {
   /**
    * <p> The framework that the <code>GetAssessmentFramework</code> API returned. </p>
    */
   framework?: Framework;
-}
-
-export namespace GetAssessmentFrameworkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssessmentFrameworkResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAssessmentReportUrlRequest {
@@ -2689,15 +2005,6 @@ export interface GetAssessmentReportUrlRequest {
    * <p> The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
-}
-
-export namespace GetAssessmentReportUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssessmentReportUrlRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2716,30 +2023,12 @@ export interface URL {
   link?: string;
 }
 
-export namespace URL {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: URL): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssessmentReportUrlResponse {
   /**
    * <p> Short for uniform resource locator. A URL is used as a unique identifier to locate a
    *          resource on the internet. </p>
    */
   preSignedUrl?: URL;
-}
-
-export namespace GetAssessmentReportUrlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssessmentReportUrlResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetChangeLogsRequest {
@@ -2767,15 +2056,6 @@ export interface GetChangeLogsRequest {
    * <p>Represents the maximum number of results on a page or for an API request call. </p>
    */
   maxResults?: number;
-}
-
-export namespace GetChangeLogsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChangeLogsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ObjectTypeEnum {
@@ -2818,15 +2098,6 @@ export interface ChangeLog {
   createdBy?: string;
 }
 
-export namespace ChangeLog {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeLog): any => ({
-    ...obj,
-  });
-}
-
 export interface GetChangeLogsResponse {
   /**
    * <p>The list of user activity for the control. </p>
@@ -2839,15 +2110,6 @@ export interface GetChangeLogsResponse {
   nextToken?: string;
 }
 
-export namespace GetChangeLogsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChangeLogsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetControlRequest {
   /**
    * <p> The identifier for the control. </p>
@@ -2855,29 +2117,11 @@ export interface GetControlRequest {
   controlId: string | undefined;
 }
 
-export namespace GetControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetControlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetControlResponse {
   /**
    * <p> The name of the control that the <code>GetControl</code> API returned. </p>
    */
   control?: Control;
-}
-
-export namespace GetControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetControlResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDelegationsRequest {
@@ -2890,15 +2134,6 @@ export interface GetDelegationsRequest {
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    */
   maxResults?: number;
-}
-
-export namespace GetDelegationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDelegationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2941,15 +2176,6 @@ export interface DelegationMetadata {
   controlSetName?: string;
 }
 
-export namespace DelegationMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelegationMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDelegationsResponse {
   /**
    * <p> The list of delegations that the <code>GetDelegations</code> API returned. </p>
@@ -2960,15 +2186,6 @@ export interface GetDelegationsResponse {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace GetDelegationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDelegationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEvidenceRequest {
@@ -2993,15 +2210,6 @@ export interface GetEvidenceRequest {
   evidenceId: string | undefined;
 }
 
-export namespace GetEvidenceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvidenceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A system asset that's evaluated in an Audit Manager assessment. </p>
  */
@@ -3015,15 +2223,6 @@ export interface Resource {
    * <p> The value of the resource. </p>
    */
   value?: string;
-}
-
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3115,29 +2314,11 @@ export interface Evidence {
   assessmentReportSelection?: string;
 }
 
-export namespace Evidence {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Evidence): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEvidenceResponse {
   /**
    * <p> The evidence that the <code>GetEvidenceResponse</code> API returned. </p>
    */
   evidence?: Evidence;
-}
-
-export namespace GetEvidenceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvidenceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEvidenceByEvidenceFolderRequest {
@@ -3167,15 +2348,6 @@ export interface GetEvidenceByEvidenceFolderRequest {
   maxResults?: number;
 }
 
-export namespace GetEvidenceByEvidenceFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvidenceByEvidenceFolderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEvidenceByEvidenceFolderResponse {
   /**
    * <p> The list of evidence that the <code>GetEvidenceByEvidenceFolder</code> API returned.
@@ -3187,15 +2359,6 @@ export interface GetEvidenceByEvidenceFolderResponse {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace GetEvidenceByEvidenceFolderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvidenceByEvidenceFolderResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEvidenceFolderRequest {
@@ -3215,29 +2378,11 @@ export interface GetEvidenceFolderRequest {
   evidenceFolderId: string | undefined;
 }
 
-export namespace GetEvidenceFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvidenceFolderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEvidenceFolderResponse {
   /**
    * <p> The folder that the evidence is stored in. </p>
    */
   evidenceFolder?: AssessmentEvidenceFolder;
-}
-
-export namespace GetEvidenceFolderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvidenceFolderResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEvidenceFoldersByAssessmentRequest {
@@ -3257,15 +2402,6 @@ export interface GetEvidenceFoldersByAssessmentRequest {
   maxResults?: number;
 }
 
-export namespace GetEvidenceFoldersByAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvidenceFoldersByAssessmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEvidenceFoldersByAssessmentResponse {
   /**
    * <p> The list of evidence folders that the <code>GetEvidenceFoldersByAssessment</code> API
@@ -3277,15 +2413,6 @@ export interface GetEvidenceFoldersByAssessmentResponse {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace GetEvidenceFoldersByAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvidenceFoldersByAssessmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEvidenceFoldersByAssessmentControlRequest {
@@ -3315,15 +2442,6 @@ export interface GetEvidenceFoldersByAssessmentControlRequest {
   maxResults?: number;
 }
 
-export namespace GetEvidenceFoldersByAssessmentControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvidenceFoldersByAssessmentControlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEvidenceFoldersByAssessmentControlResponse {
   /**
    * <p> The list of evidence folders that the
@@ -3337,25 +2455,7 @@ export interface GetEvidenceFoldersByAssessmentControlResponse {
   nextToken?: string;
 }
 
-export namespace GetEvidenceFoldersByAssessmentControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvidenceFoldersByAssessmentControlResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInsightsRequest {}
-
-export namespace GetInsightsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInsightsRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A summary of the latest analytics data for all your active assessments. </p>
@@ -3436,15 +2536,6 @@ export interface Insights {
   lastUpdated?: Date;
 }
 
-export namespace Insights {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Insights): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInsightsResponse {
   /**
    * <p>The analytics data that the <code>GetInsights</code> API returned. </p>
@@ -3452,29 +2543,11 @@ export interface GetInsightsResponse {
   insights?: Insights;
 }
 
-export namespace GetInsightsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInsightsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInsightsByAssessmentRequest {
   /**
    * <p>The unique identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
-}
-
-export namespace GetInsightsByAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInsightsByAssessmentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3553,15 +2626,6 @@ export interface InsightsByAssessment {
   lastUpdated?: Date;
 }
 
-export namespace InsightsByAssessment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsightsByAssessment): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInsightsByAssessmentResponse {
   /**
    * <p> The assessment analytics data that the <code>GetInsightsByAssessment</code> API
@@ -3570,25 +2634,7 @@ export interface GetInsightsByAssessmentResponse {
   insights?: InsightsByAssessment;
 }
 
-export namespace GetInsightsByAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInsightsByAssessmentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOrganizationAdminAccountRequest {}
-
-export namespace GetOrganizationAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrganizationAdminAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetOrganizationAdminAccountResponse {
   /**
@@ -3602,25 +2648,7 @@ export interface GetOrganizationAdminAccountResponse {
   organizationId?: string;
 }
 
-export namespace GetOrganizationAdminAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOrganizationAdminAccountResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServicesInScopeRequest {}
-
-export namespace GetServicesInScopeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServicesInScopeRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p> The metadata that's associated with the Amazon Web Service. </p>
@@ -3648,29 +2676,11 @@ export interface ServiceMetadata {
   category?: string;
 }
 
-export namespace ServiceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServicesInScopeResponse {
   /**
    * <p> The metadata that's associated with the Amazon Web Service. </p>
    */
   serviceMetadata?: ServiceMetadata[];
-}
-
-export namespace GetServicesInScopeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServicesInScopeResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SettingAttribute {
@@ -3686,15 +2696,6 @@ export interface GetSettingsRequest {
    * <p> The list of <code>SettingAttribute</code> enum values. </p>
    */
   attribute: SettingAttribute | string | undefined;
-}
-
-export namespace GetSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSettingsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3727,29 +2728,11 @@ export interface Settings {
   kmsKey?: string;
 }
 
-export namespace Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Settings): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSettingsResponse {
   /**
    * <p> The settings object that holds all supported Audit Manager settings. </p>
    */
   settings?: Settings;
-}
-
-export namespace GetSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssessmentControlInsightsByControlDomainRequest {
@@ -3772,15 +2755,6 @@ export interface ListAssessmentControlInsightsByControlDomainRequest {
    * <p>Represents the maximum number of results on a page or for an API request call. </p>
    */
   maxResults?: number;
-}
-
-export namespace ListAssessmentControlInsightsByControlDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentControlInsightsByControlDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3818,15 +2792,6 @@ export interface EvidenceInsights {
   inconclusiveEvidenceCount?: number;
 }
 
-export namespace EvidenceInsights {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvidenceInsights): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A summary of the latest analytics data for a specific control in a specific active
  *          assessment.</p>
@@ -3861,15 +2826,6 @@ export interface ControlInsightsMetadataByAssessmentItem {
   lastUpdated?: Date;
 }
 
-export namespace ControlInsightsMetadataByAssessmentItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ControlInsightsMetadataByAssessmentItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssessmentControlInsightsByControlDomainResponse {
   /**
    * <p>The assessment control analytics data that the
@@ -3881,15 +2837,6 @@ export interface ListAssessmentControlInsightsByControlDomainResponse {
    * <p>The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssessmentControlInsightsByControlDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentControlInsightsByControlDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssessmentFrameworksRequest {
@@ -3909,15 +2856,6 @@ export interface ListAssessmentFrameworksRequest {
   maxResults?: number;
 }
 
-export namespace ListAssessmentFrameworksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentFrameworksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssessmentFrameworksResponse {
   /**
    * <p> The list of metadata objects for the framework. </p>
@@ -3928,15 +2866,6 @@ export interface ListAssessmentFrameworksResponse {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssessmentFrameworksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentFrameworksResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssessmentFrameworkShareRequestsRequest {
@@ -3956,15 +2885,6 @@ export interface ListAssessmentFrameworkShareRequestsRequest {
   maxResults?: number;
 }
 
-export namespace ListAssessmentFrameworkShareRequestsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentFrameworkShareRequestsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssessmentFrameworkShareRequestsResponse {
   /**
    * <p> The list of share requests that the <code>ListAssessmentFrameworkShareRequests</code>
@@ -3976,15 +2896,6 @@ export interface ListAssessmentFrameworkShareRequestsResponse {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssessmentFrameworkShareRequestsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentFrameworkShareRequestsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssessmentReportsRequest {
@@ -3999,15 +2910,6 @@ export interface ListAssessmentReportsRequest {
   maxResults?: number;
 }
 
-export namespace ListAssessmentReportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentReportsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssessmentReportsResponse {
   /**
    * <p> The list of assessment reports that the <code>ListAssessmentReports</code> API
@@ -4019,15 +2921,6 @@ export interface ListAssessmentReportsResponse {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssessmentReportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentReportsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssessmentsRequest {
@@ -4047,15 +2940,6 @@ export interface ListAssessmentsRequest {
   maxResults?: number;
 }
 
-export namespace ListAssessmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssessmentsResponse {
   /**
    * <p> The metadata that's associated with the assessment. </p>
@@ -4068,15 +2952,6 @@ export interface ListAssessmentsResponse {
   nextToken?: string;
 }
 
-export namespace ListAssessmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssessmentsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListControlDomainInsightsRequest {
   /**
    * <p>The pagination token that's used to fetch the next set of results. </p>
@@ -4087,15 +2962,6 @@ export interface ListControlDomainInsightsRequest {
    * <p>Represents the maximum number of results on a page or for an API request call. </p>
    */
   maxResults?: number;
-}
-
-export namespace ListControlDomainInsightsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListControlDomainInsightsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4136,15 +3002,6 @@ export interface ControlDomainInsights {
   lastUpdated?: Date;
 }
 
-export namespace ControlDomainInsights {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ControlDomainInsights): any => ({
-    ...obj,
-  });
-}
-
 export interface ListControlDomainInsightsResponse {
   /**
    * <p>The control domain analytics data that the <code>ListControlDomainInsights</code> API
@@ -4156,15 +3013,6 @@ export interface ListControlDomainInsightsResponse {
    * <p>The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListControlDomainInsightsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListControlDomainInsightsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListControlDomainInsightsByAssessmentRequest {
@@ -4184,15 +3032,6 @@ export interface ListControlDomainInsightsByAssessmentRequest {
   maxResults?: number;
 }
 
-export namespace ListControlDomainInsightsByAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListControlDomainInsightsByAssessmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListControlDomainInsightsByAssessmentResponse {
   /**
    * <p>The control domain analytics data that the
@@ -4204,15 +3043,6 @@ export interface ListControlDomainInsightsByAssessmentResponse {
    * <p>The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListControlDomainInsightsByAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListControlDomainInsightsByAssessmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListControlInsightsByControlDomainRequest {
@@ -4230,15 +3060,6 @@ export interface ListControlInsightsByControlDomainRequest {
    * <p>Represents the maximum number of results on a page or for an API request call. </p>
    */
   maxResults?: number;
-}
-
-export namespace ListControlInsightsByControlDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListControlInsightsByControlDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4268,15 +3089,6 @@ export interface ControlInsightsMetadataItem {
   lastUpdated?: Date;
 }
 
-export namespace ControlInsightsMetadataItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ControlInsightsMetadataItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListControlInsightsByControlDomainResponse {
   /**
    * <p>The control analytics data that the <code>ListControlInsightsByControlDomain</code> API
@@ -4288,15 +3100,6 @@ export interface ListControlInsightsByControlDomainResponse {
    * <p>The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListControlInsightsByControlDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListControlInsightsByControlDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListControlsRequest {
@@ -4314,15 +3117,6 @@ export interface ListControlsRequest {
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    */
   maxResults?: number;
-}
-
-export namespace ListControlsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListControlsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4361,15 +3155,6 @@ export interface ControlMetadata {
   lastUpdatedAt?: Date;
 }
 
-export namespace ControlMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ControlMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface ListControlsResponse {
   /**
    * <p> The list of control metadata objects that the <code>ListControls</code> API returned.
@@ -4381,15 +3166,6 @@ export interface ListControlsResponse {
    * <p> The pagination token that's used to fetch the next set of results. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListControlsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListControlsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListKeywordsForDataSourceRequest {
@@ -4409,15 +3185,6 @@ export interface ListKeywordsForDataSourceRequest {
   maxResults?: number;
 }
 
-export namespace ListKeywordsForDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKeywordsForDataSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListKeywordsForDataSourceResponse {
   /**
    * <p> The list of keywords for the event mapping source. </p>
@@ -4430,15 +3197,6 @@ export interface ListKeywordsForDataSourceResponse {
   nextToken?: string;
 }
 
-export namespace ListKeywordsForDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKeywordsForDataSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNotificationsRequest {
   /**
    * <p> The pagination token that's used to fetch the next set of results. </p>
@@ -4449,15 +3207,6 @@ export interface ListNotificationsRequest {
    * <p> Represents the maximum number of results on a page or for an API request call. </p>
    */
   maxResults?: number;
-}
-
-export namespace ListNotificationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNotificationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4507,15 +3256,6 @@ export interface Notification {
   source?: string;
 }
 
-export namespace Notification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Notification): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNotificationsResponse {
   /**
    * <p> The returned list of notifications. </p>
@@ -4528,15 +3268,6 @@ export interface ListNotificationsResponse {
   nextToken?: string;
 }
 
-export namespace ListNotificationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNotificationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the resource. </p>
@@ -4544,29 +3275,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p> The list of tags that the <code>ListTagsForResource</code> API returned. </p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterAccountRequest {
@@ -4581,29 +3294,11 @@ export interface RegisterAccountRequest {
   delegatedAdminAccount?: string;
 }
 
-export namespace RegisterAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterAccountResponse {
   /**
    * <p> The status of the account registration request. </p>
    */
   status?: AccountStatus | string;
-}
-
-export namespace RegisterAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4632,15 +3327,6 @@ export interface RegisterOrganizationAdminAccountRequest {
   adminAccountId: string | undefined;
 }
 
-export namespace RegisterOrganizationAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterOrganizationAdminAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterOrganizationAdminAccountResponse {
   /**
    * <p> The identifier for the delegated administrator account. </p>
@@ -4651,15 +3337,6 @@ export interface RegisterOrganizationAdminAccountResponse {
    * <p> The identifier for the organization. </p>
    */
   organizationId?: string;
-}
-
-export namespace RegisterOrganizationAdminAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterOrganizationAdminAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartAssessmentFrameworkShareRequest {
@@ -4684,30 +3361,12 @@ export interface StartAssessmentFrameworkShareRequest {
   comment?: string;
 }
 
-export namespace StartAssessmentFrameworkShareRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAssessmentFrameworkShareRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartAssessmentFrameworkShareResponse {
   /**
    * <p> The share request that's created by the <code>StartAssessmentFrameworkShare</code> API.
    *       </p>
    */
   assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest;
-}
-
-export namespace StartAssessmentFrameworkShareResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAssessmentFrameworkShareResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4722,25 +3381,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4754,25 +3395,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateAssessmentRequest {
   /**
@@ -4807,30 +3430,12 @@ export interface UpdateAssessmentRequest {
   roles?: Role[];
 }
 
-export namespace UpdateAssessmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAssessmentResponse {
   /**
    * <p> The response object for the <code>UpdateAssessmentRequest</code> API. This is the name
    *          of the updated assessment.</p>
    */
   assessment?: Assessment;
-}
-
-export namespace UpdateAssessmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAssessmentControlRequest {
@@ -4860,30 +3465,12 @@ export interface UpdateAssessmentControlRequest {
   commentBody?: string;
 }
 
-export namespace UpdateAssessmentControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentControlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAssessmentControlResponse {
   /**
    * <p> The name of the updated control set that the <code>UpdateAssessmentControl</code> API
    *          returned. </p>
    */
   control?: AssessmentControl;
-}
-
-export namespace UpdateAssessmentControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentControlResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAssessmentControlSetStatusRequest {
@@ -4908,30 +3495,12 @@ export interface UpdateAssessmentControlSetStatusRequest {
   comment: string | undefined;
 }
 
-export namespace UpdateAssessmentControlSetStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentControlSetStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAssessmentControlSetStatusResponse {
   /**
    * <p> The name of the updated control set that the
    *          <code>UpdateAssessmentControlSetStatus</code> API returned. </p>
    */
   controlSet?: AssessmentControlSet;
-}
-
-export namespace UpdateAssessmentControlSetStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentControlSetStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4952,15 +3521,6 @@ export interface UpdateAssessmentFrameworkControlSet {
    * <p> The list of controls that are contained within the control set. </p>
    */
   controls: CreateAssessmentFrameworkControl[] | undefined;
-}
-
-export namespace UpdateAssessmentFrameworkControlSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentFrameworkControlSet): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAssessmentFrameworkRequest {
@@ -4991,29 +3551,11 @@ export interface UpdateAssessmentFrameworkRequest {
   controlSets: UpdateAssessmentFrameworkControlSet[] | undefined;
 }
 
-export namespace UpdateAssessmentFrameworkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentFrameworkRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAssessmentFrameworkResponse {
   /**
    * <p> The name of the framework. </p>
    */
   framework?: Framework;
-}
-
-export namespace UpdateAssessmentFrameworkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentFrameworkResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ShareRequestAction {
@@ -5039,30 +3581,12 @@ export interface UpdateAssessmentFrameworkShareRequest {
   action: ShareRequestAction | string | undefined;
 }
 
-export namespace UpdateAssessmentFrameworkShareRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentFrameworkShareRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAssessmentFrameworkShareResponse {
   /**
    * <p> The updated share request that's returned by the
    *          <code>UpdateAssessmentFrameworkShare</code> operation. </p>
    */
   assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest;
-}
-
-export namespace UpdateAssessmentFrameworkShareResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentFrameworkShareResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAssessmentStatusRequest {
@@ -5077,30 +3601,12 @@ export interface UpdateAssessmentStatusRequest {
   status: AssessmentStatus | string | undefined;
 }
 
-export namespace UpdateAssessmentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAssessmentStatusResponse {
   /**
    * <p> The name of the updated assessment that the <code>UpdateAssessmentStatus</code> API
    *          returned. </p>
    */
   assessment?: Assessment;
-}
-
-export namespace UpdateAssessmentStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssessmentStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateControlRequest {
@@ -5140,30 +3646,12 @@ export interface UpdateControlRequest {
   controlMappingSources: ControlMappingSource[] | undefined;
 }
 
-export namespace UpdateControlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateControlRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateControlResponse {
   /**
    * <p> The name of the updated control set that the <code>UpdateControl</code> API returned.
    *       </p>
    */
   control?: Control;
-}
-
-export namespace UpdateControlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateControlResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSettingsRequest {
@@ -5189,29 +3677,11 @@ export interface UpdateSettingsRequest {
   kmsKey?: string;
 }
 
-export namespace UpdateSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSettingsResponse {
   /**
    * <p> The current list of settings. </p>
    */
   settings?: Settings;
-}
-
-export namespace UpdateSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ValidateAssessmentReportIntegrityRequest {
@@ -5220,15 +3690,6 @@ export interface ValidateAssessmentReportIntegrityRequest {
    *          in. </p>
    */
   s3RelativePath: string | undefined;
-}
-
-export namespace ValidateAssessmentReportIntegrityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidateAssessmentReportIntegrityRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ValidateAssessmentReportIntegrityResponse {
@@ -5259,11 +3720,1302 @@ export interface ValidateAssessmentReportIntegrityResponse {
   validationErrors?: string[];
 }
 
-export namespace ValidateAssessmentReportIntegrityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidateAssessmentReportIntegrityResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AWSAccountFilterSensitiveLog = (obj: AWSAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ControlCommentFilterSensitiveLog = (obj: ControlComment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentControlFilterSensitiveLog = (obj: AssessmentControl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DelegationFilterSensitiveLog = (obj: Delegation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoleFilterSensitiveLog = (obj: Role): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentControlSetFilterSensitiveLog = (obj: AssessmentControlSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameworkMetadataFilterSensitiveLog = (obj: FrameworkMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentFrameworkFilterSensitiveLog = (obj: AssessmentFramework): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentReportsDestinationFilterSensitiveLog = (obj: AssessmentReportsDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AWSServiceFilterSensitiveLog = (obj: AWSService): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScopeFilterSensitiveLog = (obj: Scope): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentMetadataFilterSensitiveLog = (obj: AssessmentMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentFilterSensitiveLog = (obj: Assessment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentEvidenceFolderFilterSensitiveLog = (obj: AssessmentEvidenceFolder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentFrameworkMetadataFilterSensitiveLog = (obj: AssessmentFrameworkMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentFrameworkShareRequestFilterSensitiveLog = (obj: AssessmentFrameworkShareRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentMetadataItemFilterSensitiveLog = (obj: AssessmentMetadataItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentReportFilterSensitiveLog = (obj: AssessmentReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentReportEvidenceErrorFilterSensitiveLog = (obj: AssessmentReportEvidenceError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentReportMetadataFilterSensitiveLog = (obj: AssessmentReportMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateAssessmentReportEvidenceFolderRequestFilterSensitiveLog = (
+  obj: AssociateAssessmentReportEvidenceFolderRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateAssessmentReportEvidenceFolderResponseFilterSensitiveLog = (
+  obj: AssociateAssessmentReportEvidenceFolderResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateAssessmentReportEvidenceRequestFilterSensitiveLog = (
+  obj: BatchAssociateAssessmentReportEvidenceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateAssessmentReportEvidenceResponseFilterSensitiveLog = (
+  obj: BatchAssociateAssessmentReportEvidenceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDelegationRequestFilterSensitiveLog = (obj: CreateDelegationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateDelegationByAssessmentRequestFilterSensitiveLog = (
+  obj: BatchCreateDelegationByAssessmentRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateDelegationByAssessmentErrorFilterSensitiveLog = (
+  obj: BatchCreateDelegationByAssessmentError
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateDelegationByAssessmentResponseFilterSensitiveLog = (
+  obj: BatchCreateDelegationByAssessmentResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDelegationByAssessmentRequestFilterSensitiveLog = (
+  obj: BatchDeleteDelegationByAssessmentRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDelegationByAssessmentErrorFilterSensitiveLog = (
+  obj: BatchDeleteDelegationByAssessmentError
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDelegationByAssessmentResponseFilterSensitiveLog = (
+  obj: BatchDeleteDelegationByAssessmentResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateAssessmentReportEvidenceRequestFilterSensitiveLog = (
+  obj: BatchDisassociateAssessmentReportEvidenceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateAssessmentReportEvidenceResponseFilterSensitiveLog = (
+  obj: BatchDisassociateAssessmentReportEvidenceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManualEvidenceFilterSensitiveLog = (obj: ManualEvidence): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog = (
+  obj: BatchImportEvidenceToAssessmentControlRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchImportEvidenceToAssessmentControlErrorFilterSensitiveLog = (
+  obj: BatchImportEvidenceToAssessmentControlError
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog = (
+  obj: BatchImportEvidenceToAssessmentControlResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentRequestFilterSensitiveLog = (obj: CreateAssessmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentResponseFilterSensitiveLog = (obj: CreateAssessmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentFrameworkControlFilterSensitiveLog = (obj: CreateAssessmentFrameworkControl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentFrameworkControlSetFilterSensitiveLog = (
+  obj: CreateAssessmentFrameworkControlSet
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentFrameworkRequestFilterSensitiveLog = (obj: CreateAssessmentFrameworkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceKeywordFilterSensitiveLog = (obj: SourceKeyword): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ControlMappingSourceFilterSensitiveLog = (obj: ControlMappingSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ControlFilterSensitiveLog = (obj: Control): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ControlSetFilterSensitiveLog = (obj: ControlSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameworkFilterSensitiveLog = (obj: Framework): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentFrameworkResponseFilterSensitiveLog = (obj: CreateAssessmentFrameworkResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentReportRequestFilterSensitiveLog = (obj: CreateAssessmentReportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentReportResponseFilterSensitiveLog = (obj: CreateAssessmentReportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateControlMappingSourceFilterSensitiveLog = (obj: CreateControlMappingSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateControlRequestFilterSensitiveLog = (obj: CreateControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateControlResponseFilterSensitiveLog = (obj: CreateControlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentRequestFilterSensitiveLog = (obj: DeleteAssessmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentResponseFilterSensitiveLog = (obj: DeleteAssessmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentFrameworkRequestFilterSensitiveLog = (obj: DeleteAssessmentFrameworkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentFrameworkResponseFilterSensitiveLog = (obj: DeleteAssessmentFrameworkResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentFrameworkShareRequestFilterSensitiveLog = (
+  obj: DeleteAssessmentFrameworkShareRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentFrameworkShareResponseFilterSensitiveLog = (
+  obj: DeleteAssessmentFrameworkShareResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentReportRequestFilterSensitiveLog = (obj: DeleteAssessmentReportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssessmentReportResponseFilterSensitiveLog = (obj: DeleteAssessmentReportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteControlRequestFilterSensitiveLog = (obj: DeleteControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteControlResponseFilterSensitiveLog = (obj: DeleteControlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterAccountRequestFilterSensitiveLog = (obj: DeregisterAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterAccountResponseFilterSensitiveLog = (obj: DeregisterAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterOrganizationAdminAccountRequestFilterSensitiveLog = (
+  obj: DeregisterOrganizationAdminAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterOrganizationAdminAccountResponseFilterSensitiveLog = (
+  obj: DeregisterOrganizationAdminAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateAssessmentReportEvidenceFolderRequestFilterSensitiveLog = (
+  obj: DisassociateAssessmentReportEvidenceFolderRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateAssessmentReportEvidenceFolderResponseFilterSensitiveLog = (
+  obj: DisassociateAssessmentReportEvidenceFolderResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountStatusRequestFilterSensitiveLog = (obj: GetAccountStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountStatusResponseFilterSensitiveLog = (obj: GetAccountStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentRequestFilterSensitiveLog = (obj: GetAssessmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentResponseFilterSensitiveLog = (obj: GetAssessmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentFrameworkRequestFilterSensitiveLog = (obj: GetAssessmentFrameworkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentFrameworkResponseFilterSensitiveLog = (obj: GetAssessmentFrameworkResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentReportUrlRequestFilterSensitiveLog = (obj: GetAssessmentReportUrlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const URLFilterSensitiveLog = (obj: URL): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentReportUrlResponseFilterSensitiveLog = (obj: GetAssessmentReportUrlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChangeLogsRequestFilterSensitiveLog = (obj: GetChangeLogsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeLogFilterSensitiveLog = (obj: ChangeLog): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChangeLogsResponseFilterSensitiveLog = (obj: GetChangeLogsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetControlRequestFilterSensitiveLog = (obj: GetControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetControlResponseFilterSensitiveLog = (obj: GetControlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDelegationsRequestFilterSensitiveLog = (obj: GetDelegationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DelegationMetadataFilterSensitiveLog = (obj: DelegationMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDelegationsResponseFilterSensitiveLog = (obj: GetDelegationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceRequestFilterSensitiveLog = (obj: GetEvidenceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvidenceFilterSensitiveLog = (obj: Evidence): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceResponseFilterSensitiveLog = (obj: GetEvidenceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceByEvidenceFolderRequestFilterSensitiveLog = (obj: GetEvidenceByEvidenceFolderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceByEvidenceFolderResponseFilterSensitiveLog = (
+  obj: GetEvidenceByEvidenceFolderResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceFolderRequestFilterSensitiveLog = (obj: GetEvidenceFolderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceFolderResponseFilterSensitiveLog = (obj: GetEvidenceFolderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceFoldersByAssessmentRequestFilterSensitiveLog = (
+  obj: GetEvidenceFoldersByAssessmentRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceFoldersByAssessmentResponseFilterSensitiveLog = (
+  obj: GetEvidenceFoldersByAssessmentResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceFoldersByAssessmentControlRequestFilterSensitiveLog = (
+  obj: GetEvidenceFoldersByAssessmentControlRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceFoldersByAssessmentControlResponseFilterSensitiveLog = (
+  obj: GetEvidenceFoldersByAssessmentControlResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInsightsRequestFilterSensitiveLog = (obj: GetInsightsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsightsFilterSensitiveLog = (obj: Insights): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInsightsResponseFilterSensitiveLog = (obj: GetInsightsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInsightsByAssessmentRequestFilterSensitiveLog = (obj: GetInsightsByAssessmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsightsByAssessmentFilterSensitiveLog = (obj: InsightsByAssessment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInsightsByAssessmentResponseFilterSensitiveLog = (obj: GetInsightsByAssessmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOrganizationAdminAccountRequestFilterSensitiveLog = (obj: GetOrganizationAdminAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOrganizationAdminAccountResponseFilterSensitiveLog = (
+  obj: GetOrganizationAdminAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServicesInScopeRequestFilterSensitiveLog = (obj: GetServicesInScopeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceMetadataFilterSensitiveLog = (obj: ServiceMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServicesInScopeResponseFilterSensitiveLog = (obj: GetServicesInScopeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSettingsRequestFilterSensitiveLog = (obj: GetSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SettingsFilterSensitiveLog = (obj: Settings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSettingsResponseFilterSensitiveLog = (obj: GetSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentControlInsightsByControlDomainRequestFilterSensitiveLog = (
+  obj: ListAssessmentControlInsightsByControlDomainRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvidenceInsightsFilterSensitiveLog = (obj: EvidenceInsights): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ControlInsightsMetadataByAssessmentItemFilterSensitiveLog = (
+  obj: ControlInsightsMetadataByAssessmentItem
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentControlInsightsByControlDomainResponseFilterSensitiveLog = (
+  obj: ListAssessmentControlInsightsByControlDomainResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentFrameworksRequestFilterSensitiveLog = (obj: ListAssessmentFrameworksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentFrameworksResponseFilterSensitiveLog = (obj: ListAssessmentFrameworksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentFrameworkShareRequestsRequestFilterSensitiveLog = (
+  obj: ListAssessmentFrameworkShareRequestsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog = (
+  obj: ListAssessmentFrameworkShareRequestsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentReportsRequestFilterSensitiveLog = (obj: ListAssessmentReportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentReportsResponseFilterSensitiveLog = (obj: ListAssessmentReportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentsRequestFilterSensitiveLog = (obj: ListAssessmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentsResponseFilterSensitiveLog = (obj: ListAssessmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListControlDomainInsightsRequestFilterSensitiveLog = (obj: ListControlDomainInsightsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ControlDomainInsightsFilterSensitiveLog = (obj: ControlDomainInsights): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListControlDomainInsightsResponseFilterSensitiveLog = (obj: ListControlDomainInsightsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListControlDomainInsightsByAssessmentRequestFilterSensitiveLog = (
+  obj: ListControlDomainInsightsByAssessmentRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListControlDomainInsightsByAssessmentResponseFilterSensitiveLog = (
+  obj: ListControlDomainInsightsByAssessmentResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListControlInsightsByControlDomainRequestFilterSensitiveLog = (
+  obj: ListControlInsightsByControlDomainRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ControlInsightsMetadataItemFilterSensitiveLog = (obj: ControlInsightsMetadataItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListControlInsightsByControlDomainResponseFilterSensitiveLog = (
+  obj: ListControlInsightsByControlDomainResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListControlsRequestFilterSensitiveLog = (obj: ListControlsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ControlMetadataFilterSensitiveLog = (obj: ControlMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListControlsResponseFilterSensitiveLog = (obj: ListControlsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKeywordsForDataSourceRequestFilterSensitiveLog = (obj: ListKeywordsForDataSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKeywordsForDataSourceResponseFilterSensitiveLog = (obj: ListKeywordsForDataSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationsRequestFilterSensitiveLog = (obj: ListNotificationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationFilterSensitiveLog = (obj: Notification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationsResponseFilterSensitiveLog = (obj: ListNotificationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterAccountRequestFilterSensitiveLog = (obj: RegisterAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterAccountResponseFilterSensitiveLog = (obj: RegisterAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterOrganizationAdminAccountRequestFilterSensitiveLog = (
+  obj: RegisterOrganizationAdminAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterOrganizationAdminAccountResponseFilterSensitiveLog = (
+  obj: RegisterOrganizationAdminAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAssessmentFrameworkShareRequestFilterSensitiveLog = (
+  obj: StartAssessmentFrameworkShareRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAssessmentFrameworkShareResponseFilterSensitiveLog = (
+  obj: StartAssessmentFrameworkShareResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentRequestFilterSensitiveLog = (obj: UpdateAssessmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentResponseFilterSensitiveLog = (obj: UpdateAssessmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentControlRequestFilterSensitiveLog = (obj: UpdateAssessmentControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentControlResponseFilterSensitiveLog = (obj: UpdateAssessmentControlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentControlSetStatusRequestFilterSensitiveLog = (
+  obj: UpdateAssessmentControlSetStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentControlSetStatusResponseFilterSensitiveLog = (
+  obj: UpdateAssessmentControlSetStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentFrameworkControlSetFilterSensitiveLog = (
+  obj: UpdateAssessmentFrameworkControlSet
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentFrameworkRequestFilterSensitiveLog = (obj: UpdateAssessmentFrameworkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentFrameworkResponseFilterSensitiveLog = (obj: UpdateAssessmentFrameworkResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentFrameworkShareRequestFilterSensitiveLog = (
+  obj: UpdateAssessmentFrameworkShareRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentFrameworkShareResponseFilterSensitiveLog = (
+  obj: UpdateAssessmentFrameworkShareResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentStatusRequestFilterSensitiveLog = (obj: UpdateAssessmentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentStatusResponseFilterSensitiveLog = (obj: UpdateAssessmentStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateControlRequestFilterSensitiveLog = (obj: UpdateControlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateControlResponseFilterSensitiveLog = (obj: UpdateControlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSettingsRequestFilterSensitiveLog = (obj: UpdateSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSettingsResponseFilterSensitiveLog = (obj: UpdateSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateAssessmentReportIntegrityRequestFilterSensitiveLog = (
+  obj: ValidateAssessmentReportIntegrityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateAssessmentReportIntegrityResponseFilterSensitiveLog = (
+  obj: ValidateAssessmentReportIntegrityResponse
+): any => ({
+  ...obj,
+});

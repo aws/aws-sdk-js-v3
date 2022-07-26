@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { ListTagsInput, ListTagsOutput } from "../models/models_0";
+import {
+  ListTagsInput,
+  ListTagsInputFilterSensitiveLog,
+  ListTagsOutput,
+  ListTagsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListTagsCommand,
   serializeAws_restJson1ListTagsCommand,
@@ -73,8 +78,8 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

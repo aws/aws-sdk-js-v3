@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { ListStagingAccountsRequest, ListStagingAccountsResponse } from "../models/models_0";
+import {
+  ListStagingAccountsRequest,
+  ListStagingAccountsRequestFilterSensitiveLog,
+  ListStagingAccountsResponse,
+  ListStagingAccountsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListStagingAccountsCommand,
   serializeAws_restJson1ListStagingAccountsCommand,
@@ -72,8 +77,8 @@ export class ListStagingAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStagingAccountsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStagingAccountsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStagingAccountsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStagingAccountsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

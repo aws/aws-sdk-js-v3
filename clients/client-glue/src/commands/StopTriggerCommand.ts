@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StopTriggerRequest, StopTriggerResponse } from "../models/models_2";
+import {
+  StopTriggerRequest,
+  StopTriggerRequestFilterSensitiveLog,
+  StopTriggerResponse,
+  StopTriggerResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1StopTriggerCommand,
   serializeAws_json1_1StopTriggerCommand,
@@ -72,8 +77,8 @@ export class StopTriggerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTriggerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopTriggerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopTriggerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopTriggerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

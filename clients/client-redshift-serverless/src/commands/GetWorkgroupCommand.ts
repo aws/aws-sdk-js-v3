@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetWorkgroupRequest, GetWorkgroupResponse } from "../models/models_0";
+import {
+  GetWorkgroupRequest,
+  GetWorkgroupRequestFilterSensitiveLog,
+  GetWorkgroupResponse,
+  GetWorkgroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetWorkgroupCommand,
   serializeAws_json1_1GetWorkgroupCommand,
@@ -76,8 +81,8 @@ export class GetWorkgroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkgroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkgroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetWorkgroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetWorkgroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DescribeDeliveryChannelStatusRequest, DescribeDeliveryChannelStatusResponse } from "../models/models_0";
+import {
+  DescribeDeliveryChannelStatusRequest,
+  DescribeDeliveryChannelStatusRequestFilterSensitiveLog,
+  DescribeDeliveryChannelStatusResponse,
+  DescribeDeliveryChannelStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDeliveryChannelStatusCommand,
   serializeAws_json1_1DescribeDeliveryChannelStatusCommand,
@@ -81,8 +86,8 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDeliveryChannelStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDeliveryChannelStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDeliveryChannelStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDeliveryChannelStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

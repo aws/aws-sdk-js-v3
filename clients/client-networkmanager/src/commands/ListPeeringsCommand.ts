@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListPeeringsRequest, ListPeeringsResponse } from "../models/models_0";
+import {
+  ListPeeringsRequest,
+  ListPeeringsRequestFilterSensitiveLog,
+  ListPeeringsResponse,
+  ListPeeringsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1ListPeeringsCommand,
@@ -72,8 +77,8 @@ export class ListPeeringsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPeeringsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPeeringsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPeeringsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPeeringsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

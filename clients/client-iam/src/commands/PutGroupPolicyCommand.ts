@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { PutGroupPolicyRequest } from "../models/models_0";
+import { PutGroupPolicyRequest, PutGroupPolicyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryPutGroupPolicyCommand,
   serializeAws_queryPutGroupPolicyCommand,
@@ -86,7 +86,7 @@ export class PutGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutGroupPolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutGroupPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

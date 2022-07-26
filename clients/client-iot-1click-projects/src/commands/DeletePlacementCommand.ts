@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { DeletePlacementRequest, DeletePlacementResponse } from "../models/models_0";
+import {
+  DeletePlacementRequest,
+  DeletePlacementRequestFilterSensitiveLog,
+  DeletePlacementResponse,
+  DeletePlacementResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePlacementCommand,
   serializeAws_restJson1DeletePlacementCommand,
@@ -80,8 +85,8 @@ export class DeletePlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePlacementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePlacementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePlacementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePlacementResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

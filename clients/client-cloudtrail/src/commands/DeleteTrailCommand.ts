@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { DeleteTrailRequest, DeleteTrailResponse } from "../models/models_0";
+import {
+  DeleteTrailRequest,
+  DeleteTrailRequestFilterSensitiveLog,
+  DeleteTrailResponse,
+  DeleteTrailResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTrailCommand,
   serializeAws_json1_1DeleteTrailCommand,
@@ -74,8 +79,8 @@ export class DeleteTrailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrailRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTrailRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTrailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

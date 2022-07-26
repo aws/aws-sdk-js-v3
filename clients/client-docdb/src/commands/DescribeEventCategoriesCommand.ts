@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DescribeEventCategoriesMessage, EventCategoriesMessage } from "../models/models_0";
+import {
+  DescribeEventCategoriesMessage,
+  DescribeEventCategoriesMessageFilterSensitiveLog,
+  EventCategoriesMessage,
+  EventCategoriesMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeEventCategoriesCommand,
   serializeAws_queryDescribeEventCategoriesCommand,
@@ -73,8 +78,8 @@ export class DescribeEventCategoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventCategoriesMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: EventCategoriesMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventCategoriesMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: EventCategoriesMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

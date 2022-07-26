@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetObjectTorrentOutput, GetObjectTorrentRequest } from "../models/models_0";
+import {
+  GetObjectTorrentOutput,
+  GetObjectTorrentOutputFilterSensitiveLog,
+  GetObjectTorrentRequest,
+  GetObjectTorrentRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetObjectTorrentCommand,
   serializeAws_restXmlGetObjectTorrentCommand,
@@ -90,8 +95,8 @@ export class GetObjectTorrentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectTorrentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectTorrentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetObjectTorrentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetObjectTorrentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

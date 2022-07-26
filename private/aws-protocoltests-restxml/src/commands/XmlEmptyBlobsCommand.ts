@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlBlobsInputOutput } from "../models/models_0";
+import { XmlBlobsInputOutput, XmlBlobsInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlXmlEmptyBlobsCommand,
   serializeAws_restXmlXmlEmptyBlobsCommand,
@@ -72,8 +72,8 @@ export class XmlEmptyBlobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlBlobsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: XmlBlobsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlBlobsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: XmlBlobsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { ArchiveFindingsRequest, ArchiveFindingsResponse } from "../models/models_0";
+import {
+  ArchiveFindingsRequest,
+  ArchiveFindingsRequestFilterSensitiveLog,
+  ArchiveFindingsResponse,
+  ArchiveFindingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ArchiveFindingsCommand,
   serializeAws_restJson1ArchiveFindingsCommand,
@@ -76,8 +81,8 @@ export class ArchiveFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ArchiveFindingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ArchiveFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ArchiveFindingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ArchiveFindingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

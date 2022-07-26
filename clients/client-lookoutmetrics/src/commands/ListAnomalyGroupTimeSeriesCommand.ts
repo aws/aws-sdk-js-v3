@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import { ListAnomalyGroupTimeSeriesRequest, ListAnomalyGroupTimeSeriesResponse } from "../models/models_0";
+import {
+  ListAnomalyGroupTimeSeriesRequest,
+  ListAnomalyGroupTimeSeriesRequestFilterSensitiveLog,
+  ListAnomalyGroupTimeSeriesResponse,
+  ListAnomalyGroupTimeSeriesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAnomalyGroupTimeSeriesCommand,
   serializeAws_restJson1ListAnomalyGroupTimeSeriesCommand,
@@ -72,8 +77,8 @@ export class ListAnomalyGroupTimeSeriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnomalyGroupTimeSeriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAnomalyGroupTimeSeriesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAnomalyGroupTimeSeriesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAnomalyGroupTimeSeriesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListPageReceiptsRequest, ListPageReceiptsResult } from "../models/models_0";
+import {
+  ListPageReceiptsRequest,
+  ListPageReceiptsRequestFilterSensitiveLog,
+  ListPageReceiptsResult,
+  ListPageReceiptsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListPageReceiptsCommand,
   serializeAws_json1_1ListPageReceiptsCommand,
@@ -72,8 +77,8 @@ export class ListPageReceiptsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPageReceiptsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPageReceiptsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPageReceiptsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPageReceiptsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

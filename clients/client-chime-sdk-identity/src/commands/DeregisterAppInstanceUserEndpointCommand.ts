@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
-import { DeregisterAppInstanceUserEndpointRequest } from "../models/models_0";
+import {
+  DeregisterAppInstanceUserEndpointRequest,
+  DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeregisterAppInstanceUserEndpointCommand,
   serializeAws_restJson1DeregisterAppInstanceUserEndpointCommand,
@@ -72,7 +75,7 @@ export class DeregisterAppInstanceUserEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterAppInstanceUserEndpointRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

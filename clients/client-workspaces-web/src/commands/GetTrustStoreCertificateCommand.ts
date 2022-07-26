@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetTrustStoreCertificateRequest, GetTrustStoreCertificateResponse } from "../models/models_0";
+import {
+  GetTrustStoreCertificateRequest,
+  GetTrustStoreCertificateRequestFilterSensitiveLog,
+  GetTrustStoreCertificateResponse,
+  GetTrustStoreCertificateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetTrustStoreCertificateCommand,
   serializeAws_restJson1GetTrustStoreCertificateCommand,
@@ -72,8 +77,8 @@ export class GetTrustStoreCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTrustStoreCertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTrustStoreCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTrustStoreCertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTrustStoreCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

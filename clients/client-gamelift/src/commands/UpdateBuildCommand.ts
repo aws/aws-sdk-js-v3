@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { UpdateBuildInput, UpdateBuildOutput } from "../models/models_0";
+import {
+  UpdateBuildInput,
+  UpdateBuildInputFilterSensitiveLog,
+  UpdateBuildOutput,
+  UpdateBuildOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateBuildCommand,
   serializeAws_json1_1UpdateBuildCommand,
@@ -92,8 +97,8 @@ export class UpdateBuildCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBuildInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBuildOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateBuildInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateBuildOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

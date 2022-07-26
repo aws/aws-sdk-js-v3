@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { UpdateEnvironmentMembershipRequest, UpdateEnvironmentMembershipResult } from "../models/models_0";
+import {
+  UpdateEnvironmentMembershipRequest,
+  UpdateEnvironmentMembershipRequestFilterSensitiveLog,
+  UpdateEnvironmentMembershipResult,
+  UpdateEnvironmentMembershipResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateEnvironmentMembershipCommand,
   serializeAws_json1_1UpdateEnvironmentMembershipCommand,
@@ -73,8 +78,8 @@ export class UpdateEnvironmentMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEnvironmentMembershipRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEnvironmentMembershipResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEnvironmentMembershipRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEnvironmentMembershipResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateServiceSpecificCredentialRequest } from "../models/models_1";
+import {
+  UpdateServiceSpecificCredentialRequest,
+  UpdateServiceSpecificCredentialRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryUpdateServiceSpecificCredentialCommand,
   serializeAws_queryUpdateServiceSpecificCredentialCommand,
@@ -75,7 +78,7 @@ export class UpdateServiceSpecificCredentialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServiceSpecificCredentialRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateServiceSpecificCredentialRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

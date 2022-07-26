@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ApplySecurityGroupsToClientVpnTargetNetworkRequest,
+  ApplySecurityGroupsToClientVpnTargetNetworkRequestFilterSensitiveLog,
   ApplySecurityGroupsToClientVpnTargetNetworkResult,
+  ApplySecurityGroupsToClientVpnTargetNetworkResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand,
@@ -82,8 +84,8 @@ export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApplySecurityGroupsToClientVpnTargetNetworkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ApplySecurityGroupsToClientVpnTargetNetworkResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ApplySecurityGroupsToClientVpnTargetNetworkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ApplySecurityGroupsToClientVpnTargetNetworkResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

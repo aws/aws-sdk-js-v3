@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
-import { ImportApplicationUsageRequest, ImportApplicationUsageResult } from "../models/models_0";
+import {
+  ImportApplicationUsageRequest,
+  ImportApplicationUsageRequestFilterSensitiveLog,
+  ImportApplicationUsageResult,
+  ImportApplicationUsageResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ImportApplicationUsageCommand,
   serializeAws_restJson1ImportApplicationUsageCommand,
@@ -79,8 +84,8 @@ export class ImportApplicationUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportApplicationUsageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportApplicationUsageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportApplicationUsageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportApplicationUsageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

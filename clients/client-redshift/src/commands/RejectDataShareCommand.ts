@@ -12,8 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DataShare } from "../models/models_0";
-import { RejectDataShareMessage } from "../models/models_1";
+import { DataShare, DataShareFilterSensitiveLog } from "../models/models_0";
+import { RejectDataShareMessage, RejectDataShareMessageFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryRejectDataShareCommand,
   serializeAws_queryRejectDataShareCommand,
@@ -73,8 +73,8 @@ export class RejectDataShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectDataShareMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DataShare.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectDataShareMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DataShareFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

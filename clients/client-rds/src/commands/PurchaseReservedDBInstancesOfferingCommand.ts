@@ -14,7 +14,9 @@ import {
 
 import {
   PurchaseReservedDBInstancesOfferingMessage,
+  PurchaseReservedDBInstancesOfferingMessageFilterSensitiveLog,
   PurchaseReservedDBInstancesOfferingResult,
+  PurchaseReservedDBInstancesOfferingResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
@@ -77,8 +79,8 @@ export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedDBInstancesOfferingMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedDBInstancesOfferingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PurchaseReservedDBInstancesOfferingMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: PurchaseReservedDBInstancesOfferingResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

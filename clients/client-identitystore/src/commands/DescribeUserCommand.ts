@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import { DescribeUserRequest, DescribeUserResponse } from "../models/models_0";
+import {
+  DescribeUserRequest,
+  DescribeUserRequestFilterSensitiveLog,
+  DescribeUserResponse,
+  DescribeUserResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeUserCommand,
   serializeAws_json1_1DescribeUserCommand,
@@ -72,8 +77,8 @@ export class DescribeUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

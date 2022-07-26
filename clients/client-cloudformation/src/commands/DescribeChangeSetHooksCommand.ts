@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DescribeChangeSetHooksInput, DescribeChangeSetHooksOutput } from "../models/models_0";
+import {
+  DescribeChangeSetHooksInput,
+  DescribeChangeSetHooksInputFilterSensitiveLog,
+  DescribeChangeSetHooksOutput,
+  DescribeChangeSetHooksOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeChangeSetHooksCommand,
   serializeAws_queryDescribeChangeSetHooksCommand,
@@ -72,8 +77,8 @@ export class DescribeChangeSetHooksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChangeSetHooksInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeChangeSetHooksOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeChangeSetHooksInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeChangeSetHooksOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

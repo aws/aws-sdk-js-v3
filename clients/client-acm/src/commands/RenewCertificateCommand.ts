@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { RenewCertificateRequest } from "../models/models_0";
+import { RenewCertificateRequest, RenewCertificateRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1RenewCertificateCommand,
   serializeAws_json1_1RenewCertificateCommand,
@@ -76,7 +76,7 @@ export class RenewCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RenewCertificateRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RenewCertificateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateServiceQuotaTemplateRequest, DisassociateServiceQuotaTemplateResponse } from "../models/models_0";
+import {
+  DisassociateServiceQuotaTemplateRequest,
+  DisassociateServiceQuotaTemplateRequestFilterSensitiveLog,
+  DisassociateServiceQuotaTemplateResponse,
+  DisassociateServiceQuotaTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand,
   serializeAws_json1_1DisassociateServiceQuotaTemplateCommand,
@@ -76,8 +81,8 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateServiceQuotaTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateServiceQuotaTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateServiceQuotaTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateServiceQuotaTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateStoreImageTaskRequest, CreateStoreImageTaskResult } from "../models/models_1";
+import {
+  CreateStoreImageTaskRequest,
+  CreateStoreImageTaskRequestFilterSensitiveLog,
+  CreateStoreImageTaskResult,
+  CreateStoreImageTaskResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateStoreImageTaskCommand,
   serializeAws_ec2CreateStoreImageTaskCommand,
@@ -76,8 +81,8 @@ export class CreateStoreImageTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStoreImageTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateStoreImageTaskResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStoreImageTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateStoreImageTaskResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

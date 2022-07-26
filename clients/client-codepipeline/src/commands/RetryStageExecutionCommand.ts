@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { RetryStageExecutionInput, RetryStageExecutionOutput } from "../models/models_0";
+import {
+  RetryStageExecutionInput,
+  RetryStageExecutionInputFilterSensitiveLog,
+  RetryStageExecutionOutput,
+  RetryStageExecutionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RetryStageExecutionCommand,
   serializeAws_json1_1RetryStageExecutionCommand,
@@ -75,8 +80,8 @@ export class RetryStageExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetryStageExecutionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RetryStageExecutionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RetryStageExecutionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: RetryStageExecutionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

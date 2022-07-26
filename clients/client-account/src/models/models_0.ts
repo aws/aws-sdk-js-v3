@@ -58,15 +58,6 @@ export interface DeleteAlternateContactRequest {
   AccountId?: string;
 }
 
-export namespace DeleteAlternateContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAlternateContactRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again
  *             later.</p>
@@ -178,15 +169,6 @@ export interface GetAlternateContactRequest {
   AccountId?: string;
 }
 
-export namespace GetAlternateContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAlternateContactRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains the details of an alternate contact associated with an Amazon Web Services
  *             account</p>
@@ -218,34 +200,11 @@ export interface AlternateContact {
   AlternateContactType?: AlternateContactType | string;
 }
 
-export namespace AlternateContact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlternateContact): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Title && { Title: SENSITIVE_STRING }),
-    ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
-    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetAlternateContactResponse {
   /**
    * <p>A structure that contains the details for the specified alternate contact.</p>
    */
   AlternateContact?: AlternateContact;
-}
-
-export namespace GetAlternateContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAlternateContactResponse): any => ({
-    ...obj,
-    ...(obj.AlternateContact && { AlternateContact: AlternateContact.filterSensitiveLog(obj.AlternateContact) }),
-  });
 }
 
 export interface PutAlternateContactRequest {
@@ -297,19 +256,6 @@ export interface PutAlternateContactRequest {
   AccountId?: string;
 }
 
-export namespace PutAlternateContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAlternateContactRequest): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Title && { Title: SENSITIVE_STRING }),
-    ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
-    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetContactInformationRequest {
   /**
    * <p>Specifies the 12-digit account ID number of the Amazon Web Services account that you want to access
@@ -332,15 +278,6 @@ export interface GetContactInformationRequest {
    *             the account whose contacts you wish to retrieve or modify.</p>
    */
   AccountId?: string;
-}
-
-export namespace GetContactInformationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactInformationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -408,44 +345,11 @@ export interface ContactInformation {
   WebsiteUrl?: string;
 }
 
-export namespace ContactInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContactInformation): any => ({
-    ...obj,
-    ...(obj.FullName && { FullName: SENSITIVE_STRING }),
-    ...(obj.AddressLine1 && { AddressLine1: SENSITIVE_STRING }),
-    ...(obj.AddressLine2 && { AddressLine2: SENSITIVE_STRING }),
-    ...(obj.AddressLine3 && { AddressLine3: SENSITIVE_STRING }),
-    ...(obj.City && { City: SENSITIVE_STRING }),
-    ...(obj.StateOrRegion && { StateOrRegion: SENSITIVE_STRING }),
-    ...(obj.DistrictOrCounty && { DistrictOrCounty: SENSITIVE_STRING }),
-    ...(obj.PostalCode && { PostalCode: SENSITIVE_STRING }),
-    ...(obj.CountryCode && { CountryCode: SENSITIVE_STRING }),
-    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.CompanyName && { CompanyName: SENSITIVE_STRING }),
-    ...(obj.WebsiteUrl && { WebsiteUrl: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetContactInformationResponse {
   /**
    * <p>Contains the details of the primary contact information associated with an Amazon Web Services account.</p>
    */
   ContactInformation?: ContactInformation;
-}
-
-export namespace GetContactInformationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContactInformationResponse): any => ({
-    ...obj,
-    ...(obj.ContactInformation && {
-      ContactInformation: ContactInformation.filterSensitiveLog(obj.ContactInformation),
-    }),
-  });
 }
 
 export interface PutContactInformationRequest {
@@ -477,14 +381,88 @@ export interface PutContactInformationRequest {
   AccountId?: string;
 }
 
-export namespace PutContactInformationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutContactInformationRequest): any => ({
-    ...obj,
-    ...(obj.ContactInformation && {
-      ContactInformation: ContactInformation.filterSensitiveLog(obj.ContactInformation),
-    }),
-  });
-}
+/**
+ * @internal
+ */
+export const DeleteAlternateContactRequestFilterSensitiveLog = (obj: DeleteAlternateContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAlternateContactRequestFilterSensitiveLog = (obj: GetAlternateContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlternateContactFilterSensitiveLog = (obj: AlternateContact): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetAlternateContactResponseFilterSensitiveLog = (obj: GetAlternateContactResponse): any => ({
+  ...obj,
+  ...(obj.AlternateContact && { AlternateContact: AlternateContactFilterSensitiveLog(obj.AlternateContact) }),
+});
+
+/**
+ * @internal
+ */
+export const PutAlternateContactRequestFilterSensitiveLog = (obj: PutAlternateContactRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetContactInformationRequestFilterSensitiveLog = (obj: GetContactInformationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContactInformationFilterSensitiveLog = (obj: ContactInformation): any => ({
+  ...obj,
+  ...(obj.FullName && { FullName: SENSITIVE_STRING }),
+  ...(obj.AddressLine1 && { AddressLine1: SENSITIVE_STRING }),
+  ...(obj.AddressLine2 && { AddressLine2: SENSITIVE_STRING }),
+  ...(obj.AddressLine3 && { AddressLine3: SENSITIVE_STRING }),
+  ...(obj.City && { City: SENSITIVE_STRING }),
+  ...(obj.StateOrRegion && { StateOrRegion: SENSITIVE_STRING }),
+  ...(obj.DistrictOrCounty && { DistrictOrCounty: SENSITIVE_STRING }),
+  ...(obj.PostalCode && { PostalCode: SENSITIVE_STRING }),
+  ...(obj.CountryCode && { CountryCode: SENSITIVE_STRING }),
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.CompanyName && { CompanyName: SENSITIVE_STRING }),
+  ...(obj.WebsiteUrl && { WebsiteUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetContactInformationResponseFilterSensitiveLog = (obj: GetContactInformationResponse): any => ({
+  ...obj,
+  ...(obj.ContactInformation && { ContactInformation: ContactInformationFilterSensitiveLog(obj.ContactInformation) }),
+});
+
+/**
+ * @internal
+ */
+export const PutContactInformationRequestFilterSensitiveLog = (obj: PutContactInformationRequest): any => ({
+  ...obj,
+  ...(obj.ContactInformation && { ContactInformation: ContactInformationFilterSensitiveLog(obj.ContactInformation) }),
+});

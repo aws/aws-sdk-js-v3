@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AttachVolumeRequest, VolumeAttachment } from "../models/models_0";
+import {
+  AttachVolumeRequest,
+  AttachVolumeRequestFilterSensitiveLog,
+  VolumeAttachment,
+  VolumeAttachmentFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_ec2AttachVolumeCommand, serializeAws_ec2AttachVolumeCommand } from "../protocols/Aws_ec2";
 
 export interface AttachVolumeCommandInput extends AttachVolumeRequest {}
@@ -93,8 +98,8 @@ export class AttachVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachVolumeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VolumeAttachment.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachVolumeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: VolumeAttachmentFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

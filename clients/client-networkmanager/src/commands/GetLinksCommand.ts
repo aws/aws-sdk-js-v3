@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetLinksRequest, GetLinksResponse } from "../models/models_0";
+import {
+  GetLinksRequest,
+  GetLinksRequestFilterSensitiveLog,
+  GetLinksResponse,
+  GetLinksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetLinksCommand,
@@ -73,8 +78,8 @@ export class GetLinksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLinksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLinksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLinksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetLinksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

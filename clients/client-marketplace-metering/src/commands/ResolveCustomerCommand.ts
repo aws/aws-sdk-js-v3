@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import { ResolveCustomerRequest, ResolveCustomerResult } from "../models/models_0";
+import {
+  ResolveCustomerRequest,
+  ResolveCustomerRequestFilterSensitiveLog,
+  ResolveCustomerResult,
+  ResolveCustomerResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ResolveCustomerCommand,
   serializeAws_json1_1ResolveCustomerCommand,
@@ -89,8 +94,8 @@ export class ResolveCustomerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResolveCustomerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResolveCustomerResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ResolveCustomerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResolveCustomerResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

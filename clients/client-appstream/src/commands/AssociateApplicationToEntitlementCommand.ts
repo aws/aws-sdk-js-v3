@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { AssociateApplicationToEntitlementRequest, AssociateApplicationToEntitlementResult } from "../models/models_0";
+import {
+  AssociateApplicationToEntitlementRequest,
+  AssociateApplicationToEntitlementRequestFilterSensitiveLog,
+  AssociateApplicationToEntitlementResult,
+  AssociateApplicationToEntitlementResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateApplicationToEntitlementCommand,
   serializeAws_json1_1AssociateApplicationToEntitlementCommand,
@@ -74,8 +79,8 @@ export class AssociateApplicationToEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateApplicationToEntitlementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateApplicationToEntitlementResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateApplicationToEntitlementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateApplicationToEntitlementResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

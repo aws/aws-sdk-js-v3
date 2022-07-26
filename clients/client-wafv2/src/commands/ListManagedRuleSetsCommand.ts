@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListManagedRuleSetsRequest, ListManagedRuleSetsResponse } from "../models/models_0";
+import {
+  ListManagedRuleSetsRequest,
+  ListManagedRuleSetsRequestFilterSensitiveLog,
+  ListManagedRuleSetsResponse,
+  ListManagedRuleSetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListManagedRuleSetsCommand,
   serializeAws_json1_1ListManagedRuleSetsCommand,
@@ -76,8 +81,8 @@ export class ListManagedRuleSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListManagedRuleSetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListManagedRuleSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListManagedRuleSetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListManagedRuleSetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

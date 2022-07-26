@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UngroupResourcesInput, UngroupResourcesOutput } from "../models/models_0";
+import {
+  UngroupResourcesInput,
+  UngroupResourcesInputFilterSensitiveLog,
+  UngroupResourcesOutput,
+  UngroupResourcesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UngroupResourcesCommand,
   serializeAws_restJson1UngroupResourcesCommand,
@@ -83,8 +88,8 @@ export class UngroupResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UngroupResourcesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UngroupResourcesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UngroupResourcesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UngroupResourcesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

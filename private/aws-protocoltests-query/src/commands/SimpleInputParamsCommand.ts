@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SimpleInputParamsInput } from "../models/models_0";
+import { SimpleInputParamsInput, SimpleInputParamsInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_querySimpleInputParamsCommand,
   serializeAws_querySimpleInputParamsCommand,
@@ -72,7 +72,7 @@ export class SimpleInputParamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimpleInputParamsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: SimpleInputParamsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

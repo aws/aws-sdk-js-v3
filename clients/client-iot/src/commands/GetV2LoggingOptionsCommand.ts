@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetV2LoggingOptionsRequest, GetV2LoggingOptionsResponse } from "../models/models_1";
+import {
+  GetV2LoggingOptionsRequest,
+  GetV2LoggingOptionsRequestFilterSensitiveLog,
+  GetV2LoggingOptionsResponse,
+  GetV2LoggingOptionsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetV2LoggingOptionsCommand,
   serializeAws_restJson1GetV2LoggingOptionsCommand,
@@ -73,8 +78,8 @@ export class GetV2LoggingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetV2LoggingOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetV2LoggingOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetV2LoggingOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetV2LoggingOptionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

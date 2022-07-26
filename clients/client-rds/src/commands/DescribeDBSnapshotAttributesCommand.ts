@@ -12,8 +12,14 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeDBSnapshotAttributesMessage } from "../models/models_0";
-import { DescribeDBSnapshotAttributesResult } from "../models/models_1";
+import {
+  DescribeDBSnapshotAttributesMessage,
+  DescribeDBSnapshotAttributesMessageFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  DescribeDBSnapshotAttributesResult,
+  DescribeDBSnapshotAttributesResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDescribeDBSnapshotAttributesCommand,
   serializeAws_queryDescribeDBSnapshotAttributesCommand,
@@ -82,8 +88,8 @@ export class DescribeDBSnapshotAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBSnapshotAttributesMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBSnapshotAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBSnapshotAttributesMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDBSnapshotAttributesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

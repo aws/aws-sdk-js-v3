@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { NoInputAndOutputOutput } from "../models/models_0";
+import { NoInputAndOutputOutput, NoInputAndOutputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_ec2NoInputAndOutputCommand,
   serializeAws_ec2NoInputAndOutputCommand,
@@ -76,7 +76,7 @@ export class NoInputAndOutputCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: NoInputAndOutputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: NoInputAndOutputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

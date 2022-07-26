@@ -41,15 +41,6 @@ export interface ActiveContextTimeToLive {
   turnsToLive: number | undefined;
 }
 
-export namespace ActiveContextTimeToLive {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveContextTimeToLive): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the contexts that a user is using in a
  *          session. You can configure Amazon Lex V2 to set a context when an intent is
@@ -82,16 +73,6 @@ export interface ActiveContext {
    *          contexts for the session are cleared. </p>
    */
   contextAttributes: Record<string, string> | undefined;
-}
-
-export namespace ActiveContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveContext): any => ({
-    ...obj,
-    ...(obj.contextAttributes && { contextAttributes: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -130,15 +111,6 @@ export interface AudioInputEvent {
   clientTimestampMillis?: number;
 }
 
-export namespace AudioInputEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioInputEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An event sent from Amazon Lex V2 to your client application containing audio
  *          to play to the user. </p>
@@ -163,15 +135,6 @@ export interface AudioResponseEvent {
    *          session.</p>
    */
   eventId?: string;
-}
-
-export namespace AudioResponseEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioResponseEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -216,15 +179,6 @@ export interface DeleteSessionRequest {
   sessionId: string | undefined;
 }
 
-export namespace DeleteSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSessionResponse {
   /**
    * <p>The identifier of the bot that contained the session data.</p>
@@ -246,15 +200,6 @@ export interface DeleteSessionResponse {
    * <p>The identifier of the deleted session.</p>
    */
   sessionId?: string;
-}
-
-export namespace DeleteSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -356,15 +301,6 @@ export interface GetSessionRequest {
   sessionId: string | undefined;
 }
 
-export namespace GetSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ConfirmationState {
   CONFIRMED = "Confirmed",
   DENIED = "Denied",
@@ -401,15 +337,6 @@ export interface Value {
   resolvedValues?: string[];
 }
 
-export namespace Value {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Value): any => ({
-    ...obj,
-  });
-}
-
 export enum IntentState {
   FAILED = "Failed",
   FULFILLED = "Fulfilled",
@@ -430,15 +357,6 @@ export interface ConfidenceScore {
    *          scores indicate higher confidence.</p>
    */
   score?: number;
-}
-
-export namespace ConfidenceScore {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfidenceScore): any => ({
-    ...obj,
-  });
 }
 
 export enum SentimentType {
@@ -477,15 +395,6 @@ export interface SentimentScore {
   mixed?: number;
 }
 
-export namespace SentimentScore {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SentimentScore): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the sentiment expressed in a user's
  *          response in a conversation. Sentiments are determined using Amazon
@@ -509,15 +418,6 @@ export interface SentimentResponse {
   sentimentScore?: SentimentScore;
 }
 
-export namespace SentimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SentimentResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum MessageContentType {
   CUSTOM_PAYLOAD = "CustomPayload",
   IMAGE_RESPONSE_CARD = "ImageResponseCard",
@@ -538,15 +438,6 @@ export interface Button {
    * <p>The value returned to Amazon Lex V2 when a user chooses the button.</p>
    */
   value: string | undefined;
-}
-
-export namespace Button {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Button): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -584,15 +475,6 @@ export interface ImageResponseCard {
   buttons?: Button[];
 }
 
-export namespace ImageResponseCard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageResponseCard): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for text that is returned to the customer..</p>
  */
@@ -614,16 +496,6 @@ export interface Message {
    *          constrained to the text associated with a button on the card.</p>
    */
   imageResponseCard?: ImageResponseCard;
-}
-
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-    ...(obj.content && { content: SENSITIVE_STRING }),
-  });
 }
 
 export enum StyleType {
@@ -699,15 +571,6 @@ export interface DialogAction {
   slotElicitationStyle?: StyleType | string;
 }
 
-export namespace DialogAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DialogAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the phrase that Amazon Lex V2 should look for in the user's input
  *          to the bot.</p>
@@ -718,15 +581,6 @@ export interface RuntimeHintValue {
    *          bot.</p>
    */
   phrase: string | undefined;
-}
-
-export namespace RuntimeHintValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuntimeHintValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -740,15 +594,6 @@ export interface RuntimeHintDetails {
    *          values.</p>
    */
   runtimeHintValues: RuntimeHintValue[] | undefined;
-}
-
-export namespace RuntimeHintDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuntimeHintDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -773,15 +618,6 @@ export interface RuntimeHints {
    *          <p>The intent name and slot name must exist.</p>
    */
   slotHints?: Record<string, Record<string, RuntimeHintDetails>>;
-}
-
-export namespace RuntimeHints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuntimeHints): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -861,15 +697,6 @@ export interface PutSessionResponse {
    *          message to convey to the user.</p>
    */
   audioStream?: Readable | ReadableStream | Blob;
-}
-
-export namespace PutSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RecognizeUtteranceRequest {
@@ -1007,17 +834,6 @@ export interface RecognizeUtteranceRequest {
   inputStream?: Readable | ReadableStream | Blob;
 }
 
-export namespace RecognizeUtteranceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecognizeUtteranceRequest): any => ({
-    ...obj,
-    ...(obj.sessionState && { sessionState: SENSITIVE_STRING }),
-    ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
-  });
-}
-
 export interface RecognizeUtteranceResponse {
   /**
    * <p>Indicates whether the input mode to the operation was text or
@@ -1111,15 +927,6 @@ export interface RecognizeUtteranceResponse {
   audioStream?: Readable | ReadableStream | Blob;
 }
 
-export namespace RecognizeUtteranceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecognizeUtteranceResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum ConversationMode {
   AUDIO = "AUDIO",
   TEXT = "TEXT",
@@ -1142,15 +949,6 @@ export interface DisconnectionEvent {
    *          was sent to Amazon Lex V2.</p>
    */
   clientTimestampMillis?: number;
-}
-
-export namespace DisconnectionEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisconnectionEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1179,16 +977,6 @@ export interface DTMFInputEvent {
   clientTimestampMillis?: number;
 }
 
-export namespace DTMFInputEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DTMFInputEvent): any => ({
-    ...obj,
-    ...(obj.inputCharacter && { inputCharacter: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Event sent from the client application to Amazon Lex V2 to indicate that
  *          playback of audio is complete and that Amazon Lex V2 should start processing
@@ -1206,15 +994,6 @@ export interface PlaybackCompletionEvent {
    *          was sent to Amazon Lex V2.</p>
    */
   clientTimestampMillis?: number;
-}
-
-export namespace PlaybackCompletionEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlaybackCompletionEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1241,16 +1020,6 @@ export interface TextInputEvent {
   clientTimestampMillis?: number;
 }
 
-export namespace TextInputEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextInputEvent): any => ({
-    ...obj,
-    ...(obj.text && { text: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Event that Amazon Lex V2 sends to indicate that the stream is still open
  *          between the client application and Amazon Lex V2 </p>
@@ -1263,15 +1032,6 @@ export interface HeartbeatEvent {
    *          session.</p>
    */
   eventId?: string;
-}
-
-export namespace HeartbeatEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HeartbeatEvent): any => ({
-    ...obj,
-  });
 }
 
 export enum InputMode {
@@ -1315,15 +1075,6 @@ export interface PlaybackInterruptionEvent {
   eventId?: string;
 }
 
-export namespace PlaybackInterruptionEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlaybackInterruptionEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The event sent from Amazon Lex V2 to your application with text to present
  *          to the user.</p>
@@ -1345,16 +1096,6 @@ export interface TextResponseEvent {
   eventId?: string;
 }
 
-export namespace TextResponseEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextResponseEvent): any => ({
-    ...obj,
-    ...(obj.messages && { messages: obj.messages.map((item) => Message.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>Event sent from Amazon Lex V2 to your client application that contains a
  *          transcript of voice audio. </p>
@@ -1372,15 +1113,6 @@ export interface TranscriptEvent {
    *          session.</p>
    */
   eventId?: string;
-}
-
-export namespace TranscriptEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranscriptEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1406,15 +1138,6 @@ export interface Slot {
    *          might be "pepperoni" and "pineapple." </p>
    */
   values?: Slot[];
-}
-
-export namespace Slot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Slot): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1445,15 +1168,6 @@ export interface Intent {
   confirmationState?: ConfirmationState | string;
 }
 
-export namespace Intent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Intent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An intent that Amazon Lex V2 determined might satisfy the user's utterance.
  *          The intents are ordered by the confidence score. </p>
@@ -1482,15 +1196,6 @@ export interface Interpretation {
    *          intents are ordered by the confidence score.</p>
    */
   intent?: Intent;
-}
-
-export namespace Interpretation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Interpretation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1533,18 +1238,6 @@ export interface SessionState {
    *       value of a slot.</p>
    */
   runtimeHints?: RuntimeHints;
-}
-
-export namespace SessionState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionState): any => ({
-    ...obj,
-    ...(obj.activeContexts && {
-      activeContexts: obj.activeContexts.map((item) => ActiveContext.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -1641,18 +1334,6 @@ export interface ConfigurationEvent {
   clientTimestampMillis?: number;
 }
 
-export namespace ConfigurationEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationEvent): any => ({
-    ...obj,
-    ...(obj.welcomeMessages && {
-      welcomeMessages: obj.welcomeMessages.map((item) => Message.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface PutSessionRequest {
   /**
    * <p>The identifier of the bot that receives the session data.</p>
@@ -1711,16 +1392,6 @@ export interface PutSessionRequest {
   responseContentType?: string;
 }
 
-export namespace PutSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSessionRequest): any => ({
-    ...obj,
-    ...(obj.messages && { messages: obj.messages.map((item) => Message.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface RecognizeTextRequest {
   /**
    * <p>The identifier of the bot that processes the request.</p>
@@ -1762,16 +1433,6 @@ export interface RecognizeTextRequest {
    *             <code>x-amz-lex:</code>.</p>
    */
   requestAttributes?: Record<string, string>;
-}
-
-export namespace RecognizeTextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecognizeTextRequest): any => ({
-    ...obj,
-    ...(obj.text && { text: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1919,25 +1580,6 @@ export namespace StartConversationRequestEventStream {
     if (value.DisconnectionEvent !== undefined) return visitor.DisconnectionEvent(value.DisconnectionEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConversationRequestEventStream): any => {
-    if (obj.ConfigurationEvent !== undefined)
-      return { ConfigurationEvent: ConfigurationEvent.filterSensitiveLog(obj.ConfigurationEvent) };
-    if (obj.AudioInputEvent !== undefined)
-      return { AudioInputEvent: AudioInputEvent.filterSensitiveLog(obj.AudioInputEvent) };
-    if (obj.DTMFInputEvent !== undefined)
-      return { DTMFInputEvent: DTMFInputEvent.filterSensitiveLog(obj.DTMFInputEvent) };
-    if (obj.TextInputEvent !== undefined)
-      return { TextInputEvent: TextInputEvent.filterSensitiveLog(obj.TextInputEvent) };
-    if (obj.PlaybackCompletionEvent !== undefined)
-      return { PlaybackCompletionEvent: PlaybackCompletionEvent.filterSensitiveLog(obj.PlaybackCompletionEvent) };
-    if (obj.DisconnectionEvent !== undefined)
-      return { DisconnectionEvent: DisconnectionEvent.filterSensitiveLog(obj.DisconnectionEvent) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface StartConversationRequest {
@@ -1978,16 +1620,6 @@ export interface StartConversationRequest {
   requestEventStream: AsyncIterable<StartConversationRequestEventStream> | undefined;
 }
 
-export namespace StartConversationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConversationRequest): any => ({
-    ...obj,
-    ...(obj.requestEventStream && { requestEventStream: "STREAMING_CONTENT" }),
-  });
-}
-
 export interface GetSessionResponse {
   /**
    * <p>The identifier of the returned session.</p>
@@ -2019,16 +1651,6 @@ export interface GetSessionResponse {
    *          what the next action might be.</p>
    */
   sessionState?: SessionState;
-}
-
-export namespace GetSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionResponse): any => ({
-    ...obj,
-    ...(obj.messages && { messages: obj.messages.map((item) => Message.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -2077,15 +1699,6 @@ export interface IntentResultEvent {
   eventId?: string;
 }
 
-export namespace IntentResultEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentResultEvent): any => ({
-    ...obj,
-  });
-}
-
 export interface RecognizeTextResponse {
   /**
    * <p>A list of messages last sent to the user. The messages are ordered
@@ -2121,16 +1734,6 @@ export interface RecognizeTextResponse {
    * <p>The identifier of the session in use.</p>
    */
   sessionId?: string;
-}
-
-export namespace RecognizeTextResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecognizeTextResponse): any => ({
-    ...obj,
-    ...(obj.messages && { messages: obj.messages.map((item) => Message.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -2525,35 +2128,6 @@ export namespace StartConversationResponseEventStream {
     if (value.BadGatewayException !== undefined) return visitor.BadGatewayException(value.BadGatewayException);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConversationResponseEventStream): any => {
-    if (obj.PlaybackInterruptionEvent !== undefined)
-      return { PlaybackInterruptionEvent: PlaybackInterruptionEvent.filterSensitiveLog(obj.PlaybackInterruptionEvent) };
-    if (obj.TranscriptEvent !== undefined)
-      return { TranscriptEvent: TranscriptEvent.filterSensitiveLog(obj.TranscriptEvent) };
-    if (obj.IntentResultEvent !== undefined)
-      return { IntentResultEvent: IntentResultEvent.filterSensitiveLog(obj.IntentResultEvent) };
-    if (obj.TextResponseEvent !== undefined)
-      return { TextResponseEvent: TextResponseEvent.filterSensitiveLog(obj.TextResponseEvent) };
-    if (obj.AudioResponseEvent !== undefined)
-      return { AudioResponseEvent: AudioResponseEvent.filterSensitiveLog(obj.AudioResponseEvent) };
-    if (obj.HeartbeatEvent !== undefined)
-      return { HeartbeatEvent: HeartbeatEvent.filterSensitiveLog(obj.HeartbeatEvent) };
-    if (obj.AccessDeniedException !== undefined) return { AccessDeniedException: obj.AccessDeniedException };
-    if (obj.ResourceNotFoundException !== undefined)
-      return { ResourceNotFoundException: obj.ResourceNotFoundException };
-    if (obj.ValidationException !== undefined) return { ValidationException: obj.ValidationException };
-    if (obj.ThrottlingException !== undefined) return { ThrottlingException: obj.ThrottlingException };
-    if (obj.InternalServerException !== undefined) return { InternalServerException: obj.InternalServerException };
-    if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
-    if (obj.DependencyFailedException !== undefined)
-      return { DependencyFailedException: obj.DependencyFailedException };
-    if (obj.BadGatewayException !== undefined) return { BadGatewayException: obj.BadGatewayException };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export interface StartConversationResponse {
@@ -2564,12 +2138,353 @@ export interface StartConversationResponse {
   responseEventStream?: AsyncIterable<StartConversationResponseEventStream>;
 }
 
-export namespace StartConversationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartConversationResponse): any => ({
-    ...obj,
-    ...(obj.responseEventStream && { responseEventStream: "STREAMING_CONTENT" }),
-  });
-}
+/**
+ * @internal
+ */
+export const ActiveContextTimeToLiveFilterSensitiveLog = (obj: ActiveContextTimeToLive): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActiveContextFilterSensitiveLog = (obj: ActiveContext): any => ({
+  ...obj,
+  ...(obj.contextAttributes && { contextAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AudioInputEventFilterSensitiveLog = (obj: AudioInputEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioResponseEventFilterSensitiveLog = (obj: AudioResponseEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSessionRequestFilterSensitiveLog = (obj: DeleteSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSessionResponseFilterSensitiveLog = (obj: DeleteSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSessionRequestFilterSensitiveLog = (obj: GetSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValueFilterSensitiveLog = (obj: Value): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfidenceScoreFilterSensitiveLog = (obj: ConfidenceScore): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SentimentScoreFilterSensitiveLog = (obj: SentimentScore): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SentimentResponseFilterSensitiveLog = (obj: SentimentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ButtonFilterSensitiveLog = (obj: Button): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageResponseCardFilterSensitiveLog = (obj: ImageResponseCard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DialogActionFilterSensitiveLog = (obj: DialogAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuntimeHintValueFilterSensitiveLog = (obj: RuntimeHintValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuntimeHintDetailsFilterSensitiveLog = (obj: RuntimeHintDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuntimeHintsFilterSensitiveLog = (obj: RuntimeHints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSessionResponseFilterSensitiveLog = (obj: PutSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecognizeUtteranceRequestFilterSensitiveLog = (obj: RecognizeUtteranceRequest): any => ({
+  ...obj,
+  ...(obj.sessionState && { sessionState: SENSITIVE_STRING }),
+  ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RecognizeUtteranceResponseFilterSensitiveLog = (obj: RecognizeUtteranceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisconnectionEventFilterSensitiveLog = (obj: DisconnectionEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DTMFInputEventFilterSensitiveLog = (obj: DTMFInputEvent): any => ({
+  ...obj,
+  ...(obj.inputCharacter && { inputCharacter: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PlaybackCompletionEventFilterSensitiveLog = (obj: PlaybackCompletionEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextInputEventFilterSensitiveLog = (obj: TextInputEvent): any => ({
+  ...obj,
+  ...(obj.text && { text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const HeartbeatEventFilterSensitiveLog = (obj: HeartbeatEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlaybackInterruptionEventFilterSensitiveLog = (obj: PlaybackInterruptionEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextResponseEventFilterSensitiveLog = (obj: TextResponseEvent): any => ({
+  ...obj,
+  ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const TranscriptEventFilterSensitiveLog = (obj: TranscriptEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotFilterSensitiveLog = (obj: Slot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntentFilterSensitiveLog = (obj: Intent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InterpretationFilterSensitiveLog = (obj: Interpretation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionStateFilterSensitiveLog = (obj: SessionState): any => ({
+  ...obj,
+  ...(obj.activeContexts && {
+    activeContexts: obj.activeContexts.map((item) => ActiveContextFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationEventFilterSensitiveLog = (obj: ConfigurationEvent): any => ({
+  ...obj,
+  ...(obj.welcomeMessages && { welcomeMessages: obj.welcomeMessages.map((item) => MessageFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PutSessionRequestFilterSensitiveLog = (obj: PutSessionRequest): any => ({
+  ...obj,
+  ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const RecognizeTextRequestFilterSensitiveLog = (obj: RecognizeTextRequest): any => ({
+  ...obj,
+  ...(obj.text && { text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartConversationRequestEventStreamFilterSensitiveLog = (
+  obj: StartConversationRequestEventStream
+): any => {
+  if (obj.ConfigurationEvent !== undefined)
+    return { ConfigurationEvent: ConfigurationEventFilterSensitiveLog(obj.ConfigurationEvent) };
+  if (obj.AudioInputEvent !== undefined)
+    return { AudioInputEvent: AudioInputEventFilterSensitiveLog(obj.AudioInputEvent) };
+  if (obj.DTMFInputEvent !== undefined) return { DTMFInputEvent: DTMFInputEventFilterSensitiveLog(obj.DTMFInputEvent) };
+  if (obj.TextInputEvent !== undefined) return { TextInputEvent: TextInputEventFilterSensitiveLog(obj.TextInputEvent) };
+  if (obj.PlaybackCompletionEvent !== undefined)
+    return { PlaybackCompletionEvent: PlaybackCompletionEventFilterSensitiveLog(obj.PlaybackCompletionEvent) };
+  if (obj.DisconnectionEvent !== undefined)
+    return { DisconnectionEvent: DisconnectionEventFilterSensitiveLog(obj.DisconnectionEvent) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const StartConversationRequestFilterSensitiveLog = (obj: StartConversationRequest): any => ({
+  ...obj,
+  ...(obj.requestEventStream && { requestEventStream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const GetSessionResponseFilterSensitiveLog = (obj: GetSessionResponse): any => ({
+  ...obj,
+  ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const IntentResultEventFilterSensitiveLog = (obj: IntentResultEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecognizeTextResponseFilterSensitiveLog = (obj: RecognizeTextResponse): any => ({
+  ...obj,
+  ...(obj.messages && { messages: obj.messages.map((item) => MessageFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartConversationResponseEventStreamFilterSensitiveLog = (
+  obj: StartConversationResponseEventStream
+): any => {
+  if (obj.PlaybackInterruptionEvent !== undefined)
+    return { PlaybackInterruptionEvent: PlaybackInterruptionEventFilterSensitiveLog(obj.PlaybackInterruptionEvent) };
+  if (obj.TranscriptEvent !== undefined)
+    return { TranscriptEvent: TranscriptEventFilterSensitiveLog(obj.TranscriptEvent) };
+  if (obj.IntentResultEvent !== undefined)
+    return { IntentResultEvent: IntentResultEventFilterSensitiveLog(obj.IntentResultEvent) };
+  if (obj.TextResponseEvent !== undefined)
+    return { TextResponseEvent: TextResponseEventFilterSensitiveLog(obj.TextResponseEvent) };
+  if (obj.AudioResponseEvent !== undefined)
+    return { AudioResponseEvent: AudioResponseEventFilterSensitiveLog(obj.AudioResponseEvent) };
+  if (obj.HeartbeatEvent !== undefined) return { HeartbeatEvent: HeartbeatEventFilterSensitiveLog(obj.HeartbeatEvent) };
+  if (obj.AccessDeniedException !== undefined) return { AccessDeniedException: obj.AccessDeniedException };
+  if (obj.ResourceNotFoundException !== undefined) return { ResourceNotFoundException: obj.ResourceNotFoundException };
+  if (obj.ValidationException !== undefined) return { ValidationException: obj.ValidationException };
+  if (obj.ThrottlingException !== undefined) return { ThrottlingException: obj.ThrottlingException };
+  if (obj.InternalServerException !== undefined) return { InternalServerException: obj.InternalServerException };
+  if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
+  if (obj.DependencyFailedException !== undefined) return { DependencyFailedException: obj.DependencyFailedException };
+  if (obj.BadGatewayException !== undefined) return { BadGatewayException: obj.BadGatewayException };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const StartConversationResponseFilterSensitiveLog = (obj: StartConversationResponse): any => ({
+  ...obj,
+  ...(obj.responseEventStream && { responseEventStream: "STREAMING_CONTENT" }),
+});

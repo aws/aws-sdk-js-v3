@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeAppImageConfigRequest, DescribeAppImageConfigResponse } from "../models/models_1";
+import {
+  DescribeAppImageConfigRequest,
+  DescribeAppImageConfigRequestFilterSensitiveLog,
+  DescribeAppImageConfigResponse,
+  DescribeAppImageConfigResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DescribeAppImageConfigCommand,
   serializeAws_json1_1DescribeAppImageConfigCommand,
@@ -72,8 +77,8 @@ export class DescribeAppImageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppImageConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAppImageConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAppImageConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAppImageConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

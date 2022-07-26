@@ -14,7 +14,9 @@ import {
 
 import {
   ListAccountsForProvisionedPermissionSetRequest,
+  ListAccountsForProvisionedPermissionSetRequestFilterSensitiveLog,
   ListAccountsForProvisionedPermissionSetResponse,
+  ListAccountsForProvisionedPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAccountsForProvisionedPermissionSetCommand,
@@ -81,8 +83,8 @@ export class ListAccountsForProvisionedPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountsForProvisionedPermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountsForProvisionedPermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAccountsForProvisionedPermissionSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAccountsForProvisionedPermissionSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

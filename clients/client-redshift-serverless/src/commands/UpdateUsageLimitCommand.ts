@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateUsageLimitRequest, UpdateUsageLimitResponse } from "../models/models_0";
+import {
+  UpdateUsageLimitRequest,
+  UpdateUsageLimitRequestFilterSensitiveLog,
+  UpdateUsageLimitResponse,
+  UpdateUsageLimitResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateUsageLimitCommand,
   serializeAws_json1_1UpdateUsageLimitCommand,
@@ -76,8 +81,8 @@ export class UpdateUsageLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUsageLimitRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUsageLimitResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateUsageLimitRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateUsageLimitResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

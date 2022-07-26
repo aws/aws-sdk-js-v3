@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { ListSchemaVersionsInput, ListSchemaVersionsResponse } from "../models/models_1";
+import {
+  ListSchemaVersionsInput,
+  ListSchemaVersionsInputFilterSensitiveLog,
+  ListSchemaVersionsResponse,
+  ListSchemaVersionsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ListSchemaVersionsCommand,
   serializeAws_json1_1ListSchemaVersionsCommand,
@@ -72,8 +77,8 @@ export class ListSchemaVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSchemaVersionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSchemaVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSchemaVersionsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSchemaVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

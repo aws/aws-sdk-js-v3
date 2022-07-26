@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { DescribeMapRequest, DescribeMapResponse } from "../models/models_0";
+import {
+  DescribeMapRequest,
+  DescribeMapRequestFilterSensitiveLog,
+  DescribeMapResponse,
+  DescribeMapResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeMapCommand,
   serializeAws_restJson1DescribeMapCommand,
@@ -72,8 +77,8 @@ export class DescribeMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMapRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMapResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeMapRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMapResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

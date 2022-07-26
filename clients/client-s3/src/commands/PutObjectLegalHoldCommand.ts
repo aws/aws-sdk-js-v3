@@ -14,7 +14,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutObjectLegalHoldOutput, PutObjectLegalHoldRequest } from "../models/models_0";
+import {
+  PutObjectLegalHoldOutput,
+  PutObjectLegalHoldOutputFilterSensitiveLog,
+  PutObjectLegalHoldRequest,
+  PutObjectLegalHoldRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlPutObjectLegalHoldCommand,
   serializeAws_restXmlPutObjectLegalHoldCommand,
@@ -85,8 +90,8 @@ export class PutObjectLegalHoldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutObjectLegalHoldRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectLegalHoldOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutObjectLegalHoldRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutObjectLegalHoldOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

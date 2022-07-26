@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
-import { UpdateJobExecutionRequest, UpdateJobExecutionResponse } from "../models/models_0";
+import {
+  UpdateJobExecutionRequest,
+  UpdateJobExecutionRequestFilterSensitiveLog,
+  UpdateJobExecutionResponse,
+  UpdateJobExecutionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateJobExecutionCommand,
   serializeAws_restJson1UpdateJobExecutionCommand,
@@ -72,8 +77,8 @@ export class UpdateJobExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobExecutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateJobExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateJobExecutionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateJobExecutionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/models_0";
+import {
+  CopyDBSnapshotMessage,
+  CopyDBSnapshotMessageFilterSensitiveLog,
+  CopyDBSnapshotResult,
+  CopyDBSnapshotResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCopyDBSnapshotCommand,
   serializeAws_queryCopyDBSnapshotCommand,
@@ -80,8 +85,8 @@ export class CopyDBSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBSnapshotMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyDBSnapshotMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CopyDBSnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

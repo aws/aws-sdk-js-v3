@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { InviteAccountToOrganizationRequest, InviteAccountToOrganizationResponse } from "../models/models_0";
+import {
+  InviteAccountToOrganizationRequest,
+  InviteAccountToOrganizationRequestFilterSensitiveLog,
+  InviteAccountToOrganizationResponse,
+  InviteAccountToOrganizationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1InviteAccountToOrganizationCommand,
@@ -99,8 +104,8 @@ export class InviteAccountToOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InviteAccountToOrganizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InviteAccountToOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InviteAccountToOrganizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: InviteAccountToOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateRoutingProfileNameRequest } from "../models/models_1";
+import { UpdateRoutingProfileNameRequest, UpdateRoutingProfileNameRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateRoutingProfileNameCommand,
   serializeAws_restJson1UpdateRoutingProfileNameCommand,
@@ -73,7 +73,7 @@ export class UpdateRoutingProfileNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoutingProfileNameRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRoutingProfileNameRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

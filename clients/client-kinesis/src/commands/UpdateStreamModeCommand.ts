@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { UpdateStreamModeInput } from "../models/models_0";
+import { UpdateStreamModeInput, UpdateStreamModeInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateStreamModeCommand,
   serializeAws_json1_1UpdateStreamModeCommand,
@@ -75,7 +75,7 @@ export class UpdateStreamModeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStreamModeInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateStreamModeInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

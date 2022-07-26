@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { MergePullRequestBySquashInput, MergePullRequestBySquashOutput } from "../models/models_1";
+import {
+  MergePullRequestBySquashInput,
+  MergePullRequestBySquashInputFilterSensitiveLog,
+  MergePullRequestBySquashOutput,
+  MergePullRequestBySquashOutputFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1MergePullRequestBySquashCommand,
   serializeAws_json1_1MergePullRequestBySquashCommand,
@@ -73,8 +78,8 @@ export class MergePullRequestBySquashCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MergePullRequestBySquashInput.filterSensitiveLog,
-      outputFilterSensitiveLog: MergePullRequestBySquashOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: MergePullRequestBySquashInputFilterSensitiveLog,
+      outputFilterSensitiveLog: MergePullRequestBySquashOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

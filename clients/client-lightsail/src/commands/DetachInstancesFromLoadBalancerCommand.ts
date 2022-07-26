@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DetachInstancesFromLoadBalancerRequest, DetachInstancesFromLoadBalancerResult } from "../models/models_0";
+import {
+  DetachInstancesFromLoadBalancerRequest,
+  DetachInstancesFromLoadBalancerRequestFilterSensitiveLog,
+  DetachInstancesFromLoadBalancerResult,
+  DetachInstancesFromLoadBalancerResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DetachInstancesFromLoadBalancerCommand,
   serializeAws_json1_1DetachInstancesFromLoadBalancerCommand,
@@ -79,8 +84,8 @@ export class DetachInstancesFromLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachInstancesFromLoadBalancerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachInstancesFromLoadBalancerResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachInstancesFromLoadBalancerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetachInstancesFromLoadBalancerResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

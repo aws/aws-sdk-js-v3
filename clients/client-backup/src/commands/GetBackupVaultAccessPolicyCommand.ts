@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { GetBackupVaultAccessPolicyInput, GetBackupVaultAccessPolicyOutput } from "../models/models_0";
+import {
+  GetBackupVaultAccessPolicyInput,
+  GetBackupVaultAccessPolicyInputFilterSensitiveLog,
+  GetBackupVaultAccessPolicyOutput,
+  GetBackupVaultAccessPolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetBackupVaultAccessPolicyCommand,
   serializeAws_restJson1GetBackupVaultAccessPolicyCommand,
@@ -73,8 +78,8 @@ export class GetBackupVaultAccessPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackupVaultAccessPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBackupVaultAccessPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBackupVaultAccessPolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBackupVaultAccessPolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

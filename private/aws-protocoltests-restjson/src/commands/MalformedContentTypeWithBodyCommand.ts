@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GreetingStruct } from "../models/models_0";
+import { GreetingStruct, GreetingStructFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedContentTypeWithBodyCommand,
   serializeAws_restJson1MalformedContentTypeWithBodyCommand,
@@ -55,7 +55,7 @@ export class MalformedContentTypeWithBodyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GreetingStruct.filterSensitiveLog,
+      inputFilterSensitiveLog: GreetingStructFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

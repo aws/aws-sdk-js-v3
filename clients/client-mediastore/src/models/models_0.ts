@@ -61,15 +61,6 @@ export interface Container {
   AccessLoggingEnabled?: boolean;
 }
 
-export namespace Container {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Container): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container that you specified in the request already exists or is being
  *          updated.</p>
@@ -166,15 +157,6 @@ export interface CorsRule {
   ExposeHeaders?: string[];
 }
 
-export namespace CorsRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CorsRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The CORS policy that you specified in the request does not exist.</p>
  */
@@ -216,15 +198,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContainerInput {
   /**
    * <p>The name for the container. The name must be from 1 to 255 characters. Container
@@ -240,15 +213,6 @@ export interface CreateContainerInput {
    *            tags to each container. For more information about tagging, including naming and usage conventions, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html">Tagging Resources in MediaStore</a>.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateContainerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContainerInput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateContainerOutput {
@@ -267,15 +231,6 @@ export interface CreateContainerOutput {
    *          requests, you must obtain this value by using <a>DescribeContainer</a> or <a>ListContainers</a>.</p>
    */
   Container: Container | undefined;
-}
-
-export namespace CreateContainerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContainerOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -327,25 +282,7 @@ export interface DeleteContainerInput {
   ContainerName: string | undefined;
 }
 
-export namespace DeleteContainerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContainerInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContainerOutput {}
-
-export namespace DeleteContainerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContainerOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteContainerPolicyInput {
   /**
@@ -354,25 +291,7 @@ export interface DeleteContainerPolicyInput {
   ContainerName: string | undefined;
 }
 
-export namespace DeleteContainerPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContainerPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContainerPolicyOutput {}
-
-export namespace DeleteContainerPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContainerPolicyOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The policy that you specified in the request does not exist.</p>
@@ -402,25 +321,7 @@ export interface DeleteCorsPolicyInput {
   ContainerName: string | undefined;
 }
 
-export namespace DeleteCorsPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCorsPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCorsPolicyOutput {}
-
-export namespace DeleteCorsPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCorsPolicyOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteLifecyclePolicyInput {
   /**
@@ -429,25 +330,7 @@ export interface DeleteLifecyclePolicyInput {
   ContainerName: string | undefined;
 }
 
-export namespace DeleteLifecyclePolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLifecyclePolicyOutput {}
-
-export namespace DeleteLifecyclePolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteMetricPolicyInput {
   /**
@@ -456,40 +339,13 @@ export interface DeleteMetricPolicyInput {
   ContainerName: string | undefined;
 }
 
-export namespace DeleteMetricPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMetricPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMetricPolicyOutput {}
-
-export namespace DeleteMetricPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMetricPolicyOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeContainerInput {
   /**
    * <p>The name of the container to query.</p>
    */
   ContainerName?: string;
-}
-
-export namespace DescribeContainerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContainerInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeContainerOutput {
@@ -499,29 +355,11 @@ export interface DescribeContainerOutput {
   Container?: Container;
 }
 
-export namespace DescribeContainerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContainerOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContainerPolicyInput {
   /**
    * <p>The name of the container. </p>
    */
   ContainerName: string | undefined;
-}
-
-export namespace GetContainerPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerPolicyInput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContainerPolicyOutput {
@@ -531,29 +369,11 @@ export interface GetContainerPolicyOutput {
   Policy: string | undefined;
 }
 
-export namespace GetContainerPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerPolicyOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCorsPolicyInput {
   /**
    * <p>The name of the container that the policy is assigned to.</p>
    */
   ContainerName: string | undefined;
-}
-
-export namespace GetCorsPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCorsPolicyInput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCorsPolicyOutput {
@@ -563,29 +383,11 @@ export interface GetCorsPolicyOutput {
   CorsPolicy: CorsRule[] | undefined;
 }
 
-export namespace GetCorsPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCorsPolicyOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLifecyclePolicyInput {
   /**
    * <p>The name of the container that the object lifecycle policy is assigned to.</p>
    */
   ContainerName: string | undefined;
-}
-
-export namespace GetLifecyclePolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLifecyclePolicyInput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLifecyclePolicyOutput {
@@ -595,29 +397,11 @@ export interface GetLifecyclePolicyOutput {
   LifecyclePolicy: string | undefined;
 }
 
-export namespace GetLifecyclePolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLifecyclePolicyOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMetricPolicyInput {
   /**
    * <p>The name of the container that is associated with the metric policy.</p>
    */
   ContainerName: string | undefined;
-}
-
-export namespace GetMetricPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMetricPolicyInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -633,15 +417,6 @@ export interface MetricPolicyRule {
    * <p>A name that allows you to refer to the object group.</p>
    */
   ObjectGroupName: string | undefined;
-}
-
-export namespace MetricPolicyRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricPolicyRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -660,29 +435,11 @@ export interface MetricPolicy {
   MetricPolicyRules?: MetricPolicyRule[];
 }
 
-export namespace MetricPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMetricPolicyOutput {
   /**
    * <p>The metric policy that is associated with the specific container.</p>
    */
   MetricPolicy: MetricPolicy | undefined;
-}
-
-export namespace GetMetricPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMetricPolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListContainersInput {
@@ -700,15 +457,6 @@ export interface ListContainersInput {
   MaxResults?: number;
 }
 
-export namespace ListContainersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContainersInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListContainersOutput {
   /**
    * <p>The names of the containers.</p>
@@ -724,15 +472,6 @@ export interface ListContainersOutput {
   NextToken?: string;
 }
 
-export namespace ListContainersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContainersOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) for the container.</p>
@@ -740,29 +479,11 @@ export interface ListTagsForResourceInput {
   Resource: string | undefined;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>An array of key:value pairs that are assigned to the container.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface PutContainerPolicyInput {
@@ -786,25 +507,7 @@ export interface PutContainerPolicyInput {
   Policy: string | undefined;
 }
 
-export namespace PutContainerPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutContainerPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutContainerPolicyOutput {}
-
-export namespace PutContainerPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutContainerPolicyOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface PutCorsPolicyInput {
   /**
@@ -818,25 +521,7 @@ export interface PutCorsPolicyInput {
   CorsPolicy: CorsRule[] | undefined;
 }
 
-export namespace PutCorsPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutCorsPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutCorsPolicyOutput {}
-
-export namespace PutCorsPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutCorsPolicyOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface PutLifecyclePolicyInput {
   /**
@@ -850,25 +535,7 @@ export interface PutLifecyclePolicyInput {
   LifecyclePolicy: string | undefined;
 }
 
-export namespace PutLifecyclePolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLifecyclePolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutLifecyclePolicyOutput {}
-
-export namespace PutLifecyclePolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLifecyclePolicyOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface PutMetricPolicyInput {
   /**
@@ -890,25 +557,7 @@ export interface PutMetricPolicyInput {
   MetricPolicy: MetricPolicy | undefined;
 }
 
-export namespace PutMetricPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMetricPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutMetricPolicyOutput {}
-
-export namespace PutMetricPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMetricPolicyOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface StartAccessLoggingInput {
   /**
@@ -917,25 +566,7 @@ export interface StartAccessLoggingInput {
   ContainerName: string | undefined;
 }
 
-export namespace StartAccessLoggingInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAccessLoggingInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StartAccessLoggingOutput {}
-
-export namespace StartAccessLoggingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAccessLoggingOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface StopAccessLoggingInput {
   /**
@@ -944,25 +575,7 @@ export interface StopAccessLoggingInput {
   ContainerName: string | undefined;
 }
 
-export namespace StopAccessLoggingInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAccessLoggingInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StopAccessLoggingOutput {}
-
-export namespace StopAccessLoggingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAccessLoggingOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceInput {
   /**
@@ -979,25 +592,7 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceOutput {}
-
-export namespace TagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceInput {
   /**
@@ -1013,22 +608,333 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceOutput {}
 
-export namespace UntagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ContainerFilterSensitiveLog = (obj: Container): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CorsRuleFilterSensitiveLog = (obj: CorsRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerInputFilterSensitiveLog = (obj: CreateContainerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerOutputFilterSensitiveLog = (obj: CreateContainerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContainerInputFilterSensitiveLog = (obj: DeleteContainerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContainerOutputFilterSensitiveLog = (obj: DeleteContainerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContainerPolicyInputFilterSensitiveLog = (obj: DeleteContainerPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContainerPolicyOutputFilterSensitiveLog = (obj: DeleteContainerPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCorsPolicyInputFilterSensitiveLog = (obj: DeleteCorsPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCorsPolicyOutputFilterSensitiveLog = (obj: DeleteCorsPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLifecyclePolicyInputFilterSensitiveLog = (obj: DeleteLifecyclePolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLifecyclePolicyOutputFilterSensitiveLog = (obj: DeleteLifecyclePolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMetricPolicyInputFilterSensitiveLog = (obj: DeleteMetricPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMetricPolicyOutputFilterSensitiveLog = (obj: DeleteMetricPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContainerInputFilterSensitiveLog = (obj: DescribeContainerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContainerOutputFilterSensitiveLog = (obj: DescribeContainerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerPolicyInputFilterSensitiveLog = (obj: GetContainerPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerPolicyOutputFilterSensitiveLog = (obj: GetContainerPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCorsPolicyInputFilterSensitiveLog = (obj: GetCorsPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCorsPolicyOutputFilterSensitiveLog = (obj: GetCorsPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLifecyclePolicyInputFilterSensitiveLog = (obj: GetLifecyclePolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLifecyclePolicyOutputFilterSensitiveLog = (obj: GetLifecyclePolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMetricPolicyInputFilterSensitiveLog = (obj: GetMetricPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricPolicyRuleFilterSensitiveLog = (obj: MetricPolicyRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricPolicyFilterSensitiveLog = (obj: MetricPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMetricPolicyOutputFilterSensitiveLog = (obj: GetMetricPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContainersInputFilterSensitiveLog = (obj: ListContainersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContainersOutputFilterSensitiveLog = (obj: ListContainersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutContainerPolicyInputFilterSensitiveLog = (obj: PutContainerPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutContainerPolicyOutputFilterSensitiveLog = (obj: PutContainerPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutCorsPolicyInputFilterSensitiveLog = (obj: PutCorsPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutCorsPolicyOutputFilterSensitiveLog = (obj: PutCorsPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLifecyclePolicyInputFilterSensitiveLog = (obj: PutLifecyclePolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLifecyclePolicyOutputFilterSensitiveLog = (obj: PutLifecyclePolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMetricPolicyInputFilterSensitiveLog = (obj: PutMetricPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMetricPolicyOutputFilterSensitiveLog = (obj: PutMetricPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAccessLoggingInputFilterSensitiveLog = (obj: StartAccessLoggingInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAccessLoggingOutputFilterSensitiveLog = (obj: StartAccessLoggingOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopAccessLoggingInputFilterSensitiveLog = (obj: StopAccessLoggingInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopAccessLoggingOutputFilterSensitiveLog = (obj: StopAccessLoggingOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});

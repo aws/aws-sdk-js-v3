@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { AddLayerVersionPermissionRequest, AddLayerVersionPermissionResponse } from "../models/models_0";
+import {
+  AddLayerVersionPermissionRequest,
+  AddLayerVersionPermissionRequestFilterSensitiveLog,
+  AddLayerVersionPermissionResponse,
+  AddLayerVersionPermissionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AddLayerVersionPermissionCommand,
   serializeAws_restJson1AddLayerVersionPermissionCommand,
@@ -77,8 +82,8 @@ export class AddLayerVersionPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddLayerVersionPermissionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddLayerVersionPermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddLayerVersionPermissionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddLayerVersionPermissionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

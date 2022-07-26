@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import { ListRoomsRequest, ListRoomsResponse } from "../models/models_0";
+import {
+  ListRoomsRequest,
+  ListRoomsRequestFilterSensitiveLog,
+  ListRoomsResponse,
+  ListRoomsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListRoomsCommand,
   serializeAws_restJson1ListRoomsCommand,
@@ -73,8 +78,8 @@ export class ListRoomsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRoomsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRoomsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRoomsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListRoomsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { GreetingWithErrorsInput, GreetingWithErrorsOutput } from "../models/models_0";
+import {
+  GreetingWithErrorsInput,
+  GreetingWithErrorsInputFilterSensitiveLog,
+  GreetingWithErrorsOutput,
+  GreetingWithErrorsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0GreetingWithErrorsCommand,
   serializeAws_json1_0GreetingWithErrorsCommand,
@@ -79,8 +84,8 @@ export class GreetingWithErrorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GreetingWithErrorsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GreetingWithErrorsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GreetingWithErrorsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GreetingWithErrorsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

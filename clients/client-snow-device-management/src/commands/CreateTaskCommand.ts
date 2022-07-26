@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTaskInput, CreateTaskOutput } from "../models/models_0";
+import {
+  CreateTaskInput,
+  CreateTaskInputFilterSensitiveLog,
+  CreateTaskOutput,
+  CreateTaskOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTaskCommand,
   serializeAws_restJson1CreateTaskCommand,
@@ -76,8 +81,8 @@ export class CreateTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTaskInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTaskOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTaskInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTaskOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

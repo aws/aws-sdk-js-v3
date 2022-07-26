@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteApiRequest } from "../models/models_0";
+import { DeleteApiRequest, DeleteApiRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteApiCommand,
   serializeAws_restJson1DeleteApiCommand,
@@ -72,7 +72,7 @@ export class DeleteApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApiRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApiRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

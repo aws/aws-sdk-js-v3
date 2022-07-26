@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { CreateMeetingDialOutRequest, CreateMeetingDialOutResponse } from "../models/models_0";
+import {
+  CreateMeetingDialOutRequest,
+  CreateMeetingDialOutRequestFilterSensitiveLog,
+  CreateMeetingDialOutResponse,
+  CreateMeetingDialOutResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMeetingDialOutCommand,
   serializeAws_restJson1CreateMeetingDialOutCommand,
@@ -76,8 +81,8 @@ export class CreateMeetingDialOutCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMeetingDialOutRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateMeetingDialOutResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateMeetingDialOutRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateMeetingDialOutResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

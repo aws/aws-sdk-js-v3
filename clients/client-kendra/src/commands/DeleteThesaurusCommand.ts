@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteThesaurusRequest } from "../models/models_0";
+import { DeleteThesaurusRequest, DeleteThesaurusRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteThesaurusCommand,
   serializeAws_json1_1DeleteThesaurusCommand,
@@ -73,7 +73,7 @@ export class DeleteThesaurusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThesaurusRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteThesaurusRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

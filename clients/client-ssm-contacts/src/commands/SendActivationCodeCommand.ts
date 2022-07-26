@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendActivationCodeRequest, SendActivationCodeResult } from "../models/models_0";
+import {
+  SendActivationCodeRequest,
+  SendActivationCodeRequestFilterSensitiveLog,
+  SendActivationCodeResult,
+  SendActivationCodeResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SendActivationCodeCommand,
   serializeAws_json1_1SendActivationCodeCommand,
@@ -74,8 +79,8 @@ export class SendActivationCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendActivationCodeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendActivationCodeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SendActivationCodeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendActivationCodeResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

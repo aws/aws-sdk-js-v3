@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import { StartStageDeploymentRequest, StartStageDeploymentResult } from "../models/models_0";
+import {
+  StartStageDeploymentRequest,
+  StartStageDeploymentRequestFilterSensitiveLog,
+  StartStageDeploymentResult,
+  StartStageDeploymentResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartStageDeploymentCommand,
   serializeAws_restJson1StartStageDeploymentCommand,
@@ -81,8 +86,8 @@ export class StartStageDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartStageDeploymentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartStageDeploymentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartStageDeploymentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartStageDeploymentResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AbortMultipartUploadOutput, AbortMultipartUploadRequest } from "../models/models_0";
+import {
+  AbortMultipartUploadOutput,
+  AbortMultipartUploadOutputFilterSensitiveLog,
+  AbortMultipartUploadRequest,
+  AbortMultipartUploadRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlAbortMultipartUploadCommand,
   serializeAws_restXmlAbortMultipartUploadCommand,
@@ -112,8 +117,8 @@ export class AbortMultipartUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AbortMultipartUploadRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AbortMultipartUploadOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AbortMultipartUploadRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AbortMultipartUploadOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

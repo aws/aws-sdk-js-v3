@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DescribeDatasetGroupRequest, DescribeDatasetGroupResponse } from "../models/models_0";
+import {
+  DescribeDatasetGroupRequest,
+  DescribeDatasetGroupRequestFilterSensitiveLog,
+  DescribeDatasetGroupResponse,
+  DescribeDatasetGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDatasetGroupCommand,
   serializeAws_json1_1DescribeDatasetGroupCommand,
@@ -96,8 +101,8 @@ export class DescribeDatasetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDatasetGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDatasetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDatasetGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDatasetGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

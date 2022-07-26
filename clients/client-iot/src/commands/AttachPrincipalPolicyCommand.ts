@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { AttachPrincipalPolicyRequest } from "../models/models_0";
+import { AttachPrincipalPolicyRequest, AttachPrincipalPolicyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1AttachPrincipalPolicyCommand,
   serializeAws_restJson1AttachPrincipalPolicyCommand,
@@ -79,7 +79,7 @@ export class AttachPrincipalPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachPrincipalPolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachPrincipalPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

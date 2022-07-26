@@ -70,15 +70,6 @@ export interface LaunchDetails {
   stackId?: string;
 }
 
-export namespace LaunchDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum AppStatus {
   Active = "ACTIVE",
   Creating = "CREATING",
@@ -188,15 +179,6 @@ export interface AppSummary {
   totalServers?: number;
 }
 
-export namespace AppSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum AppValidationStrategy {
   SSM = "SSM",
 }
@@ -221,15 +203,6 @@ export interface S3Location {
   key?: string;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the location of a validation script.</p>
  */
@@ -238,15 +211,6 @@ export interface Source {
    * <p>Location of an Amazon S3 object.</p>
    */
   s3Location?: S3Location;
-}
-
-export namespace Source {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Source): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -284,15 +248,6 @@ export interface SSMValidationParameters {
   outputS3BucketName?: string;
 }
 
-export namespace SSMValidationParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSMValidationParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration for validating an application.</p>
  */
@@ -318,15 +273,6 @@ export interface AppValidationConfiguration {
   ssmValidationParameters?: SSMValidationParameters;
 }
 
-export namespace AppValidationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppValidationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the location of validation output.</p>
  */
@@ -337,15 +283,6 @@ export interface SSMOutput {
   s3Location?: S3Location;
 }
 
-export namespace SSMOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSMOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output from validating an application.</p>
  */
@@ -354,15 +291,6 @@ export interface AppValidationOutput {
    * <p>Output from using SSM to validate the application.</p>
    */
   ssmOutput?: SSMOutput;
-}
-
-export namespace AppValidationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppValidationOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ServerType {
@@ -388,15 +316,6 @@ export interface VmServerAddress {
    * <p>The ID of the VM.</p>
    */
   vmId?: string;
-}
-
-export namespace VmServerAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VmServerAddress): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -429,15 +348,6 @@ export interface VmServer {
   vmPath?: string;
 }
 
-export namespace VmServer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VmServer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a server.</p>
  */
@@ -468,15 +378,6 @@ export interface Server {
   replicationJobTerminated?: boolean;
 }
 
-export namespace Server {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Server): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Logical grouping of servers.</p>
  */
@@ -497,15 +398,6 @@ export interface ServerGroup {
   serverList?: Server[];
 }
 
-export namespace ServerGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Key/value pair that can be assigned to an application.</p>
  */
@@ -519,15 +411,6 @@ export interface Tag {
    * <p>The tag value.</p>
    */
   value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAppRequest {
@@ -563,15 +446,6 @@ export interface CreateAppRequest {
   tags?: Tag[];
 }
 
-export namespace CreateAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAppResponse {
   /**
    * <p>A summary description of the application.</p>
@@ -587,15 +461,6 @@ export interface CreateAppResponse {
    * <p>The tags associated with the application.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAppResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -770,29 +635,11 @@ export interface CreateReplicationJobRequest {
   kmsKeyId?: string;
 }
 
-export namespace CreateReplicationJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReplicationJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateReplicationJobResponse {
   /**
    * <p>The unique identifier of the replication job.</p>
    */
   replicationJobId?: string;
-}
-
-export namespace CreateReplicationJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReplicationJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -890,25 +737,7 @@ export interface DeleteAppRequest {
   forceTerminateApp?: boolean;
 }
 
-export namespace DeleteAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppResponse {}
-
-export namespace DeleteAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAppLaunchConfigurationRequest {
   /**
@@ -917,25 +746,7 @@ export interface DeleteAppLaunchConfigurationRequest {
   appId?: string;
 }
 
-export namespace DeleteAppLaunchConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppLaunchConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppLaunchConfigurationResponse {}
-
-export namespace DeleteAppLaunchConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppLaunchConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAppReplicationConfigurationRequest {
   /**
@@ -944,25 +755,7 @@ export interface DeleteAppReplicationConfigurationRequest {
   appId?: string;
 }
 
-export namespace DeleteAppReplicationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppReplicationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppReplicationConfigurationResponse {}
-
-export namespace DeleteAppReplicationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppReplicationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteAppValidationConfigurationRequest {
   /**
@@ -971,25 +764,7 @@ export interface DeleteAppValidationConfigurationRequest {
   appId: string | undefined;
 }
 
-export namespace DeleteAppValidationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppValidationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAppValidationConfigurationResponse {}
-
-export namespace DeleteAppValidationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAppValidationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteReplicationJobRequest {
   /**
@@ -998,25 +773,7 @@ export interface DeleteReplicationJobRequest {
   replicationJobId: string | undefined;
 }
 
-export namespace DeleteReplicationJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReplicationJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteReplicationJobResponse {}
-
-export namespace DeleteReplicationJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReplicationJobResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified replication job does not exist.</p>
@@ -1039,25 +796,7 @@ export class ReplicationJobNotFoundException extends __BaseException {
 
 export interface DeleteServerCatalogRequest {}
 
-export namespace DeleteServerCatalogRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServerCatalogRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServerCatalogResponse {}
-
-export namespace DeleteServerCatalogResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServerCatalogResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateConnectorRequest {
   /**
@@ -1066,25 +805,7 @@ export interface DisassociateConnectorRequest {
   connectorId: string | undefined;
 }
 
-export namespace DisassociateConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateConnectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateConnectorResponse {}
-
-export namespace DisassociateConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateConnectorResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum OutputFormat {
   JSON = "JSON",
@@ -1103,29 +824,11 @@ export interface GenerateChangeSetRequest {
   changesetFormat?: OutputFormat | string;
 }
 
-export namespace GenerateChangeSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateChangeSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateChangeSetResponse {
   /**
    * <p>The location of the Amazon S3 object.</p>
    */
   s3Location?: S3Location;
-}
-
-export namespace GenerateChangeSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateChangeSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GenerateTemplateRequest {
@@ -1140,15 +843,6 @@ export interface GenerateTemplateRequest {
   templateFormat?: OutputFormat | string;
 }
 
-export namespace GenerateTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GenerateTemplateResponse {
   /**
    * <p>The location of the Amazon S3 object.</p>
@@ -1156,29 +850,11 @@ export interface GenerateTemplateResponse {
   s3Location?: S3Location;
 }
 
-export namespace GenerateTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppRequest {
   /**
    * <p>The ID of the application.</p>
    */
   appId?: string;
-}
-
-export namespace GetAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAppResponse {
@@ -1198,29 +874,11 @@ export interface GetAppResponse {
   tags?: Tag[];
 }
 
-export namespace GetAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppLaunchConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
    */
   appId?: string;
-}
-
-export namespace GetAppLaunchConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppLaunchConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1232,15 +890,6 @@ export interface UserData {
    * <p>Amazon S3 location of the user-data script.</p>
    */
   s3Location?: S3Location;
-}
-
-export namespace UserData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1308,15 +957,6 @@ export interface ServerLaunchConfiguration {
   configureScriptType?: ScriptType | string;
 }
 
-export namespace ServerLaunchConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerLaunchConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Launch configuration for a server group.</p>
  */
@@ -1336,15 +976,6 @@ export interface ServerGroupLaunchConfiguration {
    * <p>The launch configuration for servers in the server group.</p>
    */
   serverLaunchConfigurations?: ServerLaunchConfiguration[];
-}
-
-export namespace ServerGroupLaunchConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerGroupLaunchConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAppLaunchConfigurationResponse {
@@ -1370,29 +1001,11 @@ export interface GetAppLaunchConfigurationResponse {
   serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
 }
 
-export namespace GetAppLaunchConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppLaunchConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppReplicationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
    */
   appId?: string;
-}
-
-export namespace GetAppReplicationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppReplicationConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1452,15 +1065,6 @@ export interface ServerReplicationParameters {
   kmsKeyId?: string;
 }
 
-export namespace ServerReplicationParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerReplicationParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Replication configuration of a server.</p>
  */
@@ -1475,15 +1079,6 @@ export interface ServerReplicationConfiguration {
    * <p>The parameters for replicating the server.</p>
    */
   serverReplicationParameters?: ServerReplicationParameters;
-}
-
-export namespace ServerReplicationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerReplicationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1502,15 +1097,6 @@ export interface ServerGroupReplicationConfiguration {
   serverReplicationConfigurations?: ServerReplicationConfiguration[];
 }
 
-export namespace ServerGroupReplicationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerGroupReplicationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppReplicationConfigurationResponse {
   /**
    * <p>The replication configurations associated with server groups in this application.</p>
@@ -1518,29 +1104,11 @@ export interface GetAppReplicationConfigurationResponse {
   serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
 }
 
-export namespace GetAppReplicationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppReplicationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppValidationConfigurationRequest {
   /**
    * <p>The ID of the application.</p>
    */
   appId: string | undefined;
-}
-
-export namespace GetAppValidationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppValidationConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ServerValidationStrategy {
@@ -1560,15 +1128,6 @@ export interface UserDataValidationParameters {
    * <p>The type of validation script.</p>
    */
   scriptType?: ScriptType | string;
-}
-
-export namespace UserDataValidationParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserDataValidationParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1601,15 +1160,6 @@ export interface ServerValidationConfiguration {
   userDataValidationParameters?: UserDataValidationParameters;
 }
 
-export namespace ServerValidationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerValidationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration for validating an instance.</p>
  */
@@ -1625,15 +1175,6 @@ export interface ServerGroupValidationConfiguration {
   serverValidationConfigurations?: ServerValidationConfiguration[];
 }
 
-export namespace ServerGroupValidationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerGroupValidationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppValidationConfigurationResponse {
   /**
    * <p>The configuration for application validation.</p>
@@ -1646,29 +1187,11 @@ export interface GetAppValidationConfigurationResponse {
   serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[];
 }
 
-export namespace GetAppValidationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppValidationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppValidationOutputRequest {
   /**
    * <p>The ID of the application.</p>
    */
   appId: string | undefined;
-}
-
-export namespace GetAppValidationOutputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppValidationOutputRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1679,15 +1202,6 @@ export interface ServerValidationOutput {
    * <p>Represents a server.</p>
    */
   server?: Server;
-}
-
-export namespace ServerValidationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerValidationOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ValidationStatus {
@@ -1738,29 +1252,11 @@ export interface ValidationOutput {
   serverValidationOutput?: ServerValidationOutput;
 }
 
-export namespace ValidationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAppValidationOutputResponse {
   /**
    * <p>The validation output.</p>
    */
   validationOutputList?: ValidationOutput[];
-}
-
-export namespace GetAppValidationOutputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAppValidationOutputResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetConnectorsRequest {
@@ -1775,15 +1271,6 @@ export interface GetConnectorsRequest {
    *                 <code>NextToken</code> value.</p>
    */
   maxResults?: number;
-}
-
-export namespace GetConnectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectorsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectorCapability {
@@ -1854,15 +1341,6 @@ export interface Connector {
   associatedOn?: Date;
 }
 
-export namespace Connector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Connector): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConnectorsResponse {
   /**
    * <p>Information about the registered connectors.</p>
@@ -1874,15 +1352,6 @@ export interface GetConnectorsResponse {
    *             there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetConnectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetReplicationJobsRequest {
@@ -1904,15 +1373,6 @@ export interface GetReplicationJobsRequest {
   maxResults?: number;
 }
 
-export namespace GetReplicationJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReplicationJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details of the current stage of a replication run.</p>
  */
@@ -1926,15 +1386,6 @@ export interface ReplicationRunStageDetails {
    * <p>The progress of the current stage of a replication run.</p>
    */
   stageProgress?: string;
-}
-
-export namespace ReplicationRunStageDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationRunStageDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum ReplicationRunState {
@@ -2028,15 +1479,6 @@ export interface ReplicationRun {
    *             customer's default KMS key for Amazon EBS is used. </p>
    */
   kmsKeyId?: string;
-}
-
-export namespace ReplicationRun {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationRun): any => ({
-    ...obj,
-  });
 }
 
 export enum ReplicationJobState {
@@ -2164,15 +1606,6 @@ export interface ReplicationJob {
   replicationRunList?: ReplicationRun[];
 }
 
-export namespace ReplicationJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationJob): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReplicationJobsResponse {
   /**
    * <p>Information about the replication jobs.</p>
@@ -2184,15 +1617,6 @@ export interface GetReplicationJobsResponse {
    *             there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetReplicationJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReplicationJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetReplicationRunsRequest {
@@ -2214,15 +1638,6 @@ export interface GetReplicationRunsRequest {
   maxResults?: number;
 }
 
-export namespace GetReplicationRunsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReplicationRunsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReplicationRunsResponse {
   /**
    * <p>Information about the replication job.</p>
@@ -2239,15 +1654,6 @@ export interface GetReplicationRunsResponse {
    *             there are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace GetReplicationRunsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReplicationRunsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetServersRequest {
@@ -2267,15 +1673,6 @@ export interface GetServersRequest {
    * <p>The server addresses.</p>
    */
   vmServerAddressList?: VmServerAddress[];
-}
-
-export namespace GetServersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServersRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ServerCatalogStatus {
@@ -2309,15 +1706,6 @@ export interface GetServersResponse {
   nextToken?: string;
 }
 
-export namespace GetServersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportAppCatalogRequest {
   /**
    * <p>The name of the service role. If you omit this parameter, we create a service-linked role
@@ -2327,47 +1715,11 @@ export interface ImportAppCatalogRequest {
   roleName?: string;
 }
 
-export namespace ImportAppCatalogRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportAppCatalogRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportAppCatalogResponse {}
-
-export namespace ImportAppCatalogResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportAppCatalogResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ImportServerCatalogRequest {}
 
-export namespace ImportServerCatalogRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportServerCatalogRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportServerCatalogResponse {}
-
-export namespace ImportServerCatalogResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportServerCatalogResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface LaunchAppRequest {
   /**
@@ -2376,25 +1728,7 @@ export interface LaunchAppRequest {
   appId?: string;
 }
 
-export namespace LaunchAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchAppRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface LaunchAppResponse {}
-
-export namespace LaunchAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchAppResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ListAppsRequest {
   /**
@@ -2415,15 +1749,6 @@ export interface ListAppsRequest {
   maxResults?: number;
 }
 
-export namespace ListAppsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAppsResponse {
   /**
    * <p>The application summaries.</p>
@@ -2435,15 +1760,6 @@ export interface ListAppsResponse {
    *             are no more results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAppsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAppsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2466,15 +1782,6 @@ export interface NotificationContext {
   statusMessage?: string;
 }
 
-export namespace NotificationContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationContext): any => ({
-    ...obj,
-  });
-}
-
 export interface NotifyAppValidationOutputRequest {
   /**
    * <p>The ID of the application.</p>
@@ -2487,25 +1794,7 @@ export interface NotifyAppValidationOutputRequest {
   notificationContext?: NotificationContext;
 }
 
-export namespace NotifyAppValidationOutputRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyAppValidationOutputRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface NotifyAppValidationOutputResponse {}
-
-export namespace NotifyAppValidationOutputResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyAppValidationOutputResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutAppLaunchConfigurationRequest {
   /**
@@ -2530,25 +1819,7 @@ export interface PutAppLaunchConfigurationRequest {
   serverGroupLaunchConfigurations?: ServerGroupLaunchConfiguration[];
 }
 
-export namespace PutAppLaunchConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAppLaunchConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAppLaunchConfigurationResponse {}
-
-export namespace PutAppLaunchConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAppLaunchConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutAppReplicationConfigurationRequest {
   /**
@@ -2562,25 +1833,7 @@ export interface PutAppReplicationConfigurationRequest {
   serverGroupReplicationConfigurations?: ServerGroupReplicationConfiguration[];
 }
 
-export namespace PutAppReplicationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAppReplicationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAppReplicationConfigurationResponse {}
-
-export namespace PutAppReplicationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAppReplicationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutAppValidationConfigurationRequest {
   /**
@@ -2599,25 +1852,7 @@ export interface PutAppValidationConfigurationRequest {
   serverGroupValidationConfigurations?: ServerGroupValidationConfiguration[];
 }
 
-export namespace PutAppValidationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAppValidationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAppValidationConfigurationResponse {}
-
-export namespace PutAppValidationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAppValidationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StartAppReplicationRequest {
   /**
@@ -2626,25 +1861,7 @@ export interface StartAppReplicationRequest {
   appId?: string;
 }
 
-export namespace StartAppReplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAppReplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartAppReplicationResponse {}
-
-export namespace StartAppReplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAppReplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StartOnDemandAppReplicationRequest {
   /**
@@ -2658,25 +1875,7 @@ export interface StartOnDemandAppReplicationRequest {
   description?: string;
 }
 
-export namespace StartOnDemandAppReplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartOnDemandAppReplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartOnDemandAppReplicationResponse {}
-
-export namespace StartOnDemandAppReplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartOnDemandAppReplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The user has the required permissions, so the request would have succeeded,
@@ -2730,29 +1929,11 @@ export interface StartOnDemandReplicationRunRequest {
   description?: string;
 }
 
-export namespace StartOnDemandReplicationRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartOnDemandReplicationRunRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartOnDemandReplicationRunResponse {
   /**
    * <p>The ID of the replication run.</p>
    */
   replicationRunId?: string;
-}
-
-export namespace StartOnDemandReplicationRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartOnDemandReplicationRunResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StopAppReplicationRequest {
@@ -2762,25 +1943,7 @@ export interface StopAppReplicationRequest {
   appId?: string;
 }
 
-export namespace StopAppReplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAppReplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopAppReplicationResponse {}
-
-export namespace StopAppReplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAppReplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TerminateAppRequest {
   /**
@@ -2789,25 +1952,7 @@ export interface TerminateAppRequest {
   appId?: string;
 }
 
-export namespace TerminateAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateAppRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateAppResponse {}
-
-export namespace TerminateAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateAppResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateAppRequest {
   /**
@@ -2841,15 +1986,6 @@ export interface UpdateAppRequest {
   tags?: Tag[];
 }
 
-export namespace UpdateAppRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAppResponse {
   /**
    * <p>A summary description of the application.</p>
@@ -2865,15 +2001,6 @@ export interface UpdateAppResponse {
    * <p>The tags associated with the application.</p>
    */
   tags?: Tag[];
-}
-
-export namespace UpdateAppResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateReplicationJobRequest {
@@ -2943,22 +2070,731 @@ export interface UpdateReplicationJobRequest {
   kmsKeyId?: string;
 }
 
-export namespace UpdateReplicationJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReplicationJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateReplicationJobResponse {}
 
-export namespace UpdateReplicationJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateReplicationJobResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const LaunchDetailsFilterSensitiveLog = (obj: LaunchDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppSummaryFilterSensitiveLog = (obj: AppSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceFilterSensitiveLog = (obj: Source): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSMValidationParametersFilterSensitiveLog = (obj: SSMValidationParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppValidationConfigurationFilterSensitiveLog = (obj: AppValidationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSMOutputFilterSensitiveLog = (obj: SSMOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppValidationOutputFilterSensitiveLog = (obj: AppValidationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VmServerAddressFilterSensitiveLog = (obj: VmServerAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VmServerFilterSensitiveLog = (obj: VmServer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerFilterSensitiveLog = (obj: Server): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerGroupFilterSensitiveLog = (obj: ServerGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAppRequestFilterSensitiveLog = (obj: CreateAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAppResponseFilterSensitiveLog = (obj: CreateAppResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReplicationJobRequestFilterSensitiveLog = (obj: CreateReplicationJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReplicationJobResponseFilterSensitiveLog = (obj: CreateReplicationJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppRequestFilterSensitiveLog = (obj: DeleteAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppResponseFilterSensitiveLog = (obj: DeleteAppResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppLaunchConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteAppLaunchConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppLaunchConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteAppLaunchConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppReplicationConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteAppReplicationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppReplicationConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteAppReplicationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppValidationConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteAppValidationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAppValidationConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteAppValidationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReplicationJobRequestFilterSensitiveLog = (obj: DeleteReplicationJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReplicationJobResponseFilterSensitiveLog = (obj: DeleteReplicationJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServerCatalogRequestFilterSensitiveLog = (obj: DeleteServerCatalogRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServerCatalogResponseFilterSensitiveLog = (obj: DeleteServerCatalogResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateConnectorRequestFilterSensitiveLog = (obj: DisassociateConnectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateConnectorResponseFilterSensitiveLog = (obj: DisassociateConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateChangeSetRequestFilterSensitiveLog = (obj: GenerateChangeSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateChangeSetResponseFilterSensitiveLog = (obj: GenerateChangeSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateTemplateRequestFilterSensitiveLog = (obj: GenerateTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateTemplateResponseFilterSensitiveLog = (obj: GenerateTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppRequestFilterSensitiveLog = (obj: GetAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppResponseFilterSensitiveLog = (obj: GetAppResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppLaunchConfigurationRequestFilterSensitiveLog = (obj: GetAppLaunchConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserDataFilterSensitiveLog = (obj: UserData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerLaunchConfigurationFilterSensitiveLog = (obj: ServerLaunchConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerGroupLaunchConfigurationFilterSensitiveLog = (obj: ServerGroupLaunchConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppLaunchConfigurationResponseFilterSensitiveLog = (obj: GetAppLaunchConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppReplicationConfigurationRequestFilterSensitiveLog = (
+  obj: GetAppReplicationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerReplicationParametersFilterSensitiveLog = (obj: ServerReplicationParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerReplicationConfigurationFilterSensitiveLog = (obj: ServerReplicationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerGroupReplicationConfigurationFilterSensitiveLog = (
+  obj: ServerGroupReplicationConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppReplicationConfigurationResponseFilterSensitiveLog = (
+  obj: GetAppReplicationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppValidationConfigurationRequestFilterSensitiveLog = (
+  obj: GetAppValidationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserDataValidationParametersFilterSensitiveLog = (obj: UserDataValidationParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerValidationConfigurationFilterSensitiveLog = (obj: ServerValidationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerGroupValidationConfigurationFilterSensitiveLog = (obj: ServerGroupValidationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppValidationConfigurationResponseFilterSensitiveLog = (
+  obj: GetAppValidationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppValidationOutputRequestFilterSensitiveLog = (obj: GetAppValidationOutputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerValidationOutputFilterSensitiveLog = (obj: ServerValidationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationOutputFilterSensitiveLog = (obj: ValidationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAppValidationOutputResponseFilterSensitiveLog = (obj: GetAppValidationOutputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectorsRequestFilterSensitiveLog = (obj: GetConnectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorFilterSensitiveLog = (obj: Connector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectorsResponseFilterSensitiveLog = (obj: GetConnectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReplicationJobsRequestFilterSensitiveLog = (obj: GetReplicationJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationRunStageDetailsFilterSensitiveLog = (obj: ReplicationRunStageDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationRunFilterSensitiveLog = (obj: ReplicationRun): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationJobFilterSensitiveLog = (obj: ReplicationJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReplicationJobsResponseFilterSensitiveLog = (obj: GetReplicationJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReplicationRunsRequestFilterSensitiveLog = (obj: GetReplicationRunsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReplicationRunsResponseFilterSensitiveLog = (obj: GetReplicationRunsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServersRequestFilterSensitiveLog = (obj: GetServersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServersResponseFilterSensitiveLog = (obj: GetServersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportAppCatalogRequestFilterSensitiveLog = (obj: ImportAppCatalogRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportAppCatalogResponseFilterSensitiveLog = (obj: ImportAppCatalogResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportServerCatalogRequestFilterSensitiveLog = (obj: ImportServerCatalogRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportServerCatalogResponseFilterSensitiveLog = (obj: ImportServerCatalogResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchAppRequestFilterSensitiveLog = (obj: LaunchAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchAppResponseFilterSensitiveLog = (obj: LaunchAppResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppsRequestFilterSensitiveLog = (obj: ListAppsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAppsResponseFilterSensitiveLog = (obj: ListAppsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationContextFilterSensitiveLog = (obj: NotificationContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyAppValidationOutputRequestFilterSensitiveLog = (obj: NotifyAppValidationOutputRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyAppValidationOutputResponseFilterSensitiveLog = (obj: NotifyAppValidationOutputResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAppLaunchConfigurationRequestFilterSensitiveLog = (obj: PutAppLaunchConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAppLaunchConfigurationResponseFilterSensitiveLog = (obj: PutAppLaunchConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAppReplicationConfigurationRequestFilterSensitiveLog = (
+  obj: PutAppReplicationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAppReplicationConfigurationResponseFilterSensitiveLog = (
+  obj: PutAppReplicationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAppValidationConfigurationRequestFilterSensitiveLog = (
+  obj: PutAppValidationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAppValidationConfigurationResponseFilterSensitiveLog = (
+  obj: PutAppValidationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAppReplicationRequestFilterSensitiveLog = (obj: StartAppReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAppReplicationResponseFilterSensitiveLog = (obj: StartAppReplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartOnDemandAppReplicationRequestFilterSensitiveLog = (obj: StartOnDemandAppReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartOnDemandAppReplicationResponseFilterSensitiveLog = (
+  obj: StartOnDemandAppReplicationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartOnDemandReplicationRunRequestFilterSensitiveLog = (obj: StartOnDemandReplicationRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartOnDemandReplicationRunResponseFilterSensitiveLog = (
+  obj: StartOnDemandReplicationRunResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopAppReplicationRequestFilterSensitiveLog = (obj: StopAppReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopAppReplicationResponseFilterSensitiveLog = (obj: StopAppReplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateAppRequestFilterSensitiveLog = (obj: TerminateAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateAppResponseFilterSensitiveLog = (obj: TerminateAppResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppRequestFilterSensitiveLog = (obj: UpdateAppRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAppResponseFilterSensitiveLog = (obj: UpdateAppResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReplicationJobRequestFilterSensitiveLog = (obj: UpdateReplicationJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateReplicationJobResponseFilterSensitiveLog = (obj: UpdateReplicationJobResponse): any => ({
+  ...obj,
+});

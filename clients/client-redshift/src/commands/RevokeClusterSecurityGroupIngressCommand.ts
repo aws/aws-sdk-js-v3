@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RevokeClusterSecurityGroupIngressMessage, RevokeClusterSecurityGroupIngressResult } from "../models/models_1";
+import {
+  RevokeClusterSecurityGroupIngressMessage,
+  RevokeClusterSecurityGroupIngressMessageFilterSensitiveLog,
+  RevokeClusterSecurityGroupIngressResult,
+  RevokeClusterSecurityGroupIngressResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryRevokeClusterSecurityGroupIngressCommand,
   serializeAws_queryRevokeClusterSecurityGroupIngressCommand,
@@ -78,8 +83,8 @@ export class RevokeClusterSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeClusterSecurityGroupIngressMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RevokeClusterSecurityGroupIngressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RevokeClusterSecurityGroupIngressMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RevokeClusterSecurityGroupIngressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

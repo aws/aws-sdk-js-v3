@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResendContactReachabilityEmailRequest, ResendContactReachabilityEmailResponse } from "../models/models_0";
+import {
+  ResendContactReachabilityEmailRequest,
+  ResendContactReachabilityEmailRequestFilterSensitiveLog,
+  ResendContactReachabilityEmailResponse,
+  ResendContactReachabilityEmailResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ResendContactReachabilityEmailCommand,
   serializeAws_json1_1ResendContactReachabilityEmailCommand,
@@ -75,8 +80,8 @@ export class ResendContactReachabilityEmailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResendContactReachabilityEmailRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResendContactReachabilityEmailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResendContactReachabilityEmailRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResendContactReachabilityEmailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

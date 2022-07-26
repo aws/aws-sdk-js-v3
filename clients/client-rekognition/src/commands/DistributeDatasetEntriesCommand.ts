@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DistributeDatasetEntriesRequest, DistributeDatasetEntriesResponse } from "../models/models_0";
+import {
+  DistributeDatasetEntriesRequest,
+  DistributeDatasetEntriesRequestFilterSensitiveLog,
+  DistributeDatasetEntriesResponse,
+  DistributeDatasetEntriesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DistributeDatasetEntriesCommand,
   serializeAws_json1_1DistributeDatasetEntriesCommand,
@@ -83,8 +88,8 @@ export class DistributeDatasetEntriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DistributeDatasetEntriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DistributeDatasetEntriesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DistributeDatasetEntriesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DistributeDatasetEntriesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

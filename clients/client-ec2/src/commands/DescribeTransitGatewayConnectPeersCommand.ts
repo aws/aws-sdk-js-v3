@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTransitGatewayConnectPeersRequest,
+  DescribeTransitGatewayConnectPeersRequestFilterSensitiveLog,
   DescribeTransitGatewayConnectPeersResult,
+  DescribeTransitGatewayConnectPeersResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeTransitGatewayConnectPeersCommand,
@@ -77,8 +79,8 @@ export class DescribeTransitGatewayConnectPeersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransitGatewayConnectPeersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransitGatewayConnectPeersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTransitGatewayConnectPeersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTransitGatewayConnectPeersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

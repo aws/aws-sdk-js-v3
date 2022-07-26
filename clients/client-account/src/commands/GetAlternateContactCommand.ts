@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { GetAlternateContactRequest, GetAlternateContactResponse } from "../models/models_0";
+import {
+  GetAlternateContactRequest,
+  GetAlternateContactRequestFilterSensitiveLog,
+  GetAlternateContactResponse,
+  GetAlternateContactResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetAlternateContactCommand,
   serializeAws_restJson1GetAlternateContactCommand,
@@ -80,8 +85,8 @@ export class GetAlternateContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAlternateContactRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAlternateContactResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAlternateContactRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAlternateContactResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

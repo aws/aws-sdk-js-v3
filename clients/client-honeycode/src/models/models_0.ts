@@ -92,17 +92,6 @@ export interface CellInput {
   facts?: string[];
 }
 
-export namespace CellInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CellInput): any => ({
-    ...obj,
-    ...(obj.fact && { fact: SENSITIVE_STRING }),
-    ...(obj.facts && { facts: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>
  *             Data needed to create a single row in a table as part of the BatchCreateTableRows request.
@@ -126,24 +115,6 @@ export interface CreateRowData {
    *         </p>
    */
   cellsToCreate: Record<string, CellInput> | undefined;
-}
-
-export namespace CreateRowData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRowData): any => ({
-    ...obj,
-    ...(obj.cellsToCreate && {
-      cellsToCreate: Object.entries(obj.cellsToCreate).reduce(
-        (acc: any, [key, value]: [string, CellInput]) => ({
-          ...acc,
-          [key]: CellInput.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
 }
 
 export interface BatchCreateTableRowsRequest {
@@ -192,16 +163,6 @@ export interface BatchCreateTableRowsRequest {
   clientRequestToken?: string;
 }
 
-export namespace BatchCreateTableRowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateTableRowsRequest): any => ({
-    ...obj,
-    ...(obj.rowsToCreate && { rowsToCreate: obj.rowsToCreate.map((item) => CreateRowData.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>
  *             A single item in a batch that failed to perform the intended action because of an error preventing it from
@@ -226,15 +187,6 @@ export interface FailedBatchItem {
   errorMessage: string | undefined;
 }
 
-export namespace FailedBatchItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedBatchItem): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchCreateTableRowsResult {
   /**
    * <p>The updated workbook cursor after adding the new rows at the end of the table.</p>
@@ -254,15 +206,6 @@ export interface BatchCreateTableRowsResult {
    *         </p>
    */
   failedBatchItems?: FailedBatchItem[];
-}
-
-export namespace BatchCreateTableRowsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateTableRowsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -446,15 +389,6 @@ export interface BatchDeleteTableRowsRequest {
   clientRequestToken?: string;
 }
 
-export namespace BatchDeleteTableRowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteTableRowsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteTableRowsResult {
   /**
    * <p>The updated workbook cursor after deleting the rows from the table.</p>
@@ -469,15 +403,6 @@ export interface BatchDeleteTableRowsResult {
    *         </p>
    */
   failedBatchItems?: FailedBatchItem[];
-}
-
-export namespace BatchDeleteTableRowsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteTableRowsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -500,24 +425,6 @@ export interface UpdateRowData {
    *         </p>
    */
   cellsToUpdate: Record<string, CellInput> | undefined;
-}
-
-export namespace UpdateRowData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRowData): any => ({
-    ...obj,
-    ...(obj.cellsToUpdate && {
-      cellsToUpdate: Object.entries(obj.cellsToUpdate).reduce(
-        (acc: any, [key, value]: [string, CellInput]) => ({
-          ...acc,
-          [key]: CellInput.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
 }
 
 export interface BatchUpdateTableRowsRequest {
@@ -567,16 +474,6 @@ export interface BatchUpdateTableRowsRequest {
   clientRequestToken?: string;
 }
 
-export namespace BatchUpdateTableRowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateTableRowsRequest): any => ({
-    ...obj,
-    ...(obj.rowsToUpdate && { rowsToUpdate: obj.rowsToUpdate.map((item) => UpdateRowData.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface BatchUpdateTableRowsResult {
   /**
    * <p>The updated workbook cursor after adding the new rows at the end of the table.</p>
@@ -591,15 +488,6 @@ export interface BatchUpdateTableRowsResult {
    *         </p>
    */
   failedBatchItems?: FailedBatchItem[];
-}
-
-export namespace BatchUpdateTableRowsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateTableRowsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -628,16 +516,6 @@ export interface Filter {
    *         </p>
    */
   contextRowId?: string;
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-    ...(obj.formula && { formula: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -678,25 +556,6 @@ export interface UpsertRowData {
    *         </p>
    */
   cellsToUpdate: Record<string, CellInput> | undefined;
-}
-
-export namespace UpsertRowData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpsertRowData): any => ({
-    ...obj,
-    ...(obj.filter && { filter: Filter.filterSensitiveLog(obj.filter) }),
-    ...(obj.cellsToUpdate && {
-      cellsToUpdate: Object.entries(obj.cellsToUpdate).reduce(
-        (acc: any, [key, value]: [string, CellInput]) => ({
-          ...acc,
-          [key]: CellInput.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
 }
 
 export interface BatchUpsertTableRowsRequest {
@@ -747,16 +606,6 @@ export interface BatchUpsertTableRowsRequest {
   clientRequestToken?: string;
 }
 
-export namespace BatchUpsertTableRowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpsertTableRowsRequest): any => ({
-    ...obj,
-    ...(obj.rowsToUpsert && { rowsToUpsert: obj.rowsToUpsert.map((item) => UpsertRowData.filterSensitiveLog(item)) }),
-  });
-}
-
 export enum UpsertAction {
   Appended = "APPENDED",
   Updated = "UPDATED",
@@ -785,15 +634,6 @@ export interface UpsertRowsResult {
   upsertAction: UpsertAction | string | undefined;
 }
 
-export namespace UpsertRowsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpsertRowsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchUpsertTableRowsResult {
   /**
    * <p>
@@ -817,15 +657,6 @@ export interface BatchUpsertTableRowsResult {
    *         </p>
    */
   failedBatchItems?: FailedBatchItem[];
-}
-
-export namespace BatchUpsertTableRowsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpsertTableRowsResult): any => ({
-    ...obj,
-  });
 }
 
 export enum Format {
@@ -939,16 +770,6 @@ export interface Cell {
   formattedValues?: string[];
 }
 
-export namespace Cell {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cell): any => ({
-    ...obj,
-    ...(obj.formula && { formula: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Metadata for column in the table.</p>
  */
@@ -962,16 +783,6 @@ export interface ColumnMetadata {
    * <p>The format of the column.</p>
    */
   format: Format | string | undefined;
-}
-
-export namespace ColumnMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnMetadata): any => ({
-    ...obj,
-    ...(obj.name && { name: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -995,15 +806,6 @@ export interface DataItem {
    * <p>The formatted value of the data. e.g. John Smith.</p>
    */
   formattedValue?: string;
-}
-
-export namespace DataItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataItem): any => ({
-    ...obj,
-  });
 }
 
 export enum ImportDataCharacterEncoding {
@@ -1042,15 +844,6 @@ export interface DelimitedTextImportOptions {
   dataCharacterEncoding?: ImportDataCharacterEncoding | string;
 }
 
-export namespace DelimitedTextImportOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DelimitedTextImportOptions): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTableDataImportJobRequest {
   /**
    * <p>The ID of the workbook into which data was imported.</p>
@@ -1075,15 +868,6 @@ export interface DescribeTableDataImportJobRequest {
    *         </p>
    */
   jobId: string | undefined;
-}
-
-export namespace DescribeTableDataImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTableDataImportJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ErrorCode {
@@ -1117,16 +901,6 @@ export interface ImportDataSourceConfig {
   dataSourceUrl?: string;
 }
 
-export namespace ImportDataSourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportDataSourceConfig): any => ({
-    ...obj,
-    ...(obj.dataSourceUrl && { dataSourceUrl: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>An object that has details about the source of the data that was submitted for import.</p>
  */
@@ -1135,16 +909,6 @@ export interface ImportDataSource {
    * <p>The configuration parameters for the data source of the import</p>
    */
   dataSourceConfig: ImportDataSourceConfig | undefined;
-}
-
-export namespace ImportDataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportDataSource): any => ({
-    ...obj,
-    ...(obj.dataSourceConfig && { dataSourceConfig: ImportDataSourceConfig.filterSensitiveLog(obj.dataSourceConfig) }),
-  });
 }
 
 /**
@@ -1157,15 +921,6 @@ export interface SourceDataColumnProperties {
   columnIndex?: number;
 }
 
-export namespace SourceDataColumnProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceDataColumnProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains the options relating to the destination of the import request.</p>
  */
@@ -1174,15 +929,6 @@ export interface DestinationOptions {
    * <p>A map of the column id to the import properties for each column.</p>
    */
   columnMap?: Record<string, SourceDataColumnProperties>;
-}
-
-export namespace DestinationOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1200,15 +946,6 @@ export interface ImportOptions {
   delimitedTextOptions?: DelimitedTextImportOptions;
 }
 
-export namespace ImportOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains the attributes of the submitter of the import job.</p>
  */
@@ -1222,16 +959,6 @@ export interface ImportJobSubmitter {
    * <p>The AWS user ARN of the submitter of the import job, if available.</p>
    */
   userArn?: string;
-}
-
-export namespace ImportJobSubmitter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportJobSubmitter): any => ({
-    ...obj,
-    ...(obj.email && { email: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1257,17 +984,6 @@ export interface TableDataImportJobMetadata {
    * <p>The source of the data that was submitted for import.</p>
    */
   dataSource: ImportDataSource | undefined;
-}
-
-export namespace TableDataImportJobMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableDataImportJobMetadata): any => ({
-    ...obj,
-    ...(obj.submitter && { submitter: ImportJobSubmitter.filterSensitiveLog(obj.submitter) }),
-    ...(obj.dataSource && { dataSource: ImportDataSource.filterSensitiveLog(obj.dataSource) }),
-  });
 }
 
 export enum TableDataImportJobStatus {
@@ -1307,16 +1023,6 @@ export interface DescribeTableDataImportJobResult {
   errorCode?: ErrorCode | string;
 }
 
-export namespace DescribeTableDataImportJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTableDataImportJobResult): any => ({
-    ...obj,
-    ...(obj.jobMetadata && { jobMetadata: TableDataImportJobMetadata.filterSensitiveLog(obj.jobMetadata) }),
-  });
-}
-
 /**
  * <p>The input variables to the app to be used by the InvokeScreenAutomation action request.</p>
  */
@@ -1325,15 +1031,6 @@ export interface VariableValue {
    * <p>Raw value of the variable.</p>
    */
   rawValue: string | undefined;
-}
-
-export namespace VariableValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VariableValue): any => ({
-    ...obj,
-  });
 }
 
 export interface GetScreenDataRequest {
@@ -1385,16 +1082,6 @@ export interface GetScreenDataRequest {
   nextToken?: string;
 }
 
-export namespace GetScreenDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetScreenDataRequest): any => ({
-    ...obj,
-    ...(obj.variables && { variables: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A single row in the ResultSet.</p>
  */
@@ -1408,16 +1095,6 @@ export interface ResultRow {
    * <p>List of all the data cells in a row.</p>
    */
   dataItems: DataItem[] | undefined;
-}
-
-export namespace ResultRow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultRow): any => ({
-    ...obj,
-    ...(obj.dataItems && { dataItems: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1452,17 +1129,6 @@ export interface ResultSet {
   rows: ResultRow[] | undefined;
 }
 
-export namespace ResultSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultSet): any => ({
-    ...obj,
-    ...(obj.headers && { headers: obj.headers.map((item) => ColumnMetadata.filterSensitiveLog(item)) }),
-    ...(obj.rows && { rows: obj.rows.map((item) => ResultRow.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface GetScreenDataResult {
   /**
    * <p>A map of all the rows on the screen keyed by block name.</p>
@@ -1484,24 +1150,6 @@ export interface GetScreenDataResult {
    *         </p>
    */
   nextToken?: string;
-}
-
-export namespace GetScreenDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetScreenDataResult): any => ({
-    ...obj,
-    ...(obj.results && {
-      results: Object.entries(obj.results).reduce(
-        (acc: any, [key, value]: [string, ResultSet]) => ({
-          ...acc,
-          [key]: ResultSet.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
 }
 
 export enum ImportSourceDataFormat {
@@ -1561,30 +1209,11 @@ export interface InvokeScreenAutomationRequest {
   clientRequestToken?: string;
 }
 
-export namespace InvokeScreenAutomationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeScreenAutomationRequest): any => ({
-    ...obj,
-    ...(obj.variables && { variables: SENSITIVE_STRING }),
-  });
-}
-
 export interface InvokeScreenAutomationResult {
   /**
    * <p>The updated workbook cursor after performing the automation action.</p>
    */
   workbookCursor: number | undefined;
-}
-
-export namespace InvokeScreenAutomationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeScreenAutomationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTableColumnsRequest {
@@ -1616,15 +1245,6 @@ export interface ListTableColumnsRequest {
   nextToken?: string;
 }
 
-export namespace ListTableColumnsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTableColumnsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains attributes about a single column in a table</p>
  */
@@ -1646,15 +1266,6 @@ export interface TableColumn {
    *         </p>
    */
   format?: Format | string;
-}
-
-export namespace TableColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableColumn): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTableColumnsResult {
@@ -1681,15 +1292,6 @@ export interface ListTableColumnsResult {
    *         </p>
    */
   workbookCursor?: number;
-}
-
-export namespace ListTableColumnsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTableColumnsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTableRowsRequest {
@@ -1735,15 +1337,6 @@ export interface ListTableRowsRequest {
   nextToken?: string;
 }
 
-export namespace ListTableRowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTableRowsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains attributes about a single row in a table</p>
  */
@@ -1758,16 +1351,6 @@ export interface TableRow {
    *         </p>
    */
   cells: Cell[] | undefined;
-}
-
-export namespace TableRow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableRow): any => ({
-    ...obj,
-    ...(obj.cells && { cells: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListTableRowsResult {
@@ -1811,16 +1394,6 @@ export interface ListTableRowsResult {
   workbookCursor: number | undefined;
 }
 
-export namespace ListTableRowsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTableRowsResult): any => ({
-    ...obj,
-    ...(obj.rows && { rows: obj.rows.map((item) => TableRow.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface ListTablesRequest {
   /**
    * <p>The ID of the workbook whose tables are being retrieved.</p>
@@ -1847,15 +1420,6 @@ export interface ListTablesRequest {
   nextToken?: string;
 }
 
-export namespace ListTablesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTablesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing the properties of a table in a workbook.</p>
  */
@@ -1869,15 +1433,6 @@ export interface Table {
    * <p>The name of the table.</p>
    */
   tableName?: string;
-}
-
-export namespace Table {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Table): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTablesResult {
@@ -1906,15 +1461,6 @@ export interface ListTablesResult {
   workbookCursor?: number;
 }
 
-export namespace ListTablesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTablesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource's Amazon Resource Name (ARN).</p>
@@ -1922,29 +1468,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResult {
   /**
    * <p>The resource's tags.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface QueryTableRowsRequest {
@@ -1987,16 +1515,6 @@ export interface QueryTableRowsRequest {
   nextToken?: string;
 }
 
-export namespace QueryTableRowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryTableRowsRequest): any => ({
-    ...obj,
-    ...(obj.filterFormula && { filterFormula: Filter.filterSensitiveLog(obj.filterFormula) }),
-  });
-}
-
 export interface QueryTableRowsResult {
   /**
    * <p>
@@ -2028,16 +1546,6 @@ export interface QueryTableRowsResult {
    *         </p>
    */
   workbookCursor: number | undefined;
-}
-
-export namespace QueryTableRowsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryTableRowsResult): any => ({
-    ...obj,
-    ...(obj.rows && { rows: obj.rows.map((item) => TableRow.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface StartTableDataImportJobRequest {
@@ -2095,16 +1603,6 @@ export interface StartTableDataImportJobRequest {
   clientRequestToken: string | undefined;
 }
 
-export namespace StartTableDataImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTableDataImportJobRequest): any => ({
-    ...obj,
-    ...(obj.dataSource && { dataSource: ImportDataSource.filterSensitiveLog(obj.dataSource) }),
-  });
-}
-
 export interface StartTableDataImportJobResult {
   /**
    * <p>
@@ -2122,15 +1620,6 @@ export interface StartTableDataImportJobResult {
   jobStatus: TableDataImportJobStatus | string | undefined;
 }
 
-export namespace StartTableDataImportJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTableDataImportJobResult): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The resource's Amazon Resource Name (ARN).</p>
@@ -2143,25 +1632,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResult {}
-
-export namespace TagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2175,22 +1646,443 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResult {}
 
-export namespace UntagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CellInputFilterSensitiveLog = (obj: CellInput): any => ({
+  ...obj,
+  ...(obj.fact && { fact: SENSITIVE_STRING }),
+  ...(obj.facts && { facts: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateRowDataFilterSensitiveLog = (obj: CreateRowData): any => ({
+  ...obj,
+  ...(obj.cellsToCreate && {
+    cellsToCreate: Object.entries(obj.cellsToCreate).reduce(
+      (acc: any, [key, value]: [string, CellInput]) => ({
+        ...acc,
+        [key]: CellInputFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateTableRowsRequestFilterSensitiveLog = (obj: BatchCreateTableRowsRequest): any => ({
+  ...obj,
+  ...(obj.rowsToCreate && { rowsToCreate: obj.rowsToCreate.map((item) => CreateRowDataFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const FailedBatchItemFilterSensitiveLog = (obj: FailedBatchItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateTableRowsResultFilterSensitiveLog = (obj: BatchCreateTableRowsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteTableRowsRequestFilterSensitiveLog = (obj: BatchDeleteTableRowsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteTableRowsResultFilterSensitiveLog = (obj: BatchDeleteTableRowsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRowDataFilterSensitiveLog = (obj: UpdateRowData): any => ({
+  ...obj,
+  ...(obj.cellsToUpdate && {
+    cellsToUpdate: Object.entries(obj.cellsToUpdate).reduce(
+      (acc: any, [key, value]: [string, CellInput]) => ({
+        ...acc,
+        [key]: CellInputFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateTableRowsRequestFilterSensitiveLog = (obj: BatchUpdateTableRowsRequest): any => ({
+  ...obj,
+  ...(obj.rowsToUpdate && { rowsToUpdate: obj.rowsToUpdate.map((item) => UpdateRowDataFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateTableRowsResultFilterSensitiveLog = (obj: BatchUpdateTableRowsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+  ...(obj.formula && { formula: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpsertRowDataFilterSensitiveLog = (obj: UpsertRowData): any => ({
+  ...obj,
+  ...(obj.filter && { filter: FilterFilterSensitiveLog(obj.filter) }),
+  ...(obj.cellsToUpdate && {
+    cellsToUpdate: Object.entries(obj.cellsToUpdate).reduce(
+      (acc: any, [key, value]: [string, CellInput]) => ({
+        ...acc,
+        [key]: CellInputFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchUpsertTableRowsRequestFilterSensitiveLog = (obj: BatchUpsertTableRowsRequest): any => ({
+  ...obj,
+  ...(obj.rowsToUpsert && { rowsToUpsert: obj.rowsToUpsert.map((item) => UpsertRowDataFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpsertRowsResultFilterSensitiveLog = (obj: UpsertRowsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpsertTableRowsResultFilterSensitiveLog = (obj: BatchUpsertTableRowsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CellFilterSensitiveLog = (obj: Cell): any => ({
+  ...obj,
+  ...(obj.formula && { formula: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ColumnMetadataFilterSensitiveLog = (obj: ColumnMetadata): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DataItemFilterSensitiveLog = (obj: DataItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DelimitedTextImportOptionsFilterSensitiveLog = (obj: DelimitedTextImportOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTableDataImportJobRequestFilterSensitiveLog = (obj: DescribeTableDataImportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportDataSourceConfigFilterSensitiveLog = (obj: ImportDataSourceConfig): any => ({
+  ...obj,
+  ...(obj.dataSourceUrl && { dataSourceUrl: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImportDataSourceFilterSensitiveLog = (obj: ImportDataSource): any => ({
+  ...obj,
+  ...(obj.dataSourceConfig && { dataSourceConfig: ImportDataSourceConfigFilterSensitiveLog(obj.dataSourceConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const SourceDataColumnPropertiesFilterSensitiveLog = (obj: SourceDataColumnProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationOptionsFilterSensitiveLog = (obj: DestinationOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportOptionsFilterSensitiveLog = (obj: ImportOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportJobSubmitterFilterSensitiveLog = (obj: ImportJobSubmitter): any => ({
+  ...obj,
+  ...(obj.email && { email: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TableDataImportJobMetadataFilterSensitiveLog = (obj: TableDataImportJobMetadata): any => ({
+  ...obj,
+  ...(obj.submitter && { submitter: ImportJobSubmitterFilterSensitiveLog(obj.submitter) }),
+  ...(obj.dataSource && { dataSource: ImportDataSourceFilterSensitiveLog(obj.dataSource) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeTableDataImportJobResultFilterSensitiveLog = (obj: DescribeTableDataImportJobResult): any => ({
+  ...obj,
+  ...(obj.jobMetadata && { jobMetadata: TableDataImportJobMetadataFilterSensitiveLog(obj.jobMetadata) }),
+});
+
+/**
+ * @internal
+ */
+export const VariableValueFilterSensitiveLog = (obj: VariableValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetScreenDataRequestFilterSensitiveLog = (obj: GetScreenDataRequest): any => ({
+  ...obj,
+  ...(obj.variables && { variables: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResultRowFilterSensitiveLog = (obj: ResultRow): any => ({
+  ...obj,
+  ...(obj.dataItems && { dataItems: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResultSetFilterSensitiveLog = (obj: ResultSet): any => ({
+  ...obj,
+  ...(obj.headers && { headers: obj.headers.map((item) => ColumnMetadataFilterSensitiveLog(item)) }),
+  ...(obj.rows && { rows: obj.rows.map((item) => ResultRowFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetScreenDataResultFilterSensitiveLog = (obj: GetScreenDataResult): any => ({
+  ...obj,
+  ...(obj.results && {
+    results: Object.entries(obj.results).reduce(
+      (acc: any, [key, value]: [string, ResultSet]) => ({
+        ...acc,
+        [key]: ResultSetFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeScreenAutomationRequestFilterSensitiveLog = (obj: InvokeScreenAutomationRequest): any => ({
+  ...obj,
+  ...(obj.variables && { variables: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeScreenAutomationResultFilterSensitiveLog = (obj: InvokeScreenAutomationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTableColumnsRequestFilterSensitiveLog = (obj: ListTableColumnsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableColumnFilterSensitiveLog = (obj: TableColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTableColumnsResultFilterSensitiveLog = (obj: ListTableColumnsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTableRowsRequestFilterSensitiveLog = (obj: ListTableRowsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableRowFilterSensitiveLog = (obj: TableRow): any => ({
+  ...obj,
+  ...(obj.cells && { cells: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListTableRowsResultFilterSensitiveLog = (obj: ListTableRowsResult): any => ({
+  ...obj,
+  ...(obj.rows && { rows: obj.rows.map((item) => TableRowFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListTablesRequestFilterSensitiveLog = (obj: ListTablesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableFilterSensitiveLog = (obj: Table): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTablesResultFilterSensitiveLog = (obj: ListTablesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryTableRowsRequestFilterSensitiveLog = (obj: QueryTableRowsRequest): any => ({
+  ...obj,
+  ...(obj.filterFormula && { filterFormula: FilterFilterSensitiveLog(obj.filterFormula) }),
+});
+
+/**
+ * @internal
+ */
+export const QueryTableRowsResultFilterSensitiveLog = (obj: QueryTableRowsResult): any => ({
+  ...obj,
+  ...(obj.rows && { rows: obj.rows.map((item) => TableRowFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartTableDataImportJobRequestFilterSensitiveLog = (obj: StartTableDataImportJobRequest): any => ({
+  ...obj,
+  ...(obj.dataSource && { dataSource: ImportDataSourceFilterSensitiveLog(obj.dataSource) }),
+});
+
+/**
+ * @internal
+ */
+export const StartTableDataImportJobResultFilterSensitiveLog = (obj: StartTableDataImportJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
+  ...obj,
+});

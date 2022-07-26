@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DeleteTaskRequest, DeleteTaskResponse } from "../models/models_0";
+import {
+  DeleteTaskRequest,
+  DeleteTaskRequestFilterSensitiveLog,
+  DeleteTaskResponse,
+  DeleteTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTaskCommand,
   serializeAws_json1_1DeleteTaskCommand,
@@ -72,8 +77,8 @@ export class DeleteTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

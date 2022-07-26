@@ -14,7 +14,9 @@ import {
 
 import {
   DeregisterPatchBaselineForPatchGroupRequest,
+  DeregisterPatchBaselineForPatchGroupRequestFilterSensitiveLog,
   DeregisterPatchBaselineForPatchGroupResult,
+  DeregisterPatchBaselineForPatchGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand,
@@ -77,8 +79,8 @@ export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterPatchBaselineForPatchGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterPatchBaselineForPatchGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterPatchBaselineForPatchGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterPatchBaselineForPatchGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { DeleteBudgetRequest, DeleteBudgetResponse } from "../models/models_0";
+import {
+  DeleteBudgetRequest,
+  DeleteBudgetRequestFilterSensitiveLog,
+  DeleteBudgetResponse,
+  DeleteBudgetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBudgetCommand,
   serializeAws_json1_1DeleteBudgetCommand,
@@ -75,8 +80,8 @@ export class DeleteBudgetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBudgetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBudgetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBudgetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBudgetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

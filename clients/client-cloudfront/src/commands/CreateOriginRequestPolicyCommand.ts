@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { CreateOriginRequestPolicyRequest, CreateOriginRequestPolicyResult } from "../models/models_0";
+import {
+  CreateOriginRequestPolicyRequest,
+  CreateOriginRequestPolicyRequestFilterSensitiveLog,
+  CreateOriginRequestPolicyResult,
+  CreateOriginRequestPolicyResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlCreateOriginRequestPolicyCommand,
   serializeAws_restXmlCreateOriginRequestPolicyCommand,
@@ -96,8 +101,8 @@ export class CreateOriginRequestPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOriginRequestPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateOriginRequestPolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateOriginRequestPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateOriginRequestPolicyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

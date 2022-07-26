@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import { DeleteStreamInput, DeleteStreamOutput } from "../models/models_0";
+import {
+  DeleteStreamInput,
+  DeleteStreamInputFilterSensitiveLog,
+  DeleteStreamOutput,
+  DeleteStreamOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteStreamCommand,
   serializeAws_restJson1DeleteStreamCommand,
@@ -81,8 +86,8 @@ export class DeleteStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStreamOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStreamInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStreamOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

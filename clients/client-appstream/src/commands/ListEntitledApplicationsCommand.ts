@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { ListEntitledApplicationsRequest, ListEntitledApplicationsResult } from "../models/models_0";
+import {
+  ListEntitledApplicationsRequest,
+  ListEntitledApplicationsRequestFilterSensitiveLog,
+  ListEntitledApplicationsResult,
+  ListEntitledApplicationsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListEntitledApplicationsCommand,
   serializeAws_json1_1ListEntitledApplicationsCommand,
@@ -72,8 +77,8 @@ export class ListEntitledApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntitledApplicationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEntitledApplicationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEntitledApplicationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEntitledApplicationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

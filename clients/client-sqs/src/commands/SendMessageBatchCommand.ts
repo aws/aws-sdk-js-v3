@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendMessageBatchRequest, SendMessageBatchResult } from "../models/models_0";
+import {
+  SendMessageBatchRequest,
+  SendMessageBatchRequestFilterSensitiveLog,
+  SendMessageBatchResult,
+  SendMessageBatchResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_querySendMessageBatchCommand,
   serializeAws_querySendMessageBatchCommand,
@@ -92,8 +97,8 @@ export class SendMessageBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendMessageBatchRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendMessageBatchResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SendMessageBatchRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendMessageBatchResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

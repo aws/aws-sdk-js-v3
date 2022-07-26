@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
+import {
+  CreateDatasetRequest,
+  CreateDatasetRequestFilterSensitiveLog,
+  CreateDatasetResponse,
+  CreateDatasetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDatasetCommand,
   serializeAws_json1_1CreateDatasetCommand,
@@ -96,8 +101,8 @@ export class CreateDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatasetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatasetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDatasetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDatasetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

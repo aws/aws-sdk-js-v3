@@ -12,8 +12,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ClusterCredentials } from "../models/models_0";
-import { GetClusterCredentialsMessage } from "../models/models_1";
+import { ClusterCredentials, ClusterCredentialsFilterSensitiveLog } from "../models/models_0";
+import { GetClusterCredentialsMessage, GetClusterCredentialsMessageFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryGetClusterCredentialsCommand,
   serializeAws_queryGetClusterCredentialsCommand,
@@ -93,8 +93,8 @@ export class GetClusterCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClusterCredentialsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ClusterCredentials.filterSensitiveLog,
+      inputFilterSensitiveLog: GetClusterCredentialsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ClusterCredentialsFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

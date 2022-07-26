@@ -70,15 +70,6 @@ export interface AssetSummary {
   hashes?: Record<string, string>;
 }
 
-export namespace AssetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateExternalConnectionRequest {
   /**
    * <p>The name of the domain that contains the repository.</p>
@@ -140,15 +131,6 @@ export interface AssociateExternalConnectionRequest {
   externalConnection: string | undefined;
 }
 
-export namespace AssociateExternalConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateExternalConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum PackageFormat {
   MAVEN = "maven",
   NPM = "npm",
@@ -208,15 +190,6 @@ export interface RepositoryExternalConnectionInfo {
   status?: ExternalConnectionStatus | string;
 }
 
-export namespace RepositoryExternalConnectionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryExternalConnectionInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *         Information about an upstream repository.
@@ -227,15 +200,6 @@ export interface UpstreamRepositoryInfo {
    * <p> The name of an upstream repository. </p>
    */
   repositoryName?: string;
-}
-
-export namespace UpstreamRepositoryInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpstreamRepositoryInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -301,15 +265,6 @@ export interface RepositoryDescription {
   externalConnections?: RepositoryExternalConnectionInfo[];
 }
 
-export namespace RepositoryDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateExternalConnectionResult {
   /**
    * <p>
@@ -317,15 +272,6 @@ export interface AssociateExternalConnectionResult {
    *        </p>
    */
   repository?: RepositoryDescription;
-}
-
-export namespace AssociateExternalConnectionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateExternalConnectionResult): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -645,15 +591,6 @@ export interface CopyPackageVersionsRequest {
   includeFromUpstream?: boolean;
 }
 
-export namespace CopyPackageVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyPackageVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum PackageVersionErrorCode {
   ALREADY_EXISTS = "ALREADY_EXISTS",
   MISMATCHED_REVISION = "MISMATCHED_REVISION",
@@ -714,15 +651,6 @@ export interface PackageVersionError {
   errorMessage?: string;
 }
 
-export namespace PackageVersionError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageVersionError): any => ({
-    ...obj,
-  });
-}
-
 export enum PackageVersionStatus {
   ARCHIVED = "Archived",
   DELETED = "Deleted",
@@ -751,15 +679,6 @@ export interface SuccessfulPackageVersionInfo {
    *     </p>
    */
   status?: PackageVersionStatus | string;
-}
-
-export namespace SuccessfulPackageVersionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuccessfulPackageVersionInfo): any => ({
-    ...obj,
-  });
 }
 
 export interface CopyPackageVersionsResult {
@@ -811,15 +730,6 @@ export interface CopyPackageVersionsResult {
   failedVersions?: Record<string, PackageVersionError>;
 }
 
-export namespace CopyPackageVersionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyPackageVersionsResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A tag is a key-value pair that can be used to manage, search for, or filter resources in CodeArtifact.</p>
  */
@@ -833,15 +743,6 @@ export interface Tag {
    * <p>The tag value.</p>
    */
   value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDomainRequest {
@@ -872,15 +773,6 @@ export interface CreateDomainRequest {
    * <p>One or more tag key-value pairs for the domain.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DomainStatus {
@@ -951,15 +843,6 @@ export interface DomainDescription {
   s3BucketArn?: string;
 }
 
-export namespace DomainDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDomainResult {
   /**
    * <p>
@@ -967,15 +850,6 @@ export interface CreateDomainResult {
    *       </p>
    */
   domain?: DomainDescription;
-}
-
-export namespace CreateDomainResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -990,15 +864,6 @@ export interface UpstreamRepository {
    * <p> The name of an upstream repository. </p>
    */
   repositoryName: string | undefined;
-}
-
-export namespace UpstreamRepository {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpstreamRepository): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRepositoryRequest {
@@ -1042,15 +907,6 @@ export interface CreateRepositoryRequest {
   tags?: Tag[];
 }
 
-export namespace CreateRepositoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRepositoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRepositoryResult {
   /**
    * <p>
@@ -1058,15 +914,6 @@ export interface CreateRepositoryResult {
    *       </p>
    */
   repository?: RepositoryDescription;
-}
-
-export namespace CreateRepositoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRepositoryResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDomainRequest {
@@ -1086,15 +933,6 @@ export interface DeleteDomainRequest {
   domainOwner?: string;
 }
 
-export namespace DeleteDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDomainResult {
   /**
    * <p>
@@ -1102,15 +940,6 @@ export interface DeleteDomainResult {
    *        </p>
    */
   domain?: DomainDescription;
-}
-
-export namespace DeleteDomainResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDomainPermissionsPolicyRequest {
@@ -1136,15 +965,6 @@ export interface DeleteDomainPermissionsPolicyRequest {
    *       </p>
    */
   policyRevision?: string;
-}
-
-export namespace DeleteDomainPermissionsPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainPermissionsPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1175,15 +995,6 @@ export interface ResourcePolicy {
   document?: string;
 }
 
-export namespace ResourcePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourcePolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDomainPermissionsPolicyResult {
   /**
    * <p>
@@ -1191,15 +1002,6 @@ export interface DeleteDomainPermissionsPolicyResult {
    *       </p>
    */
   policy?: ResourcePolicy;
-}
-
-export namespace DeleteDomainPermissionsPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainPermissionsPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePackageVersionsRequest {
@@ -1279,15 +1081,6 @@ export interface DeletePackageVersionsRequest {
   expectedStatus?: PackageVersionStatus | string;
 }
 
-export namespace DeletePackageVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePackageVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePackageVersionsResult {
   /**
    * <p>
@@ -1338,15 +1131,6 @@ export interface DeletePackageVersionsResult {
   failedVersions?: Record<string, PackageVersionError>;
 }
 
-export namespace DeletePackageVersionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePackageVersionsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRepositoryRequest {
   /**
    * <p>
@@ -1369,15 +1153,6 @@ export interface DeleteRepositoryRequest {
   repository: string | undefined;
 }
 
-export namespace DeleteRepositoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRepositoryResult {
   /**
    * <p>
@@ -1385,15 +1160,6 @@ export interface DeleteRepositoryResult {
    *        </p>
    */
   repository?: RepositoryDescription;
-}
-
-export namespace DeleteRepositoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRepositoryPermissionsPolicyRequest {
@@ -1428,15 +1194,6 @@ export interface DeleteRepositoryPermissionsPolicyRequest {
   policyRevision?: string;
 }
 
-export namespace DeleteRepositoryPermissionsPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryPermissionsPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRepositoryPermissionsPolicyResult {
   /**
    * <p>
@@ -1444,15 +1201,6 @@ export interface DeleteRepositoryPermissionsPolicyResult {
    *     </p>
    */
   policy?: ResourcePolicy;
-}
-
-export namespace DeleteRepositoryPermissionsPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryPermissionsPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDomainRequest {
@@ -1472,15 +1220,6 @@ export interface DescribeDomainRequest {
   domainOwner?: string;
 }
 
-export namespace DescribeDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDomainResult {
   /**
    * <p>
@@ -1489,15 +1228,6 @@ export interface DescribeDomainResult {
    *       </p>
    */
   domain?: DomainDescription;
-}
-
-export namespace DescribeDomainResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePackageRequest {
@@ -1555,15 +1285,6 @@ export interface DescribePackageRequest {
   package: string | undefined;
 }
 
-export namespace DescribePackageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the origin restrictions set on the package.
  *       The package origin restrictions determine how new versions of a package
@@ -1581,15 +1302,6 @@ export interface PackageOriginRestrictions {
   upstream: AllowUpstream | string | undefined;
 }
 
-export namespace PackageOriginRestrictions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageOriginRestrictions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the package origin configuration of a package.</p>
  */
@@ -1599,15 +1311,6 @@ export interface PackageOriginConfiguration {
    *     about the upstream and publish package origin configuration for the package.</p>
    */
   restrictions?: PackageOriginRestrictions;
-}
-
-export namespace PackageOriginConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageOriginConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1655,30 +1358,12 @@ export interface PackageDescription {
   originConfiguration?: PackageOriginConfiguration;
 }
 
-export namespace PackageDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePackageResult {
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html">PackageDescription</a>
    *       object that contains information about the requested package.</p>
    */
   package: PackageDescription | undefined;
-}
-
-export namespace DescribePackageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackageResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePackageVersionRequest {
@@ -1747,15 +1432,6 @@ export interface DescribePackageVersionRequest {
   packageVersion: string | undefined;
 }
 
-export namespace DescribePackageVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackageVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *         Details of the license data.
@@ -1777,15 +1453,6 @@ export interface LicenseInfo {
   url?: string;
 }
 
-export namespace LicenseInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LicenseInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about how a package originally entered the CodeArtifact domain. For packages published directly to CodeArtifact, the entry point is the repository it was published to.
  *       For packages ingested from an external repository, the entry point is the external connection that it was ingested from. An external
@@ -1801,15 +1468,6 @@ export interface DomainEntryPoint {
    * <p>The name of the external connection that a package was ingested from.</p>
    */
   externalConnectionName?: string;
-}
-
-export namespace DomainEntryPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainEntryPoint): any => ({
-    ...obj,
-  });
 }
 
 export enum PackageVersionOriginType {
@@ -1833,15 +1491,6 @@ export interface PackageVersionOrigin {
    *     directly to a repository in the domain. An <code>EXTERNAL</code> origin type means the package version was ingested from an external connection.</p>
    */
   originType?: PackageVersionOriginType | string;
-}
-
-export namespace PackageVersionOrigin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageVersionOrigin): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1963,15 +1612,6 @@ export interface PackageVersionDescription {
   origin?: PackageVersionOrigin;
 }
 
-export namespace PackageVersionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageVersionDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePackageVersionResult {
   /**
    * <p>
@@ -1980,15 +1620,6 @@ export interface DescribePackageVersionResult {
    *     </p>
    */
   packageVersion: PackageVersionDescription | undefined;
-}
-
-export namespace DescribePackageVersionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackageVersionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRepositoryRequest {
@@ -2015,15 +1646,6 @@ export interface DescribeRepositoryRequest {
   repository: string | undefined;
 }
 
-export namespace DescribeRepositoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRepositoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRepositoryResult {
   /**
    * <p>
@@ -2031,15 +1653,6 @@ export interface DescribeRepositoryResult {
    *        </p>
    */
   repository?: RepositoryDescription;
-}
-
-export namespace DescribeRepositoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRepositoryResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateExternalConnectionRequest {
@@ -2068,15 +1681,6 @@ export interface DisassociateExternalConnectionRequest {
   externalConnection: string | undefined;
 }
 
-export namespace DisassociateExternalConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateExternalConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateExternalConnectionResult {
   /**
    * <p>
@@ -2084,15 +1688,6 @@ export interface DisassociateExternalConnectionResult {
    *     </p>
    */
   repository?: RepositoryDescription;
-}
-
-export namespace DisassociateExternalConnectionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateExternalConnectionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DisposePackageVersionsRequest {
@@ -2179,15 +1774,6 @@ export interface DisposePackageVersionsRequest {
   expectedStatus?: PackageVersionStatus | string;
 }
 
-export namespace DisposePackageVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisposePackageVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisposePackageVersionsResult {
   /**
    * <p>
@@ -2237,15 +1823,6 @@ export interface DisposePackageVersionsResult {
   failedVersions?: Record<string, PackageVersionError>;
 }
 
-export namespace DisposePackageVersionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisposePackageVersionsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAuthorizationTokenRequest {
   /**
    * <p>
@@ -2271,15 +1848,6 @@ export interface GetAuthorizationTokenRequest {
   durationSeconds?: number;
 }
 
-export namespace GetAuthorizationTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAuthorizationTokenRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAuthorizationTokenResult {
   /**
    * <p>
@@ -2294,15 +1862,6 @@ export interface GetAuthorizationTokenResult {
    *     </p>
    */
   expiration?: Date;
-}
-
-export namespace GetAuthorizationTokenResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAuthorizationTokenResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDomainPermissionsPolicyRequest {
@@ -2322,15 +1881,6 @@ export interface GetDomainPermissionsPolicyRequest {
   domainOwner?: string;
 }
 
-export namespace GetDomainPermissionsPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainPermissionsPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDomainPermissionsPolicyResult {
   /**
    * <p>
@@ -2338,15 +1888,6 @@ export interface GetDomainPermissionsPolicyResult {
    *       </p>
    */
   policy?: ResourcePolicy;
-}
-
-export namespace GetDomainPermissionsPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainPermissionsPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPackageVersionAssetRequest {
@@ -2433,15 +1974,6 @@ export interface GetPackageVersionAssetRequest {
   packageVersionRevision?: string;
 }
 
-export namespace GetPackageVersionAssetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPackageVersionAssetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPackageVersionAssetResult {
   /**
    * <p> The binary file, or asset, that is downloaded.</p>
@@ -2468,15 +2000,6 @@ export interface GetPackageVersionAssetResult {
    *     </p>
    */
   packageVersionRevision?: string;
-}
-
-export namespace GetPackageVersionAssetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPackageVersionAssetResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPackageVersionReadmeRequest {
@@ -2549,15 +2072,6 @@ export interface GetPackageVersionReadmeRequest {
   packageVersion: string | undefined;
 }
 
-export namespace GetPackageVersionReadmeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPackageVersionReadmeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPackageVersionReadmeResult {
   /**
    * <p>
@@ -2620,15 +2134,6 @@ export interface GetPackageVersionReadmeResult {
   readme?: string;
 }
 
-export namespace GetPackageVersionReadmeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPackageVersionReadmeResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRepositoryEndpointRequest {
   /**
    * <p>
@@ -2661,15 +2166,6 @@ export interface GetRepositoryEndpointRequest {
   format: PackageFormat | string | undefined;
 }
 
-export namespace GetRepositoryEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRepositoryEndpointResult {
   /**
    * <p>
@@ -2677,15 +2173,6 @@ export interface GetRepositoryEndpointResult {
    *      </p>
    */
   repositoryEndpoint?: string;
-}
-
-export namespace GetRepositoryEndpointResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryEndpointResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRepositoryPermissionsPolicyRequest {
@@ -2712,15 +2199,6 @@ export interface GetRepositoryPermissionsPolicyRequest {
   repository: string | undefined;
 }
 
-export namespace GetRepositoryPermissionsPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryPermissionsPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRepositoryPermissionsPolicyResult {
   /**
    * <p>
@@ -2728,15 +2206,6 @@ export interface GetRepositoryPermissionsPolicyResult {
    *       </p>
    */
   policy?: ResourcePolicy;
-}
-
-export namespace GetRepositoryPermissionsPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryPermissionsPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDomainsRequest {
@@ -2753,15 +2222,6 @@ export interface ListDomainsRequest {
    *        </p>
    */
   nextToken?: string;
-}
-
-export namespace ListDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2814,15 +2274,6 @@ export interface DomainSummary {
   encryptionKey?: string;
 }
 
-export namespace DomainSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDomainsResult {
   /**
    * <p>
@@ -2837,15 +2288,6 @@ export interface ListDomainsResult {
    *        </p>
    */
   nextToken?: string;
-}
-
-export namespace ListDomainsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPackagesRequest {
@@ -2937,15 +2379,6 @@ export interface ListPackagesRequest {
   upstream?: AllowUpstream | string;
 }
 
-export namespace ListPackagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackagesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       Details about a package, including its format, namespace, and name. The
@@ -3001,15 +2434,6 @@ export interface PackageSummary {
   originConfiguration?: PackageOriginConfiguration;
 }
 
-export namespace PackageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPackagesResult {
   /**
    * <p>
@@ -3025,15 +2449,6 @@ export interface ListPackagesResult {
    *        </p>
    */
   nextToken?: string;
-}
-
-export namespace ListPackagesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackagesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPackageVersionAssetsRequest {
@@ -3120,15 +2535,6 @@ export interface ListPackageVersionAssetsRequest {
   nextToken?: string;
 }
 
-export namespace ListPackageVersionAssetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackageVersionAssetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPackageVersionAssetsResult {
   /**
    * <p>
@@ -3196,15 +2602,6 @@ export interface ListPackageVersionAssetsResult {
    *     </p>
    */
   assets?: AssetSummary[];
-}
-
-export namespace ListPackageVersionAssetsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackageVersionAssetsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPackageVersionDependenciesRequest {
@@ -3284,15 +2681,6 @@ export interface ListPackageVersionDependenciesRequest {
   nextToken?: string;
 }
 
-export namespace ListPackageVersionDependenciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackageVersionDependenciesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *         Details about a package dependency.
@@ -3346,15 +2734,6 @@ export interface PackageDependency {
    *       </p>
    */
   versionRequirement?: string;
-}
-
-export namespace PackageDependency {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageDependency): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPackageVersionDependenciesResult {
@@ -3424,15 +2803,6 @@ export interface ListPackageVersionDependenciesResult {
    *     </p>
    */
   dependencies?: PackageDependency[];
-}
-
-export namespace ListPackageVersionDependenciesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackageVersionDependenciesResult): any => ({
-    ...obj,
-  });
 }
 
 export enum PackageVersionSortType {
@@ -3536,15 +2906,6 @@ export interface ListPackageVersionsRequest {
   originType?: PackageVersionOriginType | string;
 }
 
-export namespace ListPackageVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackageVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *        Details about a package version, including its status, version, and revision. The
@@ -3579,15 +2940,6 @@ export interface PackageVersionSummary {
    *     about how the package version was added to the repository.</p>
    */
   origin?: PackageVersionOrigin;
-}
-
-export namespace PackageVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackageVersionSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPackageVersionsResult {
@@ -3667,15 +3019,6 @@ export interface ListPackageVersionsResult {
   nextToken?: string;
 }
 
-export namespace ListPackageVersionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackageVersionsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRepositoriesRequest {
   /**
    * <p> A prefix used to filter returned repositories. Only repositories with names that start
@@ -3696,15 +3039,6 @@ export interface ListRepositoriesRequest {
    *        </p>
    */
   nextToken?: string;
-}
-
-export namespace ListRepositoriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3755,15 +3089,6 @@ export interface RepositorySummary {
   description?: string;
 }
 
-export namespace RepositorySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositorySummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRepositoriesResult {
   /**
    * <p>
@@ -3779,15 +3104,6 @@ export interface ListRepositoriesResult {
    *        </p>
    */
   nextToken?: string;
-}
-
-export namespace ListRepositoriesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRepositoriesInDomainRequest {
@@ -3836,15 +3152,6 @@ export interface ListRepositoriesInDomainRequest {
   nextToken?: string;
 }
 
-export namespace ListRepositoriesInDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesInDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRepositoriesInDomainResult {
   /**
    * <p>
@@ -3861,15 +3168,6 @@ export interface ListRepositoriesInDomainResult {
   nextToken?: string;
 }
 
-export namespace ListRepositoriesInDomainResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesInDomainResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
@@ -3877,29 +3175,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResult {
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
    */
   tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface PutDomainPermissionsPolicyRequest {
@@ -3933,29 +3213,11 @@ export interface PutDomainPermissionsPolicyRequest {
   policyDocument: string | undefined;
 }
 
-export namespace PutDomainPermissionsPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDomainPermissionsPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutDomainPermissionsPolicyResult {
   /**
    * <p> The resource policy that was set after processing the request. </p>
    */
   policy?: ResourcePolicy;
-}
-
-export namespace PutDomainPermissionsPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDomainPermissionsPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface PutPackageOriginConfigurationRequest {
@@ -4023,15 +3285,6 @@ export interface PutPackageOriginConfigurationRequest {
   restrictions: PackageOriginRestrictions | undefined;
 }
 
-export namespace PutPackageOriginConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPackageOriginConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPackageOriginConfigurationResult {
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
@@ -4040,15 +3293,6 @@ export interface PutPackageOriginConfigurationResult {
    *       object that describes how new versions of the package can be introduced to the repository.</p>
    */
   originConfiguration?: PackageOriginConfiguration;
-}
-
-export namespace PutPackageOriginConfigurationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPackageOriginConfigurationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface PutRepositoryPermissionsPolicyRequest {
@@ -4088,29 +3332,11 @@ export interface PutRepositoryPermissionsPolicyRequest {
   policyDocument: string | undefined;
 }
 
-export namespace PutRepositoryPermissionsPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRepositoryPermissionsPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRepositoryPermissionsPolicyResult {
   /**
    * <p> The resource policy that was set after processing the request. </p>
    */
   policy?: ResourcePolicy;
-}
-
-export namespace PutRepositoryPermissionsPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRepositoryPermissionsPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4125,25 +3351,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResult {}
-
-export namespace TagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4157,25 +3365,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResult {}
-
-export namespace UntagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdatePackageVersionsStatusRequest {
   /**
@@ -4269,15 +3459,6 @@ export interface UpdatePackageVersionsStatusRequest {
   targetStatus: PackageVersionStatus | string | undefined;
 }
 
-export namespace UpdatePackageVersionsStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePackageVersionsStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePackageVersionsStatusResult {
   /**
    * <p>
@@ -4292,15 +3473,6 @@ export interface UpdatePackageVersionsStatusResult {
    *       with a status that successfully updated. </p>
    */
   failedVersions?: Record<string, PackageVersionError>;
-}
-
-export namespace UpdatePackageVersionsStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePackageVersionsStatusResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRepositoryRequest {
@@ -4341,15 +3513,6 @@ export interface UpdateRepositoryRequest {
   upstreams?: UpstreamRepository[];
 }
 
-export namespace UpdateRepositoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRepositoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRepositoryResult {
   /**
    * <p>
@@ -4359,11 +3522,688 @@ export interface UpdateRepositoryResult {
   repository?: RepositoryDescription;
 }
 
-export namespace UpdateRepositoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRepositoryResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AssetSummaryFilterSensitiveLog = (obj: AssetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateExternalConnectionRequestFilterSensitiveLog = (obj: AssociateExternalConnectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryExternalConnectionInfoFilterSensitiveLog = (obj: RepositoryExternalConnectionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpstreamRepositoryInfoFilterSensitiveLog = (obj: UpstreamRepositoryInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryDescriptionFilterSensitiveLog = (obj: RepositoryDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateExternalConnectionResultFilterSensitiveLog = (obj: AssociateExternalConnectionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyPackageVersionsRequestFilterSensitiveLog = (obj: CopyPackageVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageVersionErrorFilterSensitiveLog = (obj: PackageVersionError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuccessfulPackageVersionInfoFilterSensitiveLog = (obj: SuccessfulPackageVersionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyPackageVersionsResultFilterSensitiveLog = (obj: CopyPackageVersionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainDescriptionFilterSensitiveLog = (obj: DomainDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainResultFilterSensitiveLog = (obj: CreateDomainResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpstreamRepositoryFilterSensitiveLog = (obj: UpstreamRepository): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRepositoryRequestFilterSensitiveLog = (obj: CreateRepositoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRepositoryResultFilterSensitiveLog = (obj: CreateRepositoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainResultFilterSensitiveLog = (obj: DeleteDomainResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainPermissionsPolicyRequestFilterSensitiveLog = (
+  obj: DeleteDomainPermissionsPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourcePolicyFilterSensitiveLog = (obj: ResourcePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainPermissionsPolicyResultFilterSensitiveLog = (
+  obj: DeleteDomainPermissionsPolicyResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackageVersionsRequestFilterSensitiveLog = (obj: DeletePackageVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackageVersionsResultFilterSensitiveLog = (obj: DeletePackageVersionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryRequestFilterSensitiveLog = (obj: DeleteRepositoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryResultFilterSensitiveLog = (obj: DeleteRepositoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryPermissionsPolicyRequestFilterSensitiveLog = (
+  obj: DeleteRepositoryPermissionsPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryPermissionsPolicyResultFilterSensitiveLog = (
+  obj: DeleteRepositoryPermissionsPolicyResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainRequestFilterSensitiveLog = (obj: DescribeDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainResultFilterSensitiveLog = (obj: DescribeDomainResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackageRequestFilterSensitiveLog = (obj: DescribePackageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageOriginRestrictionsFilterSensitiveLog = (obj: PackageOriginRestrictions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageOriginConfigurationFilterSensitiveLog = (obj: PackageOriginConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageDescriptionFilterSensitiveLog = (obj: PackageDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackageResultFilterSensitiveLog = (obj: DescribePackageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackageVersionRequestFilterSensitiveLog = (obj: DescribePackageVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicenseInfoFilterSensitiveLog = (obj: LicenseInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainEntryPointFilterSensitiveLog = (obj: DomainEntryPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageVersionOriginFilterSensitiveLog = (obj: PackageVersionOrigin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageVersionDescriptionFilterSensitiveLog = (obj: PackageVersionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackageVersionResultFilterSensitiveLog = (obj: DescribePackageVersionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRepositoryRequestFilterSensitiveLog = (obj: DescribeRepositoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRepositoryResultFilterSensitiveLog = (obj: DescribeRepositoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateExternalConnectionRequestFilterSensitiveLog = (
+  obj: DisassociateExternalConnectionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateExternalConnectionResultFilterSensitiveLog = (
+  obj: DisassociateExternalConnectionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisposePackageVersionsRequestFilterSensitiveLog = (obj: DisposePackageVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisposePackageVersionsResultFilterSensitiveLog = (obj: DisposePackageVersionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAuthorizationTokenRequestFilterSensitiveLog = (obj: GetAuthorizationTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAuthorizationTokenResultFilterSensitiveLog = (obj: GetAuthorizationTokenResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainPermissionsPolicyRequestFilterSensitiveLog = (obj: GetDomainPermissionsPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainPermissionsPolicyResultFilterSensitiveLog = (obj: GetDomainPermissionsPolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPackageVersionAssetRequestFilterSensitiveLog = (obj: GetPackageVersionAssetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPackageVersionAssetResultFilterSensitiveLog = (obj: GetPackageVersionAssetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPackageVersionReadmeRequestFilterSensitiveLog = (obj: GetPackageVersionReadmeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPackageVersionReadmeResultFilterSensitiveLog = (obj: GetPackageVersionReadmeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryEndpointRequestFilterSensitiveLog = (obj: GetRepositoryEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryEndpointResultFilterSensitiveLog = (obj: GetRepositoryEndpointResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryPermissionsPolicyRequestFilterSensitiveLog = (
+  obj: GetRepositoryPermissionsPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryPermissionsPolicyResultFilterSensitiveLog = (
+  obj: GetRepositoryPermissionsPolicyResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainSummaryFilterSensitiveLog = (obj: DomainSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsResultFilterSensitiveLog = (obj: ListDomainsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackagesRequestFilterSensitiveLog = (obj: ListPackagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageSummaryFilterSensitiveLog = (obj: PackageSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackagesResultFilterSensitiveLog = (obj: ListPackagesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackageVersionAssetsRequestFilterSensitiveLog = (obj: ListPackageVersionAssetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackageVersionAssetsResultFilterSensitiveLog = (obj: ListPackageVersionAssetsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackageVersionDependenciesRequestFilterSensitiveLog = (
+  obj: ListPackageVersionDependenciesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageDependencyFilterSensitiveLog = (obj: PackageDependency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackageVersionDependenciesResultFilterSensitiveLog = (
+  obj: ListPackageVersionDependenciesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackageVersionsRequestFilterSensitiveLog = (obj: ListPackageVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackageVersionSummaryFilterSensitiveLog = (obj: PackageVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackageVersionsResultFilterSensitiveLog = (obj: ListPackageVersionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositoriesRequestFilterSensitiveLog = (obj: ListRepositoriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositorySummaryFilterSensitiveLog = (obj: RepositorySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositoriesResultFilterSensitiveLog = (obj: ListRepositoriesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositoriesInDomainRequestFilterSensitiveLog = (obj: ListRepositoriesInDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositoriesInDomainResultFilterSensitiveLog = (obj: ListRepositoriesInDomainResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDomainPermissionsPolicyRequestFilterSensitiveLog = (obj: PutDomainPermissionsPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDomainPermissionsPolicyResultFilterSensitiveLog = (obj: PutDomainPermissionsPolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPackageOriginConfigurationRequestFilterSensitiveLog = (
+  obj: PutPackageOriginConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPackageOriginConfigurationResultFilterSensitiveLog = (
+  obj: PutPackageOriginConfigurationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRepositoryPermissionsPolicyRequestFilterSensitiveLog = (
+  obj: PutRepositoryPermissionsPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRepositoryPermissionsPolicyResultFilterSensitiveLog = (
+  obj: PutRepositoryPermissionsPolicyResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePackageVersionsStatusRequestFilterSensitiveLog = (obj: UpdatePackageVersionsStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePackageVersionsStatusResultFilterSensitiveLog = (obj: UpdatePackageVersionsStatusResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRepositoryRequestFilterSensitiveLog = (obj: UpdateRepositoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRepositoryResultFilterSensitiveLog = (obj: UpdateRepositoryResult): any => ({
+  ...obj,
+});

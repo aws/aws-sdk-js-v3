@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateConnectAttachmentRequest, CreateConnectAttachmentResponse } from "../models/models_0";
+import {
+  CreateConnectAttachmentRequest,
+  CreateConnectAttachmentRequestFilterSensitiveLog,
+  CreateConnectAttachmentResponse,
+  CreateConnectAttachmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1CreateConnectAttachmentCommand,
@@ -75,8 +80,8 @@ export class CreateConnectAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectAttachmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectAttachmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConnectAttachmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateConnectAttachmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

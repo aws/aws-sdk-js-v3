@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { UpdateClusterConfigurationRequest, UpdateClusterConfigurationResponse } from "../models/models_0";
+import {
+  UpdateClusterConfigurationRequest,
+  UpdateClusterConfigurationRequestFilterSensitiveLog,
+  UpdateClusterConfigurationResponse,
+  UpdateClusterConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateClusterConfigurationCommand,
   serializeAws_restJson1UpdateClusterConfigurationCommand,
@@ -72,8 +77,8 @@ export class UpdateClusterConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateClusterConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClusterConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

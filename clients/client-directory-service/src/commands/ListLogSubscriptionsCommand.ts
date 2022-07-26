@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { ListLogSubscriptionsRequest, ListLogSubscriptionsResult } from "../models/models_0";
+import {
+  ListLogSubscriptionsRequest,
+  ListLogSubscriptionsRequestFilterSensitiveLog,
+  ListLogSubscriptionsResult,
+  ListLogSubscriptionsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListLogSubscriptionsCommand,
   serializeAws_json1_1ListLogSubscriptionsCommand,
@@ -72,8 +77,8 @@ export class ListLogSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLogSubscriptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListLogSubscriptionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListLogSubscriptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListLogSubscriptionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

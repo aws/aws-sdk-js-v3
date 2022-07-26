@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { PutFunctionCodeSigningConfigRequest, PutFunctionCodeSigningConfigResponse } from "../models/models_0";
+import {
+  PutFunctionCodeSigningConfigRequest,
+  PutFunctionCodeSigningConfigRequestFilterSensitiveLog,
+  PutFunctionCodeSigningConfigResponse,
+  PutFunctionCodeSigningConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutFunctionCodeSigningConfigCommand,
   serializeAws_restJson1PutFunctionCodeSigningConfigCommand,
@@ -75,8 +80,8 @@ export class PutFunctionCodeSigningConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFunctionCodeSigningConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutFunctionCodeSigningConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutFunctionCodeSigningConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutFunctionCodeSigningConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,9 @@ import {
 
 import {
   DeleteInlinePolicyFromPermissionSetRequest,
+  DeleteInlinePolicyFromPermissionSetRequestFilterSensitiveLog,
   DeleteInlinePolicyFromPermissionSetResponse,
+  DeleteInlinePolicyFromPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteInlinePolicyFromPermissionSetCommand,
@@ -77,8 +79,8 @@ export class DeleteInlinePolicyFromPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInlinePolicyFromPermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInlinePolicyFromPermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInlinePolicyFromPermissionSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInlinePolicyFromPermissionSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

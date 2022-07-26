@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { AcknowledgeThirdPartyJobInput, AcknowledgeThirdPartyJobOutput } from "../models/models_0";
+import {
+  AcknowledgeThirdPartyJobInput,
+  AcknowledgeThirdPartyJobInputFilterSensitiveLog,
+  AcknowledgeThirdPartyJobOutput,
+  AcknowledgeThirdPartyJobOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AcknowledgeThirdPartyJobCommand,
   serializeAws_json1_1AcknowledgeThirdPartyJobCommand,
@@ -73,8 +78,8 @@ export class AcknowledgeThirdPartyJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcknowledgeThirdPartyJobInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AcknowledgeThirdPartyJobOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AcknowledgeThirdPartyJobInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AcknowledgeThirdPartyJobOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

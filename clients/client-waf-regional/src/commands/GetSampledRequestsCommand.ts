@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSampledRequestsRequest, GetSampledRequestsResponse } from "../models/models_0";
+import {
+  GetSampledRequestsRequest,
+  GetSampledRequestsRequestFilterSensitiveLog,
+  GetSampledRequestsResponse,
+  GetSampledRequestsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetSampledRequestsCommand,
   serializeAws_json1_1GetSampledRequestsCommand,
@@ -84,8 +89,8 @@ export class GetSampledRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSampledRequestsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSampledRequestsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSampledRequestsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSampledRequestsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

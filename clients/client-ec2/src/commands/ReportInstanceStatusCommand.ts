@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ReportInstanceStatusRequest } from "../models/models_6";
+import { ReportInstanceStatusRequest, ReportInstanceStatusRequestFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ReportInstanceStatusCommand,
   serializeAws_ec2ReportInstanceStatusCommand,
@@ -76,7 +76,7 @@ export class ReportInstanceStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReportInstanceStatusRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ReportInstanceStatusRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

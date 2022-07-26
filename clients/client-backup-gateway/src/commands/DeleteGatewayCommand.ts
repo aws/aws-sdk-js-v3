@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { DeleteGatewayInput, DeleteGatewayOutput } from "../models/models_0";
+import {
+  DeleteGatewayInput,
+  DeleteGatewayInputFilterSensitiveLog,
+  DeleteGatewayOutput,
+  DeleteGatewayOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteGatewayCommand,
   serializeAws_json1_0DeleteGatewayCommand,
@@ -72,8 +77,8 @@ export class DeleteGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGatewayInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGatewayOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGatewayInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGatewayOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

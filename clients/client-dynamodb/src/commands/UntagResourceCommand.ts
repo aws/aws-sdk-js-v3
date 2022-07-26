@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { UntagResourceInput } from "../models/models_0";
+import { UntagResourceInput, UntagResourceInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0UntagResourceCommand,
   serializeAws_json1_0UntagResourceCommand,
@@ -75,7 +75,7 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse } from "../models/models_0";
+import {
+  DeleteRateBasedRuleRequest,
+  DeleteRateBasedRuleRequestFilterSensitiveLog,
+  DeleteRateBasedRuleResponse,
+  DeleteRateBasedRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRateBasedRuleCommand,
   serializeAws_json1_1DeleteRateBasedRuleCommand,
@@ -99,8 +104,8 @@ export class DeleteRateBasedRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRateBasedRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRateBasedRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRateBasedRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRateBasedRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

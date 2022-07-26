@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { CreateFindingsReportRequest, CreateFindingsReportResponse } from "../models/models_0";
+import {
+  CreateFindingsReportRequest,
+  CreateFindingsReportRequestFilterSensitiveLog,
+  CreateFindingsReportResponse,
+  CreateFindingsReportResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFindingsReportCommand,
   serializeAws_restJson1CreateFindingsReportCommand,
@@ -72,8 +77,8 @@ export class CreateFindingsReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFindingsReportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateFindingsReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFindingsReportRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateFindingsReportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

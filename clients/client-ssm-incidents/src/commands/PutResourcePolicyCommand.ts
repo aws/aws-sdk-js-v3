@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutResourcePolicyInput, PutResourcePolicyOutput } from "../models/models_0";
+import {
+  PutResourcePolicyInput,
+  PutResourcePolicyInputFilterSensitiveLog,
+  PutResourcePolicyOutput,
+  PutResourcePolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutResourcePolicyCommand,
   serializeAws_restJson1PutResourcePolicyCommand,
@@ -75,8 +80,8 @@ export class PutResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourcePolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutResourcePolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutResourcePolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutResourcePolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

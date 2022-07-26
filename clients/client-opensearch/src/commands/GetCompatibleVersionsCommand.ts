@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCompatibleVersionsRequest, GetCompatibleVersionsResponse } from "../models/models_0";
+import {
+  GetCompatibleVersionsRequest,
+  GetCompatibleVersionsRequestFilterSensitiveLog,
+  GetCompatibleVersionsResponse,
+  GetCompatibleVersionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1GetCompatibleVersionsCommand,
@@ -79,8 +84,8 @@ export class GetCompatibleVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCompatibleVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCompatibleVersionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCompatibleVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCompatibleVersionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

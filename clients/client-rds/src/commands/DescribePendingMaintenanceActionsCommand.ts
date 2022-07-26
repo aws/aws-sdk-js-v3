@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/models_1";
+import {
+  DescribePendingMaintenanceActionsMessage,
+  DescribePendingMaintenanceActionsMessageFilterSensitiveLog,
+  PendingMaintenanceActionsMessage,
+  PendingMaintenanceActionsMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDescribePendingMaintenanceActionsCommand,
   serializeAws_queryDescribePendingMaintenanceActionsCommand,
@@ -74,8 +79,8 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: PendingMaintenanceActionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: PendingMaintenanceActionsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

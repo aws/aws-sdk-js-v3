@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { ValidatePolicyRequest, ValidatePolicyResponse } from "../models/models_0";
+import {
+  ValidatePolicyRequest,
+  ValidatePolicyRequestFilterSensitiveLog,
+  ValidatePolicyResponse,
+  ValidatePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ValidatePolicyCommand,
   serializeAws_restJson1ValidatePolicyCommand,
@@ -74,8 +79,8 @@ export class ValidatePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidatePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ValidatePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ValidatePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ValidatePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

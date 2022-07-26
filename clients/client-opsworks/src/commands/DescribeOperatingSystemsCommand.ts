@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeOperatingSystemsResponse } from "../models/models_0";
+import {
+  DescribeOperatingSystemsResponse,
+  DescribeOperatingSystemsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DescribeOperatingSystemsCommand,
@@ -73,7 +76,7 @@ export class DescribeOperatingSystemsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeOperatingSystemsResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeOperatingSystemsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { ListDomainNamesResponse } from "../models/models_0";
+import { ListDomainNamesResponse, ListDomainNamesResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryListDomainNamesCommand,
   serializeAws_queryListDomainNamesCommand,
@@ -73,7 +73,7 @@ export class ListDomainNamesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: ListDomainNamesResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: ListDomainNamesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

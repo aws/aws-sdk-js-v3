@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import { InvokeScreenAutomationRequest, InvokeScreenAutomationResult } from "../models/models_0";
+import {
+  InvokeScreenAutomationRequest,
+  InvokeScreenAutomationRequestFilterSensitiveLog,
+  InvokeScreenAutomationResult,
+  InvokeScreenAutomationResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1InvokeScreenAutomationCommand,
   serializeAws_restJson1InvokeScreenAutomationCommand,
@@ -76,8 +81,8 @@ export class InvokeScreenAutomationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InvokeScreenAutomationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InvokeScreenAutomationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: InvokeScreenAutomationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: InvokeScreenAutomationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

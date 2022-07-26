@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlMapsXmlNameInputOutput } from "../models/models_0";
+import { XmlMapsXmlNameInputOutput, XmlMapsXmlNameInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlXmlMapsXmlNameCommand,
   serializeAws_restXmlXmlMapsXmlNameCommand,
@@ -55,8 +55,8 @@ export class XmlMapsXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlMapsXmlNameInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: XmlMapsXmlNameInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlMapsXmlNameInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: XmlMapsXmlNameInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

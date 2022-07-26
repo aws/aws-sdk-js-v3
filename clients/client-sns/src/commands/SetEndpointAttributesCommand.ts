@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetEndpointAttributesInput } from "../models/models_0";
+import { SetEndpointAttributesInput, SetEndpointAttributesInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_querySetEndpointAttributesCommand,
   serializeAws_querySetEndpointAttributesCommand,
@@ -74,7 +74,7 @@ export class SetEndpointAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetEndpointAttributesInput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetEndpointAttributesInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

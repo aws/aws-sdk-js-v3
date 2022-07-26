@@ -15,7 +15,9 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeConfigurationAggregatorSourcesStatusRequest,
+  DescribeConfigurationAggregatorSourcesStatusRequestFilterSensitiveLog,
   DescribeConfigurationAggregatorSourcesStatusResponse,
+  DescribeConfigurationAggregatorSourcesStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand,
@@ -82,8 +84,8 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationAggregatorSourcesStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationAggregatorSourcesStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeConfigurationAggregatorSourcesStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConfigurationAggregatorSourcesStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

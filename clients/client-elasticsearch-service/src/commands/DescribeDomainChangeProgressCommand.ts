@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { DescribeDomainChangeProgressRequest, DescribeDomainChangeProgressResponse } from "../models/models_0";
+import {
+  DescribeDomainChangeProgressRequest,
+  DescribeDomainChangeProgressRequestFilterSensitiveLog,
+  DescribeDomainChangeProgressResponse,
+  DescribeDomainChangeProgressResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDomainChangeProgressCommand,
   serializeAws_restJson1DescribeDomainChangeProgressCommand,
@@ -79,8 +84,8 @@ export class DescribeDomainChangeProgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainChangeProgressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainChangeProgressResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDomainChangeProgressRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDomainChangeProgressResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

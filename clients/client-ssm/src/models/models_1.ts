@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import {
   AssociationComplianceSeverity,
   AssociationDescription,
+  AssociationDescriptionFilterSensitiveLog,
   AssociationOverview,
   AssociationStatus,
   AssociationSyncCompliance,
@@ -38,6 +39,7 @@ import {
   PatchOrchestratorFilter,
   PatchRuleGroup,
   PatchSource,
+  PatchSourceFilterSensitiveLog,
   PlatformType,
   RelatedOpsItem,
   ResolvedTargets,
@@ -129,15 +131,6 @@ export interface ParameterMetadata {
   DataType?: string;
 }
 
-export namespace ParameterMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeParametersResult {
   /**
    * <p>Parameters returned by the request.</p>
@@ -148,15 +141,6 @@ export interface DescribeParametersResult {
    * <p>The token to use when requesting the next set of items.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeParametersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeParametersResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -227,15 +211,6 @@ export interface DescribePatchBaselinesRequest {
   NextToken?: string;
 }
 
-export namespace DescribePatchBaselinesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePatchBaselinesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the basic information about a patch baseline.</p>
  */
@@ -268,15 +243,6 @@ export interface PatchBaselineIdentity {
   DefaultBaseline?: boolean;
 }
 
-export namespace PatchBaselineIdentity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PatchBaselineIdentity): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePatchBaselinesResult {
   /**
    * <p>An array of <code>PatchBaselineIdentity</code> elements.</p>
@@ -288,15 +254,6 @@ export interface DescribePatchBaselinesResult {
    *    return, the string is empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribePatchBaselinesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePatchBaselinesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePatchGroupsRequest {
@@ -337,15 +294,6 @@ export interface DescribePatchGroupsRequest {
   NextToken?: string;
 }
 
-export namespace DescribePatchGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePatchGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The mapping between a patch group and the patch baseline the patch group is registered
  *    with.</p>
@@ -360,15 +308,6 @@ export interface PatchGroupPatchBaselineMapping {
    * <p>The patch baseline the patch group is registered with.</p>
    */
   BaselineIdentity?: PatchBaselineIdentity;
-}
-
-export namespace PatchGroupPatchBaselineMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PatchGroupPatchBaselineMapping): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePatchGroupsResult {
@@ -396,29 +335,11 @@ export interface DescribePatchGroupsResult {
   NextToken?: string;
 }
 
-export namespace DescribePatchGroupsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePatchGroupsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePatchGroupStateRequest {
   /**
    * <p>The name of the patch group whose patch snapshot should be retrieved.</p>
    */
   PatchGroup: string | undefined;
-}
-
-export namespace DescribePatchGroupStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePatchGroupStateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePatchGroupStateResult {
@@ -503,15 +424,6 @@ export interface DescribePatchGroupStateResult {
   InstancesWithOtherNonCompliantPatches?: number;
 }
 
-export namespace DescribePatchGroupStateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePatchGroupStateResult): any => ({
-    ...obj,
-  });
-}
-
 export enum PatchSet {
   Application = "APPLICATION",
   Os = "OS",
@@ -556,15 +468,6 @@ export interface DescribePatchPropertiesRequest {
   NextToken?: string;
 }
 
-export namespace DescribePatchPropertiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePatchPropertiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePatchPropertiesResult {
   /**
    * <p>A list of the properties for patches matching the filter request parameters.</p>
@@ -575,15 +478,6 @@ export interface DescribePatchPropertiesResult {
    * <p>The token for the next set of items to return. (You use this token in the next call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribePatchPropertiesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePatchPropertiesResult): any => ({
-    ...obj,
-  });
 }
 
 export enum SessionFilterKey {
@@ -654,15 +548,6 @@ export interface SessionFilter {
   value: string | undefined;
 }
 
-export namespace SessionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum SessionState {
   ACTIVE = "Active",
   HISTORY = "History",
@@ -692,15 +577,6 @@ export interface DescribeSessionsRequest {
   Filters?: SessionFilter[];
 }
 
-export namespace DescribeSessionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSessionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Reserved for future use.</p>
  */
@@ -714,15 +590,6 @@ export interface SessionManagerOutputUrl {
    * <p>Reserved for future use.</p>
    */
   CloudWatchOutputUrl?: string;
-}
-
-export namespace SessionManagerOutputUrl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionManagerOutputUrl): any => ({
-    ...obj,
-  });
 }
 
 export enum SessionStatus {
@@ -795,15 +662,6 @@ export interface Session {
   MaxSessionDuration?: string;
 }
 
-export namespace Session {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Session): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSessionsResponse {
   /**
    * <p>A list of sessions meeting the request parameters.</p>
@@ -815,15 +673,6 @@ export interface DescribeSessionsResponse {
    *    call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeSessionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSessionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateOpsItemRelatedItemRequest {
@@ -840,25 +689,7 @@ export interface DisassociateOpsItemRelatedItemRequest {
   AssociationId: string | undefined;
 }
 
-export namespace DisassociateOpsItemRelatedItemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateOpsItemRelatedItemRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateOpsItemRelatedItemResponse {}
-
-export namespace DisassociateOpsItemRelatedItemResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateOpsItemRelatedItemResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The association wasn't found using the parameters you specified in the call. Verify the
@@ -889,15 +720,6 @@ export interface GetAutomationExecutionRequest {
    *    initiated.</p>
    */
   AutomationExecutionId: string | undefined;
-}
-
-export namespace GetAutomationExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAutomationExecutionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -934,15 +756,6 @@ export interface ProgressCounters {
    *    for the current Automation execution.</p>
    */
   TimedOutSteps?: number;
-}
-
-export namespace ProgressCounters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProgressCounters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1116,29 +929,11 @@ export interface AutomationExecution {
   ChangeRequestName?: string;
 }
 
-export namespace AutomationExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomationExecution): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAutomationExecutionResult {
   /**
    * <p>Detailed information about the current state of an automation execution.</p>
    */
   AutomationExecution?: AutomationExecution;
-}
-
-export namespace GetAutomationExecutionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAutomationExecutionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCalendarStateRequest {
@@ -1153,15 +948,6 @@ export interface GetCalendarStateRequest {
    *    value or <code>AtTime</code>, the current time is used.</p>
    */
   AtTime?: string;
-}
-
-export namespace GetCalendarStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCalendarStateRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CalendarState {
@@ -1191,15 +977,6 @@ export interface GetCalendarStateResponse {
    *    <code>CLOSED</code>, and vice-versa.</p>
    */
   NextTransitionTime?: string;
-}
-
-export namespace GetCalendarStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCalendarStateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1273,15 +1050,6 @@ export interface GetCommandInvocationRequest {
   PluginName?: string;
 }
 
-export namespace GetCommandInvocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommandInvocationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration options for sending command output to Amazon CloudWatch Logs.</p>
  */
@@ -1301,15 +1069,6 @@ export interface CloudWatchOutputConfig {
    * <p>Enables Systems Manager to send command output to CloudWatch Logs.</p>
    */
   CloudWatchOutputEnabled?: boolean;
-}
-
-export namespace CloudWatchOutputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchOutputConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum CommandInvocationStatus {
@@ -1486,15 +1245,6 @@ export interface GetCommandInvocationResult {
   CloudWatchOutputConfig?: CloudWatchOutputConfig;
 }
 
-export namespace GetCommandInvocationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCommandInvocationResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The plugin name isn't valid.</p>
  */
@@ -1541,15 +1291,6 @@ export interface GetConnectionStatusRequest {
   Target: string | undefined;
 }
 
-export namespace GetConnectionStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectionStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ConnectionStatus {
   CONNECTED = "Connected",
   NOT_CONNECTED = "NotConnected",
@@ -1568,29 +1309,11 @@ export interface GetConnectionStatusResponse {
   Status?: ConnectionStatus | string;
 }
 
-export namespace GetConnectionStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectionStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDefaultPatchBaselineRequest {
   /**
    * <p>Returns the default patch baseline for the specified operating system.</p>
    */
   OperatingSystem?: OperatingSystem | string;
-}
-
-export namespace GetDefaultPatchBaselineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDefaultPatchBaselineRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDefaultPatchBaselineResult {
@@ -1603,15 +1326,6 @@ export interface GetDefaultPatchBaselineResult {
    * <p>The operating system for the returned patch baseline. </p>
    */
   OperatingSystem?: OperatingSystem | string;
-}
-
-export namespace GetDefaultPatchBaselineResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDefaultPatchBaselineResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1676,16 +1390,6 @@ export interface BaselineOverride {
   Sources?: PatchSource[];
 }
 
-export namespace BaselineOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BaselineOverride): any => ({
-    ...obj,
-    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface GetDeployablePatchSnapshotForInstanceRequest {
   /**
    * <p>The ID of the managed node for which the appropriate patch snapshot should be
@@ -1702,15 +1406,6 @@ export interface GetDeployablePatchSnapshotForInstanceRequest {
    * <p>Defines the basic information about a patch baseline override.</p>
    */
   BaselineOverride?: BaselineOverride;
-}
-
-export namespace GetDeployablePatchSnapshotForInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeployablePatchSnapshotForInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDeployablePatchSnapshotForInstanceResult {
@@ -1735,15 +1430,6 @@ export interface GetDeployablePatchSnapshotForInstanceResult {
    *    2015.09) on the managed node for the specified patch snapshot.</p>
    */
   Product?: string;
-}
-
-export namespace GetDeployablePatchSnapshotForInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeployablePatchSnapshotForInstanceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1795,15 +1481,6 @@ export interface GetDocumentRequest {
   DocumentFormat?: DocumentFormat | string;
 }
 
-export namespace GetDocumentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum AttachmentHashType {
   SHA256 = "Sha256",
 }
@@ -1836,15 +1513,6 @@ export interface AttachmentContent {
    * <p>The URL location of the attachment content.</p>
    */
   Url?: string;
-}
-
-export namespace AttachmentContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachmentContent): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDocumentResult {
@@ -1926,15 +1594,6 @@ export interface GetDocumentResult {
   ReviewStatus?: ReviewStatus | string;
 }
 
-export namespace GetDocumentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentResult): any => ({
-    ...obj,
-  });
-}
-
 export enum InventoryQueryOperatorType {
   BEGIN_WITH = "BeginWith",
   EQUAL = "Equal",
@@ -1971,15 +1630,6 @@ export interface InventoryFilter {
   Type?: InventoryQueryOperatorType | string;
 }
 
-export namespace InventoryFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A user-defined set of one or more filters on which to aggregate inventory data. Groups
  *    return a count of resources that match and don't match the specified criteria.</p>
@@ -1998,15 +1648,6 @@ export interface InventoryGroup {
   Filters: InventoryFilter[] | undefined;
 }
 
-export namespace InventoryGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The inventory item result attribute.</p>
  */
@@ -2016,15 +1657,6 @@ export interface ResultAttribute {
    *    Value: <code>AWS:InstanceInformation</code>.</p>
    */
   TypeName: string | undefined;
-}
-
-export namespace ResultAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResultAttribute): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2060,15 +1692,6 @@ export interface InventoryResultItem {
   Content: Record<string, string>[] | undefined;
 }
 
-export namespace InventoryResultItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryResultItem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Inventory query results.</p>
  */
@@ -2085,15 +1708,6 @@ export interface InventoryResultEntity {
   Data?: Record<string, InventoryResultItem>;
 }
 
-export namespace InventoryResultEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryResultEntity): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInventoryResult {
   /**
    * <p>Collection of inventory entities such as a collection of managed node inventory. </p>
@@ -2105,15 +1719,6 @@ export interface GetInventoryResult {
    *    return, the string is empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetInventoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInventoryResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2213,15 +1818,6 @@ export interface GetInventorySchemaRequest {
   SubType?: boolean;
 }
 
-export namespace GetInventorySchemaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInventorySchemaRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum InventoryAttributeDataType {
   NUMBER = "number",
   STRING = "string",
@@ -2241,15 +1837,6 @@ export interface InventoryItemAttribute {
    * <p>The data type of the inventory item attribute. </p>
    */
   DataType: InventoryAttributeDataType | string | undefined;
-}
-
-export namespace InventoryItemAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryItemAttribute): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2282,15 +1869,6 @@ export interface InventoryItemSchema {
   DisplayName?: string;
 }
 
-export namespace InventoryItemSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryItemSchema): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInventorySchemaResult {
   /**
    * <p>Inventory schemas returned by the request.</p>
@@ -2304,29 +1882,11 @@ export interface GetInventorySchemaResult {
   NextToken?: string;
 }
 
-export namespace GetInventorySchemaResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInventorySchemaResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMaintenanceWindowRequest {
   /**
    * <p>The ID of the maintenance window for which you want to retrieve information.</p>
    */
   WindowId: string | undefined;
-}
-
-export namespace GetMaintenanceWindowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMaintenanceWindowRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMaintenanceWindowResult {
@@ -2415,30 +1975,11 @@ export interface GetMaintenanceWindowResult {
   ModifiedDate?: Date;
 }
 
-export namespace GetMaintenanceWindowResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMaintenanceWindowResult): any => ({
-    ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetMaintenanceWindowExecutionRequest {
   /**
    * <p>The ID of the maintenance window execution that includes the task.</p>
    */
   WindowExecutionId: string | undefined;
-}
-
-export namespace GetMaintenanceWindowExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMaintenanceWindowExecutionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMaintenanceWindowExecutionResult {
@@ -2473,15 +2014,6 @@ export interface GetMaintenanceWindowExecutionResult {
   EndTime?: Date;
 }
 
-export namespace GetMaintenanceWindowExecutionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMaintenanceWindowExecutionResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMaintenanceWindowExecutionTaskRequest {
   /**
    * <p>The ID of the maintenance window execution that includes the task.</p>
@@ -2493,15 +2025,6 @@ export interface GetMaintenanceWindowExecutionTaskRequest {
    *    retrieved.</p>
    */
   TaskId: string | undefined;
-}
-
-export namespace GetMaintenanceWindowExecutionTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMaintenanceWindowExecutionTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMaintenanceWindowExecutionTaskResult {
@@ -2591,16 +2114,6 @@ export interface GetMaintenanceWindowExecutionTaskResult {
   EndTime?: Date;
 }
 
-export namespace GetMaintenanceWindowExecutionTaskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMaintenanceWindowExecutionTaskResult): any => ({
-    ...obj,
-    ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetMaintenanceWindowExecutionTaskInvocationRequest {
   /**
    * <p>The ID of the maintenance window execution for which the task is a part.</p>
@@ -2616,15 +2129,6 @@ export interface GetMaintenanceWindowExecutionTaskInvocationRequest {
    * <p>The invocation ID to retrieve.</p>
    */
   InvocationId: string | undefined;
-}
-
-export namespace GetMaintenanceWindowExecutionTaskInvocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMaintenanceWindowExecutionTaskInvocationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMaintenanceWindowExecutionTaskInvocationResult {
@@ -2691,17 +2195,6 @@ export interface GetMaintenanceWindowExecutionTaskInvocationResult {
   WindowTargetId?: string;
 }
 
-export namespace GetMaintenanceWindowExecutionTaskInvocationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMaintenanceWindowExecutionTaskInvocationResult): any => ({
-    ...obj,
-    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetMaintenanceWindowTaskRequest {
   /**
    * <p>The maintenance window ID that includes the task to retrieve.</p>
@@ -2712,15 +2205,6 @@ export interface GetMaintenanceWindowTaskRequest {
    * <p>The maintenance window task ID to retrieve.</p>
    */
   WindowTaskId: string | undefined;
-}
-
-export namespace GetMaintenanceWindowTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMaintenanceWindowTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2752,15 +2236,6 @@ export interface MaintenanceWindowAutomationParameters {
    *          </note>
    */
   Parameters?: Record<string, string[]>;
-}
-
-export namespace MaintenanceWindowAutomationParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaintenanceWindowAutomationParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2802,16 +2277,6 @@ export interface MaintenanceWindowLambdaParameters {
    * <p>JSON to provide to your Lambda function as input.</p>
    */
   Payload?: Uint8Array;
-}
-
-export namespace MaintenanceWindowLambdaParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaintenanceWindowLambdaParameters): any => ({
-    ...obj,
-    ...(obj.Payload && { Payload: SENSITIVE_STRING }),
-  });
 }
 
 export enum NotificationEvent {
@@ -2861,15 +2326,6 @@ export interface NotificationConfig {
    *          </ul>
    */
   NotificationType?: NotificationType | string;
-}
-
-export namespace NotificationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2965,16 +2421,6 @@ export interface MaintenanceWindowRunCommandParameters {
   TimeoutSeconds?: number;
 }
 
-export namespace MaintenanceWindowRunCommandParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaintenanceWindowRunCommandParameters): any => ({
-    ...obj,
-    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The parameters for a <code>STEP_FUNCTIONS</code> task.</p>
  *          <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p>
@@ -3006,16 +2452,6 @@ export interface MaintenanceWindowStepFunctionsParameters {
   Name?: string;
 }
 
-export namespace MaintenanceWindowStepFunctionsParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaintenanceWindowStepFunctionsParameters): any => ({
-    ...obj,
-    ...(obj.Input && { Input: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The parameters for task execution.</p>
  */
@@ -3039,20 +2475,6 @@ export interface MaintenanceWindowTaskInvocationParameters {
    * <p>The parameters for a <code>LAMBDA</code> task type.</p>
    */
   Lambda?: MaintenanceWindowLambdaParameters;
-}
-
-export namespace MaintenanceWindowTaskInvocationParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaintenanceWindowTaskInvocationParameters): any => ({
-    ...obj,
-    ...(obj.RunCommand && { RunCommand: MaintenanceWindowRunCommandParameters.filterSensitiveLog(obj.RunCommand) }),
-    ...(obj.StepFunctions && {
-      StepFunctions: MaintenanceWindowStepFunctionsParameters.filterSensitiveLog(obj.StepFunctions),
-    }),
-    ...(obj.Lambda && { Lambda: MaintenanceWindowLambdaParameters.filterSensitiveLog(obj.Lambda) }),
-  });
 }
 
 export interface GetMaintenanceWindowTaskResult {
@@ -3168,36 +2590,11 @@ export interface GetMaintenanceWindowTaskResult {
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
 }
 
-export namespace GetMaintenanceWindowTaskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMaintenanceWindowTaskResult): any => ({
-    ...obj,
-    ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-    ...(obj.TaskInvocationParameters && {
-      TaskInvocationParameters: MaintenanceWindowTaskInvocationParameters.filterSensitiveLog(
-        obj.TaskInvocationParameters
-      ),
-    }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetOpsItemRequest {
   /**
    * <p>The ID of the OpsItem that you want to get.</p>
    */
   OpsItemId: string | undefined;
-}
-
-export namespace GetOpsItemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOpsItemRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3351,29 +2748,11 @@ export interface OpsItem {
   PlannedEndTime?: Date;
 }
 
-export namespace OpsItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItem): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOpsItemResponse {
   /**
    * <p>The OpsItem.</p>
    */
   OpsItem?: OpsItem;
-}
-
-export namespace GetOpsItemResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOpsItemResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetOpsMetadataRequest {
@@ -3394,15 +2773,6 @@ export interface GetOpsMetadataRequest {
   NextToken?: string;
 }
 
-export namespace GetOpsMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOpsMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOpsMetadataResult {
   /**
    * <p>The resource ID of the Application Manager application.</p>
@@ -3419,15 +2789,6 @@ export interface GetOpsMetadataResult {
    *    results.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetOpsMetadataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOpsMetadataResult): any => ({
-    ...obj,
-  });
 }
 
 export enum OpsFilterOperatorType {
@@ -3459,15 +2820,6 @@ export interface OpsFilter {
   Type?: OpsFilterOperatorType | string;
 }
 
-export namespace OpsFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The OpsItem data type to return.</p>
  */
@@ -3478,15 +2830,6 @@ export interface OpsResultAttribute {
    *     <code>AWS:ComplianceSummary</code>.</p>
    */
   TypeName: string | undefined;
-}
-
-export namespace OpsResultAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsResultAttribute): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3504,15 +2847,6 @@ export interface OpsEntityItem {
   Content?: Record<string, string>[];
 }
 
-export namespace OpsEntityItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsEntityItem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of the query.</p>
  */
@@ -3528,15 +2862,6 @@ export interface OpsEntity {
   Data?: Record<string, OpsEntityItem>;
 }
 
-export namespace OpsEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsEntity): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOpsSummaryResult {
   /**
    * <p>The list of aggregated details and filtered OpsData.</p>
@@ -3548,15 +2873,6 @@ export interface GetOpsSummaryResult {
    *    results.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetOpsSummaryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOpsSummaryResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetParameterRequest {
@@ -3572,15 +2888,6 @@ export interface GetParameterRequest {
    *     <code>String</code> and <code>StringList</code> parameter types.</p>
    */
   WithDecryption?: boolean;
-}
-
-export namespace GetParameterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParameterRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3647,31 +2954,11 @@ export interface Parameter {
   DataType?: string;
 }
 
-export namespace Parameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Parameter): any => ({
-    ...obj,
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetParameterResult {
   /**
    * <p>Information about a parameter.</p>
    */
   Parameter?: Parameter;
-}
-
-export namespace GetParameterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParameterResult): any => ({
-    ...obj,
-    ...(obj.Parameter && { Parameter: Parameter.filterSensitiveLog(obj.Parameter) }),
-  });
 }
 
 /**
@@ -3736,15 +3023,6 @@ export interface GetParameterHistoryRequest {
    *    call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace GetParameterHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParameterHistoryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3822,16 +3100,6 @@ export interface ParameterHistory {
   DataType?: string;
 }
 
-export namespace ParameterHistory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterHistory): any => ({
-    ...obj,
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetParameterHistoryResult {
   /**
    * <p>A list of parameters returned by the request.</p>
@@ -3843,16 +3111,6 @@ export interface GetParameterHistoryResult {
    *    return, the string is empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetParameterHistoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParameterHistoryResult): any => ({
-    ...obj,
-    ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => ParameterHistory.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface GetParametersRequest {
@@ -3870,15 +3128,6 @@ export interface GetParametersRequest {
   WithDecryption?: boolean;
 }
 
-export namespace GetParametersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParametersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetParametersResult {
   /**
    * <p>A list of details for a parameter.</p>
@@ -3890,16 +3139,6 @@ export interface GetParametersResult {
    *    execution.</p>
    */
   InvalidParameters?: string[];
-}
-
-export namespace GetParametersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParametersResult): any => ({
-    ...obj,
-    ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => Parameter.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface GetParametersByPathRequest {
@@ -3954,15 +3193,6 @@ export interface GetParametersByPathRequest {
   NextToken?: string;
 }
 
-export namespace GetParametersByPathRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParametersByPathRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetParametersByPathResult {
   /**
    * <p>A list of parameters found in the specified hierarchy.</p>
@@ -3974,16 +3204,6 @@ export interface GetParametersByPathResult {
    *    results.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetParametersByPathResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetParametersByPathResult): any => ({
-    ...obj,
-    ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => Parameter.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface GetPatchBaselineRequest {
@@ -3998,15 +3218,6 @@ export interface GetPatchBaselineRequest {
    *          </note>
    */
   BaselineId: string | undefined;
-}
-
-export namespace GetPatchBaselineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPatchBaselineRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPatchBaselineResult {
@@ -4092,16 +3303,6 @@ export interface GetPatchBaselineResult {
   Sources?: PatchSource[];
 }
 
-export namespace GetPatchBaselineResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPatchBaselineResult): any => ({
-    ...obj,
-    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface GetPatchBaselineForPatchGroupRequest {
   /**
    * <p>The name of the patch group whose patch baseline should be retrieved.</p>
@@ -4113,15 +3314,6 @@ export interface GetPatchBaselineForPatchGroupRequest {
    *    baseline.</p>
    */
   OperatingSystem?: OperatingSystem | string;
-}
-
-export namespace GetPatchBaselineForPatchGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPatchBaselineForPatchGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPatchBaselineForPatchGroupResult {
@@ -4139,15 +3331,6 @@ export interface GetPatchBaselineForPatchGroupResult {
    * <p>The operating system rule specified for patch groups using the patch baseline.</p>
    */
   OperatingSystem?: OperatingSystem | string;
-}
-
-export namespace GetPatchBaselineForPatchGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPatchBaselineForPatchGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4190,15 +3373,6 @@ export interface GetServiceSettingRequest {
    *          </ul>
    */
   SettingId: string | undefined;
-}
-
-export namespace GetServiceSettingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceSettingRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4264,15 +3438,6 @@ export interface ServiceSetting {
   Status?: string;
 }
 
-export namespace ServiceSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The query result body of the GetServiceSetting API operation.</p>
  */
@@ -4281,15 +3446,6 @@ export interface GetServiceSettingResult {
    * <p>The query result of the current service setting.</p>
    */
   ServiceSetting?: ServiceSetting;
-}
-
-export namespace GetServiceSettingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceSettingResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4332,15 +3488,6 @@ export interface LabelParameterVersionRequest {
   Labels: string[] | undefined;
 }
 
-export namespace LabelParameterVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelParameterVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface LabelParameterVersionResult {
   /**
    * <p>The label doesn't meet the requirements. For information about parameter label requirements,
@@ -4353,15 +3500,6 @@ export interface LabelParameterVersionResult {
    * <p>The version of the parameter that has been labeled.</p>
    */
   ParameterVersion?: number;
-}
-
-export namespace LabelParameterVersionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelParameterVersionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4413,15 +3551,6 @@ export interface AssociationFilter {
   value: string | undefined;
 }
 
-export namespace AssociationFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociationFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociationsRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
@@ -4445,15 +3574,6 @@ export interface ListAssociationsRequest {
    *    call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4536,15 +3656,6 @@ export interface Association {
   TargetMaps?: Record<string, string[]>[];
 }
 
-export namespace Association {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Association): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociationsResult {
   /**
    * <p>The associations.</p>
@@ -4556,15 +3667,6 @@ export interface ListAssociationsResult {
    *    return, the string is empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociationsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssociationVersionsRequest {
@@ -4583,15 +3685,6 @@ export interface ListAssociationVersionsRequest {
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    */
   NextToken?: string;
-}
-
-export namespace ListAssociationVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociationVersionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4731,16 +3824,6 @@ export interface AssociationVersionInfo {
   TargetMaps?: Record<string, string[]>[];
 }
 
-export namespace AssociationVersionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociationVersionInfo): any => ({
-    ...obj,
-    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListAssociationVersionsResult {
   /**
    * <p>Information about all versions of the association for the specified association ID.</p>
@@ -4752,18 +3835,6 @@ export interface ListAssociationVersionsResult {
    *    results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAssociationVersionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociationVersionsResult): any => ({
-    ...obj,
-    ...(obj.AssociationVersions && {
-      AssociationVersions: obj.AssociationVersions.map((item) => AssociationVersionInfo.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export enum CommandFilterKey {
@@ -4969,15 +4040,6 @@ export interface CommandFilter {
   value: string | undefined;
 }
 
-export namespace CommandFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommandFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCommandInvocationsRequest {
   /**
    * <p>(Optional) The invocations for a specific command ID.</p>
@@ -5012,15 +4074,6 @@ export interface ListCommandInvocationsRequest {
    *    output. The default value is <code>false</code>. </p>
    */
   Details?: boolean;
-}
-
-export namespace ListCommandInvocationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCommandInvocationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CommandPluginStatus {
@@ -5178,15 +4231,6 @@ export interface CommandPlugin {
   OutputS3KeyPrefix?: string;
 }
 
-export namespace CommandPlugin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommandPlugin): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An invocation is a copy of a command sent to a specific managed node. A command can apply to
  *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
@@ -5336,15 +4380,6 @@ export interface CommandInvocation {
   CloudWatchOutputConfig?: CloudWatchOutputConfig;
 }
 
-export namespace CommandInvocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommandInvocation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCommandInvocationsResult {
   /**
    * <p>(Optional) A list of all invocations. </p>
@@ -5356,15 +4391,6 @@ export interface ListCommandInvocationsResult {
    *    previous call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCommandInvocationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCommandInvocationsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCommandsRequest {
@@ -5400,15 +4426,6 @@ export interface ListCommandsRequest {
    *   </p>
    */
   Filters?: CommandFilter[];
-}
-
-export namespace ListCommandsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCommandsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CommandStatus {
@@ -5610,16 +4627,6 @@ export interface Command {
   TimeoutSeconds?: number;
 }
 
-export namespace Command {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Command): any => ({
-    ...obj,
-    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListCommandsResult {
   /**
    * <p>(Optional) The list of commands requested by the user. </p>
@@ -5631,16 +4638,6 @@ export interface ListCommandsResult {
    *    previous call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCommandsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCommandsResult): any => ({
-    ...obj,
-    ...(obj.Commands && { Commands: obj.Commands.map((item) => Command.filterSensitiveLog(item)) }),
-  });
 }
 
 export enum ComplianceQueryOperatorType {
@@ -5670,15 +4667,6 @@ export interface ComplianceStringFilter {
    *    LessThan, or GreaterThan.</p>
    */
   Type?: ComplianceQueryOperatorType | string;
-}
-
-export namespace ComplianceStringFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceStringFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListComplianceItemsRequest {
@@ -5712,15 +4700,6 @@ export interface ListComplianceItemsRequest {
   MaxResults?: number;
 }
 
-export namespace ListComplianceItemsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComplianceItemsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A summary of the call execution that includes an execution ID, the type of execution (for
  *    example, <code>Command</code>), and the date/time of the execution using a datetime object that
@@ -5743,15 +4722,6 @@ export interface ComplianceExecutionSummary {
    * <p>The type of execution. For example, <code>Command</code> is a valid execution type.</p>
    */
   ExecutionType?: string;
-}
-
-export namespace ComplianceExecutionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceExecutionSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum ComplianceSeverity {
@@ -5828,15 +4798,6 @@ export interface ComplianceItem {
   Details?: Record<string, string>;
 }
 
-export namespace ComplianceItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComplianceItemsResult {
   /**
    * <p>A list of compliance information for the specified resource ID. </p>
@@ -5848,15 +4809,6 @@ export interface ListComplianceItemsResult {
    *    results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListComplianceItemsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComplianceItemsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListComplianceSummariesRequest {
@@ -5877,15 +4829,6 @@ export interface ListComplianceSummariesRequest {
    *    results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListComplianceSummariesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComplianceSummariesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5932,15 +4875,6 @@ export interface SeveritySummary {
   UnspecifiedCount?: number;
 }
 
-export namespace SeveritySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SeveritySummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A summary of resources that are compliant. The summary is organized according to the
  *    resource count for each compliance type.</p>
@@ -5957,15 +4891,6 @@ export interface CompliantSummary {
   SeveritySummary?: SeveritySummary;
 }
 
-export namespace CompliantSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompliantSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A summary of resources that aren't compliant. The summary is organized according to resource
  *    type.</p>
@@ -5980,15 +4905,6 @@ export interface NonCompliantSummary {
    * <p>A summary of the non-compliance severity by compliance type</p>
    */
   SeveritySummary?: SeveritySummary;
-}
-
-export namespace NonCompliantSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NonCompliantSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6012,15 +4928,6 @@ export interface ComplianceSummaryItem {
   NonCompliantSummary?: NonCompliantSummary;
 }
 
-export namespace ComplianceSummaryItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceSummaryItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComplianceSummariesResult {
   /**
    * <p>A list of compliant and non-compliant summary counts based on compliance types. For example,
@@ -6034,15 +4941,6 @@ export interface ListComplianceSummariesResult {
    *    results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListComplianceSummariesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComplianceSummariesResult): any => ({
-    ...obj,
-  });
 }
 
 export enum DocumentMetadataEnum {
@@ -6079,15 +4977,6 @@ export interface ListDocumentMetadataHistoryRequest {
   MaxResults?: number;
 }
 
-export namespace ListDocumentMetadataHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDocumentMetadataHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum DocumentReviewCommentType {
   Comment = "Comment",
 }
@@ -6107,15 +4996,6 @@ export interface DocumentReviewCommentSource {
    *    or who reviews the new version.</p>
    */
   Content?: string;
-}
-
-export namespace DocumentReviewCommentSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentReviewCommentSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6153,15 +5033,6 @@ export interface DocumentReviewerResponseSource {
   Reviewer?: string;
 }
 
-export namespace DocumentReviewerResponseSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentReviewerResponseSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the response to a document review request.</p>
  */
@@ -6170,15 +5041,6 @@ export interface DocumentMetadataResponseInfo {
    * <p>Details about a reviewer's response to a document review request.</p>
    */
   ReviewerResponse?: DocumentReviewerResponseSource[];
-}
-
-export namespace DocumentMetadataResponseInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentMetadataResponseInfo): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDocumentMetadataHistoryResponse {
@@ -6210,15 +5072,6 @@ export interface ListDocumentMetadataHistoryResponse {
   NextToken?: string;
 }
 
-export namespace ListDocumentMetadataHistoryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDocumentMetadataHistoryResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum DocumentFilterKey {
   DocumentType = "DocumentType",
   Name = "Name",
@@ -6239,15 +5092,6 @@ export interface DocumentFilter {
    * <p>The value of the filter.</p>
    */
   value: string | undefined;
-}
-
-export namespace DocumentFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6383,15 +5227,6 @@ export interface DocumentKeyValuesFilter {
   Values?: string[];
 }
 
-export namespace DocumentKeyValuesFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentKeyValuesFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDocumentsRequest {
   /**
    * <p>This data type is deprecated. Instead, use <code>Filters</code>.</p>
@@ -6424,15 +5259,6 @@ export interface ListDocumentsRequest {
    *    call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDocumentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDocumentsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6522,15 +5348,6 @@ export interface DocumentIdentifier {
   Author?: string;
 }
 
-export namespace DocumentIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentIdentifier): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDocumentsResult {
   /**
    * <p>The names of the SSM documents.</p>
@@ -6542,15 +5359,6 @@ export interface ListDocumentsResult {
    *    return, the string is empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDocumentsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDocumentsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDocumentVersionsRequest {
@@ -6570,15 +5378,6 @@ export interface ListDocumentVersionsRequest {
    *    call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDocumentVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDocumentVersionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6641,15 +5440,6 @@ export interface DocumentVersionInfo {
   ReviewStatus?: ReviewStatus | string;
 }
 
-export namespace DocumentVersionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentVersionInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDocumentVersionsResult {
   /**
    * <p>The document versions.</p>
@@ -6661,15 +5451,6 @@ export interface ListDocumentVersionsResult {
    *    return, the string is empty.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDocumentVersionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDocumentVersionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInventoryEntriesRequest {
@@ -6699,15 +5480,6 @@ export interface ListInventoryEntriesRequest {
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListInventoryEntriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInventoryEntriesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInventoryEntriesResult {
@@ -6743,15 +5515,6 @@ export interface ListInventoryEntriesResult {
   NextToken?: string;
 }
 
-export namespace ListInventoryEntriesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInventoryEntriesResult): any => ({
-    ...obj,
-  });
-}
-
 export enum OpsItemEventFilterKey {
   OPSITEM_ID = "OpsItemId",
 }
@@ -6783,15 +5546,6 @@ export interface OpsItemEventFilter {
   Operator: OpsItemEventFilterOperator | string | undefined;
 }
 
-export namespace OpsItemEventFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemEventFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOpsItemEventsRequest {
   /**
    * <p>One or more OpsItem filters. Use a filter to return a more specific list of results. </p>
@@ -6810,15 +5564,6 @@ export interface ListOpsItemEventsRequest {
   NextToken?: string;
 }
 
-export namespace ListOpsItemEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOpsItemEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the user or resource that created an OpsItem event.</p>
  */
@@ -6828,15 +5573,6 @@ export interface OpsItemIdentity {
    *    event.</p>
    */
   Arn?: string;
-}
-
-export namespace OpsItemIdentity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemIdentity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6880,15 +5616,6 @@ export interface OpsItemEventSummary {
   CreatedTime?: Date;
 }
 
-export namespace OpsItemEventSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemEventSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOpsItemEventsResponse {
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -6900,15 +5627,6 @@ export interface ListOpsItemEventsResponse {
    * <p>A list of event information for the specified OpsItems.</p>
    */
   Summaries?: OpsItemEventSummary[];
-}
-
-export namespace ListOpsItemEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOpsItemEventsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum OpsItemRelatedItemsFilterKey {
@@ -6943,15 +5661,6 @@ export interface OpsItemRelatedItemsFilter {
   Operator: OpsItemRelatedItemsFilterOperator | string | undefined;
 }
 
-export namespace OpsItemRelatedItemsFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemRelatedItemsFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOpsItemRelatedItemsRequest {
   /**
    * <p>The ID of the OpsItem for which you want to list all related-item resources.</p>
@@ -6974,15 +5683,6 @@ export interface ListOpsItemRelatedItemsRequest {
    *    call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOpsItemRelatedItemsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOpsItemRelatedItemsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7035,15 +5735,6 @@ export interface OpsItemRelatedItemSummary {
   LastModifiedTime?: Date;
 }
 
-export namespace OpsItemRelatedItemSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemRelatedItemSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOpsItemRelatedItemsResponse {
   /**
    * <p>The token for the next set of items to return. Use this token to get the next set of
@@ -7055,15 +5746,6 @@ export interface ListOpsItemRelatedItemsResponse {
    * <p>A list of related-item resources for the specified OpsItem.</p>
    */
   Summaries?: OpsItemRelatedItemSummary[];
-}
-
-export namespace ListOpsItemRelatedItemsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOpsItemRelatedItemsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7079,15 +5761,6 @@ export interface OpsMetadataFilter {
    * <p>A filter value.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace OpsMetadataFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsMetadataFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOpsMetadataRequest {
@@ -7106,15 +5779,6 @@ export interface ListOpsMetadataRequest {
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOpsMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOpsMetadataRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7147,15 +5811,6 @@ export interface OpsMetadata {
   CreationDate?: Date;
 }
 
-export namespace OpsMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOpsMetadataResult {
   /**
    * <p>Returns a list of OpsMetadata objects.</p>
@@ -7167,15 +5822,6 @@ export interface ListOpsMetadataResult {
    *    results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListOpsMetadataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOpsMetadataResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourceComplianceSummariesRequest {
@@ -7194,15 +5840,6 @@ export interface ListResourceComplianceSummariesRequest {
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListResourceComplianceSummariesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceComplianceSummariesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7251,15 +5888,6 @@ export interface ResourceComplianceSummaryItem {
   NonCompliantSummary?: NonCompliantSummary;
 }
 
-export namespace ResourceComplianceSummaryItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceComplianceSummaryItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceComplianceSummariesResult {
   /**
    * <p>A summary count for specified or targeted managed nodes. Summary count includes information
@@ -7273,15 +5901,6 @@ export interface ListResourceComplianceSummariesResult {
    *    results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListResourceComplianceSummariesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceComplianceSummariesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourceDataSyncRequest {
@@ -7302,15 +5921,6 @@ export interface ListResourceDataSyncRequest {
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListResourceDataSyncRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceDataSyncRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum LastResourceDataSyncStatus {
@@ -7385,15 +5995,6 @@ export interface ResourceDataSyncSourceWithState {
   EnableAllOpsDataSources?: boolean;
 }
 
-export namespace ResourceDataSyncSourceWithState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDataSyncSourceWithState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a resource data sync configuration, including its current status and last
  *    successful sync.</p>
@@ -7453,15 +6054,6 @@ export interface ResourceDataSyncItem {
   LastSyncStatusMessage?: string;
 }
 
-export namespace ResourceDataSyncItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDataSyncItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourceDataSyncResult {
   /**
    * <p>A list of your current resource data sync configurations and their statuses.</p>
@@ -7473,15 +6065,6 @@ export interface ListResourceDataSyncResult {
    *    results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListResourceDataSyncResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourceDataSyncResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -7496,29 +6079,11 @@ export interface ListTagsForResourceRequest {
   ResourceId: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResult {
   /**
    * <p>A list of tags.</p>
    */
   TagList?: Tag[];
-}
-
-export namespace ListTagsForResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7577,25 +6142,7 @@ export interface ModifyDocumentPermissionRequest {
   SharedDocumentVersion?: string;
 }
 
-export namespace ModifyDocumentPermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDocumentPermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyDocumentPermissionResponse {}
-
-export namespace ModifyDocumentPermissionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDocumentPermissionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You specified too many custom compliance types. You can specify a maximum of 10 different
@@ -7699,15 +6246,6 @@ export interface ComplianceItemEntry {
   Details?: Record<string, string>;
 }
 
-export namespace ComplianceItemEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplianceItemEntry): any => ({
-    ...obj,
-  });
-}
-
 export enum ComplianceUploadType {
   Complete = "COMPLETE",
   Partial = "PARTIAL",
@@ -7767,25 +6305,7 @@ export interface PutComplianceItemsRequest {
   UploadType?: ComplianceUploadType | string;
 }
 
-export namespace PutComplianceItemsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutComplianceItemsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutComplianceItemsResult {}
-
-export namespace PutComplianceItemsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutComplianceItemsResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The size of inventory data has exceeded the total size limit for the resource.</p>
@@ -7918,15 +6438,6 @@ export interface InventoryItem {
   Context?: Record<string, string>;
 }
 
-export namespace InventoryItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryItem): any => ({
-    ...obj,
-  });
-}
-
 export interface PutInventoryRequest {
   /**
    * <p>An managed node ID where you want to add or update inventory items.</p>
@@ -7939,29 +6450,11 @@ export interface PutInventoryRequest {
   Items: InventoryItem[] | undefined;
 }
 
-export namespace PutInventoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInventoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutInventoryResult {
   /**
    * <p>Information about the request.</p>
    */
   Message?: string;
-}
-
-export namespace PutInventoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInventoryResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8517,16 +7010,6 @@ export interface PutParameterRequest {
   DataType?: string;
 }
 
-export namespace PutParameterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutParameterRequest): any => ({
-    ...obj,
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
-}
-
 export interface PutParameterResult {
   /**
    * <p>The new version number of a parameter. If you edit a parameter value, Parameter Store
@@ -8541,15 +7024,6 @@ export interface PutParameterResult {
    * <p>The tier assigned to the parameter.</p>
    */
   Tier?: ParameterTier | string;
-}
-
-export namespace PutParameterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutParameterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8578,29 +7052,11 @@ export interface RegisterDefaultPatchBaselineRequest {
   BaselineId: string | undefined;
 }
 
-export namespace RegisterDefaultPatchBaselineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterDefaultPatchBaselineRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterDefaultPatchBaselineResult {
   /**
    * <p>The ID of the default patch baseline.</p>
    */
   BaselineId?: string;
-}
-
-export namespace RegisterDefaultPatchBaselineResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterDefaultPatchBaselineResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterPatchBaselineForPatchGroupRequest {
@@ -8615,15 +7071,6 @@ export interface RegisterPatchBaselineForPatchGroupRequest {
   PatchGroup: string | undefined;
 }
 
-export namespace RegisterPatchBaselineForPatchGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterPatchBaselineForPatchGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterPatchBaselineForPatchGroupResult {
   /**
    * <p>The ID of the patch baseline the patch group was registered with.</p>
@@ -8634,15 +7081,6 @@ export interface RegisterPatchBaselineForPatchGroupResult {
    * <p>The name of the patch group registered with the patch baseline.</p>
    */
   PatchGroup?: string;
-}
-
-export namespace RegisterPatchBaselineForPatchGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterPatchBaselineForPatchGroupResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterTargetWithMaintenanceWindowRequest {
@@ -8730,31 +7168,11 @@ export interface RegisterTargetWithMaintenanceWindowRequest {
   ClientToken?: string;
 }
 
-export namespace RegisterTargetWithMaintenanceWindowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTargetWithMaintenanceWindowRequest): any => ({
-    ...obj,
-    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface RegisterTargetWithMaintenanceWindowResult {
   /**
    * <p>The ID of the target definition in this maintenance window.</p>
    */
   WindowTargetId?: string;
-}
-
-export namespace RegisterTargetWithMaintenanceWindowResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTargetWithMaintenanceWindowResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8949,36 +7367,11 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
 }
 
-export namespace RegisterTaskWithMaintenanceWindowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTaskWithMaintenanceWindowRequest): any => ({
-    ...obj,
-    ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-    ...(obj.TaskInvocationParameters && {
-      TaskInvocationParameters: MaintenanceWindowTaskInvocationParameters.filterSensitiveLog(
-        obj.TaskInvocationParameters
-      ),
-    }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface RegisterTaskWithMaintenanceWindowResult {
   /**
    * <p>The ID of the task in the maintenance window.</p>
    */
   WindowTaskId?: string;
-}
-
-export namespace RegisterTaskWithMaintenanceWindowResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTaskWithMaintenanceWindowResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveTagsFromResourceRequest {
@@ -9023,25 +7416,7 @@ export interface RemoveTagsFromResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace RemoveTagsFromResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveTagsFromResourceResult {}
-
-export namespace RemoveTagsFromResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The request body of the ResetServiceSetting API operation.</p>
@@ -9086,15 +7461,6 @@ export interface ResetServiceSettingRequest {
   SettingId: string | undefined;
 }
 
-export namespace ResetServiceSettingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetServiceSettingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result body of the ResetServiceSetting API operation.</p>
  */
@@ -9106,29 +7472,11 @@ export interface ResetServiceSettingResult {
   ServiceSetting?: ServiceSetting;
 }
 
-export namespace ResetServiceSettingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetServiceSettingResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ResumeSessionRequest {
   /**
    * <p>The ID of the disconnected session to resume.</p>
    */
   SessionId: string | undefined;
-}
-
-export namespace ResumeSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeSessionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ResumeSessionResponse {
@@ -9156,15 +7504,6 @@ export interface ResumeSessionResponse {
    *     <code>1a2b3c4dEXAMPLE</code>.</p>
    */
   StreamUrl?: string;
-}
-
-export namespace ResumeSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9252,25 +7591,7 @@ export interface SendAutomationSignalRequest {
   Payload?: Record<string, string[]>;
 }
 
-export namespace SendAutomationSignalRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendAutomationSignalRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendAutomationSignalResult {}
-
-export namespace SendAutomationSignalResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendAutomationSignalResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>One or more configuration items isn't valid. Verify that a valid Amazon Resource Name (ARN)
@@ -9470,32 +7791,12 @@ export interface SendCommandRequest {
   CloudWatchOutputConfig?: CloudWatchOutputConfig;
 }
 
-export namespace SendCommandRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendCommandRequest): any => ({
-    ...obj,
-    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-  });
-}
-
 export interface SendCommandResult {
   /**
    * <p>The request as it was received by Systems Manager. Also provides the command ID which can be used
    *    future references to this request.</p>
    */
   Command?: Command;
-}
-
-export namespace SendCommandResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendCommandResult): any => ({
-    ...obj,
-    ...(obj.Command && { Command: Command.filterSensitiveLog(obj.Command) }),
-  });
 }
 
 /**
@@ -9526,25 +7827,7 @@ export interface StartAssociationsOnceRequest {
   AssociationIds: string[] | undefined;
 }
 
-export namespace StartAssociationsOnceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAssociationsOnceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartAssociationsOnceResult {}
-
-export namespace StartAssociationsOnceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAssociationsOnceResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An Automation runbook with the specified name couldn't be found.</p>
@@ -9737,29 +8020,11 @@ export interface StartAutomationExecutionRequest {
   Tags?: Tag[];
 }
 
-export namespace StartAutomationExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAutomationExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartAutomationExecutionResult {
   /**
    * <p>The unique ID of a newly scheduled automation execution.</p>
    */
   AutomationExecutionId?: string;
-}
-
-export namespace StartAutomationExecutionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartAutomationExecutionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9880,30 +8145,12 @@ export interface StartChangeRequestExecutionRequest {
   ChangeDetails?: string;
 }
 
-export namespace StartChangeRequestExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChangeRequestExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartChangeRequestExecutionResult {
   /**
    * <p>The unique ID of a runbook workflow operation. (A runbook workflow is a type of Automation
    *    operation.) </p>
    */
   AutomationExecutionId?: string;
-}
-
-export namespace StartChangeRequestExecutionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChangeRequestExecutionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StartSessionRequest {
@@ -9932,15 +8179,6 @@ export interface StartSessionRequest {
   Parameters?: Record<string, string[]>;
 }
 
-export namespace StartSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartSessionResponse {
   /**
    * <p>The ID of the session.</p>
@@ -9967,15 +8205,6 @@ export interface StartSessionResponse {
    *     <code>1a2b3c4dEXAMPLE</code>.</p>
    */
   StreamUrl?: string;
-}
-
-export namespace StartSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10042,25 +8271,7 @@ export interface StopAutomationExecutionRequest {
   Type?: StopType | string;
 }
 
-export namespace StopAutomationExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAutomationExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopAutomationExecutionResult {}
-
-export namespace StopAutomationExecutionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAutomationExecutionResult): any => ({
-    ...obj,
-  });
-}
 
 export interface TerminateSessionRequest {
   /**
@@ -10069,29 +8280,11 @@ export interface TerminateSessionRequest {
   SessionId: string | undefined;
 }
 
-export namespace TerminateSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateSessionResponse {
   /**
    * <p>The ID of the session that has been terminated.</p>
    */
   SessionId?: string;
-}
-
-export namespace TerminateSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UnlabelParameterVersionRequest {
@@ -10112,15 +8305,6 @@ export interface UnlabelParameterVersionRequest {
   Labels: string[] | undefined;
 }
 
-export namespace UnlabelParameterVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnlabelParameterVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UnlabelParameterVersionResult {
   /**
    * <p>A list of all labels deleted from the parameter.</p>
@@ -10131,15 +8315,6 @@ export interface UnlabelParameterVersionResult {
    * <p>The labels that aren't attached to the given parameter version.</p>
    */
   InvalidLabels?: string[];
-}
-
-export namespace UnlabelParameterVersionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnlabelParameterVersionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10365,33 +8540,11 @@ export interface UpdateAssociationRequest {
   TargetMaps?: Record<string, string[]>[];
 }
 
-export namespace UpdateAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssociationRequest): any => ({
-    ...obj,
-    ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateAssociationResult {
   /**
    * <p>The description of the association that was updated.</p>
    */
   AssociationDescription?: AssociationDescription;
-}
-
-export namespace UpdateAssociationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssociationResult): any => ({
-    ...obj,
-    ...(obj.AssociationDescription && {
-      AssociationDescription: AssociationDescription.filterSensitiveLog(obj.AssociationDescription),
-    }),
-  });
 }
 
 /**
@@ -10430,32 +8583,11 @@ export interface UpdateAssociationStatusRequest {
   AssociationStatus: AssociationStatus | undefined;
 }
 
-export namespace UpdateAssociationStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssociationStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAssociationStatusResult {
   /**
    * <p>Information about the association.</p>
    */
   AssociationDescription?: AssociationDescription;
-}
-
-export namespace UpdateAssociationStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAssociationStatusResult): any => ({
-    ...obj,
-    ...(obj.AssociationDescription && {
-      AssociationDescription: AssociationDescription.filterSensitiveLog(obj.AssociationDescription),
-    }),
-  });
 }
 
 /**
@@ -10578,29 +8710,11 @@ export interface UpdateDocumentRequest {
   TargetType?: string;
 }
 
-export namespace UpdateDocumentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDocumentResult {
   /**
    * <p>A description of the document that was updated.</p>
    */
   DocumentDescription?: DocumentDescription;
-}
-
-export namespace UpdateDocumentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDocumentDefaultVersionRequest {
@@ -10613,15 +8727,6 @@ export interface UpdateDocumentDefaultVersionRequest {
    * <p>The version of a custom document that you want to set as the default version.</p>
    */
   DocumentVersion: string | undefined;
-}
-
-export namespace UpdateDocumentDefaultVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentDefaultVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10644,29 +8749,11 @@ export interface DocumentDefaultVersionDescription {
   DefaultVersionName?: string;
 }
 
-export namespace DocumentDefaultVersionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentDefaultVersionDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDocumentDefaultVersionResult {
   /**
    * <p>The description of a custom document that you want to set as the default version.</p>
    */
   Description?: DocumentDefaultVersionDescription;
-}
-
-export namespace UpdateDocumentDefaultVersionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentDefaultVersionResult): any => ({
-    ...obj,
-  });
 }
 
 export enum DocumentReviewAction {
@@ -10691,11 +8778,1560 @@ export interface DocumentReviews {
   Comment?: DocumentReviewCommentSource[];
 }
 
-export namespace DocumentReviews {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentReviews): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ParameterMetadataFilterSensitiveLog = (obj: ParameterMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeParametersResultFilterSensitiveLog = (obj: DescribeParametersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePatchBaselinesRequestFilterSensitiveLog = (obj: DescribePatchBaselinesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PatchBaselineIdentityFilterSensitiveLog = (obj: PatchBaselineIdentity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePatchBaselinesResultFilterSensitiveLog = (obj: DescribePatchBaselinesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePatchGroupsRequestFilterSensitiveLog = (obj: DescribePatchGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PatchGroupPatchBaselineMappingFilterSensitiveLog = (obj: PatchGroupPatchBaselineMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePatchGroupsResultFilterSensitiveLog = (obj: DescribePatchGroupsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePatchGroupStateRequestFilterSensitiveLog = (obj: DescribePatchGroupStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePatchGroupStateResultFilterSensitiveLog = (obj: DescribePatchGroupStateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePatchPropertiesRequestFilterSensitiveLog = (obj: DescribePatchPropertiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePatchPropertiesResultFilterSensitiveLog = (obj: DescribePatchPropertiesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionFilterFilterSensitiveLog = (obj: SessionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSessionsRequestFilterSensitiveLog = (obj: DescribeSessionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionManagerOutputUrlFilterSensitiveLog = (obj: SessionManagerOutputUrl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionFilterSensitiveLog = (obj: Session): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSessionsResponseFilterSensitiveLog = (obj: DescribeSessionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateOpsItemRelatedItemRequestFilterSensitiveLog = (
+  obj: DisassociateOpsItemRelatedItemRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateOpsItemRelatedItemResponseFilterSensitiveLog = (
+  obj: DisassociateOpsItemRelatedItemResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAutomationExecutionRequestFilterSensitiveLog = (obj: GetAutomationExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProgressCountersFilterSensitiveLog = (obj: ProgressCounters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutomationExecutionFilterSensitiveLog = (obj: AutomationExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAutomationExecutionResultFilterSensitiveLog = (obj: GetAutomationExecutionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCalendarStateRequestFilterSensitiveLog = (obj: GetCalendarStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCalendarStateResponseFilterSensitiveLog = (obj: GetCalendarStateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommandInvocationRequestFilterSensitiveLog = (obj: GetCommandInvocationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchOutputConfigFilterSensitiveLog = (obj: CloudWatchOutputConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCommandInvocationResultFilterSensitiveLog = (obj: GetCommandInvocationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectionStatusRequestFilterSensitiveLog = (obj: GetConnectionStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectionStatusResponseFilterSensitiveLog = (obj: GetConnectionStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDefaultPatchBaselineRequestFilterSensitiveLog = (obj: GetDefaultPatchBaselineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDefaultPatchBaselineResultFilterSensitiveLog = (obj: GetDefaultPatchBaselineResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BaselineOverrideFilterSensitiveLog = (obj: BaselineOverride): any => ({
+  ...obj,
+  ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetDeployablePatchSnapshotForInstanceRequestFilterSensitiveLog = (
+  obj: GetDeployablePatchSnapshotForInstanceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeployablePatchSnapshotForInstanceResultFilterSensitiveLog = (
+  obj: GetDeployablePatchSnapshotForInstanceResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentRequestFilterSensitiveLog = (obj: GetDocumentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachmentContentFilterSensitiveLog = (obj: AttachmentContent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentResultFilterSensitiveLog = (obj: GetDocumentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryFilterFilterSensitiveLog = (obj: InventoryFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryGroupFilterSensitiveLog = (obj: InventoryGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultAttributeFilterSensitiveLog = (obj: ResultAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryResultItemFilterSensitiveLog = (obj: InventoryResultItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryResultEntityFilterSensitiveLog = (obj: InventoryResultEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInventoryResultFilterSensitiveLog = (obj: GetInventoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInventorySchemaRequestFilterSensitiveLog = (obj: GetInventorySchemaRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryItemAttributeFilterSensitiveLog = (obj: InventoryItemAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryItemSchemaFilterSensitiveLog = (obj: InventoryItemSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInventorySchemaResultFilterSensitiveLog = (obj: GetInventorySchemaResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMaintenanceWindowRequestFilterSensitiveLog = (obj: GetMaintenanceWindowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMaintenanceWindowResultFilterSensitiveLog = (obj: GetMaintenanceWindowResult): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetMaintenanceWindowExecutionRequestFilterSensitiveLog = (
+  obj: GetMaintenanceWindowExecutionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMaintenanceWindowExecutionResultFilterSensitiveLog = (
+  obj: GetMaintenanceWindowExecutionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMaintenanceWindowExecutionTaskRequestFilterSensitiveLog = (
+  obj: GetMaintenanceWindowExecutionTaskRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMaintenanceWindowExecutionTaskResultFilterSensitiveLog = (
+  obj: GetMaintenanceWindowExecutionTaskResult
+): any => ({
+  ...obj,
+  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetMaintenanceWindowExecutionTaskInvocationRequestFilterSensitiveLog = (
+  obj: GetMaintenanceWindowExecutionTaskInvocationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMaintenanceWindowExecutionTaskInvocationResultFilterSensitiveLog = (
+  obj: GetMaintenanceWindowExecutionTaskInvocationResult
+): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
+  ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetMaintenanceWindowTaskRequestFilterSensitiveLog = (obj: GetMaintenanceWindowTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceWindowAutomationParametersFilterSensitiveLog = (
+  obj: MaintenanceWindowAutomationParameters
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceWindowLambdaParametersFilterSensitiveLog = (obj: MaintenanceWindowLambdaParameters): any => ({
+  ...obj,
+  ...(obj.Payload && { Payload: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NotificationConfigFilterSensitiveLog = (obj: NotificationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceWindowRunCommandParametersFilterSensitiveLog = (
+  obj: MaintenanceWindowRunCommandParameters
+): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceWindowStepFunctionsParametersFilterSensitiveLog = (
+  obj: MaintenanceWindowStepFunctionsParameters
+): any => ({
+  ...obj,
+  ...(obj.Input && { Input: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MaintenanceWindowTaskInvocationParametersFilterSensitiveLog = (
+  obj: MaintenanceWindowTaskInvocationParameters
+): any => ({
+  ...obj,
+  ...(obj.RunCommand && { RunCommand: MaintenanceWindowRunCommandParametersFilterSensitiveLog(obj.RunCommand) }),
+  ...(obj.StepFunctions && {
+    StepFunctions: MaintenanceWindowStepFunctionsParametersFilterSensitiveLog(obj.StepFunctions),
+  }),
+  ...(obj.Lambda && { Lambda: MaintenanceWindowLambdaParametersFilterSensitiveLog(obj.Lambda) }),
+});
+
+/**
+ * @internal
+ */
+export const GetMaintenanceWindowTaskResultFilterSensitiveLog = (obj: GetMaintenanceWindowTaskResult): any => ({
+  ...obj,
+  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+  ...(obj.TaskInvocationParameters && {
+    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
+  }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetOpsItemRequestFilterSensitiveLog = (obj: GetOpsItemRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsItemFilterSensitiveLog = (obj: OpsItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOpsItemResponseFilterSensitiveLog = (obj: GetOpsItemResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOpsMetadataRequestFilterSensitiveLog = (obj: GetOpsMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOpsMetadataResultFilterSensitiveLog = (obj: GetOpsMetadataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsFilterFilterSensitiveLog = (obj: OpsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsResultAttributeFilterSensitiveLog = (obj: OpsResultAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsEntityItemFilterSensitiveLog = (obj: OpsEntityItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsEntityFilterSensitiveLog = (obj: OpsEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOpsSummaryResultFilterSensitiveLog = (obj: GetOpsSummaryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetParameterRequestFilterSensitiveLog = (obj: GetParameterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetParameterResultFilterSensitiveLog = (obj: GetParameterResult): any => ({
+  ...obj,
+  ...(obj.Parameter && { Parameter: ParameterFilterSensitiveLog(obj.Parameter) }),
+});
+
+/**
+ * @internal
+ */
+export const GetParameterHistoryRequestFilterSensitiveLog = (obj: GetParameterHistoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterHistoryFilterSensitiveLog = (obj: ParameterHistory): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetParameterHistoryResultFilterSensitiveLog = (obj: GetParameterHistoryResult): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => ParameterHistoryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetParametersRequestFilterSensitiveLog = (obj: GetParametersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetParametersResultFilterSensitiveLog = (obj: GetParametersResult): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => ParameterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetParametersByPathRequestFilterSensitiveLog = (obj: GetParametersByPathRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetParametersByPathResultFilterSensitiveLog = (obj: GetParametersByPathResult): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: obj.Parameters.map((item) => ParameterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetPatchBaselineRequestFilterSensitiveLog = (obj: GetPatchBaselineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPatchBaselineResultFilterSensitiveLog = (obj: GetPatchBaselineResult): any => ({
+  ...obj,
+  ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetPatchBaselineForPatchGroupRequestFilterSensitiveLog = (
+  obj: GetPatchBaselineForPatchGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPatchBaselineForPatchGroupResultFilterSensitiveLog = (
+  obj: GetPatchBaselineForPatchGroupResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceSettingRequestFilterSensitiveLog = (obj: GetServiceSettingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceSettingFilterSensitiveLog = (obj: ServiceSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceSettingResultFilterSensitiveLog = (obj: GetServiceSettingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelParameterVersionRequestFilterSensitiveLog = (obj: LabelParameterVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelParameterVersionResultFilterSensitiveLog = (obj: LabelParameterVersionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociationFilterFilterSensitiveLog = (obj: AssociationFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociationsRequestFilterSensitiveLog = (obj: ListAssociationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociationFilterSensitiveLog = (obj: Association): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociationsResultFilterSensitiveLog = (obj: ListAssociationsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociationVersionsRequestFilterSensitiveLog = (obj: ListAssociationVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociationVersionInfoFilterSensitiveLog = (obj: AssociationVersionInfo): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAssociationVersionsResultFilterSensitiveLog = (obj: ListAssociationVersionsResult): any => ({
+  ...obj,
+  ...(obj.AssociationVersions && {
+    AssociationVersions: obj.AssociationVersions.map((item) => AssociationVersionInfoFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CommandFilterFilterSensitiveLog = (obj: CommandFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCommandInvocationsRequestFilterSensitiveLog = (obj: ListCommandInvocationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommandPluginFilterSensitiveLog = (obj: CommandPlugin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommandInvocationFilterSensitiveLog = (obj: CommandInvocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCommandInvocationsResultFilterSensitiveLog = (obj: ListCommandInvocationsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCommandsRequestFilterSensitiveLog = (obj: ListCommandsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommandFilterSensitiveLog = (obj: Command): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListCommandsResultFilterSensitiveLog = (obj: ListCommandsResult): any => ({
+  ...obj,
+  ...(obj.Commands && { Commands: obj.Commands.map((item) => CommandFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ComplianceStringFilterFilterSensitiveLog = (obj: ComplianceStringFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComplianceItemsRequestFilterSensitiveLog = (obj: ListComplianceItemsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceExecutionSummaryFilterSensitiveLog = (obj: ComplianceExecutionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceItemFilterSensitiveLog = (obj: ComplianceItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComplianceItemsResultFilterSensitiveLog = (obj: ListComplianceItemsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComplianceSummariesRequestFilterSensitiveLog = (obj: ListComplianceSummariesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SeveritySummaryFilterSensitiveLog = (obj: SeveritySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompliantSummaryFilterSensitiveLog = (obj: CompliantSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NonCompliantSummaryFilterSensitiveLog = (obj: NonCompliantSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceSummaryItemFilterSensitiveLog = (obj: ComplianceSummaryItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComplianceSummariesResultFilterSensitiveLog = (obj: ListComplianceSummariesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDocumentMetadataHistoryRequestFilterSensitiveLog = (obj: ListDocumentMetadataHistoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentReviewCommentSourceFilterSensitiveLog = (obj: DocumentReviewCommentSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentReviewerResponseSourceFilterSensitiveLog = (obj: DocumentReviewerResponseSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentMetadataResponseInfoFilterSensitiveLog = (obj: DocumentMetadataResponseInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDocumentMetadataHistoryResponseFilterSensitiveLog = (
+  obj: ListDocumentMetadataHistoryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentFilterFilterSensitiveLog = (obj: DocumentFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentKeyValuesFilterFilterSensitiveLog = (obj: DocumentKeyValuesFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDocumentsRequestFilterSensitiveLog = (obj: ListDocumentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentIdentifierFilterSensitiveLog = (obj: DocumentIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDocumentsResultFilterSensitiveLog = (obj: ListDocumentsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDocumentVersionsRequestFilterSensitiveLog = (obj: ListDocumentVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentVersionInfoFilterSensitiveLog = (obj: DocumentVersionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDocumentVersionsResultFilterSensitiveLog = (obj: ListDocumentVersionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInventoryEntriesRequestFilterSensitiveLog = (obj: ListInventoryEntriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInventoryEntriesResultFilterSensitiveLog = (obj: ListInventoryEntriesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsItemEventFilterFilterSensitiveLog = (obj: OpsItemEventFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOpsItemEventsRequestFilterSensitiveLog = (obj: ListOpsItemEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsItemIdentityFilterSensitiveLog = (obj: OpsItemIdentity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsItemEventSummaryFilterSensitiveLog = (obj: OpsItemEventSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOpsItemEventsResponseFilterSensitiveLog = (obj: ListOpsItemEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsItemRelatedItemsFilterFilterSensitiveLog = (obj: OpsItemRelatedItemsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOpsItemRelatedItemsRequestFilterSensitiveLog = (obj: ListOpsItemRelatedItemsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsItemRelatedItemSummaryFilterSensitiveLog = (obj: OpsItemRelatedItemSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOpsItemRelatedItemsResponseFilterSensitiveLog = (obj: ListOpsItemRelatedItemsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsMetadataFilterFilterSensitiveLog = (obj: OpsMetadataFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOpsMetadataRequestFilterSensitiveLog = (obj: ListOpsMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsMetadataFilterSensitiveLog = (obj: OpsMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOpsMetadataResultFilterSensitiveLog = (obj: ListOpsMetadataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceComplianceSummariesRequestFilterSensitiveLog = (
+  obj: ListResourceComplianceSummariesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceComplianceSummaryItemFilterSensitiveLog = (obj: ResourceComplianceSummaryItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceComplianceSummariesResultFilterSensitiveLog = (
+  obj: ListResourceComplianceSummariesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceDataSyncRequestFilterSensitiveLog = (obj: ListResourceDataSyncRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDataSyncSourceWithStateFilterSensitiveLog = (obj: ResourceDataSyncSourceWithState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDataSyncItemFilterSensitiveLog = (obj: ResourceDataSyncItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceDataSyncResultFilterSensitiveLog = (obj: ListResourceDataSyncResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDocumentPermissionRequestFilterSensitiveLog = (obj: ModifyDocumentPermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDocumentPermissionResponseFilterSensitiveLog = (obj: ModifyDocumentPermissionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceItemEntryFilterSensitiveLog = (obj: ComplianceItemEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutComplianceItemsRequestFilterSensitiveLog = (obj: PutComplianceItemsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutComplianceItemsResultFilterSensitiveLog = (obj: PutComplianceItemsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryItemFilterSensitiveLog = (obj: InventoryItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInventoryRequestFilterSensitiveLog = (obj: PutInventoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInventoryResultFilterSensitiveLog = (obj: PutInventoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutParameterRequestFilterSensitiveLog = (obj: PutParameterRequest): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutParameterResultFilterSensitiveLog = (obj: PutParameterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterDefaultPatchBaselineRequestFilterSensitiveLog = (
+  obj: RegisterDefaultPatchBaselineRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterDefaultPatchBaselineResultFilterSensitiveLog = (obj: RegisterDefaultPatchBaselineResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterPatchBaselineForPatchGroupRequestFilterSensitiveLog = (
+  obj: RegisterPatchBaselineForPatchGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterPatchBaselineForPatchGroupResultFilterSensitiveLog = (
+  obj: RegisterPatchBaselineForPatchGroupResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTargetWithMaintenanceWindowRequestFilterSensitiveLog = (
+  obj: RegisterTargetWithMaintenanceWindowRequest
+): any => ({
+  ...obj,
+  ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterTargetWithMaintenanceWindowResultFilterSensitiveLog = (
+  obj: RegisterTargetWithMaintenanceWindowResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTaskWithMaintenanceWindowRequestFilterSensitiveLog = (
+  obj: RegisterTaskWithMaintenanceWindowRequest
+): any => ({
+  ...obj,
+  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+  ...(obj.TaskInvocationParameters && {
+    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
+  }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterTaskWithMaintenanceWindowResultFilterSensitiveLog = (
+  obj: RegisterTaskWithMaintenanceWindowResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromResourceRequestFilterSensitiveLog = (obj: RemoveTagsFromResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromResourceResultFilterSensitiveLog = (obj: RemoveTagsFromResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetServiceSettingRequestFilterSensitiveLog = (obj: ResetServiceSettingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetServiceSettingResultFilterSensitiveLog = (obj: ResetServiceSettingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResumeSessionRequestFilterSensitiveLog = (obj: ResumeSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResumeSessionResponseFilterSensitiveLog = (obj: ResumeSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendAutomationSignalRequestFilterSensitiveLog = (obj: SendAutomationSignalRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendAutomationSignalResultFilterSensitiveLog = (obj: SendAutomationSignalResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendCommandRequestFilterSensitiveLog = (obj: SendCommandRequest): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SendCommandResultFilterSensitiveLog = (obj: SendCommandResult): any => ({
+  ...obj,
+  ...(obj.Command && { Command: CommandFilterSensitiveLog(obj.Command) }),
+});
+
+/**
+ * @internal
+ */
+export const StartAssociationsOnceRequestFilterSensitiveLog = (obj: StartAssociationsOnceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAssociationsOnceResultFilterSensitiveLog = (obj: StartAssociationsOnceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAutomationExecutionRequestFilterSensitiveLog = (obj: StartAutomationExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartAutomationExecutionResultFilterSensitiveLog = (obj: StartAutomationExecutionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChangeRequestExecutionRequestFilterSensitiveLog = (obj: StartChangeRequestExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChangeRequestExecutionResultFilterSensitiveLog = (obj: StartChangeRequestExecutionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSessionRequestFilterSensitiveLog = (obj: StartSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSessionResponseFilterSensitiveLog = (obj: StartSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopAutomationExecutionRequestFilterSensitiveLog = (obj: StopAutomationExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopAutomationExecutionResultFilterSensitiveLog = (obj: StopAutomationExecutionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateSessionRequestFilterSensitiveLog = (obj: TerminateSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateSessionResponseFilterSensitiveLog = (obj: TerminateSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnlabelParameterVersionRequestFilterSensitiveLog = (obj: UnlabelParameterVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnlabelParameterVersionResultFilterSensitiveLog = (obj: UnlabelParameterVersionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssociationRequestFilterSensitiveLog = (obj: UpdateAssociationRequest): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssociationResultFilterSensitiveLog = (obj: UpdateAssociationResult): any => ({
+  ...obj,
+  ...(obj.AssociationDescription && {
+    AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssociationStatusRequestFilterSensitiveLog = (obj: UpdateAssociationStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssociationStatusResultFilterSensitiveLog = (obj: UpdateAssociationStatusResult): any => ({
+  ...obj,
+  ...(obj.AssociationDescription && {
+    AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentRequestFilterSensitiveLog = (obj: UpdateDocumentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentResultFilterSensitiveLog = (obj: UpdateDocumentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentDefaultVersionRequestFilterSensitiveLog = (
+  obj: UpdateDocumentDefaultVersionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentDefaultVersionDescriptionFilterSensitiveLog = (obj: DocumentDefaultVersionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentDefaultVersionResultFilterSensitiveLog = (obj: UpdateDocumentDefaultVersionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentReviewsFilterSensitiveLog = (obj: DocumentReviews): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListScheduledAuditsRequest, ListScheduledAuditsResponse } from "../models/models_1";
+import {
+  ListScheduledAuditsRequest,
+  ListScheduledAuditsRequestFilterSensitiveLog,
+  ListScheduledAuditsResponse,
+  ListScheduledAuditsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListScheduledAuditsCommand,
   serializeAws_restJson1ListScheduledAuditsCommand,
@@ -73,8 +78,8 @@ export class ListScheduledAuditsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListScheduledAuditsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListScheduledAuditsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListScheduledAuditsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListScheduledAuditsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

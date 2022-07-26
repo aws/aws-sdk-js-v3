@@ -13,7 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAccessPointPolicyForObjectLambdaRequest } from "../models/models_0";
+import {
+  DeleteAccessPointPolicyForObjectLambdaRequest,
+  DeleteAccessPointPolicyForObjectLambdaRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommand,
   serializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommand,
@@ -89,7 +92,7 @@ export class DeleteAccessPointPolicyForObjectLambdaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessPointPolicyForObjectLambdaRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAccessPointPolicyForObjectLambdaRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

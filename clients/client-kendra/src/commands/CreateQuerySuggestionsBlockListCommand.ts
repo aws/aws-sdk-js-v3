@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { CreateQuerySuggestionsBlockListRequest, CreateQuerySuggestionsBlockListResponse } from "../models/models_0";
+import {
+  CreateQuerySuggestionsBlockListRequest,
+  CreateQuerySuggestionsBlockListRequestFilterSensitiveLog,
+  CreateQuerySuggestionsBlockListResponse,
+  CreateQuerySuggestionsBlockListResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateQuerySuggestionsBlockListCommand,
   serializeAws_json1_1CreateQuerySuggestionsBlockListCommand,
@@ -88,8 +93,8 @@ export class CreateQuerySuggestionsBlockListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQuerySuggestionsBlockListRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateQuerySuggestionsBlockListResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateQuerySuggestionsBlockListRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateQuerySuggestionsBlockListResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

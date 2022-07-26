@@ -52,15 +52,6 @@ export interface ApplicationState {
   LastUpdatedTime?: Date;
 }
 
-export namespace ApplicationState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An ARN of the AWS cloud resource target receiving the migration (e.g., AMI, EC2
  *          instance, RDS instance, etc.).</p>
@@ -76,15 +67,6 @@ export interface CreatedArtifact {
    *          for clarity or for later reference.</p>
    */
   Description?: string;
-}
-
-export namespace CreatedArtifact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatedArtifact): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateCreatedArtifactRequest {
@@ -113,25 +95,7 @@ export interface AssociateCreatedArtifactRequest {
   DryRun?: boolean;
 }
 
-export namespace AssociateCreatedArtifactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateCreatedArtifactRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateCreatedArtifactResult {}
-
-export namespace AssociateCreatedArtifactResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateCreatedArtifactResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Exception raised to indicate a successfully authorized action when the
@@ -334,15 +298,6 @@ export interface DiscoveredResource {
   Description?: string;
 }
 
-export namespace DiscoveredResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DiscoveredResource): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDiscoveredResourceRequest {
   /**
    * <p>The name of the ProgressUpdateStream.</p>
@@ -368,25 +323,7 @@ export interface AssociateDiscoveredResourceRequest {
   DryRun?: boolean;
 }
 
-export namespace AssociateDiscoveredResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDiscoveredResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDiscoveredResourceResult {}
-
-export namespace AssociateDiscoveredResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDiscoveredResourceResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Exception raised when there are problems accessing Application Discovery Service
@@ -426,25 +363,7 @@ export interface CreateProgressUpdateStreamRequest {
   DryRun?: boolean;
 }
 
-export namespace CreateProgressUpdateStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProgressUpdateStreamRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProgressUpdateStreamResult {}
-
-export namespace CreateProgressUpdateStreamResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProgressUpdateStreamResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteProgressUpdateStreamRequest {
   /**
@@ -461,25 +380,7 @@ export interface DeleteProgressUpdateStreamRequest {
   DryRun?: boolean;
 }
 
-export namespace DeleteProgressUpdateStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProgressUpdateStreamRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProgressUpdateStreamResult {}
-
-export namespace DeleteProgressUpdateStreamResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProgressUpdateStreamResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeApplicationStateRequest {
   /**
@@ -487,15 +388,6 @@ export interface DescribeApplicationStateRequest {
    *          grouped application.</p>
    */
   ApplicationId: string | undefined;
-}
-
-export namespace DescribeApplicationStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationStateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeApplicationStateResult {
@@ -510,15 +402,6 @@ export interface DescribeApplicationStateResult {
   LastUpdatedTime?: Date;
 }
 
-export namespace DescribeApplicationStateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeApplicationStateResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeMigrationTaskRequest {
   /**
    * <p>The name of the ProgressUpdateStream. </p>
@@ -531,15 +414,6 @@ export interface DescribeMigrationTaskRequest {
    *          </p>
    */
   MigrationTaskName: string | undefined;
-}
-
-export namespace DescribeMigrationTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMigrationTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceAttributeType {
@@ -606,15 +480,6 @@ export interface ResourceAttribute {
   Value: string | undefined;
 }
 
-export namespace ResourceAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAttribute): any => ({
-    ...obj,
-  });
-}
-
 export enum Status {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
@@ -642,15 +507,6 @@ export interface Task {
    * <p>Indication of the percentage completion of the task.</p>
    */
   ProgressPercent?: number;
-}
-
-export namespace Task {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Task): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -686,29 +542,11 @@ export interface MigrationTask {
   ResourceAttributeList?: ResourceAttribute[];
 }
 
-export namespace MigrationTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MigrationTask): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeMigrationTaskResult {
   /**
    * <p>Object encapsulating information about the migration task.</p>
    */
   MigrationTask?: MigrationTask;
-}
-
-export namespace DescribeMigrationTaskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMigrationTaskResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateCreatedArtifactRequest {
@@ -737,25 +575,7 @@ export interface DisassociateCreatedArtifactRequest {
   DryRun?: boolean;
 }
 
-export namespace DisassociateCreatedArtifactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateCreatedArtifactRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateCreatedArtifactResult {}
-
-export namespace DisassociateCreatedArtifactResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateCreatedArtifactResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateDiscoveredResourceRequest {
   /**
@@ -783,25 +603,7 @@ export interface DisassociateDiscoveredResourceRequest {
   DryRun?: boolean;
 }
 
-export namespace DisassociateDiscoveredResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDiscoveredResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateDiscoveredResourceResult {}
-
-export namespace DisassociateDiscoveredResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDiscoveredResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface ImportMigrationTaskRequest {
   /**
@@ -823,25 +625,7 @@ export interface ImportMigrationTaskRequest {
   DryRun?: boolean;
 }
 
-export namespace ImportMigrationTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportMigrationTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportMigrationTaskResult {}
-
-export namespace ImportMigrationTaskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportMigrationTaskResult): any => ({
-    ...obj,
-  });
-}
 
 export interface ListApplicationStatesRequest {
   /**
@@ -863,15 +647,6 @@ export interface ListApplicationStatesRequest {
   MaxResults?: number;
 }
 
-export namespace ListApplicationStatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationStatesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationStatesResult {
   /**
    * <p>A list of Applications that exist in Application Discovery Service.</p>
@@ -884,15 +659,6 @@ export interface ListApplicationStatesResult {
    *          token in <code>NextToken</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListApplicationStatesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationStatesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCreatedArtifactsRequest {
@@ -921,15 +687,6 @@ export interface ListCreatedArtifactsRequest {
   MaxResults?: number;
 }
 
-export namespace ListCreatedArtifactsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCreatedArtifactsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCreatedArtifactsResult {
   /**
    * <p>If there are more created artifacts than the max result, return the next token to be
@@ -942,15 +699,6 @@ export interface ListCreatedArtifactsResult {
    *          request.</p>
    */
   CreatedArtifactList?: CreatedArtifact[];
-}
-
-export namespace ListCreatedArtifactsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCreatedArtifactsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDiscoveredResourcesRequest {
@@ -979,15 +727,6 @@ export interface ListDiscoveredResourcesRequest {
   MaxResults?: number;
 }
 
-export namespace ListDiscoveredResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDiscoveredResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDiscoveredResourcesResult {
   /**
    * <p>If there are more discovered resources than the max result, return the next token to be
@@ -999,15 +738,6 @@ export interface ListDiscoveredResourcesResult {
    * <p>Returned list of discovered resources associated with the given MigrationTask.</p>
    */
   DiscoveredResourceList?: DiscoveredResource[];
-}
-
-export namespace ListDiscoveredResourcesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDiscoveredResourcesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMigrationTasksRequest {
@@ -1027,15 +757,6 @@ export interface ListMigrationTasksRequest {
    * <p>Filter migration tasks by discovered resource name.</p>
    */
   ResourceName?: string;
-}
-
-export namespace ListMigrationTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMigrationTasksRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1078,15 +799,6 @@ export interface MigrationTaskSummary {
   UpdateDateTime?: Date;
 }
 
-export namespace MigrationTaskSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MigrationTaskSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMigrationTasksResult {
   /**
    * <p>If there are more migration tasks than the max result, return the next token to be
@@ -1100,15 +812,6 @@ export interface ListMigrationTasksResult {
    *          and the <code>UpdateDateTime</code> for each task.</p>
    */
   MigrationTaskSummaryList?: MigrationTaskSummary[];
-}
-
-export namespace ListMigrationTasksResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMigrationTasksResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProgressUpdateStreamsRequest {
@@ -1125,15 +828,6 @@ export interface ListProgressUpdateStreamsRequest {
   MaxResults?: number;
 }
 
-export namespace ListProgressUpdateStreamsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProgressUpdateStreamsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary of the AWS resource used for access control that is implicitly linked to your
  *          AWS account.</p>
@@ -1145,15 +839,6 @@ export interface ProgressUpdateStreamSummary {
    *          </p>
    */
   ProgressUpdateStreamName?: string;
-}
-
-export namespace ProgressUpdateStreamSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProgressUpdateStreamSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProgressUpdateStreamsResult {
@@ -1168,15 +853,6 @@ export interface ListProgressUpdateStreamsResult {
    *          passed to the next call as a bookmark of where to start from.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListProgressUpdateStreamsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProgressUpdateStreamsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface NotifyApplicationStateRequest {
@@ -1203,25 +879,7 @@ export interface NotifyApplicationStateRequest {
   DryRun?: boolean;
 }
 
-export namespace NotifyApplicationStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyApplicationStateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface NotifyApplicationStateResult {}
-
-export namespace NotifyApplicationStateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyApplicationStateResult): any => ({
-    ...obj,
-  });
-}
 
 export interface NotifyMigrationTaskStateRequest {
   /**
@@ -1260,25 +918,7 @@ export interface NotifyMigrationTaskStateRequest {
   DryRun?: boolean;
 }
 
-export namespace NotifyMigrationTaskStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyMigrationTaskStateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface NotifyMigrationTaskStateResult {}
-
-export namespace NotifyMigrationTaskStateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyMigrationTaskStateResult): any => ({
-    ...obj,
-  });
-}
 
 export interface PutResourceAttributesRequest {
   /**
@@ -1332,22 +972,302 @@ export interface PutResourceAttributesRequest {
   DryRun?: boolean;
 }
 
-export namespace PutResourceAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourceAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutResourceAttributesResult {}
 
-export namespace PutResourceAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourceAttributesResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ApplicationStateFilterSensitiveLog = (obj: ApplicationState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatedArtifactFilterSensitiveLog = (obj: CreatedArtifact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateCreatedArtifactRequestFilterSensitiveLog = (obj: AssociateCreatedArtifactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateCreatedArtifactResultFilterSensitiveLog = (obj: AssociateCreatedArtifactResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiscoveredResourceFilterSensitiveLog = (obj: DiscoveredResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDiscoveredResourceRequestFilterSensitiveLog = (obj: AssociateDiscoveredResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDiscoveredResourceResultFilterSensitiveLog = (obj: AssociateDiscoveredResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProgressUpdateStreamRequestFilterSensitiveLog = (obj: CreateProgressUpdateStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProgressUpdateStreamResultFilterSensitiveLog = (obj: CreateProgressUpdateStreamResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProgressUpdateStreamRequestFilterSensitiveLog = (obj: DeleteProgressUpdateStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProgressUpdateStreamResultFilterSensitiveLog = (obj: DeleteProgressUpdateStreamResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationStateRequestFilterSensitiveLog = (obj: DescribeApplicationStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeApplicationStateResultFilterSensitiveLog = (obj: DescribeApplicationStateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMigrationTaskRequestFilterSensitiveLog = (obj: DescribeMigrationTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceAttributeFilterSensitiveLog = (obj: ResourceAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskFilterSensitiveLog = (obj: Task): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MigrationTaskFilterSensitiveLog = (obj: MigrationTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMigrationTaskResultFilterSensitiveLog = (obj: DescribeMigrationTaskResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateCreatedArtifactRequestFilterSensitiveLog = (obj: DisassociateCreatedArtifactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateCreatedArtifactResultFilterSensitiveLog = (obj: DisassociateCreatedArtifactResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDiscoveredResourceRequestFilterSensitiveLog = (
+  obj: DisassociateDiscoveredResourceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDiscoveredResourceResultFilterSensitiveLog = (
+  obj: DisassociateDiscoveredResourceResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportMigrationTaskRequestFilterSensitiveLog = (obj: ImportMigrationTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportMigrationTaskResultFilterSensitiveLog = (obj: ImportMigrationTaskResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationStatesRequestFilterSensitiveLog = (obj: ListApplicationStatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationStatesResultFilterSensitiveLog = (obj: ListApplicationStatesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCreatedArtifactsRequestFilterSensitiveLog = (obj: ListCreatedArtifactsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCreatedArtifactsResultFilterSensitiveLog = (obj: ListCreatedArtifactsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDiscoveredResourcesRequestFilterSensitiveLog = (obj: ListDiscoveredResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDiscoveredResourcesResultFilterSensitiveLog = (obj: ListDiscoveredResourcesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMigrationTasksRequestFilterSensitiveLog = (obj: ListMigrationTasksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MigrationTaskSummaryFilterSensitiveLog = (obj: MigrationTaskSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMigrationTasksResultFilterSensitiveLog = (obj: ListMigrationTasksResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProgressUpdateStreamsRequestFilterSensitiveLog = (obj: ListProgressUpdateStreamsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProgressUpdateStreamSummaryFilterSensitiveLog = (obj: ProgressUpdateStreamSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProgressUpdateStreamsResultFilterSensitiveLog = (obj: ListProgressUpdateStreamsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyApplicationStateRequestFilterSensitiveLog = (obj: NotifyApplicationStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyApplicationStateResultFilterSensitiveLog = (obj: NotifyApplicationStateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyMigrationTaskStateRequestFilterSensitiveLog = (obj: NotifyMigrationTaskStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyMigrationTaskStateResultFilterSensitiveLog = (obj: NotifyMigrationTaskStateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourceAttributesRequestFilterSensitiveLog = (obj: PutResourceAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourceAttributesResultFilterSensitiveLog = (obj: PutResourceAttributesResult): any => ({
+  ...obj,
+});

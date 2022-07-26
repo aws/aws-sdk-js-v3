@@ -22,15 +22,6 @@ export interface AssumedRoleUser {
   Arn: string | undefined;
 }
 
-export namespace AssumedRoleUser {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssumedRoleUser): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A reference to the IAM managed policy that is passed as a session policy for a role
  *          session or a federated user session.</p>
@@ -42,15 +33,6 @@ export interface PolicyDescriptorType {
    *             Service Namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   arn?: string;
-}
-
-export namespace PolicyDescriptorType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyDescriptorType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -75,15 +57,6 @@ export interface Tag {
    *             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface AssumeRoleRequest {
@@ -295,15 +268,6 @@ export interface AssumeRoleRequest {
   SourceIdentity?: string;
 }
 
-export namespace AssumeRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssumeRoleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon Web Services credentials for API authentication.</p>
  */
@@ -328,15 +292,6 @@ export interface Credentials {
    * <p>The date on which the current credentials expire.</p>
    */
   Expiration: Date | undefined;
-}
-
-export namespace Credentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Credentials): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -387,15 +342,6 @@ export interface AssumeRoleResponse {
    *          any of the following characters: =,.@-</p>
    */
   SourceIdentity?: string;
-}
-
-export namespace AssumeRoleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssumeRoleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -588,15 +534,6 @@ export interface AssumeRoleWithSAMLRequest {
   DurationSeconds?: number;
 }
 
-export namespace AssumeRoleWithSAMLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssumeRoleWithSAMLRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the response to a successful <a>AssumeRoleWithSAML</a> request,
  *       including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. </p>
@@ -695,15 +632,6 @@ export interface AssumeRoleWithSAMLResponse {
    *     also include underscores or any of the following characters: =,.@-</p>
    */
   SourceIdentity?: string;
-}
-
-export namespace AssumeRoleWithSAMLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -862,15 +790,6 @@ export interface AssumeRoleWithWebIdentityRequest {
   DurationSeconds?: number;
 }
 
-export namespace AssumeRoleWithWebIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssumeRoleWithWebIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the response to a successful <a>AssumeRoleWithWebIdentity</a>
  *       request, including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. </p>
@@ -950,15 +869,6 @@ export interface AssumeRoleWithWebIdentityResponse {
   SourceIdentity?: string;
 }
 
-export namespace AssumeRoleWithWebIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssumeRoleWithWebIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request could not be fulfilled because the identity provider (IDP) that
  *             was asked to verify the incoming identity token could not be reached. This is often a
@@ -989,15 +899,6 @@ export interface DecodeAuthorizationMessageRequest {
   EncodedMessage: string | undefined;
 }
 
-export namespace DecodeAuthorizationMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecodeAuthorizationMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A document that contains additional information about the authorization status of a
  *       request from an encoded message that is returned in response to an Amazon Web Services request.</p>
@@ -1007,15 +908,6 @@ export interface DecodeAuthorizationMessageResponse {
    * <p>The API returns a response with the decoded message.</p>
    */
   DecodedMessage?: string;
-}
-
-export namespace DecodeAuthorizationMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecodeAuthorizationMessageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1048,15 +940,6 @@ export interface GetAccessKeyInfoRequest {
   AccessKeyId: string | undefined;
 }
 
-export namespace GetAccessKeyInfoRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessKeyInfoRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessKeyInfoResponse {
   /**
    * <p>The number used to identify the Amazon Web Services account.</p>
@@ -1064,25 +947,7 @@ export interface GetAccessKeyInfoResponse {
   Account?: string;
 }
 
-export namespace GetAccessKeyInfoResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessKeyInfoResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCallerIdentityRequest {}
-
-export namespace GetCallerIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCallerIdentityRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the response to a successful <a>GetCallerIdentity</a> request,
@@ -1107,15 +972,6 @@ export interface GetCallerIdentityResponse {
    * <p>The Amazon Web Services ARN associated with the calling entity.</p>
    */
   Arn?: string;
-}
-
-export namespace GetCallerIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCallerIdentityResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFederationTokenRequest {
@@ -1242,15 +1098,6 @@ export interface GetFederationTokenRequest {
   Tags?: Tag[];
 }
 
-export namespace GetFederationTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifiers for the federated user that is associated with the credentials.</p>
  */
@@ -1267,15 +1114,6 @@ export interface FederatedUser {
    *             Identifiers</a> in the <i>IAM User Guide</i>. </p>
    */
   Arn: string | undefined;
-}
-
-export namespace FederatedUser {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FederatedUser): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1308,15 +1146,6 @@ export interface GetFederationTokenResponse {
    *       which means the policies and tags exceeded the allowed space.</p>
    */
   PackedPolicySize?: number;
-}
-
-export namespace GetFederationTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSessionTokenRequest {
@@ -1355,15 +1184,6 @@ export interface GetSessionTokenRequest {
   TokenCode?: string;
 }
 
-export namespace GetSessionTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionTokenRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the response to a successful <a>GetSessionToken</a> request,
  *       including temporary Amazon Web Services credentials that can be used to make Amazon Web Services requests. </p>
@@ -1381,11 +1201,149 @@ export interface GetSessionTokenResponse {
   Credentials?: Credentials;
 }
 
-export namespace GetSessionTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionTokenResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AssumedRoleUserFilterSensitiveLog = (obj: AssumedRoleUser): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyDescriptorTypeFilterSensitiveLog = (obj: PolicyDescriptorType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssumeRoleRequestFilterSensitiveLog = (obj: AssumeRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssumeRoleResponseFilterSensitiveLog = (obj: AssumeRoleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssumeRoleWithSAMLRequestFilterSensitiveLog = (obj: AssumeRoleWithSAMLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssumeRoleWithSAMLResponseFilterSensitiveLog = (obj: AssumeRoleWithSAMLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssumeRoleWithWebIdentityRequestFilterSensitiveLog = (obj: AssumeRoleWithWebIdentityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssumeRoleWithWebIdentityResponseFilterSensitiveLog = (obj: AssumeRoleWithWebIdentityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecodeAuthorizationMessageRequestFilterSensitiveLog = (obj: DecodeAuthorizationMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecodeAuthorizationMessageResponseFilterSensitiveLog = (obj: DecodeAuthorizationMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessKeyInfoRequestFilterSensitiveLog = (obj: GetAccessKeyInfoRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessKeyInfoResponseFilterSensitiveLog = (obj: GetAccessKeyInfoResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCallerIdentityRequestFilterSensitiveLog = (obj: GetCallerIdentityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCallerIdentityResponseFilterSensitiveLog = (obj: GetCallerIdentityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFederationTokenRequestFilterSensitiveLog = (obj: GetFederationTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FederatedUserFilterSensitiveLog = (obj: FederatedUser): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFederationTokenResponseFilterSensitiveLog = (obj: GetFederationTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSessionTokenRequestFilterSensitiveLog = (obj: GetSessionTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSessionTokenResponseFilterSensitiveLog = (obj: GetSessionTokenResponse): any => ({
+  ...obj,
+});

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SynthesizeSpeechInput, SynthesizeSpeechOutput } from "../models/models_0";
+import {
+  SynthesizeSpeechInput,
+  SynthesizeSpeechInputFilterSensitiveLog,
+  SynthesizeSpeechOutput,
+  SynthesizeSpeechOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import {
   deserializeAws_restJson1SynthesizeSpeechCommand,
@@ -76,8 +81,8 @@ export class SynthesizeSpeechCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SynthesizeSpeechInput.filterSensitiveLog,
-      outputFilterSensitiveLog: SynthesizeSpeechOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SynthesizeSpeechInputFilterSensitiveLog,
+      outputFilterSensitiveLog: SynthesizeSpeechOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

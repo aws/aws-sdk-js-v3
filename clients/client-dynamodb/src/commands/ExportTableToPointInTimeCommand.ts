@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { ExportTableToPointInTimeInput, ExportTableToPointInTimeOutput } from "../models/models_0";
+import {
+  ExportTableToPointInTimeInput,
+  ExportTableToPointInTimeInputFilterSensitiveLog,
+  ExportTableToPointInTimeOutput,
+  ExportTableToPointInTimeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ExportTableToPointInTimeCommand,
   serializeAws_json1_0ExportTableToPointInTimeCommand,
@@ -74,8 +79,8 @@ export class ExportTableToPointInTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportTableToPointInTimeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportTableToPointInTimeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ExportTableToPointInTimeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportTableToPointInTimeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

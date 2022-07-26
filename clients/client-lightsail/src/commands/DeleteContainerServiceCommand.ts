@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteContainerServiceRequest, DeleteContainerServiceResult } from "../models/models_0";
+import {
+  DeleteContainerServiceRequest,
+  DeleteContainerServiceRequestFilterSensitiveLog,
+  DeleteContainerServiceResult,
+  DeleteContainerServiceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteContainerServiceCommand,
   serializeAws_json1_1DeleteContainerServiceCommand,
@@ -72,8 +77,8 @@ export class DeleteContainerServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContainerServiceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContainerServiceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteContainerServiceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteContainerServiceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

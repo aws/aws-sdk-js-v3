@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import { BatchUpdateClusterRequest, BatchUpdateClusterResponse } from "../models/models_0";
+import {
+  BatchUpdateClusterRequest,
+  BatchUpdateClusterRequestFilterSensitiveLog,
+  BatchUpdateClusterResponse,
+  BatchUpdateClusterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchUpdateClusterCommand,
   serializeAws_json1_1BatchUpdateClusterCommand,
@@ -72,8 +77,8 @@ export class BatchUpdateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateClusterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateClusterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchUpdateClusterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchUpdateClusterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

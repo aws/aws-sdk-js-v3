@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { RemoveTagsFromCertificateRequest } from "../models/models_0";
+import {
+  RemoveTagsFromCertificateRequest,
+  RemoveTagsFromCertificateRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsFromCertificateCommand,
   serializeAws_json1_1RemoveTagsFromCertificateCommand,
@@ -78,7 +81,7 @@ export class RemoveTagsFromCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromCertificateRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTagsFromCertificateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

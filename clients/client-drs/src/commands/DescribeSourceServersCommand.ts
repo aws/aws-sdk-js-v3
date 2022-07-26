@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { DescribeSourceServersRequest, DescribeSourceServersResponse } from "../models/models_0";
+import {
+  DescribeSourceServersRequest,
+  DescribeSourceServersRequestFilterSensitiveLog,
+  DescribeSourceServersResponse,
+  DescribeSourceServersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeSourceServersCommand,
   serializeAws_restJson1DescribeSourceServersCommand,
@@ -72,8 +77,8 @@ export class DescribeSourceServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSourceServersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSourceServersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSourceServersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSourceServersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

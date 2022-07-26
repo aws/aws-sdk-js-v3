@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeKeywordsRequest, DescribeKeywordsResult } from "../models/models_0";
+import {
+  DescribeKeywordsRequest,
+  DescribeKeywordsRequestFilterSensitiveLog,
+  DescribeKeywordsResult,
+  DescribeKeywordsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -83,8 +88,8 @@ export class DescribeKeywordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeKeywordsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeKeywordsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeKeywordsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeKeywordsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

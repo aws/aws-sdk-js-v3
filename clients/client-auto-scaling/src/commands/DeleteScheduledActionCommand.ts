@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DeleteScheduledActionType } from "../models/models_0";
+import { DeleteScheduledActionType, DeleteScheduledActionTypeFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteScheduledActionCommand,
   serializeAws_queryDeleteScheduledActionCommand,
@@ -72,7 +72,7 @@ export class DeleteScheduledActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduledActionType.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteScheduledActionTypeFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

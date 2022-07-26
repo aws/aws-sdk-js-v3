@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateSizeConstraintSetRequest, CreateSizeConstraintSetResponse } from "../models/models_0";
+import {
+  CreateSizeConstraintSetRequest,
+  CreateSizeConstraintSetRequestFilterSensitiveLog,
+  CreateSizeConstraintSetResponse,
+  CreateSizeConstraintSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSizeConstraintSetCommand,
   serializeAws_json1_1CreateSizeConstraintSetCommand,
@@ -103,8 +108,8 @@ export class CreateSizeConstraintSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSizeConstraintSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSizeConstraintSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSizeConstraintSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSizeConstraintSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

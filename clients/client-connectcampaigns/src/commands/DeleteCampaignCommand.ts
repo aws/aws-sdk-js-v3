@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { DeleteCampaignRequest } from "../models/models_0";
+import { DeleteCampaignRequest, DeleteCampaignRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCampaignCommand,
   serializeAws_restJson1DeleteCampaignCommand,
@@ -72,7 +72,7 @@ export class DeleteCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCampaignRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCampaignRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

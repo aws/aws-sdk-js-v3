@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RequestSpotFleetRequest, RequestSpotFleetResponse } from "../models/models_6";
+import {
+  RequestSpotFleetRequest,
+  RequestSpotFleetRequestFilterSensitiveLog,
+  RequestSpotFleetResponse,
+  RequestSpotFleetResponseFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2RequestSpotFleetCommand,
   serializeAws_ec2RequestSpotFleetCommand,
@@ -99,8 +104,8 @@ export class RequestSpotFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestSpotFleetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RequestSpotFleetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RequestSpotFleetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RequestSpotFleetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

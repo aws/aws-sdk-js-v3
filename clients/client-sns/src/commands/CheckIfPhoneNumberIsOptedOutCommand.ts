@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CheckIfPhoneNumberIsOptedOutInput, CheckIfPhoneNumberIsOptedOutResponse } from "../models/models_0";
+import {
+  CheckIfPhoneNumberIsOptedOutInput,
+  CheckIfPhoneNumberIsOptedOutInputFilterSensitiveLog,
+  CheckIfPhoneNumberIsOptedOutResponse,
+  CheckIfPhoneNumberIsOptedOutResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand,
   serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand,
@@ -78,8 +83,8 @@ export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckIfPhoneNumberIsOptedOutInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CheckIfPhoneNumberIsOptedOutResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CheckIfPhoneNumberIsOptedOutInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CheckIfPhoneNumberIsOptedOutResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

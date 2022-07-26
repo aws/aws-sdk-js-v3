@@ -19,7 +19,9 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   CancelReplicationTaskAssessmentRunMessage,
+  CancelReplicationTaskAssessmentRunMessageFilterSensitiveLog,
   CancelReplicationTaskAssessmentRunResponse,
+  CancelReplicationTaskAssessmentRunResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommand,
@@ -84,8 +86,8 @@ export class CancelReplicationTaskAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelReplicationTaskAssessmentRunMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelReplicationTaskAssessmentRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelReplicationTaskAssessmentRunMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelReplicationTaskAssessmentRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

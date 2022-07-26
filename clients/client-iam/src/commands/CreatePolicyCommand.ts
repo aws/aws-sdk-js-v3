@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { CreatePolicyRequest, CreatePolicyResponse } from "../models/models_0";
+import {
+  CreatePolicyRequest,
+  CreatePolicyRequestFilterSensitiveLog,
+  CreatePolicyResponse,
+  CreatePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryCreatePolicyCommand, serializeAws_queryCreatePolicyCommand } from "../protocols/Aws_query";
 
 export interface CreatePolicyCommandInput extends CreatePolicyRequest {}
@@ -79,8 +84,8 @@ export class CreatePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

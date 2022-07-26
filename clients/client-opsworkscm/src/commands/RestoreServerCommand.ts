@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RestoreServerRequest, RestoreServerResponse } from "../models/models_0";
+import {
+  RestoreServerRequest,
+  RestoreServerRequestFilterSensitiveLog,
+  RestoreServerResponse,
+  RestoreServerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1RestoreServerCommand,
@@ -86,8 +91,8 @@ export class RestoreServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreServerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RestoreServerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreServerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RestoreServerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

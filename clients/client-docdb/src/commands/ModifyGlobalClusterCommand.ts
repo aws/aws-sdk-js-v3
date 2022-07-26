@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { ModifyGlobalClusterMessage, ModifyGlobalClusterResult } from "../models/models_0";
+import {
+  ModifyGlobalClusterMessage,
+  ModifyGlobalClusterMessageFilterSensitiveLog,
+  ModifyGlobalClusterResult,
+  ModifyGlobalClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryModifyGlobalClusterCommand,
   serializeAws_queryModifyGlobalClusterCommand,
@@ -75,8 +80,8 @@ export class ModifyGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyGlobalClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyGlobalClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyGlobalClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyGlobalClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

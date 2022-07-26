@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { SetV2LoggingLevelRequest } from "../models/models_2";
+import { SetV2LoggingLevelRequest, SetV2LoggingLevelRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_restJson1SetV2LoggingLevelCommand,
   serializeAws_restJson1SetV2LoggingLevelCommand,
@@ -73,7 +73,7 @@ export class SetV2LoggingLevelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetV2LoggingLevelRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: SetV2LoggingLevelRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

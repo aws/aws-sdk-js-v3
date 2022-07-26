@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { ListPublicKeysRequest, ListPublicKeysResponse } from "../models/models_0";
+import {
+  ListPublicKeysRequest,
+  ListPublicKeysRequestFilterSensitiveLog,
+  ListPublicKeysResponse,
+  ListPublicKeysResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListPublicKeysCommand,
   serializeAws_json1_1ListPublicKeysCommand,
@@ -77,8 +82,8 @@ export class ListPublicKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPublicKeysRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPublicKeysResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPublicKeysRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPublicKeysResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

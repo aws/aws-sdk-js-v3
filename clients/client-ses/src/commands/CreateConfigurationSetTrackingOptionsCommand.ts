@@ -14,7 +14,9 @@ import {
 
 import {
   CreateConfigurationSetTrackingOptionsRequest,
+  CreateConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
   CreateConfigurationSetTrackingOptionsResponse,
+  CreateConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryCreateConfigurationSetTrackingOptionsCommand,
@@ -82,8 +84,8 @@ export class CreateConfigurationSetTrackingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfigurationSetTrackingOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfigurationSetTrackingOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

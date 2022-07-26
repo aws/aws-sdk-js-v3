@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DeleteMetricStreamInput, DeleteMetricStreamOutput } from "../models/models_0";
+import {
+  DeleteMetricStreamInput,
+  DeleteMetricStreamInputFilterSensitiveLog,
+  DeleteMetricStreamOutput,
+  DeleteMetricStreamOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteMetricStreamCommand,
   serializeAws_queryDeleteMetricStreamCommand,
@@ -72,8 +77,8 @@ export class DeleteMetricStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMetricStreamInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMetricStreamOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMetricStreamInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMetricStreamOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

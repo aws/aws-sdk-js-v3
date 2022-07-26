@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { ListScramSecretsRequest, ListScramSecretsResponse } from "../models/models_0";
+import {
+  ListScramSecretsRequest,
+  ListScramSecretsRequestFilterSensitiveLog,
+  ListScramSecretsResponse,
+  ListScramSecretsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListScramSecretsCommand,
   serializeAws_restJson1ListScramSecretsCommand,
@@ -72,8 +77,8 @@ export class ListScramSecretsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListScramSecretsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListScramSecretsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListScramSecretsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListScramSecretsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

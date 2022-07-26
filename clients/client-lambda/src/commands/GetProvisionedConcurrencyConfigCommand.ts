@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { GetProvisionedConcurrencyConfigRequest, GetProvisionedConcurrencyConfigResponse } from "../models/models_0";
+import {
+  GetProvisionedConcurrencyConfigRequest,
+  GetProvisionedConcurrencyConfigRequestFilterSensitiveLog,
+  GetProvisionedConcurrencyConfigResponse,
+  GetProvisionedConcurrencyConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand,
   serializeAws_restJson1GetProvisionedConcurrencyConfigCommand,
@@ -74,8 +79,8 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProvisionedConcurrencyConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetProvisionedConcurrencyConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetProvisionedConcurrencyConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetProvisionedConcurrencyConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

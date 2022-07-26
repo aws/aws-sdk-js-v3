@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { BatchUpdateScheduleRequest, BatchUpdateScheduleResponse } from "../models/models_1";
+import {
+  BatchUpdateScheduleRequest,
+  BatchUpdateScheduleRequestFilterSensitiveLog,
+  BatchUpdateScheduleResponse,
+  BatchUpdateScheduleResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1BatchUpdateScheduleCommand,
   serializeAws_restJson1BatchUpdateScheduleCommand,
@@ -72,8 +77,8 @@ export class BatchUpdateScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateScheduleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateScheduleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchUpdateScheduleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchUpdateScheduleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

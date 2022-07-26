@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { UpdateExperimentRequest, UpdateExperimentResponse } from "../models/models_0";
+import {
+  UpdateExperimentRequest,
+  UpdateExperimentRequestFilterSensitiveLog,
+  UpdateExperimentResponse,
+  UpdateExperimentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateExperimentCommand,
   serializeAws_restJson1UpdateExperimentCommand,
@@ -74,8 +79,8 @@ export class UpdateExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExperimentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateExperimentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateExperimentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateExperimentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

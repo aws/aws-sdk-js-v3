@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ScalingProcessQuery } from "../models/models_0";
+import { ScalingProcessQuery, ScalingProcessQueryFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryResumeProcessesCommand,
   serializeAws_queryResumeProcessesCommand,
@@ -75,7 +75,7 @@ export class ResumeProcessesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalingProcessQuery.filterSensitiveLog,
+      inputFilterSensitiveLog: ScalingProcessQueryFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

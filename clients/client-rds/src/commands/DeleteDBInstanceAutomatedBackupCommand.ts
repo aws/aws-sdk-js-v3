@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDBInstanceAutomatedBackupMessage, DeleteDBInstanceAutomatedBackupResult } from "../models/models_0";
+import {
+  DeleteDBInstanceAutomatedBackupMessage,
+  DeleteDBInstanceAutomatedBackupMessageFilterSensitiveLog,
+  DeleteDBInstanceAutomatedBackupResult,
+  DeleteDBInstanceAutomatedBackupResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBInstanceAutomatedBackupCommand,
   serializeAws_queryDeleteDBInstanceAutomatedBackupCommand,
@@ -74,8 +79,8 @@ export class DeleteDBInstanceAutomatedBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBInstanceAutomatedBackupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBInstanceAutomatedBackupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDBInstanceAutomatedBackupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDBInstanceAutomatedBackupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

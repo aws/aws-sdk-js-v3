@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateDRTRoleRequest, DisassociateDRTRoleResponse } from "../models/models_0";
+import {
+  DisassociateDRTRoleRequest,
+  DisassociateDRTRoleRequestFilterSensitiveLog,
+  DisassociateDRTRoleResponse,
+  DisassociateDRTRoleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateDRTRoleCommand,
   serializeAws_json1_1DisassociateDRTRoleCommand,
@@ -72,8 +77,8 @@ export class DisassociateDRTRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDRTRoleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDRTRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateDRTRoleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateDRTRoleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

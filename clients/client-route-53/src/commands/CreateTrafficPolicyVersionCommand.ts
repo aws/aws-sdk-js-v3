@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTrafficPolicyVersionRequest, CreateTrafficPolicyVersionResponse } from "../models/models_0";
+import {
+  CreateTrafficPolicyVersionRequest,
+  CreateTrafficPolicyVersionRequestFilterSensitiveLog,
+  CreateTrafficPolicyVersionResponse,
+  CreateTrafficPolicyVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlCreateTrafficPolicyVersionCommand,
   serializeAws_restXmlCreateTrafficPolicyVersionCommand,
@@ -80,8 +85,8 @@ export class CreateTrafficPolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTrafficPolicyVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTrafficPolicyVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTrafficPolicyVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTrafficPolicyVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

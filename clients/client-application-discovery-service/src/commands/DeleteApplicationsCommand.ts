@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { DeleteApplicationsRequest, DeleteApplicationsResponse } from "../models/models_0";
+import {
+  DeleteApplicationsRequest,
+  DeleteApplicationsRequestFilterSensitiveLog,
+  DeleteApplicationsResponse,
+  DeleteApplicationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationsCommand,
   serializeAws_json1_1DeleteApplicationsCommand,
@@ -77,8 +82,8 @@ export class DeleteApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApplicationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApplicationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

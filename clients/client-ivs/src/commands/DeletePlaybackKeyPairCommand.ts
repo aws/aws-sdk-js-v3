@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { DeletePlaybackKeyPairRequest, DeletePlaybackKeyPairResponse } from "../models/models_0";
+import {
+  DeletePlaybackKeyPairRequest,
+  DeletePlaybackKeyPairRequestFilterSensitiveLog,
+  DeletePlaybackKeyPairResponse,
+  DeletePlaybackKeyPairResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePlaybackKeyPairCommand,
   serializeAws_restJson1DeletePlaybackKeyPairCommand,
@@ -74,8 +79,8 @@ export class DeletePlaybackKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePlaybackKeyPairRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePlaybackKeyPairResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePlaybackKeyPairRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePlaybackKeyPairResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

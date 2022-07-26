@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateReplaceRootVolumeTaskRequest, CreateReplaceRootVolumeTaskResult } from "../models/models_1";
+import {
+  CreateReplaceRootVolumeTaskRequest,
+  CreateReplaceRootVolumeTaskRequestFilterSensitiveLog,
+  CreateReplaceRootVolumeTaskResult,
+  CreateReplaceRootVolumeTaskResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateReplaceRootVolumeTaskCommand,
   serializeAws_ec2CreateReplaceRootVolumeTaskCommand,
@@ -76,8 +81,8 @@ export class CreateReplaceRootVolumeTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateReplaceRootVolumeTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateReplaceRootVolumeTaskResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateReplaceRootVolumeTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateReplaceRootVolumeTaskResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeOptionGroupOptionsMessage, OptionGroupOptionsMessage } from "../models/models_1";
+import {
+  DescribeOptionGroupOptionsMessage,
+  DescribeOptionGroupOptionsMessageFilterSensitiveLog,
+  OptionGroupOptionsMessage,
+  OptionGroupOptionsMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDescribeOptionGroupOptionsCommand,
   serializeAws_queryDescribeOptionGroupOptionsCommand,
@@ -72,8 +77,8 @@ export class DescribeOptionGroupOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOptionGroupOptionsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: OptionGroupOptionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeOptionGroupOptionsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: OptionGroupOptionsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

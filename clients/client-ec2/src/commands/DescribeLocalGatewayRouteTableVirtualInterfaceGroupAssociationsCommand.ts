@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
+  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestFilterSensitiveLog,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
+  DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
@@ -81,10 +83,8 @@ export class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog:
-        DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog:
-        DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

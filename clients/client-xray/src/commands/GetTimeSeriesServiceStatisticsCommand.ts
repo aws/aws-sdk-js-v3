@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult } from "../models/models_0";
+import {
+  GetTimeSeriesServiceStatisticsRequest,
+  GetTimeSeriesServiceStatisticsRequestFilterSensitiveLog,
+  GetTimeSeriesServiceStatisticsResult,
+  GetTimeSeriesServiceStatisticsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,
   serializeAws_restJson1GetTimeSeriesServiceStatisticsCommand,
@@ -75,8 +80,8 @@ export class GetTimeSeriesServiceStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTimeSeriesServiceStatisticsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTimeSeriesServiceStatisticsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTimeSeriesServiceStatisticsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTimeSeriesServiceStatisticsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

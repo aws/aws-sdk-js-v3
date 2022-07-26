@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { DeleteLagRequest, Lag } from "../models/models_0";
+import { DeleteLagRequest, DeleteLagRequestFilterSensitiveLog, Lag, LagFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1DeleteLagCommand, serializeAws_json1_1DeleteLagCommand } from "../protocols/Aws_json1_1";
 
 export interface DeleteLagCommandInput extends DeleteLagRequest {}
@@ -70,8 +70,8 @@ export class DeleteLagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLagRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Lag.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLagRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: LagFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

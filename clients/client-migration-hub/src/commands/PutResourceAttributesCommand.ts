@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { PutResourceAttributesRequest, PutResourceAttributesResult } from "../models/models_0";
+import {
+  PutResourceAttributesRequest,
+  PutResourceAttributesRequestFilterSensitiveLog,
+  PutResourceAttributesResult,
+  PutResourceAttributesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutResourceAttributesCommand,
   serializeAws_json1_1PutResourceAttributesCommand,
@@ -97,8 +102,8 @@ export class PutResourceAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourceAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutResourceAttributesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutResourceAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutResourceAttributesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

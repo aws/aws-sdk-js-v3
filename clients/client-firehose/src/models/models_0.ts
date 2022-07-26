@@ -8,15 +8,6 @@ export interface AmazonopensearchserviceBufferingHints {
   SizeInMBs?: number;
 }
 
-export namespace AmazonopensearchserviceBufferingHints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmazonopensearchserviceBufferingHints): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
  */
@@ -37,15 +28,6 @@ export interface CloudWatchLoggingOptions {
    *          logging is enabled.</p>
    */
   LogStreamName?: string;
-}
-
-export namespace CloudWatchLoggingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLoggingOptions): any => ({
-    ...obj,
-  });
 }
 
 export enum AmazonopensearchserviceIndexRotationPeriod {
@@ -83,15 +65,6 @@ export interface ProcessorParameter {
   ParameterValue: string | undefined;
 }
 
-export namespace ProcessorParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessorParameter): any => ({
-    ...obj,
-  });
-}
-
 export type ProcessorType = "AppendDelimiterToRecord" | "Lambda" | "MetadataExtraction" | "RecordDeAggregation";
 
 /**
@@ -109,15 +82,6 @@ export interface Processor {
   Parameters?: ProcessorParameter[];
 }
 
-export namespace Processor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Processor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a data processing configuration.</p>
  */
@@ -133,26 +97,8 @@ export interface ProcessingConfiguration {
   Processors?: Processor[];
 }
 
-export namespace ProcessingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface AmazonopensearchserviceRetryOptions {
   DurationInSeconds?: number;
-}
-
-export namespace AmazonopensearchserviceRetryOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmazonopensearchserviceRetryOptions): any => ({
-    ...obj,
-  });
 }
 
 export enum AmazonopensearchserviceS3BackupMode {
@@ -188,15 +134,6 @@ export interface BufferingHints {
   IntervalInSeconds?: number;
 }
 
-export namespace BufferingHints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BufferingHints): any => ({
-    ...obj,
-  });
-}
-
 export enum CompressionFormat {
   GZIP = "GZIP",
   HADOOP_SNAPPY = "HADOOP_SNAPPY",
@@ -217,15 +154,6 @@ export interface KMSEncryptionConfig {
   AWSKMSKeyARN: string | undefined;
 }
 
-export namespace KMSEncryptionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSEncryptionConfig): any => ({
-    ...obj,
-  });
-}
-
 export type NoEncryptionConfig = "NoEncryption";
 
 /**
@@ -242,15 +170,6 @@ export interface EncryptionConfiguration {
    * <p>The encryption key.</p>
    */
   KMSEncryptionConfig?: KMSEncryptionConfig;
-}
-
-export namespace EncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -310,15 +229,6 @@ export interface S3DestinationConfiguration {
    * <p>The CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
-}
-
-export namespace S3DestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -409,15 +319,6 @@ export interface VpcConfiguration {
   SecurityGroupIds: string[] | undefined;
 }
 
-export namespace VpcConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface AmazonopensearchserviceDestinationConfiguration {
   RoleARN: string | undefined;
   DomainARN?: string;
@@ -447,15 +348,6 @@ export interface AmazonopensearchserviceDestinationConfiguration {
    * <p>The details of the VPC of the Amazon ES destination.</p>
    */
   VpcConfiguration?: VpcConfiguration;
-}
-
-export namespace AmazonopensearchserviceDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmazonopensearchserviceDestinationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -512,15 +404,6 @@ export interface S3DestinationDescription {
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
-}
-
-export namespace S3DestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -615,15 +498,6 @@ export interface VpcConfigurationDescription {
   VpcId: string | undefined;
 }
 
-export namespace VpcConfigurationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfigurationDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface AmazonopensearchserviceDestinationDescription {
   RoleARN?: string;
   DomainARN?: string;
@@ -653,15 +527,6 @@ export interface AmazonopensearchserviceDestinationDescription {
    * <p>The details of the VPC of the Amazon ES destination.</p>
    */
   VpcConfigurationDescription?: VpcConfigurationDescription;
-}
-
-export namespace AmazonopensearchserviceDestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmazonopensearchserviceDestinationDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -723,15 +588,6 @@ export interface S3DestinationUpdate {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 }
 
-export namespace S3DestinationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface AmazonopensearchserviceDestinationUpdate {
   RoleARN?: string;
   DomainARN?: string;
@@ -755,15 +611,6 @@ export interface AmazonopensearchserviceDestinationUpdate {
    * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
-}
-
-export namespace AmazonopensearchserviceDestinationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmazonopensearchserviceDestinationUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -830,15 +677,6 @@ export interface CopyCommand {
   CopyOptions?: string;
 }
 
-export namespace CopyCommand {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyCommand): any => ({
-    ...obj,
-  });
-}
-
 export enum KeyType {
   AWS_OWNED_CMK = "AWS_OWNED_CMK",
   CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK",
@@ -881,15 +719,6 @@ export interface DeliveryStreamEncryptionConfigurationInput {
   KeyType: KeyType | string | undefined;
 }
 
-export namespace DeliveryStreamEncryptionConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliveryStreamEncryptionConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 export type DeliveryStreamType = "DirectPut" | "KinesisStreamAsSource";
 
 /**
@@ -913,15 +742,6 @@ export interface ElasticsearchBufferingHints {
   SizeInMBs?: number;
 }
 
-export namespace ElasticsearchBufferingHints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchBufferingHints): any => ({
-    ...obj,
-  });
-}
-
 export type ElasticsearchIndexRotationPeriod = "NoRotation" | "OneDay" | "OneHour" | "OneMonth" | "OneWeek";
 
 /**
@@ -936,15 +756,6 @@ export interface ElasticsearchRetryOptions {
    *          minutes). A value of 0 (zero) results in no retries.</p>
    */
   DurationInSeconds?: number;
-}
-
-export namespace ElasticsearchRetryOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchRetryOptions): any => ({
-    ...obj,
-  });
 }
 
 export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly";
@@ -1048,15 +859,6 @@ export interface ElasticsearchDestinationConfiguration {
   VpcConfiguration?: VpcConfiguration;
 }
 
-export namespace ElasticsearchDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchDestinationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing
  *          data, which means converting it from the JSON format in preparation for serializing it to
@@ -1072,15 +874,6 @@ export interface HiveJsonSerDe {
    *          Firehose uses <code>java.sql.Timestamp::valueOf</code> by default.</p>
    */
   TimestampFormats?: string[];
-}
-
-export namespace HiveJsonSerDe {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HiveJsonSerDe): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1116,15 +909,6 @@ export interface OpenXJsonSerDe {
   ColumnToJsonKeyMappings?: Record<string, string>;
 }
 
-export namespace OpenXJsonSerDe {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenXJsonSerDe): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The deserializer you want Kinesis Data Firehose to use for converting the input data
  *          from JSON. Kinesis Data Firehose then serializes the data to its final format using the
@@ -1149,15 +933,6 @@ export interface Deserializer {
   HiveJsonSerDe?: HiveJsonSerDe;
 }
 
-export namespace Deserializer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deserializer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the deserializer you want to use to convert the format of the input data.
  *          This parameter is required if <code>Enabled</code> is set to true.</p>
@@ -1168,15 +943,6 @@ export interface InputFormatConfiguration {
    *          or the OpenX JSON SerDe. If both are non-null, the server rejects the request.</p>
    */
   Deserializer?: Deserializer;
-}
-
-export namespace InputFormatConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputFormatConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum OrcCompression {
@@ -1266,15 +1032,6 @@ export interface OrcSerDe {
   FormatVersion?: OrcFormatVersion | string;
 }
 
-export namespace OrcSerDe {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrcSerDe): any => ({
-    ...obj,
-  });
-}
-
 export enum ParquetCompression {
   GZIP = "GZIP",
   SNAPPY = "SNAPPY",
@@ -1331,15 +1088,6 @@ export interface ParquetSerDe {
   WriterVersion?: ParquetWriterVersion | string;
 }
 
-export namespace ParquetSerDe {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParquetSerDe): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The serializer that you want Kinesis Data Firehose to use to convert data to the target
  *          format before writing it to Amazon S3. Kinesis Data Firehose supports two types of
@@ -1360,15 +1108,6 @@ export interface Serializer {
   OrcSerDe?: OrcSerDe;
 }
 
-export namespace Serializer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Serializer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the serializer that you want Kinesis Data Firehose to use to convert the
  *          format of your data before it writes it to Amazon S3. This parameter is required if
@@ -1380,15 +1119,6 @@ export interface OutputFormatConfiguration {
    *          SerDe. If both are non-null, the server rejects the request.</p>
    */
   Serializer?: Serializer;
-}
-
-export namespace OutputFormatConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputFormatConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1451,15 +1181,6 @@ export interface SchemaConfiguration {
   VersionId?: string;
 }
 
-export namespace SchemaConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies that you want Kinesis Data Firehose to convert data from the JSON format to
  *          the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the
@@ -1496,15 +1217,6 @@ export interface DataFormatConversionConfiguration {
   Enabled?: boolean;
 }
 
-export namespace DataFormatConversionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataFormatConversionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon
  *          S3 prefix.</p>
@@ -1515,15 +1227,6 @@ export interface RetryOptions {
    *          specified Amazon S3 prefix.</p>
    */
   DurationInSeconds?: number;
-}
-
-export namespace RetryOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1544,15 +1247,6 @@ export interface DynamicPartitioningConfiguration {
    *          delivery stream.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace DynamicPartitioningConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DynamicPartitioningConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export type S3BackupMode = "Disabled" | "Enabled";
@@ -1643,15 +1337,6 @@ export interface ExtendedS3DestinationConfiguration {
   DynamicPartitioningConfiguration?: DynamicPartitioningConfiguration;
 }
 
-export namespace ExtendedS3DestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtendedS3DestinationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the buffering options that can be applied before data is delivered to the HTTP
  *          endpoint destination. Kinesis Data Firehose treats these options as hints, and it might
@@ -1674,15 +1359,6 @@ export interface HttpEndpointBufferingHints {
    *          to the destination. The default value is 300 (5 minutes). </p>
    */
   IntervalInSeconds?: number;
-}
-
-export namespace HttpEndpointBufferingHints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpEndpointBufferingHints): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1712,17 +1388,6 @@ export interface HttpEndpointConfiguration {
   AccessKey?: string;
 }
 
-export namespace HttpEndpointConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpEndpointConfiguration): any => ({
-    ...obj,
-    ...(obj.Url && { Url: SENSITIVE_STRING }),
-    ...(obj.AccessKey && { AccessKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Describes the metadata that's delivered to the specified HTTP endpoint
  *          destination.</p>
@@ -1737,17 +1402,6 @@ export interface HttpEndpointCommonAttribute {
    * <p>The value of the HTTP endpoint common attribute.</p>
    */
   AttributeValue: string | undefined;
-}
-
-export namespace HttpEndpointCommonAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpEndpointCommonAttribute): any => ({
-    ...obj,
-    ...(obj.AttributeName && { AttributeName: SENSITIVE_STRING }),
-    ...(obj.AttributeValue && { AttributeValue: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1766,18 +1420,6 @@ export interface HttpEndpointRequestConfiguration {
   CommonAttributes?: HttpEndpointCommonAttribute[];
 }
 
-export namespace HttpEndpointRequestConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpEndpointRequestConfiguration): any => ({
-    ...obj,
-    ...(obj.CommonAttributes && {
-      CommonAttributes: obj.CommonAttributes.map((item) => HttpEndpointCommonAttribute.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to
  *          the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of
@@ -1791,15 +1433,6 @@ export interface HttpEndpointRetryOptions {
    *          acknowledgment from the specified destination after each attempt. </p>
    */
   DurationInSeconds?: number;
-}
-
-export namespace HttpEndpointRetryOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpEndpointRetryOptions): any => ({
-    ...obj,
-  });
 }
 
 export type HttpEndpointS3BackupMode = "AllData" | "FailedDataOnly";
@@ -1865,21 +1498,6 @@ export interface HttpEndpointDestinationConfiguration {
   S3Configuration: S3DestinationConfiguration | undefined;
 }
 
-export namespace HttpEndpointDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpEndpointDestinationConfiguration): any => ({
-    ...obj,
-    ...(obj.EndpointConfiguration && {
-      EndpointConfiguration: HttpEndpointConfiguration.filterSensitiveLog(obj.EndpointConfiguration),
-    }),
-    ...(obj.RequestConfiguration && {
-      RequestConfiguration: HttpEndpointRequestConfiguration.filterSensitiveLog(obj.RequestConfiguration),
-    }),
-  });
-}
-
 /**
  * <p>The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as
  *          the source for a delivery stream.</p>
@@ -1899,15 +1517,6 @@ export interface KinesisStreamSourceConfiguration {
   RoleARN: string | undefined;
 }
 
-export namespace KinesisStreamSourceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamSourceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver
  *          documents to Amazon Redshift.</p>
@@ -1921,15 +1530,6 @@ export interface RedshiftRetryOptions {
    *          than the current value.</p>
    */
   DurationInSeconds?: number;
-}
-
-export namespace RedshiftRetryOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftRetryOptions): any => ({
-    ...obj,
-  });
 }
 
 export type RedshiftS3BackupMode = "Disabled" | "Enabled";
@@ -2004,17 +1604,6 @@ export interface RedshiftDestinationConfiguration {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 }
 
-export namespace RedshiftDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftDestinationConfiguration): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 export type HECEndpointType = "Event" | "Raw";
 
 /**
@@ -2029,15 +1618,6 @@ export interface SplunkRetryOptions {
    *          attempt.</p>
    */
   DurationInSeconds?: number;
-}
-
-export namespace SplunkRetryOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SplunkRetryOptions): any => ({
-    ...obj,
-  });
 }
 
 export type SplunkS3BackupMode = "AllEvents" | "FailedEventsOnly";
@@ -2105,15 +1685,6 @@ export interface SplunkDestinationConfiguration {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 }
 
-export namespace SplunkDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SplunkDestinationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metadata that you can assign to a delivery stream, consisting of a key-value
  *          pair.</p>
@@ -2131,15 +1702,6 @@ export interface Tag {
    *          @</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDeliveryStreamInput {
@@ -2227,39 +1789,11 @@ export interface CreateDeliveryStreamInput {
   Tags?: Tag[];
 }
 
-export namespace CreateDeliveryStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeliveryStreamInput): any => ({
-    ...obj,
-    ...(obj.RedshiftDestinationConfiguration && {
-      RedshiftDestinationConfiguration: RedshiftDestinationConfiguration.filterSensitiveLog(
-        obj.RedshiftDestinationConfiguration
-      ),
-    }),
-    ...(obj.HttpEndpointDestinationConfiguration && {
-      HttpEndpointDestinationConfiguration: HttpEndpointDestinationConfiguration.filterSensitiveLog(
-        obj.HttpEndpointDestinationConfiguration
-      ),
-    }),
-  });
-}
-
 export interface CreateDeliveryStreamOutput {
   /**
    * <p>The ARN of the delivery stream.</p>
    */
   DeliveryStreamARN?: string;
-}
-
-export namespace CreateDeliveryStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeliveryStreamOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2363,25 +1897,7 @@ export interface DeleteDeliveryStreamInput {
   AllowForceDelete?: boolean;
 }
 
-export namespace DeleteDeliveryStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeliveryStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDeliveryStreamOutput {}
-
-export namespace DeleteDeliveryStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeliveryStreamOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified resource could not be found.</p>
@@ -2437,15 +1953,6 @@ export interface FailureDescription {
   Details: string | undefined;
 }
 
-export namespace FailureDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailureDescription): any => ({
-    ...obj,
-  });
-}
-
 export enum DeliveryStreamEncryptionStatus {
   DISABLED = "DISABLED",
   DISABLING = "DISABLING",
@@ -2490,15 +1997,6 @@ export interface DeliveryStreamEncryptionConfiguration {
    *             <a>StartDeliveryStreamEncryption</a>, <a>StopDeliveryStreamEncryption</a>.</p>
    */
   FailureDescription?: FailureDescription;
-}
-
-export namespace DeliveryStreamEncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliveryStreamEncryptionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum DeliveryStreamStatus {
@@ -2588,15 +2086,6 @@ export interface ElasticsearchDestinationDescription {
   VpcConfigurationDescription?: VpcConfigurationDescription;
 }
 
-export namespace ElasticsearchDestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchDestinationDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a destination in Amazon S3.</p>
  */
@@ -2681,15 +2170,6 @@ export interface ExtendedS3DestinationDescription {
   DynamicPartitioningConfiguration?: DynamicPartitioningConfiguration;
 }
 
-export namespace ExtendedS3DestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtendedS3DestinationDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the HTTP endpoint selected as the destination. </p>
  */
@@ -2703,16 +2183,6 @@ export interface HttpEndpointDescription {
    * <p>The name of the HTTP endpoint selected as the destination.</p>
    */
   Name?: string;
-}
-
-export namespace HttpEndpointDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpEndpointDescription): any => ({
-    ...obj,
-    ...(obj.Url && { Url: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2776,21 +2246,6 @@ export interface HttpEndpointDestinationDescription {
   S3DestinationDescription?: S3DestinationDescription;
 }
 
-export namespace HttpEndpointDestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpEndpointDestinationDescription): any => ({
-    ...obj,
-    ...(obj.EndpointConfiguration && {
-      EndpointConfiguration: HttpEndpointDescription.filterSensitiveLog(obj.EndpointConfiguration),
-    }),
-    ...(obj.RequestConfiguration && {
-      RequestConfiguration: HttpEndpointRequestConfiguration.filterSensitiveLog(obj.RequestConfiguration),
-    }),
-  });
-}
-
 /**
  * <p>Describes a destination in Amazon Redshift.</p>
  */
@@ -2847,16 +2302,6 @@ export interface RedshiftDestinationDescription {
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
-}
-
-export namespace RedshiftDestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftDestinationDescription): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2919,15 +2364,6 @@ export interface SplunkDestinationDescription {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 }
 
-export namespace SplunkDestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SplunkDestinationDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the destination for a delivery stream.</p>
  */
@@ -2969,25 +2405,6 @@ export interface DestinationDescription {
   HttpEndpointDestinationDescription?: HttpEndpointDestinationDescription;
 }
 
-export namespace DestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationDescription): any => ({
-    ...obj,
-    ...(obj.RedshiftDestinationDescription && {
-      RedshiftDestinationDescription: RedshiftDestinationDescription.filterSensitiveLog(
-        obj.RedshiftDestinationDescription
-      ),
-    }),
-    ...(obj.HttpEndpointDestinationDescription && {
-      HttpEndpointDestinationDescription: HttpEndpointDestinationDescription.filterSensitiveLog(
-        obj.HttpEndpointDestinationDescription
-      ),
-    }),
-  });
-}
-
 /**
  * <p>Details about a Kinesis data stream used as the source for a Kinesis Data Firehose
  *          delivery stream.</p>
@@ -3014,15 +2431,6 @@ export interface KinesisStreamSourceDescription {
   DeliveryStartTimestamp?: Date;
 }
 
-export namespace KinesisStreamSourceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisStreamSourceDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a Kinesis data stream used as the source for a Kinesis Data Firehose
  *          delivery stream.</p>
@@ -3033,15 +2441,6 @@ export interface SourceDescription {
    *          data stream.</p>
    */
   KinesisStreamSourceDescription?: KinesisStreamSourceDescription;
-}
-
-export namespace SourceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3132,18 +2531,6 @@ export interface DeliveryStreamDescription {
   HasMoreDestinations: boolean | undefined;
 }
 
-export namespace DeliveryStreamDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliveryStreamDescription): any => ({
-    ...obj,
-    ...(obj.Destinations && {
-      Destinations: obj.Destinations.map((item) => DestinationDescription.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 export interface DescribeDeliveryStreamInput {
   /**
    * <p>The name of the delivery stream.</p>
@@ -3163,32 +2550,11 @@ export interface DescribeDeliveryStreamInput {
   ExclusiveStartDestinationId?: string;
 }
 
-export namespace DescribeDeliveryStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeliveryStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDeliveryStreamOutput {
   /**
    * <p>Information about the delivery stream.</p>
    */
   DeliveryStreamDescription: DeliveryStreamDescription | undefined;
-}
-
-export namespace DescribeDeliveryStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeliveryStreamOutput): any => ({
-    ...obj,
-    ...(obj.DeliveryStreamDescription && {
-      DeliveryStreamDescription: DeliveryStreamDescription.filterSensitiveLog(obj.DeliveryStreamDescription),
-    }),
-  });
 }
 
 /**
@@ -3272,15 +2638,6 @@ export interface ElasticsearchDestinationUpdate {
    * <p>The CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
-}
-
-export namespace ElasticsearchDestinationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchDestinationUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3368,15 +2725,6 @@ export interface ExtendedS3DestinationUpdate {
   DynamicPartitioningConfiguration?: DynamicPartitioningConfiguration;
 }
 
-export namespace ExtendedS3DestinationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtendedS3DestinationUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeliveryStreamsInput {
   /**
    * <p>The maximum number of delivery streams to list. The default value is 10.</p>
@@ -3411,15 +2759,6 @@ export interface ListDeliveryStreamsInput {
   ExclusiveStartDeliveryStreamName?: string;
 }
 
-export namespace ListDeliveryStreamsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeliveryStreamsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeliveryStreamsOutput {
   /**
    * <p>The names of the delivery streams.</p>
@@ -3430,15 +2769,6 @@ export interface ListDeliveryStreamsOutput {
    * <p>Indicates whether there are more delivery streams available to list.</p>
    */
   HasMoreDeliveryStreams: boolean | undefined;
-}
-
-export namespace ListDeliveryStreamsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeliveryStreamsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForDeliveryStreamInput {
@@ -3463,15 +2793,6 @@ export interface ListTagsForDeliveryStreamInput {
   Limit?: number;
 }
 
-export namespace ListTagsForDeliveryStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForDeliveryStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForDeliveryStreamOutput {
   /**
    * <p>A list of tags associated with <code>DeliveryStreamName</code>, starting with the
@@ -3488,15 +2809,6 @@ export interface ListTagsForDeliveryStreamOutput {
   HasMoreTags: boolean | undefined;
 }
 
-export namespace ListTagsForDeliveryStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForDeliveryStreamOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The unit of data in a delivery stream.</p>
  */
@@ -3506,15 +2818,6 @@ export interface _Record {
    *          of the data blob, before base64-encoding, is 1,000 KiB.</p>
    */
   Data: Uint8Array | undefined;
-}
-
-export namespace _Record {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj,
-  });
 }
 
 export interface PutRecordInput {
@@ -3529,15 +2832,6 @@ export interface PutRecordInput {
   Record: _Record | undefined;
 }
 
-export namespace PutRecordInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRecordInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRecordOutput {
   /**
    * <p>The ID of the record.</p>
@@ -3548,15 +2842,6 @@ export interface PutRecordOutput {
    * <p>Indicates whether server-side encryption (SSE) was enabled during this operation.</p>
    */
   Encrypted?: boolean;
-}
-
-export namespace PutRecordOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRecordOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3593,15 +2878,6 @@ export interface PutRecordBatchInput {
   Records: _Record[] | undefined;
 }
 
-export namespace PutRecordBatchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRecordBatchInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the result for an individual record from a <a>PutRecordBatch</a>
  *          request. If the record is successfully added to your delivery stream, it receives a record
@@ -3625,15 +2901,6 @@ export interface PutRecordBatchResponseEntry {
   ErrorMessage?: string;
 }
 
-export namespace PutRecordBatchResponseEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRecordBatchResponseEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRecordBatchOutput {
   /**
    * <p>The number of records that might have failed processing. This number might be greater
@@ -3655,15 +2922,6 @@ export interface PutRecordBatchOutput {
   RequestResponses: PutRecordBatchResponseEntry[] | undefined;
 }
 
-export namespace PutRecordBatchOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRecordBatchOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDeliveryStreamEncryptionInput {
   /**
    * <p>The name of the delivery stream for which you want to enable server-side encryption
@@ -3678,25 +2936,7 @@ export interface StartDeliveryStreamEncryptionInput {
   DeliveryStreamEncryptionConfigurationInput?: DeliveryStreamEncryptionConfigurationInput;
 }
 
-export namespace StartDeliveryStreamEncryptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeliveryStreamEncryptionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDeliveryStreamEncryptionOutput {}
-
-export namespace StartDeliveryStreamEncryptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDeliveryStreamEncryptionOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface StopDeliveryStreamEncryptionInput {
   /**
@@ -3706,25 +2946,7 @@ export interface StopDeliveryStreamEncryptionInput {
   DeliveryStreamName: string | undefined;
 }
 
-export namespace StopDeliveryStreamEncryptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDeliveryStreamEncryptionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StopDeliveryStreamEncryptionOutput {}
-
-export namespace StopDeliveryStreamEncryptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDeliveryStreamEncryptionOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface TagDeliveryStreamInput {
   /**
@@ -3738,25 +2960,7 @@ export interface TagDeliveryStreamInput {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagDeliveryStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagDeliveryStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagDeliveryStreamOutput {}
-
-export namespace TagDeliveryStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagDeliveryStreamOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagDeliveryStreamInput {
   /**
@@ -3771,25 +2975,7 @@ export interface UntagDeliveryStreamInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagDeliveryStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagDeliveryStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagDeliveryStreamOutput {}
-
-export namespace UntagDeliveryStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagDeliveryStreamOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Updates the specified HTTP endpoint destination.</p>
@@ -3850,21 +3036,6 @@ export interface HttpEndpointDestinationUpdate {
    * <p>Describes an update for a destination in Amazon S3.</p>
    */
   S3Update?: S3DestinationUpdate;
-}
-
-export namespace HttpEndpointDestinationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpEndpointDestinationUpdate): any => ({
-    ...obj,
-    ...(obj.EndpointConfiguration && {
-      EndpointConfiguration: HttpEndpointConfiguration.filterSensitiveLog(obj.EndpointConfiguration),
-    }),
-    ...(obj.RequestConfiguration && {
-      RequestConfiguration: HttpEndpointRequestConfiguration.filterSensitiveLog(obj.RequestConfiguration),
-    }),
-  });
 }
 
 /**
@@ -3935,17 +3106,6 @@ export interface RedshiftDestinationUpdate {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 }
 
-export namespace RedshiftDestinationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftDestinationUpdate): any => ({
-    ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Describes an update for a destination in Splunk.</p>
  */
@@ -4009,15 +3169,6 @@ export interface SplunkDestinationUpdate {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 }
 
-export namespace SplunkDestinationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SplunkDestinationUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDestinationInput {
   /**
    * <p>The name of the delivery stream.</p>
@@ -4072,30 +3223,719 @@ export interface UpdateDestinationInput {
   HttpEndpointDestinationUpdate?: HttpEndpointDestinationUpdate;
 }
 
-export namespace UpdateDestinationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDestinationInput): any => ({
-    ...obj,
-    ...(obj.RedshiftDestinationUpdate && {
-      RedshiftDestinationUpdate: RedshiftDestinationUpdate.filterSensitiveLog(obj.RedshiftDestinationUpdate),
-    }),
-    ...(obj.HttpEndpointDestinationUpdate && {
-      HttpEndpointDestinationUpdate: HttpEndpointDestinationUpdate.filterSensitiveLog(
-        obj.HttpEndpointDestinationUpdate
-      ),
-    }),
-  });
-}
-
 export interface UpdateDestinationOutput {}
 
-export namespace UpdateDestinationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDestinationOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AmazonopensearchserviceBufferingHintsFilterSensitiveLog = (
+  obj: AmazonopensearchserviceBufferingHints
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLoggingOptionsFilterSensitiveLog = (obj: CloudWatchLoggingOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProcessorParameterFilterSensitiveLog = (obj: ProcessorParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProcessorFilterSensitiveLog = (obj: Processor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProcessingConfigurationFilterSensitiveLog = (obj: ProcessingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonopensearchserviceRetryOptionsFilterSensitiveLog = (
+  obj: AmazonopensearchserviceRetryOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BufferingHintsFilterSensitiveLog = (obj: BufferingHints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KMSEncryptionConfigFilterSensitiveLog = (obj: KMSEncryptionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationConfigurationFilterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigurationFilterSensitiveLog = (obj: VpcConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonopensearchserviceDestinationConfigurationFilterSensitiveLog = (
+  obj: AmazonopensearchserviceDestinationConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationDescriptionFilterSensitiveLog = (obj: S3DestinationDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigurationDescriptionFilterSensitiveLog = (obj: VpcConfigurationDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonopensearchserviceDestinationDescriptionFilterSensitiveLog = (
+  obj: AmazonopensearchserviceDestinationDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationUpdateFilterSensitiveLog = (obj: S3DestinationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonopensearchserviceDestinationUpdateFilterSensitiveLog = (
+  obj: AmazonopensearchserviceDestinationUpdate
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyCommandFilterSensitiveLog = (obj: CopyCommand): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeliveryStreamEncryptionConfigurationInputFilterSensitiveLog = (
+  obj: DeliveryStreamEncryptionConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchBufferingHintsFilterSensitiveLog = (obj: ElasticsearchBufferingHints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchRetryOptionsFilterSensitiveLog = (obj: ElasticsearchRetryOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchDestinationConfigurationFilterSensitiveLog = (
+  obj: ElasticsearchDestinationConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HiveJsonSerDeFilterSensitiveLog = (obj: HiveJsonSerDe): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenXJsonSerDeFilterSensitiveLog = (obj: OpenXJsonSerDe): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeserializerFilterSensitiveLog = (obj: Deserializer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputFormatConfigurationFilterSensitiveLog = (obj: InputFormatConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrcSerDeFilterSensitiveLog = (obj: OrcSerDe): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParquetSerDeFilterSensitiveLog = (obj: ParquetSerDe): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SerializerFilterSensitiveLog = (obj: Serializer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputFormatConfigurationFilterSensitiveLog = (obj: OutputFormatConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaConfigurationFilterSensitiveLog = (obj: SchemaConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataFormatConversionConfigurationFilterSensitiveLog = (obj: DataFormatConversionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetryOptionsFilterSensitiveLog = (obj: RetryOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynamicPartitioningConfigurationFilterSensitiveLog = (obj: DynamicPartitioningConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtendedS3DestinationConfigurationFilterSensitiveLog = (obj: ExtendedS3DestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpEndpointBufferingHintsFilterSensitiveLog = (obj: HttpEndpointBufferingHints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpEndpointConfigurationFilterSensitiveLog = (obj: HttpEndpointConfiguration): any => ({
+  ...obj,
+  ...(obj.Url && { Url: SENSITIVE_STRING }),
+  ...(obj.AccessKey && { AccessKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const HttpEndpointCommonAttributeFilterSensitiveLog = (obj: HttpEndpointCommonAttribute): any => ({
+  ...obj,
+  ...(obj.AttributeName && { AttributeName: SENSITIVE_STRING }),
+  ...(obj.AttributeValue && { AttributeValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const HttpEndpointRequestConfigurationFilterSensitiveLog = (obj: HttpEndpointRequestConfiguration): any => ({
+  ...obj,
+  ...(obj.CommonAttributes && {
+    CommonAttributes: obj.CommonAttributes.map((item) => HttpEndpointCommonAttributeFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const HttpEndpointRetryOptionsFilterSensitiveLog = (obj: HttpEndpointRetryOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpEndpointDestinationConfigurationFilterSensitiveLog = (
+  obj: HttpEndpointDestinationConfiguration
+): any => ({
+  ...obj,
+  ...(obj.EndpointConfiguration && {
+    EndpointConfiguration: HttpEndpointConfigurationFilterSensitiveLog(obj.EndpointConfiguration),
+  }),
+  ...(obj.RequestConfiguration && {
+    RequestConfiguration: HttpEndpointRequestConfigurationFilterSensitiveLog(obj.RequestConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamSourceConfigurationFilterSensitiveLog = (obj: KinesisStreamSourceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftRetryOptionsFilterSensitiveLog = (obj: RedshiftRetryOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftDestinationConfigurationFilterSensitiveLog = (obj: RedshiftDestinationConfiguration): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SplunkRetryOptionsFilterSensitiveLog = (obj: SplunkRetryOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SplunkDestinationConfigurationFilterSensitiveLog = (obj: SplunkDestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeliveryStreamInputFilterSensitiveLog = (obj: CreateDeliveryStreamInput): any => ({
+  ...obj,
+  ...(obj.RedshiftDestinationConfiguration && {
+    RedshiftDestinationConfiguration: RedshiftDestinationConfigurationFilterSensitiveLog(
+      obj.RedshiftDestinationConfiguration
+    ),
+  }),
+  ...(obj.HttpEndpointDestinationConfiguration && {
+    HttpEndpointDestinationConfiguration: HttpEndpointDestinationConfigurationFilterSensitiveLog(
+      obj.HttpEndpointDestinationConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDeliveryStreamOutputFilterSensitiveLog = (obj: CreateDeliveryStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeliveryStreamInputFilterSensitiveLog = (obj: DeleteDeliveryStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeliveryStreamOutputFilterSensitiveLog = (obj: DeleteDeliveryStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailureDescriptionFilterSensitiveLog = (obj: FailureDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeliveryStreamEncryptionConfigurationFilterSensitiveLog = (
+  obj: DeliveryStreamEncryptionConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchDestinationDescriptionFilterSensitiveLog = (
+  obj: ElasticsearchDestinationDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtendedS3DestinationDescriptionFilterSensitiveLog = (obj: ExtendedS3DestinationDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpEndpointDescriptionFilterSensitiveLog = (obj: HttpEndpointDescription): any => ({
+  ...obj,
+  ...(obj.Url && { Url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const HttpEndpointDestinationDescriptionFilterSensitiveLog = (obj: HttpEndpointDestinationDescription): any => ({
+  ...obj,
+  ...(obj.EndpointConfiguration && {
+    EndpointConfiguration: HttpEndpointDescriptionFilterSensitiveLog(obj.EndpointConfiguration),
+  }),
+  ...(obj.RequestConfiguration && {
+    RequestConfiguration: HttpEndpointRequestConfigurationFilterSensitiveLog(obj.RequestConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RedshiftDestinationDescriptionFilterSensitiveLog = (obj: RedshiftDestinationDescription): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SplunkDestinationDescriptionFilterSensitiveLog = (obj: SplunkDestinationDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationDescriptionFilterSensitiveLog = (obj: DestinationDescription): any => ({
+  ...obj,
+  ...(obj.RedshiftDestinationDescription && {
+    RedshiftDestinationDescription: RedshiftDestinationDescriptionFilterSensitiveLog(
+      obj.RedshiftDestinationDescription
+    ),
+  }),
+  ...(obj.HttpEndpointDestinationDescription && {
+    HttpEndpointDestinationDescription: HttpEndpointDestinationDescriptionFilterSensitiveLog(
+      obj.HttpEndpointDestinationDescription
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const KinesisStreamSourceDescriptionFilterSensitiveLog = (obj: KinesisStreamSourceDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceDescriptionFilterSensitiveLog = (obj: SourceDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeliveryStreamDescriptionFilterSensitiveLog = (obj: DeliveryStreamDescription): any => ({
+  ...obj,
+  ...(obj.Destinations && {
+    Destinations: obj.Destinations.map((item) => DestinationDescriptionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeliveryStreamInputFilterSensitiveLog = (obj: DescribeDeliveryStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeliveryStreamOutputFilterSensitiveLog = (obj: DescribeDeliveryStreamOutput): any => ({
+  ...obj,
+  ...(obj.DeliveryStreamDescription && {
+    DeliveryStreamDescription: DeliveryStreamDescriptionFilterSensitiveLog(obj.DeliveryStreamDescription),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ElasticsearchDestinationUpdateFilterSensitiveLog = (obj: ElasticsearchDestinationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtendedS3DestinationUpdateFilterSensitiveLog = (obj: ExtendedS3DestinationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeliveryStreamsInputFilterSensitiveLog = (obj: ListDeliveryStreamsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeliveryStreamsOutputFilterSensitiveLog = (obj: ListDeliveryStreamsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForDeliveryStreamInputFilterSensitiveLog = (obj: ListTagsForDeliveryStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForDeliveryStreamOutputFilterSensitiveLog = (obj: ListTagsForDeliveryStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRecordInputFilterSensitiveLog = (obj: PutRecordInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRecordOutputFilterSensitiveLog = (obj: PutRecordOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRecordBatchInputFilterSensitiveLog = (obj: PutRecordBatchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRecordBatchResponseEntryFilterSensitiveLog = (obj: PutRecordBatchResponseEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRecordBatchOutputFilterSensitiveLog = (obj: PutRecordBatchOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDeliveryStreamEncryptionInputFilterSensitiveLog = (obj: StartDeliveryStreamEncryptionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDeliveryStreamEncryptionOutputFilterSensitiveLog = (
+  obj: StartDeliveryStreamEncryptionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDeliveryStreamEncryptionInputFilterSensitiveLog = (obj: StopDeliveryStreamEncryptionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDeliveryStreamEncryptionOutputFilterSensitiveLog = (obj: StopDeliveryStreamEncryptionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagDeliveryStreamInputFilterSensitiveLog = (obj: TagDeliveryStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagDeliveryStreamOutputFilterSensitiveLog = (obj: TagDeliveryStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagDeliveryStreamInputFilterSensitiveLog = (obj: UntagDeliveryStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagDeliveryStreamOutputFilterSensitiveLog = (obj: UntagDeliveryStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpEndpointDestinationUpdateFilterSensitiveLog = (obj: HttpEndpointDestinationUpdate): any => ({
+  ...obj,
+  ...(obj.EndpointConfiguration && {
+    EndpointConfiguration: HttpEndpointConfigurationFilterSensitiveLog(obj.EndpointConfiguration),
+  }),
+  ...(obj.RequestConfiguration && {
+    RequestConfiguration: HttpEndpointRequestConfigurationFilterSensitiveLog(obj.RequestConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RedshiftDestinationUpdateFilterSensitiveLog = (obj: RedshiftDestinationUpdate): any => ({
+  ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SplunkDestinationUpdateFilterSensitiveLog = (obj: SplunkDestinationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDestinationInputFilterSensitiveLog = (obj: UpdateDestinationInput): any => ({
+  ...obj,
+  ...(obj.RedshiftDestinationUpdate && {
+    RedshiftDestinationUpdate: RedshiftDestinationUpdateFilterSensitiveLog(obj.RedshiftDestinationUpdate),
+  }),
+  ...(obj.HttpEndpointDestinationUpdate && {
+    HttpEndpointDestinationUpdate: HttpEndpointDestinationUpdateFilterSensitiveLog(obj.HttpEndpointDestinationUpdate),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDestinationOutputFilterSensitiveLog = (obj: UpdateDestinationOutput): any => ({
+  ...obj,
+});

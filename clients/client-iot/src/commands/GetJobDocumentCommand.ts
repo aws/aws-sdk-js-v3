@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetJobDocumentRequest, GetJobDocumentResponse } from "../models/models_1";
+import {
+  GetJobDocumentRequest,
+  GetJobDocumentRequestFilterSensitiveLog,
+  GetJobDocumentResponse,
+  GetJobDocumentResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetJobDocumentCommand,
   serializeAws_restJson1GetJobDocumentCommand,
@@ -73,8 +78,8 @@ export class GetJobDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobDocumentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetJobDocumentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetJobDocumentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetJobDocumentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

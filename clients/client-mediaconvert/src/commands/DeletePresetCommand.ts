@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeletePresetRequest, DeletePresetResponse } from "../models/models_1";
+import {
+  DeletePresetRequest,
+  DeletePresetRequestFilterSensitiveLog,
+  DeletePresetResponse,
+  DeletePresetResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeletePresetCommand,
   serializeAws_restJson1DeletePresetCommand,
@@ -72,8 +77,8 @@ export class DeletePresetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePresetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePresetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePresetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePresetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

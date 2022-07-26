@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { CreateAssessmentTemplateRequest, CreateAssessmentTemplateResponse } from "../models/models_0";
+import {
+  CreateAssessmentTemplateRequest,
+  CreateAssessmentTemplateRequestFilterSensitiveLog,
+  CreateAssessmentTemplateResponse,
+  CreateAssessmentTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAssessmentTemplateCommand,
   serializeAws_json1_1CreateAssessmentTemplateCommand,
@@ -75,8 +80,8 @@ export class CreateAssessmentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAssessmentTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAssessmentTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAssessmentTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAssessmentTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

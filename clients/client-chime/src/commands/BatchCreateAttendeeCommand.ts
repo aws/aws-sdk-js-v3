@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { BatchCreateAttendeeRequest, BatchCreateAttendeeResponse } from "../models/models_0";
+import {
+  BatchCreateAttendeeRequest,
+  BatchCreateAttendeeRequestFilterSensitiveLog,
+  BatchCreateAttendeeResponse,
+  BatchCreateAttendeeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchCreateAttendeeCommand,
   serializeAws_restJson1BatchCreateAttendeeCommand,
@@ -77,8 +82,8 @@ export class BatchCreateAttendeeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateAttendeeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateAttendeeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchCreateAttendeeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchCreateAttendeeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRepositoryInput, DeleteRepositoryOutput } from "../models/models_0";
+import {
+  DeleteRepositoryInput,
+  DeleteRepositoryInputFilterSensitiveLog,
+  DeleteRepositoryOutput,
+  DeleteRepositoryOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteRepositoryCommand,
   serializeAws_json1_0DeleteRepositoryCommand,
@@ -72,8 +77,8 @@ export class DeleteRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRepositoryInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRepositoryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRepositoryInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRepositoryOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

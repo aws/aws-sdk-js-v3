@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
-import { ListChangedBlocksRequest, ListChangedBlocksResponse } from "../models/models_0";
+import {
+  ListChangedBlocksRequest,
+  ListChangedBlocksRequestFilterSensitiveLog,
+  ListChangedBlocksResponse,
+  ListChangedBlocksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListChangedBlocksCommand,
   serializeAws_restJson1ListChangedBlocksCommand,
@@ -73,8 +78,8 @@ export class ListChangedBlocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChangedBlocksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListChangedBlocksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListChangedBlocksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListChangedBlocksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

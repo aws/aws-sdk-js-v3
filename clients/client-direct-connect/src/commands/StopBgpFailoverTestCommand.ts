@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { StopBgpFailoverTestRequest, StopBgpFailoverTestResponse } from "../models/models_0";
+import {
+  StopBgpFailoverTestRequest,
+  StopBgpFailoverTestRequestFilterSensitiveLog,
+  StopBgpFailoverTestResponse,
+  StopBgpFailoverTestResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopBgpFailoverTestCommand,
   serializeAws_json1_1StopBgpFailoverTestCommand,
@@ -72,8 +77,8 @@ export class StopBgpFailoverTestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBgpFailoverTestRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopBgpFailoverTestResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopBgpFailoverTestRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopBgpFailoverTestResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

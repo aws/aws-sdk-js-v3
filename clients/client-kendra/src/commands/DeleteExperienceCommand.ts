@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteExperienceRequest, DeleteExperienceResponse } from "../models/models_0";
+import {
+  DeleteExperienceRequest,
+  DeleteExperienceRequestFilterSensitiveLog,
+  DeleteExperienceResponse,
+  DeleteExperienceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteExperienceCommand,
   serializeAws_json1_1DeleteExperienceCommand,
@@ -74,8 +79,8 @@ export class DeleteExperienceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExperienceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExperienceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteExperienceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteExperienceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

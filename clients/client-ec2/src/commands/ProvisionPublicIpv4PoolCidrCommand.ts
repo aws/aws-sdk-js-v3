@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ProvisionPublicIpv4PoolCidrRequest, ProvisionPublicIpv4PoolCidrResult } from "../models/models_5";
+import {
+  ProvisionPublicIpv4PoolCidrRequest,
+  ProvisionPublicIpv4PoolCidrRequestFilterSensitiveLog,
+  ProvisionPublicIpv4PoolCidrResult,
+  ProvisionPublicIpv4PoolCidrResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ProvisionPublicIpv4PoolCidrCommand,
   serializeAws_ec2ProvisionPublicIpv4PoolCidrCommand,
@@ -73,8 +78,8 @@ export class ProvisionPublicIpv4PoolCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ProvisionPublicIpv4PoolCidrRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ProvisionPublicIpv4PoolCidrResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ProvisionPublicIpv4PoolCidrRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ProvisionPublicIpv4PoolCidrResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

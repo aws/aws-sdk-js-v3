@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ResendConfirmationCodeRequest, ResendConfirmationCodeResponse } from "../models/models_0";
+import {
+  ResendConfirmationCodeRequest,
+  ResendConfirmationCodeRequestFilterSensitiveLog,
+  ResendConfirmationCodeResponse,
+  ResendConfirmationCodeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ResendConfirmationCodeCommand,
   serializeAws_json1_1ResendConfirmationCodeCommand,
@@ -95,8 +100,8 @@ export class ResendConfirmationCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResendConfirmationCodeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResendConfirmationCodeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResendConfirmationCodeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResendConfirmationCodeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { StopCampaignRequest } from "../models/models_0";
+import { StopCampaignRequest, StopCampaignRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1StopCampaignCommand,
   serializeAws_restJson1StopCampaignCommand,
@@ -72,7 +72,7 @@ export class StopCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCampaignRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StopCampaignRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

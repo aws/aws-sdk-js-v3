@@ -19,15 +19,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of an AddTagsToResource operation.</p>
  */
@@ -46,15 +37,6 @@ export interface AddTagsToResourceMessage {
    *           A tag key must be accompanied by a tag value, although null is accepted.</p>
    */
   Tags: Tag[] | undefined;
-}
-
-export namespace AddTagsToResourceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -239,15 +221,6 @@ export interface TagListMessage {
   TagList?: Tag[];
 }
 
-export namespace TagListMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagListMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
  */
@@ -326,15 +299,6 @@ export interface AllowedNodeTypeModificationsMessage {
   ScaleDownModifications?: string[];
 }
 
-export namespace AllowedNodeTypeModificationsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllowedNodeTypeModificationsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
  */
@@ -376,15 +340,6 @@ export interface AuthorizeCacheSecurityGroupIngressMessage {
   EC2SecurityGroupOwnerId: string | undefined;
 }
 
-export namespace AuthorizeCacheSecurityGroupIngressMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizeCacheSecurityGroupIngressMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides ownership and status information for an Amazon EC2 security group.</p>
  */
@@ -403,15 +358,6 @@ export interface EC2SecurityGroup {
    * <p>The Amazon account ID of the Amazon EC2 security group owner.</p>
    */
   EC2SecurityGroupOwnerId?: string;
-}
-
-export namespace EC2SecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2SecurityGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -461,15 +407,6 @@ export interface CacheSecurityGroup {
   ARN?: string;
 }
 
-export namespace CacheSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSecurityGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface AuthorizeCacheSecurityGroupIngressResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -492,15 +429,6 @@ export interface AuthorizeCacheSecurityGroupIngressResult {
    *          </ul>
    */
   CacheSecurityGroup?: CacheSecurityGroup;
-}
-
-export namespace AuthorizeCacheSecurityGroupIngressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizeCacheSecurityGroupIngressResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -577,15 +505,6 @@ export interface BatchApplyUpdateActionMessage {
   ServiceUpdateName: string | undefined;
 }
 
-export namespace BatchApplyUpdateActionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchApplyUpdateActionMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service update doesn't exist</p>
  */
@@ -642,15 +561,6 @@ export interface ProcessedUpdateAction {
   UpdateActionStatus?: UpdateActionStatus | string;
 }
 
-export namespace ProcessedUpdateAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessedUpdateAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Update action that has failed to be processed for the corresponding apply/stop request</p>
  */
@@ -681,15 +591,6 @@ export interface UnprocessedUpdateAction {
   ErrorMessage?: string;
 }
 
-export namespace UnprocessedUpdateAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnprocessedUpdateAction): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateActionResultsMessage {
   /**
    * <p>Update actions that have been processed successfully</p>
@@ -700,15 +601,6 @@ export interface UpdateActionResultsMessage {
    * <p>Update actions that haven't been processed successfully</p>
    */
   UnprocessedUpdateActions?: UnprocessedUpdateAction[];
-}
-
-export namespace UpdateActionResultsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateActionResultsMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchStopUpdateActionMessage {
@@ -728,15 +620,6 @@ export interface BatchStopUpdateActionMessage {
   ServiceUpdateName: string | undefined;
 }
 
-export namespace BatchStopUpdateActionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchStopUpdateActionMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CompleteMigrationMessage {
   /**
    * <p>The ID of the replication group to which data is being migrated.</p>
@@ -747,15 +630,6 @@ export interface CompleteMigrationMessage {
    * <p>Forces the migration to stop without ensuring that data is in sync. It is recommended to use this option only to abort the migration and not recommended when application wants to continue migration to ElastiCache.</p>
    */
   Force?: boolean;
-}
-
-export namespace CompleteMigrationMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteMigrationMessage): any => ({
-    ...obj,
-  });
 }
 
 export enum AutomaticFailoverStatus {
@@ -780,15 +654,6 @@ export interface Endpoint {
   Port?: number;
 }
 
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
-}
-
 export enum DataTieringStatus {
   DISABLED = "disabled",
   ENABLED = "enabled",
@@ -809,15 +674,6 @@ export interface GlobalReplicationGroupInfo {
   GlobalReplicationGroupMemberRole?: string;
 }
 
-export namespace GlobalReplicationGroupInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalReplicationGroupInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration details of the CloudWatch Logs destination.</p>
  */
@@ -828,15 +684,6 @@ export interface CloudWatchLogsDestinationDetails {
   LogGroup?: string;
 }
 
-export namespace CloudWatchLogsDestinationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogsDestinationDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration details of the Kinesis Data Firehose destination.</p>
  */
@@ -845,15 +692,6 @@ export interface KinesisFirehoseDestinationDetails {
    * <p>The name of the Kinesis Data Firehose delivery stream.</p>
    */
   DeliveryStream?: string;
-}
-
-export namespace KinesisFirehoseDestinationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseDestinationDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -869,15 +707,6 @@ export interface DestinationDetails {
    * <p>The configuration details of the Kinesis Data Firehose destination.</p>
    */
   KinesisFirehoseDetails?: KinesisFirehoseDestinationDetails;
-}
-
-export namespace DestinationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum DestinationType {
@@ -939,15 +768,6 @@ export interface LogDeliveryConfiguration {
   Message?: string;
 }
 
-export namespace LogDeliveryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogDeliveryConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum MultiAZStatus {
   DISABLED = "disabled",
   ENABLED = "enabled",
@@ -991,15 +811,6 @@ export interface NodeGroupMember {
   CurrentRole?: string;
 }
 
-export namespace NodeGroupMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeGroupMember): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a collection of cache nodes in a replication group.
  *             One node in the node group is the read/write primary node.
@@ -1040,15 +851,6 @@ export interface NodeGroup {
   NodeGroupMembers?: NodeGroupMember[];
 }
 
-export namespace NodeGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeGroup): any => ({
-    ...obj,
-  });
-}
-
 export type AuthTokenUpdateStatus = "ROTATING" | "SETTING";
 
 export enum PendingAutomaticFailoverStatus {
@@ -1081,15 +883,6 @@ export interface PendingLogDeliveryConfiguration {
   LogFormat?: LogFormat | string;
 }
 
-export namespace PendingLogDeliveryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingLogDeliveryConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the progress of an online resharding operation.</p>
  */
@@ -1100,15 +893,6 @@ export interface SlotMigration {
   ProgressPercentage?: number;
 }
 
-export namespace SlotMigration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotMigration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status of an online resharding operation.</p>
  */
@@ -1117,15 +901,6 @@ export interface ReshardingStatus {
    * <p>Represents the progress of an online resharding operation.</p>
    */
   SlotMigration?: SlotMigration;
-}
-
-export namespace ReshardingStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReshardingStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1141,15 +916,6 @@ export interface UserGroupsUpdateStatus {
    * <p>The ID of the user group to remove.</p>
    */
   UserGroupIdsToRemove?: string[];
-}
-
-export namespace UserGroupsUpdateStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserGroupsUpdateStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1187,15 +953,6 @@ export interface ReplicationGroupPendingModifiedValues {
    * <p>The log delivery configurations being modified </p>
    */
   LogDeliveryConfigurations?: PendingLogDeliveryConfiguration[];
-}
-
-export namespace ReplicationGroupPendingModifiedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationGroupPendingModifiedValues): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1388,29 +1145,11 @@ export interface ReplicationGroup {
   AutoMinorVersionUpgrade?: boolean;
 }
 
-export namespace ReplicationGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CompleteMigrationResponse {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
   ReplicationGroup?: ReplicationGroup;
-}
-
-export namespace CompleteMigrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteMigrationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1470,15 +1209,6 @@ export interface CopySnapshotMessage {
   Tags?: Tag[];
 }
 
-export namespace CopySnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopySnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Node group (shard) configuration options.
  *             Each node group (shard) configuration has the following: <code>Slots</code>, <code>PrimaryAvailabilityZone</code>, <code>ReplicaAvailabilityZones</code>, <code>ReplicaCount</code>.</p>
@@ -1527,15 +1257,6 @@ export interface NodeGroupConfiguration {
   ReplicaOutpostArns?: string[];
 }
 
-export namespace NodeGroupConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeGroupConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an individual cache node in a snapshot of a cluster.</p>
  */
@@ -1574,15 +1295,6 @@ export interface NodeSnapshot {
    * <p>The date and time when the source node's metadata and cache data set was obtained for the snapshot.</p>
    */
   SnapshotCreateTime?: Date;
-}
-
-export namespace NodeSnapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeSnapshot): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2065,29 +1777,11 @@ export interface Snapshot {
   DataTiering?: DataTieringStatus | string;
 }
 
-export namespace Snapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Snapshot): any => ({
-    ...obj,
-  });
-}
-
 export interface CopySnapshotResult {
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
    */
   Snapshot?: Snapshot;
-}
-
-export namespace CopySnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopySnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2218,15 +1912,6 @@ export interface LogDeliveryConfigurationRequest {
    * <p>Specify if log delivery is enabled. Default <code>true</code>.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace LogDeliveryConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogDeliveryConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum OutpostMode {
@@ -2716,15 +2401,6 @@ export interface CreateCacheClusterMessage {
   TransitEncryptionEnabled?: boolean;
 }
 
-export namespace CreateCacheClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCacheClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an individual cache node within a cluster. Each cache node runs its own
  *             instance of the cluster's protocol-compliant caching software - either Memcached or
@@ -3030,15 +2706,6 @@ export interface CacheNode {
   CustomerOutpostArn?: string;
 }
 
-export namespace CacheNode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheNode): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Status of the cache parameter group.</p>
  */
@@ -3060,15 +2727,6 @@ export interface CacheParameterGroupStatus {
   CacheNodeIdsToReboot?: string[];
 }
 
-export namespace CacheParameterGroupStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheParameterGroupStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a cluster's status within a particular cache security group.</p>
  */
@@ -3082,15 +2740,6 @@ export interface CacheSecurityGroupMembership {
    * <p>The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.</p>
    */
   Status?: string;
-}
-
-export namespace CacheSecurityGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSecurityGroupMembership): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3108,15 +2757,6 @@ export interface NotificationConfiguration {
    * <p>The current state of the topic.</p>
    */
   TopicStatus?: string;
-}
-
-export namespace NotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3158,15 +2798,6 @@ export interface PendingModifiedValues {
   LogDeliveryConfigurations?: PendingLogDeliveryConfiguration[];
 }
 
-export namespace PendingModifiedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingModifiedValues): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a single cache security group and its status.</p>
  */
@@ -3182,15 +2813,6 @@ export interface SecurityGroupMembership {
    *             or when the cache security groups assigned to a cluster are modified.</p>
    */
   Status?: string;
-}
-
-export namespace SecurityGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupMembership): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3701,29 +3323,11 @@ export interface CacheCluster {
   LogDeliveryConfigurations?: LogDeliveryConfiguration[];
 }
 
-export namespace CacheCluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheCluster): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCacheClusterResult {
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
    */
   CacheCluster?: CacheCluster;
-}
-
-export namespace CreateCacheClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCacheClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3877,15 +3481,6 @@ export interface CreateCacheParameterGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateCacheParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCacheParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>CreateCacheParameterGroup</code> operation.</p>
  */
@@ -3927,29 +3522,11 @@ export interface CacheParameterGroup {
   ARN?: string;
 }
 
-export namespace CacheParameterGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheParameterGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCacheParameterGroupResult {
   /**
    * <p>Represents the output of a <code>CreateCacheParameterGroup</code> operation.</p>
    */
   CacheParameterGroup?: CacheParameterGroup;
-}
-
-export namespace CreateCacheParameterGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCacheParameterGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4032,15 +3609,6 @@ export interface CreateCacheSecurityGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateCacheSecurityGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCacheSecurityGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCacheSecurityGroupResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -4063,15 +3631,6 @@ export interface CreateCacheSecurityGroupResult {
    *          </ul>
    */
   CacheSecurityGroup?: CacheSecurityGroup;
-}
-
-export namespace CreateCacheSecurityGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCacheSecurityGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4159,15 +3718,6 @@ export interface CreateCacheSubnetGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateCacheSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCacheSubnetGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an Availability Zone in which the cluster is launched.</p>
  */
@@ -4178,15 +3728,6 @@ export interface AvailabilityZone {
   Name?: string;
 }
 
-export namespace AvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The ID of the outpost subnet.</p>
  */
@@ -4195,15 +3736,6 @@ export interface SubnetOutpost {
    * <p>The outpost ARN of the subnet.</p>
    */
   SubnetOutpostArn?: string;
-}
-
-export namespace SubnetOutpost {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetOutpost): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4225,15 +3757,6 @@ export interface Subnet {
    * <p>The outpost ARN of the subnet.</p>
    */
   SubnetOutpost?: SubnetOutpost;
-}
-
-export namespace Subnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subnet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4278,15 +3801,6 @@ export interface CacheSubnetGroup {
   ARN?: string;
 }
 
-export namespace CacheSubnetGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSubnetGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCacheSubnetGroupResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -4304,15 +3818,6 @@ export interface CreateCacheSubnetGroupResult {
    *          </ul>
    */
   CacheSubnetGroup?: CacheSubnetGroup;
-}
-
-export namespace CreateCacheSubnetGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCacheSubnetGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4373,15 +3878,6 @@ export interface CreateGlobalReplicationGroupMessage {
   PrimaryReplicationGroupId: string | undefined;
 }
 
-export namespace CreateGlobalReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGlobalReplicationGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates the slot configuration and global identifier for a slice group.</p>
  */
@@ -4395,15 +3891,6 @@ export interface GlobalNodeGroup {
    * <p>The keyspace for this node group</p>
    */
   Slots?: string;
-}
-
-export namespace GlobalNodeGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalNodeGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4434,15 +3921,6 @@ export interface GlobalReplicationGroupMember {
    * <p>The status of the membership of the replication group.</p>
    */
   Status?: string;
-}
-
-export namespace GlobalReplicationGroupMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalReplicationGroupMember): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4539,15 +4017,6 @@ export interface GlobalReplicationGroup {
   ARN?: string;
 }
 
-export namespace GlobalReplicationGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalReplicationGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -4562,15 +4031,6 @@ export interface CreateGlobalReplicationGroupResult {
    *          </ul>
    */
   GlobalReplicationGroup?: GlobalReplicationGroup;
-}
-
-export namespace CreateGlobalReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGlobalReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5244,29 +4704,11 @@ export interface CreateReplicationGroupMessage {
   DataTieringEnabled?: boolean;
 }
 
-export namespace CreateReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReplicationGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateReplicationGroupResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
   ReplicationGroup?: ReplicationGroup;
-}
-
-export namespace CreateReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5414,29 +4856,11 @@ export interface CreateSnapshotMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSnapshotResult {
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
    */
   Snapshot?: Snapshot;
-}
-
-export namespace CreateSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5505,15 +4929,6 @@ export interface CreateUserMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateUserMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A user with this username already exists.</p>
  */
@@ -5551,15 +4966,6 @@ export interface Authentication {
    * <p>The number of passwords belonging to the user. The maximum is two.</p>
    */
   PasswordCount?: number;
-}
-
-export namespace Authentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Authentication): any => ({
-    ...obj,
-  });
 }
 
 export interface User {
@@ -5607,15 +5013,6 @@ export interface User {
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    */
   ARN?: string;
-}
-
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5678,15 +5075,6 @@ export interface CreateUserGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateUserGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUserGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You must add default user to a user group.</p>
  */
@@ -5719,15 +5107,6 @@ export interface UserGroupPendingChanges {
    * <p>The list of user IDs to add.</p>
    */
   UserIdsToAdd?: string[];
-}
-
-export namespace UserGroupPendingChanges {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserGroupPendingChanges): any => ({
-    ...obj,
-  });
 }
 
 export interface UserGroup {
@@ -5770,15 +5149,6 @@ export interface UserGroup {
    * <p>The Amazon Resource Name (ARN) of the user group.</p>
    */
   ARN?: string;
-}
-
-export namespace UserGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5851,15 +5221,6 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
   ApplyImmediately: boolean | undefined;
 }
 
-export namespace DecreaseNodeGroupsInGlobalReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecreaseNodeGroupsInGlobalReplicationGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DecreaseNodeGroupsInGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -5874,15 +5235,6 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupResult {
    *          </ul>
    */
   GlobalReplicationGroup?: GlobalReplicationGroup;
-}
-
-export namespace DecreaseNodeGroupsInGlobalReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecreaseNodeGroupsInGlobalReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5936,15 +5288,6 @@ export interface ConfigureShard {
   PreferredOutpostArns?: string[];
 }
 
-export namespace ConfigureShard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigureShard): any => ({
-    ...obj,
-  });
-}
-
 export interface DecreaseReplicaCountMessage {
   /**
    * <p>The id of the replication group from which you want to remove replica nodes.</p>
@@ -5996,29 +5339,11 @@ export interface DecreaseReplicaCountMessage {
   ApplyImmediately: boolean | undefined;
 }
 
-export namespace DecreaseReplicaCountMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecreaseReplicaCountMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DecreaseReplicaCountResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
   ReplicationGroup?: ReplicationGroup;
-}
-
-export namespace DecreaseReplicaCountResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecreaseReplicaCountResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6056,29 +5381,11 @@ export interface DeleteCacheClusterMessage {
   FinalSnapshotIdentifier?: string;
 }
 
-export namespace DeleteCacheClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCacheClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCacheClusterResult {
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
    */
   CacheCluster?: CacheCluster;
-}
-
-export namespace DeleteCacheClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCacheClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6094,15 +5401,6 @@ export interface DeleteCacheParameterGroupMessage {
   CacheParameterGroupName: string | undefined;
 }
 
-export namespace DeleteCacheParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCacheParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>DeleteCacheSecurityGroup</code> operation.</p>
  */
@@ -6114,15 +5412,6 @@ export interface DeleteCacheSecurityGroupMessage {
    *          </note>
    */
   CacheSecurityGroupName: string | undefined;
-}
-
-export namespace DeleteCacheSecurityGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCacheSecurityGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6155,15 +5444,6 @@ export interface DeleteCacheSubnetGroupMessage {
   CacheSubnetGroupName: string | undefined;
 }
 
-export namespace DeleteCacheSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCacheSubnetGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGlobalReplicationGroupMessage {
   /**
    * <p>The name of the Global datastore</p>
@@ -6174,15 +5454,6 @@ export interface DeleteGlobalReplicationGroupMessage {
    * <p>The primary replication group is retained as a standalone replication group. </p>
    */
   RetainPrimaryReplicationGroup: boolean | undefined;
-}
-
-export namespace DeleteGlobalReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGlobalReplicationGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGlobalReplicationGroupResult {
@@ -6199,15 +5470,6 @@ export interface DeleteGlobalReplicationGroupResult {
    *          </ul>
    */
   GlobalReplicationGroup?: GlobalReplicationGroup;
-}
-
-export namespace DeleteGlobalReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGlobalReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6234,29 +5496,11 @@ export interface DeleteReplicationGroupMessage {
   FinalSnapshotIdentifier?: string;
 }
 
-export namespace DeleteReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReplicationGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteReplicationGroupResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
   ReplicationGroup?: ReplicationGroup;
-}
-
-export namespace DeleteReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6269,29 +5513,11 @@ export interface DeleteSnapshotMessage {
   SnapshotName: string | undefined;
 }
 
-export namespace DeleteSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSnapshotResult {
   /**
    * <p>Represents a copy of an entire Redis cluster as of the time when the snapshot was taken.</p>
    */
   Snapshot?: Snapshot;
-}
-
-export namespace DeleteSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6320,15 +5546,6 @@ export interface DeleteUserMessage {
   UserId: string | undefined;
 }
 
-export namespace DeleteUserMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The user is not in active state.</p>
  */
@@ -6355,15 +5572,6 @@ export interface DeleteUserGroupMessage {
   UserGroupId: string | undefined;
 }
 
-export namespace DeleteUserGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeCacheClusters</code> operation.</p>
  */
@@ -6377,15 +5585,6 @@ export interface CacheClusterMessage {
    * <p>A list of clusters. Each item in the list contains detailed information about one cluster.</p>
    */
   CacheClusters?: CacheCluster[];
-}
-
-export namespace CacheClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheClusterMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6430,15 +5629,6 @@ export interface DescribeCacheClustersMessage {
   ShowCacheClustersNotInReplicationGroups?: boolean;
 }
 
-export namespace DescribeCacheClustersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCacheClustersMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides all of the details about a particular cache engine version.</p>
  */
@@ -6480,15 +5670,6 @@ export interface CacheEngineVersion {
   CacheEngineVersionDescription?: string;
 }
 
-export namespace CacheEngineVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheEngineVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <a>DescribeCacheEngineVersions</a> operation.</p>
  */
@@ -6503,15 +5684,6 @@ export interface CacheEngineVersionMessage {
    *             Each element in the list contains detailed information about one cache engine version.</p>
    */
   CacheEngineVersions?: CacheEngineVersion[];
-}
-
-export namespace CacheEngineVersionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheEngineVersionMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6584,15 +5756,6 @@ export interface DescribeCacheEngineVersionsMessage {
   DefaultOnly?: boolean;
 }
 
-export namespace DescribeCacheEngineVersionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCacheEngineVersionsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeCacheParameterGroups</code> operation.</p>
  */
@@ -6607,15 +5770,6 @@ export interface CacheParameterGroupsMessage {
    *             about one cache parameter group.</p>
    */
   CacheParameterGroups?: CacheParameterGroup[];
-}
-
-export namespace CacheParameterGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheParameterGroupsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6645,15 +5799,6 @@ export interface DescribeCacheParameterGroupsMessage {
   Marker?: string;
 }
 
-export namespace DescribeCacheParameterGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCacheParameterGroupsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A value that applies only to a certain cache node type.</p>
  */
@@ -6667,15 +5812,6 @@ export interface CacheNodeTypeSpecificValue {
    * <p>The value for the cache node type.</p>
    */
   Value?: string;
-}
-
-export namespace CacheNodeTypeSpecificValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheNodeTypeSpecificValue): any => ({
-    ...obj,
-  });
 }
 
 export type ChangeType = "immediate" | "requires-reboot";
@@ -6737,15 +5873,6 @@ export interface CacheNodeTypeSpecificParameter {
   ChangeType?: ChangeType | string;
 }
 
-export namespace CacheNodeTypeSpecificParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheNodeTypeSpecificParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an individual setting that controls some aspect of ElastiCache behavior.</p>
  */
@@ -6800,15 +5927,6 @@ export interface Parameter {
   ChangeType?: ChangeType | string;
 }
 
-export namespace Parameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Parameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeCacheParameters</code> operation.</p>
  */
@@ -6828,15 +5946,6 @@ export interface CacheParameterGroupDetails {
    *             Each element in the list contains detailed information about one parameter.</p>
    */
   CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParameter[];
-}
-
-export namespace CacheParameterGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheParameterGroupDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6874,15 +5983,6 @@ export interface DescribeCacheParametersMessage {
   Marker?: string;
 }
 
-export namespace DescribeCacheParametersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCacheParametersMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeCacheSecurityGroups</code> operation.</p>
  */
@@ -6896,15 +5996,6 @@ export interface CacheSecurityGroupMessage {
    * <p>A list of cache security groups. Each element in the list contains detailed information about one group.</p>
    */
   CacheSecurityGroups?: CacheSecurityGroup[];
-}
-
-export namespace CacheSecurityGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSecurityGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6934,15 +6025,6 @@ export interface DescribeCacheSecurityGroupsMessage {
   Marker?: string;
 }
 
-export namespace DescribeCacheSecurityGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCacheSecurityGroupsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeCacheSubnetGroups</code> operation.</p>
  */
@@ -6956,15 +6038,6 @@ export interface CacheSubnetGroupMessage {
    * <p>A list of cache subnet groups. Each element in the list contains detailed information about one group.</p>
    */
   CacheSubnetGroups?: CacheSubnetGroup[];
-}
-
-export namespace CacheSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSubnetGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6993,15 +6066,6 @@ export interface DescribeCacheSubnetGroupsMessage {
    *             value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeCacheSubnetGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCacheSubnetGroupsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7043,15 +6107,6 @@ export interface DescribeEngineDefaultParametersMessage {
   Marker?: string;
 }
 
-export namespace DescribeEngineDefaultParametersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEngineDefaultParametersMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeEngineDefaultParameters</code> operation.</p>
  */
@@ -7089,29 +6144,11 @@ export interface EngineDefaults {
   CacheNodeTypeSpecificParameters?: CacheNodeTypeSpecificParameter[];
 }
 
-export namespace EngineDefaults {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EngineDefaults): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEngineDefaultParametersResult {
   /**
    * <p>Represents the output of a <code>DescribeEngineDefaultParameters</code> operation.</p>
    */
   EngineDefaults?: EngineDefaults;
-}
-
-export namespace DescribeEngineDefaultParametersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEngineDefaultParametersResult): any => ({
-    ...obj,
-  });
 }
 
 export type SourceType =
@@ -7177,15 +6214,6 @@ export interface DescribeEventsMessage {
   Marker?: string;
 }
 
-export namespace DescribeEventsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a single occurrence of something interesting within the system.
  *             Some examples of events are creating a cluster, adding or removing a cache node, or rebooting a node.</p>
@@ -7214,15 +6242,6 @@ export interface Event {
   Date?: Date;
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeEvents</code> operation.</p>
  */
@@ -7236,15 +6255,6 @@ export interface EventsMessage {
    * <p>A list of events. Each element in the list contains detailed information about one event.</p>
    */
   Events?: Event[];
-}
-
-export namespace EventsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventsMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeGlobalReplicationGroupsMessage {
@@ -7269,15 +6279,6 @@ export interface DescribeGlobalReplicationGroupsMessage {
   ShowMemberInfo?: boolean;
 }
 
-export namespace DescribeGlobalReplicationGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGlobalReplicationGroupsMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeGlobalReplicationGroupsResult {
   /**
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
@@ -7288,15 +6289,6 @@ export interface DescribeGlobalReplicationGroupsResult {
    * <p>Indicates the slot configuration and global identifier for each slice group.</p>
    */
   GlobalReplicationGroups?: GlobalReplicationGroup[];
-}
-
-export namespace DescribeGlobalReplicationGroupsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGlobalReplicationGroupsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7327,15 +6319,6 @@ export interface DescribeReplicationGroupsMessage {
   Marker?: string;
 }
 
-export namespace DescribeReplicationGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReplicationGroupsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeReplicationGroups</code> operation.</p>
  */
@@ -7349,15 +6332,6 @@ export interface ReplicationGroupMessage {
    * <p>A list of replication groups. Each item in the list contains detailed information about one replication group.</p>
    */
   ReplicationGroups?: ReplicationGroup[];
-}
-
-export namespace ReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7682,15 +6656,6 @@ export interface DescribeReservedCacheNodesMessage {
   Marker?: string;
 }
 
-export namespace DescribeReservedCacheNodesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedCacheNodesMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the specific price and frequency of a recurring charges for a reserved cache node,
  *             or for a reserved cache node offering.</p>
@@ -7705,15 +6670,6 @@ export interface RecurringCharge {
    * <p>The frequency of the recurring charge.</p>
    */
   RecurringChargeFrequency?: string;
-}
-
-export namespace RecurringCharge {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecurringCharge): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8044,15 +7000,6 @@ export interface ReservedCacheNode {
   ReservationARN?: string;
 }
 
-export namespace ReservedCacheNode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedCacheNode): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeReservedCacheNodes</code> operation.</p>
  */
@@ -8066,15 +7013,6 @@ export interface ReservedCacheNodeMessage {
    * <p>A list of reserved cache nodes. Each element in the list contains detailed information about one node.</p>
    */
   ReservedCacheNodes?: ReservedCacheNode[];
-}
-
-export namespace ReservedCacheNodeMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedCacheNodeMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8397,15 +7335,6 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
   Marker?: string;
 }
 
-export namespace DescribeReservedCacheNodesOfferingsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedCacheNodesOfferingsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes all of the attributes of a reserved cache node offering.</p>
  */
@@ -8710,15 +7639,6 @@ export interface ReservedCacheNodesOffering {
   RecurringCharges?: RecurringCharge[];
 }
 
-export namespace ReservedCacheNodesOffering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedCacheNodesOffering): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeReservedCacheNodesOfferings</code> operation.</p>
  */
@@ -8732,15 +7652,6 @@ export interface ReservedCacheNodesOfferingMessage {
    * <p>A list of reserved cache node offerings. Each element in the list contains detailed information about one offering.</p>
    */
   ReservedCacheNodesOfferings?: ReservedCacheNodesOffering[];
-}
-
-export namespace ReservedCacheNodesOfferingMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedCacheNodesOfferingMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8791,15 +7702,6 @@ export interface DescribeServiceUpdatesMessage {
    *            value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeServiceUpdatesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeServiceUpdatesMessage): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceUpdateSeverity {
@@ -8878,15 +7780,6 @@ export interface ServiceUpdate {
   EstimatedUpdateTime?: string;
 }
 
-export namespace ServiceUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface ServiceUpdatesMessage {
   /**
    * <p>An optional marker returned from a prior request.
@@ -8900,15 +7793,6 @@ export interface ServiceUpdatesMessage {
    * <p>A list of service updates</p>
    */
   ServiceUpdates?: ServiceUpdate[];
-}
-
-export namespace ServiceUpdatesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUpdatesMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8927,15 +7811,6 @@ export interface DescribeSnapshotsListMessage {
    * <p>A list of snapshots. Each item in the list contains detailed information about one snapshot.</p>
    */
   Snapshots?: Snapshot[];
-}
-
-export namespace DescribeSnapshotsListMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotsListMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8990,15 +7865,6 @@ export interface DescribeSnapshotsMessage {
   ShowNodeGroupConfig?: boolean;
 }
 
-export namespace DescribeSnapshotsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Filters update actions from the service updates that are in available status during the time range.</p>
  */
@@ -9012,15 +7878,6 @@ export interface TimeRangeFilter {
    * <p>The end time of the time range filter</p>
    */
   EndTime?: Date;
-}
-
-export namespace TimeRangeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeRangeFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUpdateActionsMessage {
@@ -9076,15 +7933,6 @@ export interface DescribeUpdateActionsMessage {
    *            value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeUpdateActionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUpdateActionsMessage): any => ({
-    ...obj,
-  });
 }
 
 export enum NodeUpdateInitiatedBy {
@@ -9146,15 +7994,6 @@ export interface CacheNodeUpdateStatus {
   NodeUpdateStatusModifiedDate?: Date;
 }
 
-export namespace CacheNodeUpdateStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheNodeUpdateStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status of the service update on the node group member  </p>
  */
@@ -9205,15 +8044,6 @@ export interface NodeGroupMemberUpdateStatus {
   NodeUpdateStatusModifiedDate?: Date;
 }
 
-export namespace NodeGroupMemberUpdateStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeGroupMemberUpdateStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status of the service update on the node group </p>
  */
@@ -9227,15 +8057,6 @@ export interface NodeGroupUpdateStatus {
    * <p>The status of the service update on the node group member</p>
    */
   NodeGroupMemberUpdateStatus?: NodeGroupMemberUpdateStatus[];
-}
-
-export namespace NodeGroupUpdateStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeGroupUpdateStatus): any => ({
-    ...obj,
-  });
 }
 
 export enum SlaMet {
@@ -9335,15 +8156,6 @@ export interface UpdateAction {
   Engine?: string;
 }
 
-export namespace UpdateAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAction): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateActionsMessage {
   /**
    * <p>An optional marker returned from a prior request.
@@ -9357,15 +8169,6 @@ export interface UpdateActionsMessage {
    * <p>Returns a list of update actions</p>
    */
   UpdateActions?: UpdateAction[];
-}
-
-export namespace UpdateActionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateActionsMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUserGroupsMessage {
@@ -9385,15 +8188,6 @@ export interface DescribeUserGroupsMessage {
   Marker?: string;
 }
 
-export namespace DescribeUserGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserGroupsMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUserGroupsResult {
   /**
    * <p>Returns a list of user groups.</p>
@@ -9404,15 +8198,6 @@ export interface DescribeUserGroupsResult {
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
    */
   Marker?: string;
-}
-
-export namespace DescribeUserGroupsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUserGroupsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9428,15 +8213,6 @@ export interface Filter {
    * <p>The property values to filter on. For example, "user-123".</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUsersMessage {
@@ -9466,15 +8242,6 @@ export interface DescribeUsersMessage {
   Marker?: string;
 }
 
-export namespace DescribeUsersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUsersMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeUsersResult {
   /**
    * <p>A list of users.</p>
@@ -9485,15 +8252,6 @@ export interface DescribeUsersResult {
    * <p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords. ></p>
    */
   Marker?: string;
-}
-
-export namespace DescribeUsersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUsersResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateGlobalReplicationGroupMessage {
@@ -9513,15 +8271,6 @@ export interface DisassociateGlobalReplicationGroupMessage {
   ReplicationGroupRegion: string | undefined;
 }
 
-export namespace DisassociateGlobalReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateGlobalReplicationGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -9536,15 +8285,6 @@ export interface DisassociateGlobalReplicationGroupResult {
    *          </ul>
    */
   GlobalReplicationGroup?: GlobalReplicationGroup;
-}
-
-export namespace DisassociateGlobalReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateGlobalReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 export interface FailoverGlobalReplicationGroupMessage {
@@ -9564,15 +8304,6 @@ export interface FailoverGlobalReplicationGroupMessage {
   PrimaryReplicationGroupId: string | undefined;
 }
 
-export namespace FailoverGlobalReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailoverGlobalReplicationGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface FailoverGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -9587,15 +8318,6 @@ export interface FailoverGlobalReplicationGroupResult {
    *          </ul>
    */
   GlobalReplicationGroup?: GlobalReplicationGroup;
-}
-
-export namespace FailoverGlobalReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailoverGlobalReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9613,15 +8335,6 @@ export interface ReshardingConfiguration {
    * <p>A list of preferred availability zones for the nodes in this cluster.</p>
    */
   PreferredAvailabilityZones?: string[];
-}
-
-export namespace ReshardingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReshardingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9642,15 +8355,6 @@ export interface RegionalConfiguration {
    * <p>A list of <code>PreferredAvailabilityZones</code> objects that specifies the configuration of a node group in the resharded cluster. </p>
    */
   ReshardingConfiguration: ReshardingConfiguration[] | undefined;
-}
-
-export namespace RegionalConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionalConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface IncreaseNodeGroupsInGlobalReplicationGroupMessage {
@@ -9675,15 +8379,6 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupMessage {
   ApplyImmediately: boolean | undefined;
 }
 
-export namespace IncreaseNodeGroupsInGlobalReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncreaseNodeGroupsInGlobalReplicationGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface IncreaseNodeGroupsInGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -9698,15 +8393,6 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupResult {
    *          </ul>
    */
   GlobalReplicationGroup?: GlobalReplicationGroup;
-}
-
-export namespace IncreaseNodeGroupsInGlobalReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncreaseNodeGroupsInGlobalReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 export interface IncreaseReplicaCountMessage {
@@ -9738,29 +8424,11 @@ export interface IncreaseReplicaCountMessage {
   ApplyImmediately: boolean | undefined;
 }
 
-export namespace IncreaseReplicaCountMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncreaseReplicaCountMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface IncreaseReplicaCountResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
   ReplicationGroup?: ReplicationGroup;
-}
-
-export namespace IncreaseReplicaCountResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncreaseReplicaCountResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9810,15 +8478,6 @@ export interface ListAllowedNodeTypeModificationsMessage {
   ReplicationGroupId?: string;
 }
 
-export namespace ListAllowedNodeTypeModificationsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAllowedNodeTypeModificationsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input parameters for the <code>ListTagsForResource</code> operation.</p>
  */
@@ -9830,15 +8489,6 @@ export interface ListTagsForResourceMessage {
    *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
    */
   ResourceName: string | undefined;
-}
-
-export namespace ListTagsForResourceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
-    ...obj,
-  });
 }
 
 export type AuthTokenUpdateStrategyType = "DELETE" | "ROTATE" | "SET";
@@ -10201,29 +8851,11 @@ export interface ModifyCacheClusterMessage {
   LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
 }
 
-export namespace ModifyCacheClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyCacheClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyCacheClusterResult {
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
    */
   CacheCluster?: CacheCluster;
-}
-
-export namespace ModifyCacheClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyCacheClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10248,15 +8880,6 @@ export interface CacheParameterGroupNameMessage {
   CacheParameterGroupName?: string;
 }
 
-export namespace CacheParameterGroupNameMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheParameterGroupNameMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a name-value pair that is used to update the value of a parameter.</p>
  */
@@ -10272,15 +8895,6 @@ export interface ParameterNameValue {
   ParameterValue?: string;
 }
 
-export namespace ParameterNameValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterNameValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>ModifyCacheParameterGroup</code> operation.</p>
  */
@@ -10294,15 +8908,6 @@ export interface ModifyCacheParameterGroupMessage {
    * <p>An array of parameter names and values for the parameter update. You must supply at least one parameter name and value; subsequent arguments are optional. A maximum of 20 parameters may be modified per request.</p>
    */
   ParameterNameValues: ParameterNameValue[] | undefined;
-}
-
-export namespace ModifyCacheParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyCacheParameterGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10328,15 +8933,6 @@ export interface ModifyCacheSubnetGroupMessage {
   SubnetIds?: string[];
 }
 
-export namespace ModifyCacheSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyCacheSubnetGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyCacheSubnetGroupResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -10354,15 +8950,6 @@ export interface ModifyCacheSubnetGroupResult {
    *          </ul>
    */
   CacheSubnetGroup?: CacheSubnetGroup;
-}
-
-export namespace ModifyCacheSubnetGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyCacheSubnetGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10423,15 +9010,6 @@ export interface ModifyGlobalReplicationGroupMessage {
   AutomaticFailoverEnabled?: boolean;
 }
 
-export namespace ModifyGlobalReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyGlobalReplicationGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -10446,15 +9024,6 @@ export interface ModifyGlobalReplicationGroupResult {
    *          </ul>
    */
   GlobalReplicationGroup?: GlobalReplicationGroup;
-}
-
-export namespace ModifyGlobalReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyGlobalReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10700,29 +9269,11 @@ export interface ModifyReplicationGroupMessage {
   LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
 }
 
-export namespace ModifyReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyReplicationGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyReplicationGroupResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
   ReplicationGroup?: ReplicationGroup;
-}
-
-export namespace ModifyReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10782,29 +9333,11 @@ export interface ModifyReplicationGroupShardConfigurationMessage {
   NodeGroupsToRetain?: string[];
 }
 
-export namespace ModifyReplicationGroupShardConfigurationMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyReplicationGroupShardConfigurationMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyReplicationGroupShardConfigurationResult {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
   ReplicationGroup?: ReplicationGroup;
-}
-
-export namespace ModifyReplicationGroupShardConfigurationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyReplicationGroupShardConfigurationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyUserMessage {
@@ -10834,15 +9367,6 @@ export interface ModifyUserMessage {
   NoPasswordRequired?: boolean;
 }
 
-export namespace ModifyUserMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyUserMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyUserGroupMessage {
   /**
    * <p>The ID of the user group.</p>
@@ -10858,15 +9382,6 @@ export interface ModifyUserGroupMessage {
    * <p>The list of user IDs to remove from the user group.</p>
    */
   UserIdsToRemove?: string[];
-}
-
-export namespace ModifyUserGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyUserGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10904,29 +9419,11 @@ export interface PurchaseReservedCacheNodesOfferingMessage {
   Tags?: Tag[];
 }
 
-export namespace PurchaseReservedCacheNodesOfferingMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseReservedCacheNodesOfferingMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface PurchaseReservedCacheNodesOfferingResult {
   /**
    * <p>Represents the output of a <code>PurchaseReservedCacheNodesOffering</code> operation.</p>
    */
   ReservedCacheNode?: ReservedCacheNode;
-}
-
-export namespace PurchaseReservedCacheNodesOfferingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseReservedCacheNodesOfferingResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10979,15 +9476,6 @@ export interface RebalanceSlotsInGlobalReplicationGroupMessage {
   ApplyImmediately: boolean | undefined;
 }
 
-export namespace RebalanceSlotsInGlobalReplicationGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebalanceSlotsInGlobalReplicationGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RebalanceSlotsInGlobalReplicationGroupResult {
   /**
    * <p>Consists of a primary cluster that accepts writes and an associated secondary cluster that resides in a different Amazon region. The secondary cluster accepts only reads. The primary
@@ -11002,15 +9490,6 @@ export interface RebalanceSlotsInGlobalReplicationGroupResult {
    *          </ul>
    */
   GlobalReplicationGroup?: GlobalReplicationGroup;
-}
-
-export namespace RebalanceSlotsInGlobalReplicationGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebalanceSlotsInGlobalReplicationGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11028,29 +9507,11 @@ export interface RebootCacheClusterMessage {
   CacheNodeIdsToReboot: string[] | undefined;
 }
 
-export namespace RebootCacheClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootCacheClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootCacheClusterResult {
   /**
    * <p>Contains all of the attributes of a specific cluster.</p>
    */
   CacheCluster?: CacheCluster;
-}
-
-export namespace RebootCacheClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootCacheClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11069,15 +9530,6 @@ export interface RemoveTagsFromResourceMessage {
    * <p>A list of <code>TagKeys</code> identifying the tags you want removed from the named resource.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace RemoveTagsFromResourceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11128,15 +9580,6 @@ export interface ResetCacheParameterGroupMessage {
   ParameterNameValues?: ParameterNameValue[];
 }
 
-export namespace ResetCacheParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetCacheParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>
  */
@@ -11178,15 +9621,6 @@ export interface RevokeCacheSecurityGroupIngressMessage {
   EC2SecurityGroupOwnerId: string | undefined;
 }
 
-export namespace RevokeCacheSecurityGroupIngressMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeCacheSecurityGroupIngressMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeCacheSecurityGroupIngressResult {
   /**
    * <p>Represents the output of one of the following operations:</p>
@@ -11209,15 +9643,6 @@ export interface RevokeCacheSecurityGroupIngressResult {
    *          </ul>
    */
   CacheSecurityGroup?: CacheSecurityGroup;
-}
-
-export namespace RevokeCacheSecurityGroupIngressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeCacheSecurityGroupIngressResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11254,15 +9679,6 @@ export interface CustomerNodeEndpoint {
   Port?: number;
 }
 
-export namespace CustomerNodeEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerNodeEndpoint): any => ({
-    ...obj,
-  });
-}
-
 export interface StartMigrationMessage {
   /**
    * <p>The ID of the replication group to which data should be migrated.</p>
@@ -11275,29 +9691,11 @@ export interface StartMigrationMessage {
   CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
 }
 
-export namespace StartMigrationMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMigrationMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface StartMigrationResponse {
   /**
    * <p>Contains all of the attributes of a specific Redis replication group.</p>
    */
   ReplicationGroup?: ReplicationGroup;
-}
-
-export namespace StartMigrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMigrationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11354,15 +9752,6 @@ export interface TestFailoverMessage {
   NodeGroupId: string | undefined;
 }
 
-export namespace TestFailoverMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestFailoverMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>TestFailover</code> action is not available.</p>
  */
@@ -11389,11 +9778,1322 @@ export interface TestFailoverResult {
   ReplicationGroup?: ReplicationGroup;
 }
 
-export namespace TestFailoverResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestFailoverResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsToResourceMessageFilterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagListMessageFilterSensitiveLog = (obj: TagListMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllowedNodeTypeModificationsMessageFilterSensitiveLog = (
+  obj: AllowedNodeTypeModificationsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizeCacheSecurityGroupIngressMessageFilterSensitiveLog = (
+  obj: AuthorizeCacheSecurityGroupIngressMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2SecurityGroupFilterSensitiveLog = (obj: EC2SecurityGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheSecurityGroupFilterSensitiveLog = (obj: CacheSecurityGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizeCacheSecurityGroupIngressResultFilterSensitiveLog = (
+  obj: AuthorizeCacheSecurityGroupIngressResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchApplyUpdateActionMessageFilterSensitiveLog = (obj: BatchApplyUpdateActionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProcessedUpdateActionFilterSensitiveLog = (obj: ProcessedUpdateAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedUpdateActionFilterSensitiveLog = (obj: UnprocessedUpdateAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateActionResultsMessageFilterSensitiveLog = (obj: UpdateActionResultsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchStopUpdateActionMessageFilterSensitiveLog = (obj: BatchStopUpdateActionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteMigrationMessageFilterSensitiveLog = (obj: CompleteMigrationMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalReplicationGroupInfoFilterSensitiveLog = (obj: GlobalReplicationGroupInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogsDestinationDetailsFilterSensitiveLog = (obj: CloudWatchLogsDestinationDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseDestinationDetailsFilterSensitiveLog = (obj: KinesisFirehoseDestinationDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationDetailsFilterSensitiveLog = (obj: DestinationDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogDeliveryConfigurationFilterSensitiveLog = (obj: LogDeliveryConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeGroupMemberFilterSensitiveLog = (obj: NodeGroupMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeGroupFilterSensitiveLog = (obj: NodeGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingLogDeliveryConfigurationFilterSensitiveLog = (obj: PendingLogDeliveryConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotMigrationFilterSensitiveLog = (obj: SlotMigration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReshardingStatusFilterSensitiveLog = (obj: ReshardingStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserGroupsUpdateStatusFilterSensitiveLog = (obj: UserGroupsUpdateStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationGroupPendingModifiedValuesFilterSensitiveLog = (
+  obj: ReplicationGroupPendingModifiedValues
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationGroupFilterSensitiveLog = (obj: ReplicationGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteMigrationResponseFilterSensitiveLog = (obj: CompleteMigrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopySnapshotMessageFilterSensitiveLog = (obj: CopySnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeGroupConfigurationFilterSensitiveLog = (obj: NodeGroupConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeSnapshotFilterSensitiveLog = (obj: NodeSnapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopySnapshotResultFilterSensitiveLog = (obj: CopySnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogDeliveryConfigurationRequestFilterSensitiveLog = (obj: LogDeliveryConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCacheClusterMessageFilterSensitiveLog = (obj: CreateCacheClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheNodeFilterSensitiveLog = (obj: CacheNode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheParameterGroupStatusFilterSensitiveLog = (obj: CacheParameterGroupStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheSecurityGroupMembershipFilterSensitiveLog = (obj: CacheSecurityGroupMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationConfigurationFilterSensitiveLog = (obj: NotificationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingModifiedValuesFilterSensitiveLog = (obj: PendingModifiedValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityGroupMembershipFilterSensitiveLog = (obj: SecurityGroupMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheClusterFilterSensitiveLog = (obj: CacheCluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCacheClusterResultFilterSensitiveLog = (obj: CreateCacheClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCacheParameterGroupMessageFilterSensitiveLog = (obj: CreateCacheParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheParameterGroupFilterSensitiveLog = (obj: CacheParameterGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCacheParameterGroupResultFilterSensitiveLog = (obj: CreateCacheParameterGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCacheSecurityGroupMessageFilterSensitiveLog = (obj: CreateCacheSecurityGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCacheSecurityGroupResultFilterSensitiveLog = (obj: CreateCacheSecurityGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCacheSubnetGroupMessageFilterSensitiveLog = (obj: CreateCacheSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubnetOutpostFilterSensitiveLog = (obj: SubnetOutpost): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheSubnetGroupFilterSensitiveLog = (obj: CacheSubnetGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCacheSubnetGroupResultFilterSensitiveLog = (obj: CreateCacheSubnetGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGlobalReplicationGroupMessageFilterSensitiveLog = (
+  obj: CreateGlobalReplicationGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalNodeGroupFilterSensitiveLog = (obj: GlobalNodeGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalReplicationGroupMemberFilterSensitiveLog = (obj: GlobalReplicationGroupMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalReplicationGroupFilterSensitiveLog = (obj: GlobalReplicationGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGlobalReplicationGroupResultFilterSensitiveLog = (obj: CreateGlobalReplicationGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReplicationGroupMessageFilterSensitiveLog = (obj: CreateReplicationGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateReplicationGroupResultFilterSensitiveLog = (obj: CreateReplicationGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotMessageFilterSensitiveLog = (obj: CreateSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotResultFilterSensitiveLog = (obj: CreateSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserMessageFilterSensitiveLog = (obj: CreateUserMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationFilterSensitiveLog = (obj: Authentication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUserGroupMessageFilterSensitiveLog = (obj: CreateUserGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserGroupPendingChangesFilterSensitiveLog = (obj: UserGroupPendingChanges): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserGroupFilterSensitiveLog = (obj: UserGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecreaseNodeGroupsInGlobalReplicationGroupMessageFilterSensitiveLog = (
+  obj: DecreaseNodeGroupsInGlobalReplicationGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecreaseNodeGroupsInGlobalReplicationGroupResultFilterSensitiveLog = (
+  obj: DecreaseNodeGroupsInGlobalReplicationGroupResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureShardFilterSensitiveLog = (obj: ConfigureShard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecreaseReplicaCountMessageFilterSensitiveLog = (obj: DecreaseReplicaCountMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecreaseReplicaCountResultFilterSensitiveLog = (obj: DecreaseReplicaCountResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCacheClusterMessageFilterSensitiveLog = (obj: DeleteCacheClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCacheClusterResultFilterSensitiveLog = (obj: DeleteCacheClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCacheParameterGroupMessageFilterSensitiveLog = (obj: DeleteCacheParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCacheSecurityGroupMessageFilterSensitiveLog = (obj: DeleteCacheSecurityGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCacheSubnetGroupMessageFilterSensitiveLog = (obj: DeleteCacheSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGlobalReplicationGroupMessageFilterSensitiveLog = (
+  obj: DeleteGlobalReplicationGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGlobalReplicationGroupResultFilterSensitiveLog = (obj: DeleteGlobalReplicationGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReplicationGroupMessageFilterSensitiveLog = (obj: DeleteReplicationGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteReplicationGroupResultFilterSensitiveLog = (obj: DeleteReplicationGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSnapshotMessageFilterSensitiveLog = (obj: DeleteSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSnapshotResultFilterSensitiveLog = (obj: DeleteSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserMessageFilterSensitiveLog = (obj: DeleteUserMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserGroupMessageFilterSensitiveLog = (obj: DeleteUserGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheClusterMessageFilterSensitiveLog = (obj: CacheClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCacheClustersMessageFilterSensitiveLog = (obj: DescribeCacheClustersMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheEngineVersionFilterSensitiveLog = (obj: CacheEngineVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheEngineVersionMessageFilterSensitiveLog = (obj: CacheEngineVersionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCacheEngineVersionsMessageFilterSensitiveLog = (obj: DescribeCacheEngineVersionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheParameterGroupsMessageFilterSensitiveLog = (obj: CacheParameterGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCacheParameterGroupsMessageFilterSensitiveLog = (
+  obj: DescribeCacheParameterGroupsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheNodeTypeSpecificValueFilterSensitiveLog = (obj: CacheNodeTypeSpecificValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheNodeTypeSpecificParameterFilterSensitiveLog = (obj: CacheNodeTypeSpecificParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheParameterGroupDetailsFilterSensitiveLog = (obj: CacheParameterGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCacheParametersMessageFilterSensitiveLog = (obj: DescribeCacheParametersMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheSecurityGroupMessageFilterSensitiveLog = (obj: CacheSecurityGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCacheSecurityGroupsMessageFilterSensitiveLog = (obj: DescribeCacheSecurityGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheSubnetGroupMessageFilterSensitiveLog = (obj: CacheSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCacheSubnetGroupsMessageFilterSensitiveLog = (obj: DescribeCacheSubnetGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEngineDefaultParametersMessageFilterSensitiveLog = (
+  obj: DescribeEngineDefaultParametersMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EngineDefaultsFilterSensitiveLog = (obj: EngineDefaults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEngineDefaultParametersResultFilterSensitiveLog = (
+  obj: DescribeEngineDefaultParametersResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventsMessageFilterSensitiveLog = (obj: DescribeEventsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFilterSensitiveLog = (obj: Event): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventsMessageFilterSensitiveLog = (obj: EventsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGlobalReplicationGroupsMessageFilterSensitiveLog = (
+  obj: DescribeGlobalReplicationGroupsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGlobalReplicationGroupsResultFilterSensitiveLog = (
+  obj: DescribeGlobalReplicationGroupsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReplicationGroupsMessageFilterSensitiveLog = (obj: DescribeReplicationGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationGroupMessageFilterSensitiveLog = (obj: ReplicationGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedCacheNodesMessageFilterSensitiveLog = (obj: DescribeReservedCacheNodesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecurringChargeFilterSensitiveLog = (obj: RecurringCharge): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedCacheNodeFilterSensitiveLog = (obj: ReservedCacheNode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedCacheNodeMessageFilterSensitiveLog = (obj: ReservedCacheNodeMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedCacheNodesOfferingsMessageFilterSensitiveLog = (
+  obj: DescribeReservedCacheNodesOfferingsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedCacheNodesOfferingFilterSensitiveLog = (obj: ReservedCacheNodesOffering): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedCacheNodesOfferingMessageFilterSensitiveLog = (obj: ReservedCacheNodesOfferingMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeServiceUpdatesMessageFilterSensitiveLog = (obj: DescribeServiceUpdatesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceUpdateFilterSensitiveLog = (obj: ServiceUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceUpdatesMessageFilterSensitiveLog = (obj: ServiceUpdatesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotsListMessageFilterSensitiveLog = (obj: DescribeSnapshotsListMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotsMessageFilterSensitiveLog = (obj: DescribeSnapshotsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeRangeFilterFilterSensitiveLog = (obj: TimeRangeFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUpdateActionsMessageFilterSensitiveLog = (obj: DescribeUpdateActionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheNodeUpdateStatusFilterSensitiveLog = (obj: CacheNodeUpdateStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeGroupMemberUpdateStatusFilterSensitiveLog = (obj: NodeGroupMemberUpdateStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeGroupUpdateStatusFilterSensitiveLog = (obj: NodeGroupUpdateStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateActionFilterSensitiveLog = (obj: UpdateAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateActionsMessageFilterSensitiveLog = (obj: UpdateActionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserGroupsMessageFilterSensitiveLog = (obj: DescribeUserGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUserGroupsResultFilterSensitiveLog = (obj: DescribeUserGroupsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUsersMessageFilterSensitiveLog = (obj: DescribeUsersMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUsersResultFilterSensitiveLog = (obj: DescribeUsersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateGlobalReplicationGroupMessageFilterSensitiveLog = (
+  obj: DisassociateGlobalReplicationGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateGlobalReplicationGroupResultFilterSensitiveLog = (
+  obj: DisassociateGlobalReplicationGroupResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailoverGlobalReplicationGroupMessageFilterSensitiveLog = (
+  obj: FailoverGlobalReplicationGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailoverGlobalReplicationGroupResultFilterSensitiveLog = (
+  obj: FailoverGlobalReplicationGroupResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReshardingConfigurationFilterSensitiveLog = (obj: ReshardingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegionalConfigurationFilterSensitiveLog = (obj: RegionalConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncreaseNodeGroupsInGlobalReplicationGroupMessageFilterSensitiveLog = (
+  obj: IncreaseNodeGroupsInGlobalReplicationGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncreaseNodeGroupsInGlobalReplicationGroupResultFilterSensitiveLog = (
+  obj: IncreaseNodeGroupsInGlobalReplicationGroupResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncreaseReplicaCountMessageFilterSensitiveLog = (obj: IncreaseReplicaCountMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncreaseReplicaCountResultFilterSensitiveLog = (obj: IncreaseReplicaCountResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAllowedNodeTypeModificationsMessageFilterSensitiveLog = (
+  obj: ListAllowedNodeTypeModificationsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceMessageFilterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyCacheClusterMessageFilterSensitiveLog = (obj: ModifyCacheClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyCacheClusterResultFilterSensitiveLog = (obj: ModifyCacheClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CacheParameterGroupNameMessageFilterSensitiveLog = (obj: CacheParameterGroupNameMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterNameValueFilterSensitiveLog = (obj: ParameterNameValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyCacheParameterGroupMessageFilterSensitiveLog = (obj: ModifyCacheParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyCacheSubnetGroupMessageFilterSensitiveLog = (obj: ModifyCacheSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyCacheSubnetGroupResultFilterSensitiveLog = (obj: ModifyCacheSubnetGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyGlobalReplicationGroupMessageFilterSensitiveLog = (
+  obj: ModifyGlobalReplicationGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyGlobalReplicationGroupResultFilterSensitiveLog = (obj: ModifyGlobalReplicationGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyReplicationGroupMessageFilterSensitiveLog = (obj: ModifyReplicationGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyReplicationGroupResultFilterSensitiveLog = (obj: ModifyReplicationGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyReplicationGroupShardConfigurationMessageFilterSensitiveLog = (
+  obj: ModifyReplicationGroupShardConfigurationMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyReplicationGroupShardConfigurationResultFilterSensitiveLog = (
+  obj: ModifyReplicationGroupShardConfigurationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyUserMessageFilterSensitiveLog = (obj: ModifyUserMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyUserGroupMessageFilterSensitiveLog = (obj: ModifyUserGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseReservedCacheNodesOfferingMessageFilterSensitiveLog = (
+  obj: PurchaseReservedCacheNodesOfferingMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseReservedCacheNodesOfferingResultFilterSensitiveLog = (
+  obj: PurchaseReservedCacheNodesOfferingResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebalanceSlotsInGlobalReplicationGroupMessageFilterSensitiveLog = (
+  obj: RebalanceSlotsInGlobalReplicationGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebalanceSlotsInGlobalReplicationGroupResultFilterSensitiveLog = (
+  obj: RebalanceSlotsInGlobalReplicationGroupResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootCacheClusterMessageFilterSensitiveLog = (obj: RebootCacheClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootCacheClusterResultFilterSensitiveLog = (obj: RebootCacheClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromResourceMessageFilterSensitiveLog = (obj: RemoveTagsFromResourceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetCacheParameterGroupMessageFilterSensitiveLog = (obj: ResetCacheParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeCacheSecurityGroupIngressMessageFilterSensitiveLog = (
+  obj: RevokeCacheSecurityGroupIngressMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeCacheSecurityGroupIngressResultFilterSensitiveLog = (
+  obj: RevokeCacheSecurityGroupIngressResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerNodeEndpointFilterSensitiveLog = (obj: CustomerNodeEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMigrationMessageFilterSensitiveLog = (obj: StartMigrationMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMigrationResponseFilterSensitiveLog = (obj: StartMigrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestFailoverMessageFilterSensitiveLog = (obj: TestFailoverMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestFailoverResultFilterSensitiveLog = (obj: TestFailoverResult): any => ({
+  ...obj,
+});

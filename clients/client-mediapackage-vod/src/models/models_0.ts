@@ -52,15 +52,6 @@ export interface AssetShallow {
   Tags?: Record<string, string>;
 }
 
-export namespace AssetShallow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssetShallow): any => ({
-    ...obj,
-  });
-}
-
 export enum ManifestLayout {
   COMPACT = "COMPACT",
   FULL = "FULL",
@@ -102,15 +93,6 @@ export interface StreamSelection {
   StreamOrder?: StreamOrder | string;
 }
 
-export namespace StreamSelection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamSelection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A DASH manifest configuration.
  */
@@ -146,15 +128,6 @@ export interface DashManifest {
   StreamSelection?: StreamSelection;
 }
 
-export namespace DashManifest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashManifest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The endpoint URL used to access an Asset using one PackagingConfiguration.
  */
@@ -173,15 +146,6 @@ export interface EgressEndpoint {
    * The URL of the parent manifest for the repackaged Asset.
    */
   Url?: string;
-}
-
-export namespace EgressEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EgressEndpoint): any => ({
-    ...obj,
-  });
 }
 
 export enum AdMarkers {
@@ -238,15 +202,6 @@ export interface HlsManifest {
   StreamSelection?: StreamSelection;
 }
 
-export namespace HlsManifest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsManifest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A Microsoft Smooth Streaming (MSS) manifest configuration.
  */
@@ -260,15 +215,6 @@ export interface MssManifest {
    * A StreamSelection configuration.
    */
   StreamSelection?: StreamSelection;
-}
-
-export namespace MssManifest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MssManifest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -292,15 +238,6 @@ export interface SpekeKeyProvider {
   Url: string | undefined;
 }
 
-export namespace SpekeKeyProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpekeKeyProvider): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A CMAF encryption configuration.
  */
@@ -314,15 +251,6 @@ export interface CmafEncryption {
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
-}
-
-export namespace CmafEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CmafEncryption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -351,15 +279,6 @@ export interface CmafPackage {
   SegmentDurationSeconds?: number;
 }
 
-export namespace CmafPackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CmafPackage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
  */
@@ -368,15 +287,6 @@ export interface DashEncryption {
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
-}
-
-export namespace DashEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashEncryption): any => ({
-    ...obj,
-  });
 }
 
 export enum SegmentTemplateFormat {
@@ -424,15 +334,6 @@ export interface DashPackage {
   SegmentTemplateFormat?: SegmentTemplateFormat | string;
 }
 
-export namespace DashPackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashPackage): any => ({
-    ...obj,
-  });
-}
-
 export enum EncryptionMethod {
   AES_128 = "AES_128",
   SAMPLE_AES = "SAMPLE_AES",
@@ -457,15 +358,6 @@ export interface HlsEncryption {
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
-}
-
-export namespace HlsEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsEncryption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -499,15 +391,6 @@ export interface HlsPackage {
   UseAudioRenditionGroup?: boolean;
 }
 
-export namespace HlsPackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsPackage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A Microsoft Smooth Streaming (MSS) encryption configuration.
  */
@@ -516,15 +399,6 @@ export interface MssEncryption {
    * A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
    */
   SpekeKeyProvider: SpekeKeyProvider | undefined;
-}
-
-export namespace MssEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MssEncryption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -545,15 +419,6 @@ export interface MssPackage {
    * The duration (in seconds) of each segment.
    */
   SegmentDurationSeconds?: number;
-}
-
-export namespace MssPackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MssPackage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -601,15 +466,6 @@ export interface PackagingConfiguration {
   Tags?: Record<string, string>;
 }
 
-export namespace PackagingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackagingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * CDN Authorization credentials
  */
@@ -625,15 +481,6 @@ export interface Authorization {
   SecretsRoleArn: string | undefined;
 }
 
-export namespace Authorization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Authorization): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Configure egress access logging.
  */
@@ -642,15 +489,6 @@ export interface EgressAccessLogs {
    * Customize the log group name.
    */
   LogGroupName?: string;
-}
-
-export namespace EgressAccessLogs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EgressAccessLogs): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -688,15 +526,6 @@ export interface PackagingGroup {
   Tags?: Record<string, string>;
 }
 
-export namespace PackagingGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PackagingGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The option to configure log subscription.
  */
@@ -710,15 +539,6 @@ export interface ConfigureLogsRequest {
    * The ID of a MediaPackage VOD PackagingGroup resource.
    */
   Id: string | undefined;
-}
-
-export namespace ConfigureLogsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigureLogsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ConfigureLogsResponse {
@@ -751,15 +571,6 @@ export interface ConfigureLogsResponse {
    * A collection of tags associated with a resource
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ConfigureLogsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigureLogsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -923,15 +734,6 @@ export interface CreateAssetRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateAssetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAssetResponse {
   /**
    * The ARN of the Asset.
@@ -979,15 +781,6 @@ export interface CreateAssetResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateAssetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAssetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A new MediaPackage VOD PackagingConfiguration resource configuration.
  */
@@ -1026,15 +819,6 @@ export interface CreatePackagingConfigurationRequest {
    * A collection of tags associated with a resource
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreatePackagingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePackagingConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePackagingConfigurationResponse {
@@ -1079,15 +863,6 @@ export interface CreatePackagingConfigurationResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreatePackagingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePackagingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A new MediaPackage VOD PackagingGroup resource configuration.
  */
@@ -1111,15 +886,6 @@ export interface CreatePackagingGroupRequest {
    * A collection of tags associated with a resource
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreatePackagingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePackagingGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePackagingGroupResponse {
@@ -1154,15 +920,6 @@ export interface CreatePackagingGroupResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreatePackagingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePackagingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAssetRequest {
   /**
    * The ID of the MediaPackage VOD Asset resource to delete.
@@ -1170,25 +927,7 @@ export interface DeleteAssetRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteAssetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAssetResponse {}
-
-export namespace DeleteAssetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAssetResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePackagingConfigurationRequest {
   /**
@@ -1197,25 +936,7 @@ export interface DeletePackagingConfigurationRequest {
   Id: string | undefined;
 }
 
-export namespace DeletePackagingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePackagingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePackagingConfigurationResponse {}
-
-export namespace DeletePackagingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePackagingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePackagingGroupRequest {
   /**
@@ -1224,40 +945,13 @@ export interface DeletePackagingGroupRequest {
   Id: string | undefined;
 }
 
-export namespace DeletePackagingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePackagingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePackagingGroupResponse {}
-
-export namespace DeletePackagingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePackagingGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeAssetRequest {
   /**
    * The ID of an MediaPackage VOD Asset resource.
    */
   Id: string | undefined;
-}
-
-export namespace DescribeAssetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAssetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAssetResponse {
@@ -1307,29 +1001,11 @@ export interface DescribeAssetResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeAssetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAssetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePackagingConfigurationRequest {
   /**
    * The ID of a MediaPackage VOD PackagingConfiguration resource.
    */
   Id: string | undefined;
-}
-
-export namespace DescribePackagingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackagingConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePackagingConfigurationResponse {
@@ -1374,29 +1050,11 @@ export interface DescribePackagingConfigurationResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribePackagingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackagingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePackagingGroupRequest {
   /**
    * The ID of a MediaPackage VOD PackagingGroup resource.
    */
   Id: string | undefined;
-}
-
-export namespace DescribePackagingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackagingGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePackagingGroupResponse {
@@ -1431,15 +1089,6 @@ export interface DescribePackagingGroupResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribePackagingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePackagingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssetsRequest {
   /**
    * Upper bound on number of records to return.
@@ -1457,15 +1106,6 @@ export interface ListAssetsRequest {
   PackagingGroupId?: string;
 }
 
-export namespace ListAssetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssetsResponse {
   /**
    * A list of MediaPackage VOD Asset resources.
@@ -1476,15 +1116,6 @@ export interface ListAssetsResponse {
    * A token that can be used to resume pagination from the end of the collection.
    */
   NextToken?: string;
-}
-
-export namespace ListAssetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPackagingConfigurationsRequest {
@@ -1504,15 +1135,6 @@ export interface ListPackagingConfigurationsRequest {
   PackagingGroupId?: string;
 }
 
-export namespace ListPackagingConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackagingConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPackagingConfigurationsResponse {
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1523,15 +1145,6 @@ export interface ListPackagingConfigurationsResponse {
    * A list of MediaPackage VOD PackagingConfiguration resources.
    */
   PackagingConfigurations?: PackagingConfiguration[];
-}
-
-export namespace ListPackagingConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackagingConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPackagingGroupsRequest {
@@ -1546,15 +1159,6 @@ export interface ListPackagingGroupsRequest {
   NextToken?: string;
 }
 
-export namespace ListPackagingGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackagingGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPackagingGroupsResponse {
   /**
    * A token that can be used to resume pagination from the end of the collection.
@@ -1567,15 +1171,6 @@ export interface ListPackagingGroupsResponse {
   PackagingGroups?: PackagingGroup[];
 }
 
-export namespace ListPackagingGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPackagingGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
@@ -1583,29 +1178,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * A collection of tags associated with a resource
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1620,15 +1197,6 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource.
@@ -1639,15 +1207,6 @@ export interface UntagResourceRequest {
    * A comma-separated list of the tag keys to remove from the resource.
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1663,15 +1222,6 @@ export interface UpdatePackagingGroupRequest {
    * The ID of a MediaPackage VOD PackagingGroup resource.
    */
   Id: string | undefined;
-}
-
-export namespace UpdatePackagingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePackagingGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePackagingGroupResponse {
@@ -1706,11 +1256,373 @@ export interface UpdatePackagingGroupResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace UpdatePackagingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePackagingGroupResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AssetShallowFilterSensitiveLog = (obj: AssetShallow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamSelectionFilterSensitiveLog = (obj: StreamSelection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashManifestFilterSensitiveLog = (obj: DashManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EgressEndpointFilterSensitiveLog = (obj: EgressEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsManifestFilterSensitiveLog = (obj: HlsManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MssManifestFilterSensitiveLog = (obj: MssManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpekeKeyProviderFilterSensitiveLog = (obj: SpekeKeyProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CmafEncryptionFilterSensitiveLog = (obj: CmafEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CmafPackageFilterSensitiveLog = (obj: CmafPackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashEncryptionFilterSensitiveLog = (obj: DashEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashPackageFilterSensitiveLog = (obj: DashPackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsEncryptionFilterSensitiveLog = (obj: HlsEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsPackageFilterSensitiveLog = (obj: HlsPackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MssEncryptionFilterSensitiveLog = (obj: MssEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MssPackageFilterSensitiveLog = (obj: MssPackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackagingConfigurationFilterSensitiveLog = (obj: PackagingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizationFilterSensitiveLog = (obj: Authorization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EgressAccessLogsFilterSensitiveLog = (obj: EgressAccessLogs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PackagingGroupFilterSensitiveLog = (obj: PackagingGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureLogsRequestFilterSensitiveLog = (obj: ConfigureLogsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureLogsResponseFilterSensitiveLog = (obj: ConfigureLogsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssetRequestFilterSensitiveLog = (obj: CreateAssetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAssetResponseFilterSensitiveLog = (obj: CreateAssetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePackagingConfigurationRequestFilterSensitiveLog = (
+  obj: CreatePackagingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePackagingConfigurationResponseFilterSensitiveLog = (
+  obj: CreatePackagingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePackagingGroupRequestFilterSensitiveLog = (obj: CreatePackagingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePackagingGroupResponseFilterSensitiveLog = (obj: CreatePackagingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssetRequestFilterSensitiveLog = (obj: DeleteAssetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAssetResponseFilterSensitiveLog = (obj: DeleteAssetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackagingConfigurationRequestFilterSensitiveLog = (
+  obj: DeletePackagingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackagingConfigurationResponseFilterSensitiveLog = (
+  obj: DeletePackagingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackagingGroupRequestFilterSensitiveLog = (obj: DeletePackagingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePackagingGroupResponseFilterSensitiveLog = (obj: DeletePackagingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAssetRequestFilterSensitiveLog = (obj: DescribeAssetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAssetResponseFilterSensitiveLog = (obj: DescribeAssetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackagingConfigurationRequestFilterSensitiveLog = (
+  obj: DescribePackagingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackagingConfigurationResponseFilterSensitiveLog = (
+  obj: DescribePackagingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackagingGroupRequestFilterSensitiveLog = (obj: DescribePackagingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePackagingGroupResponseFilterSensitiveLog = (obj: DescribePackagingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssetsRequestFilterSensitiveLog = (obj: ListAssetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssetsResponseFilterSensitiveLog = (obj: ListAssetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackagingConfigurationsRequestFilterSensitiveLog = (obj: ListPackagingConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackagingConfigurationsResponseFilterSensitiveLog = (
+  obj: ListPackagingConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackagingGroupsRequestFilterSensitiveLog = (obj: ListPackagingGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPackagingGroupsResponseFilterSensitiveLog = (obj: ListPackagingGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePackagingGroupRequestFilterSensitiveLog = (obj: UpdatePackagingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePackagingGroupResponseFilterSensitiveLog = (obj: UpdatePackagingGroupResponse): any => ({
+  ...obj,
+});

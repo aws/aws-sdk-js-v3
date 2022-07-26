@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateFleetRequest, CreateFleetResult } from "../models/models_1";
+import {
+  CreateFleetRequest,
+  CreateFleetRequestFilterSensitiveLog,
+  CreateFleetResult,
+  CreateFleetResultFilterSensitiveLog,
+} from "../models/models_1";
 import { deserializeAws_ec2CreateFleetCommand, serializeAws_ec2CreateFleetCommand } from "../protocols/Aws_ec2";
 
 export interface CreateFleetCommandInput extends CreateFleetRequest {}
@@ -72,8 +77,8 @@ export class CreateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFleetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateFleetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFleetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateFleetResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

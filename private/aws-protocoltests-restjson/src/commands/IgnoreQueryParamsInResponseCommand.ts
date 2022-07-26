@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { IgnoreQueryParamsInResponseOutput } from "../models/models_0";
+import {
+  IgnoreQueryParamsInResponseOutput,
+  IgnoreQueryParamsInResponseOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1IgnoreQueryParamsInResponseCommand,
   serializeAws_restJson1IgnoreQueryParamsInResponseCommand,
@@ -75,7 +78,7 @@ export class IgnoreQueryParamsInResponseCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: IgnoreQueryParamsInResponseOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: IgnoreQueryParamsInResponseOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { StartEntitiesDetectionV2JobRequest, StartEntitiesDetectionV2JobResponse } from "../models/models_0";
+import {
+  StartEntitiesDetectionV2JobRequest,
+  StartEntitiesDetectionV2JobRequestFilterSensitiveLog,
+  StartEntitiesDetectionV2JobResponse,
+  StartEntitiesDetectionV2JobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartEntitiesDetectionV2JobCommand,
   serializeAws_json1_1StartEntitiesDetectionV2JobCommand,
@@ -79,8 +84,8 @@ export class StartEntitiesDetectionV2JobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartEntitiesDetectionV2JobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartEntitiesDetectionV2JobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartEntitiesDetectionV2JobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartEntitiesDetectionV2JobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

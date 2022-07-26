@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { ListEventsRequest, ListEventsResponse } from "../models/models_0";
+import {
+  ListEventsRequest,
+  ListEventsRequestFilterSensitiveLog,
+  ListEventsResponse,
+  ListEventsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListEventsCommand,
   serializeAws_restJson1ListEventsCommand,
@@ -73,8 +78,8 @@ export class ListEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEventsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEventsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

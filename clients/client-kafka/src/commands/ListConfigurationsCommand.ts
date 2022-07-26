@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { ListConfigurationsRequest, ListConfigurationsResponse } from "../models/models_0";
+import {
+  ListConfigurationsRequest,
+  ListConfigurationsRequestFilterSensitiveLog,
+  ListConfigurationsResponse,
+  ListConfigurationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListConfigurationsCommand,
   serializeAws_restJson1ListConfigurationsCommand,
@@ -72,8 +77,8 @@ export class ListConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigurationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListConfigurationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListConfigurationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

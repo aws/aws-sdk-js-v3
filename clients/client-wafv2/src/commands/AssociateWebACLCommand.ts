@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateWebACLRequest, AssociateWebACLResponse } from "../models/models_0";
+import {
+  AssociateWebACLRequest,
+  AssociateWebACLRequestFilterSensitiveLog,
+  AssociateWebACLResponse,
+  AssociateWebACLResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateWebACLCommand,
   serializeAws_json1_1AssociateWebACLCommand,
@@ -78,8 +83,8 @@ export class AssociateWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateWebACLRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateWebACLResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateWebACLRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateWebACLResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

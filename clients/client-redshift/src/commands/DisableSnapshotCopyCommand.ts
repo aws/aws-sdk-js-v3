@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisableSnapshotCopyMessage, DisableSnapshotCopyResult } from "../models/models_1";
+import {
+  DisableSnapshotCopyMessage,
+  DisableSnapshotCopyMessageFilterSensitiveLog,
+  DisableSnapshotCopyResult,
+  DisableSnapshotCopyResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDisableSnapshotCopyCommand,
   serializeAws_queryDisableSnapshotCopyCommand,
@@ -76,8 +81,8 @@ export class DisableSnapshotCopyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableSnapshotCopyMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableSnapshotCopyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableSnapshotCopyMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableSnapshotCopyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { DeleteAutoScalingConfigurationRequest, DeleteAutoScalingConfigurationResponse } from "../models/models_0";
+import {
+  DeleteAutoScalingConfigurationRequest,
+  DeleteAutoScalingConfigurationRequestFilterSensitiveLog,
+  DeleteAutoScalingConfigurationResponse,
+  DeleteAutoScalingConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteAutoScalingConfigurationCommand,
   serializeAws_json1_0DeleteAutoScalingConfigurationCommand,
@@ -75,8 +80,8 @@ export class DeleteAutoScalingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAutoScalingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAutoScalingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAutoScalingConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAutoScalingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

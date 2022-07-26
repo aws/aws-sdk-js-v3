@@ -14,15 +14,6 @@ export interface ScaleInPolicyDescription {
   cpuUtilizationPercentage?: number;
 }
 
-export namespace ScaleInPolicyDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScaleInPolicyDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description of the scale-out policy for the connector.</p>
  */
@@ -32,15 +23,6 @@ export interface ScaleOutPolicyDescription {
    *          triggered.</p>
    */
   cpuUtilizationPercentage?: number;
-}
-
-export namespace ScaleOutPolicyDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScaleOutPolicyDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -74,15 +56,6 @@ export interface AutoScalingDescription {
   scaleOutPolicy?: ScaleOutPolicyDescription;
 }
 
-export namespace AutoScalingDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description of a connector's provisioned capacity.</p>
  */
@@ -99,15 +72,6 @@ export interface ProvisionedCapacityDescription {
   workerCount?: number;
 }
 
-export namespace ProvisionedCapacityDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedCapacityDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A description of the connector's capacity.</p>
  */
@@ -121,15 +85,6 @@ export interface CapacityDescription {
    * <p>Describes a connector's provisioned capacity.</p>
    */
   provisionedCapacity?: ProvisionedCapacityDescription;
-}
-
-export namespace CapacityDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityDescription): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectorState {
@@ -155,15 +110,6 @@ export interface VpcDescription {
   subnets?: string[];
 }
 
-export namespace VpcDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description of the Apache Kafka cluster to which the connector is connected.</p>
  */
@@ -180,15 +126,6 @@ export interface ApacheKafkaClusterDescription {
   vpc?: VpcDescription;
 }
 
-export namespace ApacheKafkaClusterDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApacheKafkaClusterDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details of how to connect to the Apache Kafka cluster.</p>
  */
@@ -197,15 +134,6 @@ export interface KafkaClusterDescription {
    * <p>The Apache Kafka cluster to which the connector is connected.</p>
    */
   apacheKafkaCluster?: ApacheKafkaClusterDescription;
-}
-
-export namespace KafkaClusterDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KafkaClusterDescription): any => ({
-    ...obj,
-  });
 }
 
 export enum KafkaClusterClientAuthenticationType {
@@ -225,15 +153,6 @@ export interface KafkaClusterClientAuthenticationDescription {
   authenticationType?: KafkaClusterClientAuthenticationType | string;
 }
 
-export namespace KafkaClusterClientAuthenticationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KafkaClusterClientAuthenticationDescription): any => ({
-    ...obj,
-  });
-}
-
 export enum KafkaClusterEncryptionInTransitType {
   PLAINTEXT = "PLAINTEXT",
   TLS = "TLS",
@@ -247,15 +166,6 @@ export interface KafkaClusterEncryptionInTransitDescription {
    * <p>The type of encryption in transit to the Apache Kafka cluster.</p>
    */
   encryptionType?: KafkaClusterEncryptionInTransitType | string;
-}
-
-export namespace KafkaClusterEncryptionInTransitDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KafkaClusterEncryptionInTransitDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -273,15 +183,6 @@ export interface CloudWatchLogsLogDeliveryDescription {
   logGroup?: string;
 }
 
-export namespace CloudWatchLogsLogDeliveryDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogsLogDeliveryDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A description of the settings for delivering logs to Amazon Kinesis Data
  *          Firehose.</p>
@@ -297,15 +198,6 @@ export interface FirehoseLogDeliveryDescription {
    * <p>Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.</p>
    */
   enabled?: boolean;
-}
-
-export namespace FirehoseLogDeliveryDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirehoseLogDeliveryDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -326,15 +218,6 @@ export interface S3LogDeliveryDescription {
    * <p>The S3 prefix that is the destination for log delivery.</p>
    */
   prefix?: string;
-}
-
-export namespace S3LogDeliveryDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3LogDeliveryDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -358,15 +241,6 @@ export interface WorkerLogDeliveryDescription {
   s3?: S3LogDeliveryDescription;
 }
 
-export namespace WorkerLogDeliveryDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkerLogDeliveryDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description of the log delivery settings.</p>
  */
@@ -376,15 +250,6 @@ export interface LogDeliveryDescription {
    *          specifies the details of these destinations.</p>
    */
   workerLogDelivery?: WorkerLogDeliveryDescription;
-}
-
-export namespace LogDeliveryDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogDeliveryDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -402,15 +267,6 @@ export interface CustomPluginDescription {
   revision?: number;
 }
 
-export namespace CustomPluginDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomPluginDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description of the plugin.</p>
  */
@@ -419,15 +275,6 @@ export interface PluginDescription {
    * <p>Details about a custom plugin.</p>
    */
   customPlugin?: CustomPluginDescription;
-}
-
-export namespace PluginDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PluginDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -443,15 +290,6 @@ export interface WorkerConfigurationDescription {
    * <p>The Amazon Resource Name (ARN) of the worker configuration.</p>
    */
   workerConfigurationArn?: string;
-}
-
-export namespace WorkerConfigurationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkerConfigurationDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -537,15 +375,6 @@ export interface ConnectorSummary {
   workerConfiguration?: WorkerConfigurationDescription;
 }
 
-export namespace ConnectorSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum CustomPluginState {
   ACTIVE = "ACTIVE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -576,15 +405,6 @@ export interface CustomPluginFileDescription {
   fileSize?: number;
 }
 
-export namespace CustomPluginFileDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomPluginFileDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description of the location of an object in Amazon S3.</p>
  */
@@ -605,15 +425,6 @@ export interface S3LocationDescription {
   objectVersion?: string;
 }
 
-export namespace S3LocationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3LocationDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the location of a custom plugin.</p>
  */
@@ -623,15 +434,6 @@ export interface CustomPluginLocationDescription {
    *          file stored in Amazon S3.</p>
    */
   s3Location?: S3LocationDescription;
-}
-
-export namespace CustomPluginLocationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomPluginLocationDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -669,15 +471,6 @@ export interface CustomPluginRevisionSummary {
   revision?: number;
 }
 
-export namespace CustomPluginRevisionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomPluginRevisionSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A summary of the custom plugin.</p>
  */
@@ -713,15 +506,6 @@ export interface CustomPluginSummary {
   name?: string;
 }
 
-export namespace CustomPluginSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomPluginSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A plugin is an AWS resource that contains the code that defines a connector's
  *          logic.</p>
@@ -738,15 +522,6 @@ export interface CustomPlugin {
   revision: number | undefined;
 }
 
-export namespace CustomPlugin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomPlugin): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A plugin is an AWS resource that contains the code that defines your connector logic.
  *       </p>
@@ -756,15 +531,6 @@ export interface Plugin {
    * <p>Details about a custom plugin.</p>
    */
   customPlugin: CustomPlugin | undefined;
-}
-
-export namespace Plugin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Plugin): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -785,15 +551,6 @@ export interface WorkerConfigurationRevisionSummary {
    * <p>The revision of a worker configuration.</p>
    */
   revision?: number;
-}
-
-export namespace WorkerConfigurationRevisionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkerConfigurationRevisionSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -826,15 +583,6 @@ export interface WorkerConfigurationSummary {
   workerConfigurationArn?: string;
 }
 
-export namespace WorkerConfigurationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkerConfigurationSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the VPC in which the connector resides.</p>
  */
@@ -848,15 +596,6 @@ export interface Vpc {
    * <p>The subnets for the connector.</p>
    */
   subnets: string[] | undefined;
-}
-
-export namespace Vpc {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Vpc): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -875,15 +614,6 @@ export interface ApacheKafkaCluster {
   vpc: Vpc | undefined;
 }
 
-export namespace ApacheKafkaCluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApacheKafkaCluster): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The scale-in policy for the connector.</p>
  */
@@ -895,15 +625,6 @@ export interface ScaleInPolicy {
   cpuUtilizationPercentage: number | undefined;
 }
 
-export namespace ScaleInPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScaleInPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The scale-out policy for the connector.</p>
  */
@@ -913,15 +634,6 @@ export interface ScaleOutPolicy {
    *          triggered.</p>
    */
   cpuUtilizationPercentage: number | undefined;
-}
-
-export namespace ScaleOutPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScaleOutPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -955,15 +667,6 @@ export interface AutoScaling {
   scaleOutPolicy?: ScaleOutPolicy;
 }
 
-export namespace AutoScaling {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScaling): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An update to the connector's scale-in policy.</p>
  */
@@ -975,15 +678,6 @@ export interface ScaleInPolicyUpdate {
   cpuUtilizationPercentage: number | undefined;
 }
 
-export namespace ScaleInPolicyUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScaleInPolicyUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An update to the connector's scale-out policy.</p>
  */
@@ -993,15 +687,6 @@ export interface ScaleOutPolicyUpdate {
    *          be triggered.</p>
    */
   cpuUtilizationPercentage: number | undefined;
-}
-
-export namespace ScaleOutPolicyUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScaleOutPolicyUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1033,15 +718,6 @@ export interface AutoScalingUpdate {
    * <p>The target sacle-out policy for the connector.</p>
    */
   scaleOutPolicy: ScaleOutPolicyUpdate | undefined;
-}
-
-export namespace AutoScalingUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1080,15 +756,6 @@ export interface ProvisionedCapacity {
   workerCount: number | undefined;
 }
 
-export namespace ProvisionedCapacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedCapacity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the capacity of the connector, whether it is auto scaled or
  *          provisioned.</p>
@@ -1103,15 +770,6 @@ export interface Capacity {
    * <p>Details about a fixed capacity allocated to a connector.</p>
    */
   provisionedCapacity?: ProvisionedCapacity;
-}
-
-export namespace Capacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Capacity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1130,15 +788,6 @@ export interface ProvisionedCapacityUpdate {
   workerCount: number | undefined;
 }
 
-export namespace ProvisionedCapacityUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedCapacityUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The target capacity for the connector. The capacity can be auto scaled or
  *          provisioned.</p>
@@ -1155,15 +804,6 @@ export interface CapacityUpdate {
   provisionedCapacity?: ProvisionedCapacityUpdate;
 }
 
-export namespace CapacityUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The settings for delivering connector logs to Amazon CloudWatch Logs.</p>
  */
@@ -1177,15 +817,6 @@ export interface CloudWatchLogsLogDelivery {
    * <p>The name of the CloudWatch log group that is the destination for log delivery.</p>
    */
   logGroup?: string;
-}
-
-export namespace CloudWatchLogsLogDelivery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogsLogDelivery): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1218,15 +849,6 @@ export interface KafkaCluster {
   apacheKafkaCluster: ApacheKafkaCluster | undefined;
 }
 
-export namespace KafkaCluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KafkaCluster): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client authentication information used in order to authenticate with the Apache
  *          Kafka cluster.</p>
@@ -1239,15 +861,6 @@ export interface KafkaClusterClientAuthentication {
   authenticationType: KafkaClusterClientAuthenticationType | string | undefined;
 }
 
-export namespace KafkaClusterClientAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KafkaClusterClientAuthentication): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details of encryption in transit to the Apache Kafka cluster.</p>
  */
@@ -1256,15 +869,6 @@ export interface KafkaClusterEncryptionInTransit {
    * <p>The type of encryption in transit to the Apache Kafka cluster.</p>
    */
   encryptionType: KafkaClusterEncryptionInTransitType | string | undefined;
-}
-
-export namespace KafkaClusterEncryptionInTransit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KafkaClusterEncryptionInTransit): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1281,15 +885,6 @@ export interface FirehoseLogDelivery {
    * <p>Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.</p>
    */
   enabled: boolean | undefined;
-}
-
-export namespace FirehoseLogDelivery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirehoseLogDelivery): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1310,15 +905,6 @@ export interface S3LogDelivery {
    * <p>The S3 prefix that is the destination for log delivery.</p>
    */
   prefix?: string;
-}
-
-export namespace S3LogDelivery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3LogDelivery): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1342,15 +928,6 @@ export interface WorkerLogDelivery {
   s3?: S3LogDelivery;
 }
 
-export namespace WorkerLogDelivery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkerLogDelivery): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about log delivery.</p>
  */
@@ -1360,15 +937,6 @@ export interface LogDelivery {
    *          specifies the details of these destinations.</p>
    */
   workerLogDelivery: WorkerLogDelivery | undefined;
-}
-
-export namespace LogDelivery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogDelivery): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1385,15 +953,6 @@ export interface WorkerConfiguration {
    * <p>The Amazon Resource Name (ARN) of the worker configuration.</p>
    */
   workerConfigurationArn: string | undefined;
-}
-
-export namespace WorkerConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkerConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConnectorRequest {
@@ -1463,16 +1022,6 @@ export interface CreateConnectorRequest {
   workerConfiguration?: WorkerConfiguration;
 }
 
-export namespace CreateConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectorRequest): any => ({
-    ...obj,
-    ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateConnectorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) that Amazon assigned to the connector.</p>
@@ -1488,15 +1037,6 @@ export interface CreateConnectorResponse {
    * <p>The state of the connector.</p>
    */
   connectorState?: ConnectorState | string;
-}
-
-export namespace CreateConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1638,15 +1178,6 @@ export interface S3Location {
   objectVersion?: string;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the location of a custom plugin.</p>
  */
@@ -1656,15 +1187,6 @@ export interface CustomPluginLocation {
    *          file stored in Amazon S3.</p>
    */
   s3Location: S3Location | undefined;
-}
-
-export namespace CustomPluginLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomPluginLocation): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCustomPluginRequest {
@@ -1689,15 +1211,6 @@ export interface CreateCustomPluginRequest {
   name: string | undefined;
 }
 
-export namespace CreateCustomPluginRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomPluginRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCustomPluginResponse {
   /**
    * <p>The Amazon Resource Name (ARN) that Amazon assigned to the custom plugin.</p>
@@ -1720,15 +1233,6 @@ export interface CreateCustomPluginResponse {
   revision?: number;
 }
 
-export namespace CreateCustomPluginResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomPluginResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkerConfigurationRequest {
   /**
    * <p>A summary description of the worker configuration.</p>
@@ -1744,16 +1248,6 @@ export interface CreateWorkerConfigurationRequest {
    * <p>Base64 encoded contents of connect-distributed.properties file.</p>
    */
   propertiesFileContent: string | undefined;
-}
-
-export namespace CreateWorkerConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkerConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.propertiesFileContent && { propertiesFileContent: SENSITIVE_STRING }),
-  });
 }
 
 export interface CreateWorkerConfigurationResponse {
@@ -1778,15 +1272,6 @@ export interface CreateWorkerConfigurationResponse {
   workerConfigurationArn?: string;
 }
 
-export namespace CreateWorkerConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkerConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConnectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the connector that you want to delete.</p>
@@ -1797,15 +1282,6 @@ export interface DeleteConnectorRequest {
    * <p>The current version of the connector that you want to delete.</p>
    */
   currentVersion?: string;
-}
-
-export namespace DeleteConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectorRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteConnectorResponse {
@@ -1820,29 +1296,11 @@ export interface DeleteConnectorResponse {
   connectorState?: ConnectorState | string;
 }
 
-export namespace DeleteConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectorResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCustomPluginRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom plugin that you want to delete.</p>
    */
   customPluginArn: string | undefined;
-}
-
-export namespace DeleteCustomPluginRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomPluginRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCustomPluginResponse {
@@ -1857,29 +1315,11 @@ export interface DeleteCustomPluginResponse {
   customPluginState?: CustomPluginState | string;
 }
 
-export namespace DeleteCustomPluginResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomPluginResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConnectorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the connector that you want to describe.</p>
    */
   connectorArn: string | undefined;
-}
-
-export namespace DescribeConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectorRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1895,15 +1335,6 @@ export interface StateDescription {
    * <p>A message that describes the state of a resource.</p>
    */
   message?: string;
-}
-
-export namespace StateDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateDescription): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConnectorResponse {
@@ -1997,30 +1428,11 @@ export interface DescribeConnectorResponse {
   stateDescription?: StateDescription;
 }
 
-export namespace DescribeConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConnectorResponse): any => ({
-    ...obj,
-    ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeCustomPluginRequest {
   /**
    * <p>Returns information about a custom plugin.</p>
    */
   customPluginArn: string | undefined;
-}
-
-export namespace DescribeCustomPluginRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomPluginRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCustomPluginResponse {
@@ -2061,30 +1473,12 @@ export interface DescribeCustomPluginResponse {
   stateDescription?: StateDescription;
 }
 
-export namespace DescribeCustomPluginResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomPluginResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkerConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the worker configuration that you want to get
    *          information about.</p>
    */
   workerConfigurationArn: string | undefined;
-}
-
-export namespace DescribeWorkerConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkerConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2110,16 +1504,6 @@ export interface WorkerConfigurationRevisionDescription {
    * <p>The description of a revision of the worker configuration.</p>
    */
   revision?: number;
-}
-
-export namespace WorkerConfigurationRevisionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkerConfigurationRevisionDescription): any => ({
-    ...obj,
-    ...(obj.propertiesFileContent && { propertiesFileContent: SENSITIVE_STRING }),
-  });
 }
 
 export interface DescribeWorkerConfigurationResponse {
@@ -2149,18 +1533,6 @@ export interface DescribeWorkerConfigurationResponse {
   workerConfigurationArn?: string;
 }
 
-export namespace DescribeWorkerConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkerConfigurationResponse): any => ({
-    ...obj,
-    ...(obj.latestRevision && {
-      latestRevision: WorkerConfigurationRevisionDescription.filterSensitiveLog(obj.latestRevision),
-    }),
-  });
-}
-
 export interface ListConnectorsRequest {
   /**
    * <p>The name prefix that you want to use to search for and list connectors.</p>
@@ -2180,15 +1552,6 @@ export interface ListConnectorsRequest {
   nextToken?: string;
 }
 
-export namespace ListConnectorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConnectorsResponse {
   /**
    * <p>An array of connector descriptions.</p>
@@ -2201,15 +1564,6 @@ export interface ListConnectorsResponse {
    *          off.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListConnectorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCustomPluginsRequest {
@@ -2226,15 +1580,6 @@ export interface ListCustomPluginsRequest {
   nextToken?: string;
 }
 
-export namespace ListCustomPluginsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomPluginsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCustomPluginsResponse {
   /**
    * <p>An array of custom plugin descriptions.</p>
@@ -2247,15 +1592,6 @@ export interface ListCustomPluginsResponse {
    *          previous operation left off.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListCustomPluginsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomPluginsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWorkerConfigurationsRequest {
@@ -2272,15 +1608,6 @@ export interface ListWorkerConfigurationsRequest {
   nextToken?: string;
 }
 
-export namespace ListWorkerConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkerConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWorkerConfigurationsResponse {
   /**
    * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a
@@ -2293,15 +1620,6 @@ export interface ListWorkerConfigurationsResponse {
    * <p>An array of worker configuration descriptions.</p>
    */
   workerConfigurations?: WorkerConfigurationSummary[];
-}
-
-export namespace ListWorkerConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkerConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateConnectorRequest {
@@ -2321,15 +1639,6 @@ export interface UpdateConnectorRequest {
   currentVersion: string | undefined;
 }
 
-export namespace UpdateConnectorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateConnectorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
@@ -2342,11 +1651,558 @@ export interface UpdateConnectorResponse {
   connectorState?: ConnectorState | string;
 }
 
-export namespace UpdateConnectorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectorResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ScaleInPolicyDescriptionFilterSensitiveLog = (obj: ScaleInPolicyDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScaleOutPolicyDescriptionFilterSensitiveLog = (obj: ScaleOutPolicyDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingDescriptionFilterSensitiveLog = (obj: AutoScalingDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedCapacityDescriptionFilterSensitiveLog = (obj: ProvisionedCapacityDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityDescriptionFilterSensitiveLog = (obj: CapacityDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcDescriptionFilterSensitiveLog = (obj: VpcDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApacheKafkaClusterDescriptionFilterSensitiveLog = (obj: ApacheKafkaClusterDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KafkaClusterDescriptionFilterSensitiveLog = (obj: KafkaClusterDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KafkaClusterClientAuthenticationDescriptionFilterSensitiveLog = (
+  obj: KafkaClusterClientAuthenticationDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KafkaClusterEncryptionInTransitDescriptionFilterSensitiveLog = (
+  obj: KafkaClusterEncryptionInTransitDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogsLogDeliveryDescriptionFilterSensitiveLog = (
+  obj: CloudWatchLogsLogDeliveryDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirehoseLogDeliveryDescriptionFilterSensitiveLog = (obj: FirehoseLogDeliveryDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LogDeliveryDescriptionFilterSensitiveLog = (obj: S3LogDeliveryDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkerLogDeliveryDescriptionFilterSensitiveLog = (obj: WorkerLogDeliveryDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogDeliveryDescriptionFilterSensitiveLog = (obj: LogDeliveryDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomPluginDescriptionFilterSensitiveLog = (obj: CustomPluginDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PluginDescriptionFilterSensitiveLog = (obj: PluginDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkerConfigurationDescriptionFilterSensitiveLog = (obj: WorkerConfigurationDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorSummaryFilterSensitiveLog = (obj: ConnectorSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomPluginFileDescriptionFilterSensitiveLog = (obj: CustomPluginFileDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationDescriptionFilterSensitiveLog = (obj: S3LocationDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomPluginLocationDescriptionFilterSensitiveLog = (obj: CustomPluginLocationDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomPluginRevisionSummaryFilterSensitiveLog = (obj: CustomPluginRevisionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomPluginSummaryFilterSensitiveLog = (obj: CustomPluginSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomPluginFilterSensitiveLog = (obj: CustomPlugin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PluginFilterSensitiveLog = (obj: Plugin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkerConfigurationRevisionSummaryFilterSensitiveLog = (obj: WorkerConfigurationRevisionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkerConfigurationSummaryFilterSensitiveLog = (obj: WorkerConfigurationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcFilterSensitiveLog = (obj: Vpc): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApacheKafkaClusterFilterSensitiveLog = (obj: ApacheKafkaCluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScaleInPolicyFilterSensitiveLog = (obj: ScaleInPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScaleOutPolicyFilterSensitiveLog = (obj: ScaleOutPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingFilterSensitiveLog = (obj: AutoScaling): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScaleInPolicyUpdateFilterSensitiveLog = (obj: ScaleInPolicyUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScaleOutPolicyUpdateFilterSensitiveLog = (obj: ScaleOutPolicyUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingUpdateFilterSensitiveLog = (obj: AutoScalingUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedCapacityFilterSensitiveLog = (obj: ProvisionedCapacity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityFilterSensitiveLog = (obj: Capacity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedCapacityUpdateFilterSensitiveLog = (obj: ProvisionedCapacityUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityUpdateFilterSensitiveLog = (obj: CapacityUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogsLogDeliveryFilterSensitiveLog = (obj: CloudWatchLogsLogDelivery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KafkaClusterFilterSensitiveLog = (obj: KafkaCluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KafkaClusterClientAuthenticationFilterSensitiveLog = (obj: KafkaClusterClientAuthentication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KafkaClusterEncryptionInTransitFilterSensitiveLog = (obj: KafkaClusterEncryptionInTransit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirehoseLogDeliveryFilterSensitiveLog = (obj: FirehoseLogDelivery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LogDeliveryFilterSensitiveLog = (obj: S3LogDelivery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkerLogDeliveryFilterSensitiveLog = (obj: WorkerLogDelivery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogDeliveryFilterSensitiveLog = (obj: LogDelivery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkerConfigurationFilterSensitiveLog = (obj: WorkerConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectorRequestFilterSensitiveLog = (obj: CreateConnectorRequest): any => ({
+  ...obj,
+  ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectorResponseFilterSensitiveLog = (obj: CreateConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomPluginLocationFilterSensitiveLog = (obj: CustomPluginLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomPluginRequestFilterSensitiveLog = (obj: CreateCustomPluginRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomPluginResponseFilterSensitiveLog = (obj: CreateCustomPluginResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkerConfigurationRequestFilterSensitiveLog = (obj: CreateWorkerConfigurationRequest): any => ({
+  ...obj,
+  ...(obj.propertiesFileContent && { propertiesFileContent: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkerConfigurationResponseFilterSensitiveLog = (obj: CreateWorkerConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectorRequestFilterSensitiveLog = (obj: DeleteConnectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectorResponseFilterSensitiveLog = (obj: DeleteConnectorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomPluginRequestFilterSensitiveLog = (obj: DeleteCustomPluginRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomPluginResponseFilterSensitiveLog = (obj: DeleteCustomPluginResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectorRequestFilterSensitiveLog = (obj: DescribeConnectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StateDescriptionFilterSensitiveLog = (obj: StateDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectorResponseFilterSensitiveLog = (obj: DescribeConnectorResponse): any => ({
+  ...obj,
+  ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomPluginRequestFilterSensitiveLog = (obj: DescribeCustomPluginRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomPluginResponseFilterSensitiveLog = (obj: DescribeCustomPluginResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkerConfigurationRequestFilterSensitiveLog = (obj: DescribeWorkerConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkerConfigurationRevisionDescriptionFilterSensitiveLog = (
+  obj: WorkerConfigurationRevisionDescription
+): any => ({
+  ...obj,
+  ...(obj.propertiesFileContent && { propertiesFileContent: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkerConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeWorkerConfigurationResponse
+): any => ({
+  ...obj,
+  ...(obj.latestRevision && {
+    latestRevision: WorkerConfigurationRevisionDescriptionFilterSensitiveLog(obj.latestRevision),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorsRequestFilterSensitiveLog = (obj: ListConnectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorsResponseFilterSensitiveLog = (obj: ListConnectorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomPluginsRequestFilterSensitiveLog = (obj: ListCustomPluginsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomPluginsResponseFilterSensitiveLog = (obj: ListCustomPluginsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkerConfigurationsRequestFilterSensitiveLog = (obj: ListWorkerConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkerConfigurationsResponseFilterSensitiveLog = (obj: ListWorkerConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorRequestFilterSensitiveLog = (obj: UpdateConnectorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorResponseFilterSensitiveLog = (obj: UpdateConnectorResponse): any => ({
+  ...obj,
+});

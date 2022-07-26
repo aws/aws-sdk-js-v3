@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { AssociateHostedConnectionRequest, Connection } from "../models/models_0";
+import {
+  AssociateHostedConnectionRequest,
+  AssociateHostedConnectionRequestFilterSensitiveLog,
+  Connection,
+  ConnectionFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateHostedConnectionCommand,
   serializeAws_json1_1AssociateHostedConnectionCommand,
@@ -79,8 +84,8 @@ export class AssociateHostedConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateHostedConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Connection.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateHostedConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

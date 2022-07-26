@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { StartReplayRequest, StartReplayResponse } from "../models/models_0";
+import {
+  StartReplayRequest,
+  StartReplayRequestFilterSensitiveLog,
+  StartReplayResponse,
+  StartReplayResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartReplayCommand,
   serializeAws_json1_1StartReplayCommand,
@@ -80,8 +85,8 @@ export class StartReplayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReplayRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartReplayResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartReplayRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartReplayResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

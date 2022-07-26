@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListVolumeRecoveryPointsInput, ListVolumeRecoveryPointsOutput } from "../models/models_0";
+import {
+  ListVolumeRecoveryPointsInput,
+  ListVolumeRecoveryPointsInputFilterSensitiveLog,
+  ListVolumeRecoveryPointsOutput,
+  ListVolumeRecoveryPointsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListVolumeRecoveryPointsCommand,
   serializeAws_json1_1ListVolumeRecoveryPointsCommand,
@@ -78,8 +83,8 @@ export class ListVolumeRecoveryPointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVolumeRecoveryPointsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListVolumeRecoveryPointsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVolumeRecoveryPointsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListVolumeRecoveryPointsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

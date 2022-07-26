@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { TagResourceInput, TagResourceOutput } from "../models/models_0";
+import {
+  TagResourceInput,
+  TagResourceInputFilterSensitiveLog,
+  TagResourceOutput,
+  TagResourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryTagResourceCommand, serializeAws_queryTagResourceCommand } from "../protocols/Aws_query";
 
 export interface TagResourceCommandInput extends TagResourceInput {}
@@ -79,8 +84,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: TagResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

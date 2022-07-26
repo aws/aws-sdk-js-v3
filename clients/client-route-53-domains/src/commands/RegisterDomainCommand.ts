@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterDomainRequest, RegisterDomainResponse } from "../models/models_0";
+import {
+  RegisterDomainRequest,
+  RegisterDomainRequestFilterSensitiveLog,
+  RegisterDomainResponse,
+  RegisterDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterDomainCommand,
   serializeAws_json1_1RegisterDomainCommand,
@@ -100,8 +105,8 @@ export class RegisterDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import { GetLambdaFunctionRecommendationsRequest, GetLambdaFunctionRecommendationsResponse } from "../models/models_0";
+import {
+  GetLambdaFunctionRecommendationsRequest,
+  GetLambdaFunctionRecommendationsRequestFilterSensitiveLog,
+  GetLambdaFunctionRecommendationsResponse,
+  GetLambdaFunctionRecommendationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0GetLambdaFunctionRecommendationsCommand,
   serializeAws_json1_0GetLambdaFunctionRecommendationsCommand,
@@ -78,8 +83,8 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLambdaFunctionRecommendationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLambdaFunctionRecommendationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLambdaFunctionRecommendationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetLambdaFunctionRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

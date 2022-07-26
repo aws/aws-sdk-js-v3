@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { CreateDeploymentRequest, Deployment } from "../models/models_0";
+import {
+  CreateDeploymentRequest,
+  CreateDeploymentRequestFilterSensitiveLog,
+  Deployment,
+  DeploymentFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDeploymentCommand,
   serializeAws_restJson1CreateDeploymentCommand,
@@ -72,8 +77,8 @@ export class CreateDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Deployment.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDeploymentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeploymentFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

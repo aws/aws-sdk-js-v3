@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { BackupPolicyDescription, DescribeBackupPolicyRequest } from "../models/models_0";
+import {
+  BackupPolicyDescription,
+  BackupPolicyDescriptionFilterSensitiveLog,
+  DescribeBackupPolicyRequest,
+  DescribeBackupPolicyRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeBackupPolicyCommand,
   serializeAws_restJson1DescribeBackupPolicyCommand,
@@ -72,8 +77,8 @@ export class DescribeBackupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBackupPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BackupPolicyDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBackupPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BackupPolicyDescriptionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

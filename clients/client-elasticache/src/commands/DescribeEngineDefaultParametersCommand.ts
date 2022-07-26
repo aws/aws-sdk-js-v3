@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult } from "../models/models_0";
+import {
+  DescribeEngineDefaultParametersMessage,
+  DescribeEngineDefaultParametersMessageFilterSensitiveLog,
+  DescribeEngineDefaultParametersResult,
+  DescribeEngineDefaultParametersResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeEngineDefaultParametersCommand,
   serializeAws_queryDescribeEngineDefaultParametersCommand,
@@ -75,8 +80,8 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngineDefaultParametersMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngineDefaultParametersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEngineDefaultParametersMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEngineDefaultParametersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetFindingAggregatorRequest, GetFindingAggregatorResponse } from "../models/models_1";
+import {
+  GetFindingAggregatorRequest,
+  GetFindingAggregatorRequestFilterSensitiveLog,
+  GetFindingAggregatorResponse,
+  GetFindingAggregatorResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetFindingAggregatorCommand,
   serializeAws_restJson1GetFindingAggregatorCommand,
@@ -72,8 +77,8 @@ export class GetFindingAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingAggregatorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingAggregatorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFindingAggregatorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetFindingAggregatorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

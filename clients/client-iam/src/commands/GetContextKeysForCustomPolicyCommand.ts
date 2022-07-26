@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetContextKeysForCustomPolicyRequest, GetContextKeysForPolicyResponse } from "../models/models_0";
+import {
+  GetContextKeysForCustomPolicyRequest,
+  GetContextKeysForCustomPolicyRequestFilterSensitiveLog,
+  GetContextKeysForPolicyResponse,
+  GetContextKeysForPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetContextKeysForCustomPolicyCommand,
   serializeAws_queryGetContextKeysForCustomPolicyCommand,
@@ -81,8 +86,8 @@ export class GetContextKeysForCustomPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContextKeysForCustomPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetContextKeysForPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetContextKeysForCustomPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetContextKeysForPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

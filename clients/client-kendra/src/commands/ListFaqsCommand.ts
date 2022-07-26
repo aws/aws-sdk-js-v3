@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { ListFaqsRequest, ListFaqsResponse } from "../models/models_0";
+import {
+  ListFaqsRequest,
+  ListFaqsRequestFilterSensitiveLog,
+  ListFaqsResponse,
+  ListFaqsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListFaqsCommand, serializeAws_json1_1ListFaqsCommand } from "../protocols/Aws_json1_1";
 
 export interface ListFaqsCommandInput extends ListFaqsRequest {}
@@ -65,8 +70,8 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFaqsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFaqsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFaqsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFaqsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

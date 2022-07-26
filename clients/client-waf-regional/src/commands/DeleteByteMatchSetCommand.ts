@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteByteMatchSetRequest, DeleteByteMatchSetResponse } from "../models/models_0";
+import {
+  DeleteByteMatchSetRequest,
+  DeleteByteMatchSetRequestFilterSensitiveLog,
+  DeleteByteMatchSetResponse,
+  DeleteByteMatchSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteByteMatchSetCommand,
   serializeAws_json1_1DeleteByteMatchSetCommand,
@@ -95,8 +100,8 @@ export class DeleteByteMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteByteMatchSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteByteMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteByteMatchSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteByteMatchSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

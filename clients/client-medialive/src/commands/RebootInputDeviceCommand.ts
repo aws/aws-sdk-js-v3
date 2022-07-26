@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { RebootInputDeviceRequest, RebootInputDeviceResponse } from "../models/models_1";
+import {
+  RebootInputDeviceRequest,
+  RebootInputDeviceRequestFilterSensitiveLog,
+  RebootInputDeviceResponse,
+  RebootInputDeviceResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1RebootInputDeviceCommand,
   serializeAws_restJson1RebootInputDeviceCommand,
@@ -72,8 +77,8 @@ export class RebootInputDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootInputDeviceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RebootInputDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootInputDeviceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RebootInputDeviceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

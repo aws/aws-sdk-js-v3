@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import { CreateDeploymentRequest, CreateDeploymentResponse } from "../models/models_0";
+import {
+  CreateDeploymentRequest,
+  CreateDeploymentRequestFilterSensitiveLog,
+  CreateDeploymentResponse,
+  CreateDeploymentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDeploymentCommand,
   serializeAws_restJson1CreateDeploymentCommand,
@@ -72,8 +77,8 @@ export class CreateDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDeploymentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDeploymentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDeploymentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

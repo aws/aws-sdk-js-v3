@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateIPSetRequest, CreateIPSetResponse } from "../models/models_0";
+import {
+  CreateIPSetRequest,
+  CreateIPSetRequestFilterSensitiveLog,
+  CreateIPSetResponse,
+  CreateIPSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateIPSetCommand,
   serializeAws_json1_1CreateIPSetCommand,
@@ -105,8 +110,8 @@ export class CreateIPSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIPSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateIPSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateIPSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateIPSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

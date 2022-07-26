@@ -15,7 +15,9 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   StartBulkAssociateWirelessDeviceWithMulticastGroupRequest,
+  StartBulkAssociateWirelessDeviceWithMulticastGroupRequestFilterSensitiveLog,
   StartBulkAssociateWirelessDeviceWithMulticastGroupResponse,
+  StartBulkAssociateWirelessDeviceWithMulticastGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticastGroupCommand,
@@ -81,8 +83,8 @@ export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends $
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartBulkAssociateWirelessDeviceWithMulticastGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartBulkAssociateWirelessDeviceWithMulticastGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartBulkAssociateWirelessDeviceWithMulticastGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartBulkAssociateWirelessDeviceWithMulticastGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

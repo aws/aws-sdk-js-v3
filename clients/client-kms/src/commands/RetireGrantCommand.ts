@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { RetireGrantRequest } from "../models/models_0";
+import { RetireGrantRequest, RetireGrantRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1RetireGrantCommand,
   serializeAws_json1_1RetireGrantCommand,
@@ -117,7 +117,7 @@ export class RetireGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetireGrantRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RetireGrantRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

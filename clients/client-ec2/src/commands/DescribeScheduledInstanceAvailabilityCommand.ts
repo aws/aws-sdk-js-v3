@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeScheduledInstanceAvailabilityRequest,
+  DescribeScheduledInstanceAvailabilityRequestFilterSensitiveLog,
   DescribeScheduledInstanceAvailabilityResult,
+  DescribeScheduledInstanceAvailabilityResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand,
@@ -81,8 +83,8 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledInstanceAvailabilityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScheduledInstanceAvailabilityResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeScheduledInstanceAvailabilityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeScheduledInstanceAvailabilityResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

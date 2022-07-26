@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/models_0";
+import {
+  GetSessionTokenRequest,
+  GetSessionTokenRequestFilterSensitiveLog,
+  GetSessionTokenResponse,
+  GetSessionTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetSessionTokenCommand,
   serializeAws_queryGetSessionTokenCommand,
@@ -132,8 +137,8 @@ export class GetSessionTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSessionTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSessionTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

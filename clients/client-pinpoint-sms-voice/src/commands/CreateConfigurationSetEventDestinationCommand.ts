@@ -14,7 +14,9 @@ import {
 
 import {
   CreateConfigurationSetEventDestinationRequest,
+  CreateConfigurationSetEventDestinationRequestFilterSensitiveLog,
   CreateConfigurationSetEventDestinationResponse,
+  CreateConfigurationSetEventDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient";
 import {
@@ -78,8 +80,8 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfigurationSetEventDestinationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfigurationSetEventDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConfigurationSetEventDestinationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateConfigurationSetEventDestinationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

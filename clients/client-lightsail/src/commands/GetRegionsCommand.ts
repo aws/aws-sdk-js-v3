@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetRegionsRequest, GetRegionsResult } from "../models/models_1";
+import {
+  GetRegionsRequest,
+  GetRegionsRequestFilterSensitiveLog,
+  GetRegionsResult,
+  GetRegionsResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetRegionsCommand,
   serializeAws_json1_1GetRegionsCommand,
@@ -74,8 +79,8 @@ export class GetRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRegionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRegionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRegionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

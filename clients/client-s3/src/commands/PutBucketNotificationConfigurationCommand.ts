@@ -13,7 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketNotificationConfigurationRequest } from "../models/models_0";
+import {
+  PutBucketNotificationConfigurationRequest,
+  PutBucketNotificationConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketNotificationConfigurationCommand,
   serializeAws_restXmlPutBucketNotificationConfigurationCommand,
@@ -136,7 +139,7 @@ export class PutBucketNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketNotificationConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBucketNotificationConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeTerminationPolicyTypesAnswer } from "../models/models_0";
+import {
+  DescribeTerminationPolicyTypesAnswer,
+  DescribeTerminationPolicyTypesAnswerFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeTerminationPolicyTypesCommand,
   serializeAws_queryDescribeTerminationPolicyTypesCommand,
@@ -78,7 +81,7 @@ export class DescribeTerminationPolicyTypesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeTerminationPolicyTypesAnswer.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTerminationPolicyTypesAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

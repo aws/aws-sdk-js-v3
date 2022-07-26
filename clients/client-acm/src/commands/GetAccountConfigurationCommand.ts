@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { GetAccountConfigurationResponse } from "../models/models_0";
+import { GetAccountConfigurationResponse, GetAccountConfigurationResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAccountConfigurationCommand,
   serializeAws_json1_1GetAccountConfigurationCommand,
@@ -74,7 +74,7 @@ export class GetAccountConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetAccountConfigurationResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccountConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

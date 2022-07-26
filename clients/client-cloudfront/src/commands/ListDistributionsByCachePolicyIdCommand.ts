@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListDistributionsByCachePolicyIdRequest, ListDistributionsByCachePolicyIdResult } from "../models/models_1";
+import {
+  ListDistributionsByCachePolicyIdRequest,
+  ListDistributionsByCachePolicyIdRequestFilterSensitiveLog,
+  ListDistributionsByCachePolicyIdResult,
+  ListDistributionsByCachePolicyIdResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlListDistributionsByCachePolicyIdCommand,
   serializeAws_restXmlListDistributionsByCachePolicyIdCommand,
@@ -80,8 +85,8 @@ export class ListDistributionsByCachePolicyIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsByCachePolicyIdRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDistributionsByCachePolicyIdResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDistributionsByCachePolicyIdRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDistributionsByCachePolicyIdResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ExecuteProvisionedProductPlanInput, ExecuteProvisionedProductPlanOutput } from "../models/models_0";
+import {
+  ExecuteProvisionedProductPlanInput,
+  ExecuteProvisionedProductPlanInputFilterSensitiveLog,
+  ExecuteProvisionedProductPlanOutput,
+  ExecuteProvisionedProductPlanOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ExecuteProvisionedProductPlanCommand,
   serializeAws_json1_1ExecuteProvisionedProductPlanCommand,
@@ -74,8 +79,8 @@ export class ExecuteProvisionedProductPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteProvisionedProductPlanInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteProvisionedProductPlanOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ExecuteProvisionedProductPlanInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ExecuteProvisionedProductPlanOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

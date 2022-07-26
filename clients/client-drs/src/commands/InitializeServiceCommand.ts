@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { InitializeServiceRequest, InitializeServiceResponse } from "../models/models_0";
+import {
+  InitializeServiceRequest,
+  InitializeServiceRequestFilterSensitiveLog,
+  InitializeServiceResponse,
+  InitializeServiceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1InitializeServiceCommand,
   serializeAws_restJson1InitializeServiceCommand,
@@ -72,8 +77,8 @@ export class InitializeServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InitializeServiceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InitializeServiceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InitializeServiceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: InitializeServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

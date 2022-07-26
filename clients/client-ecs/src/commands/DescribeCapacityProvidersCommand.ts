@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DescribeCapacityProvidersRequest, DescribeCapacityProvidersResponse } from "../models/models_0";
+import {
+  DescribeCapacityProvidersRequest,
+  DescribeCapacityProvidersRequestFilterSensitiveLog,
+  DescribeCapacityProvidersResponse,
+  DescribeCapacityProvidersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCapacityProvidersCommand,
   serializeAws_json1_1DescribeCapacityProvidersCommand,
@@ -72,8 +77,8 @@ export class DescribeCapacityProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCapacityProvidersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCapacityProvidersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCapacityProvidersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCapacityProvidersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

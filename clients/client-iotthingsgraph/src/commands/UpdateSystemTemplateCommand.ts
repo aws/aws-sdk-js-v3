@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { UpdateSystemTemplateRequest, UpdateSystemTemplateResponse } from "../models/models_0";
+import {
+  UpdateSystemTemplateRequest,
+  UpdateSystemTemplateRequestFilterSensitiveLog,
+  UpdateSystemTemplateResponse,
+  UpdateSystemTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSystemTemplateCommand,
   serializeAws_json1_1UpdateSystemTemplateCommand,
@@ -72,8 +77,8 @@ export class UpdateSystemTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSystemTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSystemTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSystemTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSystemTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

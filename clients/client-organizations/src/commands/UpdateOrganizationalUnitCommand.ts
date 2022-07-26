@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateOrganizationalUnitRequest, UpdateOrganizationalUnitResponse } from "../models/models_0";
+import {
+  UpdateOrganizationalUnitRequest,
+  UpdateOrganizationalUnitRequestFilterSensitiveLog,
+  UpdateOrganizationalUnitResponse,
+  UpdateOrganizationalUnitResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1UpdateOrganizationalUnitCommand,
@@ -75,8 +80,8 @@ export class UpdateOrganizationalUnitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOrganizationalUnitRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOrganizationalUnitResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateOrganizationalUnitRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateOrganizationalUnitResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

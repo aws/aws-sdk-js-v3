@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetBucketNotificationConfigurationRequest, NotificationConfiguration } from "../models/models_0";
+import {
+  GetBucketNotificationConfigurationRequest,
+  GetBucketNotificationConfigurationRequestFilterSensitiveLog,
+  NotificationConfiguration,
+  NotificationConfigurationFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketNotificationConfigurationCommand,
   serializeAws_restXmlGetBucketNotificationConfigurationCommand,
@@ -94,8 +99,8 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketNotificationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: NotificationConfiguration.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketNotificationConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: NotificationConfigurationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteFeatureGroupRequest } from "../models/models_1";
+import { DeleteFeatureGroupRequest, DeleteFeatureGroupRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteFeatureGroupCommand,
   serializeAws_json1_1DeleteFeatureGroupCommand,
@@ -77,7 +77,7 @@ export class DeleteFeatureGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFeatureGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFeatureGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

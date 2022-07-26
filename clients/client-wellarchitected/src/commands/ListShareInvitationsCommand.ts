@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListShareInvitationsInput, ListShareInvitationsOutput } from "../models/models_0";
+import {
+  ListShareInvitationsInput,
+  ListShareInvitationsInputFilterSensitiveLog,
+  ListShareInvitationsOutput,
+  ListShareInvitationsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListShareInvitationsCommand,
   serializeAws_restJson1ListShareInvitationsCommand,
@@ -72,8 +77,8 @@ export class ListShareInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListShareInvitationsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListShareInvitationsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListShareInvitationsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListShareInvitationsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

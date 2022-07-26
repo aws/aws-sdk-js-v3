@@ -36,15 +36,6 @@ export interface CognitoIdentityProvider {
   ServerSideTokenCheck?: boolean;
 }
 
-export namespace CognitoIdentityProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CognitoIdentityProvider): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to the CreateIdentityPool action.</p>
  */
@@ -105,15 +96,6 @@ export interface CreateIdentityPoolInput {
   IdentityPoolTags?: Record<string, string>;
 }
 
-export namespace CreateIdentityPoolInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIdentityPoolInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object representing an Amazon Cognito identity pool.</p>
  */
@@ -171,15 +153,6 @@ export interface IdentityPool {
    *          environment, or other criteria.</p>
    */
   IdentityPoolTags?: Record<string, string>;
-}
-
-export namespace IdentityPool {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityPool): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -307,15 +280,6 @@ export interface DeleteIdentitiesInput {
   IdentityIdsToDelete: string[] | undefined;
 }
 
-export namespace DeleteIdentitiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentitiesInput): any => ({
-    ...obj,
-  });
-}
-
 export enum ErrorCode {
   ACCESS_DENIED = "AccessDenied",
   INTERNAL_SERVER_ERROR = "InternalServerError",
@@ -337,15 +301,6 @@ export interface UnprocessedIdentityId {
   ErrorCode?: ErrorCode | string;
 }
 
-export namespace UnprocessedIdentityId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnprocessedIdentityId): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned in response to a successful <code>DeleteIdentities</code>
  *          operation.</p>
@@ -358,15 +313,6 @@ export interface DeleteIdentitiesResponse {
   UnprocessedIdentityIds?: UnprocessedIdentityId[];
 }
 
-export namespace DeleteIdentitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentitiesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to the DeleteIdentityPool action.</p>
  */
@@ -375,15 +321,6 @@ export interface DeleteIdentityPoolInput {
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
-}
-
-export namespace DeleteIdentityPoolInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIdentityPoolInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -416,15 +353,6 @@ export interface DescribeIdentityInput {
   IdentityId: string | undefined;
 }
 
-export namespace DescribeIdentityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A description of the identity.</p>
  */
@@ -450,15 +378,6 @@ export interface IdentityDescription {
   LastModifiedDate?: Date;
 }
 
-export namespace IdentityDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to the DescribeIdentityPool action.</p>
  */
@@ -467,15 +386,6 @@ export interface DescribeIdentityPoolInput {
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
-}
-
-export namespace DescribeIdentityPoolInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityPoolInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -529,15 +439,6 @@ export interface GetCredentialsForIdentityInput {
   CustomRoleArn?: string;
 }
 
-export namespace GetCredentialsForIdentityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCredentialsForIdentityInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Credentials for the provided identity ID.</p>
  */
@@ -563,15 +464,6 @@ export interface Credentials {
   Expiration?: Date;
 }
 
-export namespace Credentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Credentials): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned in response to a successful <code>GetCredentialsForIdentity</code>
  *          operation.</p>
@@ -586,15 +478,6 @@ export interface GetCredentialsForIdentityResponse {
    * <p>Credentials for the provided identity ID.</p>
    */
   Credentials?: Credentials;
-}
-
-export namespace GetCredentialsForIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCredentialsForIdentityResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -666,15 +549,6 @@ export interface GetIdInput {
   Logins?: Record<string, string>;
 }
 
-export namespace GetIdInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned in response to a GetId request.</p>
  */
@@ -685,15 +559,6 @@ export interface GetIdResponse {
   IdentityId?: string;
 }
 
-export namespace GetIdResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to the <code>GetIdentityPoolRoles</code> action.</p>
  */
@@ -702,15 +567,6 @@ export interface GetIdentityPoolRolesInput {
    * <p>An identity pool ID in the format REGION:GUID.</p>
    */
   IdentityPoolId: string | undefined;
-}
-
-export namespace GetIdentityPoolRolesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityPoolRolesInput): any => ({
-    ...obj,
-  });
 }
 
 export enum MappingRuleMatchType {
@@ -748,15 +604,6 @@ export interface MappingRule {
   RoleARN: string | undefined;
 }
 
-export namespace MappingRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MappingRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for rules.</p>
  */
@@ -766,15 +613,6 @@ export interface RulesConfigurationType {
    *          <p>Rules are evaluated in order. The first one to match specifies the role.</p>
    */
   Rules: MappingRule[] | undefined;
-}
-
-export namespace RulesConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RulesConfigurationType): any => ({
-    ...obj,
-  });
 }
 
 export enum RoleMappingType {
@@ -812,15 +650,6 @@ export interface RoleMapping {
   RulesConfiguration?: RulesConfigurationType;
 }
 
-export namespace RoleMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoleMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned in response to a successful <code>GetIdentityPoolRoles</code>
  *          operation.</p>
@@ -846,15 +675,6 @@ export interface GetIdentityPoolRolesResponse {
   RoleMappings?: Record<string, RoleMapping>;
 }
 
-export namespace GetIdentityPoolRolesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityPoolRolesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to the GetOpenIdToken action.</p>
  */
@@ -873,15 +693,6 @@ export interface GetOpenIdTokenInput {
   Logins?: Record<string, string>;
 }
 
-export namespace GetOpenIdTokenInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOpenIdTokenInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned in response to a successful GetOpenIdToken request.</p>
  */
@@ -896,15 +707,6 @@ export interface GetOpenIdTokenResponse {
    * <p>An OpenID token, valid for 10 minutes.</p>
    */
   Token?: string;
-}
-
-export namespace GetOpenIdTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOpenIdTokenResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -973,15 +775,6 @@ export interface GetOpenIdTokenForDeveloperIdentityInput {
   TokenDuration?: number;
 }
 
-export namespace GetOpenIdTokenForDeveloperIdentityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOpenIdTokenForDeveloperIdentityInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned in response to a successful <code>GetOpenIdTokenForDeveloperIdentity</code>
  *          request.</p>
@@ -998,15 +791,6 @@ export interface GetOpenIdTokenForDeveloperIdentityResponse {
   Token?: string;
 }
 
-export namespace GetOpenIdTokenForDeveloperIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOpenIdTokenForDeveloperIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPrincipalTagAttributeMapInput {
   /**
    * <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
@@ -1017,15 +801,6 @@ export interface GetPrincipalTagAttributeMapInput {
    * <p>You can use this operation to get the provider name.</p>
    */
   IdentityProviderName: string | undefined;
-}
-
-export namespace GetPrincipalTagAttributeMapInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPrincipalTagAttributeMapInput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPrincipalTagAttributeMapResponse {
@@ -1048,15 +823,6 @@ export interface GetPrincipalTagAttributeMapResponse {
    * <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
    */
   PrincipalTags?: Record<string, string>;
-}
-
-export namespace GetPrincipalTagAttributeMapResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPrincipalTagAttributeMapResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1085,15 +851,6 @@ export interface ListIdentitiesInput {
   HideDisabled?: boolean;
 }
 
-export namespace ListIdentitiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentitiesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to a ListIdentities request.</p>
  */
@@ -1114,15 +871,6 @@ export interface ListIdentitiesResponse {
   NextToken?: string;
 }
 
-export namespace ListIdentitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to the ListIdentityPools action.</p>
  */
@@ -1136,15 +884,6 @@ export interface ListIdentityPoolsInput {
    * <p>A pagination token.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIdentityPoolsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityPoolsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1162,15 +901,6 @@ export interface IdentityPoolShortDescription {
   IdentityPoolName?: string;
 }
 
-export namespace IdentityPoolShortDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityPoolShortDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a successful ListIdentityPools action.</p>
  */
@@ -1186,15 +916,6 @@ export interface ListIdentityPoolsResponse {
   NextToken?: string;
 }
 
-export namespace ListIdentityPoolsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityPoolsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the identity pool that the tags are assigned
@@ -1203,29 +924,11 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are assigned to the identity pool.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1265,15 +968,6 @@ export interface LookupDeveloperIdentityInput {
   NextToken?: string;
 }
 
-export namespace LookupDeveloperIdentityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LookupDeveloperIdentityInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned in response to a successful <code>LookupDeveloperIdentity</code>
  *          action.</p>
@@ -1300,15 +994,6 @@ export interface LookupDeveloperIdentityResponse {
    *          11th match.</p>
    */
   NextToken?: string;
-}
-
-export namespace LookupDeveloperIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LookupDeveloperIdentityResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1342,15 +1027,6 @@ export interface MergeDeveloperIdentitiesInput {
   IdentityPoolId: string | undefined;
 }
 
-export namespace MergeDeveloperIdentitiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeDeveloperIdentitiesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returned in response to a successful <code>MergeDeveloperIdentities</code>
  *          action.</p>
@@ -1360,15 +1036,6 @@ export interface MergeDeveloperIdentitiesResponse {
    * <p>A unique identifier in the format REGION:GUID.</p>
    */
   IdentityId?: string;
-}
-
-export namespace MergeDeveloperIdentitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeDeveloperIdentitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1415,15 +1082,6 @@ export interface SetIdentityPoolRolesInput {
   RoleMappings?: Record<string, RoleMapping>;
 }
 
-export namespace SetIdentityPoolRolesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityPoolRolesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SetPrincipalTagAttributeMapInput {
   /**
    * <p>The ID of the Identity Pool you want to set attribute mappings for.</p>
@@ -1444,15 +1102,6 @@ export interface SetPrincipalTagAttributeMapInput {
    * <p>You can use this operation to add principal tags.</p>
    */
   PrincipalTags?: Record<string, string>;
-}
-
-export namespace SetPrincipalTagAttributeMapInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetPrincipalTagAttributeMapInput): any => ({
-    ...obj,
-  });
 }
 
 export interface SetPrincipalTagAttributeMapResponse {
@@ -1477,15 +1126,6 @@ export interface SetPrincipalTagAttributeMapResponse {
   PrincipalTags?: Record<string, string>;
 }
 
-export namespace SetPrincipalTagAttributeMapResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetPrincipalTagAttributeMapResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the identity pool.</p>
@@ -1498,25 +1138,7 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Input to the <code>UnlinkDeveloperIdentity</code> action.</p>
@@ -1543,15 +1165,6 @@ export interface UnlinkDeveloperIdentityInput {
   DeveloperUserIdentifier: string | undefined;
 }
 
-export namespace UnlinkDeveloperIdentityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnlinkDeveloperIdentityInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to the UnlinkIdentity action.</p>
  */
@@ -1573,15 +1186,6 @@ export interface UnlinkIdentityInput {
   LoginsToRemove: string[] | undefined;
 }
 
-export namespace UnlinkIdentityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnlinkIdentityInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the identity pool.</p>
@@ -1594,22 +1198,334 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CognitoIdentityProviderFilterSensitiveLog = (obj: CognitoIdentityProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIdentityPoolInputFilterSensitiveLog = (obj: CreateIdentityPoolInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityPoolFilterSensitiveLog = (obj: IdentityPool): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIdentitiesInputFilterSensitiveLog = (obj: DeleteIdentitiesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedIdentityIdFilterSensitiveLog = (obj: UnprocessedIdentityId): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIdentitiesResponseFilterSensitiveLog = (obj: DeleteIdentitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIdentityPoolInputFilterSensitiveLog = (obj: DeleteIdentityPoolInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIdentityInputFilterSensitiveLog = (obj: DescribeIdentityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityDescriptionFilterSensitiveLog = (obj: IdentityDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIdentityPoolInputFilterSensitiveLog = (obj: DescribeIdentityPoolInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCredentialsForIdentityInputFilterSensitiveLog = (obj: GetCredentialsForIdentityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCredentialsForIdentityResponseFilterSensitiveLog = (obj: GetCredentialsForIdentityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdInputFilterSensitiveLog = (obj: GetIdInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdResponseFilterSensitiveLog = (obj: GetIdResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityPoolRolesInputFilterSensitiveLog = (obj: GetIdentityPoolRolesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MappingRuleFilterSensitiveLog = (obj: MappingRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RulesConfigurationTypeFilterSensitiveLog = (obj: RulesConfigurationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoleMappingFilterSensitiveLog = (obj: RoleMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityPoolRolesResponseFilterSensitiveLog = (obj: GetIdentityPoolRolesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOpenIdTokenInputFilterSensitiveLog = (obj: GetOpenIdTokenInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOpenIdTokenResponseFilterSensitiveLog = (obj: GetOpenIdTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog = (
+  obj: GetOpenIdTokenForDeveloperIdentityInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog = (
+  obj: GetOpenIdTokenForDeveloperIdentityResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPrincipalTagAttributeMapInputFilterSensitiveLog = (obj: GetPrincipalTagAttributeMapInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPrincipalTagAttributeMapResponseFilterSensitiveLog = (
+  obj: GetPrincipalTagAttributeMapResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentitiesInputFilterSensitiveLog = (obj: ListIdentitiesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentitiesResponseFilterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityPoolsInputFilterSensitiveLog = (obj: ListIdentityPoolsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityPoolShortDescriptionFilterSensitiveLog = (obj: IdentityPoolShortDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityPoolsResponseFilterSensitiveLog = (obj: ListIdentityPoolsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LookupDeveloperIdentityInputFilterSensitiveLog = (obj: LookupDeveloperIdentityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LookupDeveloperIdentityResponseFilterSensitiveLog = (obj: LookupDeveloperIdentityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeDeveloperIdentitiesInputFilterSensitiveLog = (obj: MergeDeveloperIdentitiesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeDeveloperIdentitiesResponseFilterSensitiveLog = (obj: MergeDeveloperIdentitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityPoolRolesInputFilterSensitiveLog = (obj: SetIdentityPoolRolesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetPrincipalTagAttributeMapInputFilterSensitiveLog = (obj: SetPrincipalTagAttributeMapInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetPrincipalTagAttributeMapResponseFilterSensitiveLog = (
+  obj: SetPrincipalTagAttributeMapResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnlinkDeveloperIdentityInputFilterSensitiveLog = (obj: UnlinkDeveloperIdentityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnlinkIdentityInputFilterSensitiveLog = (obj: UnlinkIdentityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

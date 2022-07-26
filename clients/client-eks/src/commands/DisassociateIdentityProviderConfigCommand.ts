@@ -15,7 +15,9 @@ import {
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
 import {
   DisassociateIdentityProviderConfigRequest,
+  DisassociateIdentityProviderConfigRequestFilterSensitiveLog,
   DisassociateIdentityProviderConfigResponse,
+  DisassociateIdentityProviderConfigResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateIdentityProviderConfigCommand,
@@ -80,8 +82,8 @@ export class DisassociateIdentityProviderConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateIdentityProviderConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateIdentityProviderConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateIdentityProviderConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateIdentityProviderConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

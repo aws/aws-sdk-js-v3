@@ -36,15 +36,6 @@ export interface AccountLimit {
   UnreservedConcurrentExecutions?: number;
 }
 
-export namespace AccountLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountLimit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of functions and amount of storage in use.</p>
  */
@@ -58,15 +49,6 @@ export interface AccountUsage {
    * <p>The number of Lambda functions.</p>
    */
   FunctionCount?: number;
-}
-
-export namespace AccountUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountUsage): any => ({
-    ...obj,
-  });
 }
 
 export interface AddLayerVersionPermissionRequest {
@@ -111,15 +93,6 @@ export interface AddLayerVersionPermissionRequest {
   RevisionId?: string;
 }
 
-export namespace AddLayerVersionPermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddLayerVersionPermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddLayerVersionPermissionResponse {
   /**
    * <p>The permission statement.</p>
@@ -130,15 +103,6 @@ export interface AddLayerVersionPermissionResponse {
    * <p>A unique identifier for the current revision of the policy.</p>
    */
   RevisionId?: string;
-}
-
-export namespace AddLayerVersionPermissionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddLayerVersionPermissionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -414,29 +378,11 @@ export interface AddPermissionRequest {
   FunctionUrlAuthType?: FunctionUrlAuthType | string;
 }
 
-export namespace AddPermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddPermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddPermissionResponse {
   /**
    * <p>The permission statement that's added to the function policy.</p>
    */
   Statement?: string;
-}
-
-export namespace AddPermissionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddPermissionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -447,15 +393,6 @@ export interface AliasRoutingConfiguration {
    * <p>The second version, and the percentage of traffic that's routed to it.</p>
    */
   AdditionalVersionWeights?: Record<string, number>;
-}
-
-export namespace AliasRoutingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AliasRoutingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -494,15 +431,6 @@ export interface AliasConfiguration {
   RevisionId?: string;
 }
 
-export namespace AliasConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AliasConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>List of signing profiles that can sign a code package. </p>
  */
@@ -512,15 +440,6 @@ export interface AllowedPublishers {
    *       who can sign a code package. </p>
    */
   SigningProfileVersionArns: string[] | undefined;
-}
-
-export namespace AllowedPublishers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllowedPublishers): any => ({
-    ...obj,
-  });
 }
 
 export enum Architecture {
@@ -575,15 +494,6 @@ export interface CreateAliasRequest {
   RoutingConfig?: AliasRoutingConfiguration;
 }
 
-export namespace CreateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum CodeSigningPolicy {
   Enforce = "Enforce",
   Warn = "Warn",
@@ -604,15 +514,6 @@ export interface CodeSigningPolicies {
   UntrustedArtifactOnDeployment?: CodeSigningPolicy | string;
 }
 
-export namespace CodeSigningPolicies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeSigningPolicies): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCodeSigningConfigRequest {
   /**
    * <p>Descriptive name for this code signing configuration.</p>
@@ -628,15 +529,6 @@ export interface CreateCodeSigningConfigRequest {
    * <p>The code signing policies define the actions to take if the validation checks fail. </p>
    */
   CodeSigningPolicies?: CodeSigningPolicies;
-}
-
-export namespace CreateCodeSigningConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCodeSigningConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -674,29 +566,11 @@ export interface CodeSigningConfig {
   LastModified: string | undefined;
 }
 
-export namespace CodeSigningConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeSigningConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCodeSigningConfigResponse {
   /**
    * <p>The code signing configuration.</p>
    */
   CodeSigningConfig: CodeSigningConfig | undefined;
-}
-
-export namespace CreateCodeSigningConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCodeSigningConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -709,15 +583,6 @@ export interface OnFailure {
   Destination?: string;
 }
 
-export namespace OnFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnFailure): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A destination for events that were processed successfully.</p>
  */
@@ -726,15 +591,6 @@ export interface OnSuccess {
    * <p>The Amazon Resource Name (ARN) of the destination resource.</p>
    */
   Destination?: string;
-}
-
-export namespace OnSuccess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnSuccess): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -750,15 +606,6 @@ export interface DestinationConfig {
    * <p>The destination configuration for failed invocations.</p>
    */
   OnFailure?: OnFailure;
-}
-
-export namespace DestinationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -777,15 +624,6 @@ export interface Filter {
   Pattern?: string;
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       An object that contains the filters for an event source.
@@ -798,15 +636,6 @@ export interface FilterCriteria {
    *     </p>
    */
   Filters?: Filter[];
-}
-
-export namespace FilterCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterCriteria): any => ({
-    ...obj,
-  });
 }
 
 export enum FunctionResponseType {
@@ -826,15 +655,6 @@ export interface SelfManagedEventSource {
    *         ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</p>
    */
   Endpoints?: Record<string, string[]>;
-}
-
-export namespace SelfManagedEventSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelfManagedEventSource): any => ({
-    ...obj,
-  });
 }
 
 export enum SourceAccessType {
@@ -902,15 +722,6 @@ export interface SourceAccessConfiguration {
    * <p>The value for your chosen configuration in <code>Type</code>. For example: <code>"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"</code>.</p>
    */
   URI?: string;
-}
-
-export namespace SourceAccessConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceAccessConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum EventSourcePosition {
@@ -1090,15 +901,6 @@ export interface CreateEventSourceMappingRequest {
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
 
-export namespace CreateEventSourceMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventSourceMappingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A mapping between an Amazon Web Services resource and a Lambda function. For details, see <a>CreateEventSourceMapping</a>.</p>
  */
@@ -1230,15 +1032,6 @@ export interface EventSourceMappingConfiguration {
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
 
-export namespace EventSourceMappingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSourceMappingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified code signing configuration does not exist.</p>
  */
@@ -1344,16 +1137,6 @@ export interface FunctionCode {
   ImageUri?: string;
 }
 
-export namespace FunctionCode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionCode): any => ({
-    ...obj,
-    ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">dead-letter queue</a> for
  *       failed asynchronous invocations.</p>
@@ -1363,15 +1146,6 @@ export interface DeadLetterConfig {
    * <p>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.</p>
    */
   TargetArn?: string;
-}
-
-export namespace DeadLetterConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeadLetterConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1387,16 +1161,6 @@ export interface Environment {
   Variables?: Record<string, string>;
 }
 
-export namespace Environment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Environment): any => ({
-    ...obj,
-    ...(obj.Variables && { Variables: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
  */
@@ -1405,15 +1169,6 @@ export interface EphemeralStorage {
    * <p>The size of the function’s /tmp directory.</p>
    */
   Size: number | undefined;
-}
-
-export namespace EphemeralStorage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EphemeralStorage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1430,15 +1185,6 @@ export interface FileSystemConfig {
    * <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
    */
   LocalMountPath: string | undefined;
-}
-
-export namespace FileSystemConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileSystemConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1461,15 +1207,6 @@ export interface ImageConfig {
    * <p>Specifies the working directory.</p>
    */
   WorkingDirectory?: string;
-}
-
-export namespace ImageConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum PackageType {
@@ -1523,15 +1260,6 @@ export interface TracingConfig {
   Mode?: TracingMode | string;
 }
 
-export namespace TracingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TracingConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
@@ -1545,15 +1273,6 @@ export interface VpcConfig {
    * <p>A list of VPC security groups IDs.</p>
    */
   SecurityGroupIds?: string[];
-}
-
-export namespace VpcConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFunctionRequest {
@@ -1703,17 +1422,6 @@ export interface CreateFunctionRequest {
   EphemeralStorage?: EphemeralStorage;
 }
 
-export namespace CreateFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFunctionRequest): any => ({
-    ...obj,
-    ...(obj.Code && { Code: FunctionCode.filterSensitiveLog(obj.Code) }),
-    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
-  });
-}
-
 /**
  * <p>Error messages for environment variables that couldn't be applied.</p>
  */
@@ -1727,16 +1435,6 @@ export interface EnvironmentError {
    * <p>The error message.</p>
    */
   Message?: string;
-}
-
-export namespace EnvironmentError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentError): any => ({
-    ...obj,
-    ...(obj.Message && { Message: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1755,17 +1453,6 @@ export interface EnvironmentResponse {
   Error?: EnvironmentError;
 }
 
-export namespace EnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentResponse): any => ({
-    ...obj,
-    ...(obj.Variables && { Variables: SENSITIVE_STRING }),
-    ...(obj.Error && { Error: EnvironmentError.filterSensitiveLog(obj.Error) }),
-  });
-}
-
 /**
  * <p>Error response to GetFunctionConfiguration.</p>
  */
@@ -1781,16 +1468,6 @@ export interface ImageConfigError {
   Message?: string;
 }
 
-export namespace ImageConfigError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageConfigError): any => ({
-    ...obj,
-    ...(obj.Message && { Message: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Response to GetFunctionConfiguration request.</p>
  */
@@ -1804,16 +1481,6 @@ export interface ImageConfigResponse {
    * <p>Error response to GetFunctionConfiguration.</p>
    */
   Error?: ImageConfigError;
-}
-
-export namespace ImageConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageConfigResponse): any => ({
-    ...obj,
-    ...(obj.Error && { Error: ImageConfigError.filterSensitiveLog(obj.Error) }),
-  });
 }
 
 export enum LastUpdateStatus {
@@ -1861,15 +1528,6 @@ export interface Layer {
   SigningJobArn?: string;
 }
 
-export namespace Layer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Layer): any => ({
-    ...obj,
-  });
-}
-
 export enum State {
   Active = "Active",
   Failed = "Failed",
@@ -1903,15 +1561,6 @@ export interface TracingConfigResponse {
   Mode?: TracingMode | string;
 }
 
-export namespace TracingConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TracingConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
  */
@@ -1930,15 +1579,6 @@ export interface VpcConfigResponse {
    * <p>The ID of the VPC.</p>
    */
   VpcId?: string;
-}
-
-export namespace VpcConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2117,19 +1757,6 @@ export interface FunctionConfiguration {
   EphemeralStorage?: EphemeralStorage;
 }
 
-export namespace FunctionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionConfiguration): any => ({
-    ...obj,
-    ...(obj.Environment && { Environment: EnvironmentResponse.filterSensitiveLog(obj.Environment) }),
-    ...(obj.ImageConfigResponse && {
-      ImageConfigResponse: ImageConfigResponse.filterSensitiveLog(obj.ImageConfigResponse),
-    }),
-  });
-}
-
 /**
  * <p>The code signature failed the integrity check. Lambda always blocks deployment if the integrity check
  *       fails, even if code signing policy is set to WARN.</p>
@@ -2199,15 +1826,6 @@ export interface Cors {
   MaxAge?: number;
 }
 
-export namespace Cors {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cors): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2252,15 +1870,6 @@ export interface CreateFunctionUrlConfigRequest {
   Cors?: Cors;
 }
 
-export namespace CreateFunctionUrlConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFunctionUrlConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFunctionUrlConfigResponse {
   /**
    * <p>The HTTP URL endpoint for your function.</p>
@@ -2289,15 +1898,6 @@ export interface CreateFunctionUrlConfigResponse {
    * <p>When the function URL was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
    */
   CreationTime: string | undefined;
-}
-
-export namespace CreateFunctionUrlConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFunctionUrlConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAliasRequest {
@@ -2331,15 +1931,6 @@ export interface DeleteAliasRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -2347,40 +1938,13 @@ export interface DeleteCodeSigningConfigRequest {
   CodeSigningConfigArn: string | undefined;
 }
 
-export namespace DeleteCodeSigningConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCodeSigningConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCodeSigningConfigResponse {}
-
-export namespace DeleteCodeSigningConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCodeSigningConfigResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteEventSourceMappingRequest {
   /**
    * <p>The identifier of the event source mapping.</p>
    */
   UUID: string | undefined;
-}
-
-export namespace DeleteEventSourceMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventSourceMappingRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2438,15 +2002,6 @@ export interface DeleteFunctionRequest {
   Qualifier?: string;
 }
 
-export namespace DeleteFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFunctionCodeSigningConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2473,15 +2028,6 @@ export interface DeleteFunctionCodeSigningConfigRequest {
   FunctionName: string | undefined;
 }
 
-export namespace DeleteFunctionCodeSigningConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFunctionCodeSigningConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFunctionConcurrencyRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2506,15 +2052,6 @@ export interface DeleteFunctionConcurrencyRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
-}
-
-export namespace DeleteFunctionConcurrencyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFunctionConcurrencyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFunctionEventInvokeConfigRequest {
@@ -2548,15 +2085,6 @@ export interface DeleteFunctionEventInvokeConfigRequest {
   Qualifier?: string;
 }
 
-export namespace DeleteFunctionEventInvokeConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFunctionEventInvokeConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2588,15 +2116,6 @@ export interface DeleteFunctionUrlConfigRequest {
   Qualifier?: string;
 }
 
-export namespace DeleteFunctionUrlConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFunctionUrlConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLayerVersionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -2607,15 +2126,6 @@ export interface DeleteLayerVersionRequest {
    * <p>The version number.</p>
    */
   VersionNumber: number | undefined;
-}
-
-export namespace DeleteLayerVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLayerVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteProvisionedConcurrencyConfigRequest {
@@ -2649,25 +2159,7 @@ export interface DeleteProvisionedConcurrencyConfigRequest {
   Qualifier: string | undefined;
 }
 
-export namespace DeleteProvisionedConcurrencyConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProvisionedConcurrencyConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccountSettingsRequest {}
-
-export namespace GetAccountSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAccountSettingsResponse {
   /**
@@ -2679,15 +2171,6 @@ export interface GetAccountSettingsResponse {
    * <p>The number of functions and amount of storage in use.</p>
    */
   AccountUsage?: AccountUsage;
-}
-
-export namespace GetAccountSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAliasRequest {
@@ -2721,29 +2204,11 @@ export interface GetAliasRequest {
   Name: string | undefined;
 }
 
-export namespace GetAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration. </p>
    */
   CodeSigningConfigArn: string | undefined;
-}
-
-export namespace GetCodeSigningConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCodeSigningConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCodeSigningConfigResponse {
@@ -2753,29 +2218,11 @@ export interface GetCodeSigningConfigResponse {
   CodeSigningConfig: CodeSigningConfig | undefined;
 }
 
-export namespace GetCodeSigningConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCodeSigningConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEventSourceMappingRequest {
   /**
    * <p>The identifier of the event source mapping.</p>
    */
   UUID: string | undefined;
-}
-
-export namespace GetEventSourceMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventSourceMappingRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFunctionRequest {
@@ -2809,15 +2256,6 @@ export interface GetFunctionRequest {
   Qualifier?: string;
 }
 
-export namespace GetFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a function's deployment package.</p>
  */
@@ -2843,29 +2281,11 @@ export interface FunctionCodeLocation {
   ResolvedImageUri?: string;
 }
 
-export namespace FunctionCodeLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionCodeLocation): any => ({
-    ...obj,
-  });
-}
-
 export interface Concurrency {
   /**
    * <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Concurrency</a>.</p>
    */
   ReservedConcurrentExecutions?: number;
-}
-
-export namespace Concurrency {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Concurrency): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFunctionResponse {
@@ -2889,16 +2309,6 @@ export interface GetFunctionResponse {
    *         concurrency</a>.</p>
    */
   Concurrency?: Concurrency;
-}
-
-export namespace GetFunctionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionResponse): any => ({
-    ...obj,
-    ...(obj.Configuration && { Configuration: FunctionConfiguration.filterSensitiveLog(obj.Configuration) }),
-  });
 }
 
 export interface GetFunctionCodeSigningConfigRequest {
@@ -2925,15 +2335,6 @@ export interface GetFunctionCodeSigningConfigRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
-}
-
-export namespace GetFunctionCodeSigningConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionCodeSigningConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFunctionCodeSigningConfigResponse {
@@ -2967,15 +2368,6 @@ export interface GetFunctionCodeSigningConfigResponse {
   FunctionName: string | undefined;
 }
 
-export namespace GetFunctionCodeSigningConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionCodeSigningConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFunctionConcurrencyRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -3002,29 +2394,11 @@ export interface GetFunctionConcurrencyRequest {
   FunctionName: string | undefined;
 }
 
-export namespace GetFunctionConcurrencyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionConcurrencyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFunctionConcurrencyResponse {
   /**
    * <p>The number of simultaneous executions that are reserved for the function.</p>
    */
   ReservedConcurrentExecutions?: number;
-}
-
-export namespace GetFunctionConcurrencyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionConcurrencyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFunctionConfigurationRequest {
@@ -3056,15 +2430,6 @@ export interface GetFunctionConfigurationRequest {
    * <p>Specify a version or alias to get details about a published version of the function.</p>
    */
   Qualifier?: string;
-}
-
-export namespace GetFunctionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface FunctionEventInvokeConfig {
@@ -3115,15 +2480,6 @@ export interface FunctionEventInvokeConfig {
   DestinationConfig?: DestinationConfig;
 }
 
-export namespace FunctionEventInvokeConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionEventInvokeConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFunctionEventInvokeConfigRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -3155,15 +2511,6 @@ export interface GetFunctionEventInvokeConfigRequest {
   Qualifier?: string;
 }
 
-export namespace GetFunctionEventInvokeConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionEventInvokeConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -3193,15 +2540,6 @@ export interface GetFunctionUrlConfigRequest {
    * <p>The alias name.</p>
    */
   Qualifier?: string;
-}
-
-export namespace GetFunctionUrlConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionUrlConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFunctionUrlConfigResponse {
@@ -3239,15 +2577,6 @@ export interface GetFunctionUrlConfigResponse {
   LastModifiedTime: string | undefined;
 }
 
-export namespace GetFunctionUrlConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFunctionUrlConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLayerVersionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -3258,15 +2587,6 @@ export interface GetLayerVersionRequest {
    * <p>The version number.</p>
    */
   VersionNumber: number | undefined;
-}
-
-export namespace GetLayerVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLayerVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3298,15 +2618,6 @@ export interface LayerVersionContentOutput {
    * <p>The Amazon Resource Name (ARN)  of a signing job.</p>
    */
   SigningJobArn?: string;
-}
-
-export namespace LayerVersionContentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LayerVersionContentOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLayerVersionResponse {
@@ -3357,29 +2668,11 @@ export interface GetLayerVersionResponse {
   CompatibleArchitectures?: (Architecture | string)[];
 }
 
-export namespace GetLayerVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLayerVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLayerVersionByArnRequest {
   /**
    * <p>The ARN of the layer version.</p>
    */
   Arn: string | undefined;
-}
-
-export namespace GetLayerVersionByArnRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLayerVersionByArnRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLayerVersionPolicyRequest {
@@ -3394,15 +2687,6 @@ export interface GetLayerVersionPolicyRequest {
   VersionNumber: number | undefined;
 }
 
-export namespace GetLayerVersionPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLayerVersionPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLayerVersionPolicyResponse {
   /**
    * <p>The policy document.</p>
@@ -3413,15 +2697,6 @@ export interface GetLayerVersionPolicyResponse {
    * <p>A unique identifier for the current revision of the policy.</p>
    */
   RevisionId?: string;
-}
-
-export namespace GetLayerVersionPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLayerVersionPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPolicyRequest {
@@ -3455,15 +2730,6 @@ export interface GetPolicyRequest {
   Qualifier?: string;
 }
 
-export namespace GetPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPolicyResponse {
   /**
    * <p>The resource-based policy.</p>
@@ -3474,15 +2740,6 @@ export interface GetPolicyResponse {
    * <p>A unique identifier for the current revision of the policy.</p>
    */
   RevisionId?: string;
-}
-
-export namespace GetPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetProvisionedConcurrencyConfigRequest {
@@ -3514,15 +2771,6 @@ export interface GetProvisionedConcurrencyConfigRequest {
    * <p>The version number or alias name.</p>
    */
   Qualifier: string | undefined;
-}
-
-export namespace GetProvisionedConcurrencyConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProvisionedConcurrencyConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ProvisionedConcurrencyStatusEnum {
@@ -3561,15 +2809,6 @@ export interface GetProvisionedConcurrencyConfigResponse {
    * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>.</p>
    */
   LastModified?: string;
-}
-
-export namespace GetProvisionedConcurrencyConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProvisionedConcurrencyConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3983,16 +3222,6 @@ export interface InvocationRequest {
   Qualifier?: string;
 }
 
-export namespace InvocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvocationRequest): any => ({
-    ...obj,
-    ...(obj.Payload && { Payload: SENSITIVE_STRING }),
-  });
-}
-
 export interface InvocationResponse {
   /**
    * <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code>
@@ -4022,16 +3251,6 @@ export interface InvocationResponse {
    *       version the alias resolved to.</p>
    */
   ExecutedVersion?: string;
-}
-
-export namespace InvocationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvocationResponse): any => ({
-    ...obj,
-    ...(obj.Payload && { Payload: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -4254,15 +3473,6 @@ export interface InvokeAsyncRequest {
   InvokeArgs: Readable | ReadableStream | Blob | undefined;
 }
 
-export namespace InvokeAsyncRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeAsyncRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * @deprecated
  *
@@ -4273,15 +3483,6 @@ export interface InvokeAsyncResponse {
    * <p>The status code.</p>
    */
   Status?: number;
-}
-
-export namespace InvokeAsyncResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvokeAsyncResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAliasesRequest {
@@ -4325,15 +3526,6 @@ export interface ListAliasesRequest {
   MaxItems?: number;
 }
 
-export namespace ListAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAliasesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAliasesResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -4344,15 +3536,6 @@ export interface ListAliasesResponse {
    * <p>A list of aliases.</p>
    */
   Aliases?: AliasConfiguration[];
-}
-
-export namespace ListAliasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAliasesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCodeSigningConfigsRequest {
@@ -4367,15 +3550,6 @@ export interface ListCodeSigningConfigsRequest {
   MaxItems?: number;
 }
 
-export namespace ListCodeSigningConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCodeSigningConfigsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCodeSigningConfigsResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -4386,15 +3560,6 @@ export interface ListCodeSigningConfigsResponse {
    * <p>The code signing configurations</p>
    */
   CodeSigningConfigs?: CodeSigningConfig[];
-}
-
-export namespace ListCodeSigningConfigsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCodeSigningConfigsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEventSourceMappingsRequest {
@@ -4461,15 +3626,6 @@ export interface ListEventSourceMappingsRequest {
   MaxItems?: number;
 }
 
-export namespace ListEventSourceMappingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventSourceMappingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventSourceMappingsResponse {
   /**
    * <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
@@ -4480,15 +3636,6 @@ export interface ListEventSourceMappingsResponse {
    * <p>A list of event source mappings.</p>
    */
   EventSourceMappings?: EventSourceMappingConfiguration[];
-}
-
-export namespace ListEventSourceMappingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventSourceMappingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFunctionEventInvokeConfigsRequest {
@@ -4527,15 +3674,6 @@ export interface ListFunctionEventInvokeConfigsRequest {
   MaxItems?: number;
 }
 
-export namespace ListFunctionEventInvokeConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionEventInvokeConfigsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFunctionEventInvokeConfigsResponse {
   /**
    * <p>A list of configurations.</p>
@@ -4546,15 +3684,6 @@ export interface ListFunctionEventInvokeConfigsResponse {
    * <p>The pagination token that's included if more results are available.</p>
    */
   NextMarker?: string;
-}
-
-export namespace ListFunctionEventInvokeConfigsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionEventInvokeConfigsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum FunctionVersion {
@@ -4586,15 +3715,6 @@ export interface ListFunctionsRequest {
   MaxItems?: number;
 }
 
-export namespace ListFunctionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of Lambda functions.</p>
  */
@@ -4608,16 +3728,6 @@ export interface ListFunctionsResponse {
    * <p>A list of Lambda functions.</p>
    */
   Functions?: FunctionConfiguration[];
-}
-
-export namespace ListFunctionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionsResponse): any => ({
-    ...obj,
-    ...(obj.Functions && { Functions: obj.Functions.map((item) => FunctionConfiguration.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListFunctionsByCodeSigningConfigRequest {
@@ -4637,15 +3747,6 @@ export interface ListFunctionsByCodeSigningConfigRequest {
   MaxItems?: number;
 }
 
-export namespace ListFunctionsByCodeSigningConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionsByCodeSigningConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFunctionsByCodeSigningConfigResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -4656,15 +3757,6 @@ export interface ListFunctionsByCodeSigningConfigResponse {
    * <p>The function ARNs. </p>
    */
   FunctionArns?: string[];
-}
-
-export namespace ListFunctionsByCodeSigningConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionsByCodeSigningConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFunctionUrlConfigsRequest {
@@ -4702,15 +3794,6 @@ export interface ListFunctionUrlConfigsRequest {
    *       returns a maximum of 50 items in each response, even if you set the number higher.</p>
    */
   MaxItems?: number;
-}
-
-export namespace ListFunctionUrlConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionUrlConfigsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4751,15 +3834,6 @@ export interface FunctionUrlConfig {
   AuthType: FunctionUrlAuthType | string | undefined;
 }
 
-export namespace FunctionUrlConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionUrlConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFunctionUrlConfigsResponse {
   /**
    * <p>A list of function URL configurations.</p>
@@ -4770,15 +3844,6 @@ export interface ListFunctionUrlConfigsResponse {
    * <p>The pagination token that's included if more results are available.</p>
    */
   NextMarker?: string;
-}
-
-export namespace ListFunctionUrlConfigsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFunctionUrlConfigsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLayersRequest {
@@ -4802,15 +3867,6 @@ export interface ListLayersRequest {
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
    */
   CompatibleArchitecture?: Architecture | string;
-}
-
-export namespace ListLayersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLayersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4855,15 +3911,6 @@ export interface LayerVersionsListItem {
   CompatibleArchitectures?: (Architecture | string)[];
 }
 
-export namespace LayerVersionsListItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LayerVersionsListItem): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
  *         layer</a>.</p>
@@ -4885,15 +3932,6 @@ export interface LayersListItem {
   LatestMatchingVersion?: LayerVersionsListItem;
 }
 
-export namespace LayersListItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LayersListItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLayersResponse {
   /**
    * <p>A pagination token returned when the response doesn't contain all layers.</p>
@@ -4904,15 +3942,6 @@ export interface ListLayersResponse {
    * <p>A list of function layers.</p>
    */
   Layers?: LayersListItem[];
-}
-
-export namespace ListLayersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLayersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLayerVersionsRequest {
@@ -4943,15 +3972,6 @@ export interface ListLayerVersionsRequest {
   CompatibleArchitecture?: Architecture | string;
 }
 
-export namespace ListLayerVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLayerVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLayerVersionsResponse {
   /**
    * <p>A pagination token returned when the response doesn't contain all versions.</p>
@@ -4962,15 +3982,6 @@ export interface ListLayerVersionsResponse {
    * <p>A list of versions.</p>
    */
   LayerVersions?: LayerVersionsListItem[];
-}
-
-export namespace ListLayerVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLayerVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProvisionedConcurrencyConfigsRequest {
@@ -5007,15 +4018,6 @@ export interface ListProvisionedConcurrencyConfigsRequest {
    * <p>Specify a number to limit the number of configurations returned.</p>
    */
   MaxItems?: number;
-}
-
-export namespace ListProvisionedConcurrencyConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisionedConcurrencyConfigsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5058,15 +4060,6 @@ export interface ProvisionedConcurrencyConfigListItem {
   LastModified?: string;
 }
 
-export namespace ProvisionedConcurrencyConfigListItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedConcurrencyConfigListItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProvisionedConcurrencyConfigsResponse {
   /**
    * <p>A list of provisioned concurrency configurations.</p>
@@ -5079,15 +4072,6 @@ export interface ListProvisionedConcurrencyConfigsResponse {
   NextMarker?: string;
 }
 
-export namespace ListProvisionedConcurrencyConfigsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProvisionedConcurrencyConfigsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsRequest {
   /**
    * <p>The function's Amazon Resource Name (ARN).
@@ -5096,29 +4080,11 @@ export interface ListTagsRequest {
   Resource: string | undefined;
 }
 
-export namespace ListTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsResponse {
   /**
    * <p>The function's tags.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListVersionsByFunctionRequest {
@@ -5158,15 +4124,6 @@ export interface ListVersionsByFunctionRequest {
   MaxItems?: number;
 }
 
-export namespace ListVersionsByFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVersionsByFunctionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListVersionsByFunctionResponse {
   /**
    * <p>The pagination token that's included if more results are available.</p>
@@ -5177,16 +4134,6 @@ export interface ListVersionsByFunctionResponse {
    * <p>A list of Lambda function versions.</p>
    */
   Versions?: FunctionConfiguration[];
-}
-
-export namespace ListVersionsByFunctionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVersionsByFunctionResponse): any => ({
-    ...obj,
-    ...(obj.Versions && { Versions: obj.Versions.map((item) => FunctionConfiguration.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -5215,16 +4162,6 @@ export interface LayerVersionContentInput {
    *       you.</p>
    */
   ZipFile?: Uint8Array;
-}
-
-export namespace LayerVersionContentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LayerVersionContentInput): any => ({
-    ...obj,
-    ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
-  });
 }
 
 export interface PublishLayerVersionRequest {
@@ -5272,16 +4209,6 @@ export interface PublishLayerVersionRequest {
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
    */
   CompatibleArchitectures?: (Architecture | string)[];
-}
-
-export namespace PublishLayerVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishLayerVersionRequest): any => ({
-    ...obj,
-    ...(obj.Content && { Content: LayerVersionContentInput.filterSensitiveLog(obj.Content) }),
-  });
 }
 
 export interface PublishLayerVersionResponse {
@@ -5332,15 +4259,6 @@ export interface PublishLayerVersionResponse {
   CompatibleArchitectures?: (Architecture | string)[];
 }
 
-export namespace PublishLayerVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishLayerVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PublishVersionRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -5385,15 +4303,6 @@ export interface PublishVersionRequest {
   RevisionId?: string;
 }
 
-export namespace PublishVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutFunctionCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -5423,15 +4332,6 @@ export interface PutFunctionCodeSigningConfigRequest {
    *       characters in length.</p>
    */
   FunctionName: string | undefined;
-}
-
-export namespace PutFunctionCodeSigningConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFunctionCodeSigningConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutFunctionCodeSigningConfigResponse {
@@ -5465,15 +4365,6 @@ export interface PutFunctionCodeSigningConfigResponse {
   FunctionName: string | undefined;
 }
 
-export namespace PutFunctionCodeSigningConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFunctionCodeSigningConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutFunctionConcurrencyRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -5503,15 +4394,6 @@ export interface PutFunctionConcurrencyRequest {
    * <p>The number of simultaneous executions to reserve for the function.</p>
    */
   ReservedConcurrentExecutions: number | undefined;
-}
-
-export namespace PutFunctionConcurrencyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFunctionConcurrencyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutFunctionEventInvokeConfigRequest {
@@ -5581,15 +4463,6 @@ export interface PutFunctionEventInvokeConfigRequest {
   DestinationConfig?: DestinationConfig;
 }
 
-export namespace PutFunctionEventInvokeConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFunctionEventInvokeConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutProvisionedConcurrencyConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -5626,15 +4499,6 @@ export interface PutProvisionedConcurrencyConfigRequest {
   ProvisionedConcurrentExecutions: number | undefined;
 }
 
-export namespace PutProvisionedConcurrencyConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProvisionedConcurrencyConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutProvisionedConcurrencyConfigResponse {
   /**
    * <p>The amount of provisioned concurrency requested.</p>
@@ -5667,15 +4531,6 @@ export interface PutProvisionedConcurrencyConfigResponse {
   LastModified?: string;
 }
 
-export namespace PutProvisionedConcurrencyConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProvisionedConcurrencyConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveLayerVersionPermissionRequest {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -5697,15 +4552,6 @@ export interface RemoveLayerVersionPermissionRequest {
    *       policy that has changed since you last read it.</p>
    */
   RevisionId?: string;
-}
-
-export namespace RemoveLayerVersionPermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveLayerVersionPermissionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RemovePermissionRequest {
@@ -5750,15 +4596,6 @@ export interface RemovePermissionRequest {
   RevisionId?: string;
 }
 
-export namespace RemovePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The function's Amazon Resource Name (ARN).</p>
@@ -5771,15 +4608,6 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The function's Amazon Resource Name (ARN).</p>
@@ -5790,15 +4618,6 @@ export interface UntagResourceRequest {
    * <p>A list of tag keys to remove from the function.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAliasRequest {
@@ -5854,15 +4673,6 @@ export interface UpdateAliasRequest {
   RevisionId?: string;
 }
 
-export namespace UpdateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCodeSigningConfigRequest {
   /**
    * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
@@ -5885,29 +4695,11 @@ export interface UpdateCodeSigningConfigRequest {
   CodeSigningPolicies?: CodeSigningPolicies;
 }
 
-export namespace UpdateCodeSigningConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCodeSigningConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCodeSigningConfigResponse {
   /**
    * <p>The code signing configuration</p>
    */
   CodeSigningConfig: CodeSigningConfig | undefined;
-}
-
-export namespace UpdateCodeSigningConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCodeSigningConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateEventSourceMappingRequest {
@@ -6036,15 +4828,6 @@ export interface UpdateEventSourceMappingRequest {
   FunctionResponseTypes?: (FunctionResponseType | string)[];
 }
 
-export namespace UpdateEventSourceMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventSourceMappingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFunctionCodeRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -6121,16 +4904,6 @@ export interface UpdateFunctionCodeRequest {
    *      The default value is <code>x86_64</code>.</p>
    */
   Architectures?: (Architecture | string)[];
-}
-
-export namespace UpdateFunctionCodeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFunctionCodeRequest): any => ({
-    ...obj,
-    ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdateFunctionConfigurationRequest {
@@ -6254,16 +5027,6 @@ export interface UpdateFunctionConfigurationRequest {
   EphemeralStorage?: EphemeralStorage;
 }
 
-export namespace UpdateFunctionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFunctionConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.Environment && { Environment: Environment.filterSensitiveLog(obj.Environment) }),
-  });
-}
-
 export interface UpdateFunctionEventInvokeConfigRequest {
   /**
    * <p>The name of the Lambda function, version, or alias.</p>
@@ -6331,15 +5094,6 @@ export interface UpdateFunctionEventInvokeConfigRequest {
   DestinationConfig?: DestinationConfig;
 }
 
-export namespace UpdateFunctionEventInvokeConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFunctionEventInvokeConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFunctionUrlConfigRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -6384,15 +5138,6 @@ export interface UpdateFunctionUrlConfigRequest {
   Cors?: Cors;
 }
 
-export namespace UpdateFunctionUrlConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFunctionUrlConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFunctionUrlConfigResponse {
   /**
    * <p>The HTTP URL endpoint for your function.</p>
@@ -6428,11 +5173,1034 @@ export interface UpdateFunctionUrlConfigResponse {
   LastModifiedTime: string | undefined;
 }
 
-export namespace UpdateFunctionUrlConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFunctionUrlConfigResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountLimitFilterSensitiveLog = (obj: AccountLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountUsageFilterSensitiveLog = (obj: AccountUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddLayerVersionPermissionRequestFilterSensitiveLog = (obj: AddLayerVersionPermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddLayerVersionPermissionResponseFilterSensitiveLog = (obj: AddLayerVersionPermissionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddPermissionRequestFilterSensitiveLog = (obj: AddPermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddPermissionResponseFilterSensitiveLog = (obj: AddPermissionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AliasRoutingConfigurationFilterSensitiveLog = (obj: AliasRoutingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AliasConfigurationFilterSensitiveLog = (obj: AliasConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllowedPublishersFilterSensitiveLog = (obj: AllowedPublishers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAliasRequestFilterSensitiveLog = (obj: CreateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeSigningPoliciesFilterSensitiveLog = (obj: CodeSigningPolicies): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCodeSigningConfigRequestFilterSensitiveLog = (obj: CreateCodeSigningConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeSigningConfigFilterSensitiveLog = (obj: CodeSigningConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCodeSigningConfigResponseFilterSensitiveLog = (obj: CreateCodeSigningConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnFailureFilterSensitiveLog = (obj: OnFailure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnSuccessFilterSensitiveLog = (obj: OnSuccess): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationConfigFilterSensitiveLog = (obj: DestinationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterCriteriaFilterSensitiveLog = (obj: FilterCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelfManagedEventSourceFilterSensitiveLog = (obj: SelfManagedEventSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceAccessConfigurationFilterSensitiveLog = (obj: SourceAccessConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventSourceMappingRequestFilterSensitiveLog = (obj: CreateEventSourceMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventSourceMappingConfigurationFilterSensitiveLog = (obj: EventSourceMappingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionCodeFilterSensitiveLog = (obj: FunctionCode): any => ({
+  ...obj,
+  ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeadLetterConfigFilterSensitiveLog = (obj: DeadLetterConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
+  ...obj,
+  ...(obj.Variables && { Variables: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EphemeralStorageFilterSensitiveLog = (obj: EphemeralStorage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FileSystemConfigFilterSensitiveLog = (obj: FileSystemConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageConfigFilterSensitiveLog = (obj: ImageConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TracingConfigFilterSensitiveLog = (obj: TracingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigFilterSensitiveLog = (obj: VpcConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFunctionRequestFilterSensitiveLog = (obj: CreateFunctionRequest): any => ({
+  ...obj,
+  ...(obj.Code && { Code: FunctionCodeFilterSensitiveLog(obj.Code) }),
+  ...(obj.Environment && { Environment: EnvironmentFilterSensitiveLog(obj.Environment) }),
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentErrorFilterSensitiveLog = (obj: EnvironmentError): any => ({
+  ...obj,
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentResponseFilterSensitiveLog = (obj: EnvironmentResponse): any => ({
+  ...obj,
+  ...(obj.Variables && { Variables: SENSITIVE_STRING }),
+  ...(obj.Error && { Error: EnvironmentErrorFilterSensitiveLog(obj.Error) }),
+});
+
+/**
+ * @internal
+ */
+export const ImageConfigErrorFilterSensitiveLog = (obj: ImageConfigError): any => ({
+  ...obj,
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ImageConfigResponseFilterSensitiveLog = (obj: ImageConfigResponse): any => ({
+  ...obj,
+  ...(obj.Error && { Error: ImageConfigErrorFilterSensitiveLog(obj.Error) }),
+});
+
+/**
+ * @internal
+ */
+export const LayerFilterSensitiveLog = (obj: Layer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TracingConfigResponseFilterSensitiveLog = (obj: TracingConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigResponseFilterSensitiveLog = (obj: VpcConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionConfigurationFilterSensitiveLog = (obj: FunctionConfiguration): any => ({
+  ...obj,
+  ...(obj.Environment && { Environment: EnvironmentResponseFilterSensitiveLog(obj.Environment) }),
+  ...(obj.ImageConfigResponse && {
+    ImageConfigResponse: ImageConfigResponseFilterSensitiveLog(obj.ImageConfigResponse),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CorsFilterSensitiveLog = (obj: Cors): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFunctionUrlConfigRequestFilterSensitiveLog = (obj: CreateFunctionUrlConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFunctionUrlConfigResponseFilterSensitiveLog = (obj: CreateFunctionUrlConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAliasRequestFilterSensitiveLog = (obj: DeleteAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCodeSigningConfigRequestFilterSensitiveLog = (obj: DeleteCodeSigningConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCodeSigningConfigResponseFilterSensitiveLog = (obj: DeleteCodeSigningConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventSourceMappingRequestFilterSensitiveLog = (obj: DeleteEventSourceMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFunctionRequestFilterSensitiveLog = (obj: DeleteFunctionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFunctionCodeSigningConfigRequestFilterSensitiveLog = (
+  obj: DeleteFunctionCodeSigningConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFunctionConcurrencyRequestFilterSensitiveLog = (obj: DeleteFunctionConcurrencyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFunctionEventInvokeConfigRequestFilterSensitiveLog = (
+  obj: DeleteFunctionEventInvokeConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFunctionUrlConfigRequestFilterSensitiveLog = (obj: DeleteFunctionUrlConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLayerVersionRequestFilterSensitiveLog = (obj: DeleteLayerVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProvisionedConcurrencyConfigRequestFilterSensitiveLog = (
+  obj: DeleteProvisionedConcurrencyConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountSettingsRequestFilterSensitiveLog = (obj: GetAccountSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountSettingsResponseFilterSensitiveLog = (obj: GetAccountSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAliasRequestFilterSensitiveLog = (obj: GetAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCodeSigningConfigRequestFilterSensitiveLog = (obj: GetCodeSigningConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCodeSigningConfigResponseFilterSensitiveLog = (obj: GetCodeSigningConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventSourceMappingRequestFilterSensitiveLog = (obj: GetEventSourceMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionRequestFilterSensitiveLog = (obj: GetFunctionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionCodeLocationFilterSensitiveLog = (obj: FunctionCodeLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConcurrencyFilterSensitiveLog = (obj: Concurrency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionResponseFilterSensitiveLog = (obj: GetFunctionResponse): any => ({
+  ...obj,
+  ...(obj.Configuration && { Configuration: FunctionConfigurationFilterSensitiveLog(obj.Configuration) }),
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionCodeSigningConfigRequestFilterSensitiveLog = (
+  obj: GetFunctionCodeSigningConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionCodeSigningConfigResponseFilterSensitiveLog = (
+  obj: GetFunctionCodeSigningConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionConcurrencyRequestFilterSensitiveLog = (obj: GetFunctionConcurrencyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionConcurrencyResponseFilterSensitiveLog = (obj: GetFunctionConcurrencyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionConfigurationRequestFilterSensitiveLog = (obj: GetFunctionConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionEventInvokeConfigFilterSensitiveLog = (obj: FunctionEventInvokeConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionEventInvokeConfigRequestFilterSensitiveLog = (
+  obj: GetFunctionEventInvokeConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionUrlConfigRequestFilterSensitiveLog = (obj: GetFunctionUrlConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFunctionUrlConfigResponseFilterSensitiveLog = (obj: GetFunctionUrlConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLayerVersionRequestFilterSensitiveLog = (obj: GetLayerVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LayerVersionContentOutputFilterSensitiveLog = (obj: LayerVersionContentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLayerVersionResponseFilterSensitiveLog = (obj: GetLayerVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLayerVersionByArnRequestFilterSensitiveLog = (obj: GetLayerVersionByArnRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLayerVersionPolicyRequestFilterSensitiveLog = (obj: GetLayerVersionPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLayerVersionPolicyResponseFilterSensitiveLog = (obj: GetLayerVersionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProvisionedConcurrencyConfigRequestFilterSensitiveLog = (
+  obj: GetProvisionedConcurrencyConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProvisionedConcurrencyConfigResponseFilterSensitiveLog = (
+  obj: GetProvisionedConcurrencyConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvocationRequestFilterSensitiveLog = (obj: InvocationRequest): any => ({
+  ...obj,
+  ...(obj.Payload && { Payload: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvocationResponseFilterSensitiveLog = (obj: InvocationResponse): any => ({
+  ...obj,
+  ...(obj.Payload && { Payload: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeAsyncRequestFilterSensitiveLog = (obj: InvokeAsyncRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvokeAsyncResponseFilterSensitiveLog = (obj: InvokeAsyncResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCodeSigningConfigsRequestFilterSensitiveLog = (obj: ListCodeSigningConfigsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCodeSigningConfigsResponseFilterSensitiveLog = (obj: ListCodeSigningConfigsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventSourceMappingsRequestFilterSensitiveLog = (obj: ListEventSourceMappingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventSourceMappingsResponseFilterSensitiveLog = (obj: ListEventSourceMappingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionEventInvokeConfigsRequestFilterSensitiveLog = (
+  obj: ListFunctionEventInvokeConfigsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionEventInvokeConfigsResponseFilterSensitiveLog = (
+  obj: ListFunctionEventInvokeConfigsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionsRequestFilterSensitiveLog = (obj: ListFunctionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionsResponseFilterSensitiveLog = (obj: ListFunctionsResponse): any => ({
+  ...obj,
+  ...(obj.Functions && { Functions: obj.Functions.map((item) => FunctionConfigurationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionsByCodeSigningConfigRequestFilterSensitiveLog = (
+  obj: ListFunctionsByCodeSigningConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionsByCodeSigningConfigResponseFilterSensitiveLog = (
+  obj: ListFunctionsByCodeSigningConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionUrlConfigsRequestFilterSensitiveLog = (obj: ListFunctionUrlConfigsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FunctionUrlConfigFilterSensitiveLog = (obj: FunctionUrlConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFunctionUrlConfigsResponseFilterSensitiveLog = (obj: ListFunctionUrlConfigsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLayersRequestFilterSensitiveLog = (obj: ListLayersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LayerVersionsListItemFilterSensitiveLog = (obj: LayerVersionsListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LayersListItemFilterSensitiveLog = (obj: LayersListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLayersResponseFilterSensitiveLog = (obj: ListLayersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLayerVersionsRequestFilterSensitiveLog = (obj: ListLayerVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLayerVersionsResponseFilterSensitiveLog = (obj: ListLayerVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProvisionedConcurrencyConfigsRequestFilterSensitiveLog = (
+  obj: ListProvisionedConcurrencyConfigsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedConcurrencyConfigListItemFilterSensitiveLog = (
+  obj: ProvisionedConcurrencyConfigListItem
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProvisionedConcurrencyConfigsResponseFilterSensitiveLog = (
+  obj: ListProvisionedConcurrencyConfigsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVersionsByFunctionRequestFilterSensitiveLog = (obj: ListVersionsByFunctionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVersionsByFunctionResponseFilterSensitiveLog = (obj: ListVersionsByFunctionResponse): any => ({
+  ...obj,
+  ...(obj.Versions && { Versions: obj.Versions.map((item) => FunctionConfigurationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const LayerVersionContentInputFilterSensitiveLog = (obj: LayerVersionContentInput): any => ({
+  ...obj,
+  ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PublishLayerVersionRequestFilterSensitiveLog = (obj: PublishLayerVersionRequest): any => ({
+  ...obj,
+  ...(obj.Content && { Content: LayerVersionContentInputFilterSensitiveLog(obj.Content) }),
+});
+
+/**
+ * @internal
+ */
+export const PublishLayerVersionResponseFilterSensitiveLog = (obj: PublishLayerVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishVersionRequestFilterSensitiveLog = (obj: PublishVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFunctionCodeSigningConfigRequestFilterSensitiveLog = (
+  obj: PutFunctionCodeSigningConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFunctionCodeSigningConfigResponseFilterSensitiveLog = (
+  obj: PutFunctionCodeSigningConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFunctionConcurrencyRequestFilterSensitiveLog = (obj: PutFunctionConcurrencyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFunctionEventInvokeConfigRequestFilterSensitiveLog = (
+  obj: PutFunctionEventInvokeConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProvisionedConcurrencyConfigRequestFilterSensitiveLog = (
+  obj: PutProvisionedConcurrencyConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProvisionedConcurrencyConfigResponseFilterSensitiveLog = (
+  obj: PutProvisionedConcurrencyConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveLayerVersionPermissionRequestFilterSensitiveLog = (
+  obj: RemoveLayerVersionPermissionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemovePermissionRequestFilterSensitiveLog = (obj: RemovePermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAliasRequestFilterSensitiveLog = (obj: UpdateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCodeSigningConfigRequestFilterSensitiveLog = (obj: UpdateCodeSigningConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCodeSigningConfigResponseFilterSensitiveLog = (obj: UpdateCodeSigningConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventSourceMappingRequestFilterSensitiveLog = (obj: UpdateEventSourceMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFunctionCodeRequestFilterSensitiveLog = (obj: UpdateFunctionCodeRequest): any => ({
+  ...obj,
+  ...(obj.ZipFile && { ZipFile: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFunctionConfigurationRequestFilterSensitiveLog = (obj: UpdateFunctionConfigurationRequest): any => ({
+  ...obj,
+  ...(obj.Environment && { Environment: EnvironmentFilterSensitiveLog(obj.Environment) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateFunctionEventInvokeConfigRequestFilterSensitiveLog = (
+  obj: UpdateFunctionEventInvokeConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFunctionUrlConfigRequestFilterSensitiveLog = (obj: UpdateFunctionUrlConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFunctionUrlConfigResponseFilterSensitiveLog = (obj: UpdateFunctionUrlConfigResponse): any => ({
+  ...obj,
+});

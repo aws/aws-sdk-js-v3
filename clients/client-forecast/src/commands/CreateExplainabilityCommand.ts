@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { CreateExplainabilityRequest, CreateExplainabilityResponse } from "../models/models_0";
+import {
+  CreateExplainabilityRequest,
+  CreateExplainabilityRequestFilterSensitiveLog,
+  CreateExplainabilityResponse,
+  CreateExplainabilityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateExplainabilityCommand,
   serializeAws_json1_1CreateExplainabilityCommand,
@@ -190,8 +195,8 @@ export class CreateExplainabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExplainabilityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateExplainabilityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateExplainabilityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateExplainabilityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

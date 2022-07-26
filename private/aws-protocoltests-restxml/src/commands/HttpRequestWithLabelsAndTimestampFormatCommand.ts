@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpRequestWithLabelsAndTimestampFormatInput } from "../models/models_0";
+import {
+  HttpRequestWithLabelsAndTimestampFormatInput,
+  HttpRequestWithLabelsAndTimestampFormatInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand,
   serializeAws_restXmlHttpRequestWithLabelsAndTimestampFormatCommand,
@@ -77,7 +80,7 @@ export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpRequestWithLabelsAndTimestampFormatInput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpRequestWithLabelsAndTimestampFormatInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

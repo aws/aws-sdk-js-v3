@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { RegisterGameServerInput, RegisterGameServerOutput } from "../models/models_0";
+import {
+  RegisterGameServerInput,
+  RegisterGameServerInputFilterSensitiveLog,
+  RegisterGameServerOutput,
+  RegisterGameServerOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterGameServerCommand,
   serializeAws_json1_1RegisterGameServerCommand,
@@ -106,8 +111,8 @@ export class RegisterGameServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterGameServerInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterGameServerOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterGameServerInputFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterGameServerOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

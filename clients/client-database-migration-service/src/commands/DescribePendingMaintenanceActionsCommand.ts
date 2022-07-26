@@ -19,7 +19,9 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribePendingMaintenanceActionsMessage,
+  DescribePendingMaintenanceActionsMessageFilterSensitiveLog,
   DescribePendingMaintenanceActionsResponse,
+  DescribePendingMaintenanceActionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePendingMaintenanceActionsCommand,
@@ -81,8 +83,8 @@ export class DescribePendingMaintenanceActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePendingMaintenanceActionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePendingMaintenanceActionsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribePendingMaintenanceActionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

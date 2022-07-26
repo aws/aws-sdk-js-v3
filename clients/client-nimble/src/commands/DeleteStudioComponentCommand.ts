@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteStudioComponentRequest, DeleteStudioComponentResponse } from "../models/models_0";
+import {
+  DeleteStudioComponentRequest,
+  DeleteStudioComponentRequestFilterSensitiveLog,
+  DeleteStudioComponentResponse,
+  DeleteStudioComponentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1DeleteStudioComponentCommand,
@@ -72,8 +77,8 @@ export class DeleteStudioComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStudioComponentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStudioComponentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStudioComponentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStudioComponentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

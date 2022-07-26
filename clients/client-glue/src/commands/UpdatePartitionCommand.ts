@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdatePartitionRequest, UpdatePartitionResponse } from "../models/models_2";
+import {
+  UpdatePartitionRequest,
+  UpdatePartitionRequestFilterSensitiveLog,
+  UpdatePartitionResponse,
+  UpdatePartitionResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1UpdatePartitionCommand,
   serializeAws_json1_1UpdatePartitionCommand,
@@ -72,8 +77,8 @@ export class UpdatePartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePartitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePartitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePartitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePartitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

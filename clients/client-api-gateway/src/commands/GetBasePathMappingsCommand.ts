@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { BasePathMappings, GetBasePathMappingsRequest } from "../models/models_0";
+import {
+  BasePathMappings,
+  BasePathMappingsFilterSensitiveLog,
+  GetBasePathMappingsRequest,
+  GetBasePathMappingsRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetBasePathMappingsCommand,
   serializeAws_restJson1GetBasePathMappingsCommand,
@@ -72,8 +77,8 @@ export class GetBasePathMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBasePathMappingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BasePathMappings.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBasePathMappingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BasePathMappingsFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

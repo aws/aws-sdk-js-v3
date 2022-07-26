@@ -19,15 +19,6 @@ export interface AcceleratorCountRequest {
   Max?: number;
 }
 
-export namespace AcceleratorCountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceleratorCountRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum AcceleratorManufacturer {
   AMAZON_WEB_SERVICES = "amazon-web-services",
   AMD = "amd",
@@ -59,15 +50,6 @@ export interface AcceleratorTotalMemoryMiBRequest {
    * <p>The memory maximum in MiB.</p>
    */
   Max?: number;
-}
-
-export namespace AcceleratorTotalMemoryMiBRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceleratorTotalMemoryMiBRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum AcceleratorType {
@@ -178,15 +160,6 @@ export interface Activity {
   AutoScalingGroupARN?: string;
 }
 
-export namespace Activity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Activity): any => ({
-    ...obj,
-  });
-}
-
 export interface ActivitiesType {
   /**
    * <p>The scaling activities. Activities are sorted by start time. Activities still in
@@ -203,29 +176,11 @@ export interface ActivitiesType {
   NextToken?: string;
 }
 
-export namespace ActivitiesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivitiesType): any => ({
-    ...obj,
-  });
-}
-
 export interface ActivityType {
   /**
    * <p>A scaling activity.</p>
    */
   Activity?: Activity;
-}
-
-export namespace ActivityType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -237,15 +192,6 @@ export interface AdjustmentType {
    *                 <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>
    */
   AdjustmentType?: string;
-}
-
-export namespace AdjustmentType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdjustmentType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -261,15 +207,6 @@ export interface Alarm {
    * <p>The Amazon Resource Name (ARN) of the alarm.</p>
    */
   AlarmARN?: string;
-}
-
-export namespace Alarm {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alarm): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -301,15 +238,6 @@ export interface AttachInstancesQuery {
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupName: string | undefined;
-}
-
-export namespace AttachInstancesQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachInstancesQuery): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -353,15 +281,6 @@ export class ServiceLinkedRoleFailure extends __BaseException {
 
 export interface AttachLoadBalancersResultType {}
 
-export namespace AttachLoadBalancersResultType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachLoadBalancersResultType): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachLoadBalancersType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -374,25 +293,7 @@ export interface AttachLoadBalancersType {
   LoadBalancerNames: string[] | undefined;
 }
 
-export namespace AttachLoadBalancersType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachLoadBalancersType): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachLoadBalancerTargetGroupsResultType {}
-
-export namespace AttachLoadBalancerTargetGroupsResultType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachLoadBalancerTargetGroupsResultType): any => ({
-    ...obj,
-  });
-}
 
 export interface AttachLoadBalancerTargetGroupsType {
   /**
@@ -405,15 +306,6 @@ export interface AttachLoadBalancerTargetGroupsType {
    *             groups. To get the ARN of a target group, use the Elastic Load Balancing <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   TargetGroupARNs: string[] | undefined;
-}
-
-export namespace AttachLoadBalancerTargetGroupsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttachLoadBalancerTargetGroupsType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -436,30 +328,12 @@ export interface FailedScheduledUpdateGroupActionRequest {
   ErrorMessage?: string;
 }
 
-export namespace FailedScheduledUpdateGroupActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedScheduledUpdateGroupActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteScheduledActionAnswer {
   /**
    * <p>The names of the scheduled actions that could not be deleted, including an error
    *             message.</p>
    */
   FailedScheduledActions?: FailedScheduledUpdateGroupActionRequest[];
-}
-
-export namespace BatchDeleteScheduledActionAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteScheduledActionAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeleteScheduledActionType {
@@ -475,30 +349,12 @@ export interface BatchDeleteScheduledActionType {
   ScheduledActionNames: string[] | undefined;
 }
 
-export namespace BatchDeleteScheduledActionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteScheduledActionType): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchPutScheduledUpdateGroupActionAnswer {
   /**
    * <p>The names of the scheduled actions that could not be created or updated, including an
    *             error message.</p>
    */
   FailedScheduledUpdateGroupActions?: FailedScheduledUpdateGroupActionRequest[];
-}
-
-export namespace BatchPutScheduledUpdateGroupActionAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutScheduledUpdateGroupActionAnswer): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -564,15 +420,6 @@ export interface ScheduledUpdateGroupActionRequest {
   TimeZone?: string;
 }
 
-export namespace ScheduledUpdateGroupActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledUpdateGroupActionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchPutScheduledUpdateGroupActionType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -583,15 +430,6 @@ export interface BatchPutScheduledUpdateGroupActionType {
    * <p>One or more scheduled actions. The maximum number allowed is 50.</p>
    */
   ScheduledUpdateGroupActions: ScheduledUpdateGroupActionRequest[] | undefined;
-}
-
-export namespace BatchPutScheduledUpdateGroupActionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPutScheduledUpdateGroupActionType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -623,15 +461,6 @@ export interface CancelInstanceRefreshAnswer {
   InstanceRefreshId?: string;
 }
 
-export namespace CancelInstanceRefreshAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelInstanceRefreshAnswer): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelInstanceRefreshType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -639,25 +468,7 @@ export interface CancelInstanceRefreshType {
   AutoScalingGroupName: string | undefined;
 }
 
-export namespace CancelInstanceRefreshType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelInstanceRefreshType): any => ({
-    ...obj,
-  });
-}
-
 export interface CompleteLifecycleActionAnswer {}
-
-export namespace CompleteLifecycleActionAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteLifecycleActionAnswer): any => ({
-    ...obj,
-  });
-}
 
 export interface CompleteLifecycleActionType {
   /**
@@ -687,15 +498,6 @@ export interface CompleteLifecycleActionType {
    * <p>The ID of the instance.</p>
    */
   InstanceId?: string;
-}
-
-export namespace CompleteLifecycleActionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteLifecycleActionType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -729,15 +531,6 @@ export interface LaunchTemplateSpecification {
    *             template when launching instances. The default value is <code>$Default</code>.</p>
    */
   Version?: string;
-}
-
-export namespace LaunchTemplateSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -806,15 +599,6 @@ export interface LifecycleHookSpecification {
    *         <p>Valid only if the notification target is an Amazon SNS topic or an Amazon SQS queue.</p>
    */
   RoleARN?: string;
-}
-
-export namespace LifecycleHookSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleHookSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -902,15 +686,6 @@ export interface InstancesDistribution {
   SpotMaxPrice?: string;
 }
 
-export namespace InstancesDistribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstancesDistribution): any => ({
-    ...obj,
-  });
-}
-
 export enum BareMetal {
   EXCLUDED = "excluded",
   INCLUDED = "included",
@@ -931,15 +706,6 @@ export interface BaselineEbsBandwidthMbpsRequest {
    * <p>The maximum value in Mbps.</p>
    */
   Max?: number;
-}
-
-export namespace BaselineEbsBandwidthMbpsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BaselineEbsBandwidthMbpsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum BurstablePerformance {
@@ -986,15 +752,6 @@ export interface MemoryGiBPerVCpuRequest {
   Max?: number;
 }
 
-export namespace MemoryGiBPerVCpuRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemoryGiBPerVCpuRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the minimum and maximum for the <code>MemoryMiB</code> object when you
  *             specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
@@ -1009,15 +766,6 @@ export interface MemoryMiBRequest {
    * <p>The memory maximum in MiB.</p>
    */
   Max?: number;
-}
-
-export namespace MemoryMiBRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemoryMiBRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1036,15 +784,6 @@ export interface NetworkInterfaceCountRequest {
   Max?: number;
 }
 
-export namespace NetworkInterfaceCountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterfaceCountRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the minimum and maximum for the <code>TotalLocalStorageGB</code> object when
  *             you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
@@ -1061,15 +800,6 @@ export interface TotalLocalStorageGBRequest {
   Max?: number;
 }
 
-export namespace TotalLocalStorageGBRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TotalLocalStorageGBRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the minimum and maximum for the <code>VCpuCount</code> object when you
  *             specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
@@ -1084,15 +814,6 @@ export interface VCpuCountRequest {
    * <p>The maximum number of vCPUs.</p>
    */
   Max?: number;
-}
-
-export namespace VCpuCountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VCpuCountRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1367,15 +1088,6 @@ export interface InstanceRequirements {
   AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest;
 }
 
-export namespace InstanceRequirements {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceRequirements): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an override for a launch template. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-configuring-overrides.html">Configuring overrides</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  */
@@ -1420,15 +1132,6 @@ export interface LaunchTemplateOverrides {
   InstanceRequirements?: InstanceRequirements;
 }
 
-export namespace LaunchTemplateOverrides {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateOverrides): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a launch template and overrides. You specify these properties as part of a
  *             mixed instances policy. </p>
@@ -1449,15 +1152,6 @@ export interface LaunchTemplate {
   Overrides?: LaunchTemplateOverrides[];
 }
 
-export namespace LaunchTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a mixed instances policy. A mixed instances policy contains the instance
  *             types that Amazon EC2 Auto Scaling can launch and other information that Amazon EC2 Auto Scaling can use to launch
@@ -1476,15 +1170,6 @@ export interface MixedInstancesPolicy {
    * <p>The instances distribution.</p>
    */
   InstancesDistribution?: InstancesDistribution;
-}
-
-export namespace MixedInstancesPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MixedInstancesPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1517,15 +1202,6 @@ export interface Tag {
    *             group.</p>
    */
   PropagateAtLaunch?: boolean;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAutoScalingGroupType {
@@ -1787,15 +1463,6 @@ export interface CreateAutoScalingGroupType {
   DefaultInstanceWarmup?: number;
 }
 
-export namespace CreateAutoScalingGroupType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAutoScalingGroupType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes information used to set up an Amazon EBS volume specified in a block device
  *             mapping.</p>
@@ -1900,15 +1567,6 @@ export interface Ebs {
   Throughput?: number;
 }
 
-export namespace Ebs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ebs): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a block device mapping.</p>
  */
@@ -1948,15 +1606,6 @@ export interface BlockDeviceMapping {
   NoDevice?: boolean;
 }
 
-export namespace BlockDeviceMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlockDeviceMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes whether detailed monitoring is enabled for the Auto Scaling instances.</p>
  */
@@ -1966,15 +1615,6 @@ export interface InstanceMonitoring {
    *             enabled.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace InstanceMonitoring {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMonitoring): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceMetadataEndpointState {
@@ -2023,15 +1663,6 @@ export interface InstanceMetadataOptions {
    *         </note>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
-}
-
-export namespace InstanceMetadataOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMetadataOptions): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLaunchConfigurationType {
@@ -2234,29 +1865,11 @@ export interface CreateLaunchConfigurationType {
   MetadataOptions?: InstanceMetadataOptions;
 }
 
-export namespace CreateLaunchConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLaunchConfigurationType): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateOrUpdateTagsType {
   /**
    * <p>One or more tags.</p>
    */
   Tags: Tag[] | undefined;
-}
-
-export namespace CreateOrUpdateTagsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOrUpdateTagsType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2292,15 +1905,6 @@ export interface DeleteAutoScalingGroupType {
   ForceDelete?: boolean;
 }
 
-export namespace DeleteAutoScalingGroupType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAutoScalingGroupType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation can't be performed because there are scaling activities in
  *             progress.</p>
@@ -2328,25 +1932,7 @@ export interface LaunchConfigurationNameType {
   LaunchConfigurationName: string | undefined;
 }
 
-export namespace LaunchConfigurationNameType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchConfigurationNameType): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLifecycleHookAnswer {}
-
-export namespace DeleteLifecycleHookAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLifecycleHookAnswer): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteLifecycleHookType {
   /**
@@ -2358,15 +1944,6 @@ export interface DeleteLifecycleHookType {
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupName: string | undefined;
-}
-
-export namespace DeleteLifecycleHookType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLifecycleHookType): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteNotificationConfigurationType {
@@ -2381,15 +1958,6 @@ export interface DeleteNotificationConfigurationType {
   TopicARN: string | undefined;
 }
 
-export namespace DeleteNotificationConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNotificationConfigurationType): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePolicyType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -2400,15 +1968,6 @@ export interface DeletePolicyType {
    * <p>The name or Amazon Resource Name (ARN) of the policy.</p>
    */
   PolicyName: string | undefined;
-}
-
-export namespace DeletePolicyType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePolicyType): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteScheduledActionType {
@@ -2423,15 +1982,6 @@ export interface DeleteScheduledActionType {
   ScheduledActionName: string | undefined;
 }
 
-export namespace DeleteScheduledActionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduledActionType): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTagsType {
   /**
    * <p>One or more tags.</p>
@@ -2439,25 +1989,7 @@ export interface DeleteTagsType {
   Tags: Tag[] | undefined;
 }
 
-export namespace DeleteTagsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsType): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWarmPoolAnswer {}
-
-export namespace DeleteWarmPoolAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWarmPoolAnswer): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteWarmPoolType {
   /**
@@ -2472,15 +2004,6 @@ export interface DeleteWarmPoolType {
    *             instances.</p>
    */
   ForceDelete?: boolean;
-}
-
-export namespace DeleteWarmPoolType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWarmPoolType): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountLimitsAnswer {
@@ -2507,29 +2030,11 @@ export interface DescribeAccountLimitsAnswer {
   NumberOfLaunchConfigurations?: number;
 }
 
-export namespace DescribeAccountLimitsAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountLimitsAnswer): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAdjustmentTypesAnswer {
   /**
    * <p>The policy adjustment types.</p>
    */
   AdjustmentTypes?: AdjustmentType[];
-}
-
-export namespace DescribeAdjustmentTypesAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAdjustmentTypesAnswer): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2611,15 +2116,6 @@ export interface Filter {
   Values?: string[];
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 export interface AutoScalingGroupNamesType {
   /**
    * <p>The names of the Auto Scaling groups. By default, you can only specify up to 50 names. You can
@@ -2645,15 +2141,6 @@ export interface AutoScalingGroupNamesType {
    *             </p>
    */
   Filters?: Filter[];
-}
-
-export namespace AutoScalingGroupNamesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingGroupNamesType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2774,15 +2261,6 @@ export interface EnabledMetric {
   Granularity?: string;
 }
 
-export namespace EnabledMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnabledMetric): any => ({
-    ...obj,
-  });
-}
-
 export enum LifecycleState {
   DETACHED = "Detached",
   DETACHING = "Detaching",
@@ -2866,15 +2344,6 @@ export interface Instance {
   WeightedCapacity?: string;
 }
 
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an auto scaling process that has been suspended.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html#process-types">Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -2889,15 +2358,6 @@ export interface SuspendedProcess {
    * <p>The reason that the process was suspended.</p>
    */
   SuspensionReason?: string;
-}
-
-export namespace SuspendedProcess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuspendedProcess): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2932,15 +2392,6 @@ export interface TagDescription {
   PropagateAtLaunch?: boolean;
 }
 
-export namespace TagDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an instance reuse policy for a warm pool. </p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm pools for
@@ -2952,15 +2403,6 @@ export interface InstanceReusePolicy {
    *             scale in. </p>
    */
   ReuseOnScaleIn?: boolean;
-}
-
-export namespace InstanceReusePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceReusePolicy): any => ({
-    ...obj,
-  });
 }
 
 export enum WarmPoolState {
@@ -3002,15 +2444,6 @@ export interface WarmPoolConfiguration {
    * <p>The instance reuse policy.</p>
    */
   InstanceReusePolicy?: InstanceReusePolicy;
-}
-
-export namespace WarmPoolConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WarmPoolConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3192,15 +2625,6 @@ export interface AutoScalingGroup {
   DefaultInstanceWarmup?: number;
 }
 
-export namespace AutoScalingGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface AutoScalingGroupsType {
   /**
    * <p>The groups.</p>
@@ -3214,15 +2638,6 @@ export interface AutoScalingGroupsType {
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace AutoScalingGroupsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingGroupsType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3318,15 +2733,6 @@ export interface AutoScalingInstanceDetails {
   WeightedCapacity?: string;
 }
 
-export namespace AutoScalingInstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingInstanceDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface AutoScalingInstancesType {
   /**
    * <p>The instances.</p>
@@ -3340,15 +2746,6 @@ export interface AutoScalingInstancesType {
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace AutoScalingInstancesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingInstancesType): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAutoScalingInstancesType {
@@ -3372,29 +2769,11 @@ export interface DescribeAutoScalingInstancesType {
   NextToken?: string;
 }
 
-export namespace DescribeAutoScalingInstancesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAutoScalingInstancesType): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAutoScalingNotificationTypesAnswer {
   /**
    * <p>The notification types.</p>
    */
   AutoScalingNotificationTypes?: string[];
-}
-
-export namespace DescribeAutoScalingNotificationTypesAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAutoScalingNotificationTypesAnswer): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3418,15 +2797,6 @@ export interface DesiredConfiguration {
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   MixedInstancesPolicy?: MixedInstancesPolicy;
-}
-
-export namespace DesiredConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DesiredConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3487,15 +2857,6 @@ export interface RefreshPreferences {
   SkipMatching?: boolean;
 }
 
-export namespace RefreshPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RefreshPreferences): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Reports the progress of an instance refresh on instances that are in the Auto Scaling
  *             group.</p>
@@ -3514,15 +2875,6 @@ export interface InstanceRefreshLivePoolProgress {
    * <p>The number of instances remaining to update.</p>
    */
   InstancesToUpdate?: number;
-}
-
-export namespace InstanceRefreshLivePoolProgress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceRefreshLivePoolProgress): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3545,15 +2897,6 @@ export interface InstanceRefreshWarmPoolProgress {
   InstancesToUpdate?: number;
 }
 
-export namespace InstanceRefreshWarmPoolProgress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceRefreshWarmPoolProgress): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Reports the progress of an instance refresh on an Auto Scaling group that has a warm pool.
  *             This includes separate details for instances in the warm pool and instances in the Auto Scaling
@@ -3571,15 +2914,6 @@ export interface InstanceRefreshProgressDetails {
    *             pool.</p>
    */
   WarmPoolProgress?: InstanceRefreshWarmPoolProgress;
-}
-
-export namespace InstanceRefreshProgressDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceRefreshProgressDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceRefreshStatus {
@@ -3685,15 +3019,6 @@ export interface InstanceRefresh {
   DesiredConfiguration?: DesiredConfiguration;
 }
 
-export namespace InstanceRefresh {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceRefresh): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeInstanceRefreshesAnswer {
   /**
    * <p>The instance refreshes for the specified group, sorted by creation timestamp in descending order.</p>
@@ -3707,15 +3032,6 @@ export interface DescribeInstanceRefreshesAnswer {
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeInstanceRefreshesAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceRefreshesAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeInstanceRefreshesType {
@@ -3742,15 +3058,6 @@ export interface DescribeInstanceRefreshesType {
   MaxRecords?: number;
 }
 
-export namespace DescribeInstanceRefreshesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstanceRefreshesType): any => ({
-    ...obj,
-  });
-}
-
 export interface LaunchConfigurationNamesType {
   /**
    * <p>The launch configuration names. If you omit this property, all launch configurations
@@ -3770,15 +3077,6 @@ export interface LaunchConfigurationNamesType {
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
    */
   MaxRecords?: number;
-}
-
-export namespace LaunchConfigurationNamesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchConfigurationNamesType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3935,15 +3233,6 @@ export interface LaunchConfiguration {
   MetadataOptions?: InstanceMetadataOptions;
 }
 
-export namespace LaunchConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface LaunchConfigurationsType {
   /**
    * <p>The launch configurations.</p>
@@ -3957,15 +3246,6 @@ export interface LaunchConfigurationsType {
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace LaunchConfigurationsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchConfigurationsType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4034,29 +3314,11 @@ export interface LifecycleHook {
   DefaultResult?: string;
 }
 
-export namespace LifecycleHook {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleHook): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLifecycleHooksAnswer {
   /**
    * <p>The lifecycle hooks for the specified group.</p>
    */
   LifecycleHooks?: LifecycleHook[];
-}
-
-export namespace DescribeLifecycleHooksAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLifecycleHooksAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeLifecycleHooksType {
@@ -4072,29 +3334,11 @@ export interface DescribeLifecycleHooksType {
   LifecycleHookNames?: string[];
 }
 
-export namespace DescribeLifecycleHooksType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLifecycleHooksType): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLifecycleHookTypesAnswer {
   /**
    * <p>The lifecycle hook types.</p>
    */
   LifecycleHookTypes?: string[];
-}
-
-export namespace DescribeLifecycleHookTypesAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLifecycleHookTypesAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeLoadBalancersRequest {
@@ -4114,15 +3358,6 @@ export interface DescribeLoadBalancersRequest {
    *                 <code>100</code> and the maximum value is <code>100</code>.</p>
    */
   MaxRecords?: number;
-}
-
-export namespace DescribeLoadBalancersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4168,15 +3403,6 @@ export interface LoadBalancerState {
   State?: string;
 }
 
-export namespace LoadBalancerState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerState): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLoadBalancersResponse {
   /**
    * <p>The load balancers.</p>
@@ -4190,15 +3416,6 @@ export interface DescribeLoadBalancersResponse {
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeLoadBalancersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeLoadBalancerTargetGroupsRequest {
@@ -4218,15 +3435,6 @@ export interface DescribeLoadBalancerTargetGroupsRequest {
    *                 <code>100</code> and the maximum value is <code>100</code>.</p>
    */
   MaxRecords?: number;
-}
-
-export namespace DescribeLoadBalancerTargetGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancerTargetGroupsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4272,15 +3480,6 @@ export interface LoadBalancerTargetGroupState {
   State?: string;
 }
 
-export namespace LoadBalancerTargetGroupState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerTargetGroupState): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLoadBalancerTargetGroupsResponse {
   /**
    * <p>Information about the target groups.</p>
@@ -4296,15 +3495,6 @@ export interface DescribeLoadBalancerTargetGroupsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeLoadBalancerTargetGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoadBalancerTargetGroupsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a granularity of a metric.</p>
  */
@@ -4313,15 +3503,6 @@ export interface MetricGranularityType {
    * <p>The granularity. The only valid value is <code>1Minute</code>.</p>
    */
   Granularity?: string;
-}
-
-export namespace MetricGranularityType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricGranularityType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4436,15 +3617,6 @@ export interface MetricCollectionType {
   Metric?: string;
 }
 
-export namespace MetricCollectionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricCollectionType): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeMetricCollectionTypesAnswer {
   /**
    * <p>The metrics.</p>
@@ -4455,15 +3627,6 @@ export interface DescribeMetricCollectionTypesAnswer {
    * <p>The granularities for the metrics.</p>
    */
   Granularities?: MetricGranularityType[];
-}
-
-export namespace DescribeMetricCollectionTypesAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMetricCollectionTypesAnswer): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4513,15 +3676,6 @@ export interface NotificationConfiguration {
   NotificationType?: string;
 }
 
-export namespace NotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeNotificationConfigurationsAnswer {
   /**
    * <p>The notification configurations.</p>
@@ -4535,15 +3689,6 @@ export interface DescribeNotificationConfigurationsAnswer {
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeNotificationConfigurationsAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotificationConfigurationsAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeNotificationConfigurationsType {
@@ -4563,15 +3708,6 @@ export interface DescribeNotificationConfigurationsType {
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
    */
   MaxRecords?: number;
-}
-
-export namespace DescribeNotificationConfigurationsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNotificationConfigurationsType): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePoliciesType {
@@ -4608,15 +3744,6 @@ export interface DescribePoliciesType {
   MaxRecords?: number;
 }
 
-export namespace DescribePoliciesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePoliciesType): any => ({
-    ...obj,
-  });
-}
-
 export enum PredictiveScalingMaxCapacityBreachBehavior {
   HonorMaxCapacity = "HonorMaxCapacity",
   IncreaseMaxCapacity = "IncreaseMaxCapacity",
@@ -4635,15 +3762,6 @@ export interface MetricDimension {
    * <p>The value of the dimension.</p>
    */
   Value: string | undefined;
-}
-
-export namespace MetricDimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDimension): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4671,15 +3789,6 @@ export interface Metric {
    *             dimensions in your scaling policy.</p>
    */
   Dimensions?: MetricDimension[];
-}
-
-export namespace Metric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Metric): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4710,15 +3819,6 @@ export interface MetricStat {
    *             data type in the <i>Amazon CloudWatch API Reference</i>.</p>
    */
   Unit?: string;
-}
-
-export namespace MetricStat {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricStat): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4778,15 +3878,6 @@ export interface MetricDataQuery {
   ReturnData?: boolean;
 }
 
-export namespace MetricDataQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDataQuery): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a customized capacity metric for a predictive scaling policy.</p>
  */
@@ -4797,15 +3888,6 @@ export interface PredictiveScalingCustomizedCapacityMetric {
    *             data. </p>
    */
   MetricDataQueries: MetricDataQuery[] | undefined;
-}
-
-export namespace PredictiveScalingCustomizedCapacityMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictiveScalingCustomizedCapacityMetric): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4820,15 +3902,6 @@ export interface PredictiveScalingCustomizedLoadMetric {
   MetricDataQueries: MetricDataQuery[] | undefined;
 }
 
-export namespace PredictiveScalingCustomizedLoadMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictiveScalingCustomizedLoadMetric): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a custom scaling metric for a predictive scaling policy.</p>
  */
@@ -4839,15 +3912,6 @@ export interface PredictiveScalingCustomizedScalingMetric {
    *             data. </p>
    */
   MetricDataQueries: MetricDataQuery[] | undefined;
-}
-
-export namespace PredictiveScalingCustomizedScalingMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictiveScalingCustomizedScalingMetric): any => ({
-    ...obj,
-  });
 }
 
 export enum PredefinedLoadMetricType {
@@ -4895,15 +3959,6 @@ export interface PredictiveScalingPredefinedLoadMetric {
   ResourceLabel?: string;
 }
 
-export namespace PredictiveScalingPredefinedLoadMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictiveScalingPredefinedLoadMetric): any => ({
-    ...obj,
-  });
-}
-
 export enum PredefinedMetricPairType {
   ALBRequestCount = "ALBRequestCount",
   ASGCPUUtilization = "ASGCPUUtilization",
@@ -4949,15 +4004,6 @@ export interface PredictiveScalingPredefinedMetricPair {
   ResourceLabel?: string;
 }
 
-export namespace PredictiveScalingPredefinedMetricPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictiveScalingPredefinedMetricPair): any => ({
-    ...obj,
-  });
-}
-
 export enum PredefinedScalingMetricType {
   ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
   ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
@@ -5001,15 +4047,6 @@ export interface PredictiveScalingPredefinedScalingMetric {
    *             the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
    */
   ResourceLabel?: string;
-}
-
-export namespace PredictiveScalingPredefinedScalingMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictiveScalingPredefinedScalingMetric): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5103,15 +4140,6 @@ export interface PredictiveScalingMetricSpecification {
   CustomizedCapacityMetricSpecification?: PredictiveScalingCustomizedCapacityMetric;
 }
 
-export namespace PredictiveScalingMetricSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictiveScalingMetricSpecification): any => ({
-    ...obj,
-  });
-}
-
 export enum PredictiveScalingMode {
   ForecastAndScale = "ForecastAndScale",
   ForecastOnly = "ForecastOnly",
@@ -5184,15 +4212,6 @@ export interface PredictiveScalingConfiguration {
   MaxCapacityBuffer?: number;
 }
 
-export namespace PredictiveScalingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictiveScalingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes information used to create a step adjustment for a step scaling
  *             policy.</p>
@@ -5260,15 +4279,6 @@ export interface StepAdjustment {
    *             current capacity. </p>
    */
   ScalingAdjustment: number | undefined;
-}
-
-export namespace StepAdjustment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StepAdjustment): any => ({
-    ...obj,
-  });
 }
 
 export enum MetricStatistic {
@@ -5339,15 +4349,6 @@ export interface CustomizedMetricSpecification {
   Unit?: string;
 }
 
-export namespace CustomizedMetricSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomizedMetricSpecification): any => ({
-    ...obj,
-  });
-}
-
 export enum MetricType {
   ALBRequestCountPerTarget = "ALBRequestCountPerTarget",
   ASGAverageCPUUtilization = "ASGAverageCPUUtilization",
@@ -5413,15 +4414,6 @@ export interface PredefinedMetricSpecification {
   ResourceLabel?: string;
 }
 
-export namespace PredefinedMetricSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredefinedMetricSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a target tracking scaling policy configuration to use with Amazon EC2 Auto Scaling.</p>
  */
@@ -5457,15 +4449,6 @@ export interface TargetTrackingConfiguration {
    *             the Auto Scaling group. The default is <code>false</code>.</p>
    */
   DisableScaleIn?: boolean;
-}
-
-export namespace TargetTrackingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5589,15 +4572,6 @@ export interface ScalingPolicy {
   PredictiveScalingConfiguration?: PredictiveScalingConfiguration;
 }
 
-export namespace ScalingPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface PoliciesType {
   /**
    * <p>The scaling policies.</p>
@@ -5611,15 +4585,6 @@ export interface PoliciesType {
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace PoliciesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PoliciesType): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeScalingActivitiesType {
@@ -5653,15 +4618,6 @@ export interface DescribeScalingActivitiesType {
    *             previous call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeScalingActivitiesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingActivitiesType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5722,29 +4678,11 @@ export interface ProcessType {
   ProcessName: string | undefined;
 }
 
-export namespace ProcessType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessType): any => ({
-    ...obj,
-  });
-}
-
 export interface ProcessesType {
   /**
    * <p>The names of the process types.</p>
    */
   Processes?: ProcessType[];
-}
-
-export namespace ProcessesType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessesType): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeScheduledActionsType {
@@ -5784,15 +4722,6 @@ export interface DescribeScheduledActionsType {
    *                 <code>50</code> and the maximum value is <code>100</code>.</p>
    */
   MaxRecords?: number;
-}
-
-export namespace DescribeScheduledActionsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledActionsType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5862,15 +4791,6 @@ export interface ScheduledUpdateGroupAction {
   TimeZone?: string;
 }
 
-export namespace ScheduledUpdateGroupAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledUpdateGroupAction): any => ({
-    ...obj,
-  });
-}
-
 export interface ScheduledActionsType {
   /**
    * <p>The scheduled actions.</p>
@@ -5884,15 +4804,6 @@ export interface ScheduledActionsType {
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ScheduledActionsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledActionsType): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeTagsType {
@@ -5915,15 +4826,6 @@ export interface DescribeTagsType {
   MaxRecords?: number;
 }
 
-export namespace DescribeTagsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsType): any => ({
-    ...obj,
-  });
-}
-
 export interface TagsType {
   /**
    * <p>One or more tags.</p>
@@ -5939,15 +4841,6 @@ export interface TagsType {
   NextToken?: string;
 }
 
-export namespace TagsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagsType): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTerminationPolicyTypesAnswer {
   /**
    * <p>The termination policies supported by Amazon EC2 Auto Scaling: <code>OldestInstance</code>,
@@ -5956,15 +4849,6 @@ export interface DescribeTerminationPolicyTypesAnswer {
    *                 <code>OldestLaunchTemplate</code>, and <code>AllocationStrategy</code>.</p>
    */
   TerminationPolicyTypes?: string[];
-}
-
-export namespace DescribeTerminationPolicyTypesAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTerminationPolicyTypesAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeWarmPoolAnswer {
@@ -5983,15 +4867,6 @@ export interface DescribeWarmPoolAnswer {
    *             previous call.)</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeWarmPoolAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWarmPoolAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeWarmPoolType {
@@ -6013,29 +4888,11 @@ export interface DescribeWarmPoolType {
   NextToken?: string;
 }
 
-export namespace DescribeWarmPoolType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWarmPoolType): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachInstancesAnswer {
   /**
    * <p>The activities related to detaching the instances from the Auto Scaling group.</p>
    */
   Activities?: Activity[];
-}
-
-export namespace DetachInstancesAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachInstancesAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface DetachInstancesQuery {
@@ -6056,25 +4913,7 @@ export interface DetachInstancesQuery {
   ShouldDecrementDesiredCapacity: boolean | undefined;
 }
 
-export namespace DetachInstancesQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachInstancesQuery): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachLoadBalancersResultType {}
-
-export namespace DetachLoadBalancersResultType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachLoadBalancersResultType): any => ({
-    ...obj,
-  });
-}
 
 export interface DetachLoadBalancersType {
   /**
@@ -6088,25 +4927,7 @@ export interface DetachLoadBalancersType {
   LoadBalancerNames: string[] | undefined;
 }
 
-export namespace DetachLoadBalancersType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachLoadBalancersType): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachLoadBalancerTargetGroupsResultType {}
-
-export namespace DetachLoadBalancerTargetGroupsResultType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachLoadBalancerTargetGroupsResultType): any => ({
-    ...obj,
-  });
-}
 
 export interface DetachLoadBalancerTargetGroupsType {
   /**
@@ -6119,15 +4940,6 @@ export interface DetachLoadBalancerTargetGroupsType {
    *             groups.</p>
    */
   TargetGroupARNs: string[] | undefined;
-}
-
-export namespace DetachLoadBalancerTargetGroupsType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetachLoadBalancerTargetGroupsType): any => ({
-    ...obj,
-  });
 }
 
 export interface DisableMetricsCollectionQuery {
@@ -6245,15 +5057,6 @@ export interface DisableMetricsCollectionQuery {
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics">Auto Scaling group metrics</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   Metrics?: string[];
-}
-
-export namespace DisableMetricsCollectionQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableMetricsCollectionQuery): any => ({
-    ...obj,
-  });
 }
 
 export interface EnableMetricsCollectionQuery {
@@ -6380,29 +5183,11 @@ export interface EnableMetricsCollectionQuery {
   Granularity: string | undefined;
 }
 
-export namespace EnableMetricsCollectionQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableMetricsCollectionQuery): any => ({
-    ...obj,
-  });
-}
-
 export interface EnterStandbyAnswer {
   /**
    * <p>The activities related to moving instances into <code>Standby</code> mode.</p>
    */
   Activities?: Activity[];
-}
-
-export namespace EnterStandbyAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnterStandbyAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface EnterStandbyQuery {
@@ -6421,15 +5206,6 @@ export interface EnterStandbyQuery {
    *             instances moved to <code>Standby</code> mode.</p>
    */
   ShouldDecrementDesiredCapacity: boolean | undefined;
-}
-
-export namespace EnterStandbyQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnterStandbyQuery): any => ({
-    ...obj,
-  });
 }
 
 export interface ExecutePolicyType {
@@ -6473,29 +5249,11 @@ export interface ExecutePolicyType {
   BreachThreshold?: number;
 }
 
-export namespace ExecutePolicyType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutePolicyType): any => ({
-    ...obj,
-  });
-}
-
 export interface ExitStandbyAnswer {
   /**
    * <p>The activities related to moving instances out of <code>Standby</code> mode.</p>
    */
   Activities?: Activity[];
-}
-
-export namespace ExitStandbyAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExitStandbyAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface ExitStandbyQuery {
@@ -6508,15 +5266,6 @@ export interface ExitStandbyQuery {
    * <p>The name of the Auto Scaling group.</p>
    */
   AutoScalingGroupName: string | undefined;
-}
-
-export namespace ExitStandbyQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExitStandbyQuery): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6534,15 +5283,6 @@ export interface CapacityForecast {
    * <p>The values of the data points.</p>
    */
   Values: number[] | undefined;
-}
-
-export namespace CapacityForecast {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityForecast): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6568,15 +5308,6 @@ export interface LoadForecast {
   MetricSpecification: PredictiveScalingMetricSpecification | undefined;
 }
 
-export namespace LoadForecast {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadForecast): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPredictiveScalingForecastAnswer {
   /**
    * <p>The load forecast.</p>
@@ -6592,15 +5323,6 @@ export interface GetPredictiveScalingForecastAnswer {
    * <p>The time the forecast was made.</p>
    */
   UpdateTime: Date | undefined;
-}
-
-export namespace GetPredictiveScalingForecastAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPredictiveScalingForecastAnswer): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPredictiveScalingForecastType {
@@ -6630,25 +5352,7 @@ export interface GetPredictiveScalingForecastType {
   EndTime: Date | undefined;
 }
 
-export namespace GetPredictiveScalingForecastType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPredictiveScalingForecastType): any => ({
-    ...obj,
-  });
-}
-
 export interface PutLifecycleHookAnswer {}
-
-export namespace PutLifecycleHookAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLifecycleHookAnswer): any => ({
-    ...obj,
-  });
-}
 
 export interface PutLifecycleHookType {
   /**
@@ -6721,15 +5425,6 @@ export interface PutLifecycleHookType {
   DefaultResult?: string;
 }
 
-export namespace PutLifecycleHookType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLifecycleHookType): any => ({
-    ...obj,
-  });
-}
-
 export interface PutNotificationConfigurationType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -6748,15 +5443,6 @@ export interface PutNotificationConfigurationType {
   NotificationTypes: string[] | undefined;
 }
 
-export namespace PutNotificationConfigurationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutNotificationConfigurationType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of PutScalingPolicy.</p>
  */
@@ -6770,15 +5456,6 @@ export interface PolicyARNType {
    * <p>The CloudWatch alarms created for the target tracking scaling policy.</p>
    */
   Alarms?: Alarm[];
-}
-
-export namespace PolicyARNType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyARNType): any => ({
-    ...obj,
-  });
 }
 
 export interface PutScalingPolicyType {
@@ -6963,15 +5640,6 @@ export interface PutScalingPolicyType {
   PredictiveScalingConfiguration?: PredictiveScalingConfiguration;
 }
 
-export namespace PutScalingPolicyType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutScalingPolicyType): any => ({
-    ...obj,
-  });
-}
-
 export interface PutScheduledUpdateGroupActionType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -7046,25 +5714,7 @@ export interface PutScheduledUpdateGroupActionType {
   TimeZone?: string;
 }
 
-export namespace PutScheduledUpdateGroupActionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutScheduledUpdateGroupActionType): any => ({
-    ...obj,
-  });
-}
-
 export interface PutWarmPoolAnswer {}
-
-export namespace PutWarmPoolAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutWarmPoolAnswer): any => ({
-    ...obj,
-  });
-}
 
 export interface PutWarmPoolType {
   /**
@@ -7115,25 +5765,7 @@ export interface PutWarmPoolType {
   InstanceReusePolicy?: InstanceReusePolicy;
 }
 
-export namespace PutWarmPoolType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutWarmPoolType): any => ({
-    ...obj,
-  });
-}
-
 export interface RecordLifecycleActionHeartbeatAnswer {}
-
-export namespace RecordLifecycleActionHeartbeatAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordLifecycleActionHeartbeatAnswer): any => ({
-    ...obj,
-  });
-}
 
 export interface RecordLifecycleActionHeartbeatType {
   /**
@@ -7157,15 +5789,6 @@ export interface RecordLifecycleActionHeartbeatType {
    * <p>The ID of the instance.</p>
    */
   InstanceId?: string;
-}
-
-export namespace RecordLifecycleActionHeartbeatType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordLifecycleActionHeartbeatType): any => ({
-    ...obj,
-  });
 }
 
 export interface ScalingProcessQuery {
@@ -7228,15 +5851,6 @@ export interface ScalingProcessQuery {
   ScalingProcesses?: string[];
 }
 
-export namespace ScalingProcessQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingProcessQuery): any => ({
-    ...obj,
-  });
-}
-
 export interface SetDesiredCapacityType {
   /**
    * <p>The name of the Auto Scaling group.</p>
@@ -7255,15 +5869,6 @@ export interface SetDesiredCapacityType {
    *             not honor the cooldown period during manual scaling activities.</p>
    */
   HonorCooldown?: boolean;
-}
-
-export namespace SetDesiredCapacityType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetDesiredCapacityType): any => ({
-    ...obj,
-  });
 }
 
 export interface SetInstanceHealthQuery {
@@ -7292,25 +5897,7 @@ export interface SetInstanceHealthQuery {
   ShouldRespectGracePeriod?: boolean;
 }
 
-export namespace SetInstanceHealthQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetInstanceHealthQuery): any => ({
-    ...obj,
-  });
-}
-
 export interface SetInstanceProtectionAnswer {}
-
-export namespace SetInstanceProtectionAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetInstanceProtectionAnswer): any => ({
-    ...obj,
-  });
-}
 
 export interface SetInstanceProtectionQuery {
   /**
@@ -7328,15 +5915,6 @@ export interface SetInstanceProtectionQuery {
    *             in.</p>
    */
   ProtectedFromScaleIn: boolean | undefined;
-}
-
-export namespace SetInstanceProtectionQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetInstanceProtectionQuery): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7364,15 +5942,6 @@ export interface StartInstanceRefreshAnswer {
    * <p>A unique ID for tracking the progress of the request.</p>
    */
   InstanceRefreshId?: string;
-}
-
-export namespace StartInstanceRefreshAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInstanceRefreshAnswer): any => ({
-    ...obj,
-  });
 }
 
 export enum RefreshStrategy {
@@ -7418,15 +5987,6 @@ export interface StartInstanceRefreshType {
   Preferences?: RefreshPreferences;
 }
 
-export namespace StartInstanceRefreshType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInstanceRefreshType): any => ({
-    ...obj,
-  });
-}
-
 export interface TerminateInstanceInAutoScalingGroupType {
   /**
    * <p>The ID of the instance.</p>
@@ -7438,15 +5998,6 @@ export interface TerminateInstanceInAutoScalingGroupType {
    *             group.</p>
    */
   ShouldDecrementDesiredCapacity: boolean | undefined;
-}
-
-export namespace TerminateInstanceInAutoScalingGroupType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TerminateInstanceInAutoScalingGroupType): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAutoScalingGroupType {
@@ -7640,11 +6191,1180 @@ export interface UpdateAutoScalingGroupType {
   DefaultInstanceWarmup?: number;
 }
 
-export namespace UpdateAutoScalingGroupType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAutoScalingGroupType): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceleratorCountRequestFilterSensitiveLog = (obj: AcceleratorCountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceleratorTotalMemoryMiBRequestFilterSensitiveLog = (obj: AcceleratorTotalMemoryMiBRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityFilterSensitiveLog = (obj: Activity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivitiesTypeFilterSensitiveLog = (obj: ActivitiesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityTypeFilterSensitiveLog = (obj: ActivityType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdjustmentTypeFilterSensitiveLog = (obj: AdjustmentType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachInstancesQueryFilterSensitiveLog = (obj: AttachInstancesQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachLoadBalancersResultTypeFilterSensitiveLog = (obj: AttachLoadBalancersResultType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachLoadBalancersTypeFilterSensitiveLog = (obj: AttachLoadBalancersType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachLoadBalancerTargetGroupsResultTypeFilterSensitiveLog = (
+  obj: AttachLoadBalancerTargetGroupsResultType
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachLoadBalancerTargetGroupsTypeFilterSensitiveLog = (obj: AttachLoadBalancerTargetGroupsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedScheduledUpdateGroupActionRequestFilterSensitiveLog = (
+  obj: FailedScheduledUpdateGroupActionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteScheduledActionAnswerFilterSensitiveLog = (obj: BatchDeleteScheduledActionAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteScheduledActionTypeFilterSensitiveLog = (obj: BatchDeleteScheduledActionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutScheduledUpdateGroupActionAnswerFilterSensitiveLog = (
+  obj: BatchPutScheduledUpdateGroupActionAnswer
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledUpdateGroupActionRequestFilterSensitiveLog = (obj: ScheduledUpdateGroupActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPutScheduledUpdateGroupActionTypeFilterSensitiveLog = (
+  obj: BatchPutScheduledUpdateGroupActionType
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelInstanceRefreshAnswerFilterSensitiveLog = (obj: CancelInstanceRefreshAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelInstanceRefreshTypeFilterSensitiveLog = (obj: CancelInstanceRefreshType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteLifecycleActionAnswerFilterSensitiveLog = (obj: CompleteLifecycleActionAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteLifecycleActionTypeFilterSensitiveLog = (obj: CompleteLifecycleActionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchTemplateSpecificationFilterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleHookSpecificationFilterSensitiveLog = (obj: LifecycleHookSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstancesDistributionFilterSensitiveLog = (obj: InstancesDistribution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BaselineEbsBandwidthMbpsRequestFilterSensitiveLog = (obj: BaselineEbsBandwidthMbpsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemoryGiBPerVCpuRequestFilterSensitiveLog = (obj: MemoryGiBPerVCpuRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemoryMiBRequestFilterSensitiveLog = (obj: MemoryMiBRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceCountRequestFilterSensitiveLog = (obj: NetworkInterfaceCountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TotalLocalStorageGBRequestFilterSensitiveLog = (obj: TotalLocalStorageGBRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VCpuCountRequestFilterSensitiveLog = (obj: VCpuCountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceRequirementsFilterSensitiveLog = (obj: InstanceRequirements): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchTemplateOverridesFilterSensitiveLog = (obj: LaunchTemplateOverrides): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchTemplateFilterSensitiveLog = (obj: LaunchTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MixedInstancesPolicyFilterSensitiveLog = (obj: MixedInstancesPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAutoScalingGroupTypeFilterSensitiveLog = (obj: CreateAutoScalingGroupType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EbsFilterSensitiveLog = (obj: Ebs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlockDeviceMappingFilterSensitiveLog = (obj: BlockDeviceMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceMonitoringFilterSensitiveLog = (obj: InstanceMonitoring): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceMetadataOptionsFilterSensitiveLog = (obj: InstanceMetadataOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLaunchConfigurationTypeFilterSensitiveLog = (obj: CreateLaunchConfigurationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOrUpdateTagsTypeFilterSensitiveLog = (obj: CreateOrUpdateTagsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAutoScalingGroupTypeFilterSensitiveLog = (obj: DeleteAutoScalingGroupType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchConfigurationNameTypeFilterSensitiveLog = (obj: LaunchConfigurationNameType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLifecycleHookAnswerFilterSensitiveLog = (obj: DeleteLifecycleHookAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLifecycleHookTypeFilterSensitiveLog = (obj: DeleteLifecycleHookType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNotificationConfigurationTypeFilterSensitiveLog = (
+  obj: DeleteNotificationConfigurationType
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePolicyTypeFilterSensitiveLog = (obj: DeletePolicyType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScheduledActionTypeFilterSensitiveLog = (obj: DeleteScheduledActionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsTypeFilterSensitiveLog = (obj: DeleteTagsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWarmPoolAnswerFilterSensitiveLog = (obj: DeleteWarmPoolAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWarmPoolTypeFilterSensitiveLog = (obj: DeleteWarmPoolType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountLimitsAnswerFilterSensitiveLog = (obj: DescribeAccountLimitsAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAdjustmentTypesAnswerFilterSensitiveLog = (obj: DescribeAdjustmentTypesAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingGroupNamesTypeFilterSensitiveLog = (obj: AutoScalingGroupNamesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnabledMetricFilterSensitiveLog = (obj: EnabledMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuspendedProcessFilterSensitiveLog = (obj: SuspendedProcess): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagDescriptionFilterSensitiveLog = (obj: TagDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceReusePolicyFilterSensitiveLog = (obj: InstanceReusePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WarmPoolConfigurationFilterSensitiveLog = (obj: WarmPoolConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingGroupFilterSensitiveLog = (obj: AutoScalingGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingGroupsTypeFilterSensitiveLog = (obj: AutoScalingGroupsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingInstanceDetailsFilterSensitiveLog = (obj: AutoScalingInstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingInstancesTypeFilterSensitiveLog = (obj: AutoScalingInstancesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAutoScalingInstancesTypeFilterSensitiveLog = (obj: DescribeAutoScalingInstancesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAutoScalingNotificationTypesAnswerFilterSensitiveLog = (
+  obj: DescribeAutoScalingNotificationTypesAnswer
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DesiredConfigurationFilterSensitiveLog = (obj: DesiredConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RefreshPreferencesFilterSensitiveLog = (obj: RefreshPreferences): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceRefreshLivePoolProgressFilterSensitiveLog = (obj: InstanceRefreshLivePoolProgress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceRefreshWarmPoolProgressFilterSensitiveLog = (obj: InstanceRefreshWarmPoolProgress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceRefreshProgressDetailsFilterSensitiveLog = (obj: InstanceRefreshProgressDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceRefreshFilterSensitiveLog = (obj: InstanceRefresh): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceRefreshesAnswerFilterSensitiveLog = (obj: DescribeInstanceRefreshesAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstanceRefreshesTypeFilterSensitiveLog = (obj: DescribeInstanceRefreshesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchConfigurationNamesTypeFilterSensitiveLog = (obj: LaunchConfigurationNamesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchConfigurationFilterSensitiveLog = (obj: LaunchConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchConfigurationsTypeFilterSensitiveLog = (obj: LaunchConfigurationsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleHookFilterSensitiveLog = (obj: LifecycleHook): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLifecycleHooksAnswerFilterSensitiveLog = (obj: DescribeLifecycleHooksAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLifecycleHooksTypeFilterSensitiveLog = (obj: DescribeLifecycleHooksType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLifecycleHookTypesAnswerFilterSensitiveLog = (obj: DescribeLifecycleHookTypesAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoadBalancersRequestFilterSensitiveLog = (obj: DescribeLoadBalancersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerStateFilterSensitiveLog = (obj: LoadBalancerState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoadBalancersResponseFilterSensitiveLog = (obj: DescribeLoadBalancersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoadBalancerTargetGroupsRequestFilterSensitiveLog = (
+  obj: DescribeLoadBalancerTargetGroupsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerTargetGroupStateFilterSensitiveLog = (obj: LoadBalancerTargetGroupState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoadBalancerTargetGroupsResponseFilterSensitiveLog = (
+  obj: DescribeLoadBalancerTargetGroupsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricGranularityTypeFilterSensitiveLog = (obj: MetricGranularityType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricCollectionTypeFilterSensitiveLog = (obj: MetricCollectionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMetricCollectionTypesAnswerFilterSensitiveLog = (
+  obj: DescribeMetricCollectionTypesAnswer
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationConfigurationFilterSensitiveLog = (obj: NotificationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNotificationConfigurationsAnswerFilterSensitiveLog = (
+  obj: DescribeNotificationConfigurationsAnswer
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNotificationConfigurationsTypeFilterSensitiveLog = (
+  obj: DescribeNotificationConfigurationsType
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePoliciesTypeFilterSensitiveLog = (obj: DescribePoliciesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDimensionFilterSensitiveLog = (obj: MetricDimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricFilterSensitiveLog = (obj: Metric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricStatFilterSensitiveLog = (obj: MetricStat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDataQueryFilterSensitiveLog = (obj: MetricDataQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictiveScalingCustomizedCapacityMetricFilterSensitiveLog = (
+  obj: PredictiveScalingCustomizedCapacityMetric
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictiveScalingCustomizedLoadMetricFilterSensitiveLog = (
+  obj: PredictiveScalingCustomizedLoadMetric
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictiveScalingCustomizedScalingMetricFilterSensitiveLog = (
+  obj: PredictiveScalingCustomizedScalingMetric
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictiveScalingPredefinedLoadMetricFilterSensitiveLog = (
+  obj: PredictiveScalingPredefinedLoadMetric
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictiveScalingPredefinedMetricPairFilterSensitiveLog = (
+  obj: PredictiveScalingPredefinedMetricPair
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictiveScalingPredefinedScalingMetricFilterSensitiveLog = (
+  obj: PredictiveScalingPredefinedScalingMetric
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictiveScalingMetricSpecificationFilterSensitiveLog = (
+  obj: PredictiveScalingMetricSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictiveScalingConfigurationFilterSensitiveLog = (obj: PredictiveScalingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StepAdjustmentFilterSensitiveLog = (obj: StepAdjustment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomizedMetricSpecificationFilterSensitiveLog = (obj: CustomizedMetricSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredefinedMetricSpecificationFilterSensitiveLog = (obj: PredefinedMetricSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetTrackingConfigurationFilterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingPolicyFilterSensitiveLog = (obj: ScalingPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PoliciesTypeFilterSensitiveLog = (obj: PoliciesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingActivitiesTypeFilterSensitiveLog = (obj: DescribeScalingActivitiesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProcessTypeFilterSensitiveLog = (obj: ProcessType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProcessesTypeFilterSensitiveLog = (obj: ProcessesType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduledActionsTypeFilterSensitiveLog = (obj: DescribeScheduledActionsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledUpdateGroupActionFilterSensitiveLog = (obj: ScheduledUpdateGroupAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledActionsTypeFilterSensitiveLog = (obj: ScheduledActionsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsTypeFilterSensitiveLog = (obj: DescribeTagsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagsTypeFilterSensitiveLog = (obj: TagsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTerminationPolicyTypesAnswerFilterSensitiveLog = (
+  obj: DescribeTerminationPolicyTypesAnswer
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWarmPoolAnswerFilterSensitiveLog = (obj: DescribeWarmPoolAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWarmPoolTypeFilterSensitiveLog = (obj: DescribeWarmPoolType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachInstancesAnswerFilterSensitiveLog = (obj: DetachInstancesAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachInstancesQueryFilterSensitiveLog = (obj: DetachInstancesQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachLoadBalancersResultTypeFilterSensitiveLog = (obj: DetachLoadBalancersResultType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachLoadBalancersTypeFilterSensitiveLog = (obj: DetachLoadBalancersType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachLoadBalancerTargetGroupsResultTypeFilterSensitiveLog = (
+  obj: DetachLoadBalancerTargetGroupsResultType
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetachLoadBalancerTargetGroupsTypeFilterSensitiveLog = (obj: DetachLoadBalancerTargetGroupsType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableMetricsCollectionQueryFilterSensitiveLog = (obj: DisableMetricsCollectionQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableMetricsCollectionQueryFilterSensitiveLog = (obj: EnableMetricsCollectionQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnterStandbyAnswerFilterSensitiveLog = (obj: EnterStandbyAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnterStandbyQueryFilterSensitiveLog = (obj: EnterStandbyQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutePolicyTypeFilterSensitiveLog = (obj: ExecutePolicyType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExitStandbyAnswerFilterSensitiveLog = (obj: ExitStandbyAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExitStandbyQueryFilterSensitiveLog = (obj: ExitStandbyQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityForecastFilterSensitiveLog = (obj: CapacityForecast): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadForecastFilterSensitiveLog = (obj: LoadForecast): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPredictiveScalingForecastAnswerFilterSensitiveLog = (obj: GetPredictiveScalingForecastAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPredictiveScalingForecastTypeFilterSensitiveLog = (obj: GetPredictiveScalingForecastType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLifecycleHookAnswerFilterSensitiveLog = (obj: PutLifecycleHookAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLifecycleHookTypeFilterSensitiveLog = (obj: PutLifecycleHookType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutNotificationConfigurationTypeFilterSensitiveLog = (obj: PutNotificationConfigurationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyARNTypeFilterSensitiveLog = (obj: PolicyARNType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutScalingPolicyTypeFilterSensitiveLog = (obj: PutScalingPolicyType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutScheduledUpdateGroupActionTypeFilterSensitiveLog = (obj: PutScheduledUpdateGroupActionType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutWarmPoolAnswerFilterSensitiveLog = (obj: PutWarmPoolAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutWarmPoolTypeFilterSensitiveLog = (obj: PutWarmPoolType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordLifecycleActionHeartbeatAnswerFilterSensitiveLog = (
+  obj: RecordLifecycleActionHeartbeatAnswer
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordLifecycleActionHeartbeatTypeFilterSensitiveLog = (obj: RecordLifecycleActionHeartbeatType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingProcessQueryFilterSensitiveLog = (obj: ScalingProcessQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetDesiredCapacityTypeFilterSensitiveLog = (obj: SetDesiredCapacityType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetInstanceHealthQueryFilterSensitiveLog = (obj: SetInstanceHealthQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetInstanceProtectionAnswerFilterSensitiveLog = (obj: SetInstanceProtectionAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetInstanceProtectionQueryFilterSensitiveLog = (obj: SetInstanceProtectionQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInstanceRefreshAnswerFilterSensitiveLog = (obj: StartInstanceRefreshAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInstanceRefreshTypeFilterSensitiveLog = (obj: StartInstanceRefreshType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateInstanceInAutoScalingGroupTypeFilterSensitiveLog = (
+  obj: TerminateInstanceInAutoScalingGroupType
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAutoScalingGroupTypeFilterSensitiveLog = (obj: UpdateAutoScalingGroupType): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetRemainingFreeTrialDaysRequest, GetRemainingFreeTrialDaysResponse } from "../models/models_0";
+import {
+  GetRemainingFreeTrialDaysRequest,
+  GetRemainingFreeTrialDaysRequestFilterSensitiveLog,
+  GetRemainingFreeTrialDaysResponse,
+  GetRemainingFreeTrialDaysResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetRemainingFreeTrialDaysCommand,
   serializeAws_restJson1GetRemainingFreeTrialDaysCommand,
@@ -72,8 +77,8 @@ export class GetRemainingFreeTrialDaysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRemainingFreeTrialDaysRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRemainingFreeTrialDaysResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRemainingFreeTrialDaysRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRemainingFreeTrialDaysResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

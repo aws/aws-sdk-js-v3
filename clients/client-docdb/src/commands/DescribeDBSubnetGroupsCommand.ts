@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/models_0";
+import {
+  DBSubnetGroupMessage,
+  DBSubnetGroupMessageFilterSensitiveLog,
+  DescribeDBSubnetGroupsMessage,
+  DescribeDBSubnetGroupsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBSubnetGroupsCommand,
   serializeAws_queryDescribeDBSubnetGroupsCommand,
@@ -73,8 +78,8 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBSubnetGroupsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBSubnetGroupMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDBSubnetGroupsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBSubnetGroupMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

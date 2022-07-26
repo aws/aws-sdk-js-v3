@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ConfirmSignUpRequest, ConfirmSignUpResponse } from "../models/models_0";
+import {
+  ConfirmSignUpRequest,
+  ConfirmSignUpRequestFilterSensitiveLog,
+  ConfirmSignUpResponse,
+  ConfirmSignUpResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmSignUpCommand,
   serializeAws_json1_1ConfirmSignUpCommand,
@@ -76,8 +81,8 @@ export class ConfirmSignUpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmSignUpRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmSignUpResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmSignUpRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmSignUpResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

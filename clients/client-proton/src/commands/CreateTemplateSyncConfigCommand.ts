@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTemplateSyncConfigInput, CreateTemplateSyncConfigOutput } from "../models/models_0";
+import {
+  CreateTemplateSyncConfigInput,
+  CreateTemplateSyncConfigInputFilterSensitiveLog,
+  CreateTemplateSyncConfigOutput,
+  CreateTemplateSyncConfigOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CreateTemplateSyncConfigCommand,
   serializeAws_json1_0CreateTemplateSyncConfigCommand,
@@ -74,8 +79,8 @@ export class CreateTemplateSyncConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTemplateSyncConfigInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTemplateSyncConfigOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTemplateSyncConfigInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTemplateSyncConfigOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

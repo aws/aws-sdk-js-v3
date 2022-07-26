@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { DetachPolicyRequest, DetachPolicyResponse } from "../models/models_0";
+import {
+  DetachPolicyRequest,
+  DetachPolicyRequestFilterSensitiveLog,
+  DetachPolicyResponse,
+  DetachPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DetachPolicyCommand,
   serializeAws_restJson1DetachPolicyCommand,
@@ -72,8 +77,8 @@ export class DetachPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetachPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

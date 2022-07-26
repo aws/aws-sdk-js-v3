@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateColumnStatisticsForTableRequest, UpdateColumnStatisticsForTableResponse } from "../models/models_2";
+import {
+  UpdateColumnStatisticsForTableRequest,
+  UpdateColumnStatisticsForTableRequestFilterSensitiveLog,
+  UpdateColumnStatisticsForTableResponse,
+  UpdateColumnStatisticsForTableResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateColumnStatisticsForTableCommand,
   serializeAws_json1_1UpdateColumnStatisticsForTableCommand,
@@ -76,8 +81,8 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateColumnStatisticsForTableRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateColumnStatisticsForTableResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateColumnStatisticsForTableRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateColumnStatisticsForTableResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

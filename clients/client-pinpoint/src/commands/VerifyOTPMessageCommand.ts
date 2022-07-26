@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { VerifyOTPMessageRequest, VerifyOTPMessageResponse } from "../models/models_1";
+import {
+  VerifyOTPMessageRequest,
+  VerifyOTPMessageRequestFilterSensitiveLog,
+  VerifyOTPMessageResponse,
+  VerifyOTPMessageResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1VerifyOTPMessageCommand,
@@ -72,8 +77,8 @@ export class VerifyOTPMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyOTPMessageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VerifyOTPMessageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: VerifyOTPMessageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: VerifyOTPMessageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

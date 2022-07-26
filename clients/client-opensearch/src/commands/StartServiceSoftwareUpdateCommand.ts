@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartServiceSoftwareUpdateRequest, StartServiceSoftwareUpdateResponse } from "../models/models_0";
+import {
+  StartServiceSoftwareUpdateRequest,
+  StartServiceSoftwareUpdateRequestFilterSensitiveLog,
+  StartServiceSoftwareUpdateResponse,
+  StartServiceSoftwareUpdateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1StartServiceSoftwareUpdateCommand,
@@ -72,8 +77,8 @@ export class StartServiceSoftwareUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartServiceSoftwareUpdateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartServiceSoftwareUpdateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartServiceSoftwareUpdateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartServiceSoftwareUpdateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

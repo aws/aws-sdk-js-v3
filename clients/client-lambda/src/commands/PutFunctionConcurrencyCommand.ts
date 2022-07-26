@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { Concurrency, PutFunctionConcurrencyRequest } from "../models/models_0";
+import {
+  Concurrency,
+  ConcurrencyFilterSensitiveLog,
+  PutFunctionConcurrencyRequest,
+  PutFunctionConcurrencyRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutFunctionConcurrencyCommand,
   serializeAws_restJson1PutFunctionConcurrencyCommand,
@@ -80,8 +85,8 @@ export class PutFunctionConcurrencyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFunctionConcurrencyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Concurrency.filterSensitiveLog,
+      inputFilterSensitiveLog: PutFunctionConcurrencyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConcurrencyFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

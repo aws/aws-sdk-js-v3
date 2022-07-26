@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { GetAggregateResourceConfigRequest, GetAggregateResourceConfigResponse } from "../models/models_0";
+import {
+  GetAggregateResourceConfigRequest,
+  GetAggregateResourceConfigRequestFilterSensitiveLog,
+  GetAggregateResourceConfigResponse,
+  GetAggregateResourceConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetAggregateResourceConfigCommand,
   serializeAws_json1_1GetAggregateResourceConfigCommand,
@@ -72,8 +77,8 @@ export class GetAggregateResourceConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAggregateResourceConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAggregateResourceConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAggregateResourceConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAggregateResourceConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

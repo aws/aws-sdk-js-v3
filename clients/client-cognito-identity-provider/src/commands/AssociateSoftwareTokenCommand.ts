@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse } from "../models/models_0";
+import {
+  AssociateSoftwareTokenRequest,
+  AssociateSoftwareTokenRequestFilterSensitiveLog,
+  AssociateSoftwareTokenResponse,
+  AssociateSoftwareTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateSoftwareTokenCommand,
   serializeAws_json1_1AssociateSoftwareTokenCommand,
@@ -94,8 +99,8 @@ export class AssociateSoftwareTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateSoftwareTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateSoftwareTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateSoftwareTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateSoftwareTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

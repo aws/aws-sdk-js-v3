@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { PublishLayerVersionRequest, PublishLayerVersionResponse } from "../models/models_0";
+import {
+  PublishLayerVersionRequest,
+  PublishLayerVersionRequestFilterSensitiveLog,
+  PublishLayerVersionResponse,
+  PublishLayerVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PublishLayerVersionCommand,
   serializeAws_restJson1PublishLayerVersionCommand,
@@ -75,8 +80,8 @@ export class PublishLayerVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishLayerVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PublishLayerVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PublishLayerVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PublishLayerVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

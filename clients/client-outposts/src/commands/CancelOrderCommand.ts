@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelOrderInput, CancelOrderOutput } from "../models/models_0";
+import {
+  CancelOrderInput,
+  CancelOrderInputFilterSensitiveLog,
+  CancelOrderOutput,
+  CancelOrderOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1CancelOrderCommand,
@@ -74,8 +79,8 @@ export class CancelOrderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelOrderInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelOrderOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelOrderInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelOrderOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

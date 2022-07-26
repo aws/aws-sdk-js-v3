@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { ListBranchesInput, ListBranchesOutput } from "../models/models_0";
+import {
+  ListBranchesInput,
+  ListBranchesInputFilterSensitiveLog,
+  ListBranchesOutput,
+  ListBranchesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListBranchesCommand,
   serializeAws_json1_1ListBranchesCommand,
@@ -72,8 +77,8 @@ export class ListBranchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBranchesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBranchesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBranchesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBranchesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

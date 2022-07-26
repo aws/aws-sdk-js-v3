@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DescribeVirtualServiceInput, DescribeVirtualServiceOutput } from "../models/models_0";
+import {
+  DescribeVirtualServiceInput,
+  DescribeVirtualServiceInputFilterSensitiveLog,
+  DescribeVirtualServiceOutput,
+  DescribeVirtualServiceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeVirtualServiceCommand,
   serializeAws_restJson1DescribeVirtualServiceCommand,
@@ -72,8 +77,8 @@ export class DescribeVirtualServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVirtualServiceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVirtualServiceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVirtualServiceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVirtualServiceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { PutWarmPoolAnswer, PutWarmPoolType } from "../models/models_0";
+import {
+  PutWarmPoolAnswer,
+  PutWarmPoolAnswerFilterSensitiveLog,
+  PutWarmPoolType,
+  PutWarmPoolTypeFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryPutWarmPoolCommand, serializeAws_queryPutWarmPoolCommand } from "../protocols/Aws_query";
 
 export interface PutWarmPoolCommandInput extends PutWarmPoolType {}
@@ -78,8 +83,8 @@ export class PutWarmPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutWarmPoolType.filterSensitiveLog,
-      outputFilterSensitiveLog: PutWarmPoolAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: PutWarmPoolTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: PutWarmPoolAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { FlattenedXmlMapOutput } from "../models/models_0";
+import { FlattenedXmlMapOutput, FlattenedXmlMapOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryFlattenedXmlMapCommand,
   serializeAws_queryFlattenedXmlMapCommand,
@@ -73,7 +73,7 @@ export class FlattenedXmlMapCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: FlattenedXmlMapOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: FlattenedXmlMapOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

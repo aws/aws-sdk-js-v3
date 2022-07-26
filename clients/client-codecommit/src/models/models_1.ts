@@ -50,15 +50,6 @@ export interface ListRepositoriesInput {
   order?: OrderEnum | string;
 }
 
-export namespace ListRepositoriesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a repository name and ID.</p>
  */
@@ -72,15 +63,6 @@ export interface RepositoryNameIdPair {
    * <p>The ID associated with the repository.</p>
    */
   repositoryId?: string;
-}
-
-export namespace RepositoryNameIdPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryNameIdPair): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -98,15 +80,6 @@ export interface ListRepositoriesOutput {
    *             another page of 1,000 records is retrieved.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListRepositoriesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRepositoriesForApprovalRuleTemplateInput {
@@ -127,15 +100,6 @@ export interface ListRepositoriesForApprovalRuleTemplateInput {
   maxResults?: number;
 }
 
-export namespace ListRepositoriesForApprovalRuleTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesForApprovalRuleTemplateInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRepositoriesForApprovalRuleTemplateOutput {
   /**
    * <p>A list of repository names that are associated with the specified approval rule template.</p>
@@ -146,15 +110,6 @@ export interface ListRepositoriesForApprovalRuleTemplateOutput {
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListRepositoriesForApprovalRuleTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesForApprovalRuleTemplateOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -192,15 +147,6 @@ export interface ListTagsForResourceInput {
   nextToken?: string;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
@@ -211,15 +157,6 @@ export interface ListTagsForResourceOutput {
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -286,15 +223,6 @@ export interface MergeBranchesByFastForwardInput {
   targetBranch?: string;
 }
 
-export namespace MergeBranchesByFastForwardInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByFastForwardInput): any => ({
-    ...obj,
-  });
-}
-
 export interface MergeBranchesByFastForwardOutput {
   /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
@@ -305,15 +233,6 @@ export interface MergeBranchesByFastForwardOutput {
    * <p>The tree ID of the merge in the destination or target branch.</p>
    */
   treeId?: string;
-}
-
-export namespace MergeBranchesByFastForwardOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByFastForwardOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface MergeBranchesBySquashInput {
@@ -385,15 +304,6 @@ export interface MergeBranchesBySquashInput {
   conflictResolution?: ConflictResolution;
 }
 
-export namespace MergeBranchesBySquashInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesBySquashInput): any => ({
-    ...obj,
-  });
-}
-
 export interface MergeBranchesBySquashOutput {
   /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
@@ -404,15 +314,6 @@ export interface MergeBranchesBySquashOutput {
    * <p>The tree ID of the merge in the destination or target branch.</p>
    */
   treeId?: string;
-}
-
-export namespace MergeBranchesBySquashOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesBySquashOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface MergeBranchesByThreeWayInput {
@@ -484,15 +385,6 @@ export interface MergeBranchesByThreeWayInput {
   conflictResolution?: ConflictResolution;
 }
 
-export namespace MergeBranchesByThreeWayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByThreeWayInput): any => ({
-    ...obj,
-  });
-}
-
 export interface MergeBranchesByThreeWayOutput {
   /**
    * <p>The commit ID of the merge in the destination or target branch.</p>
@@ -503,15 +395,6 @@ export interface MergeBranchesByThreeWayOutput {
    * <p>The tree ID of the merge in the destination or target branch.</p>
    */
   treeId?: string;
-}
-
-export namespace MergeBranchesByThreeWayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeBranchesByThreeWayOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface MergePullRequestByFastForwardInput {
@@ -532,29 +415,11 @@ export interface MergePullRequestByFastForwardInput {
   sourceCommitId?: string;
 }
 
-export namespace MergePullRequestByFastForwardInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByFastForwardInput): any => ({
-    ...obj,
-  });
-}
-
 export interface MergePullRequestByFastForwardOutput {
   /**
    * <p>Information about the specified pull request, including the merge.</p>
    */
   pullRequest?: PullRequest;
-}
-
-export namespace MergePullRequestByFastForwardOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByFastForwardOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -659,29 +524,11 @@ export interface MergePullRequestBySquashInput {
   conflictResolution?: ConflictResolution;
 }
 
-export namespace MergePullRequestBySquashInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestBySquashInput): any => ({
-    ...obj,
-  });
-}
-
 export interface MergePullRequestBySquashOutput {
   /**
    * <p>Returns information about a pull request.</p>
    */
   pullRequest?: PullRequest;
-}
-
-export namespace MergePullRequestBySquashOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestBySquashOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface MergePullRequestByThreeWayInput {
@@ -747,29 +594,11 @@ export interface MergePullRequestByThreeWayInput {
   conflictResolution?: ConflictResolution;
 }
 
-export namespace MergePullRequestByThreeWayInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByThreeWayInput): any => ({
-    ...obj,
-  });
-}
-
 export interface MergePullRequestByThreeWayOutput {
   /**
    * <p>Returns information about a pull request.</p>
    */
   pullRequest?: PullRequest;
-}
-
-export namespace MergePullRequestByThreeWayOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergePullRequestByThreeWayOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -829,15 +658,6 @@ export interface OverridePullRequestApprovalRulesInput {
    *         approval rule requirements (REVOKE). REVOKE status is not stored.</p>
    */
   overrideStatus: OverrideStatus | string | undefined;
-}
-
-export namespace OverridePullRequestApprovalRulesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OverridePullRequestApprovalRulesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -993,15 +813,6 @@ export interface PostCommentForComparedCommitInput {
   clientRequestToken?: string;
 }
 
-export namespace PostCommentForComparedCommitInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForComparedCommitInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PostCommentForComparedCommitOutput {
   /**
    * <p>The name of the repository where you posted a comment on the comparison between commits.</p>
@@ -1037,15 +848,6 @@ export interface PostCommentForComparedCommitOutput {
    * <p>The content of the comment you posted.</p>
    */
   comment?: Comment;
-}
-
-export namespace PostCommentForComparedCommitOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForComparedCommitOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface PostCommentForPullRequestInput {
@@ -1088,15 +890,6 @@ export interface PostCommentForPullRequestInput {
    *             initial request that used that token.</p>
    */
   clientRequestToken?: string;
-}
-
-export namespace PostCommentForPullRequestInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForPullRequestInput): any => ({
-    ...obj,
-  });
 }
 
 export interface PostCommentForPullRequestOutput {
@@ -1143,15 +936,6 @@ export interface PostCommentForPullRequestOutput {
   comment?: Comment;
 }
 
-export namespace PostCommentForPullRequestOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentForPullRequestOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface PostCommentReplyInput {
   /**
    * <p>The system-generated ID of the comment to which you want to reply. To get this ID, use <a>GetCommentsForComparedCommit</a>
@@ -1173,29 +957,11 @@ export interface PostCommentReplyInput {
   content: string | undefined;
 }
 
-export namespace PostCommentReplyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentReplyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PostCommentReplyOutput {
   /**
    * <p>Information about the reply to a comment.</p>
    */
   comment?: Comment;
-}
-
-export namespace PostCommentReplyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostCommentReplyOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1228,15 +994,6 @@ export interface PutCommentReactionInput {
    *             For information about emoji reaction values supported in AWS CodeCommit, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/how-to-commit-comment.html#emoji-reaction-table">AWS CodeCommit User Guide</a>.</p>
    */
   reactionValue: string | undefined;
-}
-
-export namespace PutCommentReactionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutCommentReactionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1354,15 +1111,6 @@ export interface PutFileInput {
   email?: string;
 }
 
-export namespace PutFileInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFileInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutFileOutput {
   /**
    * <p>The full SHA ID of the commit that contains this file change.</p>
@@ -1378,15 +1126,6 @@ export interface PutFileOutput {
    * <p>The full SHA-1 pointer of the tree information for the commit that contains this file change.</p>
    */
   treeId: string | undefined;
-}
-
-export namespace PutFileOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFileOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1578,15 +1317,6 @@ export interface PutRepositoryTriggersInput {
   triggers: RepositoryTrigger[] | undefined;
 }
 
-export namespace PutRepositoryTriggersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRepositoryTriggersInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a put repository triggers operation.</p>
  */
@@ -1595,15 +1325,6 @@ export interface PutRepositoryTriggersOutput {
    * <p>The system-generated unique ID for the create or update operation.</p>
    */
   configurationId?: string;
-}
-
-export namespace PutRepositoryTriggersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRepositoryTriggersOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1717,15 +1438,6 @@ export interface TagResourceInput {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A map of tags is required.</p>
  */
@@ -1760,15 +1472,6 @@ export interface TestRepositoryTriggersInput {
   triggers: RepositoryTrigger[] | undefined;
 }
 
-export namespace TestRepositoryTriggersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRepositoryTriggersInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A trigger failed to run.</p>
  */
@@ -1782,15 +1485,6 @@ export interface RepositoryTriggerExecutionFailure {
    * <p>Message information about the trigger that did not run.</p>
    */
   failureMessage?: string;
-}
-
-export namespace RepositoryTriggerExecutionFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryTriggerExecutionFailure): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1807,15 +1501,6 @@ export interface TestRepositoryTriggersOutput {
    *             triggers that could not be tested, separated by commas.</p>
    */
   failedExecutions?: RepositoryTriggerExecutionFailure[];
-}
-
-export namespace TestRepositoryTriggersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRepositoryTriggersOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1868,15 +1553,6 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The SHA-256 hash signature for the rule content is not valid.</p>
  */
@@ -1916,29 +1592,11 @@ export interface UpdateApprovalRuleTemplateContentInput {
   existingRuleContentSha256?: string;
 }
 
-export namespace UpdateApprovalRuleTemplateContentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateContentInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApprovalRuleTemplateContentOutput {
   /**
    * <p>Returns information about an approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
-}
-
-export namespace UpdateApprovalRuleTemplateContentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateContentOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApprovalRuleTemplateDescriptionInput {
@@ -1953,29 +1611,11 @@ export interface UpdateApprovalRuleTemplateDescriptionInput {
   approvalRuleTemplateDescription: string | undefined;
 }
 
-export namespace UpdateApprovalRuleTemplateDescriptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateDescriptionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApprovalRuleTemplateDescriptionOutput {
   /**
    * <p>The structure and content of the updated approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
-}
-
-export namespace UpdateApprovalRuleTemplateDescriptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateDescriptionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApprovalRuleTemplateNameInput {
@@ -1990,29 +1630,11 @@ export interface UpdateApprovalRuleTemplateNameInput {
   newApprovalRuleTemplateName: string | undefined;
 }
 
-export namespace UpdateApprovalRuleTemplateNameInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateNameInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApprovalRuleTemplateNameOutput {
   /**
    * <p>The structure and content of the updated approval rule template.</p>
    */
   approvalRuleTemplate: ApprovalRuleTemplate | undefined;
-}
-
-export namespace UpdateApprovalRuleTemplateNameOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApprovalRuleTemplateNameOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2047,29 +1669,11 @@ export interface UpdateCommentInput {
   content: string | undefined;
 }
 
-export namespace UpdateCommentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCommentInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCommentOutput {
   /**
    * <p>Information about the updated comment.</p>
    */
   comment?: Comment;
-}
-
-export namespace UpdateCommentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCommentOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2085,15 +1689,6 @@ export interface UpdateDefaultBranchInput {
    * <p>The name of the branch to set as the default.</p>
    */
   defaultBranchName: string | undefined;
-}
-
-export namespace UpdateDefaultBranchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDefaultBranchInput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePullRequestApprovalRuleContentInput {
@@ -2160,29 +1755,11 @@ export interface UpdatePullRequestApprovalRuleContentInput {
   newRuleContent: string | undefined;
 }
 
-export namespace UpdatePullRequestApprovalRuleContentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalRuleContentInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePullRequestApprovalRuleContentOutput {
   /**
    * <p>Information about the updated approval rule.</p>
    */
   approvalRule: ApprovalRule | undefined;
-}
-
-export namespace UpdatePullRequestApprovalRuleContentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalRuleContentOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2260,15 +1837,6 @@ export interface UpdatePullRequestApprovalStateInput {
   approvalState: ApprovalState | string | undefined;
 }
 
-export namespace UpdatePullRequestApprovalStateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestApprovalStateInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePullRequestDescriptionInput {
   /**
    * <p>The system-generated ID of the pull request. To get this ID, use <a>ListPullRequests</a>.</p>
@@ -2282,29 +1850,11 @@ export interface UpdatePullRequestDescriptionInput {
   description: string | undefined;
 }
 
-export namespace UpdatePullRequestDescriptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestDescriptionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePullRequestDescriptionOutput {
   /**
    * <p>Information about the updated pull request.</p>
    */
   pullRequest: PullRequest | undefined;
-}
-
-export namespace UpdatePullRequestDescriptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestDescriptionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2359,29 +1909,11 @@ export interface UpdatePullRequestStatusInput {
   pullRequestStatus: PullRequestStatusEnum | string | undefined;
 }
 
-export namespace UpdatePullRequestStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestStatusInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePullRequestStatusOutput {
   /**
    * <p>Information about the pull request.</p>
    */
   pullRequest: PullRequest | undefined;
-}
-
-export namespace UpdatePullRequestStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestStatusOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePullRequestTitleInput {
@@ -2396,29 +1928,11 @@ export interface UpdatePullRequestTitleInput {
   title: string | undefined;
 }
 
-export namespace UpdatePullRequestTitleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestTitleInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePullRequestTitleOutput {
   /**
    * <p>Information about the updated pull request.</p>
    */
   pullRequest: PullRequest | undefined;
-}
-
-export namespace UpdatePullRequestTitleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePullRequestTitleOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2436,15 +1950,6 @@ export interface UpdateRepositoryDescriptionInput {
   repositoryDescription?: string;
 }
 
-export namespace UpdateRepositoryDescriptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRepositoryDescriptionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of an update repository description operation.</p>
  */
@@ -2460,11 +1965,420 @@ export interface UpdateRepositoryNameInput {
   newName: string | undefined;
 }
 
-export namespace UpdateRepositoryNameInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRepositoryNameInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ListRepositoriesInputFilterSensitiveLog = (obj: ListRepositoriesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryNameIdPairFilterSensitiveLog = (obj: RepositoryNameIdPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositoriesOutputFilterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositoriesForApprovalRuleTemplateInputFilterSensitiveLog = (
+  obj: ListRepositoriesForApprovalRuleTemplateInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositoriesForApprovalRuleTemplateOutputFilterSensitiveLog = (
+  obj: ListRepositoriesForApprovalRuleTemplateOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeBranchesByFastForwardInputFilterSensitiveLog = (obj: MergeBranchesByFastForwardInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeBranchesByFastForwardOutputFilterSensitiveLog = (obj: MergeBranchesByFastForwardOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeBranchesBySquashInputFilterSensitiveLog = (obj: MergeBranchesBySquashInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeBranchesBySquashOutputFilterSensitiveLog = (obj: MergeBranchesBySquashOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeBranchesByThreeWayInputFilterSensitiveLog = (obj: MergeBranchesByThreeWayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeBranchesByThreeWayOutputFilterSensitiveLog = (obj: MergeBranchesByThreeWayOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergePullRequestByFastForwardInputFilterSensitiveLog = (obj: MergePullRequestByFastForwardInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergePullRequestByFastForwardOutputFilterSensitiveLog = (
+  obj: MergePullRequestByFastForwardOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergePullRequestBySquashInputFilterSensitiveLog = (obj: MergePullRequestBySquashInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergePullRequestBySquashOutputFilterSensitiveLog = (obj: MergePullRequestBySquashOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergePullRequestByThreeWayInputFilterSensitiveLog = (obj: MergePullRequestByThreeWayInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergePullRequestByThreeWayOutputFilterSensitiveLog = (obj: MergePullRequestByThreeWayOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OverridePullRequestApprovalRulesInputFilterSensitiveLog = (
+  obj: OverridePullRequestApprovalRulesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostCommentForComparedCommitInputFilterSensitiveLog = (obj: PostCommentForComparedCommitInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostCommentForComparedCommitOutputFilterSensitiveLog = (obj: PostCommentForComparedCommitOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostCommentForPullRequestInputFilterSensitiveLog = (obj: PostCommentForPullRequestInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostCommentForPullRequestOutputFilterSensitiveLog = (obj: PostCommentForPullRequestOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostCommentReplyInputFilterSensitiveLog = (obj: PostCommentReplyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostCommentReplyOutputFilterSensitiveLog = (obj: PostCommentReplyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutCommentReactionInputFilterSensitiveLog = (obj: PutCommentReactionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFileInputFilterSensitiveLog = (obj: PutFileInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFileOutputFilterSensitiveLog = (obj: PutFileOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRepositoryTriggersInputFilterSensitiveLog = (obj: PutRepositoryTriggersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRepositoryTriggersOutputFilterSensitiveLog = (obj: PutRepositoryTriggersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestRepositoryTriggersInputFilterSensitiveLog = (obj: TestRepositoryTriggersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryTriggerExecutionFailureFilterSensitiveLog = (obj: RepositoryTriggerExecutionFailure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestRepositoryTriggersOutputFilterSensitiveLog = (obj: TestRepositoryTriggersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApprovalRuleTemplateContentInputFilterSensitiveLog = (
+  obj: UpdateApprovalRuleTemplateContentInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApprovalRuleTemplateContentOutputFilterSensitiveLog = (
+  obj: UpdateApprovalRuleTemplateContentOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApprovalRuleTemplateDescriptionInputFilterSensitiveLog = (
+  obj: UpdateApprovalRuleTemplateDescriptionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApprovalRuleTemplateDescriptionOutputFilterSensitiveLog = (
+  obj: UpdateApprovalRuleTemplateDescriptionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApprovalRuleTemplateNameInputFilterSensitiveLog = (
+  obj: UpdateApprovalRuleTemplateNameInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApprovalRuleTemplateNameOutputFilterSensitiveLog = (
+  obj: UpdateApprovalRuleTemplateNameOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCommentInputFilterSensitiveLog = (obj: UpdateCommentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCommentOutputFilterSensitiveLog = (obj: UpdateCommentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDefaultBranchInputFilterSensitiveLog = (obj: UpdateDefaultBranchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePullRequestApprovalRuleContentInputFilterSensitiveLog = (
+  obj: UpdatePullRequestApprovalRuleContentInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePullRequestApprovalRuleContentOutputFilterSensitiveLog = (
+  obj: UpdatePullRequestApprovalRuleContentOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePullRequestApprovalStateInputFilterSensitiveLog = (
+  obj: UpdatePullRequestApprovalStateInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePullRequestDescriptionInputFilterSensitiveLog = (obj: UpdatePullRequestDescriptionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePullRequestDescriptionOutputFilterSensitiveLog = (obj: UpdatePullRequestDescriptionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePullRequestStatusInputFilterSensitiveLog = (obj: UpdatePullRequestStatusInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePullRequestStatusOutputFilterSensitiveLog = (obj: UpdatePullRequestStatusOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePullRequestTitleInputFilterSensitiveLog = (obj: UpdatePullRequestTitleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePullRequestTitleOutputFilterSensitiveLog = (obj: UpdatePullRequestTitleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRepositoryDescriptionInputFilterSensitiveLog = (obj: UpdateRepositoryDescriptionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRepositoryNameInputFilterSensitiveLog = (obj: UpdateRepositoryNameInput): any => ({
+  ...obj,
+});

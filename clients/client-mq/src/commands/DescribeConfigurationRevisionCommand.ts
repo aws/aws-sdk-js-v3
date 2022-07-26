@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/models_0";
+import {
+  DescribeConfigurationRevisionRequest,
+  DescribeConfigurationRevisionRequestFilterSensitiveLog,
+  DescribeConfigurationRevisionResponse,
+  DescribeConfigurationRevisionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
   deserializeAws_restJson1DescribeConfigurationRevisionCommand,
@@ -74,8 +79,8 @@ export class DescribeConfigurationRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationRevisionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConfigurationRevisionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeConfigurationRevisionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeConfigurationRevisionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

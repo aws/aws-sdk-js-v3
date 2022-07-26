@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { RemoveTagsFromResourceMessage } from "../models/models_0";
+import { RemoveTagsFromResourceMessage, RemoveTagsFromResourceMessageFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryRemoveTagsFromResourceCommand,
   serializeAws_queryRemoveTagsFromResourceCommand,
@@ -72,7 +72,7 @@ export class RemoveTagsFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromResourceMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTagsFromResourceMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssociateInstanceEventWindowRequest, AssociateInstanceEventWindowResult } from "../models/models_0";
+import {
+  AssociateInstanceEventWindowRequest,
+  AssociateInstanceEventWindowRequestFilterSensitiveLog,
+  AssociateInstanceEventWindowResult,
+  AssociateInstanceEventWindowResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2AssociateInstanceEventWindowCommand,
   serializeAws_ec2AssociateInstanceEventWindowCommand,
@@ -77,8 +82,8 @@ export class AssociateInstanceEventWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateInstanceEventWindowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateInstanceEventWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateInstanceEventWindowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateInstanceEventWindowResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

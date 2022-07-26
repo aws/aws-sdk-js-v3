@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { TestAuthorizationRequest, TestAuthorizationResponse } from "../models/models_2";
+import {
+  TestAuthorizationRequest,
+  TestAuthorizationRequestFilterSensitiveLog,
+  TestAuthorizationResponse,
+  TestAuthorizationResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1TestAuthorizationCommand,
   serializeAws_restJson1TestAuthorizationCommand,
@@ -75,8 +80,8 @@ export class TestAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestAuthorizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestAuthorizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestAuthorizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestAuthorizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

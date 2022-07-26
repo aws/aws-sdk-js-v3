@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteInstanceRequest } from "../models/models_0";
+import { DeleteInstanceRequest, DeleteInstanceRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DeleteInstanceCommand,
@@ -79,7 +79,7 @@ export class DeleteInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInstanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

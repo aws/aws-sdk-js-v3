@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ApplicationVersionDescriptionsMessage, DescribeApplicationVersionsMessage } from "../models/models_0";
+import {
+  ApplicationVersionDescriptionsMessage,
+  ApplicationVersionDescriptionsMessageFilterSensitiveLog,
+  DescribeApplicationVersionsMessage,
+  DescribeApplicationVersionsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeApplicationVersionsCommand,
   serializeAws_queryDescribeApplicationVersionsCommand,
@@ -74,8 +79,8 @@ export class DescribeApplicationVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationVersionsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ApplicationVersionDescriptionsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeApplicationVersionsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ApplicationVersionDescriptionsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

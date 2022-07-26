@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachInternetGatewayRequest } from "../models/models_4";
+import { DetachInternetGatewayRequest, DetachInternetGatewayRequestFilterSensitiveLog } from "../models/models_4";
 import {
   deserializeAws_ec2DetachInternetGatewayCommand,
   serializeAws_ec2DetachInternetGatewayCommand,
@@ -74,7 +74,7 @@ export class DetachInternetGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachInternetGatewayRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachInternetGatewayRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

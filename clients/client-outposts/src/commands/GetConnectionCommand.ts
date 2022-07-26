@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetConnectionRequest, GetConnectionResponse } from "../models/models_0";
+import {
+  GetConnectionRequest,
+  GetConnectionRequestFilterSensitiveLog,
+  GetConnectionResponse,
+  GetConnectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1GetConnectionCommand,
@@ -84,8 +89,8 @@ export class GetConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetConnectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

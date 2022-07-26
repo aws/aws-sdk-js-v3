@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { SetRulePrioritiesInput, SetRulePrioritiesOutput } from "../models/models_0";
+import {
+  SetRulePrioritiesInput,
+  SetRulePrioritiesInputFilterSensitiveLog,
+  SetRulePrioritiesOutput,
+  SetRulePrioritiesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_querySetRulePrioritiesCommand,
   serializeAws_querySetRulePrioritiesCommand,
@@ -78,8 +83,8 @@ export class SetRulePrioritiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetRulePrioritiesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: SetRulePrioritiesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetRulePrioritiesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: SetRulePrioritiesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

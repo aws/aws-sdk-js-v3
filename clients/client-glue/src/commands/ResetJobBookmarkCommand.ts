@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { ResetJobBookmarkRequest, ResetJobBookmarkResponse } from "../models/models_2";
+import {
+  ResetJobBookmarkRequest,
+  ResetJobBookmarkRequestFilterSensitiveLog,
+  ResetJobBookmarkResponse,
+  ResetJobBookmarkResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ResetJobBookmarkCommand,
   serializeAws_json1_1ResetJobBookmarkCommand,
@@ -72,8 +77,8 @@ export class ResetJobBookmarkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetJobBookmarkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetJobBookmarkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetJobBookmarkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetJobBookmarkResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

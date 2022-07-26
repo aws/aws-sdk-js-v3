@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { ListKeywordsForDataSourceRequest, ListKeywordsForDataSourceResponse } from "../models/models_0";
+import {
+  ListKeywordsForDataSourceRequest,
+  ListKeywordsForDataSourceRequestFilterSensitiveLog,
+  ListKeywordsForDataSourceResponse,
+  ListKeywordsForDataSourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListKeywordsForDataSourceCommand,
   serializeAws_restJson1ListKeywordsForDataSourceCommand,
@@ -72,8 +77,8 @@ export class ListKeywordsForDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKeywordsForDataSourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListKeywordsForDataSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListKeywordsForDataSourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListKeywordsForDataSourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

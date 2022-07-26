@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   SearchTransitGatewayMulticastGroupsRequest,
+  SearchTransitGatewayMulticastGroupsRequestFilterSensitiveLog,
   SearchTransitGatewayMulticastGroupsResult,
+  SearchTransitGatewayMulticastGroupsResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand,
@@ -77,8 +79,8 @@ export class SearchTransitGatewayMulticastGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchTransitGatewayMulticastGroupsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchTransitGatewayMulticastGroupsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchTransitGatewayMulticastGroupsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchTransitGatewayMulticastGroupsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

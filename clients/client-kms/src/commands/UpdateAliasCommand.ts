@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { UpdateAliasRequest } from "../models/models_0";
+import { UpdateAliasRequest, UpdateAliasRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAliasCommand,
   serializeAws_json1_1UpdateAliasCommand,
@@ -134,7 +134,7 @@ export class UpdateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAliasRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAliasRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

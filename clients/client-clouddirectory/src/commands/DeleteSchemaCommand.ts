@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { DeleteSchemaRequest, DeleteSchemaResponse } from "../models/models_0";
+import {
+  DeleteSchemaRequest,
+  DeleteSchemaRequestFilterSensitiveLog,
+  DeleteSchemaResponse,
+  DeleteSchemaResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSchemaCommand,
   serializeAws_restJson1DeleteSchemaCommand,
@@ -72,8 +77,8 @@ export class DeleteSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSchemaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSchemaRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSchemaResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

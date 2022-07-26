@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NotifyWhenUploadedInput, NotifyWhenUploadedOutput } from "../models/models_0";
+import {
+  NotifyWhenUploadedInput,
+  NotifyWhenUploadedInputFilterSensitiveLog,
+  NotifyWhenUploadedOutput,
+  NotifyWhenUploadedOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1NotifyWhenUploadedCommand,
   serializeAws_json1_1NotifyWhenUploadedCommand,
@@ -84,8 +89,8 @@ export class NotifyWhenUploadedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyWhenUploadedInput.filterSensitiveLog,
-      outputFilterSensitiveLog: NotifyWhenUploadedOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: NotifyWhenUploadedInputFilterSensitiveLog,
+      outputFilterSensitiveLog: NotifyWhenUploadedOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

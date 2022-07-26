@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagUserRequest } from "../models/models_1";
+import { UntagUserRequest, UntagUserRequestFilterSensitiveLog } from "../models/models_1";
 import { deserializeAws_queryUntagUserCommand, serializeAws_queryUntagUserCommand } from "../protocols/Aws_query";
 
 export interface UntagUserCommandInput extends UntagUserRequest {}
@@ -66,7 +66,7 @@ export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagUserRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagUserRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

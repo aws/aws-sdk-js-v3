@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssociateAddressRequest, AssociateAddressResult } from "../models/models_0";
+import {
+  AssociateAddressRequest,
+  AssociateAddressRequestFilterSensitiveLog,
+  AssociateAddressResult,
+  AssociateAddressResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2AssociateAddressCommand,
   serializeAws_ec2AssociateAddressCommand,
@@ -96,8 +101,8 @@ export class AssociateAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateAddressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateAddressResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateAddressRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateAddressResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

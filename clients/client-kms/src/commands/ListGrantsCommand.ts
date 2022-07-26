@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { ListGrantsRequest, ListGrantsResponse } from "../models/models_0";
+import {
+  ListGrantsRequest,
+  ListGrantsRequestFilterSensitiveLog,
+  ListGrantsResponse,
+  ListGrantsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListGrantsCommand,
   serializeAws_json1_1ListGrantsCommand,
@@ -117,8 +122,8 @@ export class ListGrantsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGrantsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListGrantsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListGrantsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListGrantsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

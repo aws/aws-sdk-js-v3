@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { GlobalSignOutRequest, GlobalSignOutResponse } from "../models/models_0";
+import {
+  GlobalSignOutRequest,
+  GlobalSignOutRequestFilterSensitiveLog,
+  GlobalSignOutResponse,
+  GlobalSignOutResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GlobalSignOutCommand,
   serializeAws_json1_1GlobalSignOutCommand,
@@ -82,8 +87,8 @@ export class GlobalSignOutCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GlobalSignOutRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GlobalSignOutResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GlobalSignOutRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GlobalSignOutResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

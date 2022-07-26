@@ -27,25 +27,7 @@ export interface AcceptMatchInput {
   AcceptanceType: AcceptanceType | string | undefined;
 }
 
-export namespace AcceptMatchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptMatchInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptMatchOutput {}
-
-export namespace AcceptMatchOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptMatchOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The service encountered an unrecoverable internal failure while processing the
@@ -186,15 +168,6 @@ export interface RoutingStrategy {
   Message?: string;
 }
 
-export namespace RoutingStrategy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutingStrategy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Properties that describe an alias resource.</p>
  *         <p>
@@ -247,15 +220,6 @@ export interface Alias {
   LastUpdatedTime?: Date;
 }
 
-export namespace Alias {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alias): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Values for use in <a>Player</a> attribute key-value pairs. This object lets
  *             you specify an attribute value using any of the valid data types: string, number, string
@@ -287,15 +251,6 @@ export interface AttributeValue {
   SDM?: Record<string, number>;
 }
 
-export namespace AttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Temporary access credentials used for uploading game build files to Amazon GameLift. They
  *             are valid for a limited time. If they expire before you upload your game build, get a
@@ -317,15 +272,6 @@ export interface AwsCredentials {
    *             credentials.</p>
    */
   SessionToken?: string;
-}
-
-export namespace AwsCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsCredentials): any => ({
-    ...obj,
-  });
 }
 
 export enum BackfillMode {
@@ -431,15 +377,6 @@ export interface Build {
   CreationTime?: Date;
 }
 
-export namespace Build {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Build): any => ({
-    ...obj,
-  });
-}
-
 export enum CertificateType {
   Disabled = "DISABLED",
   Generated = "GENERATED",
@@ -473,15 +410,6 @@ export interface CertificateConfiguration {
   CertificateType: CertificateType | string | undefined;
 }
 
-export namespace CertificateConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface ClaimGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.
@@ -503,15 +431,6 @@ export interface ClaimGameServerInput {
    *                 <a>ListGameServers</a> or <a>ClaimGameServer</a>. </p>
    */
   GameServerData?: string;
-}
-
-export namespace ClaimGameServerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimGameServerInput): any => ({
-    ...obj,
-  });
 }
 
 export enum GameServerClaimStatus {
@@ -631,29 +550,11 @@ export interface GameServer {
   LastHealthCheckTime?: Date;
 }
 
-export namespace GameServer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameServer): any => ({
-    ...obj,
-  });
-}
-
 export interface ClaimGameServerOutput {
   /**
    * <p>Object that describes the newly claimed game server.</p>
    */
   GameServer?: GameServer;
-}
-
-export namespace ClaimGameServerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClaimGameServerOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -773,15 +674,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -815,15 +707,6 @@ export interface CreateAliasInput {
   Tags?: Tag[];
 }
 
-export namespace CreateAliasInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAliasInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -832,15 +715,6 @@ export interface CreateAliasOutput {
    * <p>The newly created alias resource.</p>
    */
   Alias?: Alias;
-}
-
-export namespace CreateAliasOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAliasOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -923,15 +797,6 @@ export interface S3Location {
   ObjectVersion?: string;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -983,15 +848,6 @@ export interface CreateBuildInput {
   Tags?: Tag[];
 }
 
-export namespace CreateBuildInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBuildInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -1014,16 +870,6 @@ export interface CreateBuildOutput {
    *             key.</p>
    */
   StorageLocation?: S3Location;
-}
-
-export namespace CreateBuildOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBuildOutput): any => ({
-    ...obj,
-    ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
-  });
 }
 
 export enum IpProtocol {
@@ -1069,15 +915,6 @@ export interface IpPermission {
    * <p>The network communication protocol used by the fleet.</p>
    */
   Protocol: IpProtocol | string | undefined;
-}
-
-export namespace IpPermission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpPermission): any => ({
-    ...obj,
-  });
 }
 
 export type EC2InstanceType =
@@ -1186,15 +1023,6 @@ export interface LocationConfiguration {
   Location?: string;
 }
 
-export namespace LocationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum ProtectionPolicy {
   FullProtection = "FullProtection",
   NoProtection = "NoProtection",
@@ -1221,15 +1049,6 @@ export interface ResourceCreationLimitPolicy {
    * <p>The time span used in evaluating the resource creation limit policy. </p>
    */
   PolicyPeriodInMinutes?: number;
-}
-
-export namespace ResourceCreationLimitPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceCreationLimitPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1266,15 +1085,6 @@ export interface ServerProcess {
    *             instance.</p>
    */
   ConcurrentExecutions: number | undefined;
-}
-
-export namespace ServerProcess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerProcess): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1316,15 +1126,6 @@ export interface RuntimeConfiguration {
    *             <code>TERMINATED</code>.</p>
    */
   GameSessionActivationTimeoutSeconds?: number;
-}
-
-export namespace RuntimeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuntimeConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1508,15 +1309,6 @@ export interface CreateFleetInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateFleetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetInput): any => ({
-    ...obj,
-  });
 }
 
 export enum FleetStatus {
@@ -1735,15 +1527,6 @@ export interface FleetAttributes {
   CertificateConfiguration?: CertificateConfiguration;
 }
 
-export namespace FleetAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A fleet location and its life-cycle state. A location state object might
  *             be used to describe a fleet's remote location or home Region.
@@ -1771,15 +1554,6 @@ export interface LocationState {
   Status?: FleetStatus | string;
 }
 
-export namespace LocationState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocationState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -1800,15 +1574,6 @@ export interface CreateFleetOutput {
   LocationStates?: LocationState[];
 }
 
-export namespace CreateFleetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -1824,15 +1589,6 @@ export interface CreateFleetLocationsInput {
    *             Region code such as <code>us-west-2</code>. </p>
    */
   Locations: LocationConfiguration[] | undefined;
-}
-
-export namespace CreateFleetLocationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetLocationsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1858,15 +1614,6 @@ export interface CreateFleetLocationsOutput {
    *         added to the fleet.</p>
    */
   LocationStates?: LocationState[];
-}
-
-export namespace CreateFleetLocationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetLocationsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1910,15 +1657,6 @@ export interface TargetTrackingConfiguration {
   TargetValue: number | undefined;
 }
 
-export namespace TargetTrackingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
@@ -1946,15 +1684,6 @@ export interface GameServerGroupAutoScalingPolicy {
    *             capacity so that the metric returns to the target value. </p>
    */
   TargetTrackingConfiguration: TargetTrackingConfiguration | undefined;
-}
-
-export namespace GameServerGroupAutoScalingPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameServerGroupAutoScalingPolicy): any => ({
-    ...obj,
-  });
 }
 
 export enum GameServerProtectionPolicy {
@@ -2078,15 +1807,6 @@ export interface InstanceDefinition {
   WeightedCapacity?: string;
 }
 
-export namespace InstanceDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <b>This data type is used with the GameLift FleetIQ and game server groups.</b>
@@ -2112,15 +1832,6 @@ export interface LaunchTemplateSpecification {
    *             launch template. If none is set, the default is the first version created.</p>
    */
   Version?: string;
-}
-
-export namespace LaunchTemplateSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGameServerGroupInput {
@@ -2253,15 +1964,6 @@ export interface CreateGameServerGroupInput {
    *             Amazon Web Services General Reference for actual tagging limits.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateGameServerGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGameServerGroupInput): any => ({
-    ...obj,
-  });
 }
 
 export enum GameServerGroupStatus {
@@ -2439,15 +2141,6 @@ export interface GameServerGroup {
   LastUpdatedTime?: Date;
 }
 
-export namespace GameServerGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameServerGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGameServerGroupOutput {
   /**
    * <p>The newly created game server group object, including the new ARN value for the GameLift FleetIQ
@@ -2456,15 +2149,6 @@ export interface CreateGameServerGroupOutput {
    *             group status reaches <code>ACTIVE</code>. </p>
    */
   GameServerGroup?: GameServerGroup;
-}
-
-export namespace CreateGameServerGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGameServerGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2484,15 +2168,6 @@ export interface GameProperty {
    * <p>The game property value.</p>
    */
   Value: string | undefined;
-}
-
-export namespace GameProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameProperty): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2570,15 +2245,6 @@ export interface CreateGameSessionInput {
    *             location with an Amazon Web Services Region code such as <code>us-west-2</code>.  </p>
    */
   Location?: string;
-}
-
-export namespace CreateGameSessionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGameSessionInput): any => ({
-    ...obj,
-  });
 }
 
 export enum PlayerSessionCreationPolicy {
@@ -2747,15 +2413,6 @@ export interface GameSession {
   Location?: string;
 }
 
-export namespace GameSession {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameSession): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -2764,15 +2421,6 @@ export interface CreateGameSessionOutput {
    * <p>Object that describes the newly created game session record.</p>
    */
   GameSession?: GameSession;
-}
-
-export namespace CreateGameSessionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGameSessionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2859,15 +2507,6 @@ export interface GameSessionQueueDestination {
   DestinationArn?: string;
 }
 
-export namespace GameSessionQueueDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameSessionQueueDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of fleet locations where a game session queue can place new game sessions. You
  *             can use a filter to temporarily turn off placements for specific locations. For queues
@@ -2881,15 +2520,6 @@ export interface FilterConfiguration {
    *             codes such as <code>us-west-2</code>. </p>
    */
   AllowedLocations?: string[];
-}
-
-export namespace FilterConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2913,15 +2543,6 @@ export interface PlayerLatencyPolicy {
    *             queue times out.</p>
    */
   PolicyDurationSeconds?: number;
-}
-
-export namespace PlayerLatencyPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlayerLatencyPolicy): any => ({
-    ...obj,
-  });
 }
 
 export enum PriorityType {
@@ -2995,15 +2616,6 @@ export interface PriorityConfiguration {
   LocationOrder?: string[];
 }
 
-export namespace PriorityConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PriorityConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -3072,15 +2684,6 @@ export interface CreateGameSessionQueueInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateGameSessionQueueInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGameSessionQueueInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3158,15 +2761,6 @@ export interface GameSessionQueue {
   NotificationTarget?: string;
 }
 
-export namespace GameSessionQueue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameSessionQueue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -3175,15 +2769,6 @@ export interface CreateGameSessionQueueOutput {
    * <p>An object that describes the newly created game session queue.</p>
    */
   GameSessionQueue?: GameSessionQueue;
-}
-
-export namespace CreateGameSessionQueueOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGameSessionQueueOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum FlexMatchMode {
@@ -3323,15 +2908,6 @@ export interface CreateMatchmakingConfigurationInput {
   Tags?: Tag[];
 }
 
-export namespace CreateMatchmakingConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMatchmakingConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Guidelines for use with FlexMatch to match players into games. All matchmaking
  *             requests must specify a matchmaking configuration.</p>
@@ -3464,15 +3040,6 @@ export interface MatchmakingConfiguration {
   FlexMatchMode?: FlexMatchMode | string;
 }
 
-export namespace MatchmakingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MatchmakingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -3481,15 +3048,6 @@ export interface CreateMatchmakingConfigurationOutput {
    * <p>Object that describes the newly created matchmaking configuration.</p>
    */
   Configuration?: MatchmakingConfiguration;
-}
-
-export namespace CreateMatchmakingConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMatchmakingConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3521,15 +3079,6 @@ export interface CreateMatchmakingRuleSetInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateMatchmakingRuleSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMatchmakingRuleSetInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3595,15 +3144,6 @@ export interface MatchmakingRuleSet {
   CreationTime?: Date;
 }
 
-export namespace MatchmakingRuleSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MatchmakingRuleSet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -3612,15 +3152,6 @@ export interface CreateMatchmakingRuleSetOutput {
    * <p>The newly created matchmaking rule set.</p>
    */
   RuleSet: MatchmakingRuleSet | undefined;
-}
-
-export namespace CreateMatchmakingRuleSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMatchmakingRuleSetOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3641,15 +3172,6 @@ export interface CreatePlayerSessionInput {
    * <p>Developer-defined information related to a player. GameLift does not use this data, so it can be formatted as needed for use in the game.</p>
    */
   PlayerData?: string;
-}
-
-export namespace CreatePlayerSessionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlayerSessionInput): any => ({
-    ...obj,
-  });
 }
 
 export enum PlayerSessionStatus {
@@ -3781,15 +3303,6 @@ export interface PlayerSession {
   PlayerData?: string;
 }
 
-export namespace PlayerSession {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlayerSession): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -3798,15 +3311,6 @@ export interface CreatePlayerSessionOutput {
    * <p>Object that describes the newly created player session record.</p>
    */
   PlayerSession?: PlayerSession;
-}
-
-export namespace CreatePlayerSessionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlayerSessionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3877,15 +3381,6 @@ export interface CreatePlayerSessionsInput {
   PlayerDataMap?: Record<string, string>;
 }
 
-export namespace CreatePlayerSessionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlayerSessionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -3894,15 +3389,6 @@ export interface CreatePlayerSessionsOutput {
    * <p>A collection of player session objects created for the added players.</p>
    */
   PlayerSessions?: PlayerSession[];
-}
-
-export namespace CreatePlayerSessionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlayerSessionsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateScriptInput {
@@ -3949,15 +3435,6 @@ export interface CreateScriptInput {
    *             tagging limits.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateScriptInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScriptInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4015,15 +3492,6 @@ export interface Script {
   StorageLocation?: S3Location;
 }
 
-export namespace Script {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Script): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateScriptOutput {
   /**
    * <p>The newly created script record with a unique script ID and ARN. The new script's
@@ -4034,15 +3502,6 @@ export interface CreateScriptOutput {
    *             the Amazon GameLift service.</p>
    */
   Script?: Script;
-}
-
-export namespace CreateScriptOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScriptOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4062,15 +3521,6 @@ export interface CreateVpcPeeringAuthorizationInput {
    *             Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with GameLift Fleets</a>.</p>
    */
   PeerVpcId: string | undefined;
-}
-
-export namespace CreateVpcPeeringAuthorizationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcPeeringAuthorizationInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4123,15 +3573,6 @@ export interface VpcPeeringAuthorization {
   ExpirationTime?: Date;
 }
 
-export namespace VpcPeeringAuthorization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcPeeringAuthorization): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -4140,15 +3581,6 @@ export interface CreateVpcPeeringAuthorizationOutput {
    * <p>Details on the requested VPC peering authorization, including expiration.</p>
    */
   VpcPeeringAuthorization?: VpcPeeringAuthorization;
-}
-
-export namespace CreateVpcPeeringAuthorizationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcPeeringAuthorizationOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4177,25 +3609,7 @@ export interface CreateVpcPeeringConnectionInput {
   PeerVpcId: string | undefined;
 }
 
-export namespace CreateVpcPeeringConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateVpcPeeringConnectionOutput {}
-
-export namespace CreateVpcPeeringConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the input for a request operation.</p>
@@ -4208,15 +3622,6 @@ export interface DeleteAliasInput {
   AliasId: string | undefined;
 }
 
-export namespace DeleteAliasInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAliasInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -4227,15 +3632,6 @@ export interface DeleteBuildInput {
   BuildId: string | undefined;
 }
 
-export namespace DeleteBuildInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBuildInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -4244,15 +3640,6 @@ export interface DeleteFleetInput {
    * <p>A unique identifier for the fleet to be deleted. You can use either the fleet ID or ARN value.</p>
    */
   FleetId: string | undefined;
-}
-
-export namespace DeleteFleetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4270,15 +3657,6 @@ export interface DeleteFleetLocationsInput {
    *                 <code>us-west-2</code>.</p>
    */
   Locations: string[] | undefined;
-}
-
-export namespace DeleteFleetLocationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetLocationsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4300,15 +3678,6 @@ export interface DeleteFleetLocationsOutput {
    *                 <code>DELETING</code>.</p>
    */
   LocationStates?: LocationState[];
-}
-
-export namespace DeleteFleetLocationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFleetLocationsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum GameServerGroupDeleteOption {
@@ -4348,30 +3717,12 @@ export interface DeleteGameServerGroupInput {
   DeleteOption?: GameServerGroupDeleteOption | string;
 }
 
-export namespace DeleteGameServerGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGameServerGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGameServerGroupOutput {
   /**
    * <p>An object that describes the deleted game server group resource, with status updated
    *             to <code>DELETE_SCHEDULED</code>. </p>
    */
   GameServerGroup?: GameServerGroup;
-}
-
-export namespace DeleteGameServerGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGameServerGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4384,25 +3735,7 @@ export interface DeleteGameSessionQueueInput {
   Name: string | undefined;
 }
 
-export namespace DeleteGameSessionQueueInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGameSessionQueueInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGameSessionQueueOutput {}
-
-export namespace DeleteGameSessionQueueOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGameSessionQueueOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the input for a request operation.</p>
@@ -4414,25 +3747,7 @@ export interface DeleteMatchmakingConfigurationInput {
   Name: string | undefined;
 }
 
-export namespace DeleteMatchmakingConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMatchmakingConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMatchmakingConfigurationOutput {}
-
-export namespace DeleteMatchmakingConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMatchmakingConfigurationOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the input for a request operation.</p>
@@ -4445,28 +3760,10 @@ export interface DeleteMatchmakingRuleSetInput {
   Name: string | undefined;
 }
 
-export namespace DeleteMatchmakingRuleSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMatchmakingRuleSetInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
 export interface DeleteMatchmakingRuleSetOutput {}
-
-export namespace DeleteMatchmakingRuleSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMatchmakingRuleSetOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the input for a request operation.</p>
@@ -4483,29 +3780,11 @@ export interface DeleteScalingPolicyInput {
   FleetId: string | undefined;
 }
 
-export namespace DeleteScalingPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScalingPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteScriptInput {
   /**
    * <p>A unique identifier for the Realtime script to delete. You can use either the script ID or ARN value.</p>
    */
   ScriptId: string | undefined;
-}
-
-export namespace DeleteScriptInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScriptInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4527,25 +3806,7 @@ export interface DeleteVpcPeeringAuthorizationInput {
   PeerVpcId: string | undefined;
 }
 
-export namespace DeleteVpcPeeringAuthorizationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVpcPeeringAuthorizationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVpcPeeringAuthorizationOutput {}
-
-export namespace DeleteVpcPeeringAuthorizationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVpcPeeringAuthorizationOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the input for a request operation.</p>
@@ -4563,25 +3824,7 @@ export interface DeleteVpcPeeringConnectionInput {
   VpcPeeringConnectionId: string | undefined;
 }
 
-export namespace DeleteVpcPeeringConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVpcPeeringConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVpcPeeringConnectionOutput {}
-
-export namespace DeleteVpcPeeringConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVpcPeeringConnectionOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeregisterGameServerInput {
   /**
@@ -4596,15 +3839,6 @@ export interface DeregisterGameServerInput {
   GameServerId: string | undefined;
 }
 
-export namespace DeregisterGameServerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterGameServerInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -4614,15 +3848,6 @@ export interface DescribeAliasInput {
    *             either the alias ID or ARN value. </p>
    */
   AliasId: string | undefined;
-}
-
-export namespace DescribeAliasInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAliasInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4635,15 +3860,6 @@ export interface DescribeAliasOutput {
   Alias?: Alias;
 }
 
-export namespace DescribeAliasOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAliasOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -4654,15 +3870,6 @@ export interface DescribeBuildInput {
   BuildId: string | undefined;
 }
 
-export namespace DescribeBuildInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBuildInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -4671,15 +3878,6 @@ export interface DescribeBuildOutput {
    * <p>Set of properties describing the requested build.</p>
    */
   Build?: Build;
-}
-
-export namespace DescribeBuildOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBuildOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4699,15 +3897,6 @@ export interface DescribeEC2InstanceLimitsInput {
    *             Region code such as <code>us-west-2</code>.</p>
    */
   Location?: string;
-}
-
-export namespace DescribeEC2InstanceLimitsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEC2InstanceLimitsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4748,15 +3937,6 @@ export interface EC2InstanceLimit {
   Location?: string;
 }
 
-export namespace EC2InstanceLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2InstanceLimit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -4766,15 +3946,6 @@ export interface DescribeEC2InstanceLimitsOutput {
    *             type.</p>
    */
   EC2InstanceLimits?: EC2InstanceLimit[];
-}
-
-export namespace DescribeEC2InstanceLimitsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEC2InstanceLimitsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4801,15 +3972,6 @@ export interface DescribeFleetAttributesInput {
   NextToken?: string;
 }
 
-export namespace DescribeFleetAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetAttributesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -4824,15 +3986,6 @@ export interface DescribeFleetAttributesOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeFleetAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetAttributesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4857,15 +4010,6 @@ export interface DescribeFleetCapacityInput {
    *             IDs.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeFleetCapacityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetCapacityInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4910,15 +4054,6 @@ export interface EC2InstanceCounts {
    * <p>Number of instances that are no longer active but haven't yet been terminated.</p>
    */
   TERMINATING?: number;
-}
-
-export namespace EC2InstanceCounts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2InstanceCounts): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4966,15 +4101,6 @@ export interface FleetCapacity {
   Location?: string;
 }
 
-export namespace FleetCapacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetCapacity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -4989,15 +4115,6 @@ export interface DescribeFleetCapacityOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeFleetCapacityOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetCapacityOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5032,15 +4149,6 @@ export interface DescribeFleetEventsInput {
    * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeFleetEventsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetEventsInput): any => ({
-    ...obj,
-  });
 }
 
 export enum EventCode {
@@ -5285,15 +4393,6 @@ export interface Event {
   PreSignedLogUrl?: string;
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -5308,15 +4407,6 @@ export interface DescribeFleetEventsOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeFleetEventsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetEventsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5344,15 +4434,6 @@ export interface DescribeFleetLocationAttributesInput {
    * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeFleetLocationAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetLocationAttributesInput): any => ({
-    ...obj,
-  });
 }
 
 export enum LocationUpdateStatus {
@@ -5387,15 +4468,6 @@ export interface LocationAttributes {
   UpdateStatus?: LocationUpdateStatus | string;
 }
 
-export namespace LocationAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LocationAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation. </p>
  */
@@ -5421,15 +4493,6 @@ export interface DescribeFleetLocationAttributesOutput {
   NextToken?: string;
 }
 
-export namespace DescribeFleetLocationAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetLocationAttributesOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -5447,15 +4510,6 @@ export interface DescribeFleetLocationCapacityInput {
   Location: string | undefined;
 }
 
-export namespace DescribeFleetLocationCapacityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetLocationCapacityInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -5465,15 +4519,6 @@ export interface DescribeFleetLocationCapacityOutput {
    *             returned only for fleets and locations that currently exist.</p>
    */
   FleetCapacity?: FleetCapacity;
-}
-
-export namespace DescribeFleetLocationCapacityOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetLocationCapacityOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5491,15 +4536,6 @@ export interface DescribeFleetLocationUtilizationInput {
    *                 <code>us-west-2</code>.</p>
    */
   Location: string | undefined;
-}
-
-export namespace DescribeFleetLocationUtilizationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetLocationUtilizationInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5554,15 +4590,6 @@ export interface FleetUtilization {
   Location?: string;
 }
 
-export namespace FleetUtilization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FleetUtilization): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -5572,15 +4599,6 @@ export interface DescribeFleetLocationUtilizationOutput {
    *             returned only for fleets and locations that currently exist.</p>
    */
   FleetUtilization?: FleetUtilization;
-}
-
-export namespace DescribeFleetLocationUtilizationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetLocationUtilizationOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5598,15 +4616,6 @@ export interface DescribeFleetPortSettingsInput {
    *             format, such as <code>us-west-2</code>.</p>
    */
   Location?: string;
-}
-
-export namespace DescribeFleetPortSettingsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetPortSettingsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5642,15 +4651,6 @@ export interface DescribeFleetPortSettingsOutput {
   Location?: string;
 }
 
-export namespace DescribeFleetPortSettingsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetPortSettingsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -5674,15 +4674,6 @@ export interface DescribeFleetUtilizationInput {
   NextToken?: string;
 }
 
-export namespace DescribeFleetUtilizationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetUtilizationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -5699,15 +4690,6 @@ export interface DescribeFleetUtilizationOutput {
   NextToken?: string;
 }
 
-export namespace DescribeFleetUtilizationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFleetUtilizationOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeGameServerInput {
   /**
    * <p>A unique identifier for the game server group where the game server is running.
@@ -5721,29 +4703,11 @@ export interface DescribeGameServerInput {
   GameServerId: string | undefined;
 }
 
-export namespace DescribeGameServerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameServerInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeGameServerOutput {
   /**
    * <p>Object that describes the requested game server.</p>
    */
   GameServer?: GameServer;
-}
-
-export namespace DescribeGameServerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameServerOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeGameServerGroupInput {
@@ -5753,29 +4717,11 @@ export interface DescribeGameServerGroupInput {
   GameServerGroupName: string | undefined;
 }
 
-export namespace DescribeGameServerGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameServerGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeGameServerGroupOutput {
   /**
    * <p>An object with the property settings for the requested game server group resource. </p>
    */
   GameServerGroup?: GameServerGroup;
-}
-
-export namespace DescribeGameServerGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameServerGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeGameServerInstancesInput {
@@ -5804,15 +4750,6 @@ export interface DescribeGameServerInstancesInput {
    *         </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeGameServerInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameServerInstancesInput): any => ({
-    ...obj,
-  });
 }
 
 export enum GameServerInstanceStatus {
@@ -5896,15 +4833,6 @@ export interface GameServerInstance {
   InstanceStatus?: GameServerInstanceStatus | string;
 }
 
-export namespace GameServerInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameServerInstance): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeGameServerInstancesOutput {
   /**
    * <p>
@@ -5919,15 +4847,6 @@ export interface DescribeGameServerInstancesOutput {
    *         </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeGameServerInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameServerInstancesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5975,15 +4894,6 @@ export interface DescribeGameSessionDetailsInput {
   NextToken?: string;
 }
 
-export namespace DescribeGameSessionDetailsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameSessionDetailsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A game session's properties plus the protection policy currently in
  *             force.</p>
@@ -6013,15 +4923,6 @@ export interface GameSessionDetail {
   ProtectionPolicy?: ProtectionPolicy | string;
 }
 
-export namespace GameSessionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameSessionDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -6037,15 +4938,6 @@ export interface DescribeGameSessionDetailsOutput {
   NextToken?: string;
 }
 
-export namespace DescribeGameSessionDetailsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameSessionDetailsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -6054,15 +4946,6 @@ export interface DescribeGameSessionPlacementInput {
    * <p>A unique identifier for a game session placement to retrieve.</p>
    */
   PlacementId: string | undefined;
-}
-
-export namespace DescribeGameSessionPlacementInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameSessionPlacementInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6093,15 +4976,6 @@ export interface PlacedPlayerSession {
   PlayerSessionId?: string;
 }
 
-export namespace PlacedPlayerSession {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacedPlayerSession): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Regional latency information for a player, used when requesting a new game session
  *         with <a>StartGameSessionPlacement</a>. This value indicates the amount of
@@ -6126,15 +5000,6 @@ export interface PlayerLatency {
    *         connected to the specified Region.</p>
    */
   LatencyInMilliseconds?: number;
-}
-
-export namespace PlayerLatency {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlayerLatency): any => ({
-    ...obj,
-  });
 }
 
 export enum GameSessionPlacementState {
@@ -6322,15 +5187,6 @@ export interface GameSessionPlacement {
   MatchmakerData?: string;
 }
 
-export namespace GameSessionPlacement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameSessionPlacement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -6339,15 +5195,6 @@ export interface DescribeGameSessionPlacementOutput {
    * <p>Object that describes the requested game session placement.</p>
    */
   GameSessionPlacement?: GameSessionPlacement;
-}
-
-export namespace DescribeGameSessionPlacementOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameSessionPlacementOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6371,15 +5218,6 @@ export interface DescribeGameSessionQueuesInput {
   NextToken?: string;
 }
 
-export namespace DescribeGameSessionQueuesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameSessionQueuesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -6393,15 +5231,6 @@ export interface DescribeGameSessionQueuesOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeGameSessionQueuesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameSessionQueuesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6450,15 +5279,6 @@ export interface DescribeGameSessionsInput {
   NextToken?: string;
 }
 
-export namespace DescribeGameSessionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameSessionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -6472,15 +5292,6 @@ export interface DescribeGameSessionsOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeGameSessionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGameSessionsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6514,15 +5325,6 @@ export interface DescribeInstancesInput {
    *             Region code such as <code>us-west-2</code>. </p>
    */
   Location?: string;
-}
-
-export namespace DescribeInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstancesInput): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceStatus {
@@ -6627,15 +5429,6 @@ export interface Instance {
   Location?: string;
 }
 
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -6651,15 +5444,6 @@ export interface DescribeInstancesOutput {
   NextToken?: string;
 }
 
-export namespace DescribeInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeInstancesOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -6668,15 +5452,6 @@ export interface DescribeMatchmakingInput {
    * <p>A unique identifier for a matchmaking ticket. You can include up to 10 ID values. </p>
    */
   TicketIds: string[] | undefined;
-}
-
-export namespace DescribeMatchmakingInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMatchmakingInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6696,15 +5471,6 @@ export interface MatchedPlayerSession {
    * <p>A unique identifier for a player session</p>
    */
   PlayerSessionId?: string;
-}
-
-export namespace MatchedPlayerSession {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MatchedPlayerSession): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6752,15 +5518,6 @@ export interface GameSessionConnectionInfo {
   MatchedPlayerSessions?: MatchedPlayerSession[];
 }
 
-export namespace GameSessionConnectionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GameSessionConnectionInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a player in matchmaking. When starting a matchmaking request, a player
  *             has a player ID, attributes, and may have latency data. Team information is added after
@@ -6795,15 +5552,6 @@ export interface Player {
    *         </p>
    */
   LatencyInMs?: Record<string, number>;
-}
-
-export namespace Player {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Player): any => ({
-    ...obj,
-  });
 }
 
 export type MatchmakingConfigurationStatus =
@@ -6944,15 +5692,6 @@ export interface MatchmakingTicket {
   EstimatedWaitTime?: number;
 }
 
-export namespace MatchmakingTicket {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MatchmakingTicket): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -6961,15 +5700,6 @@ export interface DescribeMatchmakingOutput {
    * <p>A collection of existing matchmaking ticket objects matching the request.</p>
    */
   TicketList?: MatchmakingTicket[];
-}
-
-export namespace DescribeMatchmakingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMatchmakingOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6999,15 +5729,6 @@ export interface DescribeMatchmakingConfigurationsInput {
   NextToken?: string;
 }
 
-export namespace DescribeMatchmakingConfigurationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMatchmakingConfigurationsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -7021,15 +5742,6 @@ export interface DescribeMatchmakingConfigurationsOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeMatchmakingConfigurationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMatchmakingConfigurationsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7054,15 +5766,6 @@ export interface DescribeMatchmakingRuleSetsInput {
   NextToken?: string;
 }
 
-export namespace DescribeMatchmakingRuleSetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMatchmakingRuleSetsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -7076,15 +5779,6 @@ export interface DescribeMatchmakingRuleSetsOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeMatchmakingRuleSetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMatchmakingRuleSetsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7147,15 +5841,6 @@ export interface DescribePlayerSessionsInput {
   NextToken?: string;
 }
 
-export namespace DescribePlayerSessionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePlayerSessionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -7172,15 +5857,6 @@ export interface DescribePlayerSessionsOutput {
   NextToken?: string;
 }
 
-export namespace DescribePlayerSessionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePlayerSessionsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -7192,15 +5868,6 @@ export interface DescribeRuntimeConfigurationInput {
   FleetId: string | undefined;
 }
 
-export namespace DescribeRuntimeConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuntimeConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -7210,15 +5877,6 @@ export interface DescribeRuntimeConfigurationOutput {
    *             each instance in the fleet.</p>
    */
   RuntimeConfiguration?: RuntimeConfiguration;
-}
-
-export namespace DescribeRuntimeConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuntimeConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ScalingStatusType {
@@ -7302,15 +5960,6 @@ export interface DescribeScalingPoliciesInput {
   Location?: string;
 }
 
-export namespace DescribeScalingPoliciesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingPoliciesInput): any => ({
-    ...obj,
-  });
-}
-
 export type MetricName =
   | "ActivatingGameSessions"
   | "ActiveGameSessions"
@@ -7365,15 +6014,6 @@ export interface TargetConfiguration {
    *         sessions).</p>
    */
   TargetValue: number | undefined;
-}
-
-export namespace TargetConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7603,15 +6243,6 @@ export interface ScalingPolicy {
   Location?: string;
 }
 
-export namespace ScalingPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -7628,30 +6259,12 @@ export interface DescribeScalingPoliciesOutput {
   NextToken?: string;
 }
 
-export namespace DescribeScalingPoliciesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScalingPoliciesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeScriptInput {
   /**
    * <p>A unique identifier for the Realtime script to retrieve properties for. You can use either the script ID or ARN
    *             value.</p>
    */
   ScriptId: string | undefined;
-}
-
-export namespace DescribeScriptInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScriptInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeScriptOutput {
@@ -7661,25 +6274,7 @@ export interface DescribeScriptOutput {
   Script?: Script;
 }
 
-export namespace DescribeScriptOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScriptOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeVpcPeeringAuthorizationsInput {}
-
-export namespace DescribeVpcPeeringAuthorizationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcPeeringAuthorizationsInput): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeVpcPeeringAuthorizationsOutput {
   /**
@@ -7687,15 +6282,6 @@ export interface DescribeVpcPeeringAuthorizationsOutput {
    *             current Amazon Web Services account.</p>
    */
   VpcPeeringAuthorizations?: VpcPeeringAuthorization[];
-}
-
-export namespace DescribeVpcPeeringAuthorizationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcPeeringAuthorizationsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7706,15 +6292,6 @@ export interface DescribeVpcPeeringConnectionsInput {
    * <p>A unique identifier for the fleet. You can use either the fleet ID or ARN value.</p>
    */
   FleetId?: string;
-}
-
-export namespace DescribeVpcPeeringConnectionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcPeeringConnectionsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7733,15 +6310,6 @@ export interface VpcPeeringConnectionStatus {
    * <p>Additional messaging associated with the connection status. </p>
    */
   Message?: string;
-}
-
-export namespace VpcPeeringConnectionStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcPeeringConnectionStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7810,15 +6378,6 @@ export interface VpcPeeringConnection {
   GameLiftVpcId?: string;
 }
 
-export namespace VpcPeeringConnection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcPeeringConnection): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -7827,15 +6386,6 @@ export interface DescribeVpcPeeringConnectionsOutput {
    * <p>A collection of VPC peering connection records that match the request.</p>
    */
   VpcPeeringConnections?: VpcPeeringConnection[];
-}
-
-export namespace DescribeVpcPeeringConnectionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVpcPeeringConnectionsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7854,15 +6404,6 @@ export interface DesiredPlayerSession {
   PlayerData?: string;
 }
 
-export namespace DesiredPlayerSession {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DesiredPlayerSession): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -7871,15 +6412,6 @@ export interface GetGameSessionLogUrlInput {
    * <p>A unique identifier for the game session to get logs for. </p>
    */
   GameSessionId: string | undefined;
-}
-
-export namespace GetGameSessionLogUrlInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGameSessionLogUrlInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7893,15 +6425,6 @@ export interface GetGameSessionLogUrlOutput {
    *             retained.</p>
    */
   PreSignedUrl?: string;
-}
-
-export namespace GetGameSessionLogUrlOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGameSessionLogUrlOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7924,15 +6447,6 @@ export interface GetInstanceAccessInput {
   InstanceId: string | undefined;
 }
 
-export namespace GetInstanceAccessInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceAccessInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Set of credentials required to remotely access a fleet instance. Access credentials
  *         are requested by calling <a>GetInstanceAccess</a> and returned in an <a>InstanceAccess</a> object.</p>
@@ -7949,15 +6463,6 @@ export interface InstanceCredentials {
    *         <code>.pem</code> file) for use with SSH.</p>
    */
   Secret?: string;
-}
-
-export namespace InstanceCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceCredentials): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7991,16 +6496,6 @@ export interface InstanceAccess {
   Credentials?: InstanceCredentials;
 }
 
-export namespace InstanceAccess {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceAccess): any => ({
-    ...obj,
-    ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -8010,16 +6505,6 @@ export interface GetInstanceAccessOutput {
    *             address and access credentials.</p>
    */
   InstanceAccess?: InstanceAccess;
-}
-
-export namespace GetInstanceAccessOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceAccessOutput): any => ({
-    ...obj,
-    ...(obj.InstanceAccess && { InstanceAccess: InstanceAccess.filterSensitiveLog(obj.InstanceAccess) }),
-  });
 }
 
 /**
@@ -8062,15 +6547,6 @@ export interface ListAliasesInput {
   NextToken?: string;
 }
 
-export namespace ListAliasesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAliasesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -8084,15 +6560,6 @@ export interface ListAliasesOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAliasesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAliasesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8136,15 +6603,6 @@ export interface ListBuildsInput {
   NextToken?: string;
 }
 
-export namespace ListBuildsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuildsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -8158,15 +6616,6 @@ export interface ListBuildsOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListBuildsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuildsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8196,15 +6645,6 @@ export interface ListFleetsInput {
   NextToken?: string;
 }
 
-export namespace ListFleetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFleetsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -8223,15 +6663,6 @@ export interface ListFleetsOutput {
   NextToken?: string;
 }
 
-export namespace ListFleetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFleetsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGameServerGroupsInput {
   /**
    * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
@@ -8244,15 +6675,6 @@ export interface ListGameServerGroupsInput {
   NextToken?: string;
 }
 
-export namespace ListGameServerGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGameServerGroupsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGameServerGroupsOutput {
   /**
    * <p>A collection of game server group objects that match the request.</p>
@@ -8263,15 +6685,6 @@ export interface ListGameServerGroupsOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGameServerGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGameServerGroupsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum SortOrder {
@@ -8305,15 +6718,6 @@ export interface ListGameServersInput {
   NextToken?: string;
 }
 
-export namespace ListGameServersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGameServersInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGameServersOutput {
   /**
    * <p>A collection of game server objects that match the request.</p>
@@ -8324,15 +6728,6 @@ export interface ListGameServersOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGameServersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGameServersOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListScriptsInput {
@@ -8347,15 +6742,6 @@ export interface ListScriptsInput {
   NextToken?: string;
 }
 
-export namespace ListScriptsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScriptsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListScriptsOutput {
   /**
    * <p>A set of properties describing the requested script.</p>
@@ -8366,15 +6752,6 @@ export interface ListScriptsOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListScriptsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListScriptsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -8389,15 +6766,6 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>
@@ -8405,15 +6773,6 @@ export interface ListTagsForResourceResponse {
    *         </p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8566,15 +6925,6 @@ export interface PutScalingPolicyInput {
   TargetConfiguration?: TargetConfiguration;
 }
 
-export namespace PutScalingPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutScalingPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -8583,15 +6933,6 @@ export interface PutScalingPolicyOutput {
    * <p>A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.</p>
    */
   Name?: string;
-}
-
-export namespace PutScalingPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutScalingPolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterGameServerInput {
@@ -8628,29 +6969,11 @@ export interface RegisterGameServerInput {
   GameServerData?: string;
 }
 
-export namespace RegisterGameServerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterGameServerInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterGameServerOutput {
   /**
    * <p>Object that describes the newly registered game server.</p>
    */
   GameServer?: GameServer;
-}
-
-export namespace RegisterGameServerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterGameServerOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8661,15 +6984,6 @@ export interface RequestUploadCredentialsInput {
    * <p>A unique identifier for the build to get credentials for. You can use either the build ID or ARN value. </p>
    */
   BuildId: string | undefined;
-}
-
-export namespace RequestUploadCredentialsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestUploadCredentialsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8690,16 +7004,6 @@ export interface RequestUploadCredentialsOutput {
   StorageLocation?: S3Location;
 }
 
-export namespace RequestUploadCredentialsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestUploadCredentialsOutput): any => ({
-    ...obj,
-    ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -8709,15 +7013,6 @@ export interface ResolveAliasInput {
    *             use either the alias ID or ARN value.</p>
    */
   AliasId: string | undefined;
-}
-
-export namespace ResolveAliasInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveAliasInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8737,15 +7032,6 @@ export interface ResolveAliasOutput {
   FleetArn?: string;
 }
 
-export namespace ResolveAliasOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveAliasOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ResumeGameServerGroupInput {
   /**
    * <p>A unique identifier for the game server group. Use either the <a>GameServerGroup</a> name or ARN value.</p>
@@ -8758,15 +7044,6 @@ export interface ResumeGameServerGroupInput {
   ResumeActions: (GameServerGroupAction | string)[] | undefined;
 }
 
-export namespace ResumeGameServerGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeGameServerGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ResumeGameServerGroupOutput {
   /**
    * <p>An object that describes the game server group resource, with the
@@ -8774,15 +7051,6 @@ export interface ResumeGameServerGroupOutput {
    *             activity.</p>
    */
   GameServerGroup?: GameServerGroup;
-}
-
-export namespace ResumeGameServerGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeGameServerGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8911,15 +7179,6 @@ export interface SearchGameSessionsInput {
   NextToken?: string;
 }
 
-export namespace SearchGameSessionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchGameSessionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -8934,15 +7193,6 @@ export interface SearchGameSessionsOutput {
    * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace SearchGameSessionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchGameSessionsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8966,15 +7216,6 @@ export interface StartFleetActionsInput {
   Location?: string;
 }
 
-export namespace StartFleetActionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFleetActionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -8988,15 +7229,6 @@ export interface StartFleetActionsOutput {
    * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a GameLift fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
    */
   FleetArn?: string;
-}
-
-export namespace StartFleetActionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFleetActionsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9050,15 +7282,6 @@ export interface StartGameSessionPlacementInput {
   GameSessionData?: string;
 }
 
-export namespace StartGameSessionPlacementInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartGameSessionPlacementInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -9069,15 +7292,6 @@ export interface StartGameSessionPlacementOutput {
    *         and placement status. </p>
    */
   GameSessionPlacement?: GameSessionPlacement;
-}
-
-export namespace StartGameSessionPlacementOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartGameSessionPlacementOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9129,15 +7343,6 @@ export interface StartMatchBackfillInput {
   Players: Player[] | undefined;
 }
 
-export namespace StartMatchBackfillInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMatchBackfillInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -9148,15 +7353,6 @@ export interface StartMatchBackfillOutput {
    *             matchmaking process.</p>
    */
   MatchmakingTicket?: MatchmakingTicket;
-}
-
-export namespace StartMatchBackfillOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMatchBackfillOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9186,15 +7382,6 @@ export interface StartMatchmakingInput {
   Players: Player[] | undefined;
 }
 
-export namespace StartMatchmakingInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMatchmakingInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -9205,15 +7392,6 @@ export interface StartMatchmakingOutput {
    *             matchmaking process.</p>
    */
   MatchmakingTicket?: MatchmakingTicket;
-}
-
-export namespace StartMatchmakingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMatchmakingOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9237,15 +7415,6 @@ export interface StopFleetActionsInput {
   Location?: string;
 }
 
-export namespace StopFleetActionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopFleetActionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -9261,15 +7430,6 @@ export interface StopFleetActionsOutput {
   FleetArn?: string;
 }
 
-export namespace StopFleetActionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopFleetActionsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -9278,15 +7438,6 @@ export interface StopGameSessionPlacementInput {
    * <p>A unique identifier for a game session placement to cancel.</p>
    */
   PlacementId: string | undefined;
-}
-
-export namespace StopGameSessionPlacementInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopGameSessionPlacementInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9300,15 +7451,6 @@ export interface StopGameSessionPlacementOutput {
   GameSessionPlacement?: GameSessionPlacement;
 }
 
-export namespace StopGameSessionPlacementOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopGameSessionPlacementOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -9319,25 +7461,7 @@ export interface StopMatchmakingInput {
   TicketId: string | undefined;
 }
 
-export namespace StopMatchmakingInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopMatchmakingInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StopMatchmakingOutput {}
-
-export namespace StopMatchmakingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopMatchmakingOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface SuspendGameServerGroupInput {
   /**
@@ -9351,15 +7475,6 @@ export interface SuspendGameServerGroupInput {
   SuspendActions: (GameServerGroupAction | string)[] | undefined;
 }
 
-export namespace SuspendGameServerGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuspendGameServerGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SuspendGameServerGroupOutput {
   /**
    * <p>An object that describes the game server group resource, with the
@@ -9367,15 +7482,6 @@ export interface SuspendGameServerGroupOutput {
    *             activity.</p>
    */
   GameServerGroup?: GameServerGroup;
-}
-
-export namespace SuspendGameServerGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuspendGameServerGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -9398,25 +7504,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -9435,25 +7523,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the input for a request operation.</p>
@@ -9482,15 +7552,6 @@ export interface UpdateAliasInput {
   RoutingStrategy?: RoutingStrategy;
 }
 
-export namespace UpdateAliasInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAliasInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -9499,15 +7560,6 @@ export interface UpdateAliasOutput {
    * <p>The updated alias resource.</p>
    */
   Alias?: Alias;
-}
-
-export namespace UpdateAliasOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAliasOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9530,15 +7582,6 @@ export interface UpdateBuildInput {
   Version?: string;
 }
 
-export namespace UpdateBuildInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBuildInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -9547,15 +7590,6 @@ export interface UpdateBuildOutput {
    * <p>The updated build resource.</p>
    */
   Build?: Build;
-}
-
-export namespace UpdateBuildOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBuildOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9613,15 +7647,6 @@ export interface UpdateFleetAttributesInput {
   MetricGroups?: string[];
 }
 
-export namespace UpdateFleetAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetAttributesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -9630,15 +7655,6 @@ export interface UpdateFleetAttributesOutput {
    * <p>A unique identifier for the fleet that was updated.</p>
    */
   FleetId?: string;
-}
-
-export namespace UpdateFleetAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetAttributesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9676,15 +7692,6 @@ export interface UpdateFleetCapacityInput {
   Location?: string;
 }
 
-export namespace UpdateFleetCapacityInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetCapacityInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -9704,15 +7711,6 @@ export interface UpdateFleetCapacityOutput {
    *             such as <code>us-west-2</code>.</p>
    */
   Location?: string;
-}
-
-export namespace UpdateFleetCapacityOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetCapacityOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9736,15 +7734,6 @@ export interface UpdateFleetPortSettingsInput {
   InboundPermissionRevocations?: IpPermission[];
 }
 
-export namespace UpdateFleetPortSettingsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetPortSettingsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -9753,15 +7742,6 @@ export interface UpdateFleetPortSettingsOutput {
    * <p>A unique identifier for the fleet that was updated.</p>
    */
   FleetId?: string;
-}
-
-export namespace UpdateFleetPortSettingsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFleetPortSettingsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum GameServerHealthCheck {
@@ -9800,29 +7780,11 @@ export interface UpdateGameServerInput {
   HealthCheck?: GameServerHealthCheck | string;
 }
 
-export namespace UpdateGameServerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameServerInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGameServerOutput {
   /**
    * <p>Object that describes the newly updated game server.</p>
    */
   GameServer?: GameServer;
-}
-
-export namespace UpdateGameServerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameServerOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateGameServerGroupInput {
@@ -9891,29 +7853,11 @@ export interface UpdateGameServerGroupInput {
   BalancingStrategy?: BalancingStrategy | string;
 }
 
-export namespace UpdateGameServerGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameServerGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGameServerGroupOutput {
   /**
    * <p>An object that describes the game server group resource with updated properties. </p>
    */
   GameServerGroup?: GameServerGroup;
-}
-
-export namespace UpdateGameServerGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameServerGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9959,15 +7903,6 @@ export interface UpdateGameSessionInput {
   ProtectionPolicy?: ProtectionPolicy | string;
 }
 
-export namespace UpdateGameSessionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameSessionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -9976,15 +7911,6 @@ export interface UpdateGameSessionOutput {
    * <p>The updated game session properties.</p>
    */
   GameSession?: GameSession;
-}
-
-export namespace UpdateGameSessionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameSessionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10045,15 +7971,6 @@ export interface UpdateGameSessionQueueInput {
   NotificationTarget?: string;
 }
 
-export namespace UpdateGameSessionQueueInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameSessionQueueInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -10062,15 +7979,6 @@ export interface UpdateGameSessionQueueOutput {
    * <p>An object that describes the newly updated game session queue.</p>
    */
   GameSessionQueue?: GameSessionQueue;
-}
-
-export namespace UpdateGameSessionQueueOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGameSessionQueueOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10188,15 +8096,6 @@ export interface UpdateMatchmakingConfigurationInput {
   FlexMatchMode?: FlexMatchMode | string;
 }
 
-export namespace UpdateMatchmakingConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMatchmakingConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -10205,15 +8104,6 @@ export interface UpdateMatchmakingConfigurationOutput {
    * <p>The updated matchmaking configuration.</p>
    */
   Configuration?: MatchmakingConfiguration;
-}
-
-export namespace UpdateMatchmakingConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMatchmakingConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10235,15 +8125,6 @@ export interface UpdateRuntimeConfigurationInput {
   RuntimeConfiguration: RuntimeConfiguration | undefined;
 }
 
-export namespace UpdateRuntimeConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuntimeConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the returned data in response to a request operation.</p>
  */
@@ -10253,15 +8134,6 @@ export interface UpdateRuntimeConfigurationOutput {
    *             update was successful, all property changes are shown. </p>
    */
   RuntimeConfiguration?: RuntimeConfiguration;
-}
-
-export namespace UpdateRuntimeConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuntimeConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateScriptInput {
@@ -10302,15 +8174,6 @@ export interface UpdateScriptInput {
   ZipFile?: Uint8Array;
 }
 
-export namespace UpdateScriptInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateScriptInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateScriptOutput {
   /**
    * <p>The newly created script record with a unique script ID. The new script's storage
@@ -10323,15 +8186,6 @@ export interface UpdateScriptOutput {
   Script?: Script;
 }
 
-export namespace UpdateScriptOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateScriptOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input for a request operation.</p>
  */
@@ -10340,15 +8194,6 @@ export interface ValidateMatchmakingRuleSetInput {
    * <p>A collection of matchmaking rules to validate, formatted as a JSON string.</p>
    */
   RuleSetBody: string | undefined;
-}
-
-export namespace ValidateMatchmakingRuleSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidateMatchmakingRuleSetInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10361,11 +8206,1722 @@ export interface ValidateMatchmakingRuleSetOutput {
   Valid?: boolean;
 }
 
-export namespace ValidateMatchmakingRuleSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidateMatchmakingRuleSetOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptMatchInputFilterSensitiveLog = (obj: AcceptMatchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptMatchOutputFilterSensitiveLog = (obj: AcceptMatchOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingStrategyFilterSensitiveLog = (obj: RoutingStrategy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AliasFilterSensitiveLog = (obj: Alias): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsCredentialsFilterSensitiveLog = (obj: AwsCredentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildFilterSensitiveLog = (obj: Build): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateConfigurationFilterSensitiveLog = (obj: CertificateConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClaimGameServerInputFilterSensitiveLog = (obj: ClaimGameServerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameServerFilterSensitiveLog = (obj: GameServer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClaimGameServerOutputFilterSensitiveLog = (obj: ClaimGameServerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAliasInputFilterSensitiveLog = (obj: CreateAliasInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAliasOutputFilterSensitiveLog = (obj: CreateAliasOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBuildInputFilterSensitiveLog = (obj: CreateBuildInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBuildOutputFilterSensitiveLog = (obj: CreateBuildOutput): any => ({
+  ...obj,
+  ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IpPermissionFilterSensitiveLog = (obj: IpPermission): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocationConfigurationFilterSensitiveLog = (obj: LocationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceCreationLimitPolicyFilterSensitiveLog = (obj: ResourceCreationLimitPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerProcessFilterSensitiveLog = (obj: ServerProcess): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuntimeConfigurationFilterSensitiveLog = (obj: RuntimeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetInputFilterSensitiveLog = (obj: CreateFleetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FleetAttributesFilterSensitiveLog = (obj: FleetAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocationStateFilterSensitiveLog = (obj: LocationState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetOutputFilterSensitiveLog = (obj: CreateFleetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetLocationsInputFilterSensitiveLog = (obj: CreateFleetLocationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetLocationsOutputFilterSensitiveLog = (obj: CreateFleetLocationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetTrackingConfigurationFilterSensitiveLog = (obj: TargetTrackingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameServerGroupAutoScalingPolicyFilterSensitiveLog = (obj: GameServerGroupAutoScalingPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceDefinitionFilterSensitiveLog = (obj: InstanceDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchTemplateSpecificationFilterSensitiveLog = (obj: LaunchTemplateSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGameServerGroupInputFilterSensitiveLog = (obj: CreateGameServerGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameServerGroupFilterSensitiveLog = (obj: GameServerGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGameServerGroupOutputFilterSensitiveLog = (obj: CreateGameServerGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GamePropertyFilterSensitiveLog = (obj: GameProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGameSessionInputFilterSensitiveLog = (obj: CreateGameSessionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameSessionFilterSensitiveLog = (obj: GameSession): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGameSessionOutputFilterSensitiveLog = (obj: CreateGameSessionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameSessionQueueDestinationFilterSensitiveLog = (obj: GameSessionQueueDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterConfigurationFilterSensitiveLog = (obj: FilterConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlayerLatencyPolicyFilterSensitiveLog = (obj: PlayerLatencyPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PriorityConfigurationFilterSensitiveLog = (obj: PriorityConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGameSessionQueueInputFilterSensitiveLog = (obj: CreateGameSessionQueueInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameSessionQueueFilterSensitiveLog = (obj: GameSessionQueue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGameSessionQueueOutputFilterSensitiveLog = (obj: CreateGameSessionQueueOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMatchmakingConfigurationInputFilterSensitiveLog = (
+  obj: CreateMatchmakingConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MatchmakingConfigurationFilterSensitiveLog = (obj: MatchmakingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMatchmakingConfigurationOutputFilterSensitiveLog = (
+  obj: CreateMatchmakingConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMatchmakingRuleSetInputFilterSensitiveLog = (obj: CreateMatchmakingRuleSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MatchmakingRuleSetFilterSensitiveLog = (obj: MatchmakingRuleSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMatchmakingRuleSetOutputFilterSensitiveLog = (obj: CreateMatchmakingRuleSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionInputFilterSensitiveLog = (obj: CreatePlayerSessionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlayerSessionFilterSensitiveLog = (obj: PlayerSession): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionOutputFilterSensitiveLog = (obj: CreatePlayerSessionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionsInputFilterSensitiveLog = (obj: CreatePlayerSessionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionsOutputFilterSensitiveLog = (obj: CreatePlayerSessionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScriptInputFilterSensitiveLog = (obj: CreateScriptInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScriptFilterSensitiveLog = (obj: Script): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScriptOutputFilterSensitiveLog = (obj: CreateScriptOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcPeeringAuthorizationInputFilterSensitiveLog = (obj: CreateVpcPeeringAuthorizationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcPeeringAuthorizationFilterSensitiveLog = (obj: VpcPeeringAuthorization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcPeeringAuthorizationOutputFilterSensitiveLog = (
+  obj: CreateVpcPeeringAuthorizationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcPeeringConnectionInputFilterSensitiveLog = (obj: CreateVpcPeeringConnectionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcPeeringConnectionOutputFilterSensitiveLog = (obj: CreateVpcPeeringConnectionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAliasInputFilterSensitiveLog = (obj: DeleteAliasInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBuildInputFilterSensitiveLog = (obj: DeleteBuildInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFleetInputFilterSensitiveLog = (obj: DeleteFleetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFleetLocationsInputFilterSensitiveLog = (obj: DeleteFleetLocationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFleetLocationsOutputFilterSensitiveLog = (obj: DeleteFleetLocationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGameServerGroupInputFilterSensitiveLog = (obj: DeleteGameServerGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGameServerGroupOutputFilterSensitiveLog = (obj: DeleteGameServerGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGameSessionQueueInputFilterSensitiveLog = (obj: DeleteGameSessionQueueInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGameSessionQueueOutputFilterSensitiveLog = (obj: DeleteGameSessionQueueOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMatchmakingConfigurationInputFilterSensitiveLog = (
+  obj: DeleteMatchmakingConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMatchmakingConfigurationOutputFilterSensitiveLog = (
+  obj: DeleteMatchmakingConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMatchmakingRuleSetInputFilterSensitiveLog = (obj: DeleteMatchmakingRuleSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMatchmakingRuleSetOutputFilterSensitiveLog = (obj: DeleteMatchmakingRuleSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScalingPolicyInputFilterSensitiveLog = (obj: DeleteScalingPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScriptInputFilterSensitiveLog = (obj: DeleteScriptInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcPeeringAuthorizationInputFilterSensitiveLog = (obj: DeleteVpcPeeringAuthorizationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcPeeringAuthorizationOutputFilterSensitiveLog = (
+  obj: DeleteVpcPeeringAuthorizationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcPeeringConnectionInputFilterSensitiveLog = (obj: DeleteVpcPeeringConnectionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcPeeringConnectionOutputFilterSensitiveLog = (obj: DeleteVpcPeeringConnectionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterGameServerInputFilterSensitiveLog = (obj: DeregisterGameServerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAliasInputFilterSensitiveLog = (obj: DescribeAliasInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAliasOutputFilterSensitiveLog = (obj: DescribeAliasOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBuildInputFilterSensitiveLog = (obj: DescribeBuildInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBuildOutputFilterSensitiveLog = (obj: DescribeBuildOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEC2InstanceLimitsInputFilterSensitiveLog = (obj: DescribeEC2InstanceLimitsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2InstanceLimitFilterSensitiveLog = (obj: EC2InstanceLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEC2InstanceLimitsOutputFilterSensitiveLog = (obj: DescribeEC2InstanceLimitsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetAttributesInputFilterSensitiveLog = (obj: DescribeFleetAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetAttributesOutputFilterSensitiveLog = (obj: DescribeFleetAttributesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetCapacityInputFilterSensitiveLog = (obj: DescribeFleetCapacityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2InstanceCountsFilterSensitiveLog = (obj: EC2InstanceCounts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FleetCapacityFilterSensitiveLog = (obj: FleetCapacity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetCapacityOutputFilterSensitiveLog = (obj: DescribeFleetCapacityOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetEventsInputFilterSensitiveLog = (obj: DescribeFleetEventsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFilterSensitiveLog = (obj: Event): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetEventsOutputFilterSensitiveLog = (obj: DescribeFleetEventsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetLocationAttributesInputFilterSensitiveLog = (
+  obj: DescribeFleetLocationAttributesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LocationAttributesFilterSensitiveLog = (obj: LocationAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetLocationAttributesOutputFilterSensitiveLog = (
+  obj: DescribeFleetLocationAttributesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetLocationCapacityInputFilterSensitiveLog = (obj: DescribeFleetLocationCapacityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetLocationCapacityOutputFilterSensitiveLog = (
+  obj: DescribeFleetLocationCapacityOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetLocationUtilizationInputFilterSensitiveLog = (
+  obj: DescribeFleetLocationUtilizationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FleetUtilizationFilterSensitiveLog = (obj: FleetUtilization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetLocationUtilizationOutputFilterSensitiveLog = (
+  obj: DescribeFleetLocationUtilizationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetPortSettingsInputFilterSensitiveLog = (obj: DescribeFleetPortSettingsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetPortSettingsOutputFilterSensitiveLog = (obj: DescribeFleetPortSettingsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetUtilizationInputFilterSensitiveLog = (obj: DescribeFleetUtilizationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetUtilizationOutputFilterSensitiveLog = (obj: DescribeFleetUtilizationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameServerInputFilterSensitiveLog = (obj: DescribeGameServerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameServerOutputFilterSensitiveLog = (obj: DescribeGameServerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameServerGroupInputFilterSensitiveLog = (obj: DescribeGameServerGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameServerGroupOutputFilterSensitiveLog = (obj: DescribeGameServerGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameServerInstancesInputFilterSensitiveLog = (obj: DescribeGameServerInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameServerInstanceFilterSensitiveLog = (obj: GameServerInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameServerInstancesOutputFilterSensitiveLog = (obj: DescribeGameServerInstancesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionDetailsInputFilterSensitiveLog = (obj: DescribeGameSessionDetailsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameSessionDetailFilterSensitiveLog = (obj: GameSessionDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionDetailsOutputFilterSensitiveLog = (obj: DescribeGameSessionDetailsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionPlacementInputFilterSensitiveLog = (obj: DescribeGameSessionPlacementInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlacedPlayerSessionFilterSensitiveLog = (obj: PlacedPlayerSession): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlayerLatencyFilterSensitiveLog = (obj: PlayerLatency): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameSessionPlacementFilterSensitiveLog = (obj: GameSessionPlacement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionPlacementOutputFilterSensitiveLog = (obj: DescribeGameSessionPlacementOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionQueuesInputFilterSensitiveLog = (obj: DescribeGameSessionQueuesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionQueuesOutputFilterSensitiveLog = (obj: DescribeGameSessionQueuesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionsInputFilterSensitiveLog = (obj: DescribeGameSessionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionsOutputFilterSensitiveLog = (obj: DescribeGameSessionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstancesInputFilterSensitiveLog = (obj: DescribeInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstancesOutputFilterSensitiveLog = (obj: DescribeInstancesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMatchmakingInputFilterSensitiveLog = (obj: DescribeMatchmakingInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MatchedPlayerSessionFilterSensitiveLog = (obj: MatchedPlayerSession): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GameSessionConnectionInfoFilterSensitiveLog = (obj: GameSessionConnectionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlayerFilterSensitiveLog = (obj: Player): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MatchmakingTicketFilterSensitiveLog = (obj: MatchmakingTicket): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMatchmakingOutputFilterSensitiveLog = (obj: DescribeMatchmakingOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMatchmakingConfigurationsInputFilterSensitiveLog = (
+  obj: DescribeMatchmakingConfigurationsInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMatchmakingConfigurationsOutputFilterSensitiveLog = (
+  obj: DescribeMatchmakingConfigurationsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMatchmakingRuleSetsInputFilterSensitiveLog = (obj: DescribeMatchmakingRuleSetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMatchmakingRuleSetsOutputFilterSensitiveLog = (obj: DescribeMatchmakingRuleSetsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePlayerSessionsInputFilterSensitiveLog = (obj: DescribePlayerSessionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePlayerSessionsOutputFilterSensitiveLog = (obj: DescribePlayerSessionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuntimeConfigurationInputFilterSensitiveLog = (obj: DescribeRuntimeConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuntimeConfigurationOutputFilterSensitiveLog = (obj: DescribeRuntimeConfigurationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingPoliciesInputFilterSensitiveLog = (obj: DescribeScalingPoliciesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetConfigurationFilterSensitiveLog = (obj: TargetConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingPolicyFilterSensitiveLog = (obj: ScalingPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScalingPoliciesOutputFilterSensitiveLog = (obj: DescribeScalingPoliciesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScriptInputFilterSensitiveLog = (obj: DescribeScriptInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScriptOutputFilterSensitiveLog = (obj: DescribeScriptOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcPeeringAuthorizationsInputFilterSensitiveLog = (
+  obj: DescribeVpcPeeringAuthorizationsInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcPeeringAuthorizationsOutputFilterSensitiveLog = (
+  obj: DescribeVpcPeeringAuthorizationsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcPeeringConnectionsInputFilterSensitiveLog = (obj: DescribeVpcPeeringConnectionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcPeeringConnectionStatusFilterSensitiveLog = (obj: VpcPeeringConnectionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcPeeringConnectionFilterSensitiveLog = (obj: VpcPeeringConnection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVpcPeeringConnectionsOutputFilterSensitiveLog = (
+  obj: DescribeVpcPeeringConnectionsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DesiredPlayerSessionFilterSensitiveLog = (obj: DesiredPlayerSession): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGameSessionLogUrlInputFilterSensitiveLog = (obj: GetGameSessionLogUrlInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGameSessionLogUrlOutputFilterSensitiveLog = (obj: GetGameSessionLogUrlOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceAccessInputFilterSensitiveLog = (obj: GetInstanceAccessInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceCredentialsFilterSensitiveLog = (obj: InstanceCredentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceAccessFilterSensitiveLog = (obj: InstanceAccess): any => ({
+  ...obj,
+  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceAccessOutputFilterSensitiveLog = (obj: GetInstanceAccessOutput): any => ({
+  ...obj,
+  ...(obj.InstanceAccess && { InstanceAccess: InstanceAccessFilterSensitiveLog(obj.InstanceAccess) }),
+});
+
+/**
+ * @internal
+ */
+export const ListAliasesInputFilterSensitiveLog = (obj: ListAliasesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAliasesOutputFilterSensitiveLog = (obj: ListAliasesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuildsInputFilterSensitiveLog = (obj: ListBuildsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuildsOutputFilterSensitiveLog = (obj: ListBuildsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFleetsInputFilterSensitiveLog = (obj: ListFleetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFleetsOutputFilterSensitiveLog = (obj: ListFleetsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGameServerGroupsInputFilterSensitiveLog = (obj: ListGameServerGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGameServerGroupsOutputFilterSensitiveLog = (obj: ListGameServerGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGameServersInputFilterSensitiveLog = (obj: ListGameServersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGameServersOutputFilterSensitiveLog = (obj: ListGameServersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListScriptsInputFilterSensitiveLog = (obj: ListScriptsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListScriptsOutputFilterSensitiveLog = (obj: ListScriptsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutScalingPolicyInputFilterSensitiveLog = (obj: PutScalingPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutScalingPolicyOutputFilterSensitiveLog = (obj: PutScalingPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterGameServerInputFilterSensitiveLog = (obj: RegisterGameServerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterGameServerOutputFilterSensitiveLog = (obj: RegisterGameServerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestUploadCredentialsInputFilterSensitiveLog = (obj: RequestUploadCredentialsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestUploadCredentialsOutputFilterSensitiveLog = (obj: RequestUploadCredentialsOutput): any => ({
+  ...obj,
+  ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResolveAliasInputFilterSensitiveLog = (obj: ResolveAliasInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveAliasOutputFilterSensitiveLog = (obj: ResolveAliasOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResumeGameServerGroupInputFilterSensitiveLog = (obj: ResumeGameServerGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResumeGameServerGroupOutputFilterSensitiveLog = (obj: ResumeGameServerGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchGameSessionsInputFilterSensitiveLog = (obj: SearchGameSessionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchGameSessionsOutputFilterSensitiveLog = (obj: SearchGameSessionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFleetActionsInputFilterSensitiveLog = (obj: StartFleetActionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFleetActionsOutputFilterSensitiveLog = (obj: StartFleetActionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartGameSessionPlacementInputFilterSensitiveLog = (obj: StartGameSessionPlacementInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartGameSessionPlacementOutputFilterSensitiveLog = (obj: StartGameSessionPlacementOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMatchBackfillInputFilterSensitiveLog = (obj: StartMatchBackfillInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMatchBackfillOutputFilterSensitiveLog = (obj: StartMatchBackfillOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMatchmakingInputFilterSensitiveLog = (obj: StartMatchmakingInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMatchmakingOutputFilterSensitiveLog = (obj: StartMatchmakingOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopFleetActionsInputFilterSensitiveLog = (obj: StopFleetActionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopFleetActionsOutputFilterSensitiveLog = (obj: StopFleetActionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopGameSessionPlacementInputFilterSensitiveLog = (obj: StopGameSessionPlacementInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopGameSessionPlacementOutputFilterSensitiveLog = (obj: StopGameSessionPlacementOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopMatchmakingInputFilterSensitiveLog = (obj: StopMatchmakingInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopMatchmakingOutputFilterSensitiveLog = (obj: StopMatchmakingOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuspendGameServerGroupInputFilterSensitiveLog = (obj: SuspendGameServerGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuspendGameServerGroupOutputFilterSensitiveLog = (obj: SuspendGameServerGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAliasInputFilterSensitiveLog = (obj: UpdateAliasInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAliasOutputFilterSensitiveLog = (obj: UpdateAliasOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBuildInputFilterSensitiveLog = (obj: UpdateBuildInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBuildOutputFilterSensitiveLog = (obj: UpdateBuildOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFleetAttributesInputFilterSensitiveLog = (obj: UpdateFleetAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFleetAttributesOutputFilterSensitiveLog = (obj: UpdateFleetAttributesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFleetCapacityInputFilterSensitiveLog = (obj: UpdateFleetCapacityInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFleetCapacityOutputFilterSensitiveLog = (obj: UpdateFleetCapacityOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFleetPortSettingsInputFilterSensitiveLog = (obj: UpdateFleetPortSettingsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFleetPortSettingsOutputFilterSensitiveLog = (obj: UpdateFleetPortSettingsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameServerInputFilterSensitiveLog = (obj: UpdateGameServerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameServerOutputFilterSensitiveLog = (obj: UpdateGameServerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameServerGroupInputFilterSensitiveLog = (obj: UpdateGameServerGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameServerGroupOutputFilterSensitiveLog = (obj: UpdateGameServerGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameSessionInputFilterSensitiveLog = (obj: UpdateGameSessionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameSessionOutputFilterSensitiveLog = (obj: UpdateGameSessionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameSessionQueueInputFilterSensitiveLog = (obj: UpdateGameSessionQueueInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameSessionQueueOutputFilterSensitiveLog = (obj: UpdateGameSessionQueueOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMatchmakingConfigurationInputFilterSensitiveLog = (
+  obj: UpdateMatchmakingConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMatchmakingConfigurationOutputFilterSensitiveLog = (
+  obj: UpdateMatchmakingConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuntimeConfigurationInputFilterSensitiveLog = (obj: UpdateRuntimeConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuntimeConfigurationOutputFilterSensitiveLog = (obj: UpdateRuntimeConfigurationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScriptInputFilterSensitiveLog = (obj: UpdateScriptInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScriptOutputFilterSensitiveLog = (obj: UpdateScriptOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateMatchmakingRuleSetInputFilterSensitiveLog = (obj: ValidateMatchmakingRuleSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateMatchmakingRuleSetOutputFilterSensitiveLog = (obj: ValidateMatchmakingRuleSetOutput): any => ({
+  ...obj,
+});

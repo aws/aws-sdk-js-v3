@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { ContactIdResponse, ReserveContactRequest } from "../models/models_0";
+import {
+  ContactIdResponse,
+  ContactIdResponseFilterSensitiveLog,
+  ReserveContactRequest,
+  ReserveContactRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ReserveContactCommand,
   serializeAws_restJson1ReserveContactCommand,
@@ -72,8 +77,8 @@ export class ReserveContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReserveContactRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ContactIdResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ReserveContactRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ContactIdResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

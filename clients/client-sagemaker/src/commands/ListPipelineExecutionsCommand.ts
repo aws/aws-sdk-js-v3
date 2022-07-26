@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListPipelineExecutionsRequest, ListPipelineExecutionsResponse } from "../models/models_2";
+import {
+  ListPipelineExecutionsRequest,
+  ListPipelineExecutionsRequestFilterSensitiveLog,
+  ListPipelineExecutionsResponse,
+  ListPipelineExecutionsResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListPipelineExecutionsCommand,
   serializeAws_json1_1ListPipelineExecutionsCommand,
@@ -72,8 +77,8 @@ export class ListPipelineExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPipelineExecutionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPipelineExecutionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPipelineExecutionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPipelineExecutionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { StartMigrationMessage, StartMigrationResponse } from "../models/models_0";
+import {
+  StartMigrationMessage,
+  StartMigrationMessageFilterSensitiveLog,
+  StartMigrationResponse,
+  StartMigrationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryStartMigrationCommand,
   serializeAws_queryStartMigrationCommand,
@@ -72,8 +77,8 @@ export class StartMigrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMigrationMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: StartMigrationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMigrationMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: StartMigrationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

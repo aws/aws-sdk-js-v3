@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import { CreateBackendRequest, CreateBackendResponse } from "../models/models_0";
+import {
+  CreateBackendRequest,
+  CreateBackendRequestFilterSensitiveLog,
+  CreateBackendResponse,
+  CreateBackendResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBackendCommand,
   serializeAws_restJson1CreateBackendCommand,
@@ -72,8 +77,8 @@ export class CreateBackendCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBackendRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackendResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBackendRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateBackendResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

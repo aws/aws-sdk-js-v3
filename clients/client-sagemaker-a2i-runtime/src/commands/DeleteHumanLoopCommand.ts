@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteHumanLoopRequest, DeleteHumanLoopResponse } from "../models/models_0";
+import {
+  DeleteHumanLoopRequest,
+  DeleteHumanLoopRequestFilterSensitiveLog,
+  DeleteHumanLoopResponse,
+  DeleteHumanLoopResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteHumanLoopCommand,
   serializeAws_restJson1DeleteHumanLoopCommand,
@@ -78,8 +83,8 @@ export class DeleteHumanLoopCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHumanLoopRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHumanLoopResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteHumanLoopRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteHumanLoopResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

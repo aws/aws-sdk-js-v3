@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { CreateInstanceProfileRequest, CreateInstanceProfileResult } from "../models/models_0";
+import {
+  CreateInstanceProfileRequest,
+  CreateInstanceProfileRequestFilterSensitiveLog,
+  CreateInstanceProfileResult,
+  CreateInstanceProfileResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateInstanceProfileCommand,
   serializeAws_json1_1CreateInstanceProfileCommand,
@@ -73,8 +78,8 @@ export class CreateInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateInstanceProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateInstanceProfileResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateInstanceProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateInstanceProfileResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

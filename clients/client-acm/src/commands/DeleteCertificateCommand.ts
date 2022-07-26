@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { DeleteCertificateRequest } from "../models/models_0";
+import { DeleteCertificateRequest, DeleteCertificateRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCertificateCommand,
   serializeAws_json1_1DeleteCertificateCommand,
@@ -79,7 +79,7 @@ export class DeleteCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCertificateRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCertificateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

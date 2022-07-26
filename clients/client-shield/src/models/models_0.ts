@@ -49,15 +49,6 @@ export class AccessDeniedForDependencyException extends __BaseException {
  */
 export interface BlockAction {}
 
-export namespace BlockAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlockAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code> action. </p>
  *             <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
@@ -65,15 +56,6 @@ export namespace BlockAction {
  *          </p>
  */
 export interface CountAction {}
-
-export namespace CountAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CountAction): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Specifies the action setting that Shield Advanced should use in the WAF rules that it creates on behalf of the
@@ -92,15 +74,6 @@ export interface ResponseAction {
    *          <p>You must specify exactly one action, either <code>Block</code> or <code>Count</code>.</p>
    */
   Count?: CountAction;
-}
-
-export namespace ResponseAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseAction): any => ({
-    ...obj,
-  });
 }
 
 export enum ApplicationLayerAutomaticResponseStatus {
@@ -127,15 +100,6 @@ export interface ApplicationLayerAutomaticResponseConfiguration {
   Action: ResponseAction | undefined;
 }
 
-export namespace ApplicationLayerAutomaticResponseConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationLayerAutomaticResponseConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDRTLogBucketRequest {
   /**
    * <p>The Amazon S3 bucket that contains the logs that you want to share.</p>
@@ -143,25 +107,7 @@ export interface AssociateDRTLogBucketRequest {
   LogBucket: string | undefined;
 }
 
-export namespace AssociateDRTLogBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDRTLogBucketRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDRTLogBucketResponse {}
-
-export namespace AssociateDRTLogBucketResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDRTLogBucketResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
@@ -214,15 +160,6 @@ export interface ValidationExceptionField {
    * <p>The message describing why the parameter failed validation.</p>
    */
   message: string | undefined;
-}
-
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
 }
 
 export enum ValidationExceptionReason {
@@ -364,25 +301,7 @@ export interface AssociateDRTRoleRequest {
   RoleArn: string | undefined;
 }
 
-export namespace AssociateDRTRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDRTRoleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateDRTRoleResponse {}
-
-export namespace AssociateDRTRoleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateDRTRoleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateHealthCheckRequest {
   /**
@@ -396,25 +315,7 @@ export interface AssociateHealthCheckRequest {
   HealthCheckArn: string | undefined;
 }
 
-export namespace AssociateHealthCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateHealthCheckRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateHealthCheckResponse {}
-
-export namespace AssociateHealthCheckResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateHealthCheckResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Exception that indicates that the resource is invalid. You might not have access to the resource, or the resource might not exist.</p>
@@ -455,15 +356,6 @@ export interface EmergencyContact {
   ContactNotes?: string;
 }
 
-export namespace EmergencyContact {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmergencyContact): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateProactiveEngagementDetailsRequest {
   /**
    * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you for escalations to the SRT and to initiate proactive customer support. </p>
@@ -475,25 +367,7 @@ export interface AssociateProactiveEngagementDetailsRequest {
   EmergencyContactList: EmergencyContact[] | undefined;
 }
 
-export namespace AssociateProactiveEngagementDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateProactiveEngagementDetailsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateProactiveEngagementDetailsResponse {}
-
-export namespace AssociateProactiveEngagementDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateProactiveEngagementDetailsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The counter that describes a DDoS attack.</p>
@@ -530,15 +404,6 @@ export interface SummarizedCounter {
   Unit?: string;
 }
 
-export namespace SummarizedCounter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SummarizedCounter): any => ({
-    ...obj,
-  });
-}
-
 export enum AttackLayer {
   APPLICATION = "APPLICATION",
   NETWORK = "NETWORK",
@@ -568,15 +433,6 @@ export interface Contributor {
    * <p>The contribution of this contributor expressed in <a>Protection</a> units. For example <code>10,000</code>.</p>
    */
   Value?: number;
-}
-
-export namespace Contributor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Contributor): any => ({
-    ...obj,
-  });
 }
 
 export enum Unit {
@@ -624,15 +480,6 @@ export interface AttackProperty {
   Total?: number;
 }
 
-export namespace AttackProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttackProperty): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The mitigation applied to a DDoS attack.</p>
  */
@@ -641,15 +488,6 @@ export interface Mitigation {
    * <p>The name of the mitigation taken for this attack.</p>
    */
   MitigationName?: string;
-}
-
-export namespace Mitigation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Mitigation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -665,15 +503,6 @@ export interface SummarizedAttackVector {
    * <p>The list of counters that describe the details of the attack.</p>
    */
   VectorCounters?: SummarizedCounter[];
-}
-
-export namespace SummarizedAttackVector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SummarizedAttackVector): any => ({
-    ...obj,
-  });
 }
 
 export enum SubResourceType {
@@ -704,15 +533,6 @@ export interface SubResourceSummary {
    * <p>The counters that describe the details of the attack.</p>
    */
   Counters?: SummarizedCounter[];
-}
-
-export namespace SubResourceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubResourceSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -764,15 +584,6 @@ export interface AttackDetail {
   Mitigations?: Mitigation[];
 }
 
-export namespace AttackDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttackDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Statistics objects for the various data types in <a>AttackVolume</a>. </p>
  */
@@ -781,15 +592,6 @@ export interface AttackVolumeStatistics {
    * <p>The maximum attack volume observed for the given unit.</p>
    */
   Max: number | undefined;
-}
-
-export namespace AttackVolumeStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttackVolumeStatistics): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -812,15 +614,6 @@ export interface AttackVolume {
   RequestsPerSecond?: AttackVolumeStatistics;
 }
 
-export namespace AttackVolume {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttackVolume): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A single attack statistics data record. This is returned by <a>DescribeAttackStatistics</a> along with a time range indicating the time period that the attack statistics apply to.  </p>
  */
@@ -834,15 +627,6 @@ export interface AttackStatisticsDataItem {
    * <p>The number of attacks detected during the time period. This is always present, but might be zero. </p>
    */
   AttackCount: number | undefined;
-}
-
-export namespace AttackStatisticsDataItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttackStatisticsDataItem): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -911,15 +695,6 @@ export interface AttackVectorDescription {
   VectorType: string | undefined;
 }
 
-export namespace AttackVectorDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttackVectorDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summarizes all DDoS attacks for a specified time period.</p>
  */
@@ -950,15 +725,6 @@ export interface AttackSummary {
   AttackVectors?: AttackVectorDescription[];
 }
 
-export namespace AttackSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttackSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum AutoRenew {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -977,15 +743,6 @@ export interface Tag {
    * <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProtectionRequest {
@@ -1038,29 +795,11 @@ export interface CreateProtectionRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateProtectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProtectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProtectionResponse {
   /**
    * <p>The unique identifier (ID) for the <a>Protection</a> object that is created.</p>
    */
   ProtectionId?: string;
-}
-
-export namespace CreateProtectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProtectionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1153,47 +892,11 @@ export interface CreateProtectionGroupRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateProtectionGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProtectionGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProtectionGroupResponse {}
-
-export namespace CreateProtectionGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProtectionGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateSubscriptionRequest {}
 
-export namespace CreateSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSubscriptionResponse {}
-
-export namespace CreateSubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSubscriptionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteProtectionRequest {
   /**
@@ -1203,25 +906,7 @@ export interface DeleteProtectionRequest {
   ProtectionId: string | undefined;
 }
 
-export namespace DeleteProtectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProtectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProtectionResponse {}
-
-export namespace DeleteProtectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProtectionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteProtectionGroupRequest {
   /**
@@ -1230,47 +915,11 @@ export interface DeleteProtectionGroupRequest {
   ProtectionGroupId: string | undefined;
 }
 
-export namespace DeleteProtectionGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProtectionGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProtectionGroupResponse {}
-
-export namespace DeleteProtectionGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProtectionGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSubscriptionRequest {}
 
-export namespace DeleteSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSubscriptionResponse {}
-
-export namespace DeleteSubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSubscriptionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You are trying to update a subscription that has not yet completed the 1-year commitment. You can change the <code>AutoRenew</code> parameter during the last 30 days of your subscription. This exception indicates that you are attempting to change <code>AutoRenew</code> prior to that period.</p>
@@ -1298,15 +947,6 @@ export interface DescribeAttackRequest {
   AttackId: string | undefined;
 }
 
-export namespace DescribeAttackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAttackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAttackResponse {
   /**
    * <p>The attack that is described.</p>
@@ -1314,25 +954,7 @@ export interface DescribeAttackResponse {
   Attack?: AttackDetail;
 }
 
-export namespace DescribeAttackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAttackResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAttackStatisticsRequest {}
-
-export namespace DescribeAttackStatisticsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAttackStatisticsRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The time range. </p>
@@ -1349,15 +971,6 @@ export interface TimeRange {
   ToExclusive?: Date;
 }
 
-export namespace TimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeRange): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAttackStatisticsResponse {
   /**
    * <p>The time range. </p>
@@ -1370,25 +983,7 @@ export interface DescribeAttackStatisticsResponse {
   DataItems: AttackStatisticsDataItem[] | undefined;
 }
 
-export namespace DescribeAttackStatisticsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAttackStatisticsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDRTAccessRequest {}
-
-export namespace DescribeDRTAccessRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDRTAccessRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeDRTAccessResponse {
   /**
@@ -1402,40 +997,13 @@ export interface DescribeDRTAccessResponse {
   LogBucketList?: string[];
 }
 
-export namespace DescribeDRTAccessResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDRTAccessResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEmergencyContactSettingsRequest {}
-
-export namespace DescribeEmergencyContactSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEmergencyContactSettingsRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeEmergencyContactSettingsResponse {
   /**
    * <p>A list of email addresses and phone numbers that the Shield Response Team (SRT) can use to contact you if you have proactive engagement enabled, for escalations to the SRT and to initiate proactive customer support.</p>
    */
   EmergencyContactList?: EmergencyContact[];
-}
-
-export namespace DescribeEmergencyContactSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEmergencyContactSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeProtectionRequest {
@@ -1450,15 +1018,6 @@ export interface DescribeProtectionRequest {
    *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
    */
   ResourceArn?: string;
-}
-
-export namespace DescribeProtectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProtectionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1498,15 +1057,6 @@ export interface Protection {
   ApplicationLayerAutomaticResponseConfiguration?: ApplicationLayerAutomaticResponseConfiguration;
 }
 
-export namespace Protection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Protection): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProtectionResponse {
   /**
    * <p>The <a>Protection</a> object that is described.</p>
@@ -1514,29 +1064,11 @@ export interface DescribeProtectionResponse {
   Protection?: Protection;
 }
 
-export namespace DescribeProtectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProtectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProtectionGroupRequest {
   /**
    * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
    */
   ProtectionGroupId: string | undefined;
-}
-
-export namespace DescribeProtectionGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProtectionGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1586,15 +1118,6 @@ export interface ProtectionGroup {
   ProtectionGroupArn?: string;
 }
 
-export namespace ProtectionGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtectionGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProtectionGroupResponse {
   /**
    * <p>A grouping of protected resources that you and Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
@@ -1602,25 +1125,7 @@ export interface DescribeProtectionGroupResponse {
   ProtectionGroup: ProtectionGroup | undefined;
 }
 
-export namespace DescribeProtectionGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProtectionGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSubscriptionRequest {}
-
-export namespace DescribeSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Specifies how many protections of a given type you can create.</p>
@@ -1635,15 +1140,6 @@ export interface Limit {
    * <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
    */
   Max?: number;
-}
-
-export namespace Limit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Limit): any => ({
-    ...obj,
-  });
 }
 
 export enum ProactiveEngagementStatus {
@@ -1662,15 +1158,6 @@ export interface ProtectionGroupArbitraryPatternLimits {
   MaxMembers: number | undefined;
 }
 
-export namespace ProtectionGroupArbitraryPatternLimits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtectionGroupArbitraryPatternLimits): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Limits settings by pattern type in the protection groups for your subscription. </p>
  */
@@ -1679,15 +1166,6 @@ export interface ProtectionGroupPatternTypeLimits {
    * <p>Limits settings on protection groups with arbitrary pattern type. </p>
    */
   ArbitraryPatternLimits: ProtectionGroupArbitraryPatternLimits | undefined;
-}
-
-export namespace ProtectionGroupPatternTypeLimits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtectionGroupPatternTypeLimits): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1705,15 +1183,6 @@ export interface ProtectionGroupLimits {
   PatternTypeLimits: ProtectionGroupPatternTypeLimits | undefined;
 }
 
-export namespace ProtectionGroupLimits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtectionGroupLimits): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Limits settings on protections for your subscription. </p>
  */
@@ -1722,15 +1191,6 @@ export interface ProtectionLimits {
    * <p>The maximum number of resource types that you can specify in a protection.</p>
    */
   ProtectedResourceTypeLimits: Limit[] | undefined;
-}
-
-export namespace ProtectionLimits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProtectionLimits): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1746,15 +1206,6 @@ export interface SubscriptionLimits {
    * <p>Limits settings on protection groups for your subscription. </p>
    */
   ProtectionGroupLimits: ProtectionGroupLimits | undefined;
-}
-
-export namespace SubscriptionLimits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionLimits): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1805,29 +1256,11 @@ export interface Subscription {
   SubscriptionArn?: string;
 }
 
-export namespace Subscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subscription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSubscriptionResponse {
   /**
    * <p>The Shield Advanced subscription details for an account.</p>
    */
   Subscription?: Subscription;
-}
-
-export namespace DescribeSubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSubscriptionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisableApplicationLayerAutomaticResponseRequest {
@@ -1837,47 +1270,11 @@ export interface DisableApplicationLayerAutomaticResponseRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DisableApplicationLayerAutomaticResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableApplicationLayerAutomaticResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableApplicationLayerAutomaticResponseResponse {}
-
-export namespace DisableApplicationLayerAutomaticResponseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableApplicationLayerAutomaticResponseResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisableProactiveEngagementRequest {}
 
-export namespace DisableProactiveEngagementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableProactiveEngagementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableProactiveEngagementResponse {}
-
-export namespace DisableProactiveEngagementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableProactiveEngagementResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateDRTLogBucketRequest {
   /**
@@ -1886,47 +1283,11 @@ export interface DisassociateDRTLogBucketRequest {
   LogBucket: string | undefined;
 }
 
-export namespace DisassociateDRTLogBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDRTLogBucketRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateDRTLogBucketResponse {}
-
-export namespace DisassociateDRTLogBucketResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDRTLogBucketResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateDRTRoleRequest {}
 
-export namespace DisassociateDRTRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDRTRoleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateDRTRoleResponse {}
-
-export namespace DisassociateDRTRoleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDRTRoleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateHealthCheckRequest {
   /**
@@ -1940,25 +1301,7 @@ export interface DisassociateHealthCheckRequest {
   HealthCheckArn: string | undefined;
 }
 
-export namespace DisassociateHealthCheckRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateHealthCheckRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateHealthCheckResponse {}
-
-export namespace DisassociateHealthCheckResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateHealthCheckResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface EnableApplicationLayerAutomaticResponseRequest {
   /**
@@ -1974,58 +1317,13 @@ export interface EnableApplicationLayerAutomaticResponseRequest {
   Action: ResponseAction | undefined;
 }
 
-export namespace EnableApplicationLayerAutomaticResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableApplicationLayerAutomaticResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableApplicationLayerAutomaticResponseResponse {}
-
-export namespace EnableApplicationLayerAutomaticResponseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableApplicationLayerAutomaticResponseResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface EnableProactiveEngagementRequest {}
 
-export namespace EnableProactiveEngagementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableProactiveEngagementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableProactiveEngagementResponse {}
 
-export namespace EnableProactiveEngagementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableProactiveEngagementResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSubscriptionStateRequest {}
-
-export namespace GetSubscriptionStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSubscriptionStateRequest): any => ({
-    ...obj,
-  });
-}
 
 export enum SubscriptionState {
   ACTIVE = "ACTIVE",
@@ -2037,15 +1335,6 @@ export interface GetSubscriptionStateResponse {
    * <p>The status of the subscription.</p>
    */
   SubscriptionState: SubscriptionState | string | undefined;
-}
-
-export namespace GetSubscriptionStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSubscriptionStateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAttacksRequest {
@@ -2087,15 +1376,6 @@ export interface ListAttacksRequest {
   MaxResults?: number;
 }
 
-export namespace ListAttacksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttacksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAttacksResponse {
   /**
    * <p>The attack information for the specified time range.</p>
@@ -2111,15 +1391,6 @@ export interface ListAttacksResponse {
    *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAttacksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttacksResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2162,15 +1433,6 @@ export interface ListProtectionGroupsRequest {
   MaxResults?: number;
 }
 
-export namespace ListProtectionGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProtectionGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProtectionGroupsResponse {
   /**
    * <p></p>
@@ -2186,15 +1448,6 @@ export interface ListProtectionGroupsResponse {
    *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListProtectionGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProtectionGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProtectionsRequest {
@@ -2218,15 +1471,6 @@ export interface ListProtectionsRequest {
   MaxResults?: number;
 }
 
-export namespace ListProtectionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProtectionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProtectionsResponse {
   /**
    * <p>The array of enabled <a>Protection</a> objects.</p>
@@ -2242,15 +1486,6 @@ export interface ListProtectionsResponse {
    *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListProtectionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProtectionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourcesInProtectionGroupRequest {
@@ -2279,15 +1514,6 @@ export interface ListResourcesInProtectionGroupRequest {
   MaxResults?: number;
 }
 
-export namespace ListResourcesInProtectionGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesInProtectionGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourcesInProtectionGroupResponse {
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources that are included in the protection group.</p>
@@ -2305,15 +1531,6 @@ export interface ListResourcesInProtectionGroupResponse {
   NextToken?: string;
 }
 
-export namespace ListResourcesInProtectionGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesInProtectionGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
@@ -2321,29 +1538,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -2358,25 +1557,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2390,25 +1571,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateApplicationLayerAutomaticResponseRequest {
   /**
@@ -2424,25 +1587,7 @@ export interface UpdateApplicationLayerAutomaticResponseRequest {
   Action: ResponseAction | undefined;
 }
 
-export namespace UpdateApplicationLayerAutomaticResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationLayerAutomaticResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApplicationLayerAutomaticResponseResponse {}
-
-export namespace UpdateApplicationLayerAutomaticResponseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationLayerAutomaticResponseResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateEmergencyContactSettingsRequest {
   /**
@@ -2452,25 +1597,7 @@ export interface UpdateEmergencyContactSettingsRequest {
   EmergencyContactList?: EmergencyContact[];
 }
 
-export namespace UpdateEmergencyContactSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEmergencyContactSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEmergencyContactSettingsResponse {}
-
-export namespace UpdateEmergencyContactSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEmergencyContactSettingsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateProtectionGroupRequest {
   /**
@@ -2511,25 +1638,7 @@ export interface UpdateProtectionGroupRequest {
   Members?: string[];
 }
 
-export namespace UpdateProtectionGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProtectionGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProtectionGroupResponse {}
-
-export namespace UpdateProtectionGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProtectionGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateSubscriptionRequest {
   /**
@@ -2538,22 +1647,743 @@ export interface UpdateSubscriptionRequest {
   AutoRenew?: AutoRenew | string;
 }
 
-export namespace UpdateSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSubscriptionResponse {}
 
-export namespace UpdateSubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSubscriptionResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const BlockActionFilterSensitiveLog = (obj: BlockAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CountActionFilterSensitiveLog = (obj: CountAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseActionFilterSensitiveLog = (obj: ResponseAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationLayerAutomaticResponseConfigurationFilterSensitiveLog = (
+  obj: ApplicationLayerAutomaticResponseConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDRTLogBucketRequestFilterSensitiveLog = (obj: AssociateDRTLogBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDRTLogBucketResponseFilterSensitiveLog = (obj: AssociateDRTLogBucketResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDRTRoleRequestFilterSensitiveLog = (obj: AssociateDRTRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateDRTRoleResponseFilterSensitiveLog = (obj: AssociateDRTRoleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateHealthCheckRequestFilterSensitiveLog = (obj: AssociateHealthCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateHealthCheckResponseFilterSensitiveLog = (obj: AssociateHealthCheckResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmergencyContactFilterSensitiveLog = (obj: EmergencyContact): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateProactiveEngagementDetailsRequestFilterSensitiveLog = (
+  obj: AssociateProactiveEngagementDetailsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateProactiveEngagementDetailsResponseFilterSensitiveLog = (
+  obj: AssociateProactiveEngagementDetailsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SummarizedCounterFilterSensitiveLog = (obj: SummarizedCounter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContributorFilterSensitiveLog = (obj: Contributor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttackPropertyFilterSensitiveLog = (obj: AttackProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MitigationFilterSensitiveLog = (obj: Mitigation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SummarizedAttackVectorFilterSensitiveLog = (obj: SummarizedAttackVector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubResourceSummaryFilterSensitiveLog = (obj: SubResourceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttackDetailFilterSensitiveLog = (obj: AttackDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttackVolumeStatisticsFilterSensitiveLog = (obj: AttackVolumeStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttackVolumeFilterSensitiveLog = (obj: AttackVolume): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttackStatisticsDataItemFilterSensitiveLog = (obj: AttackStatisticsDataItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttackVectorDescriptionFilterSensitiveLog = (obj: AttackVectorDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttackSummaryFilterSensitiveLog = (obj: AttackSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProtectionRequestFilterSensitiveLog = (obj: CreateProtectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProtectionResponseFilterSensitiveLog = (obj: CreateProtectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProtectionGroupRequestFilterSensitiveLog = (obj: CreateProtectionGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProtectionGroupResponseFilterSensitiveLog = (obj: CreateProtectionGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSubscriptionRequestFilterSensitiveLog = (obj: CreateSubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSubscriptionResponseFilterSensitiveLog = (obj: CreateSubscriptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProtectionRequestFilterSensitiveLog = (obj: DeleteProtectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProtectionResponseFilterSensitiveLog = (obj: DeleteProtectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProtectionGroupRequestFilterSensitiveLog = (obj: DeleteProtectionGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProtectionGroupResponseFilterSensitiveLog = (obj: DeleteProtectionGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSubscriptionRequestFilterSensitiveLog = (obj: DeleteSubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSubscriptionResponseFilterSensitiveLog = (obj: DeleteSubscriptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAttackRequestFilterSensitiveLog = (obj: DescribeAttackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAttackResponseFilterSensitiveLog = (obj: DescribeAttackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAttackStatisticsRequestFilterSensitiveLog = (obj: DescribeAttackStatisticsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAttackStatisticsResponseFilterSensitiveLog = (obj: DescribeAttackStatisticsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDRTAccessRequestFilterSensitiveLog = (obj: DescribeDRTAccessRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDRTAccessResponseFilterSensitiveLog = (obj: DescribeDRTAccessResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEmergencyContactSettingsRequestFilterSensitiveLog = (
+  obj: DescribeEmergencyContactSettingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEmergencyContactSettingsResponseFilterSensitiveLog = (
+  obj: DescribeEmergencyContactSettingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProtectionRequestFilterSensitiveLog = (obj: DescribeProtectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectionFilterSensitiveLog = (obj: Protection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProtectionResponseFilterSensitiveLog = (obj: DescribeProtectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProtectionGroupRequestFilterSensitiveLog = (obj: DescribeProtectionGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectionGroupFilterSensitiveLog = (obj: ProtectionGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProtectionGroupResponseFilterSensitiveLog = (obj: DescribeProtectionGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSubscriptionRequestFilterSensitiveLog = (obj: DescribeSubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LimitFilterSensitiveLog = (obj: Limit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectionGroupArbitraryPatternLimitsFilterSensitiveLog = (
+  obj: ProtectionGroupArbitraryPatternLimits
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectionGroupPatternTypeLimitsFilterSensitiveLog = (obj: ProtectionGroupPatternTypeLimits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectionGroupLimitsFilterSensitiveLog = (obj: ProtectionGroupLimits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectionLimitsFilterSensitiveLog = (obj: ProtectionLimits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscriptionLimitsFilterSensitiveLog = (obj: SubscriptionLimits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSubscriptionResponseFilterSensitiveLog = (obj: DescribeSubscriptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableApplicationLayerAutomaticResponseRequestFilterSensitiveLog = (
+  obj: DisableApplicationLayerAutomaticResponseRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableApplicationLayerAutomaticResponseResponseFilterSensitiveLog = (
+  obj: DisableApplicationLayerAutomaticResponseResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableProactiveEngagementRequestFilterSensitiveLog = (obj: DisableProactiveEngagementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableProactiveEngagementResponseFilterSensitiveLog = (obj: DisableProactiveEngagementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDRTLogBucketRequestFilterSensitiveLog = (obj: DisassociateDRTLogBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDRTLogBucketResponseFilterSensitiveLog = (obj: DisassociateDRTLogBucketResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDRTRoleRequestFilterSensitiveLog = (obj: DisassociateDRTRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDRTRoleResponseFilterSensitiveLog = (obj: DisassociateDRTRoleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateHealthCheckRequestFilterSensitiveLog = (obj: DisassociateHealthCheckRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateHealthCheckResponseFilterSensitiveLog = (obj: DisassociateHealthCheckResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableApplicationLayerAutomaticResponseRequestFilterSensitiveLog = (
+  obj: EnableApplicationLayerAutomaticResponseRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableApplicationLayerAutomaticResponseResponseFilterSensitiveLog = (
+  obj: EnableApplicationLayerAutomaticResponseResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableProactiveEngagementRequestFilterSensitiveLog = (obj: EnableProactiveEngagementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableProactiveEngagementResponseFilterSensitiveLog = (obj: EnableProactiveEngagementResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSubscriptionStateRequestFilterSensitiveLog = (obj: GetSubscriptionStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSubscriptionStateResponseFilterSensitiveLog = (obj: GetSubscriptionStateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttacksRequestFilterSensitiveLog = (obj: ListAttacksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttacksResponseFilterSensitiveLog = (obj: ListAttacksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProtectionGroupsRequestFilterSensitiveLog = (obj: ListProtectionGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProtectionGroupsResponseFilterSensitiveLog = (obj: ListProtectionGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProtectionsRequestFilterSensitiveLog = (obj: ListProtectionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProtectionsResponseFilterSensitiveLog = (obj: ListProtectionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesInProtectionGroupRequestFilterSensitiveLog = (
+  obj: ListResourcesInProtectionGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesInProtectionGroupResponseFilterSensitiveLog = (
+  obj: ListResourcesInProtectionGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationLayerAutomaticResponseRequestFilterSensitiveLog = (
+  obj: UpdateApplicationLayerAutomaticResponseRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationLayerAutomaticResponseResponseFilterSensitiveLog = (
+  obj: UpdateApplicationLayerAutomaticResponseResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEmergencyContactSettingsRequestFilterSensitiveLog = (
+  obj: UpdateEmergencyContactSettingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEmergencyContactSettingsResponseFilterSensitiveLog = (
+  obj: UpdateEmergencyContactSettingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProtectionGroupRequestFilterSensitiveLog = (obj: UpdateProtectionGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProtectionGroupResponseFilterSensitiveLog = (obj: UpdateProtectionGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSubscriptionRequestFilterSensitiveLog = (obj: UpdateSubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSubscriptionResponseFilterSensitiveLog = (obj: UpdateSubscriptionResponse): any => ({
+  ...obj,
+});

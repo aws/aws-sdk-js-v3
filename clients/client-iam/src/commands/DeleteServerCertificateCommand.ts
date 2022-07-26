@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteServerCertificateRequest } from "../models/models_0";
+import { DeleteServerCertificateRequest, DeleteServerCertificateRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteServerCertificateCommand,
   serializeAws_queryDeleteServerCertificateCommand,
@@ -86,7 +86,7 @@ export class DeleteServerCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServerCertificateRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteServerCertificateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { SourceServer, UpdateSourceServerReplicationTypeRequest } from "../models/models_0";
+import {
+  SourceServer,
+  SourceServerFilterSensitiveLog,
+  UpdateSourceServerReplicationTypeRequest,
+  UpdateSourceServerReplicationTypeRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand,
   serializeAws_restJson1UpdateSourceServerReplicationTypeCommand,
@@ -72,8 +77,8 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSourceServerReplicationTypeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SourceServer.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSourceServerReplicationTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

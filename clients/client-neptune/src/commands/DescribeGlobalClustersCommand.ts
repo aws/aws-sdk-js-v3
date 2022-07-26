@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeGlobalClustersMessage, GlobalClustersMessage } from "../models/models_0";
+import {
+  DescribeGlobalClustersMessage,
+  DescribeGlobalClustersMessageFilterSensitiveLog,
+  GlobalClustersMessage,
+  GlobalClustersMessageFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryDescribeGlobalClustersCommand,
@@ -73,8 +78,8 @@ export class DescribeGlobalClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGlobalClustersMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: GlobalClustersMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeGlobalClustersMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: GlobalClustersMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EnableDomainTransferLockRequest, EnableDomainTransferLockResponse } from "../models/models_0";
+import {
+  EnableDomainTransferLockRequest,
+  EnableDomainTransferLockRequestFilterSensitiveLog,
+  EnableDomainTransferLockResponse,
+  EnableDomainTransferLockResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1EnableDomainTransferLockCommand,
   serializeAws_json1_1EnableDomainTransferLockCommand,
@@ -74,8 +79,8 @@ export class EnableDomainTransferLockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableDomainTransferLockRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableDomainTransferLockResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableDomainTransferLockRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableDomainTransferLockResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

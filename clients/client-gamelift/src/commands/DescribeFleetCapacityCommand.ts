@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DescribeFleetCapacityInput, DescribeFleetCapacityOutput } from "../models/models_0";
+import {
+  DescribeFleetCapacityInput,
+  DescribeFleetCapacityInputFilterSensitiveLog,
+  DescribeFleetCapacityOutput,
+  DescribeFleetCapacityOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFleetCapacityCommand,
   serializeAws_json1_1DescribeFleetCapacityCommand,
@@ -121,8 +126,8 @@ export class DescribeFleetCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetCapacityInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetCapacityOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFleetCapacityInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFleetCapacityOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

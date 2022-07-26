@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteGroupRequest, DeleteGroupResult } from "../models/models_0";
+import {
+  DeleteGroupRequest,
+  DeleteGroupRequestFilterSensitiveLog,
+  DeleteGroupResult,
+  DeleteGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteGroupCommand,
   serializeAws_restJson1DeleteGroupCommand,
@@ -72,8 +77,8 @@ export class DeleteGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

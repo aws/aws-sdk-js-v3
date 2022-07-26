@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCellReadinessSummaryRequest, GetCellReadinessSummaryResponse } from "../models/models_0";
+import {
+  GetCellReadinessSummaryRequest,
+  GetCellReadinessSummaryRequestFilterSensitiveLog,
+  GetCellReadinessSummaryResponse,
+  GetCellReadinessSummaryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetCellReadinessSummaryCommand,
   serializeAws_restJson1GetCellReadinessSummaryCommand,
@@ -76,8 +81,8 @@ export class GetCellReadinessSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCellReadinessSummaryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCellReadinessSummaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCellReadinessSummaryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCellReadinessSummaryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

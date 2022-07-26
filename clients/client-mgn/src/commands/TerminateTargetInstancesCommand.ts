@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { TerminateTargetInstancesRequest, TerminateTargetInstancesResponse } from "../models/models_0";
+import {
+  TerminateTargetInstancesRequest,
+  TerminateTargetInstancesRequestFilterSensitiveLog,
+  TerminateTargetInstancesResponse,
+  TerminateTargetInstancesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1TerminateTargetInstancesCommand,
   serializeAws_restJson1TerminateTargetInstancesCommand,
@@ -72,8 +77,8 @@ export class TerminateTargetInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateTargetInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TerminateTargetInstancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateTargetInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TerminateTargetInstancesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

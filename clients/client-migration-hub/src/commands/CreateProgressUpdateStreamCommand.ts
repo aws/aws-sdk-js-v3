@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { CreateProgressUpdateStreamRequest, CreateProgressUpdateStreamResult } from "../models/models_0";
+import {
+  CreateProgressUpdateStreamRequest,
+  CreateProgressUpdateStreamRequestFilterSensitiveLog,
+  CreateProgressUpdateStreamResult,
+  CreateProgressUpdateStreamResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateProgressUpdateStreamCommand,
   serializeAws_json1_1CreateProgressUpdateStreamCommand,
@@ -76,8 +81,8 @@ export class CreateProgressUpdateStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProgressUpdateStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateProgressUpdateStreamResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProgressUpdateStreamRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateProgressUpdateStreamResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

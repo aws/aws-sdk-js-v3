@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { FlushApiCacheRequest, FlushApiCacheResponse } from "../models/models_0";
+import {
+  FlushApiCacheRequest,
+  FlushApiCacheRequestFilterSensitiveLog,
+  FlushApiCacheResponse,
+  FlushApiCacheResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1FlushApiCacheCommand,
   serializeAws_restJson1FlushApiCacheCommand,
@@ -72,8 +77,8 @@ export class FlushApiCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FlushApiCacheRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: FlushApiCacheResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: FlushApiCacheRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: FlushApiCacheResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

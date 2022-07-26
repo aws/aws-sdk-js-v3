@@ -15,6 +15,7 @@ import {
   PatchFilterGroup,
   PatchRuleGroup,
   PatchSource,
+  PatchSourceFilterSensitiveLog,
   RelatedOpsItem,
   ResourceDataSyncSource,
   Target,
@@ -24,6 +25,7 @@ import {
   InventoryFilter,
   InventoryGroup,
   MaintenanceWindowTaskInvocationParameters,
+  MaintenanceWindowTaskInvocationParametersFilterSensitiveLog,
   OpsFilter,
   OpsResultAttribute,
   ResultAttribute,
@@ -47,25 +49,7 @@ export interface UpdateDocumentMetadataRequest {
   DocumentReviews: DocumentReviews | undefined;
 }
 
-export namespace UpdateDocumentMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDocumentMetadataResponse {}
-
-export namespace UpdateDocumentMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentMetadataResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateMaintenanceWindowRequest {
   /**
@@ -152,16 +136,6 @@ export interface UpdateMaintenanceWindowRequest {
   Replace?: boolean;
 }
 
-export namespace UpdateMaintenanceWindowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowRequest): any => ({
-    ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateMaintenanceWindowResult {
   /**
    * <p>The ID of the created maintenance window.</p>
@@ -232,16 +206,6 @@ export interface UpdateMaintenanceWindowResult {
   Enabled?: boolean;
 }
 
-export namespace UpdateMaintenanceWindowResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowResult): any => ({
-    ...obj,
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateMaintenanceWindowTargetRequest {
   /**
    * <p>The maintenance window ID with which to modify the target.</p>
@@ -281,17 +245,6 @@ export interface UpdateMaintenanceWindowTargetRequest {
   Replace?: boolean;
 }
 
-export namespace UpdateMaintenanceWindowTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTargetRequest): any => ({
-    ...obj,
-    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateMaintenanceWindowTargetResult {
   /**
    * <p>The maintenance window ID specified in the update request.</p>
@@ -322,17 +275,6 @@ export interface UpdateMaintenanceWindowTargetResult {
    * <p>The updated description.</p>
    */
   Description?: string;
-}
-
-export namespace UpdateMaintenanceWindowTargetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTargetResult): any => ({
-    ...obj,
-    ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdateMaintenanceWindowTaskRequest {
@@ -513,22 +455,6 @@ export interface UpdateMaintenanceWindowTaskRequest {
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
 }
 
-export namespace UpdateMaintenanceWindowTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTaskRequest): any => ({
-    ...obj,
-    ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-    ...(obj.TaskInvocationParameters && {
-      TaskInvocationParameters: MaintenanceWindowTaskInvocationParameters.filterSensitiveLog(
-        obj.TaskInvocationParameters
-      ),
-    }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateMaintenanceWindowTaskResult {
   /**
    * <p>The ID of the maintenance window that was updated.</p>
@@ -617,22 +543,6 @@ export interface UpdateMaintenanceWindowTaskResult {
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
 }
 
-export namespace UpdateMaintenanceWindowTaskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMaintenanceWindowTaskResult): any => ({
-    ...obj,
-    ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
-    ...(obj.TaskInvocationParameters && {
-      TaskInvocationParameters: MaintenanceWindowTaskInvocationParameters.filterSensitiveLog(
-        obj.TaskInvocationParameters
-      ),
-    }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateManagedInstanceRoleRequest {
   /**
    * <p>The ID of the managed node where you want to update the role.</p>
@@ -645,25 +555,7 @@ export interface UpdateManagedInstanceRoleRequest {
   IamRole: string | undefined;
 }
 
-export namespace UpdateManagedInstanceRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateManagedInstanceRoleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateManagedInstanceRoleResult {}
-
-export namespace UpdateManagedInstanceRoleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateManagedInstanceRoleResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateOpsItemRequest {
   /**
@@ -770,25 +662,7 @@ export interface UpdateOpsItemRequest {
   PlannedEndTime?: Date;
 }
 
-export namespace UpdateOpsItemRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOpsItemRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateOpsItemResponse {}
-
-export namespace UpdateOpsItemResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOpsItemResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to
@@ -827,29 +701,11 @@ export interface UpdateOpsMetadataRequest {
   KeysToDelete?: string[];
 }
 
-export namespace UpdateOpsMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOpsMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateOpsMetadataResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the OpsMetadata Object that was updated.</p>
    */
   OpsMetadataArn?: string;
-}
-
-export namespace UpdateOpsMetadataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOpsMetadataResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePatchBaselineRequest {
@@ -947,16 +803,6 @@ export interface UpdatePatchBaselineRequest {
   Replace?: boolean;
 }
 
-export namespace UpdatePatchBaselineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePatchBaselineRequest): any => ({
-    ...obj,
-    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface UpdatePatchBaselineResult {
   /**
    * <p>The ID of the deleted patch baseline.</p>
@@ -1035,16 +881,6 @@ export interface UpdatePatchBaselineResult {
   Sources?: PatchSource[];
 }
 
-export namespace UpdatePatchBaselineResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePatchBaselineResult): any => ({
-    ...obj,
-    ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSource.filterSensitiveLog(item)) }),
-  });
-}
-
 /**
  * <p>Another <code>UpdateResourceDataSync</code> request is being processed. Wait a few minutes
  *    and try again.</p>
@@ -1085,25 +921,7 @@ export interface UpdateResourceDataSyncRequest {
   SyncSource: ResourceDataSyncSource | undefined;
 }
 
-export namespace UpdateResourceDataSyncRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceDataSyncRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResourceDataSyncResult {}
-
-export namespace UpdateResourceDataSyncResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceDataSyncResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The request body of the UpdateServiceSetting API operation.</p>
@@ -1196,28 +1014,10 @@ export interface UpdateServiceSettingRequest {
   SettingValue: string | undefined;
 }
 
-export namespace UpdateServiceSettingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceSettingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result body of the UpdateServiceSetting API operation.</p>
  */
 export interface UpdateServiceSettingResult {}
-
-export namespace UpdateServiceSettingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceSettingResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Specifies the inventory type and attribute for the aggregation execution.</p>
@@ -1238,15 +1038,6 @@ export interface InventoryAggregator {
    *    return a count of resources that match and don't match the specified criteria.</p>
    */
   Groups?: InventoryGroup[];
-}
-
-export namespace InventoryAggregator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryAggregator): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1287,15 +1078,6 @@ export interface OpsAggregator {
   Aggregators?: OpsAggregator[];
 }
 
-export namespace OpsAggregator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsAggregator): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInventoryRequest {
   /**
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
@@ -1326,15 +1108,6 @@ export interface GetInventoryRequest {
    *    can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
-}
-
-export namespace GetInventoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInventoryRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetOpsSummaryRequest {
@@ -1370,11 +1143,192 @@ export interface GetOpsSummaryRequest {
   MaxResults?: number;
 }
 
-export namespace GetOpsSummaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOpsSummaryRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const UpdateDocumentMetadataRequestFilterSensitiveLog = (obj: UpdateDocumentMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentMetadataResponseFilterSensitiveLog = (obj: UpdateDocumentMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMaintenanceWindowRequestFilterSensitiveLog = (obj: UpdateMaintenanceWindowRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMaintenanceWindowResultFilterSensitiveLog = (obj: UpdateMaintenanceWindowResult): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMaintenanceWindowTargetRequestFilterSensitiveLog = (
+  obj: UpdateMaintenanceWindowTargetRequest
+): any => ({
+  ...obj,
+  ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMaintenanceWindowTargetResultFilterSensitiveLog = (
+  obj: UpdateMaintenanceWindowTargetResult
+): any => ({
+  ...obj,
+  ...(obj.OwnerInformation && { OwnerInformation: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMaintenanceWindowTaskRequestFilterSensitiveLog = (obj: UpdateMaintenanceWindowTaskRequest): any => ({
+  ...obj,
+  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+  ...(obj.TaskInvocationParameters && {
+    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
+  }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMaintenanceWindowTaskResultFilterSensitiveLog = (obj: UpdateMaintenanceWindowTaskResult): any => ({
+  ...obj,
+  ...(obj.TaskParameters && { TaskParameters: SENSITIVE_STRING }),
+  ...(obj.TaskInvocationParameters && {
+    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
+  }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateManagedInstanceRoleRequestFilterSensitiveLog = (obj: UpdateManagedInstanceRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateManagedInstanceRoleResultFilterSensitiveLog = (obj: UpdateManagedInstanceRoleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOpsItemRequestFilterSensitiveLog = (obj: UpdateOpsItemRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOpsItemResponseFilterSensitiveLog = (obj: UpdateOpsItemResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOpsMetadataRequestFilterSensitiveLog = (obj: UpdateOpsMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOpsMetadataResultFilterSensitiveLog = (obj: UpdateOpsMetadataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePatchBaselineRequestFilterSensitiveLog = (obj: UpdatePatchBaselineRequest): any => ({
+  ...obj,
+  ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePatchBaselineResultFilterSensitiveLog = (obj: UpdatePatchBaselineResult): any => ({
+  ...obj,
+  ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceDataSyncRequestFilterSensitiveLog = (obj: UpdateResourceDataSyncRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceDataSyncResultFilterSensitiveLog = (obj: UpdateResourceDataSyncResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceSettingRequestFilterSensitiveLog = (obj: UpdateServiceSettingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceSettingResultFilterSensitiveLog = (obj: UpdateServiceSettingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryAggregatorFilterSensitiveLog = (obj: InventoryAggregator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpsAggregatorFilterSensitiveLog = (obj: OpsAggregator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInventoryRequestFilterSensitiveLog = (obj: GetInventoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOpsSummaryRequestFilterSensitiveLog = (obj: GetOpsSummaryRequest): any => ({
+  ...obj,
+});

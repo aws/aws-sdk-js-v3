@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DetectSentimentRequest, DetectSentimentResponse } from "../models/models_0";
+import {
+  DetectSentimentRequest,
+  DetectSentimentRequestFilterSensitiveLog,
+  DetectSentimentResponse,
+  DetectSentimentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DetectSentimentCommand,
   serializeAws_json1_1DetectSentimentCommand,
@@ -73,8 +78,8 @@ export class DetectSentimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectSentimentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetectSentimentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectSentimentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetectSentimentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateResourceRequest, CreateResourceResponse } from "../models/models_0";
+import {
+  CreateResourceRequest,
+  CreateResourceRequestFilterSensitiveLog,
+  CreateResourceResponse,
+  CreateResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateResourceCommand,
   serializeAws_json1_1CreateResourceCommand,
@@ -72,8 +77,8 @@ export class CreateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

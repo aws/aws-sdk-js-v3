@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import { RecognizeTextRequest, RecognizeTextResponse } from "../models/models_0";
+import {
+  RecognizeTextRequest,
+  RecognizeTextRequestFilterSensitiveLog,
+  RecognizeTextResponse,
+  RecognizeTextResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RecognizeTextCommand,
   serializeAws_restJson1RecognizeTextCommand,
@@ -102,8 +107,8 @@ export class RecognizeTextCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RecognizeTextRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RecognizeTextResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RecognizeTextRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RecognizeTextResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

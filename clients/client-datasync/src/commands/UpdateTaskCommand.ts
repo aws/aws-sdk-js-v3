@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { UpdateTaskRequest, UpdateTaskResponse } from "../models/models_0";
+import {
+  UpdateTaskRequest,
+  UpdateTaskRequestFilterSensitiveLog,
+  UpdateTaskResponse,
+  UpdateTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateTaskCommand,
   serializeAws_json1_1UpdateTaskCommand,
@@ -72,8 +77,8 @@ export class UpdateTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

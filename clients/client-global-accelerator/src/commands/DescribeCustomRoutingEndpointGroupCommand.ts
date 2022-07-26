@@ -19,7 +19,9 @@ import {
 } from "../GlobalAcceleratorClient";
 import {
   DescribeCustomRoutingEndpointGroupRequest,
+  DescribeCustomRoutingEndpointGroupRequestFilterSensitiveLog,
   DescribeCustomRoutingEndpointGroupResponse,
+  DescribeCustomRoutingEndpointGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand,
@@ -81,8 +83,8 @@ export class DescribeCustomRoutingEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCustomRoutingEndpointGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCustomRoutingEndpointGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCustomRoutingEndpointGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCustomRoutingEndpointGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

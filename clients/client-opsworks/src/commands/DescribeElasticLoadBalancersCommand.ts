@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeElasticLoadBalancersRequest, DescribeElasticLoadBalancersResult } from "../models/models_0";
+import {
+  DescribeElasticLoadBalancersRequest,
+  DescribeElasticLoadBalancersRequestFilterSensitiveLog,
+  DescribeElasticLoadBalancersResult,
+  DescribeElasticLoadBalancersResultFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DescribeElasticLoadBalancersCommand,
@@ -82,8 +87,8 @@ export class DescribeElasticLoadBalancersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeElasticLoadBalancersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeElasticLoadBalancersResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeElasticLoadBalancersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeElasticLoadBalancersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

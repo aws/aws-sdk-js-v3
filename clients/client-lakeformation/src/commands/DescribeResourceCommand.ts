@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { DescribeResourceRequest, DescribeResourceResponse } from "../models/models_0";
+import {
+  DescribeResourceRequest,
+  DescribeResourceRequestFilterSensitiveLog,
+  DescribeResourceResponse,
+  DescribeResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeResourceCommand,
   serializeAws_restJson1DescribeResourceCommand,
@@ -72,8 +77,8 @@ export class DescribeResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

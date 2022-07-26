@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeletePolicyRequest } from "../models/models_0";
+import { DeletePolicyRequest, DeletePolicyRequestFilterSensitiveLog } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1DeletePolicyCommand,
@@ -75,7 +75,7 @@ export class DeletePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

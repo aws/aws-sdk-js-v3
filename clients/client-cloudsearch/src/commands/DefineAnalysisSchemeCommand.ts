@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { DefineAnalysisSchemeRequest, DefineAnalysisSchemeResponse } from "../models/models_0";
+import {
+  DefineAnalysisSchemeRequest,
+  DefineAnalysisSchemeRequestFilterSensitiveLog,
+  DefineAnalysisSchemeResponse,
+  DefineAnalysisSchemeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDefineAnalysisSchemeCommand,
   serializeAws_queryDefineAnalysisSchemeCommand,
@@ -72,8 +77,8 @@ export class DefineAnalysisSchemeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DefineAnalysisSchemeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DefineAnalysisSchemeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DefineAnalysisSchemeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DefineAnalysisSchemeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

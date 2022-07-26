@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { VerifyUserAttributeRequest, VerifyUserAttributeResponse } from "../models/models_1";
+import {
+  VerifyUserAttributeRequest,
+  VerifyUserAttributeRequestFilterSensitiveLog,
+  VerifyUserAttributeResponse,
+  VerifyUserAttributeResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1VerifyUserAttributeCommand,
   serializeAws_json1_1VerifyUserAttributeCommand,
@@ -82,8 +87,8 @@ export class VerifyUserAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyUserAttributeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VerifyUserAttributeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: VerifyUserAttributeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: VerifyUserAttributeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

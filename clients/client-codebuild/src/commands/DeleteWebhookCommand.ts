@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { DeleteWebhookInput, DeleteWebhookOutput } from "../models/models_0";
+import {
+  DeleteWebhookInput,
+  DeleteWebhookInputFilterSensitiveLog,
+  DeleteWebhookOutput,
+  DeleteWebhookOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWebhookCommand,
   serializeAws_json1_1DeleteWebhookCommand,
@@ -74,8 +79,8 @@ export class DeleteWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWebhookInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWebhookOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWebhookInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWebhookOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

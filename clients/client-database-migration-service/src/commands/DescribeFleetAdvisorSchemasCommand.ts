@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DescribeFleetAdvisorSchemasRequest, DescribeFleetAdvisorSchemasResponse } from "../models/models_0";
+import {
+  DescribeFleetAdvisorSchemasRequest,
+  DescribeFleetAdvisorSchemasRequestFilterSensitiveLog,
+  DescribeFleetAdvisorSchemasResponse,
+  DescribeFleetAdvisorSchemasResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFleetAdvisorSchemasCommand,
   serializeAws_json1_1DescribeFleetAdvisorSchemasCommand,
@@ -78,8 +83,8 @@ export class DescribeFleetAdvisorSchemasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetAdvisorSchemasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetAdvisorSchemasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFleetAdvisorSchemasRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFleetAdvisorSchemasResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterToWorkMailRequest, RegisterToWorkMailResponse } from "../models/models_0";
+import {
+  RegisterToWorkMailRequest,
+  RegisterToWorkMailRequestFilterSensitiveLog,
+  RegisterToWorkMailResponse,
+  RegisterToWorkMailResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterToWorkMailCommand,
   serializeAws_json1_1RegisterToWorkMailCommand,
@@ -78,8 +83,8 @@ export class RegisterToWorkMailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterToWorkMailRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterToWorkMailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterToWorkMailRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterToWorkMailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

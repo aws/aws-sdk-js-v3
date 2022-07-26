@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { DeleteDatasetRequest, DeleteDatasetResponse } from "../models/models_0";
+import {
+  DeleteDatasetRequest,
+  DeleteDatasetRequestFilterSensitiveLog,
+  DeleteDatasetResponse,
+  DeleteDatasetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDatasetCommand,
   serializeAws_restJson1DeleteDatasetCommand,
@@ -76,8 +81,8 @@ export class DeleteDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDatasetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDatasetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDatasetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDatasetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

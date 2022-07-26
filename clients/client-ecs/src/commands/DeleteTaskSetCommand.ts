@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DeleteTaskSetRequest, DeleteTaskSetResponse } from "../models/models_0";
+import {
+  DeleteTaskSetRequest,
+  DeleteTaskSetRequestFilterSensitiveLog,
+  DeleteTaskSetResponse,
+  DeleteTaskSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTaskSetCommand,
   serializeAws_json1_1DeleteTaskSetCommand,
@@ -73,8 +78,8 @@ export class DeleteTaskSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTaskSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTaskSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTaskSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTaskSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

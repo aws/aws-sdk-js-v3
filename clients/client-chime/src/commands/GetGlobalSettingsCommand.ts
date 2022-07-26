@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetGlobalSettingsResponse } from "../models/models_0";
+import { GetGlobalSettingsResponse, GetGlobalSettingsResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetGlobalSettingsCommand,
   serializeAws_restJson1GetGlobalSettingsCommand,
@@ -74,7 +74,7 @@ export class GetGlobalSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetGlobalSettingsResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: GetGlobalSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

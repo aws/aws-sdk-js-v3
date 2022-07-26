@@ -18,15 +18,6 @@ export interface AbortIncompleteMultipartUpload {
   DaysAfterInitiation?: number;
 }
 
-export namespace AbortIncompleteMultipartUpload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortIncompleteMultipartUpload): any => ({
-    ...obj,
-  });
-}
-
 export type RequestCharged = "requester";
 
 export interface AbortMultipartUploadOutput {
@@ -35,15 +26,6 @@ export interface AbortMultipartUploadOutput {
    *          request.</p>
    */
   RequestCharged?: RequestCharged | string;
-}
-
-export namespace AbortMultipartUploadOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortMultipartUploadOutput): any => ({
-    ...obj,
-  });
 }
 
 export type RequestPayer = "requester";
@@ -83,15 +65,6 @@ export interface AbortMultipartUploadRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace AbortMultipartUploadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortMultipartUploadRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified multipart upload does not exist.</p>
  */
@@ -123,15 +96,6 @@ export interface AccelerateConfiguration {
    * <p>Specifies the transfer acceleration status of the bucket.</p>
    */
   Status?: BucketAccelerateStatus | string;
-}
-
-export namespace AccelerateConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccelerateConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export type Type = "AmazonCustomerByEmail" | "CanonicalUser" | "Group";
@@ -196,15 +160,6 @@ export interface Grantee {
   Type: Type | string | undefined;
 }
 
-export namespace Grantee {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Grantee): any => ({
-    ...obj,
-  });
-}
-
 export type Permission = "FULL_CONTROL" | "READ" | "READ_ACP" | "WRITE" | "WRITE_ACP";
 
 /**
@@ -222,15 +177,6 @@ export interface Grant {
   Permission?: Permission | string;
 }
 
-export namespace Grant {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Grant): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the owner's display name and ID.</p>
  */
@@ -244,15 +190,6 @@ export interface Owner {
    * <p>Container for the ID of the owner.</p>
    */
   ID?: string;
-}
-
-export namespace Owner {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Owner): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -270,15 +207,6 @@ export interface AccessControlPolicy {
   Owner?: Owner;
 }
 
-export namespace AccessControlPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessControlPolicy): any => ({
-    ...obj,
-  });
-}
-
 export type OwnerOverride = "Destination";
 
 /**
@@ -290,15 +218,6 @@ export interface AccessControlTranslation {
    *             replication</a> in the <i>Amazon S3 API Reference</i>.</p>
    */
   Owner: OwnerOverride | string | undefined;
-}
-
-export namespace AccessControlTranslation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessControlTranslation): any => ({
-    ...obj,
-  });
 }
 
 export type ServerSideEncryption = "AES256" | "aws:kms";
@@ -405,16 +324,6 @@ export interface CompleteMultipartUploadOutput {
   RequestCharged?: RequestCharged | string;
 }
 
-export namespace CompleteMultipartUploadOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteMultipartUploadOutput): any => ({
-    ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Details of the parts that were uploaded.</p>
  */
@@ -463,15 +372,6 @@ export interface CompletedPart {
   PartNumber?: number;
 }
 
-export namespace CompletedPart {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompletedPart): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container for the completed multipart upload details.</p>
  */
@@ -482,15 +382,6 @@ export interface CompletedMultipartUpload {
    *          400 response.</p>
    */
   Parts?: CompletedPart[];
-}
-
-export namespace CompletedMultipartUpload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompletedMultipartUpload): any => ({
-    ...obj,
-  });
 }
 
 export interface CompleteMultipartUploadRequest {
@@ -589,16 +480,6 @@ export interface CompleteMultipartUploadRequest {
   SSECustomerKeyMD5?: string;
 }
 
-export namespace CompleteMultipartUploadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompleteMultipartUploadRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Container for all response elements.</p>
  */
@@ -644,15 +525,6 @@ export interface CopyObjectResult {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   ChecksumSHA256?: string;
-}
-
-export namespace CopyObjectResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyObjectResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CopyObjectOutput {
@@ -718,17 +590,6 @@ export interface CopyObjectOutput {
    *          request.</p>
    */
   RequestCharged?: RequestCharged | string;
-}
-
-export namespace CopyObjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyObjectOutput): any => ({
-    ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
-  });
 }
 
 export type ObjectCannedACL =
@@ -1044,19 +905,6 @@ export interface CopyObjectRequest {
   ExpectedSourceBucketOwner?: string;
 }
 
-export namespace CopyObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyObjectRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
-    ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The source object of the COPY action is not in the active tier and is only stored in
  *          Amazon S3 Glacier.</p>
@@ -1126,15 +974,6 @@ export interface CreateBucketOutput {
   Location?: string;
 }
 
-export namespace CreateBucketOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBucketOutput): any => ({
-    ...obj,
-  });
-}
-
 export type BucketCannedACL = "authenticated-read" | "private" | "public-read" | "public-read-write";
 
 export type BucketLocationConstraint =
@@ -1173,15 +1012,6 @@ export interface CreateBucketConfiguration {
    *          the bucket is created in the US East (N. Virginia) Region (us-east-1).</p>
    */
   LocationConstraint?: BucketLocationConstraint | string;
-}
-
-export namespace CreateBucketConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBucketConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export type ObjectOwnership = "BucketOwnerEnforced" | "BucketOwnerPreferred" | "ObjectWriter";
@@ -1248,15 +1078,6 @@ export interface CreateBucketRequest {
    *          ACL or an equivalent form of this ACL expressed in the XML format.</p>
    */
   ObjectOwnership?: ObjectOwnership | string;
-}
-
-export namespace CreateBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBucketRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMultipartUploadOutput {
@@ -1344,17 +1165,6 @@ export interface CreateMultipartUploadOutput {
    * <p>The algorithm that was used to create a checksum of the object.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
-}
-
-export namespace CreateMultipartUploadOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMultipartUploadOutput): any => ({
-    ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
-  });
 }
 
 export interface CreateMultipartUploadRequest {
@@ -1549,18 +1359,6 @@ export interface CreateMultipartUploadRequest {
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 }
 
-export namespace CreateMultipartUploadRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMultipartUploadRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
-  });
-}
-
 export interface DeleteBucketRequest {
   /**
    * <p>Specifies the bucket being deleted.</p>
@@ -1571,15 +1369,6 @@ export interface DeleteBucketRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace DeleteBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBucketAnalyticsConfigurationRequest {
@@ -1601,15 +1390,6 @@ export interface DeleteBucketAnalyticsConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace DeleteBucketAnalyticsConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketAnalyticsConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBucketCorsRequest {
   /**
    * <p>Specifies the bucket whose <code>cors</code> configuration is being deleted.</p>
@@ -1622,15 +1402,6 @@ export interface DeleteBucketCorsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace DeleteBucketCorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketCorsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBucketEncryptionRequest {
@@ -1648,15 +1419,6 @@ export interface DeleteBucketEncryptionRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace DeleteBucketEncryptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketEncryptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBucketIntelligentTieringConfigurationRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
@@ -1669,15 +1431,6 @@ export interface DeleteBucketIntelligentTieringConfigurationRequest {
    * <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
    */
   Id: string | undefined;
-}
-
-export namespace DeleteBucketIntelligentTieringConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketIntelligentTieringConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBucketInventoryConfigurationRequest {
@@ -1699,15 +1452,6 @@ export interface DeleteBucketInventoryConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace DeleteBucketInventoryConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketInventoryConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBucketLifecycleRequest {
   /**
    * <p>The bucket name of the lifecycle to delete.</p>
@@ -1720,15 +1464,6 @@ export interface DeleteBucketLifecycleRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace DeleteBucketLifecycleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketLifecycleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBucketMetricsConfigurationRequest {
@@ -1750,15 +1485,6 @@ export interface DeleteBucketMetricsConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace DeleteBucketMetricsConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketMetricsConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBucketOwnershipControlsRequest {
   /**
    * <p>The Amazon S3 bucket whose <code>OwnershipControls</code> you want to delete. </p>
@@ -1771,15 +1497,6 @@ export interface DeleteBucketOwnershipControlsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace DeleteBucketOwnershipControlsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketOwnershipControlsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBucketPolicyRequest {
@@ -1796,15 +1513,6 @@ export interface DeleteBucketPolicyRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace DeleteBucketPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBucketReplicationRequest {
   /**
    * <p> The bucket name. </p>
@@ -1817,15 +1525,6 @@ export interface DeleteBucketReplicationRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace DeleteBucketReplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketReplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBucketTaggingRequest {
@@ -1842,15 +1541,6 @@ export interface DeleteBucketTaggingRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace DeleteBucketTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBucketWebsiteRequest {
   /**
    * <p>The bucket name for which you want to remove the website configuration. </p>
@@ -1863,15 +1553,6 @@ export interface DeleteBucketWebsiteRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace DeleteBucketWebsiteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketWebsiteRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteObjectOutput {
@@ -1892,15 +1573,6 @@ export interface DeleteObjectOutput {
    *          request.</p>
    */
   RequestCharged?: RequestCharged | string;
-}
-
-export namespace DeleteObjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteObjectRequest {
@@ -1952,15 +1624,6 @@ export interface DeleteObjectRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace DeleteObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the deleted object.</p>
  */
@@ -1988,15 +1651,6 @@ export interface DeletedObject {
    *          the object version deleted.</p>
    */
   DeleteMarkerVersionId?: string;
-}
-
-export namespace DeletedObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletedObject): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3891,15 +3545,6 @@ export interface _Error {
   Message?: string;
 }
 
-export namespace _Error {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Error): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteObjectsOutput {
   /**
    * <p>Container element for a successful delete. It identifies the object that was
@@ -3918,15 +3563,6 @@ export interface DeleteObjectsOutput {
    *          delete and the error it encountered.</p>
    */
   Errors?: _Error[];
-}
-
-export namespace DeleteObjectsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3949,15 +3585,6 @@ export interface ObjectIdentifier {
   VersionId?: string;
 }
 
-export namespace ObjectIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectIdentifier): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the objects to delete.</p>
  */
@@ -3972,15 +3599,6 @@ export interface Delete {
    *          its value to true.</p>
    */
   Quiet?: boolean;
-}
-
-export namespace Delete {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Delete): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteObjectsRequest {
@@ -4040,29 +3658,11 @@ export interface DeleteObjectsRequest {
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 }
 
-export namespace DeleteObjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteObjectTaggingOutput {
   /**
    * <p>The versionId of the object the tag-set was removed from.</p>
    */
   VersionId?: string;
-}
-
-export namespace DeleteObjectTaggingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectTaggingOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteObjectTaggingRequest {
@@ -4092,15 +3692,6 @@ export interface DeleteObjectTaggingRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace DeleteObjectTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePublicAccessBlockRequest {
   /**
    * <p>The Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to delete.
@@ -4116,29 +3707,11 @@ export interface DeletePublicAccessBlockRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace DeletePublicAccessBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePublicAccessBlockRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketAccelerateConfigurationOutput {
   /**
    * <p>The accelerate configuration of the bucket.</p>
    */
   Status?: BucketAccelerateStatus | string;
-}
-
-export namespace GetBucketAccelerateConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketAccelerateConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketAccelerateConfigurationRequest {
@@ -4155,15 +3728,6 @@ export interface GetBucketAccelerateConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetBucketAccelerateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketAccelerateConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketAclOutput {
   /**
    * <p>Container for the bucket owner's display name and ID.</p>
@@ -4174,15 +3738,6 @@ export interface GetBucketAclOutput {
    * <p>A list of grants.</p>
    */
   Grants?: Grant[];
-}
-
-export namespace GetBucketAclOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketAclOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketAclRequest {
@@ -4199,15 +3754,6 @@ export interface GetBucketAclRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetBucketAclRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketAclRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container of a key value name pair.</p>
  */
@@ -4221,15 +3767,6 @@ export interface Tag {
    * <p>Value of the tag.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4248,15 +3785,6 @@ export interface AnalyticsAndOperator {
    * <p>The list of tags to use when evaluating an AND predicate.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace AnalyticsAndOperator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyticsAndOperator): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4322,16 +3850,6 @@ export namespace AnalyticsFilter {
     if (value.And !== undefined) return visitor.And(value.And);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyticsFilter): any => {
-    if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
-    if (obj.Tag !== undefined) return { Tag: Tag.filterSensitiveLog(obj.Tag) };
-    if (obj.And !== undefined) return { And: AnalyticsAndOperator.filterSensitiveLog(obj.And) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export type AnalyticsS3ExportFileFormat = "CSV";
@@ -4366,15 +3884,6 @@ export interface AnalyticsS3BucketDestination {
   Prefix?: string;
 }
 
-export namespace AnalyticsS3BucketDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyticsS3BucketDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Where to publish the analytics results.</p>
  */
@@ -4383,15 +3892,6 @@ export interface AnalyticsExportDestination {
    * <p>A destination signifying output to an S3 bucket.</p>
    */
   S3BucketDestination: AnalyticsS3BucketDestination | undefined;
-}
-
-export namespace AnalyticsExportDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyticsExportDestination): any => ({
-    ...obj,
-  });
 }
 
 export type StorageClassAnalysisSchemaVersion = "V_1";
@@ -4413,15 +3913,6 @@ export interface StorageClassAnalysisDataExport {
   Destination: AnalyticsExportDestination | undefined;
 }
 
-export namespace StorageClassAnalysisDataExport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageClassAnalysisDataExport): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies data related to access patterns to be collected and made available to analyze
  *          the tradeoffs between different storage classes for an Amazon S3 bucket.</p>
@@ -4432,15 +3923,6 @@ export interface StorageClassAnalysis {
    *          exported.</p>
    */
   DataExport?: StorageClassAnalysisDataExport;
-}
-
-export namespace StorageClassAnalysis {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageClassAnalysis): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4466,33 +3948,11 @@ export interface AnalyticsConfiguration {
   StorageClassAnalysis: StorageClassAnalysis | undefined;
 }
 
-export namespace AnalyticsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalyticsConfiguration): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: AnalyticsFilter.filterSensitiveLog(obj.Filter) }),
-  });
-}
-
 export interface GetBucketAnalyticsConfigurationOutput {
   /**
    * <p>The configuration and any analyses for the analytics filter.</p>
    */
   AnalyticsConfiguration?: AnalyticsConfiguration;
-}
-
-export namespace GetBucketAnalyticsConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketAnalyticsConfigurationOutput): any => ({
-    ...obj,
-    ...(obj.AnalyticsConfiguration && {
-      AnalyticsConfiguration: AnalyticsConfiguration.filterSensitiveLog(obj.AnalyticsConfiguration),
-    }),
-  });
 }
 
 export interface GetBucketAnalyticsConfigurationRequest {
@@ -4512,15 +3972,6 @@ export interface GetBucketAnalyticsConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetBucketAnalyticsConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketAnalyticsConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4564,30 +4015,12 @@ export interface CORSRule {
   MaxAgeSeconds?: number;
 }
 
-export namespace CORSRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CORSRule): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketCorsOutput {
   /**
    * <p>A set of origins and methods (cross-origin access that you want to allow). You can add
    *          up to 100 rules to the configuration.</p>
    */
   CORSRules?: CORSRule[];
-}
-
-export namespace GetBucketCorsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketCorsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketCorsRequest {
@@ -4602,15 +4035,6 @@ export interface GetBucketCorsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetBucketCorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketCorsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4657,16 +4081,6 @@ export interface ServerSideEncryptionByDefault {
   KMSMasterKeyID?: string;
 }
 
-export namespace ServerSideEncryptionByDefault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerSideEncryptionByDefault): any => ({
-    ...obj,
-    ...(obj.KMSMasterKeyID && { KMSMasterKeyID: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Specifies the default server-side encryption configuration.</p>
  */
@@ -4685,20 +4099,6 @@ export interface ServerSideEncryptionRule {
   BucketKeyEnabled?: boolean;
 }
 
-export namespace ServerSideEncryptionRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerSideEncryptionRule): any => ({
-    ...obj,
-    ...(obj.ApplyServerSideEncryptionByDefault && {
-      ApplyServerSideEncryptionByDefault: ServerSideEncryptionByDefault.filterSensitiveLog(
-        obj.ApplyServerSideEncryptionByDefault
-      ),
-    }),
-  });
-}
-
 /**
  * <p>Specifies the default server-side-encryption configuration.</p>
  */
@@ -4710,35 +4110,11 @@ export interface ServerSideEncryptionConfiguration {
   Rules: ServerSideEncryptionRule[] | undefined;
 }
 
-export namespace ServerSideEncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
-    ...obj,
-    ...(obj.Rules && { Rules: obj.Rules.map((item) => ServerSideEncryptionRule.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface GetBucketEncryptionOutput {
   /**
    * <p>Specifies the default server-side-encryption configuration.</p>
    */
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
-}
-
-export namespace GetBucketEncryptionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketEncryptionOutput): any => ({
-    ...obj,
-    ...(obj.ServerSideEncryptionConfiguration && {
-      ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration.filterSensitiveLog(
-        obj.ServerSideEncryptionConfiguration
-      ),
-    }),
-  });
 }
 
 export interface GetBucketEncryptionRequest {
@@ -4754,15 +4130,6 @@ export interface GetBucketEncryptionRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetBucketEncryptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketEncryptionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4781,15 +4148,6 @@ export interface IntelligentTieringAndOperator {
    *          apply.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace IntelligentTieringAndOperator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntelligentTieringAndOperator): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4821,15 +4179,6 @@ export interface IntelligentTieringFilter {
   And?: IntelligentTieringAndOperator;
 }
 
-export namespace IntelligentTieringFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntelligentTieringFilter): any => ({
-    ...obj,
-  });
-}
-
 export type IntelligentTieringStatus = "Disabled" | "Enabled";
 
 export type IntelligentTieringAccessTier = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
@@ -4854,15 +4203,6 @@ export interface Tiering {
    *          of access tiers in the S3 Intelligent-Tiering storage class.</p>
    */
   AccessTier: IntelligentTieringAccessTier | string | undefined;
-}
-
-export namespace Tiering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tiering): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4893,29 +4233,11 @@ export interface IntelligentTieringConfiguration {
   Tierings: Tiering[] | undefined;
 }
 
-export namespace IntelligentTieringConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntelligentTieringConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketIntelligentTieringConfigurationOutput {
   /**
    * <p>Container for S3 Intelligent-Tiering configuration.</p>
    */
   IntelligentTieringConfiguration?: IntelligentTieringConfiguration;
-}
-
-export namespace GetBucketIntelligentTieringConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketIntelligentTieringConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketIntelligentTieringConfigurationRequest {
@@ -4932,15 +4254,6 @@ export interface GetBucketIntelligentTieringConfigurationRequest {
   Id: string | undefined;
 }
 
-export namespace GetBucketIntelligentTieringConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketIntelligentTieringConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
  */
@@ -4952,29 +4265,10 @@ export interface SSEKMS {
   KeyId: string | undefined;
 }
 
-export namespace SSEKMS {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSEKMS): any => ({
-    ...obj,
-    ...(obj.KeyId && { KeyId: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
  */
 export interface SSES3 {}
-
-export namespace SSES3 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSES3): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the type of server-side encryption used to encrypt the inventory
@@ -4990,16 +4284,6 @@ export interface InventoryEncryption {
    * <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
    */
   SSEKMS?: SSEKMS;
-}
-
-export namespace InventoryEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryEncryption): any => ({
-    ...obj,
-    ...(obj.SSEKMS && { SSEKMS: SSEKMS.filterSensitiveLog(obj.SSEKMS) }),
-  });
 }
 
 export type InventoryFormat = "CSV" | "ORC" | "Parquet";
@@ -5042,16 +4326,6 @@ export interface InventoryS3BucketDestination {
   Encryption?: InventoryEncryption;
 }
 
-export namespace InventoryS3BucketDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryS3BucketDestination): any => ({
-    ...obj,
-    ...(obj.Encryption && { Encryption: InventoryEncryption.filterSensitiveLog(obj.Encryption) }),
-  });
-}
-
 /**
  * <p>Specifies the inventory configuration for an Amazon S3 bucket.</p>
  */
@@ -5063,18 +4337,6 @@ export interface InventoryDestination {
   S3BucketDestination: InventoryS3BucketDestination | undefined;
 }
 
-export namespace InventoryDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryDestination): any => ({
-    ...obj,
-    ...(obj.S3BucketDestination && {
-      S3BucketDestination: InventoryS3BucketDestination.filterSensitiveLog(obj.S3BucketDestination),
-    }),
-  });
-}
-
 /**
  * <p>Specifies an inventory filter. The inventory only includes objects that meet the
  *          filter's criteria.</p>
@@ -5084,15 +4346,6 @@ export interface InventoryFilter {
    * <p>The prefix that an object must have to be included in the inventory results.</p>
    */
   Prefix: string | undefined;
-}
-
-export namespace InventoryFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryFilter): any => ({
-    ...obj,
-  });
 }
 
 export type InventoryIncludedObjectVersions = "All" | "Current";
@@ -5122,15 +4375,6 @@ export interface InventorySchedule {
    * <p>Specifies how frequently inventory results are produced.</p>
    */
   Frequency: InventoryFrequency | string | undefined;
-}
-
-export namespace InventorySchedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventorySchedule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5182,33 +4426,11 @@ export interface InventoryConfiguration {
   Schedule: InventorySchedule | undefined;
 }
 
-export namespace InventoryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InventoryConfiguration): any => ({
-    ...obj,
-    ...(obj.Destination && { Destination: InventoryDestination.filterSensitiveLog(obj.Destination) }),
-  });
-}
-
 export interface GetBucketInventoryConfigurationOutput {
   /**
    * <p>Specifies the inventory configuration.</p>
    */
   InventoryConfiguration?: InventoryConfiguration;
-}
-
-export namespace GetBucketInventoryConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketInventoryConfigurationOutput): any => ({
-    ...obj,
-    ...(obj.InventoryConfiguration && {
-      InventoryConfiguration: InventoryConfiguration.filterSensitiveLog(obj.InventoryConfiguration),
-    }),
-  });
 }
 
 export interface GetBucketInventoryConfigurationRequest {
@@ -5228,15 +4450,6 @@ export interface GetBucketInventoryConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetBucketInventoryConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketInventoryConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5261,15 +4474,6 @@ export interface LifecycleExpiration {
    *          This cannot be specified with Days or Date in a Lifecycle Expiration Policy.</p>
    */
   ExpiredObjectDeleteMarker?: boolean;
-}
-
-export namespace LifecycleExpiration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleExpiration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5298,15 +4502,6 @@ export interface LifecycleRuleAndOperator {
    * <p>Maximum object size to which the rule applies.</p>
    */
   ObjectSizeLessThan?: number;
-}
-
-export namespace LifecycleRuleAndOperator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleRuleAndOperator): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5416,18 +4611,6 @@ export namespace LifecycleRuleFilter {
     if (value.And !== undefined) return visitor.And(value.And);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleRuleFilter): any => {
-    if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
-    if (obj.Tag !== undefined) return { Tag: Tag.filterSensitiveLog(obj.Tag) };
-    if (obj.ObjectSizeGreaterThan !== undefined) return { ObjectSizeGreaterThan: obj.ObjectSizeGreaterThan };
-    if (obj.ObjectSizeLessThan !== undefined) return { ObjectSizeLessThan: obj.ObjectSizeLessThan };
-    if (obj.And !== undefined) return { And: LifecycleRuleAndOperator.filterSensitiveLog(obj.And) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -5451,15 +4634,6 @@ export interface NoncurrentVersionExpiration {
    *          in the <i>Amazon S3 User Guide</i>.</p>
    */
   NewerNoncurrentVersions?: number;
-}
-
-export namespace NoncurrentVersionExpiration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoncurrentVersionExpiration): any => ({
-    ...obj,
-  });
 }
 
 export type TransitionStorageClass =
@@ -5503,15 +4677,6 @@ export interface NoncurrentVersionTransition {
   NewerNoncurrentVersions?: number;
 }
 
-export namespace NoncurrentVersionTransition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoncurrentVersionTransition): any => ({
-    ...obj,
-  });
-}
-
 export type ExpirationStatus = "Disabled" | "Enabled";
 
 /**
@@ -5536,15 +4701,6 @@ export interface Transition {
    * <p>The storage class to which you want the object to transition.</p>
    */
   StorageClass?: TransitionStorageClass | string;
-}
-
-export namespace Transition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Transition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5620,31 +4776,11 @@ export interface LifecycleRule {
   AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
 }
 
-export namespace LifecycleRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleRule): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: LifecycleRuleFilter.filterSensitiveLog(obj.Filter) }),
-  });
-}
-
 export interface GetBucketLifecycleConfigurationOutput {
   /**
    * <p>Container for a lifecycle rule.</p>
    */
   Rules?: LifecycleRule[];
-}
-
-export namespace GetBucketLifecycleConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketLifecycleConfigurationOutput): any => ({
-    ...obj,
-    ...(obj.Rules && { Rules: obj.Rules.map((item) => LifecycleRule.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface GetBucketLifecycleConfigurationRequest {
@@ -5661,15 +4797,6 @@ export interface GetBucketLifecycleConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetBucketLifecycleConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketLifecycleConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketLocationOutput {
   /**
    * <p>Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported
@@ -5678,15 +4805,6 @@ export interface GetBucketLocationOutput {
    *          <code>null</code>.</p>
    */
   LocationConstraint?: BucketLocationConstraint | string;
-}
-
-export namespace GetBucketLocationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketLocationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketLocationRequest {
@@ -5701,15 +4819,6 @@ export interface GetBucketLocationRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetBucketLocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketLocationRequest): any => ({
-    ...obj,
-  });
 }
 
 export type BucketLogsPermission = "FULL_CONTROL" | "READ" | "WRITE";
@@ -5730,15 +4839,6 @@ export interface TargetGrant {
    * <p>Logging permissions assigned to the grantee for the bucket.</p>
    */
   Permission?: BucketLogsPermission | string;
-}
-
-export namespace TargetGrant {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGrant): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5772,15 +4872,6 @@ export interface LoggingEnabled {
   TargetPrefix: string | undefined;
 }
 
-export namespace LoggingEnabled {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingEnabled): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketLoggingOutput {
   /**
    * <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys
@@ -5788,15 +4879,6 @@ export interface GetBucketLoggingOutput {
    *             <i>Amazon S3 API Reference</i>.</p>
    */
   LoggingEnabled?: LoggingEnabled;
-}
-
-export namespace GetBucketLoggingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketLoggingOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketLoggingRequest {
@@ -5811,15 +4893,6 @@ export interface GetBucketLoggingRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetBucketLoggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketLoggingRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5842,15 +4915,6 @@ export interface MetricsAndOperator {
    * <p>The access point ARN used when evaluating an <code>AND</code> predicate.</p>
    */
   AccessPointArn?: string;
-}
-
-export namespace MetricsAndOperator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricsAndOperator): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5935,17 +4999,6 @@ export namespace MetricsFilter {
     if (value.And !== undefined) return visitor.And(value.And);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricsFilter): any => {
-    if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
-    if (obj.Tag !== undefined) return { Tag: Tag.filterSensitiveLog(obj.Tag) };
-    if (obj.AccessPointArn !== undefined) return { AccessPointArn: obj.AccessPointArn };
-    if (obj.And !== undefined) return { And: MetricsAndOperator.filterSensitiveLog(obj.And) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -5969,33 +5022,11 @@ export interface MetricsConfiguration {
   Filter?: MetricsFilter;
 }
 
-export namespace MetricsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricsConfiguration): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: MetricsFilter.filterSensitiveLog(obj.Filter) }),
-  });
-}
-
 export interface GetBucketMetricsConfigurationOutput {
   /**
    * <p>Specifies the metrics configuration.</p>
    */
   MetricsConfiguration?: MetricsConfiguration;
-}
-
-export namespace GetBucketMetricsConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketMetricsConfigurationOutput): any => ({
-    ...obj,
-    ...(obj.MetricsConfiguration && {
-      MetricsConfiguration: MetricsConfiguration.filterSensitiveLog(obj.MetricsConfiguration),
-    }),
-  });
 }
 
 export interface GetBucketMetricsConfigurationRequest {
@@ -6017,15 +5048,6 @@ export interface GetBucketMetricsConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetBucketMetricsConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketMetricsConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketNotificationConfigurationRequest {
   /**
    * <p>The name of the bucket for which to get the notification configuration.</p>
@@ -6040,28 +5062,10 @@ export interface GetBucketNotificationConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetBucketNotificationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketNotificationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for specifying the configuration for Amazon EventBridge.</p>
  */
 export interface EventBridgeConfiguration {}
-
-export namespace EventBridgeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventBridgeConfiguration): any => ({
-    ...obj,
-  });
-}
 
 export type Event =
   | "s3:IntelligentTiering"
@@ -6113,15 +5117,6 @@ export interface FilterRule {
   Value?: string;
 }
 
-export namespace FilterRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for object key name prefix and suffix filtering rules.</p>
  */
@@ -6131,15 +5126,6 @@ export interface S3KeyFilter {
    *          rule.</p>
    */
   FilterRules?: FilterRule[];
-}
-
-export namespace S3KeyFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3KeyFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6152,15 +5138,6 @@ export interface NotificationConfigurationFilter {
    * <p>A container for object key name prefix and suffix filtering rules.</p>
    */
   Key?: S3KeyFilter;
-}
-
-export namespace NotificationConfigurationFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfigurationFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6194,15 +5171,6 @@ export interface LambdaFunctionConfiguration {
   Filter?: NotificationConfigurationFilter;
 }
 
-export namespace LambdaFunctionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the configuration for publishing messages to an Amazon Simple Queue Service
  *          (Amazon SQS) queue when Amazon S3 detects specified events.</p>
@@ -6231,15 +5199,6 @@ export interface QueueConfiguration {
    *             Event Notifications</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Filter?: NotificationConfigurationFilter;
-}
-
-export namespace QueueConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6274,15 +5233,6 @@ export interface TopicConfiguration {
   Filter?: NotificationConfigurationFilter;
 }
 
-export namespace TopicConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TopicConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for specifying the notification configuration of the bucket. If this element
  *          is empty, notifications are turned off for the bucket.</p>
@@ -6312,15 +5262,6 @@ export interface NotificationConfiguration {
   EventBridgeConfiguration?: EventBridgeConfiguration;
 }
 
-export namespace NotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container element for an ownership control rule.</p>
  */
@@ -6341,15 +5282,6 @@ export interface OwnershipControlsRule {
   ObjectOwnership: ObjectOwnership | string | undefined;
 }
 
-export namespace OwnershipControlsRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OwnershipControlsRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container element for a bucket's ownership controls.</p>
  */
@@ -6360,30 +5292,12 @@ export interface OwnershipControls {
   Rules: OwnershipControlsRule[] | undefined;
 }
 
-export namespace OwnershipControls {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OwnershipControls): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketOwnershipControlsOutput {
   /**
    * <p>The <code>OwnershipControls</code> (BucketOwnerEnforced, BucketOwnerPreferred, or ObjectWriter) currently in
    *          effect for this Amazon S3 bucket.</p>
    */
   OwnershipControls?: OwnershipControls;
-}
-
-export namespace GetBucketOwnershipControlsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketOwnershipControlsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketOwnershipControlsRequest {
@@ -6401,29 +5315,11 @@ export interface GetBucketOwnershipControlsRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetBucketOwnershipControlsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketOwnershipControlsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketPolicyOutput {
   /**
    * <p>The bucket policy as a JSON document.</p>
    */
   Policy?: string;
-}
-
-export namespace GetBucketPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketPolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketPolicyRequest {
@@ -6440,15 +5336,6 @@ export interface GetBucketPolicyRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetBucketPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container element for a bucket's policy status.</p>
  */
@@ -6460,29 +5347,11 @@ export interface PolicyStatus {
   IsPublic?: boolean;
 }
 
-export namespace PolicyStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketPolicyStatusOutput {
   /**
    * <p>The policy status for the specified bucket.</p>
    */
   PolicyStatus?: PolicyStatus;
-}
-
-export namespace GetBucketPolicyStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketPolicyStatusOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketPolicyStatusRequest {
@@ -6497,15 +5366,6 @@ export interface GetBucketPolicyStatusRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetBucketPolicyStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketPolicyStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export type DeleteMarkerReplicationStatus = "Disabled" | "Enabled";
@@ -6534,15 +5394,6 @@ export interface DeleteMarkerReplication {
   Status?: DeleteMarkerReplicationStatus | string;
 }
 
-export namespace DeleteMarkerReplication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMarkerReplication): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies encryption-related information for an Amazon S3 bucket that is a destination for
  *          replicated objects.</p>
@@ -6558,15 +5409,6 @@ export interface EncryptionConfiguration {
   ReplicaKmsKeyID?: string;
 }
 
-export namespace EncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics
  *             <code>EventThreshold</code>. </p>
@@ -6577,15 +5419,6 @@ export interface ReplicationTimeValue {
    *          <p> Valid value: 15</p>
    */
   Minutes?: number;
-}
-
-export namespace ReplicationTimeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationTimeValue): any => ({
-    ...obj,
-  });
 }
 
 export type MetricsStatus = "Disabled" | "Enabled";
@@ -6607,15 +5440,6 @@ export interface Metrics {
   EventThreshold?: ReplicationTimeValue;
 }
 
-export namespace Metrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Metrics): any => ({
-    ...obj,
-  });
-}
-
 export type ReplicationTimeStatus = "Disabled" | "Enabled";
 
 /**
@@ -6634,15 +5458,6 @@ export interface ReplicationTime {
    *          and operations on objects. </p>
    */
   Time: ReplicationTimeValue | undefined;
-}
-
-export namespace ReplicationTime {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationTime): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6701,15 +5516,6 @@ export interface Destination {
   Metrics?: Metrics;
 }
 
-export namespace Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj,
-  });
-}
-
 export type ExistingObjectReplicationStatus = "Disabled" | "Enabled";
 
 /**
@@ -6722,15 +5528,6 @@ export interface ExistingObjectReplication {
    * <p></p>
    */
   Status: ExistingObjectReplicationStatus | string | undefined;
-}
-
-export namespace ExistingObjectReplication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExistingObjectReplication): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6759,15 +5556,6 @@ export interface ReplicationRuleAndOperator {
    * <p>An array of tags containing key and value pairs.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ReplicationRuleAndOperator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationRuleAndOperator): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6851,16 +5639,6 @@ export namespace ReplicationRuleFilter {
     if (value.And !== undefined) return visitor.And(value.And);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationRuleFilter): any => {
-    if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
-    if (obj.Tag !== undefined) return { Tag: Tag.filterSensitiveLog(obj.Tag) };
-    if (obj.And !== undefined) return { And: ReplicationRuleAndOperator.filterSensitiveLog(obj.And) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export type ReplicaModificationsStatus = "Disabled" | "Enabled";
@@ -6883,15 +5661,6 @@ export interface ReplicaModifications {
   Status: ReplicaModificationsStatus | string | undefined;
 }
 
-export namespace ReplicaModifications {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicaModifications): any => ({
-    ...obj,
-  });
-}
-
 export type SseKmsEncryptedObjectsStatus = "Disabled" | "Enabled";
 
 /**
@@ -6904,15 +5673,6 @@ export interface SseKmsEncryptedObjects {
    *          Amazon Web Services KMS key stored in Amazon Web Services Key Management Service.</p>
    */
   Status: SseKmsEncryptedObjectsStatus | string | undefined;
-}
-
-export namespace SseKmsEncryptedObjects {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SseKmsEncryptedObjects): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6942,15 +5702,6 @@ export interface SourceSelectionCriteria {
    *          </note>
    */
   ReplicaModifications?: ReplicaModifications;
-}
-
-export namespace SourceSelectionCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceSelectionCriteria): any => ({
-    ...obj,
-  });
 }
 
 export type ReplicationRuleStatus = "Disabled" | "Enabled";
@@ -7038,16 +5789,6 @@ export interface ReplicationRule {
   DeleteMarkerReplication?: DeleteMarkerReplication;
 }
 
-export namespace ReplicationRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationRule): any => ({
-    ...obj,
-    ...(obj.Filter && { Filter: ReplicationRuleFilter.filterSensitiveLog(obj.Filter) }),
-  });
-}
-
 /**
  * <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
  *          replication configuration is 2 MB.</p>
@@ -7067,34 +5808,12 @@ export interface ReplicationConfiguration {
   Rules: ReplicationRule[] | undefined;
 }
 
-export namespace ReplicationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationConfiguration): any => ({
-    ...obj,
-    ...(obj.Rules && { Rules: obj.Rules.map((item) => ReplicationRule.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface GetBucketReplicationOutput {
   /**
    * <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
    *          replication configuration is 2 MB.</p>
    */
   ReplicationConfiguration?: ReplicationConfiguration;
-}
-
-export namespace GetBucketReplicationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketReplicationOutput): any => ({
-    ...obj,
-    ...(obj.ReplicationConfiguration && {
-      ReplicationConfiguration: ReplicationConfiguration.filterSensitiveLog(obj.ReplicationConfiguration),
-    }),
-  });
 }
 
 export interface GetBucketReplicationRequest {
@@ -7111,15 +5830,6 @@ export interface GetBucketReplicationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetBucketReplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketReplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export type Payer = "BucketOwner" | "Requester";
 
 export interface GetBucketRequestPaymentOutput {
@@ -7127,15 +5837,6 @@ export interface GetBucketRequestPaymentOutput {
    * <p>Specifies who pays for the download and request fees.</p>
    */
   Payer?: Payer | string;
-}
-
-export namespace GetBucketRequestPaymentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketRequestPaymentOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketRequestPaymentRequest {
@@ -7152,29 +5853,11 @@ export interface GetBucketRequestPaymentRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetBucketRequestPaymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketRequestPaymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketTaggingOutput {
   /**
    * <p>Contains the tag set.</p>
    */
   TagSet: Tag[] | undefined;
-}
-
-export namespace GetBucketTaggingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketTaggingOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketTaggingRequest {
@@ -7189,15 +5872,6 @@ export interface GetBucketTaggingRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetBucketTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketTaggingRequest): any => ({
-    ...obj,
-  });
 }
 
 export type MFADeleteStatus = "Disabled" | "Enabled";
@@ -7218,15 +5892,6 @@ export interface GetBucketVersioningOutput {
   MFADelete?: MFADeleteStatus | string;
 }
 
-export namespace GetBucketVersioningOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketVersioningOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketVersioningRequest {
   /**
    * <p>The name of the bucket for which to get the versioning information.</p>
@@ -7239,15 +5904,6 @@ export interface GetBucketVersioningRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetBucketVersioningRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketVersioningRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7263,15 +5919,6 @@ export interface ErrorDocument {
    *          </important>
    */
   Key: string | undefined;
-}
-
-export namespace ErrorDocument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorDocument): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7292,15 +5939,6 @@ export interface IndexDocument {
   Suffix: string | undefined;
 }
 
-export namespace IndexDocument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexDocument): any => ({
-    ...obj,
-  });
-}
-
 export type Protocol = "http" | "https";
 
 /**
@@ -7318,15 +5956,6 @@ export interface RedirectAllRequestsTo {
    *          the original request.</p>
    */
   Protocol?: Protocol | string;
-}
-
-export namespace RedirectAllRequestsTo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedirectAllRequestsTo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7361,15 +5990,6 @@ export interface Condition {
    *          </important>
    */
   KeyPrefixEquals?: string;
-}
-
-export namespace Condition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Condition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7422,15 +6042,6 @@ export interface Redirect {
   ReplaceKeyWith?: string;
 }
 
-export namespace Redirect {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Redirect): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the redirect behavior and when a redirect is applied. For more information
  *          about routing rules, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html#advanced-conditional-redirects">Configuring advanced conditional redirects</a> in the
@@ -7451,15 +6062,6 @@ export interface RoutingRule {
    *          different error code to return.</p>
    */
   Redirect: Redirect | undefined;
-}
-
-export namespace RoutingRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoutingRule): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketWebsiteOutput {
@@ -7486,15 +6088,6 @@ export interface GetBucketWebsiteOutput {
   RoutingRules?: RoutingRule[];
 }
 
-export namespace GetBucketWebsiteOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketWebsiteOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketWebsiteRequest {
   /**
    * <p>The bucket name for which to get the website configuration.</p>
@@ -7507,15 +6100,6 @@ export interface GetBucketWebsiteRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetBucketWebsiteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketWebsiteRequest): any => ({
-    ...obj,
-  });
 }
 
 export type ReplicationStatus = "COMPLETE" | "FAILED" | "PENDING" | "REPLICA";
@@ -7737,16 +6321,6 @@ export interface GetObjectOutput {
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
 }
 
-export namespace GetObjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectOutput): any => ({
-    ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-  });
-}
-
 export enum ChecksumMode {
   ENABLED = "ENABLED",
 }
@@ -7884,16 +6458,6 @@ export interface GetObjectRequest {
   ChecksumMode?: ChecksumMode | string;
 }
 
-export namespace GetObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Object is archived and inaccessible until restored.</p>
  */
@@ -7954,15 +6518,6 @@ export interface GetObjectAclOutput {
   RequestCharged?: RequestCharged | string;
 }
 
-export namespace GetObjectAclOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectAclOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetObjectAclRequest {
   /**
    * <p>The bucket name that contains the object for which to get the ACL information. </p>
@@ -7994,15 +6549,6 @@ export interface GetObjectAclRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetObjectAclRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectAclRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8040,15 +6586,6 @@ export interface Checksum {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   ChecksumSHA256?: string;
-}
-
-export namespace Checksum {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Checksum): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8099,15 +6636,6 @@ export interface ObjectPart {
   ChecksumSHA256?: string;
 }
 
-export namespace ObjectPart {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectPart): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A collection of parts associated with a multipart upload.</p>
  */
@@ -8146,15 +6674,6 @@ export interface GetObjectAttributesParts {
    *          more <code>Parts</code> elements.</p>
    */
   Parts?: ObjectPart[];
-}
-
-export namespace GetObjectAttributesParts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectAttributesParts): any => ({
-    ...obj,
-  });
 }
 
 export interface GetObjectAttributesOutput {
@@ -8210,15 +6729,6 @@ export interface GetObjectAttributesOutput {
    * <p>The size of the object in bytes.</p>
    */
   ObjectSize?: number;
-}
-
-export namespace GetObjectAttributesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectAttributesOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ObjectAttributes {
@@ -8302,16 +6812,6 @@ export interface GetObjectAttributesRequest {
   ObjectAttributes: (ObjectAttributes | string)[] | undefined;
 }
 
-export namespace GetObjectAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectAttributesRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A legal hold configuration for an object.</p>
  */
@@ -8322,29 +6822,11 @@ export interface ObjectLockLegalHold {
   Status?: ObjectLockLegalHoldStatus | string;
 }
 
-export namespace ObjectLockLegalHold {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectLockLegalHold): any => ({
-    ...obj,
-  });
-}
-
 export interface GetObjectLegalHoldOutput {
   /**
    * <p>The current legal hold status for the specified object.</p>
    */
   LegalHold?: ObjectLockLegalHold;
-}
-
-export namespace GetObjectLegalHoldOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectLegalHoldOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetObjectLegalHoldRequest {
@@ -8378,15 +6860,6 @@ export interface GetObjectLegalHoldRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetObjectLegalHoldRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectLegalHoldRequest): any => ({
-    ...obj,
-  });
 }
 
 export type ObjectLockEnabled = "Enabled";
@@ -8430,15 +6903,6 @@ export interface DefaultRetention {
   Years?: number;
 }
 
-export namespace DefaultRetention {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultRetention): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container element for an Object Lock rule.</p>
  */
@@ -8450,15 +6914,6 @@ export interface ObjectLockRule {
    *          You cannot specify <code>Days</code> and <code>Years</code> at the same time.</p>
    */
   DefaultRetention?: DefaultRetention;
-}
-
-export namespace ObjectLockRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectLockRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8481,29 +6936,11 @@ export interface ObjectLockConfiguration {
   Rule?: ObjectLockRule;
 }
 
-export namespace ObjectLockConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectLockConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetObjectLockConfigurationOutput {
   /**
    * <p>The specified bucket's Object Lock configuration.</p>
    */
   ObjectLockConfiguration?: ObjectLockConfiguration;
-}
-
-export namespace GetObjectLockConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectLockConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetObjectLockConfigurationRequest {
@@ -8521,15 +6958,6 @@ export interface GetObjectLockConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetObjectLockConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectLockConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A Retention configuration for an object.</p>
  */
@@ -8545,29 +6973,11 @@ export interface ObjectLockRetention {
   RetainUntilDate?: Date;
 }
 
-export namespace ObjectLockRetention {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectLockRetention): any => ({
-    ...obj,
-  });
-}
-
 export interface GetObjectRetentionOutput {
   /**
    * <p>The container element for an object's retention settings.</p>
    */
   Retention?: ObjectLockRetention;
-}
-
-export namespace GetObjectRetentionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectRetentionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetObjectRetentionRequest {
@@ -8603,15 +7013,6 @@ export interface GetObjectRetentionRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetObjectRetentionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectRetentionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetObjectTaggingOutput {
   /**
    * <p>The versionId of the object for which you got the tagging information.</p>
@@ -8622,15 +7023,6 @@ export interface GetObjectTaggingOutput {
    * <p>Contains the tag set.</p>
    */
   TagSet: Tag[] | undefined;
-}
-
-export namespace GetObjectTaggingOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectTaggingOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetObjectTaggingRequest {
@@ -8668,15 +7060,6 @@ export interface GetObjectTaggingRequest {
   RequestPayer?: RequestPayer | string;
 }
 
-export namespace GetObjectTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetObjectTorrentOutput {
   /**
    * <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
@@ -8688,15 +7071,6 @@ export interface GetObjectTorrentOutput {
    *          request.</p>
    */
   RequestCharged?: RequestCharged | string;
-}
-
-export namespace GetObjectTorrentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectTorrentOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetObjectTorrentRequest {
@@ -8724,15 +7098,6 @@ export interface GetObjectTorrentRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace GetObjectTorrentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetObjectTorrentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8790,30 +7155,12 @@ export interface PublicAccessBlockConfiguration {
   RestrictPublicBuckets?: boolean;
 }
 
-export namespace PublicAccessBlockConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicAccessBlockConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPublicAccessBlockOutput {
   /**
    * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon S3
    *          bucket.</p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
-}
-
-export namespace GetPublicAccessBlockOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPublicAccessBlockOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPublicAccessBlockRequest {
@@ -8831,15 +7178,6 @@ export interface GetPublicAccessBlockRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace GetPublicAccessBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPublicAccessBlockRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface HeadBucketRequest {
   /**
    * <p>The bucket name.</p>
@@ -8855,15 +7193,6 @@ export interface HeadBucketRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace HeadBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HeadBucketRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9157,16 +7486,6 @@ export interface HeadObjectOutput {
   ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | string;
 }
 
-export namespace HeadObjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HeadObjectOutput): any => ({
-    ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-  });
-}
-
 export interface HeadObjectRequest {
   /**
    * <p>The name of the bucket containing the object.</p>
@@ -9268,16 +7587,6 @@ export interface HeadObjectRequest {
   ChecksumMode?: ChecksumMode | string;
 }
 
-export namespace HeadObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HeadObjectRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListBucketAnalyticsConfigurationsOutput {
   /**
    * <p>Indicates whether the returned list of analytics configurations is complete. A value of
@@ -9307,20 +7616,6 @@ export interface ListBucketAnalyticsConfigurationsOutput {
   AnalyticsConfigurationList?: AnalyticsConfiguration[];
 }
 
-export namespace ListBucketAnalyticsConfigurationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBucketAnalyticsConfigurationsOutput): any => ({
-    ...obj,
-    ...(obj.AnalyticsConfigurationList && {
-      AnalyticsConfigurationList: obj.AnalyticsConfigurationList.map((item) =>
-        AnalyticsConfiguration.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
 export interface ListBucketAnalyticsConfigurationsRequest {
   /**
    * <p>The name of the bucket from which analytics configurations are retrieved.</p>
@@ -9339,15 +7634,6 @@ export interface ListBucketAnalyticsConfigurationsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace ListBucketAnalyticsConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBucketAnalyticsConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBucketIntelligentTieringConfigurationsOutput {
@@ -9377,15 +7663,6 @@ export interface ListBucketIntelligentTieringConfigurationsOutput {
   IntelligentTieringConfigurationList?: IntelligentTieringConfiguration[];
 }
 
-export namespace ListBucketIntelligentTieringConfigurationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBucketIntelligentTieringConfigurationsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBucketIntelligentTieringConfigurationsRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
@@ -9399,15 +7676,6 @@ export interface ListBucketIntelligentTieringConfigurationsRequest {
    *          should begin.</p>
    */
   ContinuationToken?: string;
-}
-
-export namespace ListBucketIntelligentTieringConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBucketIntelligentTieringConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBucketInventoryConfigurationsOutput {
@@ -9437,20 +7705,6 @@ export interface ListBucketInventoryConfigurationsOutput {
   NextContinuationToken?: string;
 }
 
-export namespace ListBucketInventoryConfigurationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBucketInventoryConfigurationsOutput): any => ({
-    ...obj,
-    ...(obj.InventoryConfigurationList && {
-      InventoryConfigurationList: obj.InventoryConfigurationList.map((item) =>
-        InventoryConfiguration.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
 export interface ListBucketInventoryConfigurationsRequest {
   /**
    * <p>The name of the bucket containing the inventory configurations to retrieve.</p>
@@ -9470,15 +7724,6 @@ export interface ListBucketInventoryConfigurationsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace ListBucketInventoryConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBucketInventoryConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBucketMetricsConfigurationsOutput {
@@ -9509,20 +7754,6 @@ export interface ListBucketMetricsConfigurationsOutput {
   MetricsConfigurationList?: MetricsConfiguration[];
 }
 
-export namespace ListBucketMetricsConfigurationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBucketMetricsConfigurationsOutput): any => ({
-    ...obj,
-    ...(obj.MetricsConfigurationList && {
-      MetricsConfigurationList: obj.MetricsConfigurationList.map((item) =>
-        MetricsConfiguration.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
 export interface ListBucketMetricsConfigurationsRequest {
   /**
    * <p>The name of the bucket containing the metrics configurations to retrieve.</p>
@@ -9545,15 +7776,6 @@ export interface ListBucketMetricsConfigurationsRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace ListBucketMetricsConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBucketMetricsConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> In terms of implementation, a Bucket is a resource. An Amazon S3 bucket name is globally
  *          unique, and the namespace is shared by all Amazon Web Services accounts. </p>
@@ -9570,15 +7792,6 @@ export interface Bucket {
   CreationDate?: Date;
 }
 
-export namespace Bucket {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Bucket): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBucketsOutput {
   /**
    * <p>The list of buckets owned by the requester.</p>
@@ -9589,15 +7802,6 @@ export interface ListBucketsOutput {
    * <p>The owner of the buckets listed.</p>
    */
   Owner?: Owner;
-}
-
-export namespace ListBucketsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBucketsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9611,15 +7815,6 @@ export interface CommonPrefix {
    * <p>Container for the specified common prefix.</p>
    */
   Prefix?: string;
-}
-
-export namespace CommonPrefix {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommonPrefix): any => ({
-    ...obj,
-  });
 }
 
 export type EncodingType = "url";
@@ -9638,15 +7833,6 @@ export interface Initiator {
    * <p>Name of the Principal.</p>
    */
   DisplayName?: string;
-}
-
-export namespace Initiator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Initiator): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9687,15 +7873,6 @@ export interface MultipartUpload {
    * <p>The algorithm that was used to create a checksum of the object.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
-}
-
-export namespace MultipartUpload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultipartUpload): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMultipartUploadsOutput {
@@ -9777,15 +7954,6 @@ export interface ListMultipartUploadsOutput {
   EncodingType?: EncodingType | string;
 }
 
-export namespace ListMultipartUploadsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMultipartUploadsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMultipartUploadsRequest {
   /**
    * <p>The name of the bucket to which the multipart upload was initiated. </p>
@@ -9856,15 +8024,6 @@ export interface ListMultipartUploadsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace ListMultipartUploadsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMultipartUploadsRequest): any => ({
-    ...obj,
-  });
 }
 
 export type ObjectStorageClass =
@@ -9938,15 +8097,6 @@ export interface _Object {
    * <p>The owner of the object</p>
    */
   Owner?: Owner;
-}
-
-export namespace _Object {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Object): any => ({
-    ...obj,
-  });
 }
 
 export interface ListObjectsOutput {
@@ -10025,15 +8175,6 @@ export interface ListObjectsOutput {
   EncodingType?: EncodingType | string;
 }
 
-export namespace ListObjectsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListObjectsRequest {
   /**
    * <p>The name of the bucket containing the objects.</p>
@@ -10087,15 +8228,6 @@ export interface ListObjectsRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace ListObjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10219,15 +8351,6 @@ export interface ListObjectsV2Output {
   StartAfter?: string;
 }
 
-export namespace ListObjectsV2Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectsV2Output): any => ({
-    ...obj,
-  });
-}
-
 export interface ListObjectsV2Request {
   /**
    * <p>Bucket name to list. </p>
@@ -10292,15 +8415,6 @@ export interface ListObjectsV2Request {
   ExpectedBucketOwner?: string;
 }
 
-export namespace ListObjectsV2Request {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectsV2Request): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the delete marker.</p>
  */
@@ -10330,15 +8444,6 @@ export interface DeleteMarkerEntry {
    * <p>Date and time the object was last modified.</p>
    */
   LastModified?: Date;
-}
-
-export namespace DeleteMarkerEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMarkerEntry): any => ({
-    ...obj,
-  });
 }
 
 export type ObjectVersionStorageClass = "STANDARD";
@@ -10392,15 +8497,6 @@ export interface ObjectVersion {
    * <p>Specifies the owner of the object.</p>
    */
   Owner?: Owner;
-}
-
-export namespace ObjectVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectVersion): any => ({
-    ...obj,
-  });
 }
 
 export interface ListObjectVersionsOutput {
@@ -10490,15 +8586,6 @@ export interface ListObjectVersionsOutput {
   EncodingType?: EncodingType | string;
 }
 
-export namespace ListObjectVersionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectVersionsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListObjectVersionsRequest {
   /**
    * <p>The bucket name that contains the objects. </p>
@@ -10559,15 +8646,6 @@ export interface ListObjectVersionsRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace ListObjectVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListObjectVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for elements related to a part.</p>
  */
@@ -10624,15 +8702,6 @@ export interface Part {
    *     <i>Amazon S3 User Guide</i>.</p>
    */
   ChecksumSHA256?: string;
-}
-
-export namespace Part {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Part): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPartsOutput {
@@ -10735,15 +8804,6 @@ export interface ListPartsOutput {
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 }
 
-export namespace ListPartsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPartsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPartsRequest {
   /**
    * <p>The name of the bucket to which the parts are being uploaded. </p>
@@ -10814,16 +8874,6 @@ export interface ListPartsRequest {
   SSECustomerKeyMD5?: string;
 }
 
-export namespace ListPartsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPartsRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-  });
-}
-
 export interface PutBucketAccelerateConfigurationRequest {
   /**
    * <p>The name of the bucket for which the accelerate configuration is set.</p>
@@ -10852,15 +8902,6 @@ export interface PutBucketAccelerateConfigurationRequest {
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
-}
-
-export namespace PutBucketAccelerateConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketAccelerateConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketAclRequest {
@@ -10935,15 +8976,6 @@ export interface PutBucketAclRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketAclRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketAclRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutBucketAnalyticsConfigurationRequest {
   /**
    * <p>The name of the bucket to which an analytics configuration is stored.</p>
@@ -10968,18 +9000,6 @@ export interface PutBucketAnalyticsConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketAnalyticsConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketAnalyticsConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.AnalyticsConfiguration && {
-      AnalyticsConfiguration: AnalyticsConfiguration.filterSensitiveLog(obj.AnalyticsConfiguration),
-    }),
-  });
-}
-
 /**
  * <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling
@@ -10991,15 +9011,6 @@ export interface CORSConfiguration {
    *          up to 100 rules to the configuration.</p>
    */
   CORSRules: CORSRule[] | undefined;
-}
-
-export namespace CORSConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CORSConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketCorsRequest {
@@ -11044,15 +9055,6 @@ export interface PutBucketCorsRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketCorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketCorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutBucketEncryptionRequest {
   /**
    * <p>Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed
@@ -11092,20 +9094,6 @@ export interface PutBucketEncryptionRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketEncryptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketEncryptionRequest): any => ({
-    ...obj,
-    ...(obj.ServerSideEncryptionConfiguration && {
-      ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration.filterSensitiveLog(
-        obj.ServerSideEncryptionConfiguration
-      ),
-    }),
-  });
-}
-
 export interface PutBucketIntelligentTieringConfigurationRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
@@ -11123,15 +9111,6 @@ export interface PutBucketIntelligentTieringConfigurationRequest {
    * <p>Container for S3 Intelligent-Tiering configuration.</p>
    */
   IntelligentTieringConfiguration: IntelligentTieringConfiguration | undefined;
-}
-
-export namespace PutBucketIntelligentTieringConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketIntelligentTieringConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketInventoryConfigurationRequest {
@@ -11158,18 +9137,6 @@ export interface PutBucketInventoryConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketInventoryConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketInventoryConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.InventoryConfiguration && {
-      InventoryConfiguration: InventoryConfiguration.filterSensitiveLog(obj.InventoryConfiguration),
-    }),
-  });
-}
-
 /**
  * <p>Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle Management</a>
@@ -11180,16 +9147,6 @@ export interface BucketLifecycleConfiguration {
    * <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
    */
   Rules: LifecycleRule[] | undefined;
-}
-
-export namespace BucketLifecycleConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketLifecycleConfiguration): any => ({
-    ...obj,
-    ...(obj.Rules && { Rules: obj.Rules.map((item) => LifecycleRule.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface PutBucketLifecycleConfigurationRequest {
@@ -11222,18 +9179,6 @@ export interface PutBucketLifecycleConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketLifecycleConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketLifecycleConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.LifecycleConfiguration && {
-      LifecycleConfiguration: BucketLifecycleConfiguration.filterSensitiveLog(obj.LifecycleConfiguration),
-    }),
-  });
-}
-
 /**
  * <p>Container for logging status information.</p>
  */
@@ -11244,15 +9189,6 @@ export interface BucketLoggingStatus {
    *             <i>Amazon S3 API Reference</i>.</p>
    */
   LoggingEnabled?: LoggingEnabled;
-}
-
-export namespace BucketLoggingStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketLoggingStatus): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketLoggingRequest {
@@ -11291,15 +9227,6 @@ export interface PutBucketLoggingRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketLoggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketLoggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutBucketMetricsConfigurationRequest {
   /**
    * <p>The name of the bucket for which the metrics configuration is set.</p>
@@ -11322,18 +9249,6 @@ export interface PutBucketMetricsConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace PutBucketMetricsConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketMetricsConfigurationRequest): any => ({
-    ...obj,
-    ...(obj.MetricsConfiguration && {
-      MetricsConfiguration: MetricsConfiguration.filterSensitiveLog(obj.MetricsConfiguration),
-    }),
-  });
 }
 
 export interface PutBucketNotificationConfigurationRequest {
@@ -11361,15 +9276,6 @@ export interface PutBucketNotificationConfigurationRequest {
   SkipDestinationValidation?: boolean;
 }
 
-export namespace PutBucketNotificationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketNotificationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutBucketOwnershipControlsRequest {
   /**
    * <p>The name of the Amazon S3 bucket whose <code>OwnershipControls</code> you want to set.</p>
@@ -11394,15 +9300,6 @@ export interface PutBucketOwnershipControlsRequest {
    *          to apply to this Amazon S3 bucket.</p>
    */
   OwnershipControls: OwnershipControls | undefined;
-}
-
-export namespace PutBucketOwnershipControlsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketOwnershipControlsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketPolicyRequest {
@@ -11445,15 +9342,6 @@ export interface PutBucketPolicyRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace PutBucketPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketReplicationRequest {
@@ -11500,18 +9388,6 @@ export interface PutBucketReplicationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketReplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketReplicationRequest): any => ({
-    ...obj,
-    ...(obj.ReplicationConfiguration && {
-      ReplicationConfiguration: ReplicationConfiguration.filterSensitiveLog(obj.ReplicationConfiguration),
-    }),
-  });
-}
-
 /**
  * <p>Container for Payer.</p>
  */
@@ -11520,15 +9396,6 @@ export interface RequestPaymentConfiguration {
    * <p>Specifies who pays for the download and request fees.</p>
    */
   Payer: Payer | string | undefined;
-}
-
-export namespace RequestPaymentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestPaymentConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketRequestPaymentRequest {
@@ -11570,15 +9437,6 @@ export interface PutBucketRequestPaymentRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketRequestPaymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketRequestPaymentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for <code>TagSet</code> elements.</p>
  */
@@ -11587,15 +9445,6 @@ export interface Tagging {
    * <p>A collection for a set of tags</p>
    */
   TagSet: Tag[] | undefined;
-}
-
-export namespace Tagging {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tagging): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketTaggingRequest {
@@ -11636,15 +9485,6 @@ export interface PutBucketTaggingRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export type MFADelete = "Disabled" | "Enabled";
 
 /**
@@ -11663,15 +9503,6 @@ export interface VersioningConfiguration {
    * <p>The versioning state of the bucket.</p>
    */
   Status?: BucketVersioningStatus | string;
-}
-
-export namespace VersioningConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersioningConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketVersioningRequest {
@@ -11719,15 +9550,6 @@ export interface PutBucketVersioningRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutBucketVersioningRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketVersioningRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies website configuration parameters for an Amazon S3 bucket.</p>
  */
@@ -11754,15 +9576,6 @@ export interface WebsiteConfiguration {
    * <p>Rules that define when a redirect is applied and the redirect behavior.</p>
    */
   RoutingRules?: RoutingRule[];
-}
-
-export namespace WebsiteConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebsiteConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketWebsiteRequest {
@@ -11801,15 +9614,6 @@ export interface PutBucketWebsiteRequest {
    * <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    */
   ExpectedBucketOwner?: string;
-}
-
-export namespace PutBucketWebsiteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketWebsiteRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutObjectOutput {
@@ -11908,17 +9712,6 @@ export interface PutObjectOutput {
    *          request.</p>
    */
   RequestCharged?: RequestCharged | string;
-}
-
-export namespace PutObjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectOutput): any => ({
-    ...obj,
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
-  });
 }
 
 export interface PutObjectRequest {
@@ -12198,33 +9991,12 @@ export interface PutObjectRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectRequest): any => ({
-    ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-    ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
-    ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
-  });
-}
-
 export interface PutObjectAclOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
   RequestCharged?: RequestCharged | string;
-}
-
-export namespace PutObjectAclOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectAclOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface PutObjectAclRequest {
@@ -12327,30 +10099,12 @@ export interface PutObjectAclRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutObjectAclRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectAclRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutObjectLegalHoldOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
   RequestCharged?: RequestCharged | string;
-}
-
-export namespace PutObjectLegalHoldOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectLegalHoldOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface PutObjectLegalHoldRequest {
@@ -12409,30 +10163,12 @@ export interface PutObjectLegalHoldRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutObjectLegalHoldRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectLegalHoldRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutObjectLockConfigurationOutput {
   /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    */
   RequestCharged?: RequestCharged | string;
-}
-
-export namespace PutObjectLockConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectLockConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface PutObjectLockConfigurationRequest {
@@ -12484,11 +10220,1865 @@ export interface PutObjectLockConfigurationRequest {
   ExpectedBucketOwner?: string;
 }
 
-export namespace PutObjectLockConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutObjectLockConfigurationRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AbortIncompleteMultipartUploadFilterSensitiveLog = (obj: AbortIncompleteMultipartUpload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AbortMultipartUploadOutputFilterSensitiveLog = (obj: AbortMultipartUploadOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AbortMultipartUploadRequestFilterSensitiveLog = (obj: AbortMultipartUploadRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccelerateConfigurationFilterSensitiveLog = (obj: AccelerateConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GranteeFilterSensitiveLog = (obj: Grantee): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantFilterSensitiveLog = (obj: Grant): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OwnerFilterSensitiveLog = (obj: Owner): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessControlPolicyFilterSensitiveLog = (obj: AccessControlPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessControlTranslationFilterSensitiveLog = (obj: AccessControlTranslation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteMultipartUploadOutputFilterSensitiveLog = (obj: CompleteMultipartUploadOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CompletedPartFilterSensitiveLog = (obj: CompletedPart): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompletedMultipartUploadFilterSensitiveLog = (obj: CompletedMultipartUpload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CompleteMultipartUploadRequestFilterSensitiveLog = (obj: CompleteMultipartUploadRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CopyObjectResultFilterSensitiveLog = (obj: CopyObjectResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyObjectOutputFilterSensitiveLog = (obj: CopyObjectOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+  ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CopyObjectRequestFilterSensitiveLog = (obj: CopyObjectRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+  ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+  ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBucketOutputFilterSensitiveLog = (obj: CreateBucketOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBucketConfigurationFilterSensitiveLog = (obj: CreateBucketConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBucketRequestFilterSensitiveLog = (obj: CreateBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMultipartUploadOutputFilterSensitiveLog = (obj: CreateMultipartUploadOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+  ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMultipartUploadRequestFilterSensitiveLog = (obj: CreateMultipartUploadRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+  ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketRequestFilterSensitiveLog = (obj: DeleteBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketAnalyticsConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteBucketAnalyticsConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketCorsRequestFilterSensitiveLog = (obj: DeleteBucketCorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketEncryptionRequestFilterSensitiveLog = (obj: DeleteBucketEncryptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketIntelligentTieringConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteBucketIntelligentTieringConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketInventoryConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteBucketInventoryConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketLifecycleRequestFilterSensitiveLog = (obj: DeleteBucketLifecycleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketMetricsConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteBucketMetricsConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketOwnershipControlsRequestFilterSensitiveLog = (
+  obj: DeleteBucketOwnershipControlsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketPolicyRequestFilterSensitiveLog = (obj: DeleteBucketPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketReplicationRequestFilterSensitiveLog = (obj: DeleteBucketReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketTaggingRequestFilterSensitiveLog = (obj: DeleteBucketTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketWebsiteRequestFilterSensitiveLog = (obj: DeleteBucketWebsiteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectOutputFilterSensitiveLog = (obj: DeleteObjectOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectRequestFilterSensitiveLog = (obj: DeleteObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletedObjectFilterSensitiveLog = (obj: DeletedObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _ErrorFilterSensitiveLog = (obj: _Error): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectsOutputFilterSensitiveLog = (obj: DeleteObjectsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectIdentifierFilterSensitiveLog = (obj: ObjectIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFilterSensitiveLog = (obj: Delete): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectsRequestFilterSensitiveLog = (obj: DeleteObjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectTaggingOutputFilterSensitiveLog = (obj: DeleteObjectTaggingOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectTaggingRequestFilterSensitiveLog = (obj: DeleteObjectTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePublicAccessBlockRequestFilterSensitiveLog = (obj: DeletePublicAccessBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketAccelerateConfigurationOutputFilterSensitiveLog = (
+  obj: GetBucketAccelerateConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketAccelerateConfigurationRequestFilterSensitiveLog = (
+  obj: GetBucketAccelerateConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketAclOutputFilterSensitiveLog = (obj: GetBucketAclOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketAclRequestFilterSensitiveLog = (obj: GetBucketAclRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyticsAndOperatorFilterSensitiveLog = (obj: AnalyticsAndOperator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyticsFilterFilterSensitiveLog = (obj: AnalyticsFilter): any => {
+  if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
+  if (obj.Tag !== undefined) return { Tag: TagFilterSensitiveLog(obj.Tag) };
+  if (obj.And !== undefined) return { And: AnalyticsAndOperatorFilterSensitiveLog(obj.And) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AnalyticsS3BucketDestinationFilterSensitiveLog = (obj: AnalyticsS3BucketDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyticsExportDestinationFilterSensitiveLog = (obj: AnalyticsExportDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageClassAnalysisDataExportFilterSensitiveLog = (obj: StorageClassAnalysisDataExport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageClassAnalysisFilterSensitiveLog = (obj: StorageClassAnalysis): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalyticsConfigurationFilterSensitiveLog = (obj: AnalyticsConfiguration): any => ({
+  ...obj,
+  ...(obj.Filter && { Filter: AnalyticsFilterFilterSensitiveLog(obj.Filter) }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketAnalyticsConfigurationOutputFilterSensitiveLog = (
+  obj: GetBucketAnalyticsConfigurationOutput
+): any => ({
+  ...obj,
+  ...(obj.AnalyticsConfiguration && {
+    AnalyticsConfiguration: AnalyticsConfigurationFilterSensitiveLog(obj.AnalyticsConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketAnalyticsConfigurationRequestFilterSensitiveLog = (
+  obj: GetBucketAnalyticsConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CORSRuleFilterSensitiveLog = (obj: CORSRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketCorsOutputFilterSensitiveLog = (obj: GetBucketCorsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketCorsRequestFilterSensitiveLog = (obj: GetBucketCorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerSideEncryptionByDefaultFilterSensitiveLog = (obj: ServerSideEncryptionByDefault): any => ({
+  ...obj,
+  ...(obj.KMSMasterKeyID && { KMSMasterKeyID: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ServerSideEncryptionRuleFilterSensitiveLog = (obj: ServerSideEncryptionRule): any => ({
+  ...obj,
+  ...(obj.ApplyServerSideEncryptionByDefault && {
+    ApplyServerSideEncryptionByDefault: ServerSideEncryptionByDefaultFilterSensitiveLog(
+      obj.ApplyServerSideEncryptionByDefault
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ServerSideEncryptionConfigurationFilterSensitiveLog = (obj: ServerSideEncryptionConfiguration): any => ({
+  ...obj,
+  ...(obj.Rules && { Rules: obj.Rules.map((item) => ServerSideEncryptionRuleFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketEncryptionOutputFilterSensitiveLog = (obj: GetBucketEncryptionOutput): any => ({
+  ...obj,
+  ...(obj.ServerSideEncryptionConfiguration && {
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationFilterSensitiveLog(
+      obj.ServerSideEncryptionConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketEncryptionRequestFilterSensitiveLog = (obj: GetBucketEncryptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntelligentTieringAndOperatorFilterSensitiveLog = (obj: IntelligentTieringAndOperator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntelligentTieringFilterFilterSensitiveLog = (obj: IntelligentTieringFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TieringFilterSensitiveLog = (obj: Tiering): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntelligentTieringConfigurationFilterSensitiveLog = (obj: IntelligentTieringConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketIntelligentTieringConfigurationOutputFilterSensitiveLog = (
+  obj: GetBucketIntelligentTieringConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketIntelligentTieringConfigurationRequestFilterSensitiveLog = (
+  obj: GetBucketIntelligentTieringConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSEKMSFilterSensitiveLog = (obj: SSEKMS): any => ({
+  ...obj,
+  ...(obj.KeyId && { KeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SSES3FilterSensitiveLog = (obj: SSES3): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryEncryptionFilterSensitiveLog = (obj: InventoryEncryption): any => ({
+  ...obj,
+  ...(obj.SSEKMS && { SSEKMS: SSEKMSFilterSensitiveLog(obj.SSEKMS) }),
+});
+
+/**
+ * @internal
+ */
+export const InventoryS3BucketDestinationFilterSensitiveLog = (obj: InventoryS3BucketDestination): any => ({
+  ...obj,
+  ...(obj.Encryption && { Encryption: InventoryEncryptionFilterSensitiveLog(obj.Encryption) }),
+});
+
+/**
+ * @internal
+ */
+export const InventoryDestinationFilterSensitiveLog = (obj: InventoryDestination): any => ({
+  ...obj,
+  ...(obj.S3BucketDestination && {
+    S3BucketDestination: InventoryS3BucketDestinationFilterSensitiveLog(obj.S3BucketDestination),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const InventoryFilterFilterSensitiveLog = (obj: InventoryFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryScheduleFilterSensitiveLog = (obj: InventorySchedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InventoryConfigurationFilterSensitiveLog = (obj: InventoryConfiguration): any => ({
+  ...obj,
+  ...(obj.Destination && { Destination: InventoryDestinationFilterSensitiveLog(obj.Destination) }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketInventoryConfigurationOutputFilterSensitiveLog = (
+  obj: GetBucketInventoryConfigurationOutput
+): any => ({
+  ...obj,
+  ...(obj.InventoryConfiguration && {
+    InventoryConfiguration: InventoryConfigurationFilterSensitiveLog(obj.InventoryConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketInventoryConfigurationRequestFilterSensitiveLog = (
+  obj: GetBucketInventoryConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleExpirationFilterSensitiveLog = (obj: LifecycleExpiration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleRuleAndOperatorFilterSensitiveLog = (obj: LifecycleRuleAndOperator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleRuleFilterFilterSensitiveLog = (obj: LifecycleRuleFilter): any => {
+  if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
+  if (obj.Tag !== undefined) return { Tag: TagFilterSensitiveLog(obj.Tag) };
+  if (obj.ObjectSizeGreaterThan !== undefined) return { ObjectSizeGreaterThan: obj.ObjectSizeGreaterThan };
+  if (obj.ObjectSizeLessThan !== undefined) return { ObjectSizeLessThan: obj.ObjectSizeLessThan };
+  if (obj.And !== undefined) return { And: LifecycleRuleAndOperatorFilterSensitiveLog(obj.And) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const NoncurrentVersionExpirationFilterSensitiveLog = (obj: NoncurrentVersionExpiration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoncurrentVersionTransitionFilterSensitiveLog = (obj: NoncurrentVersionTransition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransitionFilterSensitiveLog = (obj: Transition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleRuleFilterSensitiveLog = (obj: LifecycleRule): any => ({
+  ...obj,
+  ...(obj.Filter && { Filter: LifecycleRuleFilterFilterSensitiveLog(obj.Filter) }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketLifecycleConfigurationOutputFilterSensitiveLog = (
+  obj: GetBucketLifecycleConfigurationOutput
+): any => ({
+  ...obj,
+  ...(obj.Rules && { Rules: obj.Rules.map((item) => LifecycleRuleFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketLifecycleConfigurationRequestFilterSensitiveLog = (
+  obj: GetBucketLifecycleConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketLocationOutputFilterSensitiveLog = (obj: GetBucketLocationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketLocationRequestFilterSensitiveLog = (obj: GetBucketLocationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetGrantFilterSensitiveLog = (obj: TargetGrant): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingEnabledFilterSensitiveLog = (obj: LoggingEnabled): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketLoggingOutputFilterSensitiveLog = (obj: GetBucketLoggingOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketLoggingRequestFilterSensitiveLog = (obj: GetBucketLoggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricsAndOperatorFilterSensitiveLog = (obj: MetricsAndOperator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricsFilterFilterSensitiveLog = (obj: MetricsFilter): any => {
+  if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
+  if (obj.Tag !== undefined) return { Tag: TagFilterSensitiveLog(obj.Tag) };
+  if (obj.AccessPointArn !== undefined) return { AccessPointArn: obj.AccessPointArn };
+  if (obj.And !== undefined) return { And: MetricsAndOperatorFilterSensitiveLog(obj.And) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MetricsConfigurationFilterSensitiveLog = (obj: MetricsConfiguration): any => ({
+  ...obj,
+  ...(obj.Filter && { Filter: MetricsFilterFilterSensitiveLog(obj.Filter) }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketMetricsConfigurationOutputFilterSensitiveLog = (
+  obj: GetBucketMetricsConfigurationOutput
+): any => ({
+  ...obj,
+  ...(obj.MetricsConfiguration && {
+    MetricsConfiguration: MetricsConfigurationFilterSensitiveLog(obj.MetricsConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketMetricsConfigurationRequestFilterSensitiveLog = (
+  obj: GetBucketMetricsConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketNotificationConfigurationRequestFilterSensitiveLog = (
+  obj: GetBucketNotificationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventBridgeConfigurationFilterSensitiveLog = (obj: EventBridgeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterRuleFilterSensitiveLog = (obj: FilterRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3KeyFilterFilterSensitiveLog = (obj: S3KeyFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationConfigurationFilterFilterSensitiveLog = (obj: NotificationConfigurationFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionConfigurationFilterSensitiveLog = (obj: LambdaFunctionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueueConfigurationFilterSensitiveLog = (obj: QueueConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TopicConfigurationFilterSensitiveLog = (obj: TopicConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationConfigurationFilterSensitiveLog = (obj: NotificationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OwnershipControlsRuleFilterSensitiveLog = (obj: OwnershipControlsRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OwnershipControlsFilterSensitiveLog = (obj: OwnershipControls): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketOwnershipControlsOutputFilterSensitiveLog = (obj: GetBucketOwnershipControlsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketOwnershipControlsRequestFilterSensitiveLog = (obj: GetBucketOwnershipControlsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketPolicyOutputFilterSensitiveLog = (obj: GetBucketPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketPolicyRequestFilterSensitiveLog = (obj: GetBucketPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyStatusFilterSensitiveLog = (obj: PolicyStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketPolicyStatusOutputFilterSensitiveLog = (obj: GetBucketPolicyStatusOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketPolicyStatusRequestFilterSensitiveLog = (obj: GetBucketPolicyStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMarkerReplicationFilterSensitiveLog = (obj: DeleteMarkerReplication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationTimeValueFilterSensitiveLog = (obj: ReplicationTimeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricsFilterSensitiveLog = (obj: Metrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationTimeFilterSensitiveLog = (obj: ReplicationTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExistingObjectReplicationFilterSensitiveLog = (obj: ExistingObjectReplication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationRuleAndOperatorFilterSensitiveLog = (obj: ReplicationRuleAndOperator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationRuleFilterFilterSensitiveLog = (obj: ReplicationRuleFilter): any => {
+  if (obj.Prefix !== undefined) return { Prefix: obj.Prefix };
+  if (obj.Tag !== undefined) return { Tag: TagFilterSensitiveLog(obj.Tag) };
+  if (obj.And !== undefined) return { And: ReplicationRuleAndOperatorFilterSensitiveLog(obj.And) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ReplicaModificationsFilterSensitiveLog = (obj: ReplicaModifications): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SseKmsEncryptedObjectsFilterSensitiveLog = (obj: SseKmsEncryptedObjects): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceSelectionCriteriaFilterSensitiveLog = (obj: SourceSelectionCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationRuleFilterSensitiveLog = (obj: ReplicationRule): any => ({
+  ...obj,
+  ...(obj.Filter && { Filter: ReplicationRuleFilterFilterSensitiveLog(obj.Filter) }),
+});
+
+/**
+ * @internal
+ */
+export const ReplicationConfigurationFilterSensitiveLog = (obj: ReplicationConfiguration): any => ({
+  ...obj,
+  ...(obj.Rules && { Rules: obj.Rules.map((item) => ReplicationRuleFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketReplicationOutputFilterSensitiveLog = (obj: GetBucketReplicationOutput): any => ({
+  ...obj,
+  ...(obj.ReplicationConfiguration && {
+    ReplicationConfiguration: ReplicationConfigurationFilterSensitiveLog(obj.ReplicationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetBucketReplicationRequestFilterSensitiveLog = (obj: GetBucketReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketRequestPaymentOutputFilterSensitiveLog = (obj: GetBucketRequestPaymentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketRequestPaymentRequestFilterSensitiveLog = (obj: GetBucketRequestPaymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketTaggingOutputFilterSensitiveLog = (obj: GetBucketTaggingOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketTaggingRequestFilterSensitiveLog = (obj: GetBucketTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketVersioningOutputFilterSensitiveLog = (obj: GetBucketVersioningOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketVersioningRequestFilterSensitiveLog = (obj: GetBucketVersioningRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorDocumentFilterSensitiveLog = (obj: ErrorDocument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IndexDocumentFilterSensitiveLog = (obj: IndexDocument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedirectAllRequestsToFilterSensitiveLog = (obj: RedirectAllRequestsTo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConditionFilterSensitiveLog = (obj: Condition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedirectFilterSensitiveLog = (obj: Redirect): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RoutingRuleFilterSensitiveLog = (obj: RoutingRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketWebsiteOutputFilterSensitiveLog = (obj: GetBucketWebsiteOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketWebsiteRequestFilterSensitiveLog = (obj: GetBucketWebsiteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectOutputFilterSensitiveLog = (obj: GetObjectOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetObjectRequestFilterSensitiveLog = (obj: GetObjectRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetObjectAclOutputFilterSensitiveLog = (obj: GetObjectAclOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectAclRequestFilterSensitiveLog = (obj: GetObjectAclRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChecksumFilterSensitiveLog = (obj: Checksum): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectPartFilterSensitiveLog = (obj: ObjectPart): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectAttributesPartsFilterSensitiveLog = (obj: GetObjectAttributesParts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectAttributesOutputFilterSensitiveLog = (obj: GetObjectAttributesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectAttributesRequestFilterSensitiveLog = (obj: GetObjectAttributesRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ObjectLockLegalHoldFilterSensitiveLog = (obj: ObjectLockLegalHold): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectLegalHoldOutputFilterSensitiveLog = (obj: GetObjectLegalHoldOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectLegalHoldRequestFilterSensitiveLog = (obj: GetObjectLegalHoldRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefaultRetentionFilterSensitiveLog = (obj: DefaultRetention): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectLockRuleFilterSensitiveLog = (obj: ObjectLockRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectLockConfigurationFilterSensitiveLog = (obj: ObjectLockConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectLockConfigurationOutputFilterSensitiveLog = (obj: GetObjectLockConfigurationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectLockConfigurationRequestFilterSensitiveLog = (obj: GetObjectLockConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectLockRetentionFilterSensitiveLog = (obj: ObjectLockRetention): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectRetentionOutputFilterSensitiveLog = (obj: GetObjectRetentionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectRetentionRequestFilterSensitiveLog = (obj: GetObjectRetentionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectTaggingOutputFilterSensitiveLog = (obj: GetObjectTaggingOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectTaggingRequestFilterSensitiveLog = (obj: GetObjectTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectTorrentOutputFilterSensitiveLog = (obj: GetObjectTorrentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetObjectTorrentRequestFilterSensitiveLog = (obj: GetObjectTorrentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicAccessBlockConfigurationFilterSensitiveLog = (obj: PublicAccessBlockConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPublicAccessBlockOutputFilterSensitiveLog = (obj: GetPublicAccessBlockOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPublicAccessBlockRequestFilterSensitiveLog = (obj: GetPublicAccessBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HeadBucketRequestFilterSensitiveLog = (obj: HeadBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HeadObjectOutputFilterSensitiveLog = (obj: HeadObjectOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const HeadObjectRequestFilterSensitiveLog = (obj: HeadObjectRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListBucketAnalyticsConfigurationsOutputFilterSensitiveLog = (
+  obj: ListBucketAnalyticsConfigurationsOutput
+): any => ({
+  ...obj,
+  ...(obj.AnalyticsConfigurationList && {
+    AnalyticsConfigurationList: obj.AnalyticsConfigurationList.map((item) =>
+      AnalyticsConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListBucketAnalyticsConfigurationsRequestFilterSensitiveLog = (
+  obj: ListBucketAnalyticsConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBucketIntelligentTieringConfigurationsOutputFilterSensitiveLog = (
+  obj: ListBucketIntelligentTieringConfigurationsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBucketIntelligentTieringConfigurationsRequestFilterSensitiveLog = (
+  obj: ListBucketIntelligentTieringConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBucketInventoryConfigurationsOutputFilterSensitiveLog = (
+  obj: ListBucketInventoryConfigurationsOutput
+): any => ({
+  ...obj,
+  ...(obj.InventoryConfigurationList && {
+    InventoryConfigurationList: obj.InventoryConfigurationList.map((item) =>
+      InventoryConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListBucketInventoryConfigurationsRequestFilterSensitiveLog = (
+  obj: ListBucketInventoryConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBucketMetricsConfigurationsOutputFilterSensitiveLog = (
+  obj: ListBucketMetricsConfigurationsOutput
+): any => ({
+  ...obj,
+  ...(obj.MetricsConfigurationList && {
+    MetricsConfigurationList: obj.MetricsConfigurationList.map((item) => MetricsConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListBucketMetricsConfigurationsRequestFilterSensitiveLog = (
+  obj: ListBucketMetricsConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BucketFilterSensitiveLog = (obj: Bucket): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBucketsOutputFilterSensitiveLog = (obj: ListBucketsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommonPrefixFilterSensitiveLog = (obj: CommonPrefix): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InitiatorFilterSensitiveLog = (obj: Initiator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultipartUploadFilterSensitiveLog = (obj: MultipartUpload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMultipartUploadsOutputFilterSensitiveLog = (obj: ListMultipartUploadsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMultipartUploadsRequestFilterSensitiveLog = (obj: ListMultipartUploadsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _ObjectFilterSensitiveLog = (obj: _Object): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectsOutputFilterSensitiveLog = (obj: ListObjectsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectsRequestFilterSensitiveLog = (obj: ListObjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectsV2OutputFilterSensitiveLog = (obj: ListObjectsV2Output): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectsV2RequestFilterSensitiveLog = (obj: ListObjectsV2Request): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMarkerEntryFilterSensitiveLog = (obj: DeleteMarkerEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectVersionFilterSensitiveLog = (obj: ObjectVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectVersionsOutputFilterSensitiveLog = (obj: ListObjectVersionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListObjectVersionsRequestFilterSensitiveLog = (obj: ListObjectVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartFilterSensitiveLog = (obj: Part): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPartsOutputFilterSensitiveLog = (obj: ListPartsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPartsRequestFilterSensitiveLog = (obj: ListPartsRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutBucketAccelerateConfigurationRequestFilterSensitiveLog = (
+  obj: PutBucketAccelerateConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketAclRequestFilterSensitiveLog = (obj: PutBucketAclRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketAnalyticsConfigurationRequestFilterSensitiveLog = (
+  obj: PutBucketAnalyticsConfigurationRequest
+): any => ({
+  ...obj,
+  ...(obj.AnalyticsConfiguration && {
+    AnalyticsConfiguration: AnalyticsConfigurationFilterSensitiveLog(obj.AnalyticsConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CORSConfigurationFilterSensitiveLog = (obj: CORSConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketCorsRequestFilterSensitiveLog = (obj: PutBucketCorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketEncryptionRequestFilterSensitiveLog = (obj: PutBucketEncryptionRequest): any => ({
+  ...obj,
+  ...(obj.ServerSideEncryptionConfiguration && {
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationFilterSensitiveLog(
+      obj.ServerSideEncryptionConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PutBucketIntelligentTieringConfigurationRequestFilterSensitiveLog = (
+  obj: PutBucketIntelligentTieringConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketInventoryConfigurationRequestFilterSensitiveLog = (
+  obj: PutBucketInventoryConfigurationRequest
+): any => ({
+  ...obj,
+  ...(obj.InventoryConfiguration && {
+    InventoryConfiguration: InventoryConfigurationFilterSensitiveLog(obj.InventoryConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BucketLifecycleConfigurationFilterSensitiveLog = (obj: BucketLifecycleConfiguration): any => ({
+  ...obj,
+  ...(obj.Rules && { Rules: obj.Rules.map((item) => LifecycleRuleFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PutBucketLifecycleConfigurationRequestFilterSensitiveLog = (
+  obj: PutBucketLifecycleConfigurationRequest
+): any => ({
+  ...obj,
+  ...(obj.LifecycleConfiguration && {
+    LifecycleConfiguration: BucketLifecycleConfigurationFilterSensitiveLog(obj.LifecycleConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BucketLoggingStatusFilterSensitiveLog = (obj: BucketLoggingStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketLoggingRequestFilterSensitiveLog = (obj: PutBucketLoggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketMetricsConfigurationRequestFilterSensitiveLog = (
+  obj: PutBucketMetricsConfigurationRequest
+): any => ({
+  ...obj,
+  ...(obj.MetricsConfiguration && {
+    MetricsConfiguration: MetricsConfigurationFilterSensitiveLog(obj.MetricsConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PutBucketNotificationConfigurationRequestFilterSensitiveLog = (
+  obj: PutBucketNotificationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketOwnershipControlsRequestFilterSensitiveLog = (obj: PutBucketOwnershipControlsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketPolicyRequestFilterSensitiveLog = (obj: PutBucketPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketReplicationRequestFilterSensitiveLog = (obj: PutBucketReplicationRequest): any => ({
+  ...obj,
+  ...(obj.ReplicationConfiguration && {
+    ReplicationConfiguration: ReplicationConfigurationFilterSensitiveLog(obj.ReplicationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RequestPaymentConfigurationFilterSensitiveLog = (obj: RequestPaymentConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketRequestPaymentRequestFilterSensitiveLog = (obj: PutBucketRequestPaymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaggingFilterSensitiveLog = (obj: Tagging): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketTaggingRequestFilterSensitiveLog = (obj: PutBucketTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersioningConfigurationFilterSensitiveLog = (obj: VersioningConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketVersioningRequestFilterSensitiveLog = (obj: PutBucketVersioningRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebsiteConfigurationFilterSensitiveLog = (obj: WebsiteConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketWebsiteRequestFilterSensitiveLog = (obj: PutBucketWebsiteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectOutputFilterSensitiveLog = (obj: PutObjectOutput): any => ({
+  ...obj,
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+  ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutObjectRequestFilterSensitiveLog = (obj: PutObjectRequest): any => ({
+  ...obj,
+  ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
+  ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
+  ...(obj.SSEKMSEncryptionContext && { SSEKMSEncryptionContext: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutObjectAclOutputFilterSensitiveLog = (obj: PutObjectAclOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectAclRequestFilterSensitiveLog = (obj: PutObjectAclRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectLegalHoldOutputFilterSensitiveLog = (obj: PutObjectLegalHoldOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectLegalHoldRequestFilterSensitiveLog = (obj: PutObjectLegalHoldRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectLockConfigurationOutputFilterSensitiveLog = (obj: PutObjectLockConfigurationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutObjectLockConfigurationRequestFilterSensitiveLog = (obj: PutObjectLockConfigurationRequest): any => ({
+  ...obj,
+});

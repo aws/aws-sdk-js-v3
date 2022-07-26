@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { Resource, UpdateResourceRequest } from "../models/models_0";
+import {
+  Resource,
+  ResourceFilterSensitiveLog,
+  UpdateResourceRequest,
+  UpdateResourceRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateResourceCommand,
   serializeAws_restJson1UpdateResourceCommand,
@@ -72,8 +77,8 @@ export class UpdateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Resource.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResourceFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

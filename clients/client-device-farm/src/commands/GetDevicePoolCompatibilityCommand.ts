@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { GetDevicePoolCompatibilityRequest, GetDevicePoolCompatibilityResult } from "../models/models_0";
+import {
+  GetDevicePoolCompatibilityRequest,
+  GetDevicePoolCompatibilityRequestFilterSensitiveLog,
+  GetDevicePoolCompatibilityResult,
+  GetDevicePoolCompatibilityResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDevicePoolCompatibilityCommand,
   serializeAws_json1_1GetDevicePoolCompatibilityCommand,
@@ -72,8 +77,8 @@ export class GetDevicePoolCompatibilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDevicePoolCompatibilityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDevicePoolCompatibilityResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDevicePoolCompatibilityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDevicePoolCompatibilityResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

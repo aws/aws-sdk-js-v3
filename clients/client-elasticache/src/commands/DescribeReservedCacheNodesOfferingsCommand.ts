@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DescribeReservedCacheNodesOfferingsMessage, ReservedCacheNodesOfferingMessage } from "../models/models_0";
+import {
+  DescribeReservedCacheNodesOfferingsMessage,
+  DescribeReservedCacheNodesOfferingsMessageFilterSensitiveLog,
+  ReservedCacheNodesOfferingMessage,
+  ReservedCacheNodesOfferingMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand,
   serializeAws_queryDescribeReservedCacheNodesOfferingsCommand,
@@ -75,8 +80,8 @@ export class DescribeReservedCacheNodesOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedCacheNodesOfferingsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ReservedCacheNodesOfferingMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReservedCacheNodesOfferingsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ReservedCacheNodesOfferingMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

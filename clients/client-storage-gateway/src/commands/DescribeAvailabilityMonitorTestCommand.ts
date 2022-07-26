@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeAvailabilityMonitorTestInput, DescribeAvailabilityMonitorTestOutput } from "../models/models_0";
+import {
+  DescribeAvailabilityMonitorTestInput,
+  DescribeAvailabilityMonitorTestInputFilterSensitiveLog,
+  DescribeAvailabilityMonitorTestOutput,
+  DescribeAvailabilityMonitorTestOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand,
   serializeAws_json1_1DescribeAvailabilityMonitorTestCommand,
@@ -76,8 +81,8 @@ export class DescribeAvailabilityMonitorTestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAvailabilityMonitorTestInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAvailabilityMonitorTestOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAvailabilityMonitorTestInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAvailabilityMonitorTestOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

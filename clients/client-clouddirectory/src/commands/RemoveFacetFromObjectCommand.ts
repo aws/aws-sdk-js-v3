@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { RemoveFacetFromObjectRequest, RemoveFacetFromObjectResponse } from "../models/models_0";
+import {
+  RemoveFacetFromObjectRequest,
+  RemoveFacetFromObjectRequestFilterSensitiveLog,
+  RemoveFacetFromObjectResponse,
+  RemoveFacetFromObjectResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveFacetFromObjectCommand,
   serializeAws_restJson1RemoveFacetFromObjectCommand,
@@ -72,8 +77,8 @@ export class RemoveFacetFromObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveFacetFromObjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveFacetFromObjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveFacetFromObjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveFacetFromObjectResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

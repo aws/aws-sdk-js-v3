@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DisableMetricsCollectionQuery } from "../models/models_0";
+import { DisableMetricsCollectionQuery, DisableMetricsCollectionQueryFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDisableMetricsCollectionCommand,
   serializeAws_queryDisableMetricsCollectionCommand,
@@ -72,7 +72,7 @@ export class DisableMetricsCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableMetricsCollectionQuery.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableMetricsCollectionQueryFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

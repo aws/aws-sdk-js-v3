@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { DetectStackResourceDriftInput, DetectStackResourceDriftOutput } from "../models/models_0";
+import {
+  DetectStackResourceDriftInput,
+  DetectStackResourceDriftInputFilterSensitiveLog,
+  DetectStackResourceDriftOutput,
+  DetectStackResourceDriftOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDetectStackResourceDriftCommand,
   serializeAws_queryDetectStackResourceDriftCommand,
@@ -83,8 +88,8 @@ export class DetectStackResourceDriftCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectStackResourceDriftInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DetectStackResourceDriftOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectStackResourceDriftInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DetectStackResourceDriftOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

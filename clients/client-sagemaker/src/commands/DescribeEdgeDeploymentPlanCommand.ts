@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeEdgeDeploymentPlanRequest, DescribeEdgeDeploymentPlanResponse } from "../models/models_1";
+import {
+  DescribeEdgeDeploymentPlanRequest,
+  DescribeEdgeDeploymentPlanRequestFilterSensitiveLog,
+  DescribeEdgeDeploymentPlanResponse,
+  DescribeEdgeDeploymentPlanResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DescribeEdgeDeploymentPlanCommand,
   serializeAws_json1_1DescribeEdgeDeploymentPlanCommand,
@@ -72,8 +77,8 @@ export class DescribeEdgeDeploymentPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEdgeDeploymentPlanRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEdgeDeploymentPlanResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEdgeDeploymentPlanRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEdgeDeploymentPlanResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

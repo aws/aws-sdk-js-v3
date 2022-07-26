@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { DisassociateEnvironmentOperationsRoleMessage } from "../models/models_0";
+import {
+  DisassociateEnvironmentOperationsRoleMessage,
+  DisassociateEnvironmentOperationsRoleMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDisassociateEnvironmentOperationsRoleCommand,
   serializeAws_queryDisassociateEnvironmentOperationsRoleCommand,
@@ -76,7 +79,7 @@ export class DisassociateEnvironmentOperationsRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateEnvironmentOperationsRoleMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateEnvironmentOperationsRoleMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { CreateRevisionRequest, CreateRevisionResponse } from "../models/models_0";
+import {
+  CreateRevisionRequest,
+  CreateRevisionRequestFilterSensitiveLog,
+  CreateRevisionResponse,
+  CreateRevisionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRevisionCommand,
   serializeAws_restJson1CreateRevisionCommand,
@@ -72,8 +77,8 @@ export class CreateRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRevisionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRevisionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRevisionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRevisionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

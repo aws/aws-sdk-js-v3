@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { MoveReplicationTaskMessage, MoveReplicationTaskResponse } from "../models/models_0";
+import {
+  MoveReplicationTaskMessage,
+  MoveReplicationTaskMessageFilterSensitiveLog,
+  MoveReplicationTaskResponse,
+  MoveReplicationTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1MoveReplicationTaskCommand,
   serializeAws_json1_1MoveReplicationTaskCommand,
@@ -79,8 +84,8 @@ export class MoveReplicationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MoveReplicationTaskMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: MoveReplicationTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: MoveReplicationTaskMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: MoveReplicationTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

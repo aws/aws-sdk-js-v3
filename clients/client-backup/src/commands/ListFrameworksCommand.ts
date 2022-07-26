@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { ListFrameworksInput, ListFrameworksOutput } from "../models/models_0";
+import {
+  ListFrameworksInput,
+  ListFrameworksInputFilterSensitiveLog,
+  ListFrameworksOutput,
+  ListFrameworksOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListFrameworksCommand,
   serializeAws_restJson1ListFrameworksCommand,
@@ -72,8 +77,8 @@ export class ListFrameworksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFrameworksInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFrameworksOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFrameworksInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFrameworksOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

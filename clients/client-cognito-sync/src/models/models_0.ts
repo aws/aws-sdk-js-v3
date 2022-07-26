@@ -34,15 +34,6 @@ export interface BulkPublishRequest {
   IdentityPoolId: string | undefined;
 }
 
-export namespace BulkPublishRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BulkPublishRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The output for the BulkPublish operation.
  */
@@ -53,15 +44,6 @@ export interface BulkPublishResponse {
    *       unique within a region.
    */
   IdentityPoolId?: string;
-}
-
-export namespace BulkPublishResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BulkPublishResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -190,15 +172,6 @@ export interface DeleteDatasetRequest {
   DatasetName: string | undefined;
 }
 
-export namespace DeleteDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A collection of data for an identity pool. An identity pool can
  *       have multiple datasets. A dataset is per identity and can be general or associated with a
@@ -250,15 +223,6 @@ export interface Dataset {
   NumRecords?: number;
 }
 
-export namespace Dataset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Dataset): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Response to a successful DeleteDataset
  *       request.
@@ -272,15 +236,6 @@ export interface DeleteDatasetResponse {
    *       up to 1MB of key-value pairs.
    */
   Dataset?: Dataset;
-}
-
-export namespace DeleteDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -350,15 +305,6 @@ export interface DescribeDatasetRequest {
   DatasetName: string | undefined;
 }
 
-export namespace DescribeDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Response to a successful DescribeDataset
  *       request.
@@ -374,15 +320,6 @@ export interface DescribeDatasetResponse {
   Dataset?: Dataset;
 }
 
-export namespace DescribeDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A request for usage information about
  *       the identity pool.
@@ -394,15 +331,6 @@ export interface DescribeIdentityPoolUsageRequest {
    *       generation is unique within a region.
    */
   IdentityPoolId: string | undefined;
-}
-
-export namespace DescribeIdentityPoolUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityPoolUsageRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -436,15 +364,6 @@ export interface IdentityPoolUsage {
   LastModifiedDate?: Date;
 }
 
-export namespace IdentityPoolUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityPoolUsage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Response to a successful
  *       DescribeIdentityPoolUsage request.
@@ -455,15 +374,6 @@ export interface DescribeIdentityPoolUsageResponse {
    *       usage of the identity pool.
    */
   IdentityPoolUsage?: IdentityPoolUsage;
-}
-
-export namespace DescribeIdentityPoolUsageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityPoolUsageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -484,15 +394,6 @@ export interface DescribeIdentityUsageRequest {
    *       unique within a region.
    */
   IdentityId: string | undefined;
-}
-
-export namespace DescribeIdentityUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityUsageRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -532,15 +433,6 @@ export interface IdentityUsage {
   DataStorage?: number;
 }
 
-export namespace IdentityUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityUsage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The response to a successful
  *       DescribeIdentityUsage request.
@@ -553,15 +445,6 @@ export interface DescribeIdentityUsageResponse {
   IdentityUsage?: IdentityUsage;
 }
 
-export namespace DescribeIdentityUsageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityUsageResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The input for the GetBulkPublishDetails operation.
  */
@@ -572,15 +455,6 @@ export interface GetBulkPublishDetailsRequest {
    *       unique within a region.
    */
   IdentityPoolId: string | undefined;
-}
-
-export namespace GetBulkPublishDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBulkPublishDetailsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum BulkPublishStatus {
@@ -626,15 +500,6 @@ export interface GetBulkPublishDetailsResponse {
   FailureMessage?: string;
 }
 
-export namespace GetBulkPublishDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBulkPublishDetailsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request for a list of the configured Cognito Events</p>
  */
@@ -643,15 +508,6 @@ export interface GetCognitoEventsRequest {
    * <p>The Cognito Identity Pool ID for the request</p>
    */
   IdentityPoolId: string | undefined;
-}
-
-export namespace GetCognitoEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCognitoEventsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -664,15 +520,6 @@ export interface GetCognitoEventsResponse {
   Events?: Record<string, string>;
 }
 
-export namespace GetCognitoEventsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCognitoEventsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the GetIdentityPoolConfiguration operation.</p>
  */
@@ -682,15 +529,6 @@ export interface GetIdentityPoolConfigurationRequest {
    *          Amazon Cognito. This is the ID of the pool for which to return a configuration.</p>
    */
   IdentityPoolId: string | undefined;
-}
-
-export namespace GetIdentityPoolConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityPoolConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export type StreamingStatus = "DISABLED" | "ENABLED";
@@ -717,15 +555,6 @@ export interface CognitoStreams {
   StreamingStatus?: StreamingStatus | string;
 }
 
-export namespace CognitoStreams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CognitoStreams): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration options to be applied to the identity pool.</p>
  */
@@ -739,15 +568,6 @@ export interface PushSync {
    * <p>A role configured to allow Cognito to call SNS on behalf of the developer.</p>
    */
   RoleArn?: string;
-}
-
-export namespace PushSync {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PushSync): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -769,15 +589,6 @@ export interface GetIdentityPoolConfigurationResponse {
    * Options to apply to this identity pool for Amazon Cognito streams.
    */
   CognitoStreams?: CognitoStreams;
-}
-
-export namespace GetIdentityPoolConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityPoolConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -812,15 +623,6 @@ export interface ListDatasetsRequest {
   MaxResults?: number;
 }
 
-export namespace ListDatasetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Returned for a successful ListDatasets
  *       request.
@@ -843,15 +645,6 @@ export interface ListDatasetsResponse {
   NextToken?: string;
 }
 
-export namespace ListDatasetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A request for usage information on an
  *       identity pool.
@@ -868,15 +661,6 @@ export interface ListIdentityPoolUsageRequest {
    *       be returned.
    */
   MaxResults?: number;
-}
-
-export namespace ListIdentityPoolUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityPoolUsageRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -907,15 +691,6 @@ export interface ListIdentityPoolUsageResponse {
    *       the next page of results.
    */
   NextToken?: string;
-}
-
-export namespace ListIdentityPoolUsageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityPoolUsageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -967,15 +742,6 @@ export interface ListRecordsRequest {
   SyncSessionToken?: string;
 }
 
-export namespace ListRecordsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecordsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The basic data structure of a dataset.
  */
@@ -1012,15 +778,6 @@ export interface _Record {
    *       device.
    */
   DeviceLastModifiedDate?: Date;
-}
-
-export namespace _Record {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1081,15 +838,6 @@ export interface ListRecordsResponse {
   SyncSessionToken?: string;
 }
 
-export namespace ListRecordsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecordsResponse): any => ({
-    ...obj,
-  });
-}
-
 export class InvalidConfigurationException extends __BaseException {
   readonly name: "InvalidConfigurationException" = "InvalidConfigurationException";
   readonly $fault: "client" = "client";
@@ -1134,15 +882,6 @@ export interface RegisterDeviceRequest {
   Token: string | undefined;
 }
 
-export namespace RegisterDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response to a RegisterDevice request.</p>
  */
@@ -1151,15 +890,6 @@ export interface RegisterDeviceResponse {
    * <p>The unique ID generated for this device by Cognito.</p>
    */
   DeviceId?: string;
-}
-
-export namespace RegisterDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1175,15 +905,6 @@ export interface SetCognitoEventsRequest {
    * <p>The events to configure</p>
    */
   Events: Record<string, string> | undefined;
-}
-
-export namespace SetCognitoEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetCognitoEventsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1226,15 +947,6 @@ export interface SetIdentityPoolConfigurationRequest {
   CognitoStreams?: CognitoStreams;
 }
 
-export namespace SetIdentityPoolConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityPoolConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the SetIdentityPoolConfiguration operation</p>
  */
@@ -1254,15 +966,6 @@ export interface SetIdentityPoolConfigurationResponse {
    * Options to apply to this identity pool for Amazon Cognito streams.
    */
   CognitoStreams?: CognitoStreams;
-}
-
-export namespace SetIdentityPoolConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIdentityPoolConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1291,28 +994,10 @@ export interface SubscribeToDatasetRequest {
   DeviceId: string | undefined;
 }
 
-export namespace SubscribeToDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscribeToDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response to a SubscribeToDataset request.</p>
  */
 export interface SubscribeToDatasetResponse {}
-
-export namespace SubscribeToDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscribeToDatasetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to UnsubscribeFromDataset.</p>
@@ -1340,28 +1025,10 @@ export interface UnsubscribeFromDatasetRequest {
   DeviceId: string | undefined;
 }
 
-export namespace UnsubscribeFromDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsubscribeFromDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response to an UnsubscribeFromDataset request.</p>
  */
 export interface UnsubscribeFromDatasetResponse {}
-
-export namespace UnsubscribeFromDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsubscribeFromDatasetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The AWS Lambda function returned invalid output or an exception.</p>
@@ -1456,15 +1123,6 @@ export interface RecordPatch {
   DeviceLastModifiedDate?: Date;
 }
 
-export namespace RecordPatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordPatch): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A request to post updates to records or add and
  *       delete records for a dataset and user.
@@ -1516,15 +1174,6 @@ export interface UpdateRecordsRequest {
   ClientContext?: string;
 }
 
-export namespace UpdateRecordsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecordsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Returned for a successful
  *       UpdateRecordsRequest.
@@ -1537,11 +1186,290 @@ export interface UpdateRecordsResponse {
   Records?: _Record[];
 }
 
-export namespace UpdateRecordsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecordsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const BulkPublishRequestFilterSensitiveLog = (obj: BulkPublishRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BulkPublishResponseFilterSensitiveLog = (obj: BulkPublishResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetFilterSensitiveLog = (obj: Dataset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetResponseFilterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIdentityPoolUsageRequestFilterSensitiveLog = (obj: DescribeIdentityPoolUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityPoolUsageFilterSensitiveLog = (obj: IdentityPoolUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIdentityPoolUsageResponseFilterSensitiveLog = (obj: DescribeIdentityPoolUsageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIdentityUsageRequestFilterSensitiveLog = (obj: DescribeIdentityUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityUsageFilterSensitiveLog = (obj: IdentityUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIdentityUsageResponseFilterSensitiveLog = (obj: DescribeIdentityUsageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBulkPublishDetailsRequestFilterSensitiveLog = (obj: GetBulkPublishDetailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBulkPublishDetailsResponseFilterSensitiveLog = (obj: GetBulkPublishDetailsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCognitoEventsRequestFilterSensitiveLog = (obj: GetCognitoEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCognitoEventsResponseFilterSensitiveLog = (obj: GetCognitoEventsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityPoolConfigurationRequestFilterSensitiveLog = (
+  obj: GetIdentityPoolConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CognitoStreamsFilterSensitiveLog = (obj: CognitoStreams): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PushSyncFilterSensitiveLog = (obj: PushSync): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityPoolConfigurationResponseFilterSensitiveLog = (
+  obj: GetIdentityPoolConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityPoolUsageRequestFilterSensitiveLog = (obj: ListIdentityPoolUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityPoolUsageResponseFilterSensitiveLog = (obj: ListIdentityPoolUsageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecordsRequestFilterSensitiveLog = (obj: ListRecordsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecordsResponseFilterSensitiveLog = (obj: ListRecordsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterDeviceRequestFilterSensitiveLog = (obj: RegisterDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterDeviceResponseFilterSensitiveLog = (obj: RegisterDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetCognitoEventsRequestFilterSensitiveLog = (obj: SetCognitoEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityPoolConfigurationRequestFilterSensitiveLog = (
+  obj: SetIdentityPoolConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIdentityPoolConfigurationResponseFilterSensitiveLog = (
+  obj: SetIdentityPoolConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscribeToDatasetRequestFilterSensitiveLog = (obj: SubscribeToDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscribeToDatasetResponseFilterSensitiveLog = (obj: SubscribeToDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnsubscribeFromDatasetRequestFilterSensitiveLog = (obj: UnsubscribeFromDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnsubscribeFromDatasetResponseFilterSensitiveLog = (obj: UnsubscribeFromDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordPatchFilterSensitiveLog = (obj: RecordPatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecordsRequestFilterSensitiveLog = (obj: UpdateRecordsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecordsResponseFilterSensitiveLog = (obj: UpdateRecordsResponse): any => ({
+  ...obj,
+});

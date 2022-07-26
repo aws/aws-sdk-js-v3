@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DiscoverInstancesRequest, DiscoverInstancesResponse } from "../models/models_0";
+import {
+  DiscoverInstancesRequest,
+  DiscoverInstancesRequestFilterSensitiveLog,
+  DiscoverInstancesResponse,
+  DiscoverInstancesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DiscoverInstancesCommand,
   serializeAws_json1_1DiscoverInstancesCommand,
@@ -74,8 +79,8 @@ export class DiscoverInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DiscoverInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DiscoverInstancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DiscoverInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DiscoverInstancesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { ListDomainsRequest, ListDomainsResponse } from "../models/models_0";
+import {
+  ListDomainsRequest,
+  ListDomainsRequestFilterSensitiveLog,
+  ListDomainsResponse,
+  ListDomainsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListDomainsCommand,
   serializeAws_restJson1ListDomainsCommand,
@@ -72,8 +77,8 @@ export class ListDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDomainsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDomainsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

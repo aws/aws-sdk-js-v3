@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { StartTaskRequest, StartTaskResponse } from "../models/models_0";
+import {
+  StartTaskRequest,
+  StartTaskRequestFilterSensitiveLog,
+  StartTaskResponse,
+  StartTaskResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1StartTaskCommand, serializeAws_json1_1StartTaskCommand } from "../protocols/Aws_json1_1";
 
 export interface StartTaskCommandInput extends StartTaskRequest {}
@@ -69,8 +74,8 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

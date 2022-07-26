@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { DeleteCustomActionTypeInput } from "../models/models_0";
+import { DeleteCustomActionTypeInput, DeleteCustomActionTypeInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCustomActionTypeCommand,
   serializeAws_json1_1DeleteCustomActionTypeCommand,
@@ -80,7 +80,7 @@ export class DeleteCustomActionTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomActionTypeInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomActionTypeInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

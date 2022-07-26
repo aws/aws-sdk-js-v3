@@ -28,15 +28,6 @@ export interface AddPermissionInput {
   ActionName: string[] | undefined;
 }
 
-export namespace AddPermissionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddPermissionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the user has been denied access to the requested resource.</p>
  */
@@ -124,15 +115,6 @@ export interface CheckIfPhoneNumberIsOptedOutInput {
   phoneNumber: string | undefined;
 }
 
-export namespace CheckIfPhoneNumberIsOptedOutInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckIfPhoneNumberIsOptedOutInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response from the <code>CheckIfPhoneNumberIsOptedOut</code> action.</p>
  */
@@ -153,15 +135,6 @@ export interface CheckIfPhoneNumberIsOptedOutResponse {
    *          </ul>
    */
   isOptedOut?: boolean;
-}
-
-export namespace CheckIfPhoneNumberIsOptedOutResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CheckIfPhoneNumberIsOptedOutResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -206,15 +179,6 @@ export interface ConfirmSubscriptionInput {
   AuthenticateOnUnsubscribe?: string;
 }
 
-export namespace ConfirmSubscriptionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmSubscriptionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response for ConfirmSubscriptions action.</p>
  */
@@ -223,15 +187,6 @@ export interface ConfirmSubscriptionResponse {
    * <p>The ARN of the created subscription.</p>
    */
   SubscriptionArn?: string;
-}
-
-export namespace ConfirmSubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfirmSubscriptionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -298,15 +253,6 @@ export interface CreatePlatformApplicationInput {
   Attributes: Record<string, string> | undefined;
 }
 
-export namespace CreatePlatformApplicationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlatformApplicationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response from CreatePlatformApplication action.</p>
  */
@@ -317,15 +263,6 @@ export interface CreatePlatformApplicationResponse {
   PlatformApplicationArn?: string;
 }
 
-export namespace CreatePlatformApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlatformApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response from CreateEndpoint action.</p>
  */
@@ -334,15 +271,6 @@ export interface CreateEndpointResponse {
    * <p>EndpointArn returned from CreateEndpoint action.</p>
    */
   EndpointArn?: string;
-}
-
-export namespace CreateEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -376,15 +304,6 @@ export interface CreatePlatformEndpointInput {
   Attributes?: Record<string, string>;
 }
 
-export namespace CreatePlatformEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePlatformEndpointInput): any => ({
-    ...obj,
-  });
-}
-
 export enum LanguageCodeString {
   de_DE = "de-DE",
   en_GB = "en-GB",
@@ -415,25 +334,7 @@ export interface CreateSMSSandboxPhoneNumberInput {
   LanguageCode?: LanguageCodeString | string;
 }
 
-export namespace CreateSMSSandboxPhoneNumberInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSMSSandboxPhoneNumberInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSMSSandboxPhoneNumberResult {}
-
-export namespace CreateSMSSandboxPhoneNumberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSMSSandboxPhoneNumberResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the specified phone number opted out of receiving SMS messages from
@@ -508,15 +409,6 @@ export interface Tag {
    * <p>The optional value portion of the tag.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -617,15 +509,6 @@ export interface CreateTopicInput {
   Tags?: Tag[];
 }
 
-export namespace CreateTopicInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTopicInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response from CreateTopic action.</p>
  */
@@ -634,15 +517,6 @@ export interface CreateTopicResponse {
    * <p>The Amazon Resource Name (ARN) assigned to the created topic.</p>
    */
   TopicArn?: string;
-}
-
-export namespace CreateTopicResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTopicResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -753,15 +627,6 @@ export interface DeleteEndpointInput {
   EndpointArn: string | undefined;
 }
 
-export namespace DeleteEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEndpointInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for DeletePlatformApplication action.</p>
  */
@@ -772,15 +637,6 @@ export interface DeletePlatformApplicationInput {
   PlatformApplicationArn: string | undefined;
 }
 
-export namespace DeletePlatformApplicationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlatformApplicationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSMSSandboxPhoneNumberInput {
   /**
    * <p>The destination phone number to delete.</p>
@@ -788,25 +644,7 @@ export interface DeleteSMSSandboxPhoneNumberInput {
   PhoneNumber: string | undefined;
 }
 
-export namespace DeleteSMSSandboxPhoneNumberInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSMSSandboxPhoneNumberInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSMSSandboxPhoneNumberResult {}
-
-export namespace DeleteSMSSandboxPhoneNumberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSMSSandboxPhoneNumberResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Can’t perform the action on the specified resource. Make sure that the resource
@@ -835,15 +673,6 @@ export interface DeleteTopicInput {
   TopicArn: string | undefined;
 }
 
-export namespace DeleteTopicInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTopicInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for GetEndpointAttributes action.</p>
  */
@@ -852,15 +681,6 @@ export interface GetEndpointAttributesInput {
    * <p>EndpointArn for GetEndpointAttributes input.</p>
    */
   EndpointArn: string | undefined;
-}
-
-export namespace GetEndpointAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEndpointAttributesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -898,15 +718,6 @@ export interface GetEndpointAttributesResponse {
   Attributes?: Record<string, string>;
 }
 
-export namespace GetEndpointAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEndpointAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for GetPlatformApplicationAttributes action.</p>
  */
@@ -915,15 +726,6 @@ export interface GetPlatformApplicationAttributesInput {
    * <p>PlatformApplicationArn for GetPlatformApplicationAttributesInput.</p>
    */
   PlatformApplicationArn: string | undefined;
-}
-
-export namespace GetPlatformApplicationAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPlatformApplicationAttributesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -971,15 +773,6 @@ export interface GetPlatformApplicationAttributesResponse {
   Attributes?: Record<string, string>;
 }
 
-export namespace GetPlatformApplicationAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPlatformApplicationAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the <code>GetSMSAttributes</code> request.</p>
  */
@@ -993,15 +786,6 @@ export interface GetSMSAttributesInput {
   attributes?: string[];
 }
 
-export namespace GetSMSAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSMSAttributesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response from the <code>GetSMSAttributes</code> request.</p>
  */
@@ -1012,40 +796,13 @@ export interface GetSMSAttributesResponse {
   attributes?: Record<string, string>;
 }
 
-export namespace GetSMSAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSMSAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSMSSandboxAccountStatusInput {}
-
-export namespace GetSMSSandboxAccountStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSMSSandboxAccountStatusInput): any => ({
-    ...obj,
-  });
-}
 
 export interface GetSMSSandboxAccountStatusResult {
   /**
    * <p>Indicates whether the calling Amazon Web Services account is in the SMS sandbox.</p>
    */
   IsInSandbox: boolean | undefined;
-}
-
-export namespace GetSMSSandboxAccountStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSMSSandboxAccountStatusResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1056,15 +813,6 @@ export interface GetSubscriptionAttributesInput {
    * <p>The ARN of the subscription whose properties you want to get.</p>
    */
   SubscriptionArn: string | undefined;
-}
-
-export namespace GetSubscriptionAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSubscriptionAttributesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1154,15 +902,6 @@ export interface GetSubscriptionAttributesResponse {
   Attributes?: Record<string, string>;
 }
 
-export namespace GetSubscriptionAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSubscriptionAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for GetTopicAttributes action.</p>
  */
@@ -1171,15 +910,6 @@ export interface GetTopicAttributesInput {
    * <p>The ARN of the topic whose properties you want to get.</p>
    */
   TopicArn: string | undefined;
-}
-
-export namespace GetTopicAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTopicAttributesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1281,15 +1011,6 @@ export interface GetTopicAttributesResponse {
   Attributes?: Record<string, string>;
 }
 
-export namespace GetTopicAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTopicAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for ListEndpointsByPlatformApplication action.</p>
  */
@@ -1306,15 +1027,6 @@ export interface ListEndpointsByPlatformApplicationInput {
   NextToken?: string;
 }
 
-export namespace ListEndpointsByPlatformApplicationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEndpointsByPlatformApplicationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The endpoint for mobile app and device.</p>
  */
@@ -1328,15 +1040,6 @@ export interface Endpoint {
    * <p>Attributes for endpoint.</p>
    */
   Attributes?: Record<string, string>;
-}
-
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1355,15 +1058,6 @@ export interface ListEndpointsByPlatformApplicationResponse {
   NextToken?: string;
 }
 
-export namespace ListEndpointsByPlatformApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEndpointsByPlatformApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOriginationNumbersRequest {
   /**
    * <p>Token that the previous <code>ListOriginationNumbers</code> request returns.</p>
@@ -1374,15 +1068,6 @@ export interface ListOriginationNumbersRequest {
    * <p>The maximum number of origination numbers to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListOriginationNumbersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOriginationNumbersRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum NumberCapability {
@@ -1432,15 +1117,6 @@ export interface PhoneNumberInformation {
   NumberCapabilities?: (NumberCapability | string)[];
 }
 
-export namespace PhoneNumberInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhoneNumberInformation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOriginationNumbersResult {
   /**
    * <p>A <code>NextToken</code> string is returned when you call the
@@ -1453,15 +1129,6 @@ export interface ListOriginationNumbersResult {
    * <p>A list of the calling account's verified and pending origination numbers.</p>
    */
   PhoneNumbers?: PhoneNumberInformation[];
-}
-
-export namespace ListOriginationNumbersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOriginationNumbersResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1497,15 +1164,6 @@ export interface ListPhoneNumbersOptedOutInput {
   nextToken?: string;
 }
 
-export namespace ListPhoneNumbersOptedOutInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPhoneNumbersOptedOutInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response from the <code>ListPhoneNumbersOptedOut</code> action.</p>
  */
@@ -1524,15 +1182,6 @@ export interface ListPhoneNumbersOptedOutResponse {
   nextToken?: string;
 }
 
-export namespace ListPhoneNumbersOptedOutResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPhoneNumbersOptedOutResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for ListPlatformApplications action.</p>
  */
@@ -1542,15 +1191,6 @@ export interface ListPlatformApplicationsInput {
    *             additional records that are available after the first page results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPlatformApplicationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlatformApplicationsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1566,15 +1206,6 @@ export interface PlatformApplication {
    * <p>Attributes for platform application object.</p>
    */
   Attributes?: Record<string, string>;
-}
-
-export namespace PlatformApplication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformApplication): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1593,15 +1224,6 @@ export interface ListPlatformApplicationsResponse {
   NextToken?: string;
 }
 
-export namespace ListPlatformApplicationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlatformApplicationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSMSSandboxPhoneNumbersInput {
   /**
    * <p>Token that the previous <code>ListSMSSandboxPhoneNumbersInput</code> request
@@ -1613,15 +1235,6 @@ export interface ListSMSSandboxPhoneNumbersInput {
    * <p>The maximum number of phone numbers to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListSMSSandboxPhoneNumbersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSMSSandboxPhoneNumbersInput): any => ({
-    ...obj,
-  });
 }
 
 export enum SMSSandboxPhoneNumberVerificationStatus {
@@ -1652,15 +1265,6 @@ export interface SMSSandboxPhoneNumber {
   Status?: SMSSandboxPhoneNumberVerificationStatus | string;
 }
 
-export namespace SMSSandboxPhoneNumber {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SMSSandboxPhoneNumber): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSMSSandboxPhoneNumbersResult {
   /**
    * <p>A list of the calling account's pending and verified phone numbers.</p>
@@ -1675,15 +1279,6 @@ export interface ListSMSSandboxPhoneNumbersResult {
   NextToken?: string;
 }
 
-export namespace ListSMSSandboxPhoneNumbersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSMSSandboxPhoneNumbersResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for ListSubscriptions action.</p>
  */
@@ -1692,15 +1287,6 @@ export interface ListSubscriptionsInput {
    * <p>Token returned by the previous <code>ListSubscriptions</code> request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSubscriptionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscriptionsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1733,15 +1319,6 @@ export interface Subscription {
   TopicArn?: string;
 }
 
-export namespace Subscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subscription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response for ListSubscriptions action</p>
  */
@@ -1758,15 +1335,6 @@ export interface ListSubscriptionsResponse {
   NextToken?: string;
 }
 
-export namespace ListSubscriptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscriptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for ListSubscriptionsByTopic action.</p>
  */
@@ -1780,15 +1348,6 @@ export interface ListSubscriptionsByTopicInput {
    * <p>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSubscriptionsByTopicInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscriptionsByTopicInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1807,29 +1366,11 @@ export interface ListSubscriptionsByTopicResponse {
   NextToken?: string;
 }
 
-export namespace ListSubscriptionsByTopicResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscriptionsByTopicResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the topic for which to list tags.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -1839,29 +1380,11 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTopicsInput {
   /**
    * <p>Token returned by the previous <code>ListTopics</code> request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTopicsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTopicsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1873,15 +1396,6 @@ export interface Topic {
    * <p>The topic's ARN.</p>
    */
   TopicArn?: string;
-}
-
-export namespace Topic {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Topic): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1900,15 +1414,6 @@ export interface ListTopicsResponse {
   NextToken?: string;
 }
 
-export namespace ListTopicsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTopicsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for the OptInPhoneNumber action.</p>
  */
@@ -1919,28 +1424,10 @@ export interface OptInPhoneNumberInput {
   phoneNumber: string | undefined;
 }
 
-export namespace OptInPhoneNumberInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptInPhoneNumberInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response for the OptInPhoneNumber action.</p>
  */
 export interface OptInPhoneNumberResponse {}
-
-export namespace OptInPhoneNumberResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptInPhoneNumberResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Exception error indicating endpoint disabled.</p>
@@ -2155,15 +1642,6 @@ export interface MessageAttributeValue {
   BinaryValue?: Uint8Array;
 }
 
-export namespace MessageAttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for Publish action.</p>
  */
@@ -2321,15 +1799,6 @@ export interface PublishInput {
   MessageGroupId?: string;
 }
 
-export namespace PublishInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response for Publish action.</p>
  */
@@ -2348,15 +1817,6 @@ export interface PublishResponse {
    *                 <code>MessageGroupId</code>.</p>
    */
   SequenceNumber?: string;
-}
-
-export namespace PublishResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2538,15 +1998,6 @@ export interface PublishBatchRequestEntry {
   MessageGroupId?: string;
 }
 
-export namespace PublishBatchRequestEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishBatchRequestEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface PublishBatchInput {
   /**
    * <p>The Amazon resource name (ARN) of the topic you want to batch publish to.</p>
@@ -2557,15 +2008,6 @@ export interface PublishBatchInput {
    * <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
    */
   PublishBatchRequestEntries: PublishBatchRequestEntry[] | undefined;
-}
-
-export namespace PublishBatchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishBatchInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2593,15 +2035,6 @@ export interface BatchResultErrorEntry {
   SenderFault: boolean | undefined;
 }
 
-export namespace BatchResultErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchResultErrorEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Encloses data related to a successful message in a batch request for topic.</p>
  */
@@ -2624,15 +2057,6 @@ export interface PublishBatchResultEntry {
   SequenceNumber?: string;
 }
 
-export namespace PublishBatchResultEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishBatchResultEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface PublishBatchResponse {
   /**
    * <p>A list of successful <code>PublishBatch</code> responses.</p>
@@ -2643,15 +2067,6 @@ export interface PublishBatchResponse {
    * <p>A list of failed <code>PublishBatch</code> responses. </p>
    */
   Failed?: BatchResultErrorEntry[];
-}
-
-export namespace PublishBatchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishBatchResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2686,15 +2101,6 @@ export interface RemovePermissionInput {
    * <p>The unique label of the statement you want to remove.</p>
    */
   Label: string | undefined;
-}
-
-export namespace RemovePermissionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemovePermissionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2732,15 +2138,6 @@ export interface SetEndpointAttributesInput {
    *          </ul>
    */
   Attributes: Record<string, string> | undefined;
-}
-
-export namespace SetEndpointAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetEndpointAttributesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2849,15 +2246,6 @@ export interface SetPlatformApplicationAttributesInput {
   Attributes: Record<string, string> | undefined;
 }
 
-export namespace SetPlatformApplicationAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetPlatformApplicationAttributesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the SetSMSAttributes action.</p>
  */
@@ -2952,28 +2340,10 @@ export interface SetSMSAttributesInput {
   attributes: Record<string, string> | undefined;
 }
 
-export namespace SetSMSAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSMSAttributesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response for the SetSMSAttributes action.</p>
  */
 export interface SetSMSAttributesResponse {}
-
-export namespace SetSMSAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSMSAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Input for SetSubscriptionAttributes action.</p>
@@ -3042,15 +2412,6 @@ export interface SetSubscriptionAttributesInput {
    * <p>The new value for the attribute in JSON format.</p>
    */
   AttributeValue?: string;
-}
-
-export namespace SetSubscriptionAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetSubscriptionAttributesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3129,15 +2490,6 @@ export interface SetTopicAttributesInput {
    * <p>The new value for the attribute.</p>
    */
   AttributeValue?: string;
-}
-
-export namespace SetTopicAttributesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTopicAttributesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3311,15 +2663,6 @@ export interface SubscribeInput {
   ReturnSubscriptionArn?: boolean;
 }
 
-export namespace SubscribeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscribeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Response for Subscribe action.</p>
  */
@@ -3331,15 +2674,6 @@ export interface SubscribeResponse {
    *             subscription ARN, even if the subscription requires confirmation.</p>
    */
   SubscriptionArn?: string;
-}
-
-export namespace SubscribeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscribeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3355,25 +2689,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Input for Unsubscribe action.</p>
@@ -3383,15 +2699,6 @@ export interface UnsubscribeInput {
    * <p>The ARN of the subscription to be deleted.</p>
    */
   SubscriptionArn: string | undefined;
-}
-
-export namespace UnsubscribeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsubscribeInput): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {
@@ -3406,25 +2713,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Indicates that the one-time password (OTP) used for verification is invalid.</p>
@@ -3465,25 +2754,586 @@ export interface VerifySMSSandboxPhoneNumberInput {
   OneTimePassword: string | undefined;
 }
 
-export namespace VerifySMSSandboxPhoneNumberInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifySMSSandboxPhoneNumberInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The destination phone number's verification status.</p>
  */
 export interface VerifySMSSandboxPhoneNumberResult {}
 
-export namespace VerifySMSSandboxPhoneNumberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifySMSSandboxPhoneNumberResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AddPermissionInputFilterSensitiveLog = (obj: AddPermissionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckIfPhoneNumberIsOptedOutInputFilterSensitiveLog = (obj: CheckIfPhoneNumberIsOptedOutInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckIfPhoneNumberIsOptedOutResponseFilterSensitiveLog = (
+  obj: CheckIfPhoneNumberIsOptedOutResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmSubscriptionInputFilterSensitiveLog = (obj: ConfirmSubscriptionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfirmSubscriptionResponseFilterSensitiveLog = (obj: ConfirmSubscriptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlatformApplicationInputFilterSensitiveLog = (obj: CreatePlatformApplicationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlatformApplicationResponseFilterSensitiveLog = (obj: CreatePlatformApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEndpointResponseFilterSensitiveLog = (obj: CreateEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePlatformEndpointInputFilterSensitiveLog = (obj: CreatePlatformEndpointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSMSSandboxPhoneNumberInputFilterSensitiveLog = (obj: CreateSMSSandboxPhoneNumberInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSMSSandboxPhoneNumberResultFilterSensitiveLog = (obj: CreateSMSSandboxPhoneNumberResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTopicInputFilterSensitiveLog = (obj: CreateTopicInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTopicResponseFilterSensitiveLog = (obj: CreateTopicResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEndpointInputFilterSensitiveLog = (obj: DeleteEndpointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlatformApplicationInputFilterSensitiveLog = (obj: DeletePlatformApplicationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSMSSandboxPhoneNumberInputFilterSensitiveLog = (obj: DeleteSMSSandboxPhoneNumberInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSMSSandboxPhoneNumberResultFilterSensitiveLog = (obj: DeleteSMSSandboxPhoneNumberResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTopicInputFilterSensitiveLog = (obj: DeleteTopicInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEndpointAttributesInputFilterSensitiveLog = (obj: GetEndpointAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEndpointAttributesResponseFilterSensitiveLog = (obj: GetEndpointAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPlatformApplicationAttributesInputFilterSensitiveLog = (
+  obj: GetPlatformApplicationAttributesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPlatformApplicationAttributesResponseFilterSensitiveLog = (
+  obj: GetPlatformApplicationAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSMSAttributesInputFilterSensitiveLog = (obj: GetSMSAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSMSAttributesResponseFilterSensitiveLog = (obj: GetSMSAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSMSSandboxAccountStatusInputFilterSensitiveLog = (obj: GetSMSSandboxAccountStatusInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSMSSandboxAccountStatusResultFilterSensitiveLog = (obj: GetSMSSandboxAccountStatusResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSubscriptionAttributesInputFilterSensitiveLog = (obj: GetSubscriptionAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSubscriptionAttributesResponseFilterSensitiveLog = (obj: GetSubscriptionAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTopicAttributesInputFilterSensitiveLog = (obj: GetTopicAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTopicAttributesResponseFilterSensitiveLog = (obj: GetTopicAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEndpointsByPlatformApplicationInputFilterSensitiveLog = (
+  obj: ListEndpointsByPlatformApplicationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEndpointsByPlatformApplicationResponseFilterSensitiveLog = (
+  obj: ListEndpointsByPlatformApplicationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOriginationNumbersRequestFilterSensitiveLog = (obj: ListOriginationNumbersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberInformationFilterSensitiveLog = (obj: PhoneNumberInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOriginationNumbersResultFilterSensitiveLog = (obj: ListOriginationNumbersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPhoneNumbersOptedOutInputFilterSensitiveLog = (obj: ListPhoneNumbersOptedOutInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPhoneNumbersOptedOutResponseFilterSensitiveLog = (obj: ListPhoneNumbersOptedOutResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlatformApplicationsInputFilterSensitiveLog = (obj: ListPlatformApplicationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlatformApplicationFilterSensitiveLog = (obj: PlatformApplication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlatformApplicationsResponseFilterSensitiveLog = (obj: ListPlatformApplicationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSMSSandboxPhoneNumbersInputFilterSensitiveLog = (obj: ListSMSSandboxPhoneNumbersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SMSSandboxPhoneNumberFilterSensitiveLog = (obj: SMSSandboxPhoneNumber): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSMSSandboxPhoneNumbersResultFilterSensitiveLog = (obj: ListSMSSandboxPhoneNumbersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubscriptionsInputFilterSensitiveLog = (obj: ListSubscriptionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubscriptionsResponseFilterSensitiveLog = (obj: ListSubscriptionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubscriptionsByTopicInputFilterSensitiveLog = (obj: ListSubscriptionsByTopicInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubscriptionsByTopicResponseFilterSensitiveLog = (obj: ListSubscriptionsByTopicResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTopicsInputFilterSensitiveLog = (obj: ListTopicsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TopicFilterSensitiveLog = (obj: Topic): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTopicsResponseFilterSensitiveLog = (obj: ListTopicsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptInPhoneNumberInputFilterSensitiveLog = (obj: OptInPhoneNumberInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptInPhoneNumberResponseFilterSensitiveLog = (obj: OptInPhoneNumberResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageAttributeValueFilterSensitiveLog = (obj: MessageAttributeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishInputFilterSensitiveLog = (obj: PublishInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishResponseFilterSensitiveLog = (obj: PublishResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishBatchRequestEntryFilterSensitiveLog = (obj: PublishBatchRequestEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishBatchInputFilterSensitiveLog = (obj: PublishBatchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchResultErrorEntryFilterSensitiveLog = (obj: BatchResultErrorEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishBatchResultEntryFilterSensitiveLog = (obj: PublishBatchResultEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishBatchResponseFilterSensitiveLog = (obj: PublishBatchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemovePermissionInputFilterSensitiveLog = (obj: RemovePermissionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetEndpointAttributesInputFilterSensitiveLog = (obj: SetEndpointAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetPlatformApplicationAttributesInputFilterSensitiveLog = (
+  obj: SetPlatformApplicationAttributesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetSMSAttributesInputFilterSensitiveLog = (obj: SetSMSAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetSMSAttributesResponseFilterSensitiveLog = (obj: SetSMSAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetSubscriptionAttributesInputFilterSensitiveLog = (obj: SetSubscriptionAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTopicAttributesInputFilterSensitiveLog = (obj: SetTopicAttributesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscribeInputFilterSensitiveLog = (obj: SubscribeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscribeResponseFilterSensitiveLog = (obj: SubscribeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnsubscribeInputFilterSensitiveLog = (obj: UnsubscribeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifySMSSandboxPhoneNumberInputFilterSensitiveLog = (obj: VerifySMSSandboxPhoneNumberInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifySMSSandboxPhoneNumberResultFilterSensitiveLog = (obj: VerifySMSSandboxPhoneNumberResult): any => ({
+  ...obj,
+});

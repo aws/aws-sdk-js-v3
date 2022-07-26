@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { BatchDetectKeyPhrasesRequest, BatchDetectKeyPhrasesResponse } from "../models/models_0";
+import {
+  BatchDetectKeyPhrasesRequest,
+  BatchDetectKeyPhrasesRequestFilterSensitiveLog,
+  BatchDetectKeyPhrasesResponse,
+  BatchDetectKeyPhrasesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDetectKeyPhrasesCommand,
   serializeAws_json1_1BatchDetectKeyPhrasesCommand,
@@ -72,8 +77,8 @@ export class BatchDetectKeyPhrasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDetectKeyPhrasesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDetectKeyPhrasesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDetectKeyPhrasesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDetectKeyPhrasesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

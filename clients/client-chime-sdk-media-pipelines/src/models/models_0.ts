@@ -18,15 +18,6 @@ export interface AudioArtifactsConfiguration {
   MuxType: AudioMuxType | string | undefined;
 }
 
-export namespace AudioArtifactsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioArtifactsConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum ContentMuxType {
   ContentOnly = "ContentOnly",
 }
@@ -51,15 +42,6 @@ export interface ContentArtifactsConfiguration {
   MuxType?: ContentMuxType | string;
 }
 
-export namespace ContentArtifactsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContentArtifactsConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum VideoMuxType {
   VideoOnly = "VideoOnly",
 }
@@ -77,15 +59,6 @@ export interface VideoArtifactsConfiguration {
    * <p>The MUX type of the video artifact configuration object.</p>
    */
   MuxType?: VideoMuxType | string;
-}
-
-export namespace VideoArtifactsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoArtifactsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -106,15 +79,6 @@ export interface ArtifactsConfiguration {
    * <p>The configuration for the content artifacts.</p>
    */
   Content: ContentArtifactsConfiguration | undefined;
-}
-
-export namespace ArtifactsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArtifactsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ErrorCode {
@@ -170,16 +134,6 @@ export interface SelectedVideoStreams {
   ExternalUserIds?: string[];
 }
 
-export namespace SelectedVideoStreams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectedVideoStreams): any => ({
-    ...obj,
-    ...(obj.ExternalUserIds && { ExternalUserIds: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Source configuration for a specified media capture pipeline.</p>
  */
@@ -188,18 +142,6 @@ export interface SourceConfiguration {
    * <p>The selected video streams to capture for a specified media capture pipeline. The number of video streams can't exceed 25.</p>
    */
   SelectedVideoStreams?: SelectedVideoStreams;
-}
-
-export namespace SourceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceConfiguration): any => ({
-    ...obj,
-    ...(obj.SelectedVideoStreams && {
-      SelectedVideoStreams: SelectedVideoStreams.filterSensitiveLog(obj.SelectedVideoStreams),
-    }),
-  });
 }
 
 /**
@@ -215,18 +157,6 @@ export interface ChimeSdkMeetingConfiguration {
    * <p>The configuration for the artifacts in an Amazon Chime SDK meeting.</p>
    */
   ArtifactsConfiguration?: ArtifactsConfiguration;
-}
-
-export namespace ChimeSdkMeetingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChimeSdkMeetingConfiguration): any => ({
-    ...obj,
-    ...(obj.SourceConfiguration && {
-      SourceConfiguration: SourceConfiguration.filterSensitiveLog(obj.SourceConfiguration),
-    }),
-  });
 }
 
 export enum MediaPipelineSinkType {
@@ -250,15 +180,6 @@ export interface Tag {
    * <p>The value of the tag.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMediaCapturePipelineRequest {
@@ -297,21 +218,6 @@ export interface CreateMediaCapturePipelineRequest {
    * <p>The list of tags.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateMediaCapturePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMediaCapturePipelineRequest): any => ({
-    ...obj,
-    ...(obj.SourceArn && { SourceArn: SENSITIVE_STRING }),
-    ...(obj.SinkArn && { SinkArn: SENSITIVE_STRING }),
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
-    ...(obj.ChimeSdkMeetingConfiguration && {
-      ChimeSdkMeetingConfiguration: ChimeSdkMeetingConfiguration.filterSensitiveLog(obj.ChimeSdkMeetingConfiguration),
-    }),
-  });
 }
 
 export enum MediaPipelineStatus {
@@ -377,37 +283,11 @@ export interface MediaCapturePipeline {
   ChimeSdkMeetingConfiguration?: ChimeSdkMeetingConfiguration;
 }
 
-export namespace MediaCapturePipeline {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaCapturePipeline): any => ({
-    ...obj,
-    ...(obj.SourceArn && { SourceArn: SENSITIVE_STRING }),
-    ...(obj.SinkArn && { SinkArn: SENSITIVE_STRING }),
-    ...(obj.ChimeSdkMeetingConfiguration && {
-      ChimeSdkMeetingConfiguration: ChimeSdkMeetingConfiguration.filterSensitiveLog(obj.ChimeSdkMeetingConfiguration),
-    }),
-  });
-}
-
 export interface CreateMediaCapturePipelineResponse {
   /**
    * <p>A media capture pipeline object, the ID, source type, source ARN, sink type, and  sink ARN of a media capture pipeline object.</p>
    */
   MediaCapturePipeline?: MediaCapturePipeline;
-}
-
-export namespace CreateMediaCapturePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMediaCapturePipelineResponse): any => ({
-    ...obj,
-    ...(obj.MediaCapturePipeline && {
-      MediaCapturePipeline: MediaCapturePipeline.filterSensitiveLog(obj.MediaCapturePipeline),
-    }),
-  });
 }
 
 /**
@@ -585,15 +465,6 @@ export interface DeleteMediaCapturePipelineRequest {
   MediaPipelineId: string | undefined;
 }
 
-export namespace DeleteMediaCapturePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMediaCapturePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of the resources in the request does not exist in the system.</p>
  */
@@ -629,32 +500,11 @@ export interface GetMediaCapturePipelineRequest {
   MediaPipelineId: string | undefined;
 }
 
-export namespace GetMediaCapturePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMediaCapturePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMediaCapturePipelineResponse {
   /**
    * <p>The media capture pipeline object.</p>
    */
   MediaCapturePipeline?: MediaCapturePipeline;
-}
-
-export namespace GetMediaCapturePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMediaCapturePipelineResponse): any => ({
-    ...obj,
-    ...(obj.MediaCapturePipeline && {
-      MediaCapturePipeline: MediaCapturePipeline.filterSensitiveLog(obj.MediaCapturePipeline),
-    }),
-  });
 }
 
 export interface ListMediaCapturePipelinesRequest {
@@ -667,15 +517,6 @@ export interface ListMediaCapturePipelinesRequest {
    * <p>The maximum number of results to return in a single call. Valid Range: 1 - 99.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListMediaCapturePipelinesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMediaCapturePipelinesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -693,15 +534,6 @@ export interface MediaCapturePipelineSummary {
   MediaPipelineArn?: string;
 }
 
-export namespace MediaCapturePipelineSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaCapturePipelineSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMediaCapturePipelinesResponse {
   /**
    * <p>The media capture pipeline objects in the list.</p>
@@ -714,15 +546,6 @@ export interface ListMediaCapturePipelinesResponse {
   NextToken?: string;
 }
 
-export namespace ListMediaCapturePipelinesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMediaCapturePipelinesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -730,29 +553,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tag key-value pairs.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -767,25 +572,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -799,22 +586,189 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AudioArtifactsConfigurationFilterSensitiveLog = (obj: AudioArtifactsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentArtifactsConfigurationFilterSensitiveLog = (obj: ContentArtifactsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoArtifactsConfigurationFilterSensitiveLog = (obj: VideoArtifactsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtifactsConfigurationFilterSensitiveLog = (obj: ArtifactsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectedVideoStreamsFilterSensitiveLog = (obj: SelectedVideoStreams): any => ({
+  ...obj,
+  ...(obj.ExternalUserIds && { ExternalUserIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SourceConfigurationFilterSensitiveLog = (obj: SourceConfiguration): any => ({
+  ...obj,
+  ...(obj.SelectedVideoStreams && {
+    SelectedVideoStreams: SelectedVideoStreamsFilterSensitiveLog(obj.SelectedVideoStreams),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ChimeSdkMeetingConfigurationFilterSensitiveLog = (obj: ChimeSdkMeetingConfiguration): any => ({
+  ...obj,
+  ...(obj.SourceConfiguration && {
+    SourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.SourceConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMediaCapturePipelineRequestFilterSensitiveLog = (obj: CreateMediaCapturePipelineRequest): any => ({
+  ...obj,
+  ...(obj.SourceArn && { SourceArn: SENSITIVE_STRING }),
+  ...(obj.SinkArn && { SinkArn: SENSITIVE_STRING }),
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+  ...(obj.ChimeSdkMeetingConfiguration && {
+    ChimeSdkMeetingConfiguration: ChimeSdkMeetingConfigurationFilterSensitiveLog(obj.ChimeSdkMeetingConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const MediaCapturePipelineFilterSensitiveLog = (obj: MediaCapturePipeline): any => ({
+  ...obj,
+  ...(obj.SourceArn && { SourceArn: SENSITIVE_STRING }),
+  ...(obj.SinkArn && { SinkArn: SENSITIVE_STRING }),
+  ...(obj.ChimeSdkMeetingConfiguration && {
+    ChimeSdkMeetingConfiguration: ChimeSdkMeetingConfigurationFilterSensitiveLog(obj.ChimeSdkMeetingConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMediaCapturePipelineResponseFilterSensitiveLog = (obj: CreateMediaCapturePipelineResponse): any => ({
+  ...obj,
+  ...(obj.MediaCapturePipeline && {
+    MediaCapturePipeline: MediaCapturePipelineFilterSensitiveLog(obj.MediaCapturePipeline),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteMediaCapturePipelineRequestFilterSensitiveLog = (obj: DeleteMediaCapturePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMediaCapturePipelineRequestFilterSensitiveLog = (obj: GetMediaCapturePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMediaCapturePipelineResponseFilterSensitiveLog = (obj: GetMediaCapturePipelineResponse): any => ({
+  ...obj,
+  ...(obj.MediaCapturePipeline && {
+    MediaCapturePipeline: MediaCapturePipelineFilterSensitiveLog(obj.MediaCapturePipeline),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListMediaCapturePipelinesRequestFilterSensitiveLog = (obj: ListMediaCapturePipelinesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaCapturePipelineSummaryFilterSensitiveLog = (obj: MediaCapturePipelineSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMediaCapturePipelinesResponseFilterSensitiveLog = (obj: ListMediaCapturePipelinesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

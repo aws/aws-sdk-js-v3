@@ -15,7 +15,9 @@ import {
 
 import {
   ListBucketIntelligentTieringConfigurationsOutput,
+  ListBucketIntelligentTieringConfigurationsOutputFilterSensitiveLog,
   ListBucketIntelligentTieringConfigurationsRequest,
+  ListBucketIntelligentTieringConfigurationsRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlListBucketIntelligentTieringConfigurationsCommand,
@@ -105,8 +107,8 @@ export class ListBucketIntelligentTieringConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBucketIntelligentTieringConfigurationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBucketIntelligentTieringConfigurationsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBucketIntelligentTieringConfigurationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBucketIntelligentTieringConfigurationsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

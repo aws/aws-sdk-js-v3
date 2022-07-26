@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ListResourceServersRequest, ListResourceServersResponse } from "../models/models_0";
+import {
+  ListResourceServersRequest,
+  ListResourceServersRequestFilterSensitiveLog,
+  ListResourceServersResponse,
+  ListResourceServersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListResourceServersCommand,
   serializeAws_json1_1ListResourceServersCommand,
@@ -78,8 +83,8 @@ export class ListResourceServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceServersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceServersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResourceServersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListResourceServersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

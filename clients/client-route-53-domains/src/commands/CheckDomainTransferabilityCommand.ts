@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CheckDomainTransferabilityRequest, CheckDomainTransferabilityResponse } from "../models/models_0";
+import {
+  CheckDomainTransferabilityRequest,
+  CheckDomainTransferabilityRequestFilterSensitiveLog,
+  CheckDomainTransferabilityResponse,
+  CheckDomainTransferabilityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CheckDomainTransferabilityCommand,
   serializeAws_json1_1CheckDomainTransferabilityCommand,
@@ -72,8 +77,8 @@ export class CheckDomainTransferabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckDomainTransferabilityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CheckDomainTransferabilityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CheckDomainTransferabilityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CheckDomainTransferabilityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

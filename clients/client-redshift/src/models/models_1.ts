@@ -81,15 +81,6 @@ export interface DescribeHsmConfigurationsMessage {
   TagValues?: string[];
 }
 
-export namespace DescribeHsmConfigurationsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHsmConfigurationsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -109,15 +100,6 @@ export interface HsmConfigurationMessage {
   HsmConfigurations?: HsmConfiguration[];
 }
 
-export namespace HsmConfigurationMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HsmConfigurationMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -128,15 +110,6 @@ export interface DescribeLoggingStatusMessage {
    *         </p>
    */
   ClusterIdentifier: string | undefined;
-}
-
-export namespace DescribeLoggingStatusMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoggingStatusMessage): any => ({
-    ...obj,
-  });
 }
 
 export enum LogDestinationType {
@@ -190,15 +163,6 @@ export interface LoggingStatus {
   LogExports?: string[];
 }
 
-export namespace LoggingStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingStatus): any => ({
-    ...obj,
-  });
-}
-
 export enum NodeConfigurationOptionsFilterName {
   ESTIMATED_DISK_UTILIZATION_PERCENT = "EstimatedDiskUtilizationPercent",
   MODE = "Mode",
@@ -241,15 +205,6 @@ export interface NodeConfigurationOptionsFilter {
    *             For example, filter NumberOfNodes (name) GT (operator) 3 (values).</p>
    */
   Values?: string[];
-}
-
-export namespace NodeConfigurationOptionsFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeConfigurationOptionsFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeNodeConfigurationOptionsMessage {
@@ -311,15 +266,6 @@ export interface DescribeNodeConfigurationOptionsMessage {
   MaxRecords?: number;
 }
 
-export namespace DescribeNodeConfigurationOptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNodeConfigurationOptionsMessage): any => ({
-    ...obj,
-  });
-}
-
 export enum Mode {
   HIGH_PERFORMANCE = "high-performance",
   STANDARD = "standard",
@@ -350,15 +296,6 @@ export interface NodeConfigurationOption {
   Mode?: Mode | string;
 }
 
-export namespace NodeConfigurationOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeConfigurationOption): any => ({
-    ...obj,
-  });
-}
-
 export interface NodeConfigurationOptionsMessage {
   /**
    * <p>A list of valid node configurations.</p>
@@ -373,15 +310,6 @@ export interface NodeConfigurationOptionsMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-}
-
-export namespace NodeConfigurationOptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeConfigurationOptionsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -424,15 +352,6 @@ export interface DescribeOrderableClusterOptionsMessage {
   Marker?: string;
 }
 
-export namespace DescribeOrderableClusterOptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrderableClusterOptionsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an orderable cluster option.</p>
  */
@@ -458,15 +377,6 @@ export interface OrderableClusterOption {
   AvailabilityZones?: AvailabilityZone[];
 }
 
-export namespace OrderableClusterOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrderableClusterOption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output from the <a>DescribeOrderableClusterOptions</a>
  *             action. </p>
@@ -486,15 +396,6 @@ export interface OrderableClusterOptionsMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-}
-
-export namespace OrderableClusterOptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrderableClusterOptionsMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePartnersInputMessage {
@@ -517,15 +418,6 @@ export interface DescribePartnersInputMessage {
    * <p>The name of the partner that is being described. If partner name is not specified, then all partner integrations are described.</p>
    */
   PartnerName?: string;
-}
-
-export namespace DescribePartnersInputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePartnersInputMessage): any => ({
-    ...obj,
-  });
 }
 
 export enum PartnerIntegrationStatus {
@@ -570,29 +462,11 @@ export interface PartnerIntegrationInfo {
   UpdatedAt?: Date;
 }
 
-export namespace PartnerIntegrationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartnerIntegrationInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePartnersOutputMessage {
   /**
    * <p>A list of partner integrations.</p>
    */
   PartnerIntegrationInfoList?: PartnerIntegrationInfo[];
-}
-
-export namespace DescribePartnersOutputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePartnersOutputMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeReservedNodeExchangeStatusInputMessage {
@@ -624,15 +498,6 @@ export interface DescribeReservedNodeExchangeStatusInputMessage {
   Marker?: string;
 }
 
-export namespace DescribeReservedNodeExchangeStatusInputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedNodeExchangeStatusInputMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeReservedNodeExchangeStatusOutputMessage {
   /**
    * <p>The details of the reserved-node exchange request, including the status, request
@@ -644,15 +509,6 @@ export interface DescribeReservedNodeExchangeStatusOutputMessage {
    * <p>A pagination token provided by a previous <code>DescribeReservedNodeExchangeStatus</code> request.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeReservedNodeExchangeStatusOutputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedNodeExchangeStatusOutputMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -703,15 +559,6 @@ export interface DescribeReservedNodeOfferingsMessage {
    *             retrying the request. </p>
    */
   Marker?: string;
-}
-
-export namespace DescribeReservedNodeOfferingsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedNodeOfferingsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -769,15 +616,6 @@ export interface ReservedNodeOffering {
   ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
 }
 
-export namespace ReservedNodeOffering {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeOffering): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -795,15 +633,6 @@ export interface ReservedNodeOfferingsMessage {
    * <p>A list of <code>ReservedNodeOffering</code> objects.</p>
    */
   ReservedNodeOfferings?: ReservedNodeOffering[];
-}
-
-export namespace ReservedNodeOfferingsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeOfferingsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -837,15 +666,6 @@ export interface DescribeReservedNodesMessage {
   Marker?: string;
 }
 
-export namespace DescribeReservedNodesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedNodesMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -865,15 +685,6 @@ export interface ReservedNodesMessage {
   ReservedNodes?: ReservedNode[];
 }
 
-export namespace ReservedNodesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodesMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -885,15 +696,6 @@ export interface DescribeResizeMessage {
    *             returned.</p>
    */
   ClusterIdentifier: string | undefined;
-}
-
-export namespace DescribeResizeMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResizeMessage): any => ({
-    ...obj,
-  });
 }
 
 export enum ScheduledActionFilterName {
@@ -914,15 +716,6 @@ export interface ScheduledActionFilter {
    * <p>List of values. Compare if the value (of type defined by <code>Name</code>) equals an item in the list of scheduled actions. </p>
    */
   Values: string[] | undefined;
-}
-
-export namespace ScheduledActionFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledActionFilter): any => ({
-    ...obj,
-  });
 }
 
 export enum ScheduledActionTypeValues {
@@ -987,15 +780,6 @@ export interface DescribeScheduledActionsMessage {
   MaxRecords?: number;
 }
 
-export namespace DescribeScheduledActionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduledActionsMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ScheduledActionsMessage {
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -1011,15 +795,6 @@ export interface ScheduledActionsMessage {
    * <p>List of retrieved scheduled actions. </p>
    */
   ScheduledActions?: ScheduledAction[];
-}
-
-export namespace ScheduledActionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledActionsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1072,15 +847,6 @@ export interface DescribeSnapshotCopyGrantsMessage {
   TagValues?: string[];
 }
 
-export namespace DescribeSnapshotCopyGrantsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotCopyGrantsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1100,15 +866,6 @@ export interface SnapshotCopyGrantMessage {
    * <p>The list of <code>SnapshotCopyGrant</code> objects.</p>
    */
   SnapshotCopyGrants?: SnapshotCopyGrant[];
-}
-
-export namespace SnapshotCopyGrantMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotCopyGrantMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSnapshotSchedulesMessage {
@@ -1152,15 +909,6 @@ export interface DescribeSnapshotSchedulesMessage {
   MaxRecords?: number;
 }
 
-export namespace DescribeSnapshotSchedulesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotSchedulesMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSnapshotSchedulesOutputMessage {
   /**
    * <p>A list of SnapshotSchedules.</p>
@@ -1175,15 +923,6 @@ export interface DescribeSnapshotSchedulesOutputMessage {
    *             records have been retrieved for the request.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeSnapshotSchedulesOutputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotSchedulesOutputMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1217,15 +956,6 @@ export interface DescribeTableRestoreStatusMessage {
    *                 <code>MaxRecords</code> parameter.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeTableRestoreStatusMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTableRestoreStatusMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1332,15 +1062,6 @@ export interface TableRestoreStatus {
   NewTableName?: string;
 }
 
-export namespace TableRestoreStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableRestoreStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1354,15 +1075,6 @@ export interface TableRestoreStatusMessage {
    * <p>A pagination token that can be used in a subsequent <a>DescribeTableRestoreStatus</a> request.</p>
    */
   Marker?: string;
-}
-
-export namespace TableRestoreStatusMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableRestoreStatusMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1452,15 +1164,6 @@ export interface DescribeTagsMessage {
   TagValues?: string[];
 }
 
-export namespace DescribeTagsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A tag and its associated resource.</p>
  */
@@ -1514,15 +1217,6 @@ export interface TaggedResource {
   ResourceType?: string;
 }
 
-export namespace TaggedResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaggedResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1540,15 +1234,6 @@ export interface TaggedResourceListMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-}
-
-export namespace TaggedResourceListMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaggedResourceListMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeUsageLimitsMessage {
@@ -1609,15 +1294,6 @@ export interface DescribeUsageLimitsMessage {
   TagValues?: string[];
 }
 
-export namespace DescribeUsageLimitsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeUsageLimitsMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface UsageLimitList {
   /**
    * <p>Contains the output from the <a>DescribeUsageLimits</a>
@@ -1635,15 +1311,6 @@ export interface UsageLimitList {
   Marker?: string;
 }
 
-export namespace UsageLimitList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsageLimitList): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1654,15 +1321,6 @@ export interface DisableLoggingMessage {
    *         </p>
    */
   ClusterIdentifier: string | undefined;
-}
-
-export namespace DisableLoggingMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableLoggingMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1678,29 +1336,11 @@ export interface DisableSnapshotCopyMessage {
   ClusterIdentifier: string | undefined;
 }
 
-export namespace DisableSnapshotCopyMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableSnapshotCopyMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableSnapshotCopyResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace DisableSnapshotCopyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableSnapshotCopyResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1744,15 +1384,6 @@ export interface DisassociateDataShareConsumerMessage {
    * <p>From a datashare consumer account, removes association of a datashare from all the existing and future namespaces in the specified Amazon Web Services Region.</p>
    */
   ConsumerRegion?: string;
-}
-
-export namespace DisassociateDataShareConsumerMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateDataShareConsumerMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1821,15 +1452,6 @@ export interface EnableLoggingMessage {
    * <p>The collection of exported log types. Log types include the connection log, user log and user activity log.</p>
    */
   LogExports?: string[];
-}
-
-export namespace EnableLoggingMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableLoggingMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1936,29 +1558,11 @@ export interface EnableSnapshotCopyMessage {
   ManualSnapshotRetentionPeriod?: number;
 }
 
-export namespace EnableSnapshotCopyMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableSnapshotCopyMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableSnapshotCopyResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace EnableSnapshotCopyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2151,15 +1755,6 @@ export interface GetClusterCredentialsMessage {
   DbGroups?: string[];
 }
 
-export namespace GetClusterCredentialsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetClusterCredentialsMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface GetClusterCredentialsWithIAMMessage {
   /**
    * <p>The name of the database for which you are requesting credentials.
@@ -2179,15 +1774,6 @@ export interface GetClusterCredentialsWithIAMMessage {
    *         <p>Range: 900-3600. Default: 900.</p>
    */
   DurationSeconds?: number;
-}
-
-export namespace GetClusterCredentialsWithIAMMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetClusterCredentialsWithIAMMessage): any => ({
-    ...obj,
-  });
 }
 
 export enum ReservedNodeExchangeActionType {
@@ -2229,15 +1815,6 @@ export interface GetReservedNodeExchangeConfigurationOptionsInputMessage {
   Marker?: string;
 }
 
-export namespace GetReservedNodeExchangeConfigurationOptionsInputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReservedNodeExchangeConfigurationOptionsInputMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for a reserved-node exchange. Examples include the node type for a
  *             reserved node, the price for a node, the node's state, and other details.</p>
@@ -2260,15 +1837,6 @@ export interface ReservedNodeConfigurationOption {
   TargetReservedNodeOffering?: ReservedNodeOffering;
 }
 
-export namespace ReservedNodeConfigurationOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNodeConfigurationOption): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReservedNodeExchangeConfigurationOptionsOutputMessage {
   /**
    * <p>A pagination token provided by a previous <code>GetReservedNodeExchangeConfigurationOptions</code> request.</p>
@@ -2282,15 +1850,6 @@ export interface GetReservedNodeExchangeConfigurationOptionsOutputMessage {
    *             type.</p>
    */
   ReservedNodeConfigurationOptionList?: ReservedNodeConfigurationOption[];
-}
-
-export namespace GetReservedNodeExchangeConfigurationOptionsOutputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReservedNodeExchangeConfigurationOptionsOutputMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2316,15 +1875,6 @@ export interface GetReservedNodeExchangeOfferingsInputMessage {
   Marker?: string;
 }
 
-export namespace GetReservedNodeExchangeOfferingsInputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReservedNodeExchangeOfferingsInputMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface GetReservedNodeExchangeOfferingsOutputMessage {
   /**
    * <p>An optional parameter that specifies the starting point for returning a set of
@@ -2340,15 +1890,6 @@ export interface GetReservedNodeExchangeOfferingsOutputMessage {
    * <p>Returns an array of <a>ReservedNodeOffering</a> objects.</p>
    */
   ReservedNodeOfferings?: ReservedNodeOffering[];
-}
-
-export namespace GetReservedNodeExchangeOfferingsOutputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetReservedNodeExchangeOfferingsOutputMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2434,29 +1975,11 @@ export interface ModifyAquaInputMessage {
   AquaConfigurationStatus?: AquaConfigurationStatus | string;
 }
 
-export namespace ModifyAquaInputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyAquaInputMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyAquaOutputMessage {
   /**
    * <p>The updated AQUA configuration of the cluster. </p>
    */
   AquaConfiguration?: AquaConfiguration;
-}
-
-export namespace ModifyAquaOutputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyAquaOutputMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyAuthenticationProfileMessage {
@@ -2472,15 +1995,6 @@ export interface ModifyAuthenticationProfileMessage {
   AuthenticationProfileContent: string | undefined;
 }
 
-export namespace ModifyAuthenticationProfileMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyAuthenticationProfileMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyAuthenticationProfileResult {
   /**
    * <p>The name of the authentication profile that was replaced.</p>
@@ -2491,15 +2005,6 @@ export interface ModifyAuthenticationProfileResult {
    * <p>The updated content of the authentication profile in JSON format.</p>
    */
   AuthenticationProfileContent?: string;
-}
-
-export namespace ModifyAuthenticationProfileResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyAuthenticationProfileResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2784,29 +2289,11 @@ export interface ModifyClusterMessage {
   Port?: number;
 }
 
-export namespace ModifyClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyClusterResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace ModifyClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2863,29 +2350,11 @@ export interface ModifyClusterDbRevisionMessage {
   RevisionTarget: string | undefined;
 }
 
-export namespace ModifyClusterDbRevisionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterDbRevisionMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyClusterDbRevisionResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace ModifyClusterDbRevisionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterDbRevisionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2915,29 +2384,11 @@ export interface ModifyClusterIamRolesMessage {
   DefaultIamRoleArn?: string;
 }
 
-export namespace ModifyClusterIamRolesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterIamRolesMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyClusterIamRolesResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace ModifyClusterIamRolesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterIamRolesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyClusterMaintenanceMessage {
@@ -2974,29 +2425,11 @@ export interface ModifyClusterMaintenanceMessage {
   DeferMaintenanceDuration?: number;
 }
 
-export namespace ModifyClusterMaintenanceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterMaintenanceMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyClusterMaintenanceResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace ModifyClusterMaintenanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterMaintenanceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3017,15 +2450,6 @@ export interface ModifyClusterParameterGroupMessage {
    *             pairs in the wlm_json_configuration parameter.</p>
    */
   Parameters: Parameter[] | undefined;
-}
-
-export namespace ModifyClusterParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterParameterGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyClusterSnapshotMessage {
@@ -3050,29 +2474,11 @@ export interface ModifyClusterSnapshotMessage {
   Force?: boolean;
 }
 
-export namespace ModifyClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyClusterSnapshotResult {
   /**
    * <p>Describes a snapshot.</p>
    */
   Snapshot?: Snapshot;
-}
-
-export namespace ModifyClusterSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyClusterSnapshotScheduleMessage {
@@ -3093,15 +2499,6 @@ export interface ModifyClusterSnapshotScheduleMessage {
    *             schedule.</p>
    */
   DisassociateSchedule?: boolean;
-}
-
-export namespace ModifyClusterSnapshotScheduleMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterSnapshotScheduleMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3125,29 +2522,11 @@ export interface ModifyClusterSubnetGroupMessage {
   SubnetIds: string[] | undefined;
 }
 
-export namespace ModifyClusterSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterSubnetGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyClusterSubnetGroupResult {
   /**
    * <p>Describes a subnet group.</p>
    */
   ClusterSubnetGroup?: ClusterSubnetGroup;
-}
-
-export namespace ModifyClusterSubnetGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyClusterSubnetGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3179,15 +2558,6 @@ export interface ModifyEndpointAccessMessage {
    * <p>The complete list of VPC security groups associated with the endpoint after the endpoint is modified.</p>
    */
   VpcSecurityGroupIds?: string[];
-}
-
-export namespace ModifyEndpointAccessMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyEndpointAccessMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3246,29 +2616,11 @@ export interface ModifyEventSubscriptionMessage {
   Enabled?: boolean;
 }
 
-export namespace ModifyEventSubscriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyEventSubscriptionResult {
   /**
    * <p>Describes event subscriptions.</p>
    */
   EventSubscription?: EventSubscription;
-}
-
-export namespace ModifyEventSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyScheduledActionMessage {
@@ -3318,15 +2670,6 @@ export interface ModifyScheduledActionMessage {
   Enable?: boolean;
 }
 
-export namespace ModifyScheduledActionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyScheduledActionMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -3364,29 +2707,11 @@ export interface ModifySnapshotCopyRetentionPeriodMessage {
   Manual?: boolean;
 }
 
-export namespace ModifySnapshotCopyRetentionPeriodMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySnapshotCopyRetentionPeriodMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifySnapshotCopyRetentionPeriodResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace ModifySnapshotCopyRetentionPeriodResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySnapshotCopyRetentionPeriodResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3420,15 +2745,6 @@ export interface ModifySnapshotScheduleMessage {
    *             expressions, for example, "cron(30 12 *)" or "rate(12 hours)".</p>
    */
   ScheduleDefinitions: string[] | undefined;
-}
-
-export namespace ModifySnapshotScheduleMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySnapshotScheduleMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3469,29 +2785,11 @@ export interface ModifyUsageLimitMessage {
   BreachAction?: UsageLimitBreachAction | string;
 }
 
-export namespace ModifyUsageLimitMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyUsageLimitMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface PauseClusterResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace PauseClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PauseClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3511,30 +2809,12 @@ export interface PurchaseReservedNodeOfferingMessage {
   NodeCount?: number;
 }
 
-export namespace PurchaseReservedNodeOfferingMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseReservedNodeOfferingMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface PurchaseReservedNodeOfferingResult {
   /**
    * <p>Describes a reserved node. You can call the <a>DescribeReservedNodeOfferings</a> API to obtain the available reserved node
    *             offerings. </p>
    */
   ReservedNode?: ReservedNode;
-}
-
-export namespace PurchaseReservedNodeOfferingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PurchaseReservedNodeOfferingResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3569,15 +2849,6 @@ export interface RebootClusterMessage {
   ClusterIdentifier: string | undefined;
 }
 
-export namespace RebootClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootClusterResult {
   /**
    * <p>Describes a cluster.</p>
@@ -3585,29 +2856,11 @@ export interface RebootClusterResult {
   Cluster?: Cluster;
 }
 
-export namespace RebootClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootClusterResult): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectDataShareMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the datashare to reject.</p>
    */
   DataShareArn: string | undefined;
-}
-
-export namespace RejectDataShareMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectDataShareMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3636,29 +2889,11 @@ export interface ResetClusterParameterGroupMessage {
   Parameters?: Parameter[];
 }
 
-export namespace ResetClusterParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetClusterParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ResizeClusterResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace ResizeClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResizeClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3948,29 +3183,11 @@ export interface RestoreFromClusterSnapshotMessage {
   Encrypted?: boolean;
 }
 
-export namespace RestoreFromClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreFromClusterSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreFromClusterSnapshotResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace RestoreFromClusterSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreFromClusterSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4029,15 +3246,6 @@ export interface RestoreTableFromClusterSnapshotMessage {
   EnableCaseSensitiveIdentifier?: boolean;
 }
 
-export namespace RestoreTableFromClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreTableFromClusterSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreTableFromClusterSnapshotResult {
   /**
    * <p>Describes the status of a <a>RestoreTableFromClusterSnapshot</a>
@@ -4046,29 +3254,11 @@ export interface RestoreTableFromClusterSnapshotResult {
   TableRestoreStatus?: TableRestoreStatus;
 }
 
-export namespace RestoreTableFromClusterSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreTableFromClusterSnapshotResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ResumeClusterResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace ResumeClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4107,29 +3297,11 @@ export interface RevokeClusterSecurityGroupIngressMessage {
   EC2SecurityGroupOwnerId?: string;
 }
 
-export namespace RevokeClusterSecurityGroupIngressMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeClusterSecurityGroupIngressMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeClusterSecurityGroupIngressResult {
   /**
    * <p>Describes a security group.</p>
    */
   ClusterSecurityGroup?: ClusterSecurityGroup;
-}
-
-export namespace RevokeClusterSecurityGroupIngressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeClusterSecurityGroupIngressResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RevokeEndpointAccessMessage {
@@ -4153,15 +3325,6 @@ export interface RevokeEndpointAccessMessage {
    *            If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted.</p>
    */
   Force?: boolean;
-}
-
-export namespace RevokeEndpointAccessMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeEndpointAccessMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4192,29 +3355,11 @@ export interface RevokeSnapshotAccessMessage {
   AccountWithRestoreAccess: string | undefined;
 }
 
-export namespace RevokeSnapshotAccessMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeSnapshotAccessMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokeSnapshotAccessResult {
   /**
    * <p>Describes a snapshot.</p>
    */
   Snapshot?: Snapshot;
-}
-
-export namespace RevokeSnapshotAccessResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeSnapshotAccessResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4230,29 +3375,11 @@ export interface RotateEncryptionKeyMessage {
   ClusterIdentifier: string | undefined;
 }
 
-export namespace RotateEncryptionKeyMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotateEncryptionKeyMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RotateEncryptionKeyResult {
   /**
    * <p>Describes a cluster.</p>
    */
   Cluster?: Cluster;
-}
-
-export namespace RotateEncryptionKeyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RotateEncryptionKeyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePartnerStatusInputMessage {
@@ -4287,11 +3414,728 @@ export interface UpdatePartnerStatusInputMessage {
   StatusMessage?: string;
 }
 
-export namespace UpdatePartnerStatusInputMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePartnerStatusInputMessage): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DescribeHsmConfigurationsMessageFilterSensitiveLog = (obj: DescribeHsmConfigurationsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HsmConfigurationMessageFilterSensitiveLog = (obj: HsmConfigurationMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoggingStatusMessageFilterSensitiveLog = (obj: DescribeLoggingStatusMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingStatusFilterSensitiveLog = (obj: LoggingStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeConfigurationOptionsFilterFilterSensitiveLog = (obj: NodeConfigurationOptionsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNodeConfigurationOptionsMessageFilterSensitiveLog = (
+  obj: DescribeNodeConfigurationOptionsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeConfigurationOptionFilterSensitiveLog = (obj: NodeConfigurationOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeConfigurationOptionsMessageFilterSensitiveLog = (obj: NodeConfigurationOptionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrderableClusterOptionsMessageFilterSensitiveLog = (
+  obj: DescribeOrderableClusterOptionsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrderableClusterOptionFilterSensitiveLog = (obj: OrderableClusterOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrderableClusterOptionsMessageFilterSensitiveLog = (obj: OrderableClusterOptionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePartnersInputMessageFilterSensitiveLog = (obj: DescribePartnersInputMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartnerIntegrationInfoFilterSensitiveLog = (obj: PartnerIntegrationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePartnersOutputMessageFilterSensitiveLog = (obj: DescribePartnersOutputMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedNodeExchangeStatusInputMessageFilterSensitiveLog = (
+  obj: DescribeReservedNodeExchangeStatusInputMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedNodeExchangeStatusOutputMessageFilterSensitiveLog = (
+  obj: DescribeReservedNodeExchangeStatusOutputMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedNodeOfferingsMessageFilterSensitiveLog = (
+  obj: DescribeReservedNodeOfferingsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedNodeOfferingFilterSensitiveLog = (obj: ReservedNodeOffering): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedNodeOfferingsMessageFilterSensitiveLog = (obj: ReservedNodeOfferingsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeReservedNodesMessageFilterSensitiveLog = (obj: DescribeReservedNodesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedNodesMessageFilterSensitiveLog = (obj: ReservedNodesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResizeMessageFilterSensitiveLog = (obj: DescribeResizeMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledActionFilterFilterSensitiveLog = (obj: ScheduledActionFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduledActionsMessageFilterSensitiveLog = (obj: DescribeScheduledActionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledActionsMessageFilterSensitiveLog = (obj: ScheduledActionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotCopyGrantsMessageFilterSensitiveLog = (obj: DescribeSnapshotCopyGrantsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotCopyGrantMessageFilterSensitiveLog = (obj: SnapshotCopyGrantMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotSchedulesMessageFilterSensitiveLog = (obj: DescribeSnapshotSchedulesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotSchedulesOutputMessageFilterSensitiveLog = (
+  obj: DescribeSnapshotSchedulesOutputMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTableRestoreStatusMessageFilterSensitiveLog = (obj: DescribeTableRestoreStatusMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableRestoreStatusFilterSensitiveLog = (obj: TableRestoreStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableRestoreStatusMessageFilterSensitiveLog = (obj: TableRestoreStatusMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsMessageFilterSensitiveLog = (obj: DescribeTagsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaggedResourceFilterSensitiveLog = (obj: TaggedResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaggedResourceListMessageFilterSensitiveLog = (obj: TaggedResourceListMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeUsageLimitsMessageFilterSensitiveLog = (obj: DescribeUsageLimitsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageLimitListFilterSensitiveLog = (obj: UsageLimitList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableLoggingMessageFilterSensitiveLog = (obj: DisableLoggingMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableSnapshotCopyMessageFilterSensitiveLog = (obj: DisableSnapshotCopyMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableSnapshotCopyResultFilterSensitiveLog = (obj: DisableSnapshotCopyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateDataShareConsumerMessageFilterSensitiveLog = (
+  obj: DisassociateDataShareConsumerMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableLoggingMessageFilterSensitiveLog = (obj: EnableLoggingMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableSnapshotCopyMessageFilterSensitiveLog = (obj: EnableSnapshotCopyMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableSnapshotCopyResultFilterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetClusterCredentialsMessageFilterSensitiveLog = (obj: GetClusterCredentialsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetClusterCredentialsWithIAMMessageFilterSensitiveLog = (
+  obj: GetClusterCredentialsWithIAMMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReservedNodeExchangeConfigurationOptionsInputMessageFilterSensitiveLog = (
+  obj: GetReservedNodeExchangeConfigurationOptionsInputMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReservedNodeConfigurationOptionFilterSensitiveLog = (obj: ReservedNodeConfigurationOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReservedNodeExchangeConfigurationOptionsOutputMessageFilterSensitiveLog = (
+  obj: GetReservedNodeExchangeConfigurationOptionsOutputMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReservedNodeExchangeOfferingsInputMessageFilterSensitiveLog = (
+  obj: GetReservedNodeExchangeOfferingsInputMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetReservedNodeExchangeOfferingsOutputMessageFilterSensitiveLog = (
+  obj: GetReservedNodeExchangeOfferingsOutputMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyAquaInputMessageFilterSensitiveLog = (obj: ModifyAquaInputMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyAquaOutputMessageFilterSensitiveLog = (obj: ModifyAquaOutputMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyAuthenticationProfileMessageFilterSensitiveLog = (obj: ModifyAuthenticationProfileMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyAuthenticationProfileResultFilterSensitiveLog = (obj: ModifyAuthenticationProfileResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterMessageFilterSensitiveLog = (obj: ModifyClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterResultFilterSensitiveLog = (obj: ModifyClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterDbRevisionMessageFilterSensitiveLog = (obj: ModifyClusterDbRevisionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterDbRevisionResultFilterSensitiveLog = (obj: ModifyClusterDbRevisionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterIamRolesMessageFilterSensitiveLog = (obj: ModifyClusterIamRolesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterIamRolesResultFilterSensitiveLog = (obj: ModifyClusterIamRolesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterMaintenanceMessageFilterSensitiveLog = (obj: ModifyClusterMaintenanceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterMaintenanceResultFilterSensitiveLog = (obj: ModifyClusterMaintenanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterParameterGroupMessageFilterSensitiveLog = (obj: ModifyClusterParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterSnapshotMessageFilterSensitiveLog = (obj: ModifyClusterSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterSnapshotResultFilterSensitiveLog = (obj: ModifyClusterSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterSnapshotScheduleMessageFilterSensitiveLog = (
+  obj: ModifyClusterSnapshotScheduleMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterSubnetGroupMessageFilterSensitiveLog = (obj: ModifyClusterSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyClusterSubnetGroupResultFilterSensitiveLog = (obj: ModifyClusterSubnetGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyEndpointAccessMessageFilterSensitiveLog = (obj: ModifyEndpointAccessMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyEventSubscriptionMessageFilterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyEventSubscriptionResultFilterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyScheduledActionMessageFilterSensitiveLog = (obj: ModifyScheduledActionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifySnapshotCopyRetentionPeriodMessageFilterSensitiveLog = (
+  obj: ModifySnapshotCopyRetentionPeriodMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifySnapshotCopyRetentionPeriodResultFilterSensitiveLog = (
+  obj: ModifySnapshotCopyRetentionPeriodResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifySnapshotScheduleMessageFilterSensitiveLog = (obj: ModifySnapshotScheduleMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyUsageLimitMessageFilterSensitiveLog = (obj: ModifyUsageLimitMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PauseClusterResultFilterSensitiveLog = (obj: PauseClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseReservedNodeOfferingMessageFilterSensitiveLog = (
+  obj: PurchaseReservedNodeOfferingMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PurchaseReservedNodeOfferingResultFilterSensitiveLog = (obj: PurchaseReservedNodeOfferingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootClusterMessageFilterSensitiveLog = (obj: RebootClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootClusterResultFilterSensitiveLog = (obj: RebootClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectDataShareMessageFilterSensitiveLog = (obj: RejectDataShareMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetClusterParameterGroupMessageFilterSensitiveLog = (obj: ResetClusterParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResizeClusterResultFilterSensitiveLog = (obj: ResizeClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreFromClusterSnapshotMessageFilterSensitiveLog = (obj: RestoreFromClusterSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreFromClusterSnapshotResultFilterSensitiveLog = (obj: RestoreFromClusterSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreTableFromClusterSnapshotMessageFilterSensitiveLog = (
+  obj: RestoreTableFromClusterSnapshotMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreTableFromClusterSnapshotResultFilterSensitiveLog = (
+  obj: RestoreTableFromClusterSnapshotResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResumeClusterResultFilterSensitiveLog = (obj: ResumeClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeClusterSecurityGroupIngressMessageFilterSensitiveLog = (
+  obj: RevokeClusterSecurityGroupIngressMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeClusterSecurityGroupIngressResultFilterSensitiveLog = (
+  obj: RevokeClusterSecurityGroupIngressResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeEndpointAccessMessageFilterSensitiveLog = (obj: RevokeEndpointAccessMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeSnapshotAccessMessageFilterSensitiveLog = (obj: RevokeSnapshotAccessMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeSnapshotAccessResultFilterSensitiveLog = (obj: RevokeSnapshotAccessResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RotateEncryptionKeyMessageFilterSensitiveLog = (obj: RotateEncryptionKeyMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RotateEncryptionKeyResultFilterSensitiveLog = (obj: RotateEncryptionKeyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePartnerStatusInputMessageFilterSensitiveLog = (obj: UpdatePartnerStatusInputMessage): any => ({
+  ...obj,
+});

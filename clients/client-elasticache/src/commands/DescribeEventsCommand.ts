@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { DescribeEventsMessage, EventsMessage } from "../models/models_0";
+import {
+  DescribeEventsMessage,
+  DescribeEventsMessageFilterSensitiveLog,
+  EventsMessage,
+  EventsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeEventsCommand,
   serializeAws_queryDescribeEventsCommand,
@@ -77,8 +82,8 @@ export class DescribeEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventsMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: EventsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventsMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: EventsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

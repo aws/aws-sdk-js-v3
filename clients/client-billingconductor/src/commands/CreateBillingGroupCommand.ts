@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import { CreateBillingGroupInput, CreateBillingGroupOutput } from "../models/models_0";
+import {
+  CreateBillingGroupInput,
+  CreateBillingGroupInputFilterSensitiveLog,
+  CreateBillingGroupOutput,
+  CreateBillingGroupOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBillingGroupCommand,
   serializeAws_restJson1CreateBillingGroupCommand,
@@ -74,8 +79,8 @@ export class CreateBillingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBillingGroupInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateBillingGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBillingGroupInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateBillingGroupOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

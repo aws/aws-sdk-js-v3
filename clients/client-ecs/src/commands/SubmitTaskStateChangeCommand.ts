@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { SubmitTaskStateChangeRequest, SubmitTaskStateChangeResponse } from "../models/models_0";
+import {
+  SubmitTaskStateChangeRequest,
+  SubmitTaskStateChangeRequestFilterSensitiveLog,
+  SubmitTaskStateChangeResponse,
+  SubmitTaskStateChangeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SubmitTaskStateChangeCommand,
   serializeAws_json1_1SubmitTaskStateChangeCommand,
@@ -75,8 +80,8 @@ export class SubmitTaskStateChangeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitTaskStateChangeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SubmitTaskStateChangeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SubmitTaskStateChangeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SubmitTaskStateChangeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

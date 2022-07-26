@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { QueryObjectsInput, QueryObjectsOutput } from "../models/models_0";
+import {
+  QueryObjectsInput,
+  QueryObjectsInputFilterSensitiveLog,
+  QueryObjectsOutput,
+  QueryObjectsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1QueryObjectsCommand,
   serializeAws_json1_1QueryObjectsCommand,
@@ -110,8 +115,8 @@ export class QueryObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryObjectsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: QueryObjectsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryObjectsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: QueryObjectsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteSecurityGroupRequest } from "../models/models_2";
+import { DeleteSecurityGroupRequest, DeleteSecurityGroupRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteSecurityGroupCommand,
   serializeAws_ec2DeleteSecurityGroupCommand,
@@ -76,7 +76,7 @@ export class DeleteSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecurityGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSecurityGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

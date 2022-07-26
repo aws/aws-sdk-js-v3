@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetPhoneNumberSettingsResponse } from "../models/models_0";
+import { GetPhoneNumberSettingsResponse, GetPhoneNumberSettingsResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPhoneNumberSettingsCommand,
   serializeAws_restJson1GetPhoneNumberSettingsCommand,
@@ -73,7 +73,7 @@ export class GetPhoneNumberSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetPhoneNumberSettingsResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: GetPhoneNumberSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

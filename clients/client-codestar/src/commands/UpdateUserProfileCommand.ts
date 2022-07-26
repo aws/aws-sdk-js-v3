@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { UpdateUserProfileRequest, UpdateUserProfileResult } from "../models/models_0";
+import {
+  UpdateUserProfileRequest,
+  UpdateUserProfileRequestFilterSensitiveLog,
+  UpdateUserProfileResult,
+  UpdateUserProfileResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateUserProfileCommand,
   serializeAws_json1_1UpdateUserProfileCommand,
@@ -74,8 +79,8 @@ export class UpdateUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserProfileResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateUserProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateUserProfileResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { PutSubscriptionFilterRequest } from "../models/models_0";
+import { PutSubscriptionFilterRequest, PutSubscriptionFilterRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1PutSubscriptionFilterCommand,
   serializeAws_json1_1PutSubscriptionFilterCommand,
@@ -100,7 +100,7 @@ export class PutSubscriptionFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSubscriptionFilterRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSubscriptionFilterRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

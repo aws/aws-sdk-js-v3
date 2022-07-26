@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { UpdateDataRepositoryAssociationRequest, UpdateDataRepositoryAssociationResponse } from "../models/models_0";
+import {
+  UpdateDataRepositoryAssociationRequest,
+  UpdateDataRepositoryAssociationRequestFilterSensitiveLog,
+  UpdateDataRepositoryAssociationResponse,
+  UpdateDataRepositoryAssociationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDataRepositoryAssociationCommand,
   serializeAws_json1_1UpdateDataRepositoryAssociationCommand,
@@ -76,8 +81,8 @@ export class UpdateDataRepositoryAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataRepositoryAssociationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataRepositoryAssociationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDataRepositoryAssociationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDataRepositoryAssociationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

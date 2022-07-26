@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAccessKeyInfoRequest, GetAccessKeyInfoResponse } from "../models/models_0";
+import {
+  GetAccessKeyInfoRequest,
+  GetAccessKeyInfoRequestFilterSensitiveLog,
+  GetAccessKeyInfoResponse,
+  GetAccessKeyInfoResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetAccessKeyInfoCommand,
   serializeAws_queryGetAccessKeyInfoCommand,
@@ -91,8 +96,8 @@ export class GetAccessKeyInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessKeyInfoRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessKeyInfoResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAccessKeyInfoRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAccessKeyInfoResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

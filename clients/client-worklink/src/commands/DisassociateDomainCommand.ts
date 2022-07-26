@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateDomainRequest, DisassociateDomainResponse } from "../models/models_0";
+import {
+  DisassociateDomainRequest,
+  DisassociateDomainRequestFilterSensitiveLog,
+  DisassociateDomainResponse,
+  DisassociateDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateDomainCommand,
   serializeAws_restJson1DisassociateDomainCommand,
@@ -74,8 +79,8 @@ export class DisassociateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,9 @@ import {
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import {
   StartInputDeviceMaintenanceWindowRequest,
+  StartInputDeviceMaintenanceWindowRequestFilterSensitiveLog,
   StartInputDeviceMaintenanceWindowResponse,
+  StartInputDeviceMaintenanceWindowResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommand,
@@ -77,8 +79,8 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInputDeviceMaintenanceWindowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartInputDeviceMaintenanceWindowResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartInputDeviceMaintenanceWindowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartInputDeviceMaintenanceWindowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

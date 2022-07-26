@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
-import { GetSnapshotBlockRequest, GetSnapshotBlockResponse } from "../models/models_0";
+import {
+  GetSnapshotBlockRequest,
+  GetSnapshotBlockRequestFilterSensitiveLog,
+  GetSnapshotBlockResponse,
+  GetSnapshotBlockResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetSnapshotBlockCommand,
   serializeAws_restJson1GetSnapshotBlockCommand,
@@ -72,8 +77,8 @@ export class GetSnapshotBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSnapshotBlockRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSnapshotBlockResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSnapshotBlockRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSnapshotBlockResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

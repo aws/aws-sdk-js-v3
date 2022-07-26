@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveApplicationInstanceRequest, RemoveApplicationInstanceResponse } from "../models/models_0";
+import {
+  RemoveApplicationInstanceRequest,
+  RemoveApplicationInstanceRequestFilterSensitiveLog,
+  RemoveApplicationInstanceResponse,
+  RemoveApplicationInstanceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
   deserializeAws_restJson1RemoveApplicationInstanceCommand,
@@ -72,8 +77,8 @@ export class RemoveApplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveApplicationInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveApplicationInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveApplicationInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveApplicationInstanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { DeleteRegistryPolicyRequest, DeleteRegistryPolicyResponse } from "../models/models_0";
+import {
+  DeleteRegistryPolicyRequest,
+  DeleteRegistryPolicyRequestFilterSensitiveLog,
+  DeleteRegistryPolicyResponse,
+  DeleteRegistryPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRegistryPolicyCommand,
   serializeAws_json1_1DeleteRegistryPolicyCommand,
@@ -72,8 +77,8 @@ export class DeleteRegistryPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegistryPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRegistryPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRegistryPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRegistryPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

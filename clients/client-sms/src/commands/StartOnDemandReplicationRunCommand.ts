@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartOnDemandReplicationRunRequest, StartOnDemandReplicationRunResponse } from "../models/models_0";
+import {
+  StartOnDemandReplicationRunRequest,
+  StartOnDemandReplicationRunRequestFilterSensitiveLog,
+  StartOnDemandReplicationRunResponse,
+  StartOnDemandReplicationRunResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartOnDemandReplicationRunCommand,
   serializeAws_json1_1StartOnDemandReplicationRunCommand,
@@ -78,8 +83,8 @@ export class StartOnDemandReplicationRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartOnDemandReplicationRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartOnDemandReplicationRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartOnDemandReplicationRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartOnDemandReplicationRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

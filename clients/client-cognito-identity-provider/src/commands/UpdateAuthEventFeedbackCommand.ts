@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { UpdateAuthEventFeedbackRequest, UpdateAuthEventFeedbackResponse } from "../models/models_1";
+import {
+  UpdateAuthEventFeedbackRequest,
+  UpdateAuthEventFeedbackRequestFilterSensitiveLog,
+  UpdateAuthEventFeedbackResponse,
+  UpdateAuthEventFeedbackResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateAuthEventFeedbackCommand,
   serializeAws_json1_1UpdateAuthEventFeedbackCommand,
@@ -80,8 +85,8 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAuthEventFeedbackRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAuthEventFeedbackResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAuthEventFeedbackRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAuthEventFeedbackResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

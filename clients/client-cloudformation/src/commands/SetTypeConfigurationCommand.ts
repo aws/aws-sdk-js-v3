@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { SetTypeConfigurationInput, SetTypeConfigurationOutput } from "../models/models_0";
+import {
+  SetTypeConfigurationInput,
+  SetTypeConfigurationInputFilterSensitiveLog,
+  SetTypeConfigurationOutput,
+  SetTypeConfigurationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_querySetTypeConfigurationCommand,
   serializeAws_querySetTypeConfigurationCommand,
@@ -84,8 +89,8 @@ export class SetTypeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTypeConfigurationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: SetTypeConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetTypeConfigurationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: SetTypeConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

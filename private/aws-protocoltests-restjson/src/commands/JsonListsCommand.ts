@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { JsonListsInputOutput } from "../models/models_0";
+import { JsonListsInputOutput, JsonListsInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1JsonListsCommand,
   serializeAws_restJson1JsonListsCommand,
@@ -78,8 +78,8 @@ export class JsonListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: JsonListsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JsonListsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: JsonListsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

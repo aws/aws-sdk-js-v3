@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { ListPredictorBacktestExportJobsRequest, ListPredictorBacktestExportJobsResponse } from "../models/models_0";
+import {
+  ListPredictorBacktestExportJobsRequest,
+  ListPredictorBacktestExportJobsRequestFilterSensitiveLog,
+  ListPredictorBacktestExportJobsResponse,
+  ListPredictorBacktestExportJobsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListPredictorBacktestExportJobsCommand,
   serializeAws_json1_1ListPredictorBacktestExportJobsCommand,
@@ -77,8 +82,8 @@ export class ListPredictorBacktestExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPredictorBacktestExportJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPredictorBacktestExportJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPredictorBacktestExportJobsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPredictorBacktestExportJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

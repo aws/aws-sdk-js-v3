@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput } from "../models/models_0";
+import {
+  CreateRealtimeEndpointInput,
+  CreateRealtimeEndpointInputFilterSensitiveLog,
+  CreateRealtimeEndpointOutput,
+  CreateRealtimeEndpointOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRealtimeEndpointCommand,
   serializeAws_json1_1CreateRealtimeEndpointCommand,
@@ -72,8 +77,8 @@ export class CreateRealtimeEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRealtimeEndpointInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRealtimeEndpointOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRealtimeEndpointInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRealtimeEndpointOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

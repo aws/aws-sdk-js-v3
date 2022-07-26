@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { UpdateProfileRequest, UpdateProfileResponse } from "../models/models_0";
+import {
+  UpdateProfileRequest,
+  UpdateProfileRequestFilterSensitiveLog,
+  UpdateProfileResponse,
+  UpdateProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateProfileCommand,
   serializeAws_restJson1UpdateProfileCommand,
@@ -76,8 +81,8 @@ export class UpdateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

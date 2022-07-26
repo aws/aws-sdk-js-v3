@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { StopResourceRequest } from "../models/models_0";
+import { StopResourceRequest, StopResourceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1StopResourceCommand,
   serializeAws_json1_1StopResourceCommand,
@@ -100,7 +100,7 @@ export class StopResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopResourceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StopResourceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

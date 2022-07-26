@@ -68,15 +68,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDatabaseRequest {
   /**
    * <p>The name of the Timestream database.</p>
@@ -97,15 +88,6 @@ export interface CreateDatabaseRequest {
    *    </p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatabaseRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -147,29 +129,11 @@ export interface Database {
   LastUpdatedTime?: Date;
 }
 
-export namespace Database {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Database): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDatabaseResponse {
   /**
    * <p>The newly created Timestream database.</p>
    */
   Database?: Database;
-}
-
-export namespace CreateDatabaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatabaseResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -307,15 +271,6 @@ export interface S3Configuration {
   KmsKeyId?: string;
 }
 
-export namespace S3Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Configuration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The location to write error reports for records rejected, asynchronously, during magnetic store writes.</p>
  */
@@ -324,15 +279,6 @@ export interface MagneticStoreRejectedDataLocation {
    * <p>Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes.</p>
    */
   S3Configuration?: S3Configuration;
-}
-
-export namespace MagneticStoreRejectedDataLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MagneticStoreRejectedDataLocation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -350,15 +296,6 @@ export interface MagneticStoreWriteProperties {
   MagneticStoreRejectedDataLocation?: MagneticStoreRejectedDataLocation;
 }
 
-export namespace MagneticStoreWriteProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MagneticStoreWriteProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Retention properties contain the duration for which your time series data must be stored in the magnetic store and the memory store.
  *       </p>
@@ -373,15 +310,6 @@ export interface RetentionProperties {
    * <p>The duration for which data must be stored in the magnetic store. </p>
    */
   MagneticStoreRetentionPeriodInDays: number | undefined;
-}
-
-export namespace RetentionProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetentionProperties): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTableRequest {
@@ -411,15 +339,6 @@ export interface CreateTableRequest {
    * <p>Contains properties to set on the table when enabling magnetic store writes.</p>
    */
   MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
-}
-
-export namespace CreateTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTableRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum TableStatus {
@@ -483,29 +402,11 @@ export interface Table {
   MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
 }
 
-export namespace Table {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Table): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTableResponse {
   /**
    * <p>The newly created Timestream table.</p>
    */
   Table?: Table;
-}
-
-export namespace CreateTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTableResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -536,15 +437,6 @@ export interface DeleteDatabaseRequest {
   DatabaseName: string | undefined;
 }
 
-export namespace DeleteDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatabaseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTableRequest {
   /**
    * <p>The name of the database where the Timestream database is to be deleted.</p>
@@ -557,29 +449,11 @@ export interface DeleteTableRequest {
   TableName: string | undefined;
 }
 
-export namespace DeleteTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTableRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDatabaseRequest {
   /**
    * <p>The name of the Timestream database.</p>
    */
   DatabaseName: string | undefined;
-}
-
-export namespace DescribeDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatabaseRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDatabaseResponse {
@@ -589,25 +463,7 @@ export interface DescribeDatabaseResponse {
   Database?: Database;
 }
 
-export namespace DescribeDatabaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatabaseResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEndpointsRequest {}
-
-export namespace DescribeEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents an available endpoint against which to make API calls agaisnt, as well as the TTL for that endpoint.</p>
@@ -624,29 +480,11 @@ export interface Endpoint {
   CachePeriodInMinutes: number | undefined;
 }
 
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEndpointsResponse {
   /**
    * <p>An <code>Endpoints</code> object is returned when a <code>DescribeEndpoints</code> request is made.</p>
    */
   Endpoints: Endpoint[] | undefined;
-}
-
-export namespace DescribeEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeTableRequest {
@@ -661,29 +499,11 @@ export interface DescribeTableRequest {
   TableName: string | undefined;
 }
 
-export namespace DescribeTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTableRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTableResponse {
   /**
    * <p>The Timestream table.</p>
    */
   Table?: Table;
-}
-
-export namespace DescribeTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTableResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DimensionValueType {
@@ -717,15 +537,6 @@ export interface Dimension {
   DimensionValueType?: DimensionValueType | string;
 }
 
-export namespace Dimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Dimension): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatabasesRequest {
   /**
    * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
@@ -738,15 +549,6 @@ export interface ListDatabasesRequest {
   MaxResults?: number;
 }
 
-export namespace ListDatabasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatabasesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatabasesResponse {
   /**
    * <p>A list of database names.</p>
@@ -757,15 +559,6 @@ export interface ListDatabasesResponse {
    * <p>The pagination token. This parameter is returned when the response is truncated.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDatabasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatabasesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTablesRequest {
@@ -785,15 +578,6 @@ export interface ListTablesRequest {
   MaxResults?: number;
 }
 
-export namespace ListTablesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTablesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTablesResponse {
   /**
    * <p>A list of tables.</p>
@@ -806,15 +590,6 @@ export interface ListTablesResponse {
   NextToken?: string;
 }
 
-export namespace ListTablesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTablesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>
@@ -824,15 +599,6 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>
@@ -840,15 +606,6 @@ export interface ListTagsForResourceResponse {
    * </p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum MeasureValueType {
@@ -881,15 +638,6 @@ export interface MeasureValue {
    * <p>Contains the data type of the MeasureValue for the time series data point.</p>
    */
   Type: MeasureValueType | string | undefined;
-}
-
-export namespace MeasureValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MeasureValue): any => ({
-    ...obj,
-  });
 }
 
 export enum TimeUnit {
@@ -981,15 +729,6 @@ export interface _Record {
   MeasureValues?: MeasureValue[];
 }
 
-export namespace _Record {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information on the records ingested by this request.</p>
  */
@@ -1008,15 +747,6 @@ export interface RecordsIngested {
    * <p>Count of records ingested into the magnetic store.</p>
    */
   MagneticStore?: number;
-}
-
-export namespace RecordsIngested {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordsIngested): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1090,15 +820,6 @@ export interface RejectedRecord {
    *          This value is populated in scenarios where an identical record exists with a higher version than the version in the write request.</p>
    */
   ExistingVersion?: number;
-}
-
-export namespace RejectedRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectedRecord): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1176,25 +897,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1214,25 +917,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDatabaseRequest {
   /**
@@ -1271,15 +956,6 @@ export interface UpdateDatabaseRequest {
   KmsKeyId: string | undefined;
 }
 
-export namespace UpdateDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatabaseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDatabaseResponse {
   /**
    * <p>A top level container for a table. Databases and tables are the
@@ -1287,15 +963,6 @@ export interface UpdateDatabaseResponse {
    *       database are encrypted with the same KMS key.</p>
    */
   Database?: Database;
-}
-
-export namespace UpdateDatabaseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatabaseResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTableRequest {
@@ -1320,29 +987,11 @@ export interface UpdateTableRequest {
   MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
 }
 
-export namespace UpdateTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTableResponse {
   /**
    * <p>The updated Timestream table.</p>
    */
   Table?: Table;
-}
-
-export namespace UpdateTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface WriteRecordsRequest {
@@ -1377,15 +1026,6 @@ export interface WriteRecordsRequest {
   Records: _Record[] | undefined;
 }
 
-export namespace WriteRecordsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WriteRecordsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface WriteRecordsResponse {
   /**
    * <p>Information on the records ingested by this request.</p>
@@ -1393,11 +1033,289 @@ export interface WriteRecordsResponse {
   RecordsIngested?: RecordsIngested;
 }
 
-export namespace WriteRecordsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WriteRecordsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatabaseRequestFilterSensitiveLog = (obj: CreateDatabaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseFilterSensitiveLog = (obj: Database): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatabaseResponseFilterSensitiveLog = (obj: CreateDatabaseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ConfigurationFilterSensitiveLog = (obj: S3Configuration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MagneticStoreRejectedDataLocationFilterSensitiveLog = (obj: MagneticStoreRejectedDataLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MagneticStoreWritePropertiesFilterSensitiveLog = (obj: MagneticStoreWriteProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetentionPropertiesFilterSensitiveLog = (obj: RetentionProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTableRequestFilterSensitiveLog = (obj: CreateTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableFilterSensitiveLog = (obj: Table): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTableResponseFilterSensitiveLog = (obj: CreateTableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatabaseRequestFilterSensitiveLog = (obj: DeleteDatabaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTableRequestFilterSensitiveLog = (obj: DeleteTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatabaseRequestFilterSensitiveLog = (obj: DescribeDatabaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatabaseResponseFilterSensitiveLog = (obj: DescribeDatabaseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointsRequestFilterSensitiveLog = (obj: DescribeEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTableRequestFilterSensitiveLog = (obj: DescribeTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTableResponseFilterSensitiveLog = (obj: DescribeTableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionFilterSensitiveLog = (obj: Dimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatabasesRequestFilterSensitiveLog = (obj: ListDatabasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatabasesResponseFilterSensitiveLog = (obj: ListDatabasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTablesRequestFilterSensitiveLog = (obj: ListTablesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTablesResponseFilterSensitiveLog = (obj: ListTablesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MeasureValueFilterSensitiveLog = (obj: MeasureValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordsIngestedFilterSensitiveLog = (obj: RecordsIngested): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectedRecordFilterSensitiveLog = (obj: RejectedRecord): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatabaseRequestFilterSensitiveLog = (obj: UpdateDatabaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatabaseResponseFilterSensitiveLog = (obj: UpdateDatabaseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTableRequestFilterSensitiveLog = (obj: UpdateTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTableResponseFilterSensitiveLog = (obj: UpdateTableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WriteRecordsRequestFilterSensitiveLog = (obj: WriteRecordsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WriteRecordsResponseFilterSensitiveLog = (obj: WriteRecordsResponse): any => ({
+  ...obj,
+});

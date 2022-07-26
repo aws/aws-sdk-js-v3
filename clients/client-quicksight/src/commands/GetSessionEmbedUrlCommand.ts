@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSessionEmbedUrlRequest, GetSessionEmbedUrlResponse } from "../models/models_1";
+import {
+  GetSessionEmbedUrlRequest,
+  GetSessionEmbedUrlRequestFilterSensitiveLog,
+  GetSessionEmbedUrlResponse,
+  GetSessionEmbedUrlResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetSessionEmbedUrlCommand,
   serializeAws_restJson1GetSessionEmbedUrlCommand,
@@ -97,8 +102,8 @@ export class GetSessionEmbedUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionEmbedUrlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionEmbedUrlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSessionEmbedUrlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSessionEmbedUrlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,29 +11,11 @@ export interface GetRawMessageContentRequest {
   messageId: string | undefined;
 }
 
-export namespace GetRawMessageContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRawMessageContentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRawMessageContentResponse {
   /**
    * <p>The raw content of the email message, in MIME format.</p>
    */
   messageContent: Readable | ReadableStream | Blob | undefined;
-}
-
-export namespace GetRawMessageContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRawMessageContentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -155,15 +137,6 @@ export interface S3Reference {
   objectVersion?: string;
 }
 
-export namespace S3Reference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Reference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the MIME content of the updated email message as an S3 object. All MIME content must meet the following criteria:</p>
  *          <ul>
@@ -200,15 +173,6 @@ export interface RawMessageContent {
   s3Reference: S3Reference | undefined;
 }
 
-export namespace RawMessageContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RawMessageContent): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRawMessageContentRequest {
   /**
    * <p>The identifier of the email message being updated.</p>
@@ -221,22 +185,46 @@ export interface PutRawMessageContentRequest {
   content: RawMessageContent | undefined;
 }
 
-export namespace PutRawMessageContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRawMessageContentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutRawMessageContentResponse {}
 
-export namespace PutRawMessageContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRawMessageContentResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GetRawMessageContentRequestFilterSensitiveLog = (obj: GetRawMessageContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRawMessageContentResponseFilterSensitiveLog = (obj: GetRawMessageContentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ReferenceFilterSensitiveLog = (obj: S3Reference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RawMessageContentFilterSensitiveLog = (obj: RawMessageContent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRawMessageContentRequestFilterSensitiveLog = (obj: PutRawMessageContentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRawMessageContentResponseFilterSensitiveLog = (obj: PutRawMessageContentResponse): any => ({
+  ...obj,
+});

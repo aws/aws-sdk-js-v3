@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTrustStoresRequest, ListTrustStoresResponse } from "../models/models_0";
+import {
+  ListTrustStoresRequest,
+  ListTrustStoresRequestFilterSensitiveLog,
+  ListTrustStoresResponse,
+  ListTrustStoresResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListTrustStoresCommand,
   serializeAws_restJson1ListTrustStoresCommand,
@@ -72,8 +77,8 @@ export class ListTrustStoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrustStoresRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTrustStoresResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTrustStoresRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTrustStoresResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

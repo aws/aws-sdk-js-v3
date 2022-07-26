@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
-import { StartExperimentRequest, StartExperimentResponse } from "../models/models_0";
+import {
+  StartExperimentRequest,
+  StartExperimentRequestFilterSensitiveLog,
+  StartExperimentResponse,
+  StartExperimentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartExperimentCommand,
   serializeAws_restJson1StartExperimentCommand,
@@ -72,8 +77,8 @@ export class StartExperimentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartExperimentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartExperimentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartExperimentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartExperimentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

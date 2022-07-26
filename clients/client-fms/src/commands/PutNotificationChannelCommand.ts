@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { PutNotificationChannelRequest } from "../models/models_0";
+import { PutNotificationChannelRequest, PutNotificationChannelRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1PutNotificationChannelCommand,
   serializeAws_json1_1PutNotificationChannelCommand,
@@ -76,7 +76,7 @@ export class PutNotificationChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutNotificationChannelRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutNotificationChannelRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

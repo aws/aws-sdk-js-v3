@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateWebACLRequest, UpdateWebACLResponse } from "../models/models_0";
+import {
+  UpdateWebACLRequest,
+  UpdateWebACLRequestFilterSensitiveLog,
+  UpdateWebACLResponse,
+  UpdateWebACLResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateWebACLCommand,
   serializeAws_json1_1UpdateWebACLCommand,
@@ -79,8 +84,8 @@ export class UpdateWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWebACLRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWebACLResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateWebACLRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateWebACLResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

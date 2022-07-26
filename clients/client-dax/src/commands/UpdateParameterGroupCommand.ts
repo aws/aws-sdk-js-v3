@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { UpdateParameterGroupRequest, UpdateParameterGroupResponse } from "../models/models_0";
+import {
+  UpdateParameterGroupRequest,
+  UpdateParameterGroupRequestFilterSensitiveLog,
+  UpdateParameterGroupResponse,
+  UpdateParameterGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateParameterGroupCommand,
   serializeAws_json1_1UpdateParameterGroupCommand,
@@ -74,8 +79,8 @@ export class UpdateParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateParameterGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateParameterGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateParameterGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateParameterGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

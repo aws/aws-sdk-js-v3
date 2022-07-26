@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { GetWirelessGatewayStatisticsRequest, GetWirelessGatewayStatisticsResponse } from "../models/models_0";
+import {
+  GetWirelessGatewayStatisticsRequest,
+  GetWirelessGatewayStatisticsRequestFilterSensitiveLog,
+  GetWirelessGatewayStatisticsResponse,
+  GetWirelessGatewayStatisticsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetWirelessGatewayStatisticsCommand,
   serializeAws_restJson1GetWirelessGatewayStatisticsCommand,
@@ -74,8 +79,8 @@ export class GetWirelessGatewayStatisticsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWirelessGatewayStatisticsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetWirelessGatewayStatisticsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetWirelessGatewayStatisticsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetWirelessGatewayStatisticsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListDeliverabilityTestReportsRequest, ListDeliverabilityTestReportsResponse } from "../models/models_0";
+import {
+  ListDeliverabilityTestReportsRequest,
+  ListDeliverabilityTestReportsRequestFilterSensitiveLog,
+  ListDeliverabilityTestReportsResponse,
+  ListDeliverabilityTestReportsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListDeliverabilityTestReportsCommand,
   serializeAws_restJson1ListDeliverabilityTestReportsCommand,
@@ -76,8 +81,8 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeliverabilityTestReportsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDeliverabilityTestReportsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDeliverabilityTestReportsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDeliverabilityTestReportsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

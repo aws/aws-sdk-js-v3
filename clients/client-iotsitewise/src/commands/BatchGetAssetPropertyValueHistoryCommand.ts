@@ -15,7 +15,9 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   BatchGetAssetPropertyValueHistoryRequest,
+  BatchGetAssetPropertyValueHistoryRequestFilterSensitiveLog,
   BatchGetAssetPropertyValueHistoryResponse,
+  BatchGetAssetPropertyValueHistoryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetAssetPropertyValueHistoryCommand,
@@ -78,8 +80,8 @@ export class BatchGetAssetPropertyValueHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetAssetPropertyValueHistoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetAssetPropertyValueHistoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetAssetPropertyValueHistoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetAssetPropertyValueHistoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

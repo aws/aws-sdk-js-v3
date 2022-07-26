@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { SendProjectSessionActionRequest, SendProjectSessionActionResponse } from "../models/models_0";
+import {
+  SendProjectSessionActionRequest,
+  SendProjectSessionActionRequestFilterSensitiveLog,
+  SendProjectSessionActionResponse,
+  SendProjectSessionActionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1SendProjectSessionActionCommand,
   serializeAws_restJson1SendProjectSessionActionCommand,
@@ -73,8 +78,8 @@ export class SendProjectSessionActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendProjectSessionActionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendProjectSessionActionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendProjectSessionActionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendProjectSessionActionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

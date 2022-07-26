@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticInferenceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticInferenceClient";
-import { UntagResourceRequest, UntagResourceResult } from "../models/models_0";
+import {
+  UntagResourceRequest,
+  UntagResourceRequestFilterSensitiveLog,
+  UntagResourceResult,
+  UntagResourceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UntagResourceCommand,
   serializeAws_restJson1UntagResourceCommand,
@@ -74,8 +79,8 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagResourceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeTrustedAdvisorCheckRefreshStatusesRequest,
+  DescribeTrustedAdvisorCheckRefreshStatusesRequestFilterSensitiveLog,
   DescribeTrustedAdvisorCheckRefreshStatusesResponse,
+  DescribeTrustedAdvisorCheckRefreshStatusesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand,
@@ -100,8 +102,8 @@ export class DescribeTrustedAdvisorCheckRefreshStatusesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrustedAdvisorCheckRefreshStatusesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrustedAdvisorCheckRefreshStatusesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTrustedAdvisorCheckRefreshStatusesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrustedAdvisorCheckRefreshStatusesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

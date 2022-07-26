@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import { StartDeliveryStreamEncryptionInput, StartDeliveryStreamEncryptionOutput } from "../models/models_0";
+import {
+  StartDeliveryStreamEncryptionInput,
+  StartDeliveryStreamEncryptionInputFilterSensitiveLog,
+  StartDeliveryStreamEncryptionOutput,
+  StartDeliveryStreamEncryptionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartDeliveryStreamEncryptionCommand,
   serializeAws_json1_1StartDeliveryStreamEncryptionCommand,
@@ -109,8 +114,8 @@ export class StartDeliveryStreamEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDeliveryStreamEncryptionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StartDeliveryStreamEncryptionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StartDeliveryStreamEncryptionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StartDeliveryStreamEncryptionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { RegisterContainerImageRequest, RegisterContainerImageResult } from "../models/models_1";
+import {
+  RegisterContainerImageRequest,
+  RegisterContainerImageRequestFilterSensitiveLog,
+  RegisterContainerImageResult,
+  RegisterContainerImageResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1RegisterContainerImageCommand,
   serializeAws_json1_1RegisterContainerImageCommand,
@@ -79,8 +84,8 @@ export class RegisterContainerImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterContainerImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterContainerImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterContainerImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterContainerImageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

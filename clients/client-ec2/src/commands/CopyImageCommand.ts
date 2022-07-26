@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CopyImageRequest, CopyImageResult } from "../models/models_0";
+import {
+  CopyImageRequest,
+  CopyImageRequestFilterSensitiveLog,
+  CopyImageResult,
+  CopyImageResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_ec2CopyImageCommand, serializeAws_ec2CopyImageCommand } from "../protocols/Aws_ec2";
 
 export interface CopyImageCommandInput extends CopyImageRequest {}
@@ -86,8 +91,8 @@ export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CopyImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CopyImageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

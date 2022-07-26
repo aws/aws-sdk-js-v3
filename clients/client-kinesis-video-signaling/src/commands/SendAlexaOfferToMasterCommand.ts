@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient";
-import { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/models_0";
+import {
+  SendAlexaOfferToMasterRequest,
+  SendAlexaOfferToMasterRequestFilterSensitiveLog,
+  SendAlexaOfferToMasterResponse,
+  SendAlexaOfferToMasterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1SendAlexaOfferToMasterCommand,
   serializeAws_restJson1SendAlexaOfferToMasterCommand,
@@ -81,8 +86,8 @@ export class SendAlexaOfferToMasterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendAlexaOfferToMasterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendAlexaOfferToMasterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SendAlexaOfferToMasterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendAlexaOfferToMasterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

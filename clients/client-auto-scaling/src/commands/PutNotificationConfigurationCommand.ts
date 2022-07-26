@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { PutNotificationConfigurationType } from "../models/models_0";
+import {
+  PutNotificationConfigurationType,
+  PutNotificationConfigurationTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryPutNotificationConfigurationCommand,
   serializeAws_queryPutNotificationConfigurationCommand,
@@ -80,7 +83,7 @@ export class PutNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutNotificationConfigurationType.filterSensitiveLog,
+      inputFilterSensitiveLog: PutNotificationConfigurationTypeFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

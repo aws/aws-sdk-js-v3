@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { CreateSegmentRequest, CreateSegmentResponse } from "../models/models_0";
+import {
+  CreateSegmentRequest,
+  CreateSegmentRequestFilterSensitiveLog,
+  CreateSegmentResponse,
+  CreateSegmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSegmentCommand,
   serializeAws_restJson1CreateSegmentCommand,
@@ -86,8 +91,8 @@ export class CreateSegmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSegmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSegmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSegmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSegmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

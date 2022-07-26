@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { UpdateGatewayRequest, UpdateGatewayResponse } from "../models/models_0";
+import {
+  UpdateGatewayRequest,
+  UpdateGatewayRequestFilterSensitiveLog,
+  UpdateGatewayResponse,
+  UpdateGatewayResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateGatewayCommand,
   serializeAws_json1_1UpdateGatewayCommand,
@@ -73,8 +78,8 @@ export class UpdateGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewayRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewayResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGatewayRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGatewayResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

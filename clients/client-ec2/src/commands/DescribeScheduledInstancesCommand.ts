@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeScheduledInstancesRequest, DescribeScheduledInstancesResult } from "../models/models_4";
+import {
+  DescribeScheduledInstancesRequest,
+  DescribeScheduledInstancesRequestFilterSensitiveLog,
+  DescribeScheduledInstancesResult,
+  DescribeScheduledInstancesResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeScheduledInstancesCommand,
   serializeAws_ec2DescribeScheduledInstancesCommand,
@@ -72,8 +77,8 @@ export class DescribeScheduledInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScheduledInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeScheduledInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeScheduledInstancesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

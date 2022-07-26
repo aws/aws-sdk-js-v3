@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeLocalGatewayRouteTableVpcAssociationsRequest,
+  DescribeLocalGatewayRouteTableVpcAssociationsRequestFilterSensitiveLog,
   DescribeLocalGatewayRouteTableVpcAssociationsResult,
+  DescribeLocalGatewayRouteTableVpcAssociationsResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand,
@@ -81,8 +83,8 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocalGatewayRouteTableVpcAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocalGatewayRouteTableVpcAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLocalGatewayRouteTableVpcAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLocalGatewayRouteTableVpcAssociationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

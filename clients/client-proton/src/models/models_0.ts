@@ -10,15 +10,6 @@ export interface AcceptEnvironmentAccountConnectionInput {
   id: string | undefined;
 }
 
-export namespace AcceptEnvironmentAccountConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptEnvironmentAccountConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export enum EnvironmentAccountConnectionStatus {
   CONNECTED = "CONNECTED",
   PENDING = "PENDING",
@@ -86,29 +77,11 @@ export interface EnvironmentAccountConnection {
   componentRoleArn?: string;
 }
 
-export namespace EnvironmentAccountConnection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentAccountConnection): any => ({
-    ...obj,
-  });
-}
-
 export interface AcceptEnvironmentAccountConnectionOutput {
   /**
    * <p>The environment account connection data that's returned by Proton.</p>
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
-}
-
-export namespace AcceptEnvironmentAccountConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptEnvironmentAccountConnectionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -260,15 +233,6 @@ export interface RepositoryBranch {
   branch: string | undefined;
 }
 
-export namespace RepositoryBranch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryBranch): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Proton pipeline service role and repository data shared across the Amazon Web Services account.</p>
  */
@@ -286,40 +250,13 @@ export interface AccountSettings {
   pipelineProvisioningRepository?: RepositoryBranch;
 }
 
-export namespace AccountSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountSettings): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccountSettingsInput {}
-
-export namespace GetAccountSettingsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountSettingsInput): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAccountSettingsOutput {
   /**
    * <p>The Proton pipeline service role detail data that's returned by Proton.</p>
    */
   accountSettings?: AccountSettings;
-}
-
-export namespace GetAccountSettingsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountSettingsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -342,15 +279,6 @@ export interface RepositoryBranchInput {
   branch: string | undefined;
 }
 
-export namespace RepositoryBranchInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryBranchInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAccountSettingsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
@@ -365,15 +293,6 @@ export interface UpdateAccountSettingsInput {
   pipelineProvisioningRepository?: RepositoryBranchInput;
 }
 
-export namespace UpdateAccountSettingsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccountSettingsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAccountSettingsOutput {
   /**
    * <p>The Proton pipeline service role and repository data shared across the Amazon Web Services account.</p>
@@ -381,29 +300,11 @@ export interface UpdateAccountSettingsOutput {
   accountSettings: AccountSettings | undefined;
 }
 
-export namespace UpdateAccountSettingsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccountSettingsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelComponentDeploymentInput {
   /**
    * <p>The name of the component with the deployment to cancel.</p>
    */
   componentName: string | undefined;
-}
-
-export namespace CancelComponentDeploymentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelComponentDeploymentInput): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentStatus {
@@ -490,18 +391,6 @@ export interface Component {
   serviceSpec?: string;
 }
 
-export namespace Component {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Component): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
-    ...(obj.serviceSpec && { serviceSpec: SENSITIVE_STRING }),
-  });
-}
-
 export interface CancelComponentDeploymentOutput {
   /**
    * <p>The detailed data of the component with the deployment that is being canceled.</p>
@@ -509,30 +398,11 @@ export interface CancelComponentDeploymentOutput {
   component: Component | undefined;
 }
 
-export namespace CancelComponentDeploymentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelComponentDeploymentOutput): any => ({
-    ...obj,
-    ...(obj.component && { component: Component.filterSensitiveLog(obj.component) }),
-  });
-}
-
 export interface CancelEnvironmentDeploymentInput {
   /**
    * <p>The name of the environment with the deployment to cancel.</p>
    */
   environmentName: string | undefined;
-}
-
-export namespace CancelEnvironmentDeploymentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelEnvironmentDeploymentInput): any => ({
-    ...obj,
-  });
 }
 
 export enum Provisioning {
@@ -639,33 +509,11 @@ export interface Environment {
   componentRoleArn?: string;
 }
 
-export namespace Environment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Environment): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
-    ...(obj.spec && { spec: SENSITIVE_STRING }),
-  });
-}
-
 export interface CancelEnvironmentDeploymentOutput {
   /**
    * <p>The environment summary data that's returned by Proton.</p>
    */
   environment: Environment | undefined;
-}
-
-export namespace CancelEnvironmentDeploymentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelEnvironmentDeploymentOutput): any => ({
-    ...obj,
-    ...(obj.environment && { environment: Environment.filterSensitiveLog(obj.environment) }),
-  });
 }
 
 export interface CancelServiceInstanceDeploymentInput {
@@ -678,15 +526,6 @@ export interface CancelServiceInstanceDeploymentInput {
    * <p>The name of the service with the service instance deployment to cancel.</p>
    */
   serviceName: string | undefined;
-}
-
-export namespace CancelServiceInstanceDeploymentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelServiceInstanceDeploymentInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -759,17 +598,6 @@ export interface ServiceInstance {
   spec?: string;
 }
 
-export namespace ServiceInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceInstance): any => ({
-    ...obj,
-    ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
-    ...(obj.spec && { spec: SENSITIVE_STRING }),
-  });
-}
-
 export interface CancelServiceInstanceDeploymentOutput {
   /**
    * <p>The service instance summary data that's returned by Proton.</p>
@@ -777,30 +605,11 @@ export interface CancelServiceInstanceDeploymentOutput {
   serviceInstance: ServiceInstance | undefined;
 }
 
-export namespace CancelServiceInstanceDeploymentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelServiceInstanceDeploymentOutput): any => ({
-    ...obj,
-    ...(obj.serviceInstance && { serviceInstance: ServiceInstance.filterSensitiveLog(obj.serviceInstance) }),
-  });
-}
-
 export interface CancelServicePipelineDeploymentInput {
   /**
    * <p>The name of the service with the service pipeline deployment to cancel.</p>
    */
   serviceName: string | undefined;
-}
-
-export namespace CancelServicePipelineDeploymentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelServicePipelineDeploymentInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -858,32 +667,11 @@ export interface ServicePipeline {
   spec?: string;
 }
 
-export namespace ServicePipeline {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServicePipeline): any => ({
-    ...obj,
-    ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
-    ...(obj.spec && { spec: SENSITIVE_STRING }),
-  });
-}
-
 export interface CancelServicePipelineDeploymentOutput {
   /**
    * <p>The service pipeline detail data that's returned by Proton.</p>
    */
   pipeline: ServicePipeline | undefined;
-}
-
-export namespace CancelServicePipelineDeploymentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelServicePipelineDeploymentOutput): any => ({
-    ...obj,
-    ...(obj.pipeline && { pipeline: ServicePipeline.filterSensitiveLog(obj.pipeline) }),
-  });
 }
 
 export interface ListComponentOutputsInput {
@@ -896,15 +684,6 @@ export interface ListComponentOutputsInput {
    * <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListComponentOutputsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentOutputsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -922,15 +701,6 @@ export interface Output {
   valueString?: string;
 }
 
-export namespace Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Output): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComponentOutputsOutput {
   /**
    * <p>A token that indicates the location of the next output in the array of outputs, after the list of outputs that was previously requested.</p>
@@ -941,16 +711,6 @@ export interface ListComponentOutputsOutput {
    * <p>An array of component Infrastructure as Code (IaC) outputs.</p>
    */
   outputs: Output[] | undefined;
-}
-
-export namespace ListComponentOutputsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentOutputsOutput): any => ({
-    ...obj,
-    ...(obj.outputs && { outputs: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListComponentProvisionedResourcesInput {
@@ -964,15 +724,6 @@ export interface ListComponentProvisionedResourcesInput {
    *       that was previously requested.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListComponentProvisionedResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentProvisionedResourcesInput): any => ({
-    ...obj,
-  });
 }
 
 export enum ProvisionedResourceEngine {
@@ -1002,15 +753,6 @@ export interface ProvisionedResource {
   provisioningEngine?: ProvisionedResourceEngine | string;
 }
 
-export namespace ProvisionedResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedResource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComponentProvisionedResourcesOutput {
   /**
    * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
@@ -1022,15 +764,6 @@ export interface ListComponentProvisionedResourcesOutput {
    * <p>An array of provisioned resources for a component.</p>
    */
   provisionedResources: ProvisionedResource[] | undefined;
-}
-
-export namespace ListComponentProvisionedResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentProvisionedResourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1046,15 +779,6 @@ export interface Tag {
    * <p>The value of the resource tag.</p>
    */
   value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateComponentInput {
@@ -1113,34 +837,11 @@ export interface CreateComponentInput {
   tags?: Tag[];
 }
 
-export namespace CreateComponentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentInput): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.templateFile && { templateFile: SENSITIVE_STRING }),
-    ...(obj.manifest && { manifest: SENSITIVE_STRING }),
-    ...(obj.serviceSpec && { serviceSpec: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateComponentOutput {
   /**
    * <p>The detailed data of the created component.</p>
    */
   component: Component | undefined;
-}
-
-export namespace CreateComponentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentOutput): any => ({
-    ...obj,
-    ...(obj.component && { component: Component.filterSensitiveLog(obj.component) }),
-  });
 }
 
 /**
@@ -1170,30 +871,11 @@ export interface DeleteComponentInput {
   name: string | undefined;
 }
 
-export namespace DeleteComponentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteComponentInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteComponentOutput {
   /**
    * <p>The detailed data of the component being deleted.</p>
    */
   component?: Component;
-}
-
-export namespace DeleteComponentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteComponentOutput): any => ({
-    ...obj,
-    ...(obj.component && { component: Component.filterSensitiveLog(obj.component) }),
-  });
 }
 
 export interface GetComponentInput {
@@ -1203,30 +885,11 @@ export interface GetComponentInput {
   name: string | undefined;
 }
 
-export namespace GetComponentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetComponentOutput {
   /**
    * <p>The detailed data of the requested component.</p>
    */
   component?: Component;
-}
-
-export namespace GetComponentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentOutput): any => ({
-    ...obj,
-    ...(obj.component && { component: Component.filterSensitiveLog(obj.component) }),
-  });
 }
 
 export interface ListComponentsInput {
@@ -1256,15 +919,6 @@ export interface ListComponentsInput {
    * <p>The maximum number of components to list.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListComponentsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1330,16 +984,6 @@ export interface ComponentSummary {
   deploymentStatusMessage?: string;
 }
 
-export namespace ComponentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentSummary): any => ({
-    ...obj,
-    ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListComponentsOutput {
   /**
    * <p>A token that indicates the location of the next component in the array of components, after the current requested list of components.</p>
@@ -1350,16 +994,6 @@ export interface ListComponentsOutput {
    * <p>An array of components with summary data.</p>
    */
   components: ComponentSummary[] | undefined;
-}
-
-export namespace ListComponentsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentsOutput): any => ({
-    ...obj,
-    ...(obj.components && { components: obj.components.map((item) => ComponentSummary.filterSensitiveLog(item)) }),
-  });
 }
 
 export enum ComponentDeploymentUpdateType {
@@ -1430,33 +1064,11 @@ export interface UpdateComponentInput {
   templateFile?: string;
 }
 
-export namespace UpdateComponentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateComponentInput): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.serviceSpec && { serviceSpec: SENSITIVE_STRING }),
-    ...(obj.templateFile && { templateFile: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateComponentOutput {
   /**
    * <p>The detailed data of the updated component.</p>
    */
   component: Component | undefined;
-}
-
-export namespace UpdateComponentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateComponentOutput): any => ({
-    ...obj,
-    ...(obj.component && { component: Component.filterSensitiveLog(obj.component) }),
-  });
 }
 
 export interface CreateEnvironmentAccountConnectionInput {
@@ -1503,29 +1115,11 @@ export interface CreateEnvironmentAccountConnectionInput {
   componentRoleArn?: string;
 }
 
-export namespace CreateEnvironmentAccountConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentAccountConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEnvironmentAccountConnectionOutput {
   /**
    * <p>The environment account connection detail data that's returned by Proton.</p>
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
-}
-
-export namespace CreateEnvironmentAccountConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentAccountConnectionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteEnvironmentAccountConnectionInput {
@@ -1535,29 +1129,11 @@ export interface DeleteEnvironmentAccountConnectionInput {
   id: string | undefined;
 }
 
-export namespace DeleteEnvironmentAccountConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentAccountConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEnvironmentAccountConnectionOutput {
   /**
    * <p>The detailed data of the environment account connection being deleted.</p>
    */
   environmentAccountConnection?: EnvironmentAccountConnection;
-}
-
-export namespace DeleteEnvironmentAccountConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentAccountConnectionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEnvironmentAccountConnectionInput {
@@ -1567,29 +1143,11 @@ export interface GetEnvironmentAccountConnectionInput {
   id: string | undefined;
 }
 
-export namespace GetEnvironmentAccountConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentAccountConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEnvironmentAccountConnectionOutput {
   /**
    * <p>The detailed data of the requested environment account connection.</p>
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
-}
-
-export namespace GetEnvironmentAccountConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentAccountConnectionOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum EnvironmentAccountConnectionRequesterAccountType {
@@ -1623,15 +1181,6 @@ export interface ListEnvironmentAccountConnectionsInput {
    * <p>The maximum number of environment account connections to list.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListEnvironmentAccountConnectionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentAccountConnectionsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1695,15 +1244,6 @@ export interface EnvironmentAccountConnectionSummary {
   componentRoleArn?: string;
 }
 
-export namespace EnvironmentAccountConnectionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentAccountConnectionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentAccountConnectionsOutput {
   /**
    * <p>An array of environment account connections with details that's returned by Proton. </p>
@@ -1717,15 +1257,6 @@ export interface ListEnvironmentAccountConnectionsOutput {
   nextToken?: string;
 }
 
-export namespace ListEnvironmentAccountConnectionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentAccountConnectionsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectEnvironmentAccountConnectionInput {
   /**
    * <p>The ID of the environment account connection to reject.</p>
@@ -1733,29 +1264,11 @@ export interface RejectEnvironmentAccountConnectionInput {
   id: string | undefined;
 }
 
-export namespace RejectEnvironmentAccountConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectEnvironmentAccountConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectEnvironmentAccountConnectionOutput {
   /**
    * <p>The environment connection account detail data that's returned by Proton.</p>
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
-}
-
-export namespace RejectEnvironmentAccountConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectEnvironmentAccountConnectionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateEnvironmentAccountConnectionInput {
@@ -1781,29 +1294,11 @@ export interface UpdateEnvironmentAccountConnectionInput {
   componentRoleArn?: string;
 }
 
-export namespace UpdateEnvironmentAccountConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentAccountConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEnvironmentAccountConnectionOutput {
   /**
    * <p>The environment account connection detail data that's returned by Proton.</p>
    */
   environmentAccountConnection: EnvironmentAccountConnection | undefined;
-}
-
-export namespace UpdateEnvironmentAccountConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentAccountConnectionOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEnvironmentOutputsInput {
@@ -1819,15 +1314,6 @@ export interface ListEnvironmentOutputsInput {
   nextToken?: string;
 }
 
-export namespace ListEnvironmentOutputsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentOutputsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentOutputsOutput {
   /**
    * <p>A token that indicates the location of the next environment output in the array of environment outputs, after the current requested list of
@@ -1839,16 +1325,6 @@ export interface ListEnvironmentOutputsOutput {
    * <p>An array of environment outputs with detail data.</p>
    */
   outputs: Output[] | undefined;
-}
-
-export namespace ListEnvironmentOutputsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentOutputsOutput): any => ({
-    ...obj,
-    ...(obj.outputs && { outputs: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListEnvironmentProvisionedResourcesInput {
@@ -1864,15 +1340,6 @@ export interface ListEnvironmentProvisionedResourcesInput {
   nextToken?: string;
 }
 
-export namespace ListEnvironmentProvisionedResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentProvisionedResourcesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentProvisionedResourcesOutput {
   /**
    * <p>A token that indicates the location of the next environment provisioned resource in the array of provisioned resources, after the current requested
@@ -1884,15 +1351,6 @@ export interface ListEnvironmentProvisionedResourcesOutput {
    * <p>An array of environment provisioned resources.</p>
    */
   provisionedResources: ProvisionedResource[] | undefined;
-}
-
-export namespace ListEnvironmentProvisionedResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentProvisionedResourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateEnvironmentInput {
@@ -1967,32 +1425,11 @@ export interface CreateEnvironmentInput {
   componentRoleArn?: string;
 }
 
-export namespace CreateEnvironmentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentInput): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.spec && { spec: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateEnvironmentOutput {
   /**
    * <p>The environment detail data that's returned by Proton.</p>
    */
   environment: Environment | undefined;
-}
-
-export namespace CreateEnvironmentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentOutput): any => ({
-    ...obj,
-    ...(obj.environment && { environment: Environment.filterSensitiveLog(obj.environment) }),
-  });
 }
 
 export interface DeleteEnvironmentInput {
@@ -2002,30 +1439,11 @@ export interface DeleteEnvironmentInput {
   name: string | undefined;
 }
 
-export namespace DeleteEnvironmentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEnvironmentOutput {
   /**
    * <p>The detailed data of the environment being deleted.</p>
    */
   environment?: Environment;
-}
-
-export namespace DeleteEnvironmentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentOutput): any => ({
-    ...obj,
-    ...(obj.environment && { environment: Environment.filterSensitiveLog(obj.environment) }),
-  });
 }
 
 export interface GetEnvironmentInput {
@@ -2035,30 +1453,11 @@ export interface GetEnvironmentInput {
   name: string | undefined;
 }
 
-export namespace GetEnvironmentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEnvironmentOutput {
   /**
    * <p>The detailed data of the requested environment.</p>
    */
   environment: Environment | undefined;
-}
-
-export namespace GetEnvironmentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentOutput): any => ({
-    ...obj,
-    ...(obj.environment && { environment: Environment.filterSensitiveLog(obj.environment) }),
-  });
 }
 
 /**
@@ -2074,15 +1473,6 @@ export interface EnvironmentTemplateFilter {
    * <p>Include <code>majorVersion</code> to filter search for a major version.</p>
    */
   majorVersion: string | undefined;
-}
-
-export namespace EnvironmentTemplateFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentTemplateFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEnvironmentsInput {
@@ -2101,15 +1491,6 @@ export interface ListEnvironmentsInput {
    * <p>An array of the versions of the environment template.</p>
    */
   environmentTemplates?: EnvironmentTemplateFilter[];
-}
-
-export namespace ListEnvironmentsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2202,17 +1583,6 @@ export interface EnvironmentSummary {
   componentRoleArn?: string;
 }
 
-export namespace EnvironmentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentSummary): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListEnvironmentsOutput {
   /**
    * <p>A token that indicates the location of the next environment in the array of environments, after the current requested list of environments.</p>
@@ -2223,18 +1593,6 @@ export interface ListEnvironmentsOutput {
    * <p>An array of environment detail data summaries.</p>
    */
   environments: EnvironmentSummary[] | undefined;
-}
-
-export namespace ListEnvironmentsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsOutput): any => ({
-    ...obj,
-    ...(obj.environments && {
-      environments: obj.environments.map((item) => EnvironmentSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export enum DeploymentUpdateType {
@@ -2336,32 +1694,11 @@ export interface UpdateEnvironmentInput {
   componentRoleArn?: string;
 }
 
-export namespace UpdateEnvironmentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentInput): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.spec && { spec: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateEnvironmentOutput {
   /**
    * <p>The environment detail data that's returned by Proton.</p>
    */
   environment: Environment | undefined;
-}
-
-export namespace UpdateEnvironmentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentOutput): any => ({
-    ...obj,
-    ...(obj.environment && { environment: Environment.filterSensitiveLog(obj.environment) }),
-  });
 }
 
 export interface CreateEnvironmentTemplateInput {
@@ -2395,17 +1732,6 @@ export interface CreateEnvironmentTemplateInput {
    *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateEnvironmentTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentTemplateInput): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -2458,34 +1784,11 @@ export interface EnvironmentTemplate {
   provisioning?: Provisioning | string;
 }
 
-export namespace EnvironmentTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentTemplate): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateEnvironmentTemplateOutput {
   /**
    * <p>The environment template detail data that's returned by Proton.</p>
    */
   environmentTemplate: EnvironmentTemplate | undefined;
-}
-
-export namespace CreateEnvironmentTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentTemplateOutput): any => ({
-    ...obj,
-    ...(obj.environmentTemplate && {
-      environmentTemplate: EnvironmentTemplate.filterSensitiveLog(obj.environmentTemplate),
-    }),
-  });
 }
 
 export interface DeleteEnvironmentTemplateInput {
@@ -2495,32 +1798,11 @@ export interface DeleteEnvironmentTemplateInput {
   name: string | undefined;
 }
 
-export namespace DeleteEnvironmentTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentTemplateInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEnvironmentTemplateOutput {
   /**
    * <p>The detailed data of the environment template being deleted.</p>
    */
   environmentTemplate?: EnvironmentTemplate;
-}
-
-export namespace DeleteEnvironmentTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentTemplateOutput): any => ({
-    ...obj,
-    ...(obj.environmentTemplate && {
-      environmentTemplate: EnvironmentTemplate.filterSensitiveLog(obj.environmentTemplate),
-    }),
-  });
 }
 
 export interface GetEnvironmentTemplateInput {
@@ -2530,32 +1812,11 @@ export interface GetEnvironmentTemplateInput {
   name: string | undefined;
 }
 
-export namespace GetEnvironmentTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentTemplateInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEnvironmentTemplateOutput {
   /**
    * <p>The detailed data of the requested environment template.</p>
    */
   environmentTemplate: EnvironmentTemplate | undefined;
-}
-
-export namespace GetEnvironmentTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentTemplateOutput): any => ({
-    ...obj,
-    ...(obj.environmentTemplate && {
-      environmentTemplate: EnvironmentTemplate.filterSensitiveLog(obj.environmentTemplate),
-    }),
-  });
 }
 
 export interface ListEnvironmentTemplatesInput {
@@ -2569,15 +1830,6 @@ export interface ListEnvironmentTemplatesInput {
    * <p>The maximum number of environment templates to list.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListEnvironmentTemplatesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentTemplatesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2625,17 +1877,6 @@ export interface EnvironmentTemplateSummary {
   provisioning?: Provisioning | string;
 }
 
-export namespace EnvironmentTemplateSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentTemplateSummary): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListEnvironmentTemplatesOutput {
   /**
    * <p>A token that indicates the location of the next environment template in the array of environment templates, after the current requested list of
@@ -2647,18 +1888,6 @@ export interface ListEnvironmentTemplatesOutput {
    * <p>An array of environment templates with detail data.</p>
    */
   templates: EnvironmentTemplateSummary[] | undefined;
-}
-
-export namespace ListEnvironmentTemplatesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentTemplatesOutput): any => ({
-    ...obj,
-    ...(obj.templates && {
-      templates: obj.templates.map((item) => EnvironmentTemplateSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface UpdateEnvironmentTemplateInput {
@@ -2678,34 +1907,11 @@ export interface UpdateEnvironmentTemplateInput {
   description?: string;
 }
 
-export namespace UpdateEnvironmentTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentTemplateInput): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateEnvironmentTemplateOutput {
   /**
    * <p>The environment template detail data that's returned by Proton.</p>
    */
   environmentTemplate: EnvironmentTemplate | undefined;
-}
-
-export namespace UpdateEnvironmentTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentTemplateOutput): any => ({
-    ...obj,
-    ...(obj.environmentTemplate && {
-      environmentTemplate: EnvironmentTemplate.filterSensitiveLog(obj.environmentTemplate),
-    }),
-  });
 }
 
 /**
@@ -2721,15 +1927,6 @@ export interface S3ObjectSource {
    * <p>The path to the S3 bucket that contains a template bundle.</p>
    */
   key: string | undefined;
-}
-
-export namespace S3ObjectSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ObjectSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2761,14 +1958,6 @@ export namespace TemplateVersionSourceInput {
   export const visit = <T>(value: TemplateVersionSourceInput, visitor: Visitor<T>): T => {
     if (value.s3 !== undefined) return visitor.s3(value.s3);
     return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateVersionSourceInput): any => {
-    if (obj.s3 !== undefined) return { s3: S3ObjectSource.filterSensitiveLog(obj.s3) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
 
@@ -2805,17 +1994,6 @@ export interface CreateEnvironmentTemplateVersionInput {
    *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateEnvironmentTemplateVersionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentTemplateVersionInput): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.source && { source: TemplateVersionSourceInput.filterSensitiveLog(obj.source) }),
-  });
 }
 
 export enum TemplateVersionStatus {
@@ -2885,35 +2063,11 @@ export interface EnvironmentTemplateVersion {
   schema?: string;
 }
 
-export namespace EnvironmentTemplateVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentTemplateVersion): any => ({
-    ...obj,
-    ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.schema && { schema: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateEnvironmentTemplateVersionOutput {
   /**
    * <p>The environment template detail data that's returned by Proton.</p>
    */
   environmentTemplateVersion: EnvironmentTemplateVersion | undefined;
-}
-
-export namespace CreateEnvironmentTemplateVersionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentTemplateVersionOutput): any => ({
-    ...obj,
-    ...(obj.environmentTemplateVersion && {
-      environmentTemplateVersion: EnvironmentTemplateVersion.filterSensitiveLog(obj.environmentTemplateVersion),
-    }),
-  });
 }
 
 export interface DeleteEnvironmentTemplateVersionInput {
@@ -2933,32 +2087,11 @@ export interface DeleteEnvironmentTemplateVersionInput {
   minorVersion: string | undefined;
 }
 
-export namespace DeleteEnvironmentTemplateVersionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentTemplateVersionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEnvironmentTemplateVersionOutput {
   /**
    * <p>The detailed data of the environment template version being deleted.</p>
    */
   environmentTemplateVersion?: EnvironmentTemplateVersion;
-}
-
-export namespace DeleteEnvironmentTemplateVersionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentTemplateVersionOutput): any => ({
-    ...obj,
-    ...(obj.environmentTemplateVersion && {
-      environmentTemplateVersion: EnvironmentTemplateVersion.filterSensitiveLog(obj.environmentTemplateVersion),
-    }),
-  });
 }
 
 export interface GetEnvironmentTemplateVersionInput {
@@ -2978,32 +2111,11 @@ export interface GetEnvironmentTemplateVersionInput {
   minorVersion: string | undefined;
 }
 
-export namespace GetEnvironmentTemplateVersionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentTemplateVersionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEnvironmentTemplateVersionOutput {
   /**
    * <p>The detailed data of the requested environment template version.</p>
    */
   environmentTemplateVersion: EnvironmentTemplateVersion | undefined;
-}
-
-export namespace GetEnvironmentTemplateVersionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentTemplateVersionOutput): any => ({
-    ...obj,
-    ...(obj.environmentTemplateVersion && {
-      environmentTemplateVersion: EnvironmentTemplateVersion.filterSensitiveLog(obj.environmentTemplateVersion),
-    }),
-  });
 }
 
 export interface ListEnvironmentTemplateVersionsInput {
@@ -3029,15 +2141,6 @@ export interface ListEnvironmentTemplateVersionsInput {
    *             <code>major Version</code>.</p>
    */
   majorVersion?: string;
-}
-
-export namespace ListEnvironmentTemplateVersionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentTemplateVersionsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3095,17 +2198,6 @@ export interface EnvironmentTemplateVersionSummary {
   lastModifiedAt: Date | undefined;
 }
 
-export namespace EnvironmentTemplateVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentTemplateVersionSummary): any => ({
-    ...obj,
-    ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListEnvironmentTemplateVersionsOutput {
   /**
    * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of an environment template, after the
@@ -3117,18 +2209,6 @@ export interface ListEnvironmentTemplateVersionsOutput {
    * <p>An array of major or minor versions of an environment template detail data.</p>
    */
   templateVersions: EnvironmentTemplateVersionSummary[] | undefined;
-}
-
-export namespace ListEnvironmentTemplateVersionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentTemplateVersionsOutput): any => ({
-    ...obj,
-    ...(obj.templateVersions && {
-      templateVersions: obj.templateVersions.map((item) => EnvironmentTemplateVersionSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface UpdateEnvironmentTemplateVersionInput {
@@ -3158,33 +2238,11 @@ export interface UpdateEnvironmentTemplateVersionInput {
   status?: TemplateVersionStatus | string;
 }
 
-export namespace UpdateEnvironmentTemplateVersionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentTemplateVersionInput): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateEnvironmentTemplateVersionOutput {
   /**
    * <p>The environment template version detail data that's returned by Proton.</p>
    */
   environmentTemplateVersion: EnvironmentTemplateVersion | undefined;
-}
-
-export namespace UpdateEnvironmentTemplateVersionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentTemplateVersionOutput): any => ({
-    ...obj,
-    ...(obj.environmentTemplateVersion && {
-      environmentTemplateVersion: EnvironmentTemplateVersion.filterSensitiveLog(obj.environmentTemplateVersion),
-    }),
-  });
 }
 
 export enum SyncType {
@@ -3213,15 +2271,6 @@ export interface GetRepositorySyncStatusInput {
   syncType: SyncType | string | undefined;
 }
 
-export namespace GetRepositorySyncStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositorySyncStatusInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Repository sync event detail data for a sync attempt.</p>
  */
@@ -3245,15 +2294,6 @@ export interface RepositorySyncEvent {
    * <p>Event detail for a repository sync attempt.</p>
    */
   event: string | undefined;
-}
-
-export namespace RepositorySyncEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositorySyncEvent): any => ({
-    ...obj,
-  });
 }
 
 export enum RepositorySyncStatus {
@@ -3304,29 +2344,11 @@ export interface RepositorySyncAttempt {
   events: RepositorySyncEvent[] | undefined;
 }
 
-export namespace RepositorySyncAttempt {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositorySyncAttempt): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRepositorySyncStatusOutput {
   /**
    * <p>The repository sync status detail data that's returned by Proton.</p>
    */
   latestSync?: RepositorySyncAttempt;
-}
-
-export namespace GetRepositorySyncStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositorySyncStatusOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum TemplateType {
@@ -3349,15 +2371,6 @@ export interface GetTemplateSyncStatusInput {
    * <p>The template major version.</p>
    */
   templateVersion: string | undefined;
-}
-
-export namespace GetTemplateSyncStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateSyncStatusInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3390,15 +2403,6 @@ export interface Revision {
   branch: string | undefined;
 }
 
-export namespace Revision {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Revision): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detail data for a resource sync event.</p>
  */
@@ -3422,15 +2426,6 @@ export interface ResourceSyncEvent {
    * <p>A resource sync event.</p>
    */
   event: string | undefined;
-}
-
-export namespace ResourceSyncEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceSyncEvent): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceSyncStatus {
@@ -3491,15 +2486,6 @@ export interface ResourceSyncAttempt {
   events: ResourceSyncEvent[] | undefined;
 }
 
-export namespace ResourceSyncAttempt {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceSyncAttempt): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTemplateSyncStatusOutput {
   /**
    * <p>The details of the last sync that's returned by Proton.</p>
@@ -3515,15 +2501,6 @@ export interface GetTemplateSyncStatusOutput {
    * <p>The template sync desired state that's returned by Proton.</p>
    */
   desiredState?: Revision;
-}
-
-export namespace GetTemplateSyncStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateSyncStatusOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRepositorySyncDefinitionsInput {
@@ -3547,15 +2524,6 @@ export interface ListRepositorySyncDefinitionsInput {
    *       sync definitions previously requested.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListRepositorySyncDefinitionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositorySyncDefinitionsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3583,15 +2551,6 @@ export interface RepositorySyncDefinition {
   directory: string | undefined;
 }
 
-export namespace RepositorySyncDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositorySyncDefinition): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRepositorySyncDefinitionsOutput {
   /**
    * <p>A token that indicates the location of the next repository sync definition in the array of repository sync definitions, after the current requested
@@ -3603,15 +2562,6 @@ export interface ListRepositorySyncDefinitionsOutput {
    * <p>An array of repository sync definitions.</p>
    */
   syncDefinitions: RepositorySyncDefinition[] | undefined;
-}
-
-export namespace ListRepositorySyncDefinitionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositorySyncDefinitionsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceInput {
@@ -3632,15 +2582,6 @@ export interface ListTagsForResourceInput {
   maxResults?: number;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>A list of resource tags with detail data.</p>
@@ -3651,15 +2592,6 @@ export interface ListTagsForResourceOutput {
    * <p>A token that indicates the location of the next resource tag in the array of resource tags, after the current requested list of resource tags.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceDeploymentStatus {
@@ -3695,27 +2627,7 @@ export interface NotifyResourceDeploymentStatusChangeInput {
   statusMessage?: string;
 }
 
-export namespace NotifyResourceDeploymentStatusChangeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyResourceDeploymentStatusChangeInput): any => ({
-    ...obj,
-    ...(obj.outputs && { outputs: SENSITIVE_STRING }),
-    ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
-  });
-}
-
 export interface NotifyResourceDeploymentStatusChangeOutput {}
-
-export namespace NotifyResourceDeploymentStatusChangeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotifyResourceDeploymentStatusChangeOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateRepositoryInput {
   /**
@@ -3744,15 +2656,6 @@ export interface CreateRepositoryInput {
    *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRepositoryInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3785,29 +2688,11 @@ export interface Repository {
   encryptionKey?: string;
 }
 
-export namespace Repository {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Repository): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRepositoryOutput {
   /**
    * <p>The repository detail data that's returned by Proton.</p>
    */
   repository: Repository | undefined;
-}
-
-export namespace CreateRepositoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRepositoryOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRepositoryInput {
@@ -3822,29 +2707,11 @@ export interface DeleteRepositoryInput {
   name: string | undefined;
 }
 
-export namespace DeleteRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRepositoryOutput {
   /**
    * <p>The repository detail data that's returned by Proton.</p>
    */
   repository?: Repository;
-}
-
-export namespace DeleteRepositoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRepositoryOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRepositoryInput {
@@ -3859,29 +2726,11 @@ export interface GetRepositoryInput {
   name: string | undefined;
 }
 
-export namespace GetRepositoryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRepositoryOutput {
   /**
    * <p>The repository detail data that's returned by Proton.</p>
    */
   repository: Repository | undefined;
-}
-
-export namespace GetRepositoryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRepositoryOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRepositoriesInput {
@@ -3894,15 +2743,6 @@ export interface ListRepositoriesInput {
    * <p>The maximum number of repositories to list.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListRepositoriesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3925,15 +2765,6 @@ export interface RepositorySummary {
   name: string | undefined;
 }
 
-export namespace RepositorySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositorySummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRepositoriesOutput {
   /**
    * <p>A token that indicates the location of the next repository in the array of repositories, after the current requested list of repositories. </p>
@@ -3944,15 +2775,6 @@ export interface ListRepositoriesOutput {
    * <p>An array of repositories.</p>
    */
   repositories: RepositorySummary[] | undefined;
-}
-
-export namespace ListRepositoriesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListServiceInstanceOutputsInput {
@@ -3972,15 +2794,6 @@ export interface ListServiceInstanceOutputsInput {
   nextToken?: string;
 }
 
-export namespace ListServiceInstanceOutputsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceInstanceOutputsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServiceInstanceOutputsOutput {
   /**
    * <p>A token that indicates the location of the next output in the array of outputs, after the current requested list of outputs.</p>
@@ -3991,16 +2804,6 @@ export interface ListServiceInstanceOutputsOutput {
    * <p>An array of service instance Infrastructure as Code (IaC) outputs.</p>
    */
   outputs: Output[] | undefined;
-}
-
-export namespace ListServiceInstanceOutputsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceInstanceOutputsOutput): any => ({
-    ...obj,
-    ...(obj.outputs && { outputs: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListServiceInstanceProvisionedResourcesInput {
@@ -4021,15 +2824,6 @@ export interface ListServiceInstanceProvisionedResourcesInput {
   nextToken?: string;
 }
 
-export namespace ListServiceInstanceProvisionedResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceInstanceProvisionedResourcesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServiceInstanceProvisionedResourcesOutput {
   /**
    * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
@@ -4041,15 +2835,6 @@ export interface ListServiceInstanceProvisionedResourcesOutput {
    * <p>An array of provisioned resources for a service instance.</p>
    */
   provisionedResources: ProvisionedResource[] | undefined;
-}
-
-export namespace ListServiceInstanceProvisionedResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceInstanceProvisionedResourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetServiceInstanceInput {
@@ -4064,30 +2849,11 @@ export interface GetServiceInstanceInput {
   serviceName: string | undefined;
 }
 
-export namespace GetServiceInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceInstanceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceInstanceOutput {
   /**
    * <p>The detailed data of the requested service instance.</p>
    */
   serviceInstance: ServiceInstance | undefined;
-}
-
-export namespace GetServiceInstanceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceInstanceOutput): any => ({
-    ...obj,
-    ...(obj.serviceInstance && { serviceInstance: ServiceInstance.filterSensitiveLog(obj.serviceInstance) }),
-  });
 }
 
 export interface ListServiceInstancesInput {
@@ -4106,15 +2872,6 @@ export interface ListServiceInstancesInput {
    * <p>The maximum number of service instances to list.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListServiceInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceInstancesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4182,16 +2939,6 @@ export interface ServiceInstanceSummary {
   deploymentStatusMessage?: string;
 }
 
-export namespace ServiceInstanceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceInstanceSummary): any => ({
-    ...obj,
-    ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListServiceInstancesOutput {
   /**
    * <p>A token that indicates the location of the next service instance in the array of service instances, after the current requested list of service
@@ -4203,18 +2950,6 @@ export interface ListServiceInstancesOutput {
    * <p>An array of service instances with summary data.</p>
    */
   serviceInstances: ServiceInstanceSummary[] | undefined;
-}
-
-export namespace ListServiceInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceInstancesOutput): any => ({
-    ...obj,
-    ...(obj.serviceInstances && {
-      serviceInstances: obj.serviceInstances.map((item) => ServiceInstanceSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface UpdateServiceInstanceInput {
@@ -4282,31 +3017,11 @@ export interface UpdateServiceInstanceInput {
   templateMinorVersion?: string;
 }
 
-export namespace UpdateServiceInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceInstanceInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateServiceInstanceOutput {
   /**
    * <p>The service instance summary data that's returned by Proton.</p>
    */
   serviceInstance: ServiceInstance | undefined;
-}
-
-export namespace UpdateServiceInstanceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceInstanceOutput): any => ({
-    ...obj,
-    ...(obj.serviceInstance && { serviceInstance: ServiceInstance.filterSensitiveLog(obj.serviceInstance) }),
-  });
 }
 
 export interface ListServicePipelineOutputsInput {
@@ -4321,15 +3036,6 @@ export interface ListServicePipelineOutputsInput {
   nextToken?: string;
 }
 
-export namespace ListServicePipelineOutputsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicePipelineOutputsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServicePipelineOutputsOutput {
   /**
    * <p>A token that indicates the location of the next output in the array of outputs, after the current requested list of outputs.</p>
@@ -4340,16 +3046,6 @@ export interface ListServicePipelineOutputsOutput {
    * <p>An array of service pipeline Infrastructure as Code (IaC) outputs.</p>
    */
   outputs: Output[] | undefined;
-}
-
-export namespace ListServicePipelineOutputsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicePipelineOutputsOutput): any => ({
-    ...obj,
-    ...(obj.outputs && { outputs: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListServicePipelineProvisionedResourcesInput {
@@ -4365,15 +3061,6 @@ export interface ListServicePipelineProvisionedResourcesInput {
   nextToken?: string;
 }
 
-export namespace ListServicePipelineProvisionedResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicePipelineProvisionedResourcesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServicePipelineProvisionedResourcesOutput {
   /**
    * <p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of
@@ -4385,15 +3072,6 @@ export interface ListServicePipelineProvisionedResourcesOutput {
    * <p>An array of provisioned resources for a service and pipeline.</p>
    */
   provisionedResources: ProvisionedResource[] | undefined;
-}
-
-export namespace ListServicePipelineProvisionedResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicePipelineProvisionedResourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateServicePipelineInput {
@@ -4457,31 +3135,11 @@ export interface UpdateServicePipelineInput {
   templateMinorVersion?: string;
 }
 
-export namespace UpdateServicePipelineInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServicePipelineInput): any => ({
-    ...obj,
-    ...(obj.spec && { spec: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateServicePipelineOutput {
   /**
    * <p>The pipeline details that are returned by Proton.</p>
    */
   pipeline: ServicePipeline | undefined;
-}
-
-export namespace UpdateServicePipelineOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServicePipelineOutput): any => ({
-    ...obj,
-    ...(obj.pipeline && { pipeline: ServicePipeline.filterSensitiveLog(obj.pipeline) }),
-  });
 }
 
 export interface CreateServiceInput {
@@ -4544,17 +3202,6 @@ export interface CreateServiceInput {
    *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateServiceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceInput): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.spec && { spec: SENSITIVE_STRING }),
-  });
 }
 
 export enum ServiceStatus {
@@ -4646,34 +3293,11 @@ export interface Service {
   branchName?: string;
 }
 
-export namespace Service {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Service): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
-    ...(obj.spec && { spec: SENSITIVE_STRING }),
-    ...(obj.pipeline && { pipeline: ServicePipeline.filterSensitiveLog(obj.pipeline) }),
-  });
-}
-
 export interface CreateServiceOutput {
   /**
    * <p>The service detail data that's returned by Proton.</p>
    */
   service: Service | undefined;
-}
-
-export namespace CreateServiceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceOutput): any => ({
-    ...obj,
-    ...(obj.service && { service: Service.filterSensitiveLog(obj.service) }),
-  });
 }
 
 export interface DeleteServiceInput {
@@ -4683,30 +3307,11 @@ export interface DeleteServiceInput {
   name: string | undefined;
 }
 
-export namespace DeleteServiceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceOutput {
   /**
    * <p>The detailed data of the service being deleted.</p>
    */
   service?: Service;
-}
-
-export namespace DeleteServiceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceOutput): any => ({
-    ...obj,
-    ...(obj.service && { service: Service.filterSensitiveLog(obj.service) }),
-  });
 }
 
 export interface GetServiceInput {
@@ -4716,30 +3321,11 @@ export interface GetServiceInput {
   name: string | undefined;
 }
 
-export namespace GetServiceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceOutput {
   /**
    * <p>The detailed data of the requested service.</p>
    */
   service?: Service;
-}
-
-export namespace GetServiceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceOutput): any => ({
-    ...obj,
-    ...(obj.service && { service: Service.filterSensitiveLog(obj.service) }),
-  });
 }
 
 export interface ListServicesInput {
@@ -4752,15 +3338,6 @@ export interface ListServicesInput {
    * <p>The maximum number of services to list.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListServicesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4808,17 +3385,6 @@ export interface ServiceSummary {
   statusMessage?: string;
 }
 
-export namespace ServiceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceSummary): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListServicesOutput {
   /**
    * <p>A token that indicates the location of the next service in the array of services, after the current requested list of services.</p>
@@ -4829,16 +3395,6 @@ export interface ListServicesOutput {
    * <p>An array of services with summaries of detail data.</p>
    */
   services: ServiceSummary[] | undefined;
-}
-
-export namespace ListServicesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServicesOutput): any => ({
-    ...obj,
-    ...(obj.services && { services: obj.services.map((item) => ServiceSummary.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface UpdateServiceInput {
@@ -4860,32 +3416,11 @@ export interface UpdateServiceInput {
   spec?: string;
 }
 
-export namespace UpdateServiceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceInput): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.spec && { spec: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateServiceOutput {
   /**
    * <p>The service detail data that's returned by Proton.</p>
    */
   service: Service | undefined;
-}
-
-export namespace UpdateServiceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceOutput): any => ({
-    ...obj,
-    ...(obj.service && { service: Service.filterSensitiveLog(obj.service) }),
-  });
 }
 
 export interface CreateServiceTemplateInput {
@@ -4921,17 +3456,6 @@ export interface CreateServiceTemplateInput {
    *          <p>For more information, see <i>Proton resources and tagging</i> in the <a href="https://docs.aws.amazon.com/proton/latest/adminguide/resources.html">Proton Administrator Guide</a> or <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton User Guide</a>.</p>
    */
   tags?: Tag[];
-}
-
-export namespace CreateServiceTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceTemplateInput): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -4985,32 +3509,11 @@ export interface ServiceTemplate {
   pipelineProvisioning?: Provisioning | string;
 }
 
-export namespace ServiceTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceTemplate): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateServiceTemplateOutput {
   /**
    * <p>The service template detail data that's returned by Proton.</p>
    */
   serviceTemplate: ServiceTemplate | undefined;
-}
-
-export namespace CreateServiceTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceTemplateOutput): any => ({
-    ...obj,
-    ...(obj.serviceTemplate && { serviceTemplate: ServiceTemplate.filterSensitiveLog(obj.serviceTemplate) }),
-  });
 }
 
 export interface DeleteServiceTemplateInput {
@@ -5020,30 +3523,11 @@ export interface DeleteServiceTemplateInput {
   name: string | undefined;
 }
 
-export namespace DeleteServiceTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceTemplateInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceTemplateOutput {
   /**
    * <p>The detailed data of the service template being deleted.</p>
    */
   serviceTemplate?: ServiceTemplate;
-}
-
-export namespace DeleteServiceTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceTemplateOutput): any => ({
-    ...obj,
-    ...(obj.serviceTemplate && { serviceTemplate: ServiceTemplate.filterSensitiveLog(obj.serviceTemplate) }),
-  });
 }
 
 export interface GetServiceTemplateInput {
@@ -5053,30 +3537,11 @@ export interface GetServiceTemplateInput {
   name: string | undefined;
 }
 
-export namespace GetServiceTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceTemplateInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceTemplateOutput {
   /**
    * <p>The detailed data of the requested service template.</p>
    */
   serviceTemplate: ServiceTemplate | undefined;
-}
-
-export namespace GetServiceTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceTemplateOutput): any => ({
-    ...obj,
-    ...(obj.serviceTemplate && { serviceTemplate: ServiceTemplate.filterSensitiveLog(obj.serviceTemplate) }),
-  });
 }
 
 export interface ListServiceTemplatesInput {
@@ -5090,15 +3555,6 @@ export interface ListServiceTemplatesInput {
    * <p>The maximum number of service templates to list.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListServiceTemplatesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceTemplatesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5147,17 +3603,6 @@ export interface ServiceTemplateSummary {
   pipelineProvisioning?: Provisioning | string;
 }
 
-export namespace ServiceTemplateSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceTemplateSummary): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListServiceTemplatesOutput {
   /**
    * <p>A token that indicates the location of the next service template in the array of service templates, after the current requested list of service
@@ -5169,16 +3614,6 @@ export interface ListServiceTemplatesOutput {
    * <p>An array of service templates with detail data.</p>
    */
   templates: ServiceTemplateSummary[] | undefined;
-}
-
-export namespace ListServiceTemplatesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceTemplatesOutput): any => ({
-    ...obj,
-    ...(obj.templates && { templates: obj.templates.map((item) => ServiceTemplateSummary.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface UpdateServiceTemplateInput {
@@ -5198,32 +3633,11 @@ export interface UpdateServiceTemplateInput {
   description?: string;
 }
 
-export namespace UpdateServiceTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceTemplateInput): any => ({
-    ...obj,
-    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateServiceTemplateOutput {
   /**
    * <p>The service template detail data that's returned by Proton.</p>
    */
   serviceTemplate: ServiceTemplate | undefined;
-}
-
-export namespace UpdateServiceTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceTemplateOutput): any => ({
-    ...obj,
-    ...(obj.serviceTemplate && { serviceTemplate: ServiceTemplate.filterSensitiveLog(obj.serviceTemplate) }),
-  });
 }
 
 /**
@@ -5239,15 +3653,6 @@ export interface CompatibleEnvironmentTemplateInput {
    * <p>The major version of the compatible environment template.</p>
    */
   majorVersion: string | undefined;
-}
-
-export namespace CompatibleEnvironmentTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompatibleEnvironmentTemplateInput): any => ({
-    ...obj,
-  });
 }
 
 export enum ServiceTemplateSupportedComponentSourceType {
@@ -5305,17 +3710,6 @@ export interface CreateServiceTemplateVersionInput {
   supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
-export namespace CreateServiceTemplateVersionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceTemplateVersionInput): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.source && { source: TemplateVersionSourceInput.filterSensitiveLog(obj.source) }),
-  });
-}
-
 /**
  * <p>Compatible environment template data.</p>
  */
@@ -5329,15 +3723,6 @@ export interface CompatibleEnvironmentTemplate {
    * <p>The major version of the compatible environment template.</p>
    */
   majorVersion: string | undefined;
-}
-
-export namespace CompatibleEnvironmentTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CompatibleEnvironmentTemplate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5414,35 +3799,11 @@ export interface ServiceTemplateVersion {
   supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
-export namespace ServiceTemplateVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceTemplateVersion): any => ({
-    ...obj,
-    ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.schema && { schema: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateServiceTemplateVersionOutput {
   /**
    * <p>The service template version summary of detail data that's returned by Proton.</p>
    */
   serviceTemplateVersion: ServiceTemplateVersion | undefined;
-}
-
-export namespace CreateServiceTemplateVersionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceTemplateVersionOutput): any => ({
-    ...obj,
-    ...(obj.serviceTemplateVersion && {
-      serviceTemplateVersion: ServiceTemplateVersion.filterSensitiveLog(obj.serviceTemplateVersion),
-    }),
-  });
 }
 
 export interface DeleteServiceTemplateVersionInput {
@@ -5462,32 +3823,11 @@ export interface DeleteServiceTemplateVersionInput {
   minorVersion: string | undefined;
 }
 
-export namespace DeleteServiceTemplateVersionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceTemplateVersionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceTemplateVersionOutput {
   /**
    * <p>The detailed data of the service template version being deleted.</p>
    */
   serviceTemplateVersion?: ServiceTemplateVersion;
-}
-
-export namespace DeleteServiceTemplateVersionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceTemplateVersionOutput): any => ({
-    ...obj,
-    ...(obj.serviceTemplateVersion && {
-      serviceTemplateVersion: ServiceTemplateVersion.filterSensitiveLog(obj.serviceTemplateVersion),
-    }),
-  });
 }
 
 export interface GetServiceTemplateVersionInput {
@@ -5507,32 +3847,11 @@ export interface GetServiceTemplateVersionInput {
   minorVersion: string | undefined;
 }
 
-export namespace GetServiceTemplateVersionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceTemplateVersionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceTemplateVersionOutput {
   /**
    * <p>The detailed data of the requested service template version.</p>
    */
   serviceTemplateVersion: ServiceTemplateVersion | undefined;
-}
-
-export namespace GetServiceTemplateVersionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceTemplateVersionOutput): any => ({
-    ...obj,
-    ...(obj.serviceTemplateVersion && {
-      serviceTemplateVersion: ServiceTemplateVersion.filterSensitiveLog(obj.serviceTemplateVersion),
-    }),
-  });
 }
 
 export interface ListServiceTemplateVersionsInput {
@@ -5558,15 +3877,6 @@ export interface ListServiceTemplateVersionsInput {
    *             <code>major Version</code>.</p>
    */
   majorVersion?: string;
-}
-
-export namespace ListServiceTemplateVersionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceTemplateVersionsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5624,17 +3934,6 @@ export interface ServiceTemplateVersionSummary {
   lastModifiedAt: Date | undefined;
 }
 
-export namespace ServiceTemplateVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceTemplateVersionSummary): any => ({
-    ...obj,
-    ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListServiceTemplateVersionsOutput {
   /**
    * <p>A token that indicates the location of the next major or minor version in the array of major or minor versions of a service template, after the
@@ -5646,18 +3945,6 @@ export interface ListServiceTemplateVersionsOutput {
    * <p>An array of major or minor versions of a service template with detail data.</p>
    */
   templateVersions: ServiceTemplateVersionSummary[] | undefined;
-}
-
-export namespace ListServiceTemplateVersionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceTemplateVersionsOutput): any => ({
-    ...obj,
-    ...(obj.templateVersions && {
-      templateVersions: obj.templateVersions.map((item) => ServiceTemplateVersionSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface UpdateServiceTemplateVersionInput {
@@ -5706,33 +3993,11 @@ export interface UpdateServiceTemplateVersionInput {
   supportedComponentSources?: (ServiceTemplateSupportedComponentSourceType | string)[];
 }
 
-export namespace UpdateServiceTemplateVersionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceTemplateVersionInput): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateServiceTemplateVersionOutput {
   /**
    * <p>The service template version detail data that's returned by Proton.</p>
    */
   serviceTemplateVersion: ServiceTemplateVersion | undefined;
-}
-
-export namespace UpdateServiceTemplateVersionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateServiceTemplateVersionOutput): any => ({
-    ...obj,
-    ...(obj.serviceTemplateVersion && {
-      serviceTemplateVersion: ServiceTemplateVersion.filterSensitiveLog(obj.serviceTemplateVersion),
-    }),
-  });
 }
 
 export interface TagResourceInput {
@@ -5747,25 +4012,7 @@ export interface TagResourceInput {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceOutput {}
-
-export namespace TagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateTemplateSyncConfigInput {
   /**
@@ -5798,15 +4045,6 @@ export interface CreateTemplateSyncConfigInput {
    *       directory.</p>
    */
   subdirectory?: string;
-}
-
-export namespace CreateTemplateSyncConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTemplateSyncConfigInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5844,29 +4082,11 @@ export interface TemplateSyncConfig {
   subdirectory?: string;
 }
 
-export namespace TemplateSyncConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateSyncConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTemplateSyncConfigOutput {
   /**
    * <p>The template sync configuration detail data that's returned by Proton.</p>
    */
   templateSyncConfig?: TemplateSyncConfig;
-}
-
-export namespace CreateTemplateSyncConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTemplateSyncConfigOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteTemplateSyncConfigInput {
@@ -5881,29 +4101,11 @@ export interface DeleteTemplateSyncConfigInput {
   templateType: TemplateType | string | undefined;
 }
 
-export namespace DeleteTemplateSyncConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTemplateSyncConfigInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTemplateSyncConfigOutput {
   /**
    * <p>The template sync configuration detail data that's returned by Proton.</p>
    */
   templateSyncConfig?: TemplateSyncConfig;
-}
-
-export namespace DeleteTemplateSyncConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTemplateSyncConfigOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTemplateSyncConfigInput {
@@ -5918,29 +4120,11 @@ export interface GetTemplateSyncConfigInput {
   templateType: TemplateType | string | undefined;
 }
 
-export namespace GetTemplateSyncConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateSyncConfigInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTemplateSyncConfigOutput {
   /**
    * <p>The template sync configuration detail data that's returned by Proton.</p>
    */
   templateSyncConfig?: TemplateSyncConfig;
-}
-
-export namespace GetTemplateSyncConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateSyncConfigOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTemplateSyncConfigInput {
@@ -5975,29 +4159,11 @@ export interface UpdateTemplateSyncConfigInput {
   subdirectory?: string;
 }
 
-export namespace UpdateTemplateSyncConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateSyncConfigInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTemplateSyncConfigOutput {
   /**
    * <p>The template sync configuration detail data that's returned by Proton.</p>
    */
   templateSyncConfig?: TemplateSyncConfig;
-}
-
-export namespace UpdateTemplateSyncConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTemplateSyncConfigOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceInput {
@@ -6012,22 +4178,1554 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceOutput {}
 
-export namespace UntagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptEnvironmentAccountConnectionInputFilterSensitiveLog = (
+  obj: AcceptEnvironmentAccountConnectionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentAccountConnectionFilterSensitiveLog = (obj: EnvironmentAccountConnection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceptEnvironmentAccountConnectionOutputFilterSensitiveLog = (
+  obj: AcceptEnvironmentAccountConnectionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryBranchFilterSensitiveLog = (obj: RepositoryBranch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountSettingsFilterSensitiveLog = (obj: AccountSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountSettingsInputFilterSensitiveLog = (obj: GetAccountSettingsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountSettingsOutputFilterSensitiveLog = (obj: GetAccountSettingsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryBranchInputFilterSensitiveLog = (obj: RepositoryBranchInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountSettingsInputFilterSensitiveLog = (obj: UpdateAccountSettingsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountSettingsOutputFilterSensitiveLog = (obj: UpdateAccountSettingsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelComponentDeploymentInputFilterSensitiveLog = (obj: CancelComponentDeploymentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentFilterSensitiveLog = (obj: Component): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
+  ...(obj.serviceSpec && { serviceSpec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CancelComponentDeploymentOutputFilterSensitiveLog = (obj: CancelComponentDeploymentOutput): any => ({
+  ...obj,
+  ...(obj.component && { component: ComponentFilterSensitiveLog(obj.component) }),
+});
+
+/**
+ * @internal
+ */
+export const CancelEnvironmentDeploymentInputFilterSensitiveLog = (obj: CancelEnvironmentDeploymentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CancelEnvironmentDeploymentOutputFilterSensitiveLog = (obj: CancelEnvironmentDeploymentOutput): any => ({
+  ...obj,
+  ...(obj.environment && { environment: EnvironmentFilterSensitiveLog(obj.environment) }),
+});
+
+/**
+ * @internal
+ */
+export const CancelServiceInstanceDeploymentInputFilterSensitiveLog = (
+  obj: CancelServiceInstanceDeploymentInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceInstanceFilterSensitiveLog = (obj: ServiceInstance): any => ({
+  ...obj,
+  ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CancelServiceInstanceDeploymentOutputFilterSensitiveLog = (
+  obj: CancelServiceInstanceDeploymentOutput
+): any => ({
+  ...obj,
+  ...(obj.serviceInstance && { serviceInstance: ServiceInstanceFilterSensitiveLog(obj.serviceInstance) }),
+});
+
+/**
+ * @internal
+ */
+export const CancelServicePipelineDeploymentInputFilterSensitiveLog = (
+  obj: CancelServicePipelineDeploymentInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServicePipelineFilterSensitiveLog = (obj: ServicePipeline): any => ({
+  ...obj,
+  ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CancelServicePipelineDeploymentOutputFilterSensitiveLog = (
+  obj: CancelServicePipelineDeploymentOutput
+): any => ({
+  ...obj,
+  ...(obj.pipeline && { pipeline: ServicePipelineFilterSensitiveLog(obj.pipeline) }),
+});
+
+/**
+ * @internal
+ */
+export const ListComponentOutputsInputFilterSensitiveLog = (obj: ListComponentOutputsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputFilterSensitiveLog = (obj: Output): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentOutputsOutputFilterSensitiveLog = (obj: ListComponentOutputsOutput): any => ({
+  ...obj,
+  ...(obj.outputs && { outputs: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListComponentProvisionedResourcesInputFilterSensitiveLog = (
+  obj: ListComponentProvisionedResourcesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionedResourceFilterSensitiveLog = (obj: ProvisionedResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentProvisionedResourcesOutputFilterSensitiveLog = (
+  obj: ListComponentProvisionedResourcesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentInputFilterSensitiveLog = (obj: CreateComponentInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.templateFile && { templateFile: SENSITIVE_STRING }),
+  ...(obj.manifest && { manifest: SENSITIVE_STRING }),
+  ...(obj.serviceSpec && { serviceSpec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentOutputFilterSensitiveLog = (obj: CreateComponentOutput): any => ({
+  ...obj,
+  ...(obj.component && { component: ComponentFilterSensitiveLog(obj.component) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteComponentInputFilterSensitiveLog = (obj: DeleteComponentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteComponentOutputFilterSensitiveLog = (obj: DeleteComponentOutput): any => ({
+  ...obj,
+  ...(obj.component && { component: ComponentFilterSensitiveLog(obj.component) }),
+});
+
+/**
+ * @internal
+ */
+export const GetComponentInputFilterSensitiveLog = (obj: GetComponentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentOutputFilterSensitiveLog = (obj: GetComponentOutput): any => ({
+  ...obj,
+  ...(obj.component && { component: ComponentFilterSensitiveLog(obj.component) }),
+});
+
+/**
+ * @internal
+ */
+export const ListComponentsInputFilterSensitiveLog = (obj: ListComponentsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentSummaryFilterSensitiveLog = (obj: ComponentSummary): any => ({
+  ...obj,
+  ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListComponentsOutputFilterSensitiveLog = (obj: ListComponentsOutput): any => ({
+  ...obj,
+  ...(obj.components && { components: obj.components.map((item) => ComponentSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateComponentInputFilterSensitiveLog = (obj: UpdateComponentInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.serviceSpec && { serviceSpec: SENSITIVE_STRING }),
+  ...(obj.templateFile && { templateFile: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateComponentOutputFilterSensitiveLog = (obj: UpdateComponentOutput): any => ({
+  ...obj,
+  ...(obj.component && { component: ComponentFilterSensitiveLog(obj.component) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentAccountConnectionInputFilterSensitiveLog = (
+  obj: CreateEnvironmentAccountConnectionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentAccountConnectionOutputFilterSensitiveLog = (
+  obj: CreateEnvironmentAccountConnectionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentAccountConnectionInputFilterSensitiveLog = (
+  obj: DeleteEnvironmentAccountConnectionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentAccountConnectionOutputFilterSensitiveLog = (
+  obj: DeleteEnvironmentAccountConnectionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentAccountConnectionInputFilterSensitiveLog = (
+  obj: GetEnvironmentAccountConnectionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentAccountConnectionOutputFilterSensitiveLog = (
+  obj: GetEnvironmentAccountConnectionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentAccountConnectionsInputFilterSensitiveLog = (
+  obj: ListEnvironmentAccountConnectionsInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentAccountConnectionSummaryFilterSensitiveLog = (
+  obj: EnvironmentAccountConnectionSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentAccountConnectionsOutputFilterSensitiveLog = (
+  obj: ListEnvironmentAccountConnectionsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectEnvironmentAccountConnectionInputFilterSensitiveLog = (
+  obj: RejectEnvironmentAccountConnectionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectEnvironmentAccountConnectionOutputFilterSensitiveLog = (
+  obj: RejectEnvironmentAccountConnectionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentAccountConnectionInputFilterSensitiveLog = (
+  obj: UpdateEnvironmentAccountConnectionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentAccountConnectionOutputFilterSensitiveLog = (
+  obj: UpdateEnvironmentAccountConnectionOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentOutputsInputFilterSensitiveLog = (obj: ListEnvironmentOutputsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentOutputsOutputFilterSensitiveLog = (obj: ListEnvironmentOutputsOutput): any => ({
+  ...obj,
+  ...(obj.outputs && { outputs: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentProvisionedResourcesInputFilterSensitiveLog = (
+  obj: ListEnvironmentProvisionedResourcesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentProvisionedResourcesOutputFilterSensitiveLog = (
+  obj: ListEnvironmentProvisionedResourcesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentInputFilterSensitiveLog = (obj: CreateEnvironmentInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentOutputFilterSensitiveLog = (obj: CreateEnvironmentOutput): any => ({
+  ...obj,
+  ...(obj.environment && { environment: EnvironmentFilterSensitiveLog(obj.environment) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentInputFilterSensitiveLog = (obj: DeleteEnvironmentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentOutputFilterSensitiveLog = (obj: DeleteEnvironmentOutput): any => ({
+  ...obj,
+  ...(obj.environment && { environment: EnvironmentFilterSensitiveLog(obj.environment) }),
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentInputFilterSensitiveLog = (obj: GetEnvironmentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentOutputFilterSensitiveLog = (obj: GetEnvironmentOutput): any => ({
+  ...obj,
+  ...(obj.environment && { environment: EnvironmentFilterSensitiveLog(obj.environment) }),
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentTemplateFilterFilterSensitiveLog = (obj: EnvironmentTemplateFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsInputFilterSensitiveLog = (obj: ListEnvironmentsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentSummaryFilterSensitiveLog = (obj: EnvironmentSummary): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsOutputFilterSensitiveLog = (obj: ListEnvironmentsOutput): any => ({
+  ...obj,
+  ...(obj.environments && { environments: obj.environments.map((item) => EnvironmentSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentInputFilterSensitiveLog = (obj: UpdateEnvironmentInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentOutputFilterSensitiveLog = (obj: UpdateEnvironmentOutput): any => ({
+  ...obj,
+  ...(obj.environment && { environment: EnvironmentFilterSensitiveLog(obj.environment) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentTemplateInputFilterSensitiveLog = (obj: CreateEnvironmentTemplateInput): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentTemplateFilterSensitiveLog = (obj: EnvironmentTemplate): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentTemplateOutputFilterSensitiveLog = (obj: CreateEnvironmentTemplateOutput): any => ({
+  ...obj,
+  ...(obj.environmentTemplate && {
+    environmentTemplate: EnvironmentTemplateFilterSensitiveLog(obj.environmentTemplate),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentTemplateInputFilterSensitiveLog = (obj: DeleteEnvironmentTemplateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentTemplateOutputFilterSensitiveLog = (obj: DeleteEnvironmentTemplateOutput): any => ({
+  ...obj,
+  ...(obj.environmentTemplate && {
+    environmentTemplate: EnvironmentTemplateFilterSensitiveLog(obj.environmentTemplate),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentTemplateInputFilterSensitiveLog = (obj: GetEnvironmentTemplateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentTemplateOutputFilterSensitiveLog = (obj: GetEnvironmentTemplateOutput): any => ({
+  ...obj,
+  ...(obj.environmentTemplate && {
+    environmentTemplate: EnvironmentTemplateFilterSensitiveLog(obj.environmentTemplate),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentTemplatesInputFilterSensitiveLog = (obj: ListEnvironmentTemplatesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentTemplateSummaryFilterSensitiveLog = (obj: EnvironmentTemplateSummary): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentTemplatesOutputFilterSensitiveLog = (obj: ListEnvironmentTemplatesOutput): any => ({
+  ...obj,
+  ...(obj.templates && { templates: obj.templates.map((item) => EnvironmentTemplateSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentTemplateInputFilterSensitiveLog = (obj: UpdateEnvironmentTemplateInput): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentTemplateOutputFilterSensitiveLog = (obj: UpdateEnvironmentTemplateOutput): any => ({
+  ...obj,
+  ...(obj.environmentTemplate && {
+    environmentTemplate: EnvironmentTemplateFilterSensitiveLog(obj.environmentTemplate),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const S3ObjectSourceFilterSensitiveLog = (obj: S3ObjectSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateVersionSourceInputFilterSensitiveLog = (obj: TemplateVersionSourceInput): any => {
+  if (obj.s3 !== undefined) return { s3: S3ObjectSourceFilterSensitiveLog(obj.s3) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentTemplateVersionInputFilterSensitiveLog = (
+  obj: CreateEnvironmentTemplateVersionInput
+): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.source && { source: TemplateVersionSourceInputFilterSensitiveLog(obj.source) }),
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentTemplateVersionFilterSensitiveLog = (obj: EnvironmentTemplateVersion): any => ({
+  ...obj,
+  ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.schema && { schema: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentTemplateVersionOutputFilterSensitiveLog = (
+  obj: CreateEnvironmentTemplateVersionOutput
+): any => ({
+  ...obj,
+  ...(obj.environmentTemplateVersion && {
+    environmentTemplateVersion: EnvironmentTemplateVersionFilterSensitiveLog(obj.environmentTemplateVersion),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentTemplateVersionInputFilterSensitiveLog = (
+  obj: DeleteEnvironmentTemplateVersionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentTemplateVersionOutputFilterSensitiveLog = (
+  obj: DeleteEnvironmentTemplateVersionOutput
+): any => ({
+  ...obj,
+  ...(obj.environmentTemplateVersion && {
+    environmentTemplateVersion: EnvironmentTemplateVersionFilterSensitiveLog(obj.environmentTemplateVersion),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentTemplateVersionInputFilterSensitiveLog = (obj: GetEnvironmentTemplateVersionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentTemplateVersionOutputFilterSensitiveLog = (
+  obj: GetEnvironmentTemplateVersionOutput
+): any => ({
+  ...obj,
+  ...(obj.environmentTemplateVersion && {
+    environmentTemplateVersion: EnvironmentTemplateVersionFilterSensitiveLog(obj.environmentTemplateVersion),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentTemplateVersionsInputFilterSensitiveLog = (
+  obj: ListEnvironmentTemplateVersionsInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentTemplateVersionSummaryFilterSensitiveLog = (obj: EnvironmentTemplateVersionSummary): any => ({
+  ...obj,
+  ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentTemplateVersionsOutputFilterSensitiveLog = (
+  obj: ListEnvironmentTemplateVersionsOutput
+): any => ({
+  ...obj,
+  ...(obj.templateVersions && {
+    templateVersions: obj.templateVersions.map((item) => EnvironmentTemplateVersionSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentTemplateVersionInputFilterSensitiveLog = (
+  obj: UpdateEnvironmentTemplateVersionInput
+): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentTemplateVersionOutputFilterSensitiveLog = (
+  obj: UpdateEnvironmentTemplateVersionOutput
+): any => ({
+  ...obj,
+  ...(obj.environmentTemplateVersion && {
+    environmentTemplateVersion: EnvironmentTemplateVersionFilterSensitiveLog(obj.environmentTemplateVersion),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetRepositorySyncStatusInputFilterSensitiveLog = (obj: GetRepositorySyncStatusInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositorySyncEventFilterSensitiveLog = (obj: RepositorySyncEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositorySyncAttemptFilterSensitiveLog = (obj: RepositorySyncAttempt): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositorySyncStatusOutputFilterSensitiveLog = (obj: GetRepositorySyncStatusOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemplateSyncStatusInputFilterSensitiveLog = (obj: GetTemplateSyncStatusInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevisionFilterSensitiveLog = (obj: Revision): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceSyncEventFilterSensitiveLog = (obj: ResourceSyncEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceSyncAttemptFilterSensitiveLog = (obj: ResourceSyncAttempt): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemplateSyncStatusOutputFilterSensitiveLog = (obj: GetTemplateSyncStatusOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositorySyncDefinitionsInputFilterSensitiveLog = (obj: ListRepositorySyncDefinitionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositorySyncDefinitionFilterSensitiveLog = (obj: RepositorySyncDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositorySyncDefinitionsOutputFilterSensitiveLog = (
+  obj: ListRepositorySyncDefinitionsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotifyResourceDeploymentStatusChangeInputFilterSensitiveLog = (
+  obj: NotifyResourceDeploymentStatusChangeInput
+): any => ({
+  ...obj,
+  ...(obj.outputs && { outputs: SENSITIVE_STRING }),
+  ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NotifyResourceDeploymentStatusChangeOutputFilterSensitiveLog = (
+  obj: NotifyResourceDeploymentStatusChangeOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRepositoryInputFilterSensitiveLog = (obj: CreateRepositoryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositoryFilterSensitiveLog = (obj: Repository): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRepositoryOutputFilterSensitiveLog = (obj: CreateRepositoryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryInputFilterSensitiveLog = (obj: DeleteRepositoryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRepositoryOutputFilterSensitiveLog = (obj: DeleteRepositoryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryInputFilterSensitiveLog = (obj: GetRepositoryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRepositoryOutputFilterSensitiveLog = (obj: GetRepositoryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositoriesInputFilterSensitiveLog = (obj: ListRepositoriesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RepositorySummaryFilterSensitiveLog = (obj: RepositorySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRepositoriesOutputFilterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceInstanceOutputsInputFilterSensitiveLog = (obj: ListServiceInstanceOutputsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceInstanceOutputsOutputFilterSensitiveLog = (obj: ListServiceInstanceOutputsOutput): any => ({
+  ...obj,
+  ...(obj.outputs && { outputs: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListServiceInstanceProvisionedResourcesInputFilterSensitiveLog = (
+  obj: ListServiceInstanceProvisionedResourcesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceInstanceProvisionedResourcesOutputFilterSensitiveLog = (
+  obj: ListServiceInstanceProvisionedResourcesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceInstanceInputFilterSensitiveLog = (obj: GetServiceInstanceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceInstanceOutputFilterSensitiveLog = (obj: GetServiceInstanceOutput): any => ({
+  ...obj,
+  ...(obj.serviceInstance && { serviceInstance: ServiceInstanceFilterSensitiveLog(obj.serviceInstance) }),
+});
+
+/**
+ * @internal
+ */
+export const ListServiceInstancesInputFilterSensitiveLog = (obj: ListServiceInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceInstanceSummaryFilterSensitiveLog = (obj: ServiceInstanceSummary): any => ({
+  ...obj,
+  ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListServiceInstancesOutputFilterSensitiveLog = (obj: ListServiceInstancesOutput): any => ({
+  ...obj,
+  ...(obj.serviceInstances && {
+    serviceInstances: obj.serviceInstances.map((item) => ServiceInstanceSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceInstanceInputFilterSensitiveLog = (obj: UpdateServiceInstanceInput): any => ({
+  ...obj,
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceInstanceOutputFilterSensitiveLog = (obj: UpdateServiceInstanceOutput): any => ({
+  ...obj,
+  ...(obj.serviceInstance && { serviceInstance: ServiceInstanceFilterSensitiveLog(obj.serviceInstance) }),
+});
+
+/**
+ * @internal
+ */
+export const ListServicePipelineOutputsInputFilterSensitiveLog = (obj: ListServicePipelineOutputsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicePipelineOutputsOutputFilterSensitiveLog = (obj: ListServicePipelineOutputsOutput): any => ({
+  ...obj,
+  ...(obj.outputs && { outputs: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListServicePipelineProvisionedResourcesInputFilterSensitiveLog = (
+  obj: ListServicePipelineProvisionedResourcesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicePipelineProvisionedResourcesOutputFilterSensitiveLog = (
+  obj: ListServicePipelineProvisionedResourcesOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateServicePipelineInputFilterSensitiveLog = (obj: UpdateServicePipelineInput): any => ({
+  ...obj,
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServicePipelineOutputFilterSensitiveLog = (obj: UpdateServicePipelineOutput): any => ({
+  ...obj,
+  ...(obj.pipeline && { pipeline: ServicePipelineFilterSensitiveLog(obj.pipeline) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceInputFilterSensitiveLog = (obj: CreateServiceInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ServiceFilterSensitiveLog = (obj: Service): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+  ...(obj.pipeline && { pipeline: ServicePipelineFilterSensitiveLog(obj.pipeline) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceOutputFilterSensitiveLog = (obj: CreateServiceOutput): any => ({
+  ...obj,
+  ...(obj.service && { service: ServiceFilterSensitiveLog(obj.service) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceInputFilterSensitiveLog = (obj: DeleteServiceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceOutputFilterSensitiveLog = (obj: DeleteServiceOutput): any => ({
+  ...obj,
+  ...(obj.service && { service: ServiceFilterSensitiveLog(obj.service) }),
+});
+
+/**
+ * @internal
+ */
+export const GetServiceInputFilterSensitiveLog = (obj: GetServiceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceOutputFilterSensitiveLog = (obj: GetServiceOutput): any => ({
+  ...obj,
+  ...(obj.service && { service: ServiceFilterSensitiveLog(obj.service) }),
+});
+
+/**
+ * @internal
+ */
+export const ListServicesInputFilterSensitiveLog = (obj: ListServicesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceSummaryFilterSensitiveLog = (obj: ServiceSummary): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListServicesOutputFilterSensitiveLog = (obj: ListServicesOutput): any => ({
+  ...obj,
+  ...(obj.services && { services: obj.services.map((item) => ServiceSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceInputFilterSensitiveLog = (obj: UpdateServiceInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.spec && { spec: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceOutputFilterSensitiveLog = (obj: UpdateServiceOutput): any => ({
+  ...obj,
+  ...(obj.service && { service: ServiceFilterSensitiveLog(obj.service) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceTemplateInputFilterSensitiveLog = (obj: CreateServiceTemplateInput): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ServiceTemplateFilterSensitiveLog = (obj: ServiceTemplate): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceTemplateOutputFilterSensitiveLog = (obj: CreateServiceTemplateOutput): any => ({
+  ...obj,
+  ...(obj.serviceTemplate && { serviceTemplate: ServiceTemplateFilterSensitiveLog(obj.serviceTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceTemplateInputFilterSensitiveLog = (obj: DeleteServiceTemplateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceTemplateOutputFilterSensitiveLog = (obj: DeleteServiceTemplateOutput): any => ({
+  ...obj,
+  ...(obj.serviceTemplate && { serviceTemplate: ServiceTemplateFilterSensitiveLog(obj.serviceTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const GetServiceTemplateInputFilterSensitiveLog = (obj: GetServiceTemplateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceTemplateOutputFilterSensitiveLog = (obj: GetServiceTemplateOutput): any => ({
+  ...obj,
+  ...(obj.serviceTemplate && { serviceTemplate: ServiceTemplateFilterSensitiveLog(obj.serviceTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const ListServiceTemplatesInputFilterSensitiveLog = (obj: ListServiceTemplatesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceTemplateSummaryFilterSensitiveLog = (obj: ServiceTemplateSummary): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListServiceTemplatesOutputFilterSensitiveLog = (obj: ListServiceTemplatesOutput): any => ({
+  ...obj,
+  ...(obj.templates && { templates: obj.templates.map((item) => ServiceTemplateSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceTemplateInputFilterSensitiveLog = (obj: UpdateServiceTemplateInput): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceTemplateOutputFilterSensitiveLog = (obj: UpdateServiceTemplateOutput): any => ({
+  ...obj,
+  ...(obj.serviceTemplate && { serviceTemplate: ServiceTemplateFilterSensitiveLog(obj.serviceTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const CompatibleEnvironmentTemplateInputFilterSensitiveLog = (obj: CompatibleEnvironmentTemplateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceTemplateVersionInputFilterSensitiveLog = (obj: CreateServiceTemplateVersionInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.source && { source: TemplateVersionSourceInputFilterSensitiveLog(obj.source) }),
+});
+
+/**
+ * @internal
+ */
+export const CompatibleEnvironmentTemplateFilterSensitiveLog = (obj: CompatibleEnvironmentTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceTemplateVersionFilterSensitiveLog = (obj: ServiceTemplateVersion): any => ({
+  ...obj,
+  ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.schema && { schema: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceTemplateVersionOutputFilterSensitiveLog = (obj: CreateServiceTemplateVersionOutput): any => ({
+  ...obj,
+  ...(obj.serviceTemplateVersion && {
+    serviceTemplateVersion: ServiceTemplateVersionFilterSensitiveLog(obj.serviceTemplateVersion),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceTemplateVersionInputFilterSensitiveLog = (obj: DeleteServiceTemplateVersionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceTemplateVersionOutputFilterSensitiveLog = (obj: DeleteServiceTemplateVersionOutput): any => ({
+  ...obj,
+  ...(obj.serviceTemplateVersion && {
+    serviceTemplateVersion: ServiceTemplateVersionFilterSensitiveLog(obj.serviceTemplateVersion),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetServiceTemplateVersionInputFilterSensitiveLog = (obj: GetServiceTemplateVersionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceTemplateVersionOutputFilterSensitiveLog = (obj: GetServiceTemplateVersionOutput): any => ({
+  ...obj,
+  ...(obj.serviceTemplateVersion && {
+    serviceTemplateVersion: ServiceTemplateVersionFilterSensitiveLog(obj.serviceTemplateVersion),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListServiceTemplateVersionsInputFilterSensitiveLog = (obj: ListServiceTemplateVersionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceTemplateVersionSummaryFilterSensitiveLog = (obj: ServiceTemplateVersionSummary): any => ({
+  ...obj,
+  ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListServiceTemplateVersionsOutputFilterSensitiveLog = (obj: ListServiceTemplateVersionsOutput): any => ({
+  ...obj,
+  ...(obj.templateVersions && {
+    templateVersions: obj.templateVersions.map((item) => ServiceTemplateVersionSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceTemplateVersionInputFilterSensitiveLog = (obj: UpdateServiceTemplateVersionInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateServiceTemplateVersionOutputFilterSensitiveLog = (obj: UpdateServiceTemplateVersionOutput): any => ({
+  ...obj,
+  ...(obj.serviceTemplateVersion && {
+    serviceTemplateVersion: ServiceTemplateVersionFilterSensitiveLog(obj.serviceTemplateVersion),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTemplateSyncConfigInputFilterSensitiveLog = (obj: CreateTemplateSyncConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateSyncConfigFilterSensitiveLog = (obj: TemplateSyncConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTemplateSyncConfigOutputFilterSensitiveLog = (obj: CreateTemplateSyncConfigOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTemplateSyncConfigInputFilterSensitiveLog = (obj: DeleteTemplateSyncConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTemplateSyncConfigOutputFilterSensitiveLog = (obj: DeleteTemplateSyncConfigOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemplateSyncConfigInputFilterSensitiveLog = (obj: GetTemplateSyncConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemplateSyncConfigOutputFilterSensitiveLog = (obj: GetTemplateSyncConfigOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplateSyncConfigInputFilterSensitiveLog = (obj: UpdateTemplateSyncConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTemplateSyncConfigOutputFilterSensitiveLog = (obj: UpdateTemplateSyncConfigOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});

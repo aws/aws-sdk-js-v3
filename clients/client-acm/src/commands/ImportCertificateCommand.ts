@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { ImportCertificateRequest, ImportCertificateResponse } from "../models/models_0";
+import {
+  ImportCertificateRequest,
+  ImportCertificateRequestFilterSensitiveLog,
+  ImportCertificateResponse,
+  ImportCertificateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ImportCertificateCommand,
   serializeAws_json1_1ImportCertificateCommand,
@@ -144,8 +149,8 @@ export class ImportCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportCertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportCertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

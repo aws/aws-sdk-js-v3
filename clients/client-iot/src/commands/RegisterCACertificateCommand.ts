@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { RegisterCACertificateRequest, RegisterCACertificateResponse } from "../models/models_2";
+import {
+  RegisterCACertificateRequest,
+  RegisterCACertificateRequestFilterSensitiveLog,
+  RegisterCACertificateResponse,
+  RegisterCACertificateResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1RegisterCACertificateCommand,
   serializeAws_restJson1RegisterCACertificateCommand,
@@ -75,8 +80,8 @@ export class RegisterCACertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterCACertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterCACertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterCACertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterCACertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

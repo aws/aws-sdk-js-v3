@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { UpdateActionTypeInput } from "../models/models_0";
+import { UpdateActionTypeInput, UpdateActionTypeInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateActionTypeCommand,
   serializeAws_json1_1UpdateActionTypeCommand,
@@ -75,7 +75,7 @@ export class UpdateActionTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateActionTypeInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateActionTypeInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

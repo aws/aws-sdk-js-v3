@@ -15,7 +15,9 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   GetComplianceSummaryByResourceTypeRequest,
+  GetComplianceSummaryByResourceTypeRequestFilterSensitiveLog,
   GetComplianceSummaryByResourceTypeResponse,
+  GetComplianceSummaryByResourceTypeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommand,
@@ -80,8 +82,8 @@ export class GetComplianceSummaryByResourceTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComplianceSummaryByResourceTypeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetComplianceSummaryByResourceTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetComplianceSummaryByResourceTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetComplianceSummaryByResourceTypeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

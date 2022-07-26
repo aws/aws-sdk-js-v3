@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { UntagCertificateAuthorityRequest } from "../models/models_0";
+import {
+  UntagCertificateAuthorityRequest,
+  UntagCertificateAuthorityRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UntagCertificateAuthorityCommand,
   serializeAws_json1_1UntagCertificateAuthorityCommand,
@@ -76,7 +79,7 @@ export class UntagCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagCertificateAuthorityRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagCertificateAuthorityRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

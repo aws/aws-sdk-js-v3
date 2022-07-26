@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { UpdateConditionalForwarderRequest, UpdateConditionalForwarderResult } from "../models/models_0";
+import {
+  UpdateConditionalForwarderRequest,
+  UpdateConditionalForwarderRequestFilterSensitiveLog,
+  UpdateConditionalForwarderResult,
+  UpdateConditionalForwarderResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateConditionalForwarderCommand,
   serializeAws_json1_1UpdateConditionalForwarderCommand,
@@ -73,8 +78,8 @@ export class UpdateConditionalForwarderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConditionalForwarderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConditionalForwarderResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConditionalForwarderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConditionalForwarderResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

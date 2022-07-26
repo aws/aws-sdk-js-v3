@@ -19,7 +19,9 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   DescribeOutboundCrossClusterSearchConnectionsRequest,
+  DescribeOutboundCrossClusterSearchConnectionsRequestFilterSensitiveLog,
   DescribeOutboundCrossClusterSearchConnectionsResponse,
+  DescribeOutboundCrossClusterSearchConnectionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommand,
@@ -85,8 +87,8 @@ export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOutboundCrossClusterSearchConnectionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOutboundCrossClusterSearchConnectionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeOutboundCrossClusterSearchConnectionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeOutboundCrossClusterSearchConnectionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

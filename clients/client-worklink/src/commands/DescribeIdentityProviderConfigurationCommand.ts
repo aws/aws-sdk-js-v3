@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeIdentityProviderConfigurationRequest,
+  DescribeIdentityProviderConfigurationRequestFilterSensitiveLog,
   DescribeIdentityProviderConfigurationResponse,
+  DescribeIdentityProviderConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeIdentityProviderConfigurationCommand,
@@ -80,8 +82,8 @@ export class DescribeIdentityProviderConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIdentityProviderConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIdentityProviderConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeIdentityProviderConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIdentityProviderConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

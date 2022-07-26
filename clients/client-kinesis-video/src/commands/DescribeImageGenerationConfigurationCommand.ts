@@ -15,7 +15,9 @@ import {
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import {
   DescribeImageGenerationConfigurationInput,
+  DescribeImageGenerationConfigurationInputFilterSensitiveLog,
   DescribeImageGenerationConfigurationOutput,
+  DescribeImageGenerationConfigurationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeImageGenerationConfigurationCommand,
@@ -77,8 +79,8 @@ export class DescribeImageGenerationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageGenerationConfigurationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageGenerationConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeImageGenerationConfigurationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeImageGenerationConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

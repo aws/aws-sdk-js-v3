@@ -14,7 +14,9 @@ import {
 
 import {
   GetMaintenanceWindowExecutionTaskInvocationRequest,
+  GetMaintenanceWindowExecutionTaskInvocationRequestFilterSensitiveLog,
   GetMaintenanceWindowExecutionTaskInvocationResult,
+  GetMaintenanceWindowExecutionTaskInvocationResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand,
@@ -81,8 +83,8 @@ export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskInvocationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskInvocationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskInvocationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMaintenanceWindowExecutionTaskInvocationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

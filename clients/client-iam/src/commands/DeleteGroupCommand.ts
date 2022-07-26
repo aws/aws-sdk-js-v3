@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteGroupRequest } from "../models/models_0";
+import { DeleteGroupRequest, DeleteGroupRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteGroupCommand, serializeAws_queryDeleteGroupCommand } from "../protocols/Aws_query";
 
 export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
@@ -70,7 +70,7 @@ export class DeleteGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

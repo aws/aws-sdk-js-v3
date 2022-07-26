@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteMonitoringSubscriptionRequest, DeleteMonitoringSubscriptionResult } from "../models/models_1";
+import {
+  DeleteMonitoringSubscriptionRequest,
+  DeleteMonitoringSubscriptionRequestFilterSensitiveLog,
+  DeleteMonitoringSubscriptionResult,
+  DeleteMonitoringSubscriptionResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteMonitoringSubscriptionCommand,
   serializeAws_restXmlDeleteMonitoringSubscriptionCommand,
@@ -74,8 +79,8 @@ export class DeleteMonitoringSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMonitoringSubscriptionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMonitoringSubscriptionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMonitoringSubscriptionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMonitoringSubscriptionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

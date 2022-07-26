@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { OverridePullRequestApprovalRulesInput } from "../models/models_1";
+import {
+  OverridePullRequestApprovalRulesInput,
+  OverridePullRequestApprovalRulesInputFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1OverridePullRequestApprovalRulesCommand,
   serializeAws_json1_1OverridePullRequestApprovalRulesCommand,
@@ -72,7 +75,7 @@ export class OverridePullRequestApprovalRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OverridePullRequestApprovalRulesInput.filterSensitiveLog,
+      inputFilterSensitiveLog: OverridePullRequestApprovalRulesInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

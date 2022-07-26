@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { StartQueryPlanningRequest, StartQueryPlanningResponse } from "../models/models_0";
+import {
+  StartQueryPlanningRequest,
+  StartQueryPlanningRequestFilterSensitiveLog,
+  StartQueryPlanningResponse,
+  StartQueryPlanningResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartQueryPlanningCommand,
   serializeAws_restJson1StartQueryPlanningCommand,
@@ -74,8 +79,8 @@ export class StartQueryPlanningCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartQueryPlanningRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartQueryPlanningResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartQueryPlanningRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartQueryPlanningResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

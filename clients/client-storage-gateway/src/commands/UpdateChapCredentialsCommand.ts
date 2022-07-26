@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateChapCredentialsInput, UpdateChapCredentialsOutput } from "../models/models_0";
+import {
+  UpdateChapCredentialsInput,
+  UpdateChapCredentialsInputFilterSensitiveLog,
+  UpdateChapCredentialsOutput,
+  UpdateChapCredentialsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateChapCredentialsCommand,
   serializeAws_json1_1UpdateChapCredentialsCommand,
@@ -80,8 +85,8 @@ export class UpdateChapCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateChapCredentialsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChapCredentialsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateChapCredentialsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateChapCredentialsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

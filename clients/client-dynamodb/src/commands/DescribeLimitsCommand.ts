@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { DescribeLimitsInput, DescribeLimitsOutput } from "../models/models_0";
+import {
+  DescribeLimitsInput,
+  DescribeLimitsInputFilterSensitiveLog,
+  DescribeLimitsOutput,
+  DescribeLimitsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeLimitsCommand,
   serializeAws_json1_0DescribeLimitsCommand,
@@ -145,8 +150,8 @@ export class DescribeLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLimitsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLimitsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLimitsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLimitsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

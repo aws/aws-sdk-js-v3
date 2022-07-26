@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetDetectorsRequest, GetDetectorsResult } from "../models/models_0";
+import {
+  GetDetectorsRequest,
+  GetDetectorsRequestFilterSensitiveLog,
+  GetDetectorsResult,
+  GetDetectorsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDetectorsCommand,
   serializeAws_json1_1GetDetectorsCommand,
@@ -77,8 +82,8 @@ export class GetDetectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDetectorsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDetectorsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDetectorsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDetectorsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

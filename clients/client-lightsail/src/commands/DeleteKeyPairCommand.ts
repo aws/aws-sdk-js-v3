@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteKeyPairRequest, DeleteKeyPairResult } from "../models/models_0";
+import {
+  DeleteKeyPairRequest,
+  DeleteKeyPairRequestFilterSensitiveLog,
+  DeleteKeyPairResult,
+  DeleteKeyPairResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteKeyPairCommand,
   serializeAws_json1_1DeleteKeyPairCommand,
@@ -80,8 +85,8 @@ export class DeleteKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKeyPairRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteKeyPairResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteKeyPairRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteKeyPairResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

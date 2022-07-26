@@ -73,17 +73,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-    ...(obj.Key && { Key: SENSITIVE_STRING }),
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateEnvironmentEC2Request {
   /**
    * <p>The name of the environment to create.</p>
@@ -202,31 +191,11 @@ export interface CreateEnvironmentEC2Request {
   dryRun?: boolean;
 }
 
-export namespace CreateEnvironmentEC2Request {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentEC2Request): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.tags && { tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateEnvironmentEC2Result {
   /**
    * <p>The ID of the environment that was created.</p>
    */
   environmentId?: string;
-}
-
-export namespace CreateEnvironmentEC2Result {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentEC2Result): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -377,15 +346,6 @@ export interface CreateEnvironmentMembershipRequest {
   permissions: MemberPermissions | string | undefined;
 }
 
-export namespace CreateEnvironmentMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum Permissions {
   OWNER = "owner",
   READ_ONLY = "read-only",
@@ -438,29 +398,11 @@ export interface EnvironmentMember {
   lastAccess?: Date;
 }
 
-export namespace EnvironmentMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentMember): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEnvironmentMembershipResult {
   /**
    * <p>Information about the environment member that was added.</p>
    */
   membership: EnvironmentMember | undefined;
-}
-
-export namespace CreateEnvironmentMembershipResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentMembershipResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteEnvironmentRequest {
@@ -470,25 +412,7 @@ export interface DeleteEnvironmentRequest {
   environmentId: string | undefined;
 }
 
-export namespace DeleteEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEnvironmentResult {}
-
-export namespace DeleteEnvironmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteEnvironmentMembershipRequest {
   /**
@@ -503,25 +427,7 @@ export interface DeleteEnvironmentMembershipRequest {
   userArn: string | undefined;
 }
 
-export namespace DeleteEnvironmentMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEnvironmentMembershipResult {}
-
-export namespace DeleteEnvironmentMembershipResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentMembershipResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeEnvironmentMembershipsRequest {
   /**
@@ -572,15 +478,6 @@ export interface DescribeEnvironmentMembershipsRequest {
   maxResults?: number;
 }
 
-export namespace DescribeEnvironmentMembershipsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentMembershipsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEnvironmentMembershipsResult {
   /**
    * <p>Information about the environment members for the environment.</p>
@@ -595,29 +492,11 @@ export interface DescribeEnvironmentMembershipsResult {
   nextToken?: string;
 }
 
-export namespace DescribeEnvironmentMembershipsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentMembershipsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEnvironmentsRequest {
   /**
    * <p>The IDs of individual environments to get information about.</p>
    */
   environmentIds: string[] | undefined;
-}
-
-export namespace DescribeEnvironmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EnvironmentLifecycleStatus {
@@ -670,15 +549,6 @@ export interface EnvironmentLifecycle {
    *       resource.</p>
    */
   failureResource?: string;
-}
-
-export namespace EnvironmentLifecycle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnvironmentLifecycle): any => ({
-    ...obj,
-  });
 }
 
 export enum ManagedCredentialsStatus {
@@ -814,16 +684,6 @@ export interface Environment {
   managedCredentialsStatus?: ManagedCredentialsStatus | string;
 }
 
-export namespace Environment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Environment): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface DescribeEnvironmentsResult {
   /**
    * <p>Information about the environments that are returned.</p>
@@ -831,30 +691,11 @@ export interface DescribeEnvironmentsResult {
   environments?: Environment[];
 }
 
-export namespace DescribeEnvironmentsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentsResult): any => ({
-    ...obj,
-    ...(obj.environments && { environments: obj.environments.map((item) => Environment.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface DescribeEnvironmentStatusRequest {
   /**
    * <p>The ID of the environment to get status information about.</p>
    */
   environmentId: string | undefined;
-}
-
-export namespace DescribeEnvironmentStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EnvironmentStatus {
@@ -909,15 +750,6 @@ export interface DescribeEnvironmentStatusResult {
   message: string | undefined;
 }
 
-export namespace DescribeEnvironmentStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEnvironmentStatusResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentsRequest {
   /**
    * <p>During a previous call, if there are more than 25 items in the list, only the first 25
@@ -934,15 +766,6 @@ export interface ListEnvironmentsRequest {
   maxResults?: number;
 }
 
-export namespace ListEnvironmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentsResult {
   /**
    * <p>If there are more than 25 items in the list, only the first 25 items are returned, along
@@ -957,15 +780,6 @@ export interface ListEnvironmentsResult {
   environmentIds?: string[];
 }
 
-export namespace ListEnvironmentsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Cloud9 development environment to get the tags
@@ -974,30 +788,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags associated with the Cloud9 development environment.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -1036,26 +831,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1071,26 +847,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum ManagedCredentialsAction {
   DISABLE = "DISABLE",
@@ -1136,26 +893,7 @@ export interface UpdateEnvironmentRequest {
   managedCredentialsAction?: ManagedCredentialsAction | string;
 }
 
-export namespace UpdateEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateEnvironmentResult {}
-
-export namespace UpdateEnvironmentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateEnvironmentMembershipRequest {
   /**
@@ -1187,15 +925,6 @@ export interface UpdateEnvironmentMembershipRequest {
   permissions: MemberPermissions | string | undefined;
 }
 
-export namespace UpdateEnvironmentMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEnvironmentMembershipResult {
   /**
    * <p>Information about the environment member whose settings were changed.</p>
@@ -1203,11 +932,226 @@ export interface UpdateEnvironmentMembershipResult {
   membership?: EnvironmentMember;
 }
 
-export namespace UpdateEnvironmentMembershipResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentMembershipResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentEC2RequestFilterSensitiveLog = (obj: CreateEnvironmentEC2Request): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentEC2ResultFilterSensitiveLog = (obj: CreateEnvironmentEC2Result): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentMembershipRequestFilterSensitiveLog = (obj: CreateEnvironmentMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentMemberFilterSensitiveLog = (obj: EnvironmentMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentMembershipResultFilterSensitiveLog = (obj: CreateEnvironmentMembershipResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentRequestFilterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentResultFilterSensitiveLog = (obj: DeleteEnvironmentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentMembershipRequestFilterSensitiveLog = (obj: DeleteEnvironmentMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentMembershipResultFilterSensitiveLog = (obj: DeleteEnvironmentMembershipResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentMembershipsRequestFilterSensitiveLog = (
+  obj: DescribeEnvironmentMembershipsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentMembershipsResultFilterSensitiveLog = (
+  obj: DescribeEnvironmentMembershipsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentsRequestFilterSensitiveLog = (obj: DescribeEnvironmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentLifecycleFilterSensitiveLog = (obj: EnvironmentLifecycle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentsResultFilterSensitiveLog = (obj: DescribeEnvironmentsResult): any => ({
+  ...obj,
+  ...(obj.environments && { environments: obj.environments.map((item) => EnvironmentFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentStatusRequestFilterSensitiveLog = (obj: DescribeEnvironmentStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEnvironmentStatusResultFilterSensitiveLog = (obj: DescribeEnvironmentStatusResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsRequestFilterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsResultFilterSensitiveLog = (obj: ListEnvironmentsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentRequestFilterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentResultFilterSensitiveLog = (obj: UpdateEnvironmentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentMembershipRequestFilterSensitiveLog = (obj: UpdateEnvironmentMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentMembershipResultFilterSensitiveLog = (obj: UpdateEnvironmentMembershipResult): any => ({
+  ...obj,
+});

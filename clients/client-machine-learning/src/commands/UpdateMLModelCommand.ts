@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { UpdateMLModelInput, UpdateMLModelOutput } from "../models/models_0";
+import {
+  UpdateMLModelInput,
+  UpdateMLModelInputFilterSensitiveLog,
+  UpdateMLModelOutput,
+  UpdateMLModelOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateMLModelCommand,
   serializeAws_json1_1UpdateMLModelCommand,
@@ -73,8 +78,8 @@ export class UpdateMLModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMLModelInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMLModelOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMLModelInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMLModelOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

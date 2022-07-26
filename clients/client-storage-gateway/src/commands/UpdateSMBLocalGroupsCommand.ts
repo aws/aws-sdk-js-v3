@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateSMBLocalGroupsInput, UpdateSMBLocalGroupsOutput } from "../models/models_0";
+import {
+  UpdateSMBLocalGroupsInput,
+  UpdateSMBLocalGroupsInputFilterSensitiveLog,
+  UpdateSMBLocalGroupsOutput,
+  UpdateSMBLocalGroupsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSMBLocalGroupsCommand,
   serializeAws_json1_1UpdateSMBLocalGroupsCommand,
@@ -73,8 +78,8 @@ export class UpdateSMBLocalGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSMBLocalGroupsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSMBLocalGroupsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSMBLocalGroupsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSMBLocalGroupsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

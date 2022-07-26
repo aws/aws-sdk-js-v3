@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DeleteEndpointMessage, DeleteEndpointResponse } from "../models/models_0";
+import {
+  DeleteEndpointMessage,
+  DeleteEndpointMessageFilterSensitiveLog,
+  DeleteEndpointResponse,
+  DeleteEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEndpointCommand,
   serializeAws_json1_1DeleteEndpointCommand,
@@ -81,8 +86,8 @@ export class DeleteEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEndpointMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

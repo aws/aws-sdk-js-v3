@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlTimestampsOutput } from "../models/models_0";
+import { XmlTimestampsOutput, XmlTimestampsOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryXmlTimestampsCommand,
   serializeAws_queryXmlTimestampsCommand,
@@ -75,7 +75,7 @@ export class XmlTimestampsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlTimestampsOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlTimestampsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

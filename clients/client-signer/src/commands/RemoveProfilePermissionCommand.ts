@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RemoveProfilePermissionRequest, RemoveProfilePermissionResponse } from "../models/models_0";
+import {
+  RemoveProfilePermissionRequest,
+  RemoveProfilePermissionRequestFilterSensitiveLog,
+  RemoveProfilePermissionResponse,
+  RemoveProfilePermissionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveProfilePermissionCommand,
   serializeAws_restJson1RemoveProfilePermissionCommand,
@@ -72,8 +77,8 @@ export class RemoveProfilePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveProfilePermissionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveProfilePermissionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveProfilePermissionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveProfilePermissionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

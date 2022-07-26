@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateEmailChannelRequest, UpdateEmailChannelResponse } from "../models/models_1";
+import {
+  UpdateEmailChannelRequest,
+  UpdateEmailChannelRequestFilterSensitiveLog,
+  UpdateEmailChannelResponse,
+  UpdateEmailChannelResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdateEmailChannelCommand,
@@ -72,8 +77,8 @@ export class UpdateEmailChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEmailChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEmailChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateEmailChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateEmailChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

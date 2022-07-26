@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { DescribeTagsRequest, DescribeTagsResponse } from "../models/models_0";
+import {
+  DescribeTagsRequest,
+  DescribeTagsRequestFilterSensitiveLog,
+  DescribeTagsResponse,
+  DescribeTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTagsCommand,
   serializeAws_json1_1DescribeTagsCommand,
@@ -91,8 +96,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

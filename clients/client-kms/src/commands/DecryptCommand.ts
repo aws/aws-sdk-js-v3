@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DecryptRequest, DecryptResponse } from "../models/models_0";
+import {
+  DecryptRequest,
+  DecryptRequestFilterSensitiveLog,
+  DecryptResponse,
+  DecryptResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1DecryptCommand, serializeAws_json1_1DecryptCommand } from "../protocols/Aws_json1_1";
 
 export interface DecryptCommandInput extends DecryptRequest {}
@@ -153,8 +158,8 @@ export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DecryptRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DecryptResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DecryptRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DecryptResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

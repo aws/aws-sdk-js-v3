@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { ListGeofencesRequest, ListGeofencesResponse } from "../models/models_0";
+import {
+  ListGeofencesRequest,
+  ListGeofencesRequestFilterSensitiveLog,
+  ListGeofencesResponse,
+  ListGeofencesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListGeofencesCommand,
   serializeAws_restJson1ListGeofencesCommand,
@@ -72,8 +77,8 @@ export class ListGeofencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGeofencesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListGeofencesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListGeofencesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListGeofencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

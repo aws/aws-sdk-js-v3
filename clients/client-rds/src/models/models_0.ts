@@ -132,15 +132,6 @@ export interface AccountQuota {
   Max?: number;
 }
 
-export namespace AccountQuota {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountQuota): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Data returned by the <b>DescribeAccountAttributes</b> action.</p>
  */
@@ -150,15 +141,6 @@ export interface AccountAttributesMessage {
    *             a count of usage toward the quota maximum, and a maximum value for the quota.</p>
    */
   AccountQuotas?: AccountQuota[];
-}
-
-export namespace AccountAttributesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAttributesMessage): any => ({
-    ...obj,
-  });
 }
 
 export type ActivityStreamMode = "async" | "sync";
@@ -189,15 +171,6 @@ export interface AddRoleToDBClusterMessage {
    *             For information about supported feature names, see <a>DBEngineVersion</a>.</p>
    */
   FeatureName?: string;
-}
-
-export namespace AddRoleToDBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddRoleToDBClusterMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -294,15 +267,6 @@ export interface AddRoleToDBInstanceMessage {
    *             For information about supported feature names, see <a>DBEngineVersion</a>.</p>
    */
   FeatureName: string | undefined;
-}
-
-export namespace AddRoleToDBInstanceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddRoleToDBInstanceMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -421,15 +385,6 @@ export interface AddSourceIdentifierToSubscriptionMessage {
   SourceIdentifier: string | undefined;
 }
 
-export namespace AddSourceIdentifierToSubscriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddSourceIdentifierToSubscriptionMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
  */
@@ -488,29 +443,11 @@ export interface EventSubscription {
   EventSubscriptionArn?: string;
 }
 
-export namespace EventSubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSubscription): any => ({
-    ...obj,
-  });
-}
-
 export interface AddSourceIdentifierToSubscriptionResult {
   /**
    * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
    */
   EventSubscription?: EventSubscription;
-}
-
-export namespace AddSourceIdentifierToSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddSourceIdentifierToSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -566,15 +503,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -591,15 +519,6 @@ export interface AddTagsToResourceMessage {
    * <p>The tags to be assigned to the Amazon RDS resource.</p>
    */
   Tags: Tag[] | undefined;
-}
-
-export namespace AddTagsToResourceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -705,15 +624,6 @@ export interface ApplyPendingMaintenanceActionMessage {
   OptInType: string | undefined;
 }
 
-export namespace ApplyPendingMaintenanceActionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplyPendingMaintenanceActionMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about a pending maintenance action for a resource.</p>
  */
@@ -761,15 +671,6 @@ export interface PendingMaintenanceAction {
   Description?: string;
 }
 
-export namespace PendingMaintenanceAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the pending maintenance actions for a resource.</p>
  */
@@ -785,29 +686,11 @@ export interface ResourcePendingMaintenanceActions {
   PendingMaintenanceActionDetails?: PendingMaintenanceAction[];
 }
 
-export namespace ResourcePendingMaintenanceActions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourcePendingMaintenanceActions): any => ({
-    ...obj,
-  });
-}
-
 export interface ApplyPendingMaintenanceActionResult {
   /**
    * <p>Describes the pending maintenance actions for a resource.</p>
    */
   ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions;
-}
-
-export namespace ApplyPendingMaintenanceActionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplyPendingMaintenanceActionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -907,15 +790,6 @@ export interface AuthorizeDBSecurityGroupIngressMessage {
   EC2SecurityGroupOwnerId?: string;
 }
 
-export namespace AuthorizeDBSecurityGroupIngressMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizeDBSecurityGroupIngressMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type is used as a response element in the following actions:</p>
  *         <ul>
@@ -959,15 +833,6 @@ export interface EC2SecurityGroup {
   EC2SecurityGroupOwnerId?: string;
 }
 
-export namespace EC2SecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2SecurityGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type is used as a response element in the <code>DescribeDBSecurityGroups</code> action.</p>
  */
@@ -981,15 +846,6 @@ export interface IPRange {
    * <p>Specifies the IP range.</p>
    */
   CIDRIP?: string;
-}
-
-export namespace IPRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1034,15 +890,6 @@ export interface DBSecurityGroup {
   DBSecurityGroupArn?: string;
 }
 
-export namespace DBSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSecurityGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface AuthorizeDBSecurityGroupIngressResult {
   /**
    * <p>Contains the details for an Amazon RDS DB security group.</p>
@@ -1050,15 +897,6 @@ export interface AuthorizeDBSecurityGroupIngressResult {
    *           in the <code>DescribeDBSecurityGroups</code> action.</p>
    */
   DBSecurityGroup?: DBSecurityGroup;
-}
-
-export namespace AuthorizeDBSecurityGroupIngressResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizeDBSecurityGroupIngressResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1162,15 +1000,6 @@ export interface BacktrackDBClusterMessage {
   UseEarliestTimeOnPointInTimeUnavailable?: boolean;
 }
 
-export namespace BacktrackDBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BacktrackDBClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type is used as a response element in the <code>DescribeDBClusterBacktracks</code> action.</p>
  */
@@ -1225,29 +1054,11 @@ export interface DBClusterBacktrack {
   Status?: string;
 }
 
-export namespace DBClusterBacktrack {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterBacktrack): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelExportTaskMessage {
   /**
    * <p>The identifier of the snapshot export task to cancel.</p>
    */
   ExportTaskIdentifier: string | undefined;
-}
-
-export namespace CancelExportTaskMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelExportTaskMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1358,15 +1169,6 @@ export interface ExportTask {
   WarningMessage?: string;
 }
 
-export namespace ExportTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportTask): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The export task doesn't exist.</p>
  */
@@ -1456,15 +1258,6 @@ export interface CopyDBClusterParameterGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CopyDBClusterParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBClusterParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the details of an Amazon RDS DB cluster parameter group.</p>
  *         <p>This data type is used as a response element in the <code>DescribeDBClusterParameterGroups</code> action.</p>
@@ -1491,30 +1284,12 @@ export interface DBClusterParameterGroup {
   DBClusterParameterGroupArn?: string;
 }
 
-export namespace DBClusterParameterGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterParameterGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyDBClusterParameterGroupResult {
   /**
    * <p>Contains the details of an Amazon RDS DB cluster parameter group.</p>
    *         <p>This data type is used as a response element in the <code>DescribeDBClusterParameterGroups</code> action.</p>
    */
   DBClusterParameterGroup?: DBClusterParameterGroup;
-}
-
-export namespace CopyDBClusterParameterGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBClusterParameterGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1704,15 +1479,6 @@ export interface CopyDBClusterSnapshotMessage {
   Tags?: Tag[];
 }
 
-export namespace CopyDBClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBClusterSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the details for an Amazon RDS DB cluster snapshot</p>
  *         <p>This data type is used as a response element
@@ -1851,15 +1617,6 @@ export interface DBClusterSnapshot {
   TagList?: Tag[];
 }
 
-export namespace DBClusterSnapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshot): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyDBClusterSnapshotResult {
   /**
    * <p>Contains the details for an Amazon RDS DB cluster snapshot</p>
@@ -1867,15 +1624,6 @@ export interface CopyDBClusterSnapshotResult {
    *           in the <code>DescribeDBClusterSnapshots</code> action.</p>
    */
   DBClusterSnapshot?: DBClusterSnapshot;
-}
-
-export namespace CopyDBClusterSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBClusterSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2029,15 +1777,6 @@ export interface CopyDBParameterGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CopyDBParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the details of an Amazon RDS DB parameter group.</p>
  *         <p>This data type is used as a response element in the <code>DescribeDBParameterGroups</code> action.</p>
@@ -2064,30 +1803,12 @@ export interface DBParameterGroup {
   DBParameterGroupArn?: string;
 }
 
-export namespace DBParameterGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBParameterGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyDBParameterGroupResult {
   /**
    * <p>Contains the details of an Amazon RDS DB parameter group.</p>
    *         <p>This data type is used as a response element in the <code>DescribeDBParameterGroups</code> action.</p>
    */
   DBParameterGroup?: DBParameterGroup;
-}
-
-export namespace CopyDBParameterGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBParameterGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2245,15 +1966,6 @@ export interface CopyDBSnapshotMessage {
   TargetCustomAvailabilityZone?: string;
 }
 
-export namespace CopyDBSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the processor features of a DB instance class.</p>
  *         <p>To specify the number of CPU cores, use the <code>coreCount</code> feature name
@@ -2337,15 +2049,6 @@ export interface ProcessorFeature {
    * <p>The value of a processor feature name.</p>
    */
   Value?: string;
-}
-
-export namespace ProcessorFeature {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessorFeature): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2521,15 +2224,6 @@ export interface DBSnapshot {
   SnapshotTarget?: string;
 }
 
-export namespace DBSnapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshot): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyDBSnapshotResult {
   /**
    * <p>Contains the details of an Amazon RDS DB snapshot.</p>
@@ -2537,15 +2231,6 @@ export interface CopyDBSnapshotResult {
    *           in the <code>DescribeDBSnapshots</code> action.</p>
    */
   DBSnapshot?: DBSnapshot;
-}
-
-export namespace CopyDBSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2658,15 +2343,6 @@ export interface CopyOptionGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CopyOptionGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyOptionGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type is used as a response element in the following actions:</p>
  *         <ul>
@@ -2702,15 +2378,6 @@ export interface DBSecurityGroupMembership {
    * <p>The status of the DB security group.</p>
    */
   Status?: string;
-}
-
-export namespace DBSecurityGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSecurityGroupMembership): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2763,15 +2430,6 @@ export interface OptionSetting {
   IsCollection?: boolean;
 }
 
-export namespace OptionSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptionSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type is used as a response element for queries on VPC security group membership.</p>
  */
@@ -2786,15 +2444,6 @@ export interface VpcSecurityGroupMembership {
    *         <p>Currently, the only valid status is <code>active</code>.</p>
    */
   Status?: string;
-}
-
-export namespace VpcSecurityGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2845,15 +2494,6 @@ export interface Option {
    * <p>If the option requires access to a port, then this VPC security group allows access to the port.</p>
    */
   VpcSecurityGroupMemberships?: VpcSecurityGroupMembership[];
-}
-
-export namespace Option {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Option): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2907,29 +2547,11 @@ export interface OptionGroup {
   OptionGroupArn?: string;
 }
 
-export namespace OptionGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptionGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyOptionGroupResult {
   /**
    * <p></p>
    */
   OptionGroup?: OptionGroup;
-}
-
-export namespace CopyOptionGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyOptionGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3074,15 +2696,6 @@ export interface CreateCustomDBEngineVersionMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateCustomDBEngineVersionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomDBEngineVersionMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A CEV with the specified name already exists.</p>
  */
@@ -3136,15 +2749,6 @@ export interface CharacterSet {
   CharacterSetDescription?: string;
 }
 
-export namespace CharacterSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CharacterSet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A time zone associated with a
  *             <code>DBInstance</code>
@@ -3160,15 +2764,6 @@ export interface Timezone {
    * <p>The name of the time zone.</p>
    */
   TimezoneName?: string;
-}
-
-export namespace Timezone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Timezone): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3219,15 +2814,6 @@ export interface UpgradeTarget {
    * <p>A value that indicates whether you can use Babelfish for Aurora PostgreSQL with the target engine version.</p>
    */
   SupportsBabelfish?: boolean;
-}
-
-export namespace UpgradeTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeTarget): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3384,15 +2970,6 @@ export interface DBEngineVersion {
   SupportsBabelfish?: boolean;
 }
 
-export namespace DBEngineVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBEngineVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the scaling configuration of an Aurora Serverless v1 DB cluster.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon Aurora Serverless v1</a> in the
@@ -3454,15 +3031,6 @@ export interface ScalingConfiguration {
   SecondsBeforeTimeout?: number;
 }
 
-export namespace ScalingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the scaling configuration of an Aurora Serverless v2 DB cluster.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
@@ -3482,15 +3050,6 @@ export interface ServerlessV2ScalingConfiguration {
    *             that you can use is 128.</p>
    */
   MaxCapacity?: number;
-}
-
-export namespace ServerlessV2ScalingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerlessV2ScalingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4172,15 +3731,6 @@ export interface CreateDBClusterMessage {
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
 }
 
-export namespace CreateDBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an Amazon Web Services Identity and Access Management (IAM) role that is associated with a DB cluster.</p>
  */
@@ -4219,15 +3769,6 @@ export interface DBClusterRole {
   FeatureName?: string;
 }
 
-export namespace DBClusterRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterRole): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about an instance that is part of a DB cluster.</p>
  */
@@ -4256,15 +3797,6 @@ export interface DBClusterMember {
   PromotionTier?: number;
 }
 
-export namespace DBClusterMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterMember): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains status information for a DB cluster option group.</p>
  */
@@ -4278,15 +3810,6 @@ export interface DBClusterOptionGroupStatus {
    * <p>Specifies the status of the DB cluster option group.</p>
    */
   Status?: string;
-}
-
-export namespace DBClusterOptionGroupStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterOptionGroupStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4314,15 +3837,6 @@ export interface DomainMembership {
   IAMRoleName?: string;
 }
 
-export namespace DomainMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainMembership): any => ({
-    ...obj,
-  });
-}
-
 export enum WriteForwardingStatus {
   DISABLED = "disabled",
   DISABLING = "disabling",
@@ -4344,15 +3858,6 @@ export interface PendingCloudwatchLogsExports {
    * <p>Log types that are in the process of being enabled. After they are enabled, these log types are exported to CloudWatch Logs.</p>
    */
   LogTypesToDisable?: string[];
-}
-
-export namespace PendingCloudwatchLogsExports {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingCloudwatchLogsExports): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4384,15 +3889,6 @@ export interface ClusterPendingModifiedValues {
    * <p>The database engine version.</p>
    */
   EngineVersion?: string;
-}
-
-export namespace ClusterPendingModifiedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterPendingModifiedValues): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4443,15 +3939,6 @@ export interface ScalingConfigurationInfo {
   SecondsBeforeTimeout?: number;
 }
 
-export namespace ScalingConfigurationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScalingConfigurationInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Shows the scaling configuration for an Aurora Serverless v2 DB cluster.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html">Using Amazon Aurora Serverless v2</a> in the
@@ -4471,15 +3958,6 @@ export interface ServerlessV2ScalingConfigurationInfo {
    *             that you can use is 128.</p>
    */
   MaxCapacity?: number;
-}
-
-export namespace ServerlessV2ScalingConfigurationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerlessV2ScalingConfigurationInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4937,15 +4415,6 @@ export interface DBCluster {
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo;
 }
 
-export namespace DBCluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBCluster): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBClusterResult {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -4968,15 +4437,6 @@ export interface CreateDBClusterResult {
    *          </p>
    */
   DBCluster?: DBCluster;
-}
-
-export namespace CreateDBClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5270,15 +4730,6 @@ export interface CreateDBClusterEndpointMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateDBClusterEndpointMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterEndpointMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type represents the information you need to connect to an Amazon Aurora DB cluster.
  *       This data type is used as a response element in the following actions:</p>
@@ -5362,15 +4813,6 @@ export interface DBClusterEndpoint {
    * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
    */
   DBClusterEndpointArn?: string;
-}
-
-export namespace DBClusterEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterEndpoint): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5503,30 +4945,12 @@ export interface CreateDBClusterParameterGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateDBClusterParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBClusterParameterGroupResult {
   /**
    * <p>Contains the details of an Amazon RDS DB cluster parameter group.</p>
    *         <p>This data type is used as a response element in the <code>DescribeDBClusterParameterGroups</code> action.</p>
    */
   DBClusterParameterGroup?: DBClusterParameterGroup;
-}
-
-export namespace CreateDBClusterParameterGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterParameterGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5571,15 +4995,6 @@ export interface CreateDBClusterSnapshotMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateDBClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBClusterSnapshotResult {
   /**
    * <p>Contains the details for an Amazon RDS DB cluster snapshot</p>
@@ -5587,15 +5002,6 @@ export interface CreateDBClusterSnapshotResult {
    *           in the <code>DescribeDBClusterSnapshots</code> action.</p>
    */
   DBClusterSnapshot?: DBClusterSnapshot;
-}
-
-export namespace CreateDBClusterSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6776,15 +6182,6 @@ export interface CreateDBInstanceMessage {
   NetworkType?: string;
 }
 
-export namespace CreateDBInstanceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBInstanceMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an Amazon Web Services Identity and Access Management (IAM) role that is associated with a DB instance.</p>
  */
@@ -6824,15 +6221,6 @@ export interface DBInstanceRole {
   Status?: string;
 }
 
-export namespace DBInstanceRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceRole): any => ({
-    ...obj,
-  });
-}
-
 export enum AutomationMode {
   ALL_PAUSED = "all-paused",
   FULL = "full",
@@ -6846,15 +6234,6 @@ export interface DBInstanceAutomatedBackupsReplication {
    * <p>The Amazon Resource Name (ARN) of the replicated automated backups.</p>
    */
   DBInstanceAutomatedBackupsArn?: string;
-}
-
-export namespace DBInstanceAutomatedBackupsReplication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceAutomatedBackupsReplication): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6905,15 +6284,6 @@ export interface DBParameterGroupStatus {
   ParameterApplyStatus?: string;
 }
 
-export namespace DBParameterGroupStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBParameterGroupStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains Availability Zone information.</p>
  *         <p>This data type is used as an element in the <code>OrderableDBInstanceOption</code>
@@ -6924,15 +6294,6 @@ export interface AvailabilityZone {
    * <p>The name of the Availability Zone.</p>
    */
   Name?: string;
-}
-
-export namespace AvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6946,15 +6307,6 @@ export interface Outpost {
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
    */
   Arn?: string;
-}
-
-export namespace Outpost {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Outpost): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6985,15 +6337,6 @@ export interface Subnet {
    * <p>The status of the subnet.</p>
    */
   SubnetStatus?: string;
-}
-
-export namespace Subnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subnet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7057,15 +6400,6 @@ export interface DBSubnetGroup {
   SupportedNetworkTypes?: string[];
 }
 
-export namespace DBSubnetGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type represents the information you need to connect to an Amazon RDS DB instance.
  *       This data type is used as a response element in the following actions:</p>
@@ -7106,15 +6440,6 @@ export interface Endpoint {
   HostedZoneId?: string;
 }
 
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information on the option groups the DB instance is a member of.</p>
  */
@@ -7136,15 +6461,6 @@ export interface OptionGroupMembership {
    *       and <code>failed</code>.</p>
    */
   Status?: string;
-}
-
-export namespace OptionGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptionGroupMembership): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7251,15 +6567,6 @@ export interface PendingModifiedValues {
   ResumeFullAutomationModeTime?: Date;
 }
 
-export namespace PendingModifiedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingModifiedValues): any => ({
-    ...obj,
-  });
-}
-
 export enum ReplicaMode {
   MOUNTED = "mounted",
   OPEN_READ_ONLY = "open-read-only",
@@ -7290,15 +6597,6 @@ export interface DBInstanceStatusInfo {
    * <p>Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.</p>
    */
   Message?: string;
-}
-
-export namespace DBInstanceStatusInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceStatusInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7851,15 +7149,6 @@ export interface DBInstance {
   ActivityStreamPolicyStatus?: ActivityStreamPolicyStatus | string;
 }
 
-export namespace DBInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstance): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBInstanceResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -7870,15 +7159,6 @@ export interface CreateDBInstanceResult {
    *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.</p>
    */
   DBInstance?: DBInstance;
-}
-
-export namespace CreateDBInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBInstanceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8495,15 +7775,6 @@ export interface CreateDBInstanceReadReplicaMessage {
   NetworkType?: string;
 }
 
-export namespace CreateDBInstanceReadReplicaMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBInstanceReadReplicaMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBInstanceReadReplicaResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -8514,15 +7785,6 @@ export interface CreateDBInstanceReadReplicaResult {
    *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.</p>
    */
   DBInstance?: DBInstance;
-}
-
-export namespace CreateDBInstanceReadReplicaResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBInstanceReadReplicaResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8687,30 +7949,12 @@ export interface CreateDBParameterGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateDBParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBParameterGroupResult {
   /**
    * <p>Contains the details of an Amazon RDS DB parameter group.</p>
    *         <p>This data type is used as a response element in the <code>DescribeDBParameterGroups</code> action.</p>
    */
   DBParameterGroup?: DBParameterGroup;
-}
-
-export namespace CreateDBParameterGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBParameterGroupResult): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthScheme {
@@ -8751,15 +7995,6 @@ export interface UserAuthConfig {
    * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.</p>
    */
   IAMAuth?: IAMAuthMode | string;
-}
-
-export namespace UserAuthConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserAuthConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum EngineFamily {
@@ -8829,15 +8064,6 @@ export interface CreateDBProxyRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateDBProxyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBProxyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns the details of authentication used by a proxy to log in as a specific database user.</p>
  */
@@ -8867,15 +8093,6 @@ export interface UserAuthConfigInfo {
    * <p>Whether to require or disallow Amazon Web Services Identity and Access Management (IAM) authentication for connections to the proxy.</p>
    */
   IAMAuth?: IAMAuthMode | string;
-}
-
-export namespace UserAuthConfigInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserAuthConfigInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum DBProxyStatus {
@@ -8986,29 +8203,11 @@ export interface DBProxy {
   UpdatedDate?: Date;
 }
 
-export namespace DBProxy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxy): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBProxyResponse {
   /**
    * <p>The <code>DBProxy</code> structure corresponding to the new proxy.</p>
    */
   DBProxy?: DBProxy;
-}
-
-export namespace CreateDBProxyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBProxyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9092,15 +8291,6 @@ export interface CreateDBProxyEndpointRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateDBProxyEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBProxyEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum DBProxyEndpointStatus {
   AVAILABLE = "available",
   CREATING = "creating",
@@ -9181,15 +8371,6 @@ export interface DBProxyEndpoint {
   IsDefault?: boolean;
 }
 
-export namespace DBProxyEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyEndpoint): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBProxyEndpointResponse {
   /**
    * <p>The <code>DBProxyEndpoint</code> object that is created by the API operation.
@@ -9197,15 +8378,6 @@ export interface CreateDBProxyEndpointResponse {
    *         or read-only operations, or using a different VPC than the proxy's default VPC.</p>
    */
   DBProxyEndpoint?: DBProxyEndpoint;
-}
-
-export namespace CreateDBProxyEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBProxyEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9302,15 +8474,6 @@ export interface CreateDBSecurityGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateDBSecurityGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBSecurityGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBSecurityGroupResult {
   /**
    * <p>Contains the details for an Amazon RDS DB security group.</p>
@@ -9318,15 +8481,6 @@ export interface CreateDBSecurityGroupResult {
    *           in the <code>DescribeDBSecurityGroups</code> action.</p>
    */
   DBSecurityGroup?: DBSecurityGroup;
-}
-
-export namespace CreateDBSecurityGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBSecurityGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9433,15 +8587,6 @@ export interface CreateDBSnapshotMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateDBSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBSnapshotResult {
   /**
    * <p>Contains the details of an Amazon RDS DB snapshot.</p>
@@ -9449,15 +8594,6 @@ export interface CreateDBSnapshotResult {
    *           in the <code>DescribeDBSnapshots</code> action.</p>
    */
   DBSnapshot?: DBSnapshot;
-}
-
-export namespace CreateDBSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9499,15 +8635,6 @@ export interface CreateDBSubnetGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateDBSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBSubnetGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBSubnetGroupResult {
   /**
    * <p>Contains the details of an Amazon RDS DB subnet group.</p>
@@ -9515,15 +8642,6 @@ export interface CreateDBSubnetGroupResult {
    *           in the <code>DescribeDBSubnetGroups</code> action.</p>
    */
   DBSubnetGroup?: DBSubnetGroup;
-}
-
-export namespace CreateDBSubnetGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBSubnetGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9669,29 +8787,11 @@ export interface CreateEventSubscriptionMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateEventSubscriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEventSubscriptionResult {
   /**
    * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
    */
   EventSubscription?: EventSubscription;
-}
-
-export namespace CreateEventSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9849,15 +8949,6 @@ export interface CreateGlobalClusterMessage {
   StorageEncrypted?: boolean;
 }
 
-export namespace CreateGlobalClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGlobalClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export enum FailoverStatus {
   CANCELLING = "cancelling",
   FAILING_OVER = "failing-over",
@@ -9903,15 +8994,6 @@ export interface FailoverState {
   ToDbClusterArn?: string;
 }
 
-export namespace FailoverState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailoverState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A data structure with information about any primary and
  *         secondary clusters associated with an Aurora global database.</p>
@@ -9940,15 +9022,6 @@ export interface GlobalClusterMember {
    *         write forwarding enabled, not enabled, or is in the process of enabling it.</p>
    */
   GlobalWriteForwardingStatus?: WriteForwardingStatus | string;
-}
-
-export namespace GlobalClusterMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalClusterMember): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10015,29 +9088,11 @@ export interface GlobalCluster {
   FailoverState?: FailoverState;
 }
 
-export namespace GlobalCluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalCluster): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGlobalClusterResult {
   /**
    * <p>A data type representing an Aurora global database.</p>
    */
   GlobalCluster?: GlobalCluster;
-}
-
-export namespace CreateGlobalClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGlobalClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10180,29 +9235,11 @@ export interface CreateOptionGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateOptionGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOptionGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateOptionGroupResult {
   /**
    * <p></p>
    */
   OptionGroup?: OptionGroup;
-}
-
-export namespace CreateOptionGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOptionGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10236,15 +9273,6 @@ export interface DeleteCustomDBEngineVersionMessage {
    *             <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.</p>
    */
   EngineVersion: string | undefined;
-}
-
-export namespace DeleteCustomDBEngineVersionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomDBEngineVersionMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10315,15 +9343,6 @@ export interface DeleteDBClusterMessage {
   FinalDBSnapshotIdentifier?: string;
 }
 
-export namespace DeleteDBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBClusterResult {
   /**
    * <p>Contains the details of an Amazon Aurora DB cluster or Multi-AZ DB cluster.</p>
@@ -10346,15 +9365,6 @@ export interface DeleteDBClusterResult {
    *          </p>
    */
   DBCluster?: DBCluster;
-}
-
-export namespace DeleteDBClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10381,15 +9391,6 @@ export interface DeleteDBClusterEndpointMessage {
    * <p>The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.</p>
    */
   DBClusterEndpointIdentifier: string | undefined;
-}
-
-export namespace DeleteDBClusterEndpointMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterEndpointMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10433,15 +9434,6 @@ export interface DeleteDBClusterParameterGroupMessage {
   DBClusterParameterGroupName: string | undefined;
 }
 
-export namespace DeleteDBClusterParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The DB parameter group is in use or is in an invalid state. If you are attempting
  *             to delete the parameter group, you can't delete it when the parameter group is in
@@ -10474,15 +9466,6 @@ export interface DeleteDBClusterSnapshotMessage {
   DBClusterSnapshotIdentifier: string | undefined;
 }
 
-export namespace DeleteDBClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBClusterSnapshotResult {
   /**
    * <p>Contains the details for an Amazon RDS DB cluster snapshot</p>
@@ -10490,15 +9473,6 @@ export interface DeleteDBClusterSnapshotResult {
    *           in the <code>DescribeDBClusterSnapshots</code> action.</p>
    */
   DBClusterSnapshot?: DBClusterSnapshot;
-}
-
-export namespace DeleteDBClusterSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10585,15 +9559,6 @@ export interface DeleteDBInstanceMessage {
   DeleteAutomatedBackups?: boolean;
 }
 
-export namespace DeleteDBInstanceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBInstanceMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBInstanceResult {
   /**
    * <p>Contains the details of an Amazon RDS DB instance.</p>
@@ -10604,15 +9569,6 @@ export interface DeleteDBInstanceResult {
    *           <code>StartDBInstance</code>, and <code>StopDBInstance</code>.</p>
    */
   DBInstance?: DBInstance;
-}
-
-export namespace DeleteDBInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBInstanceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10651,15 +9607,6 @@ export interface DeleteDBInstanceAutomatedBackupMessage {
   DBInstanceAutomatedBackupsArn?: string;
 }
 
-export namespace DeleteDBInstanceAutomatedBackupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBInstanceAutomatedBackupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Earliest and latest time an instance can be restored to:</p>
  */
@@ -10673,15 +9620,6 @@ export interface RestoreWindow {
    * <p>The latest time you can restore an instance to.</p>
    */
   LatestTime?: Date;
-}
-
-export namespace RestoreWindow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreWindow): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10850,30 +9788,12 @@ export interface DBInstanceAutomatedBackup {
   BackupTarget?: string;
 }
 
-export namespace DBInstanceAutomatedBackup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceAutomatedBackup): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBInstanceAutomatedBackupResult {
   /**
    * <p>An automated backup of a DB instance. It consists of system backups, transaction logs, and the database instance properties that
    *             existed at the time you deleted the source instance.</p>
    */
   DBInstanceAutomatedBackup?: DBInstanceAutomatedBackup;
-}
-
-export namespace DeleteDBInstanceAutomatedBackupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBInstanceAutomatedBackupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10918,15 +9838,6 @@ export interface DeleteDBParameterGroupMessage {
   DBParameterGroupName: string | undefined;
 }
 
-export namespace DeleteDBParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBProxyRequest {
   /**
    * <p>The name of the DB proxy to delete.</p>
@@ -10934,29 +9845,11 @@ export interface DeleteDBProxyRequest {
   DBProxyName: string | undefined;
 }
 
-export namespace DeleteDBProxyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBProxyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBProxyResponse {
   /**
    * <p>The data structure representing the details of the DB proxy that you delete.</p>
    */
   DBProxy?: DBProxy;
-}
-
-export namespace DeleteDBProxyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBProxyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10985,29 +9878,11 @@ export interface DeleteDBProxyEndpointRequest {
   DBProxyEndpointName: string | undefined;
 }
 
-export namespace DeleteDBProxyEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBProxyEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBProxyEndpointResponse {
   /**
    * <p>The data structure representing the details of the DB proxy endpoint that you delete.</p>
    */
   DBProxyEndpoint?: DBProxyEndpoint;
-}
-
-export namespace DeleteDBProxyEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBProxyEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11057,15 +9932,6 @@ export interface DeleteDBSecurityGroupMessage {
   DBSecurityGroupName: string | undefined;
 }
 
-export namespace DeleteDBSecurityGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBSecurityGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -11077,15 +9943,6 @@ export interface DeleteDBSnapshotMessage {
   DBSnapshotIdentifier: string | undefined;
 }
 
-export namespace DeleteDBSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBSnapshotResult {
   /**
    * <p>Contains the details of an Amazon RDS DB snapshot.</p>
@@ -11093,15 +9950,6 @@ export interface DeleteDBSnapshotResult {
    *           in the <code>DescribeDBSnapshots</code> action.</p>
    */
   DBSnapshot?: DBSnapshot;
-}
-
-export namespace DeleteDBSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11118,15 +9966,6 @@ export interface DeleteDBSubnetGroupMessage {
    *          </p>
    */
   DBSubnetGroupName: string | undefined;
-}
-
-export namespace DeleteDBSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBSubnetGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11158,29 +9997,11 @@ export interface DeleteEventSubscriptionMessage {
   SubscriptionName: string | undefined;
 }
 
-export namespace DeleteEventSubscriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEventSubscriptionResult {
   /**
    * <p>Contains the results of a successful invocation of the <code>DescribeEventSubscriptions</code> action.</p>
    */
   EventSubscription?: EventSubscription;
-}
-
-export namespace DeleteEventSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11209,29 +10030,11 @@ export interface DeleteGlobalClusterMessage {
   GlobalClusterIdentifier: string | undefined;
 }
 
-export namespace DeleteGlobalClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGlobalClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGlobalClusterResult {
   /**
    * <p>A data type representing an Aurora global database.</p>
    */
   GlobalCluster?: GlobalCluster;
-}
-
-export namespace DeleteGlobalClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGlobalClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11245,15 +10048,6 @@ export interface DeleteOptionGroupMessage {
    *         </note>
    */
   OptionGroupName: string | undefined;
-}
-
-export namespace DeleteOptionGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOptionGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11316,39 +10110,12 @@ export interface DeregisterDBProxyTargetsRequest {
   DBClusterIdentifiers?: string[];
 }
 
-export namespace DeregisterDBProxyTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterDBProxyTargetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterDBProxyTargetsResponse {}
-
-export namespace DeregisterDBProxyTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterDBProxyTargetsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p></p>
  */
 export interface DescribeAccountAttributesMessage {}
-
-export namespace DescribeAccountAttributesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAttributesMessage): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A CA certificate for an Amazon Web Services account.</p>
@@ -11396,15 +10163,6 @@ export interface Certificate {
   CustomerOverrideValidTill?: Date;
 }
 
-export namespace Certificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Certificate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Data returned by the <b>DescribeCertificates</b> action.</p>
  */
@@ -11422,15 +10180,6 @@ export interface CertificateMessage {
    *             up to the value specified by <code>MaxRecords</code> .</p>
    */
   Marker?: string;
-}
-
-export namespace CertificateMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11503,15 +10252,6 @@ export interface Filter {
   Values: string[] | undefined;
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -11551,15 +10291,6 @@ export interface DescribeCertificatesMessage {
   Marker?: string;
 }
 
-export namespace DescribeCertificatesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificatesMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the result of a successful invocation of the <code>DescribeDBClusterBacktracks</code> action.</p>
  */
@@ -11573,15 +10304,6 @@ export interface DBClusterBacktrackMessage {
    * <p>Contains a list of backtracks for the user.</p>
    */
   DBClusterBacktracks?: DBClusterBacktrack[];
-}
-
-export namespace DBClusterBacktrackMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterBacktrackMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11705,15 +10427,6 @@ export interface DescribeDBClusterBacktracksMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBClusterBacktracksMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterBacktracksMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DBClusterEndpointMessage {
   /**
    * <p>An optional pagination token provided by a previous
@@ -11729,15 +10442,6 @@ export interface DBClusterEndpointMessage {
    *        and matching any filter conditions.</p>
    */
   DBClusterEndpoints?: DBClusterEndpoint[];
-}
-
-export namespace DBClusterEndpointMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterEndpointMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDBClusterEndpointsMessage {
@@ -11782,15 +10486,6 @@ export interface DescribeDBClusterEndpointsMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBClusterEndpointsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterEndpointsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -11808,15 +10503,6 @@ export interface DBClusterParameterGroupsMessage {
    * <p>A list of DB cluster parameter groups.</p>
    */
   DBClusterParameterGroups?: DBClusterParameterGroup[];
-}
-
-export namespace DBClusterParameterGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterParameterGroupsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11856,15 +10542,6 @@ export interface DescribeDBClusterParameterGroupsMessage {
    *         up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeDBClusterParameterGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterParameterGroupsMessage): any => ({
-    ...obj,
-  });
 }
 
 export type ApplyMethod = "immediate" | "pending-reboot";
@@ -11934,15 +10611,6 @@ export interface Parameter {
   SupportedEngineModes?: string[];
 }
 
-export namespace Parameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Parameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about a DB cluster parameter group including the parameters in the DB cluster parameter group.</p>
  */
@@ -11960,15 +10628,6 @@ export interface DBClusterParameterGroupDetails {
    *             up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DBClusterParameterGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterParameterGroupDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -12017,15 +10676,6 @@ export interface DescribeDBClusterParametersMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBClusterParametersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterParametersMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the result of a successful invocation of the <code>DescribeDBClusters</code> action.</p>
  */
@@ -12039,15 +10689,6 @@ export interface DBClusterMessage {
    * <p>Contains a list of DB clusters for the user.</p>
    */
   DBClusters?: DBCluster[];
-}
-
-export namespace DBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -12122,15 +10763,6 @@ export interface DescribeDBClustersMessage {
   IncludeShared?: boolean;
 }
 
-export namespace DescribeDBClustersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClustersMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -12139,15 +10771,6 @@ export interface DescribeDBClusterSnapshotAttributesMessage {
    * <p>The identifier for the DB cluster snapshot to describe the attributes for.</p>
    */
   DBClusterSnapshotIdentifier: string | undefined;
-}
-
-export namespace DescribeDBClusterSnapshotAttributesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotAttributesMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -12176,15 +10799,6 @@ export interface DBClusterSnapshotAttribute {
   AttributeValues?: string[];
 }
 
-export namespace DBClusterSnapshotAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshotAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
  *             API action.</p>
@@ -12204,15 +10818,6 @@ export interface DBClusterSnapshotAttributesResult {
   DBClusterSnapshotAttributes?: DBClusterSnapshotAttribute[];
 }
 
-export namespace DBClusterSnapshotAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshotAttributesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDBClusterSnapshotAttributesResult {
   /**
    * <p>Contains the results of a successful call to the <code>DescribeDBClusterSnapshotAttributes</code>
@@ -12222,15 +10827,6 @@ export interface DescribeDBClusterSnapshotAttributesResult {
    *             API action.</p>
    */
   DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
-}
-
-export namespace DescribeDBClusterSnapshotAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotAttributesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -12250,15 +10846,6 @@ export interface DBClusterSnapshotMessage {
    * <p>Provides a list of DB cluster snapshots for the user.</p>
    */
   DBClusterSnapshots?: DBClusterSnapshot[];
-}
-
-export namespace DBClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshotMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -12388,15 +10975,6 @@ export interface DescribeDBClusterSnapshotsMessage {
   IncludePublic?: boolean;
 }
 
-export namespace DescribeDBClusterSnapshotsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the result of a successful invocation of the <code>DescribeDBEngineVersions</code> action.</p>
  */
@@ -12413,15 +10991,6 @@ export interface DBEngineVersionMessage {
    * <p>A list of <code>DBEngineVersion</code> elements.</p>
    */
   DBEngineVersions?: DBEngineVersion[];
-}
-
-export namespace DBEngineVersionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBEngineVersionMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDBEngineVersionsMessage {
@@ -12645,15 +11214,6 @@ export interface DescribeDBEngineVersionsMessage {
   IncludeAll?: boolean;
 }
 
-export namespace DescribeDBEngineVersionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBEngineVersionsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the result of a successful invocation of the <code>DescribeDBInstanceAutomatedBackups</code> action.</p>
  */
@@ -12670,15 +11230,6 @@ export interface DBInstanceAutomatedBackupMessage {
    * <p>A list of <code>DBInstanceAutomatedBackup</code> instances.</p>
    */
   DBInstanceAutomatedBackups?: DBInstanceAutomatedBackup[];
-}
-
-export namespace DBInstanceAutomatedBackupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceAutomatedBackupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -12757,15 +11308,6 @@ export interface DescribeDBInstanceAutomatedBackupsMessage {
   DBInstanceAutomatedBackupsArn?: string;
 }
 
-export namespace DescribeDBInstanceAutomatedBackupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBInstanceAutomatedBackupsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the result of a successful invocation of the <code>DescribeDBInstances</code> action.</p>
  */
@@ -12782,15 +11324,6 @@ export interface DBInstanceMessage {
    * <p>A list of <code>DBInstance</code> instances.</p>
    */
   DBInstances?: DBInstance[];
-}
-
-export namespace DBInstanceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -12863,15 +11396,6 @@ export interface DescribeDBInstancesMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBInstancesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBInstancesMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -12918,15 +11442,6 @@ export interface DescribeDBLogFilesMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBLogFilesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBLogFilesMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This data type is used as a response element to <code>DescribeDBLogFiles</code>.</p>
  */
@@ -12947,15 +11462,6 @@ export interface DescribeDBLogFilesDetails {
   Size?: number;
 }
 
-export namespace DescribeDBLogFilesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBLogFilesDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response from a call to <code>DescribeDBLogFiles</code>.</p>
  */
@@ -12969,15 +11475,6 @@ export interface DescribeDBLogFilesResponse {
    * <p>A pagination token that can be used in a later <code>DescribeDBLogFiles</code> request.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeDBLogFilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBLogFilesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -12996,15 +11493,6 @@ export interface DBParameterGroupsMessage {
    * <p>A list of <code>DBParameterGroup</code> instances.</p>
    */
   DBParameterGroups?: DBParameterGroup[];
-}
-
-export namespace DBParameterGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBParameterGroupsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -13047,15 +11535,6 @@ export interface DescribeDBParameterGroupsMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBParameterGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBParameterGroupsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the result of a successful invocation of the <code>DescribeDBParameters</code> action.</p>
  */
@@ -13072,15 +11551,6 @@ export interface DBParameterGroupDetails {
    *             up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DBParameterGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBParameterGroupDetails): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDBParametersMessage {
@@ -13128,15 +11598,6 @@ export interface DescribeDBParametersMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBParametersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBParametersMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDBProxiesRequest {
   /**
    * <p>The name of the DB proxy. If you omit this parameter,
@@ -13167,15 +11628,6 @@ export interface DescribeDBProxiesRequest {
   MaxRecords?: number;
 }
 
-export namespace DescribeDBProxiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBProxiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDBProxiesResponse {
   /**
    * <p>A return value representing an arbitrary number of <code>DBProxy</code> data structures.</p>
@@ -13188,15 +11640,6 @@ export interface DescribeDBProxiesResponse {
    *         up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeDBProxiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBProxiesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDBProxyEndpointsRequest {
@@ -13236,15 +11679,6 @@ export interface DescribeDBProxyEndpointsRequest {
   MaxRecords?: number;
 }
 
-export namespace DescribeDBProxyEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBProxyEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDBProxyEndpointsResponse {
   /**
    * <p>The list of <code>ProxyEndpoint</code> objects returned by the API operation.</p>
@@ -13257,15 +11691,6 @@ export interface DescribeDBProxyEndpointsResponse {
    *         up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeDBProxyEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBProxyEndpointsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDBProxyTargetGroupsRequest {
@@ -13300,15 +11725,6 @@ export interface DescribeDBProxyTargetGroupsRequest {
    *         <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-}
-
-export namespace DescribeDBProxyTargetGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBProxyTargetGroupsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -13351,15 +11767,6 @@ export interface ConnectionPoolConfigurationInfo {
    *         <code>SET x=1, y=2</code>.</p>
    */
   InitQuery?: string;
-}
-
-export namespace ConnectionPoolConfigurationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionPoolConfigurationInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -13413,15 +11820,6 @@ export interface DBProxyTargetGroup {
   UpdatedDate?: Date;
 }
 
-export namespace DBProxyTargetGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyTargetGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDBProxyTargetGroupsResponse {
   /**
    * <p>An arbitrary number of <code>DBProxyTargetGroup</code> objects, containing details of the corresponding target groups.</p>
@@ -13434,15 +11832,6 @@ export interface DescribeDBProxyTargetGroupsResponse {
    *         up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeDBProxyTargetGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBProxyTargetGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDBProxyTargetsRequest {
@@ -13477,15 +11866,6 @@ export interface DescribeDBProxyTargetsRequest {
    *         <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-}
-
-export namespace DescribeDBProxyTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBProxyTargetsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetRole {
@@ -13531,15 +11911,6 @@ export interface TargetHealth {
    *             If the <code>State</code> is <code>AVAILABLE</code>, a description is not included.</p>
    */
   Description?: string;
-}
-
-export namespace TargetHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetHealth): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetType {
@@ -13596,15 +11967,6 @@ export interface DBProxyTarget {
   TargetHealth?: TargetHealth;
 }
 
-export namespace DBProxyTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyTarget): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDBProxyTargetsResponse {
   /**
    * <p>An arbitrary number of <code>DBProxyTarget</code> objects, containing details of the corresponding targets.</p>
@@ -13617,15 +11979,6 @@ export interface DescribeDBProxyTargetsResponse {
    *         up to the value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeDBProxyTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBProxyTargetsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -13644,15 +11997,6 @@ export interface DBSecurityGroupMessage {
    * <p>A list of <code>DBSecurityGroup</code> instances.</p>
    */
   DBSecurityGroups?: DBSecurityGroup[];
-}
-
-export namespace DBSecurityGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSecurityGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -13689,15 +12033,6 @@ export interface DescribeDBSecurityGroupsMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBSecurityGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBSecurityGroupsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -13708,11 +12043,1342 @@ export interface DescribeDBSnapshotAttributesMessage {
   DBSnapshotIdentifier: string | undefined;
 }
 
-export namespace DescribeDBSnapshotAttributesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBSnapshotAttributesMessage): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountQuotaFilterSensitiveLog = (obj: AccountQuota): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountAttributesMessageFilterSensitiveLog = (obj: AccountAttributesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddRoleToDBClusterMessageFilterSensitiveLog = (obj: AddRoleToDBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddRoleToDBInstanceMessageFilterSensitiveLog = (obj: AddRoleToDBInstanceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddSourceIdentifierToSubscriptionMessageFilterSensitiveLog = (
+  obj: AddSourceIdentifierToSubscriptionMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventSubscriptionFilterSensitiveLog = (obj: EventSubscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddSourceIdentifierToSubscriptionResultFilterSensitiveLog = (
+  obj: AddSourceIdentifierToSubscriptionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsToResourceMessageFilterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplyPendingMaintenanceActionMessageFilterSensitiveLog = (
+  obj: ApplyPendingMaintenanceActionMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingMaintenanceActionFilterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourcePendingMaintenanceActionsFilterSensitiveLog = (obj: ResourcePendingMaintenanceActions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplyPendingMaintenanceActionResultFilterSensitiveLog = (
+  obj: ApplyPendingMaintenanceActionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizeDBSecurityGroupIngressMessageFilterSensitiveLog = (
+  obj: AuthorizeDBSecurityGroupIngressMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2SecurityGroupFilterSensitiveLog = (obj: EC2SecurityGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPRangeFilterSensitiveLog = (obj: IPRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBSecurityGroupFilterSensitiveLog = (obj: DBSecurityGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizeDBSecurityGroupIngressResultFilterSensitiveLog = (
+  obj: AuthorizeDBSecurityGroupIngressResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BacktrackDBClusterMessageFilterSensitiveLog = (obj: BacktrackDBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterBacktrackFilterSensitiveLog = (obj: DBClusterBacktrack): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelExportTaskMessageFilterSensitiveLog = (obj: CancelExportTaskMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportTaskFilterSensitiveLog = (obj: ExportTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBClusterParameterGroupMessageFilterSensitiveLog = (obj: CopyDBClusterParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterParameterGroupFilterSensitiveLog = (obj: DBClusterParameterGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBClusterParameterGroupResultFilterSensitiveLog = (obj: CopyDBClusterParameterGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBClusterSnapshotMessageFilterSensitiveLog = (obj: CopyDBClusterSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterSnapshotFilterSensitiveLog = (obj: DBClusterSnapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBClusterSnapshotResultFilterSensitiveLog = (obj: CopyDBClusterSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBParameterGroupMessageFilterSensitiveLog = (obj: CopyDBParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBParameterGroupFilterSensitiveLog = (obj: DBParameterGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBParameterGroupResultFilterSensitiveLog = (obj: CopyDBParameterGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBSnapshotMessageFilterSensitiveLog = (obj: CopyDBSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProcessorFeatureFilterSensitiveLog = (obj: ProcessorFeature): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBSnapshotFilterSensitiveLog = (obj: DBSnapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBSnapshotResultFilterSensitiveLog = (obj: CopyDBSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyOptionGroupMessageFilterSensitiveLog = (obj: CopyOptionGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBSecurityGroupMembershipFilterSensitiveLog = (obj: DBSecurityGroupMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptionSettingFilterSensitiveLog = (obj: OptionSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcSecurityGroupMembershipFilterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptionFilterSensitiveLog = (obj: Option): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptionGroupFilterSensitiveLog = (obj: OptionGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyOptionGroupResultFilterSensitiveLog = (obj: CopyOptionGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomDBEngineVersionMessageFilterSensitiveLog = (obj: CreateCustomDBEngineVersionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CharacterSetFilterSensitiveLog = (obj: CharacterSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimezoneFilterSensitiveLog = (obj: Timezone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradeTargetFilterSensitiveLog = (obj: UpgradeTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBEngineVersionFilterSensitiveLog = (obj: DBEngineVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingConfigurationFilterSensitiveLog = (obj: ScalingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerlessV2ScalingConfigurationFilterSensitiveLog = (obj: ServerlessV2ScalingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterMessageFilterSensitiveLog = (obj: CreateDBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterRoleFilterSensitiveLog = (obj: DBClusterRole): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterMemberFilterSensitiveLog = (obj: DBClusterMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterOptionGroupStatusFilterSensitiveLog = (obj: DBClusterOptionGroupStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainMembershipFilterSensitiveLog = (obj: DomainMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingCloudwatchLogsExportsFilterSensitiveLog = (obj: PendingCloudwatchLogsExports): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterPendingModifiedValuesFilterSensitiveLog = (obj: ClusterPendingModifiedValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScalingConfigurationInfoFilterSensitiveLog = (obj: ScalingConfigurationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServerlessV2ScalingConfigurationInfoFilterSensitiveLog = (
+  obj: ServerlessV2ScalingConfigurationInfo
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterFilterSensitiveLog = (obj: DBCluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterResultFilterSensitiveLog = (obj: CreateDBClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterEndpointMessageFilterSensitiveLog = (obj: CreateDBClusterEndpointMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterEndpointFilterSensitiveLog = (obj: DBClusterEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterParameterGroupMessageFilterSensitiveLog = (
+  obj: CreateDBClusterParameterGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterParameterGroupResultFilterSensitiveLog = (
+  obj: CreateDBClusterParameterGroupResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterSnapshotMessageFilterSensitiveLog = (obj: CreateDBClusterSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterSnapshotResultFilterSensitiveLog = (obj: CreateDBClusterSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBInstanceMessageFilterSensitiveLog = (obj: CreateDBInstanceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBInstanceRoleFilterSensitiveLog = (obj: DBInstanceRole): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBInstanceAutomatedBackupsReplicationFilterSensitiveLog = (
+  obj: DBInstanceAutomatedBackupsReplication
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBParameterGroupStatusFilterSensitiveLog = (obj: DBParameterGroupStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutpostFilterSensitiveLog = (obj: Outpost): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBSubnetGroupFilterSensitiveLog = (obj: DBSubnetGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptionGroupMembershipFilterSensitiveLog = (obj: OptionGroupMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingModifiedValuesFilterSensitiveLog = (obj: PendingModifiedValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBInstanceStatusInfoFilterSensitiveLog = (obj: DBInstanceStatusInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBInstanceFilterSensitiveLog = (obj: DBInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBInstanceResultFilterSensitiveLog = (obj: CreateDBInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBInstanceReadReplicaMessageFilterSensitiveLog = (obj: CreateDBInstanceReadReplicaMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBInstanceReadReplicaResultFilterSensitiveLog = (obj: CreateDBInstanceReadReplicaResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBParameterGroupMessageFilterSensitiveLog = (obj: CreateDBParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBParameterGroupResultFilterSensitiveLog = (obj: CreateDBParameterGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserAuthConfigFilterSensitiveLog = (obj: UserAuthConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBProxyRequestFilterSensitiveLog = (obj: CreateDBProxyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserAuthConfigInfoFilterSensitiveLog = (obj: UserAuthConfigInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBProxyFilterSensitiveLog = (obj: DBProxy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBProxyResponseFilterSensitiveLog = (obj: CreateDBProxyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBProxyEndpointRequestFilterSensitiveLog = (obj: CreateDBProxyEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBProxyEndpointFilterSensitiveLog = (obj: DBProxyEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBProxyEndpointResponseFilterSensitiveLog = (obj: CreateDBProxyEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBSecurityGroupMessageFilterSensitiveLog = (obj: CreateDBSecurityGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBSecurityGroupResultFilterSensitiveLog = (obj: CreateDBSecurityGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBSnapshotMessageFilterSensitiveLog = (obj: CreateDBSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBSnapshotResultFilterSensitiveLog = (obj: CreateDBSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBSubnetGroupMessageFilterSensitiveLog = (obj: CreateDBSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBSubnetGroupResultFilterSensitiveLog = (obj: CreateDBSubnetGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventSubscriptionMessageFilterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventSubscriptionResultFilterSensitiveLog = (obj: CreateEventSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGlobalClusterMessageFilterSensitiveLog = (obj: CreateGlobalClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailoverStateFilterSensitiveLog = (obj: FailoverState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalClusterMemberFilterSensitiveLog = (obj: GlobalClusterMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalClusterFilterSensitiveLog = (obj: GlobalCluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGlobalClusterResultFilterSensitiveLog = (obj: CreateGlobalClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOptionGroupMessageFilterSensitiveLog = (obj: CreateOptionGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOptionGroupResultFilterSensitiveLog = (obj: CreateOptionGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomDBEngineVersionMessageFilterSensitiveLog = (obj: DeleteCustomDBEngineVersionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterMessageFilterSensitiveLog = (obj: DeleteDBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterResultFilterSensitiveLog = (obj: DeleteDBClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterEndpointMessageFilterSensitiveLog = (obj: DeleteDBClusterEndpointMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterParameterGroupMessageFilterSensitiveLog = (
+  obj: DeleteDBClusterParameterGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterSnapshotMessageFilterSensitiveLog = (obj: DeleteDBClusterSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterSnapshotResultFilterSensitiveLog = (obj: DeleteDBClusterSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBInstanceMessageFilterSensitiveLog = (obj: DeleteDBInstanceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBInstanceResultFilterSensitiveLog = (obj: DeleteDBInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBInstanceAutomatedBackupMessageFilterSensitiveLog = (
+  obj: DeleteDBInstanceAutomatedBackupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreWindowFilterSensitiveLog = (obj: RestoreWindow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBInstanceAutomatedBackupFilterSensitiveLog = (obj: DBInstanceAutomatedBackup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBInstanceAutomatedBackupResultFilterSensitiveLog = (
+  obj: DeleteDBInstanceAutomatedBackupResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBParameterGroupMessageFilterSensitiveLog = (obj: DeleteDBParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBProxyRequestFilterSensitiveLog = (obj: DeleteDBProxyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBProxyResponseFilterSensitiveLog = (obj: DeleteDBProxyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBProxyEndpointRequestFilterSensitiveLog = (obj: DeleteDBProxyEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBProxyEndpointResponseFilterSensitiveLog = (obj: DeleteDBProxyEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBSecurityGroupMessageFilterSensitiveLog = (obj: DeleteDBSecurityGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBSnapshotMessageFilterSensitiveLog = (obj: DeleteDBSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBSnapshotResultFilterSensitiveLog = (obj: DeleteDBSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBSubnetGroupMessageFilterSensitiveLog = (obj: DeleteDBSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventSubscriptionMessageFilterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventSubscriptionResultFilterSensitiveLog = (obj: DeleteEventSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGlobalClusterMessageFilterSensitiveLog = (obj: DeleteGlobalClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGlobalClusterResultFilterSensitiveLog = (obj: DeleteGlobalClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOptionGroupMessageFilterSensitiveLog = (obj: DeleteOptionGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterDBProxyTargetsRequestFilterSensitiveLog = (obj: DeregisterDBProxyTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterDBProxyTargetsResponseFilterSensitiveLog = (obj: DeregisterDBProxyTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountAttributesMessageFilterSensitiveLog = (obj: DescribeAccountAttributesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateMessageFilterSensitiveLog = (obj: CertificateMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCertificatesMessageFilterSensitiveLog = (obj: DescribeCertificatesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterBacktrackMessageFilterSensitiveLog = (obj: DBClusterBacktrackMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterBacktracksMessageFilterSensitiveLog = (obj: DescribeDBClusterBacktracksMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterEndpointMessageFilterSensitiveLog = (obj: DBClusterEndpointMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterEndpointsMessageFilterSensitiveLog = (obj: DescribeDBClusterEndpointsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterParameterGroupsMessageFilterSensitiveLog = (obj: DBClusterParameterGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterParameterGroupsMessageFilterSensitiveLog = (
+  obj: DescribeDBClusterParameterGroupsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterParameterGroupDetailsFilterSensitiveLog = (obj: DBClusterParameterGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterParametersMessageFilterSensitiveLog = (obj: DescribeDBClusterParametersMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterMessageFilterSensitiveLog = (obj: DBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClustersMessageFilterSensitiveLog = (obj: DescribeDBClustersMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterSnapshotAttributesMessageFilterSensitiveLog = (
+  obj: DescribeDBClusterSnapshotAttributesMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterSnapshotAttributeFilterSensitiveLog = (obj: DBClusterSnapshotAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterSnapshotAttributesResultFilterSensitiveLog = (obj: DBClusterSnapshotAttributesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterSnapshotAttributesResultFilterSensitiveLog = (
+  obj: DescribeDBClusterSnapshotAttributesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterSnapshotMessageFilterSensitiveLog = (obj: DBClusterSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterSnapshotsMessageFilterSensitiveLog = (obj: DescribeDBClusterSnapshotsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBEngineVersionMessageFilterSensitiveLog = (obj: DBEngineVersionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBEngineVersionsMessageFilterSensitiveLog = (obj: DescribeDBEngineVersionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBInstanceAutomatedBackupMessageFilterSensitiveLog = (obj: DBInstanceAutomatedBackupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBInstanceAutomatedBackupsMessageFilterSensitiveLog = (
+  obj: DescribeDBInstanceAutomatedBackupsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBInstanceMessageFilterSensitiveLog = (obj: DBInstanceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBInstancesMessageFilterSensitiveLog = (obj: DescribeDBInstancesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBLogFilesMessageFilterSensitiveLog = (obj: DescribeDBLogFilesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBLogFilesDetailsFilterSensitiveLog = (obj: DescribeDBLogFilesDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBLogFilesResponseFilterSensitiveLog = (obj: DescribeDBLogFilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBParameterGroupsMessageFilterSensitiveLog = (obj: DBParameterGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBParameterGroupsMessageFilterSensitiveLog = (obj: DescribeDBParameterGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBParameterGroupDetailsFilterSensitiveLog = (obj: DBParameterGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBParametersMessageFilterSensitiveLog = (obj: DescribeDBParametersMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxiesRequestFilterSensitiveLog = (obj: DescribeDBProxiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxiesResponseFilterSensitiveLog = (obj: DescribeDBProxiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyEndpointsRequestFilterSensitiveLog = (obj: DescribeDBProxyEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyEndpointsResponseFilterSensitiveLog = (obj: DescribeDBProxyEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyTargetGroupsRequestFilterSensitiveLog = (obj: DescribeDBProxyTargetGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionPoolConfigurationInfoFilterSensitiveLog = (obj: ConnectionPoolConfigurationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBProxyTargetGroupFilterSensitiveLog = (obj: DBProxyTargetGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyTargetGroupsResponseFilterSensitiveLog = (
+  obj: DescribeDBProxyTargetGroupsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyTargetsRequestFilterSensitiveLog = (obj: DescribeDBProxyTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetHealthFilterSensitiveLog = (obj: TargetHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBProxyTargetFilterSensitiveLog = (obj: DBProxyTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyTargetsResponseFilterSensitiveLog = (obj: DescribeDBProxyTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBSecurityGroupMessageFilterSensitiveLog = (obj: DBSecurityGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBSecurityGroupsMessageFilterSensitiveLog = (obj: DescribeDBSecurityGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBSnapshotAttributesMessageFilterSensitiveLog = (
+  obj: DescribeDBSnapshotAttributesMessage
+): any => ({
+  ...obj,
+});

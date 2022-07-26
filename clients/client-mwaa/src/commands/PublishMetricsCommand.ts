@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PublishMetricsInput, PublishMetricsOutput } from "../models/models_0";
+import {
+  PublishMetricsInput,
+  PublishMetricsInputFilterSensitiveLog,
+  PublishMetricsOutput,
+  PublishMetricsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import {
   deserializeAws_restJson1PublishMetricsCommand,
@@ -73,8 +78,8 @@ export class PublishMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishMetricsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PublishMetricsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PublishMetricsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PublishMetricsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

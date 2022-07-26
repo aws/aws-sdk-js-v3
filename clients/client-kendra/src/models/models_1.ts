@@ -54,15 +54,6 @@ export interface QueryResult {
   SpellCorrectedQueries?: SpellCorrectedQuery[];
 }
 
-export namespace QueryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryResult): any => ({
-    ...obj,
-  });
-}
-
 export interface QueryRequest {
   /**
    * <p>The unique identifier of the index to search. The identifier is
@@ -164,11 +155,16 @@ export interface QueryRequest {
   SpellCorrectionConfiguration?: SpellCorrectionConfiguration;
 }
 
-export namespace QueryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const QueryResultFilterSensitiveLog = (obj: QueryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryRequestFilterSensitiveLog = (obj: QueryRequest): any => ({
+  ...obj,
+});

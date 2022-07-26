@@ -17,7 +17,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import { DeleteUtterancesRequest } from "../models/models_0";
+import { DeleteUtterancesRequest, DeleteUtterancesRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteUtterancesCommand,
   serializeAws_restJson1DeleteUtterancesCommand,
@@ -87,7 +87,7 @@ export class DeleteUtterancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUtterancesRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUtterancesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

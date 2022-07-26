@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { UpdateTestGridProjectRequest, UpdateTestGridProjectResult } from "../models/models_0";
+import {
+  UpdateTestGridProjectRequest,
+  UpdateTestGridProjectRequestFilterSensitiveLog,
+  UpdateTestGridProjectResult,
+  UpdateTestGridProjectResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateTestGridProjectCommand,
   serializeAws_json1_1UpdateTestGridProjectCommand,
@@ -72,8 +77,8 @@ export class UpdateTestGridProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTestGridProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTestGridProjectResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTestGridProjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTestGridProjectResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { PutPartnerEventsRequest, PutPartnerEventsResponse } from "../models/models_0";
+import {
+  PutPartnerEventsRequest,
+  PutPartnerEventsRequestFilterSensitiveLog,
+  PutPartnerEventsResponse,
+  PutPartnerEventsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutPartnerEventsCommand,
   serializeAws_json1_1PutPartnerEventsCommand,
@@ -73,8 +78,8 @@ export class PutPartnerEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPartnerEventsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutPartnerEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutPartnerEventsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutPartnerEventsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

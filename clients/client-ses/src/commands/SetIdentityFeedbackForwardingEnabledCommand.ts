@@ -14,7 +14,9 @@ import {
 
 import {
   SetIdentityFeedbackForwardingEnabledRequest,
+  SetIdentityFeedbackForwardingEnabledRequestFilterSensitiveLog,
   SetIdentityFeedbackForwardingEnabledResponse,
+  SetIdentityFeedbackForwardingEnabledResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand,
@@ -87,8 +89,8 @@ export class SetIdentityFeedbackForwardingEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIdentityFeedbackForwardingEnabledRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SetIdentityFeedbackForwardingEnabledResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SetIdentityFeedbackForwardingEnabledRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SetIdentityFeedbackForwardingEnabledResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

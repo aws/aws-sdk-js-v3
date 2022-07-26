@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TagResourceInput, TagResourceOutput } from "../models/models_0";
+import {
+  TagResourceInput,
+  TagResourceInputFilterSensitiveLog,
+  TagResourceOutput,
+  TagResourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import {
   deserializeAws_restJson1TagResourceCommand,
@@ -72,8 +77,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: TagResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

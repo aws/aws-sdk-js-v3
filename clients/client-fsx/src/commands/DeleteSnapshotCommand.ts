@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { DeleteSnapshotRequest, DeleteSnapshotResponse } from "../models/models_0";
+import {
+  DeleteSnapshotRequest,
+  DeleteSnapshotRequestFilterSensitiveLog,
+  DeleteSnapshotResponse,
+  DeleteSnapshotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSnapshotCommand,
   serializeAws_json1_1DeleteSnapshotCommand,
@@ -76,8 +81,8 @@ export class DeleteSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSnapshotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

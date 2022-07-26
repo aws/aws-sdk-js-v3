@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client";
-import { CreateApplicationSnapshotRequest, CreateApplicationSnapshotResponse } from "../models/models_0";
+import {
+  CreateApplicationSnapshotRequest,
+  CreateApplicationSnapshotRequestFilterSensitiveLog,
+  CreateApplicationSnapshotResponse,
+  CreateApplicationSnapshotResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateApplicationSnapshotCommand,
   serializeAws_json1_1CreateApplicationSnapshotCommand,
@@ -76,8 +81,8 @@ export class CreateApplicationSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationSnapshotResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateApplicationSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateApplicationSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

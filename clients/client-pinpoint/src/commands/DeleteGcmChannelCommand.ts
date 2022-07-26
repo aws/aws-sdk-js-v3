@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteGcmChannelRequest, DeleteGcmChannelResponse } from "../models/models_0";
+import {
+  DeleteGcmChannelRequest,
+  DeleteGcmChannelRequestFilterSensitiveLog,
+  DeleteGcmChannelResponse,
+  DeleteGcmChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1DeleteGcmChannelCommand,
@@ -72,8 +77,8 @@ export class DeleteGcmChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGcmChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGcmChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGcmChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGcmChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

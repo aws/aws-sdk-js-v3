@@ -25,15 +25,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface AddTagsInput {
   /**
    * <p>The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.</p>
@@ -51,15 +42,6 @@ export interface AddTagsInput {
   ResourceType: TaggableResourceType | string | undefined;
 }
 
-export namespace AddTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon ML returns the following elements.</p>
  */
@@ -73,15 +55,6 @@ export interface AddTagsOutput {
    * <p>The type of the ML object that was tagged.</p>
    */
   ResourceType?: TaggableResourceType | string;
-}
-
-export namespace AddTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -212,15 +185,6 @@ export interface CreateBatchPredictionInput {
   OutputUri: string | undefined;
 }
 
-export namespace CreateBatchPredictionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBatchPredictionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Represents the output of a <code>CreateBatchPrediction</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *          <p>The <code>CreateBatchPrediction</code> operation is asynchronous. You can poll for status updates by using the <code>>GetBatchPrediction</code>
@@ -233,15 +197,6 @@ export interface CreateBatchPredictionOutput {
    *             <code>BatchPredictionId</code> in the request.</p>
    */
   BatchPredictionId?: string;
-}
-
-export namespace CreateBatchPredictionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBatchPredictionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -282,15 +237,6 @@ export interface RDSDatabaseCredentials {
   Password: string | undefined;
 }
 
-export namespace RDSDatabaseCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RDSDatabaseCredentials): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The database details of an Amazon RDS database.</p>
  */
@@ -304,15 +250,6 @@ export interface RDSDatabase {
    * <p>The name of a database hosted on an RDS DB instance.</p>
    */
   DatabaseName: string | undefined;
-}
-
-export namespace RDSDatabase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RDSDatabase): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -478,15 +415,6 @@ export interface RDSDataSpec {
   SecurityGroupIds: string[] | undefined;
 }
 
-export namespace RDSDataSpec {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RDSDataSpec): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDataSourceFromRDSInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>. Typically, an Amazon Resource Number (ARN)
@@ -567,15 +495,6 @@ export interface CreateDataSourceFromRDSInput {
   ComputeStatistics?: boolean;
 }
 
-export namespace CreateDataSourceFromRDSInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceFromRDSInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Represents the output of a <code>CreateDataSourceFromRDS</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *          <p>The <code>CreateDataSourceFromRDS</code>> operation is asynchronous. You can poll for updates by using
@@ -591,15 +510,6 @@ export interface CreateDataSourceFromRDSOutput {
    *         </p>
    */
   DataSourceId?: string;
-}
-
-export namespace CreateDataSourceFromRDSOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceFromRDSOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -619,15 +529,6 @@ export interface RedshiftDatabaseCredentials {
   Password: string | undefined;
 }
 
-export namespace RedshiftDatabaseCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftDatabaseCredentials): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the database details required to connect to an Amazon Redshift database.</p>
  */
@@ -641,15 +542,6 @@ export interface RedshiftDatabase {
    * <p>The ID of an Amazon Redshift cluster.</p>
    */
   ClusterIdentifier: string | undefined;
-}
-
-export namespace RedshiftDatabase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftDatabase): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -794,15 +686,6 @@ export interface RedshiftDataSpec {
   DataSchemaUri?: string;
 }
 
-export namespace RedshiftDataSpec {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftDataSpec): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDataSourceFromRedshiftInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</p>
@@ -882,15 +765,6 @@ export interface CreateDataSourceFromRedshiftInput {
   ComputeStatistics?: boolean;
 }
 
-export namespace CreateDataSourceFromRedshiftInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceFromRedshiftInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Represents the output of a <code>CreateDataSourceFromRedshift</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *          <p>The <code>CreateDataSourceFromRedshift</code> operation is asynchronous. You can poll for updates by using
@@ -903,15 +777,6 @@ export interface CreateDataSourceFromRedshiftOutput {
    *         </p>
    */
   DataSourceId?: string;
-}
-
-export namespace CreateDataSourceFromRedshiftOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceFromRedshiftOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1042,15 +907,6 @@ export interface S3DataSpec {
   DataSchemaLocationS3?: string;
 }
 
-export namespace S3DataSpec {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DataSpec): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDataSourceFromS3Input {
   /**
    * <p>A user-supplied identifier that uniquely identifies the <code>DataSource</code>. </p>
@@ -1092,15 +948,6 @@ export interface CreateDataSourceFromS3Input {
   ComputeStatistics?: boolean;
 }
 
-export namespace CreateDataSourceFromS3Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceFromS3Input): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Represents the output of a <code>CreateDataSourceFromS3</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *         <p>The <code>CreateDataSourceFromS3</code> operation is asynchronous. You can poll for updates by using
@@ -1113,15 +960,6 @@ export interface CreateDataSourceFromS3Output {
    *         </p>
    */
   DataSourceId?: string;
-}
-
-export namespace CreateDataSourceFromS3Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceFromS3Output): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateEvaluationInput {
@@ -1148,15 +986,6 @@ export interface CreateEvaluationInput {
   EvaluationDataSourceId: string | undefined;
 }
 
-export namespace CreateEvaluationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEvaluationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Represents the output of a <code>CreateEvaluation</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *         <p>
@@ -1171,15 +1000,6 @@ export interface CreateEvaluationOutput {
    *             <code>EvaluationId</code> in the request.</p>
    */
   EvaluationId?: string;
-}
-
-export namespace CreateEvaluationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEvaluationOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum MLModelType {
@@ -1282,15 +1102,6 @@ export interface CreateMLModelInput {
   RecipeUri?: string;
 }
 
-export namespace CreateMLModelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMLModelInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Represents the output of a <code>CreateMLModel</code> operation, and is an acknowledgement that Amazon ML received the request.</p>
  *         <p>The <code>CreateMLModel</code> operation is asynchronous. You can poll for status updates by using the
@@ -1306,29 +1117,11 @@ export interface CreateMLModelOutput {
   MLModelId?: string;
 }
 
-export namespace CreateMLModelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMLModelOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRealtimeEndpointInput {
   /**
    * <p>The ID assigned to the <code>MLModel</code> during creation.</p>
    */
   MLModelId: string | undefined;
-}
-
-export namespace CreateRealtimeEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRealtimeEndpointInput): any => ({
-    ...obj,
-  });
 }
 
 export enum RealtimeEndpointStatus {
@@ -1379,15 +1172,6 @@ export interface RealtimeEndpointInfo {
   EndpointStatus?: RealtimeEndpointStatus | string;
 }
 
-export namespace RealtimeEndpointInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RealtimeEndpointInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of an <code>CreateRealtimeEndpoint</code> operation.</p>
  *         <p>The result contains the <code>MLModelId</code> and the endpoint information for the <code>MLModel</code>.</p>
@@ -1408,29 +1192,11 @@ export interface CreateRealtimeEndpointOutput {
   RealtimeEndpointInfo?: RealtimeEndpointInfo;
 }
 
-export namespace CreateRealtimeEndpointOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRealtimeEndpointOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBatchPredictionInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>BatchPrediction</code>.</p>
    */
   BatchPredictionId: string | undefined;
-}
-
-export namespace DeleteBatchPredictionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBatchPredictionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1445,29 +1211,11 @@ export interface DeleteBatchPredictionOutput {
   BatchPredictionId?: string;
 }
 
-export namespace DeleteBatchPredictionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBatchPredictionOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDataSourceInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</p>
    */
   DataSourceId: string | undefined;
-}
-
-export namespace DeleteDataSourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataSourceInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1480,29 +1228,11 @@ export interface DeleteDataSourceOutput {
   DataSourceId?: string;
 }
 
-export namespace DeleteDataSourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataSourceOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEvaluationInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>Evaluation</code> to delete.</p>
    */
   EvaluationId: string | undefined;
-}
-
-export namespace DeleteEvaluationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEvaluationInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1517,29 +1247,11 @@ export interface DeleteEvaluationOutput {
   EvaluationId?: string;
 }
 
-export namespace DeleteEvaluationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEvaluationOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMLModelInput {
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>MLModel</code>.</p>
    */
   MLModelId: string | undefined;
-}
-
-export namespace DeleteMLModelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMLModelInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1554,29 +1266,11 @@ export interface DeleteMLModelOutput {
   MLModelId?: string;
 }
 
-export namespace DeleteMLModelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMLModelOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRealtimeEndpointInput {
   /**
    * <p>The ID assigned to the <code>MLModel</code> during creation.</p>
    */
   MLModelId: string | undefined;
-}
-
-export namespace DeleteRealtimeEndpointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRealtimeEndpointInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1597,15 +1291,6 @@ export interface DeleteRealtimeEndpointOutput {
   RealtimeEndpointInfo?: RealtimeEndpointInfo;
 }
 
-export namespace DeleteRealtimeEndpointOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRealtimeEndpointOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTagsInput {
   /**
    * <p>One or more tags to delete.</p>
@@ -1623,15 +1308,6 @@ export interface DeleteTagsInput {
   ResourceType: TaggableResourceType | string | undefined;
 }
 
-export namespace DeleteTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon ML returns the following elements.</p>
  */
@@ -1645,15 +1321,6 @@ export interface DeleteTagsOutput {
    * <p>The type of the ML object from which tags were deleted.</p>
    */
   ResourceType?: TaggableResourceType | string;
-}
-
-export namespace DeleteTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum BatchPredictionFilterVariable {
@@ -1793,15 +1460,6 @@ export interface DescribeBatchPredictionsInput {
   Limit?: number;
 }
 
-export namespace DescribeBatchPredictionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBatchPredictionsInput): any => ({
-    ...obj,
-  });
-}
-
 export enum EntityStatus {
   COMPLETED = "COMPLETED",
   DELETED = "DELETED",
@@ -1921,15 +1579,6 @@ export interface BatchPrediction {
   InvalidRecordCount?: number;
 }
 
-export namespace BatchPrediction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPrediction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeBatchPredictions</code> operation. The content is essentially a list of <code>BatchPrediction</code>s.</p>
  */
@@ -1944,15 +1593,6 @@ export interface DescribeBatchPredictionsOutput {
    * <p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeBatchPredictionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBatchPredictionsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum DataSourceFilterVariable {
@@ -2076,15 +1716,6 @@ export interface DescribeDataSourcesInput {
   Limit?: number;
 }
 
-export namespace DescribeDataSourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSourcesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The datasource details that are specific to Amazon RDS.</p>
  */
@@ -2121,15 +1752,6 @@ export interface RDSMetadata {
   DataPipelineId?: string;
 }
 
-export namespace RDSMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RDSMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the <code>DataSource</code> details specific to Amazon Redshift.</p>
  */
@@ -2149,15 +1771,6 @@ export interface RedshiftMetadata {
    * <p> The SQL query that is specified during <a>CreateDataSourceFromRedshift</a>. Returns only if <code>Verbose</code> is true in GetDataSourceInput. </p>
    */
   SelectSqlQuery?: string;
-}
-
-export namespace RedshiftMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2277,15 +1890,6 @@ export interface DataSource {
   StartedAt?: Date;
 }
 
-export namespace DataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the query results from a <a>DescribeDataSources</a> operation. The content is essentially a list of <code>DataSource</code>.</p>
  */
@@ -2300,15 +1904,6 @@ export interface DescribeDataSourcesOutput {
    * <p>An ID of the next page in the paginated results that indicates at least one more page follows.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeDataSourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum EvaluationFilterVariable {
@@ -2443,15 +2038,6 @@ export interface DescribeEvaluationsInput {
   Limit?: number;
 }
 
-export namespace DescribeEvaluationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEvaluationsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Measurements of how well the <code>MLModel</code> performed on known observations. One of the following metrics is returned, based on the type of the <code>MLModel</code>:
  *         </p>
@@ -2472,15 +2058,6 @@ export namespace DescribeEvaluationsInput {
  */
 export interface PerformanceMetrics {
   Properties?: Record<string, string>;
-}
-
-export namespace PerformanceMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PerformanceMetrics): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2598,15 +2175,6 @@ export interface Evaluation {
   StartedAt?: Date;
 }
 
-export namespace Evaluation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Evaluation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the query results from a <code>DescribeEvaluations</code> operation. The content is essentially a list of <code>Evaluation</code>.</p>
  */
@@ -2621,15 +2189,6 @@ export interface DescribeEvaluationsOutput {
    * <p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeEvaluationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEvaluationsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum MLModelFilterVariable {
@@ -2772,15 +2331,6 @@ export interface DescribeMLModelsInput {
    * <p>The number of pages of information to include in the result. The range of acceptable values is <code>1</code> through <code>100</code>. The default value is <code>100</code>.</p>
    */
   Limit?: number;
-}
-
-export namespace DescribeMLModelsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMLModelsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2971,15 +2521,6 @@ export interface MLModel {
   StartedAt?: Date;
 }
 
-export namespace MLModel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MLModel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeMLModels</code> operation. The content is essentially a list of <code>MLModel</code>.</p>
  */
@@ -2995,15 +2536,6 @@ export interface DescribeMLModelsOutput {
   NextToken?: string;
 }
 
-export namespace DescribeMLModelsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMLModelsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTagsInput {
   /**
    * <p>The ID of the ML object. For example, <code>exampleModelId</code>. </p>
@@ -3014,15 +2546,6 @@ export interface DescribeTagsInput {
    * <p>The type of the ML object.</p>
    */
   ResourceType: TaggableResourceType | string | undefined;
-}
-
-export namespace DescribeTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3045,29 +2568,11 @@ export interface DescribeTagsOutput {
   Tags?: Tag[];
 }
 
-export namespace DescribeTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBatchPredictionInput {
   /**
    * <p>An ID assigned to the <code>BatchPrediction</code> at creation.</p>
    */
   BatchPredictionId: string | undefined;
-}
-
-export namespace GetBatchPredictionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBatchPredictionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3184,15 +2689,6 @@ export interface GetBatchPredictionOutput {
   InvalidRecordCount?: number;
 }
 
-export namespace GetBatchPredictionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBatchPredictionOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDataSourceInput {
   /**
    * <p>The ID assigned to the <code>DataSource</code> at creation.</p>
@@ -3205,15 +2701,6 @@ export interface GetDataSourceInput {
    *         <p>If false, <code>DataSourceSchema</code> is not returned.</p>
    */
   Verbose?: boolean;
-}
-
-export namespace GetDataSourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataSourceInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3348,29 +2835,11 @@ export interface GetDataSourceOutput {
   DataSourceSchema?: string;
 }
 
-export namespace GetDataSourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataSourceOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEvaluationInput {
   /**
    * <p>The ID of the <code>Evaluation</code> to retrieve. The evaluation of each <code>MLModel</code> is recorded and cataloged. The ID provides the means to access the information. </p>
    */
   EvaluationId: string | undefined;
-}
-
-export namespace GetEvaluationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvaluationInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3490,15 +2959,6 @@ export interface GetEvaluationOutput {
   StartedAt?: Date;
 }
 
-export namespace GetEvaluationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEvaluationOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMLModelInput {
   /**
    * <p>The ID assigned to the <code>MLModel</code> at creation.</p>
@@ -3511,15 +2971,6 @@ export interface GetMLModelInput {
    *         <p>If false, <code>Recipe</code> is not returned.</p>
    */
   Verbose?: boolean;
-}
-
-export namespace GetMLModelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMLModelInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3724,15 +3175,6 @@ export interface GetMLModelOutput {
   Schema?: string;
 }
 
-export namespace GetMLModelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMLModelOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as <code>DataSource</code>.</p>
  */
@@ -3766,15 +3208,6 @@ export interface PredictInput {
   Record: Record<string, string> | undefined;
 
   PredictEndpoint: string | undefined;
-}
-
-export namespace PredictInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3855,15 +3288,6 @@ export interface Prediction {
   details?: Record<string, string>;
 }
 
-export namespace Prediction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Prediction): any => ({
-    ...obj,
-  });
-}
-
 export interface PredictOutput {
   /**
    * <p>The output from a <code>Predict</code> operation: </p>
@@ -3898,15 +3322,6 @@ export interface PredictOutput {
   Prediction?: Prediction;
 }
 
-export namespace PredictOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBatchPredictionInput {
   /**
    * <p>The ID assigned to the <code>BatchPrediction</code> during creation.</p>
@@ -3917,15 +3332,6 @@ export interface UpdateBatchPredictionInput {
    * <p>A new user-supplied name or description of the <code>BatchPrediction</code>.</p>
    */
   BatchPredictionName: string | undefined;
-}
-
-export namespace UpdateBatchPredictionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBatchPredictionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3940,15 +3346,6 @@ export interface UpdateBatchPredictionOutput {
   BatchPredictionId?: string;
 }
 
-export namespace UpdateBatchPredictionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBatchPredictionOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDataSourceInput {
   /**
    * <p>The ID assigned to the <code>DataSource</code> during creation.</p>
@@ -3959,15 +3356,6 @@ export interface UpdateDataSourceInput {
    * <p>A new user-supplied name or description of the <code>DataSource</code> that will replace the current description. </p>
    */
   DataSourceName: string | undefined;
-}
-
-export namespace UpdateDataSourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSourceInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3982,15 +3370,6 @@ export interface UpdateDataSourceOutput {
   DataSourceId?: string;
 }
 
-export namespace UpdateDataSourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDataSourceOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEvaluationInput {
   /**
    * <p>The ID assigned to the <code>Evaluation</code> during creation.</p>
@@ -4003,15 +3382,6 @@ export interface UpdateEvaluationInput {
   EvaluationName: string | undefined;
 }
 
-export namespace UpdateEvaluationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEvaluationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of an <code>UpdateEvaluation</code> operation.</p>
  *         <p>You can see the updated content by using the <code>GetEvaluation</code> operation.</p>
@@ -4022,15 +3392,6 @@ export interface UpdateEvaluationOutput {
    *             of the <code>Evaluation</code> in the request.</p>
    */
   EvaluationId?: string;
-}
-
-export namespace UpdateEvaluationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEvaluationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateMLModelInput {
@@ -4051,15 +3412,6 @@ export interface UpdateMLModelInput {
   ScoreThreshold?: number;
 }
 
-export namespace UpdateMLModelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMLModelInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of an <code>UpdateMLModel</code> operation.</p>
  *         <p>You can see the updated content by using the <code>GetMLModel</code> operation.</p>
@@ -4072,11 +3424,513 @@ export interface UpdateMLModelOutput {
   MLModelId?: string;
 }
 
-export namespace UpdateMLModelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMLModelOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsInputFilterSensitiveLog = (obj: AddTagsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsOutputFilterSensitiveLog = (obj: AddTagsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBatchPredictionInputFilterSensitiveLog = (obj: CreateBatchPredictionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBatchPredictionOutputFilterSensitiveLog = (obj: CreateBatchPredictionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RDSDatabaseCredentialsFilterSensitiveLog = (obj: RDSDatabaseCredentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RDSDatabaseFilterSensitiveLog = (obj: RDSDatabase): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RDSDataSpecFilterSensitiveLog = (obj: RDSDataSpec): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSourceFromRDSInputFilterSensitiveLog = (obj: CreateDataSourceFromRDSInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSourceFromRDSOutputFilterSensitiveLog = (obj: CreateDataSourceFromRDSOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftDatabaseCredentialsFilterSensitiveLog = (obj: RedshiftDatabaseCredentials): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftDatabaseFilterSensitiveLog = (obj: RedshiftDatabase): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftDataSpecFilterSensitiveLog = (obj: RedshiftDataSpec): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSourceFromRedshiftInputFilterSensitiveLog = (obj: CreateDataSourceFromRedshiftInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSourceFromRedshiftOutputFilterSensitiveLog = (obj: CreateDataSourceFromRedshiftOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DataSpecFilterSensitiveLog = (obj: S3DataSpec): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSourceFromS3InputFilterSensitiveLog = (obj: CreateDataSourceFromS3Input): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSourceFromS3OutputFilterSensitiveLog = (obj: CreateDataSourceFromS3Output): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEvaluationInputFilterSensitiveLog = (obj: CreateEvaluationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEvaluationOutputFilterSensitiveLog = (obj: CreateEvaluationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMLModelInputFilterSensitiveLog = (obj: CreateMLModelInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMLModelOutputFilterSensitiveLog = (obj: CreateMLModelOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRealtimeEndpointInputFilterSensitiveLog = (obj: CreateRealtimeEndpointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RealtimeEndpointInfoFilterSensitiveLog = (obj: RealtimeEndpointInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRealtimeEndpointOutputFilterSensitiveLog = (obj: CreateRealtimeEndpointOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBatchPredictionInputFilterSensitiveLog = (obj: DeleteBatchPredictionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBatchPredictionOutputFilterSensitiveLog = (obj: DeleteBatchPredictionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataSourceInputFilterSensitiveLog = (obj: DeleteDataSourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataSourceOutputFilterSensitiveLog = (obj: DeleteDataSourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEvaluationInputFilterSensitiveLog = (obj: DeleteEvaluationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEvaluationOutputFilterSensitiveLog = (obj: DeleteEvaluationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMLModelInputFilterSensitiveLog = (obj: DeleteMLModelInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMLModelOutputFilterSensitiveLog = (obj: DeleteMLModelOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRealtimeEndpointInputFilterSensitiveLog = (obj: DeleteRealtimeEndpointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRealtimeEndpointOutputFilterSensitiveLog = (obj: DeleteRealtimeEndpointOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsInputFilterSensitiveLog = (obj: DeleteTagsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsOutputFilterSensitiveLog = (obj: DeleteTagsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBatchPredictionsInputFilterSensitiveLog = (obj: DescribeBatchPredictionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPredictionFilterSensitiveLog = (obj: BatchPrediction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBatchPredictionsOutputFilterSensitiveLog = (obj: DescribeBatchPredictionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSourcesInputFilterSensitiveLog = (obj: DescribeDataSourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RDSMetadataFilterSensitiveLog = (obj: RDSMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftMetadataFilterSensitiveLog = (obj: RedshiftMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSourcesOutputFilterSensitiveLog = (obj: DescribeDataSourcesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEvaluationsInputFilterSensitiveLog = (obj: DescribeEvaluationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PerformanceMetricsFilterSensitiveLog = (obj: PerformanceMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationFilterSensitiveLog = (obj: Evaluation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEvaluationsOutputFilterSensitiveLog = (obj: DescribeEvaluationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMLModelsInputFilterSensitiveLog = (obj: DescribeMLModelsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MLModelFilterSensitiveLog = (obj: MLModel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMLModelsOutputFilterSensitiveLog = (obj: DescribeMLModelsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsInputFilterSensitiveLog = (obj: DescribeTagsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsOutputFilterSensitiveLog = (obj: DescribeTagsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBatchPredictionInputFilterSensitiveLog = (obj: GetBatchPredictionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBatchPredictionOutputFilterSensitiveLog = (obj: GetBatchPredictionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataSourceInputFilterSensitiveLog = (obj: GetDataSourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataSourceOutputFilterSensitiveLog = (obj: GetDataSourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvaluationInputFilterSensitiveLog = (obj: GetEvaluationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEvaluationOutputFilterSensitiveLog = (obj: GetEvaluationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMLModelInputFilterSensitiveLog = (obj: GetMLModelInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMLModelOutputFilterSensitiveLog = (obj: GetMLModelOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictInputFilterSensitiveLog = (obj: PredictInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictionFilterSensitiveLog = (obj: Prediction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictOutputFilterSensitiveLog = (obj: PredictOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBatchPredictionInputFilterSensitiveLog = (obj: UpdateBatchPredictionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBatchPredictionOutputFilterSensitiveLog = (obj: UpdateBatchPredictionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSourceInputFilterSensitiveLog = (obj: UpdateDataSourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataSourceOutputFilterSensitiveLog = (obj: UpdateDataSourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEvaluationInputFilterSensitiveLog = (obj: UpdateEvaluationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEvaluationOutputFilterSensitiveLog = (obj: UpdateEvaluationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMLModelInputFilterSensitiveLog = (obj: UpdateMLModelInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMLModelOutputFilterSensitiveLog = (obj: UpdateMLModelOutput): any => ({
+  ...obj,
+});

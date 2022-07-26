@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UnsubscribeInput } from "../models/models_0";
+import { UnsubscribeInput, UnsubscribeInputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryUnsubscribeCommand, serializeAws_queryUnsubscribeCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -75,7 +75,7 @@ export class UnsubscribeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnsubscribeInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UnsubscribeInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

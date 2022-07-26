@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCoreNetworkRequest, GetCoreNetworkResponse } from "../models/models_0";
+import {
+  GetCoreNetworkRequest,
+  GetCoreNetworkRequestFilterSensitiveLog,
+  GetCoreNetworkResponse,
+  GetCoreNetworkResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetCoreNetworkCommand,
@@ -72,8 +77,8 @@ export class GetCoreNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCoreNetworkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCoreNetworkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCoreNetworkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCoreNetworkResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

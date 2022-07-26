@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
-import { ListReportDefinitionsRequest, ListReportDefinitionsResult } from "../models/models_0";
+import {
+  ListReportDefinitionsRequest,
+  ListReportDefinitionsRequestFilterSensitiveLog,
+  ListReportDefinitionsResult,
+  ListReportDefinitionsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListReportDefinitionsCommand,
   serializeAws_restJson1ListReportDefinitionsCommand,
@@ -77,8 +82,8 @@ export class ListReportDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReportDefinitionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListReportDefinitionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListReportDefinitionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListReportDefinitionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

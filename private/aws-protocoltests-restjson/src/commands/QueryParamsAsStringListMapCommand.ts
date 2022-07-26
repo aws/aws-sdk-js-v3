@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { QueryParamsAsStringListMapInput } from "../models/models_0";
+import { QueryParamsAsStringListMapInput, QueryParamsAsStringListMapInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1QueryParamsAsStringListMapCommand,
   serializeAws_restJson1QueryParamsAsStringListMapCommand,
@@ -55,7 +55,7 @@ export class QueryParamsAsStringListMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryParamsAsStringListMapInput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryParamsAsStringListMapInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

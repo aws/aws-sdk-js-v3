@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCurrentUserRequest, GetCurrentUserResponse } from "../models/models_0";
+import {
+  GetCurrentUserRequest,
+  GetCurrentUserRequestFilterSensitiveLog,
+  GetCurrentUserResponse,
+  GetCurrentUserResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetCurrentUserCommand,
   serializeAws_restJson1GetCurrentUserCommand,
@@ -78,8 +83,8 @@ export class GetCurrentUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCurrentUserRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCurrentUserResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCurrentUserRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCurrentUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

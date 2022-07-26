@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { GetDataflowEndpointGroupRequest, GetDataflowEndpointGroupResponse } from "../models/models_0";
+import {
+  GetDataflowEndpointGroupRequest,
+  GetDataflowEndpointGroupRequestFilterSensitiveLog,
+  GetDataflowEndpointGroupResponse,
+  GetDataflowEndpointGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDataflowEndpointGroupCommand,
   serializeAws_restJson1GetDataflowEndpointGroupCommand,
@@ -72,8 +77,8 @@ export class GetDataflowEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataflowEndpointGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDataflowEndpointGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDataflowEndpointGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDataflowEndpointGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

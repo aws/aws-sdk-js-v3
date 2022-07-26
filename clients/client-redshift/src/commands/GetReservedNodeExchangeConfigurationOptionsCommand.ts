@@ -14,7 +14,9 @@ import {
 
 import {
   GetReservedNodeExchangeConfigurationOptionsInputMessage,
+  GetReservedNodeExchangeConfigurationOptionsInputMessageFilterSensitiveLog,
   GetReservedNodeExchangeConfigurationOptionsOutputMessage,
+  GetReservedNodeExchangeConfigurationOptionsOutputMessageFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand,
@@ -83,8 +85,8 @@ export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReservedNodeExchangeConfigurationOptionsInputMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: GetReservedNodeExchangeConfigurationOptionsOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: GetReservedNodeExchangeConfigurationOptionsInputMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: GetReservedNodeExchangeConfigurationOptionsOutputMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

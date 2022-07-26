@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { VoteOnProposalInput, VoteOnProposalOutput } from "../models/models_0";
+import {
+  VoteOnProposalInput,
+  VoteOnProposalInputFilterSensitiveLog,
+  VoteOnProposalOutput,
+  VoteOnProposalOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1VoteOnProposalCommand,
   serializeAws_restJson1VoteOnProposalCommand,
@@ -77,8 +82,8 @@ export class VoteOnProposalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VoteOnProposalInput.filterSensitiveLog,
-      outputFilterSensitiveLog: VoteOnProposalOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: VoteOnProposalInputFilterSensitiveLog,
+      outputFilterSensitiveLog: VoteOnProposalOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EvaluateSessionRequest, EvaluateSessionResponse } from "../models/models_0";
+import {
+  EvaluateSessionRequest,
+  EvaluateSessionRequestFilterSensitiveLog,
+  EvaluateSessionResponse,
+  EvaluateSessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0EvaluateSessionCommand,
   serializeAws_json1_0EvaluateSessionCommand,
@@ -73,8 +78,8 @@ export class EvaluateSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluateSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EvaluateSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EvaluateSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EvaluateSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

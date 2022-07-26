@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetJobRunRequest, GetJobRunResponse } from "../models/models_1";
+import {
+  GetJobRunRequest,
+  GetJobRunRequestFilterSensitiveLog,
+  GetJobRunResponse,
+  GetJobRunResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { deserializeAws_json1_1GetJobRunCommand, serializeAws_json1_1GetJobRunCommand } from "../protocols/Aws_json1_1";
 
 export interface GetJobRunCommandInput extends GetJobRunRequest {}
@@ -69,8 +74,8 @@ export class GetJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobRunRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetJobRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetJobRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetJobRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse } from "../models/models_1";
+import {
+  DeleteFlowDefinitionRequest,
+  DeleteFlowDefinitionRequestFilterSensitiveLog,
+  DeleteFlowDefinitionResponse,
+  DeleteFlowDefinitionResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteFlowDefinitionCommand,
   serializeAws_json1_1DeleteFlowDefinitionCommand,
@@ -72,8 +77,8 @@ export class DeleteFlowDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlowDefinitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlowDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFlowDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFlowDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

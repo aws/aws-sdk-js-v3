@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { UpdateProfileJobRequest, UpdateProfileJobResponse } from "../models/models_0";
+import {
+  UpdateProfileJobRequest,
+  UpdateProfileJobRequestFilterSensitiveLog,
+  UpdateProfileJobResponse,
+  UpdateProfileJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateProfileJobCommand,
   serializeAws_restJson1UpdateProfileJobCommand,
@@ -72,8 +77,8 @@ export class UpdateProfileJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProfileJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProfileJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateProfileJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateProfileJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

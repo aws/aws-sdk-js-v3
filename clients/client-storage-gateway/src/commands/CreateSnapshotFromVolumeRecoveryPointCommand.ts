@@ -14,7 +14,9 @@ import {
 
 import {
   CreateSnapshotFromVolumeRecoveryPointInput,
+  CreateSnapshotFromVolumeRecoveryPointInputFilterSensitiveLog,
   CreateSnapshotFromVolumeRecoveryPointOutput,
+  CreateSnapshotFromVolumeRecoveryPointOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand,
@@ -97,8 +99,8 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSnapshotFromVolumeRecoveryPointInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSnapshotFromVolumeRecoveryPointOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSnapshotFromVolumeRecoveryPointInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSnapshotFromVolumeRecoveryPointOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

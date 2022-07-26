@@ -18,15 +18,6 @@ export interface AccessLogSettings {
   destinationArn?: string;
 }
 
-export namespace AccessLogSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessLogSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The API request rate limits.</p>
  */
@@ -40,15 +31,6 @@ export interface ThrottleSettings {
    * <p>The API target request rate limit.</p>
    */
   rateLimit?: number;
-}
-
-export namespace ThrottleSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottleSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -74,15 +56,6 @@ export interface Account {
    * <p>The version of the API keys used for the account.</p>
    */
   apiKeyVersion?: string;
-}
-
-export namespace Account {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Account): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -140,15 +113,6 @@ export interface ApiKey {
   tags?: Record<string, string>;
 }
 
-export namespace ApiKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The identifier of an ApiKey used in a UsagePlan.</p>
  */
@@ -162,15 +126,6 @@ export interface ApiKeyIds {
    * <p>A list of warning messages.</p>
    */
   warnings?: string[];
-}
-
-export namespace ApiKeyIds {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiKeyIds): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -191,15 +146,6 @@ export interface ApiKeys {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace ApiKeys {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiKeys): any => ({
-    ...obj,
-  });
 }
 
 export enum ApiKeysFormat {
@@ -229,15 +175,6 @@ export interface ApiStage {
    * <p>Map containing method level throttling information for API stage in a usage plan.</p>
    */
   throttle?: Record<string, ThrottleSettings>;
-}
-
-export namespace ApiStage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiStage): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthorizerType {
@@ -315,15 +252,6 @@ export interface Authorizer {
   authorizerResultTtlInSeconds?: number;
 }
 
-export namespace Authorizer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Authorizer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a collection of Authorizer resources.</p>
  */
@@ -337,15 +265,6 @@ export interface Authorizers {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace Authorizers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Authorizers): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -401,15 +320,6 @@ export interface StageKey {
   stageName?: string;
 }
 
-export namespace StageKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to create an ApiKey resource.</p>
  */
@@ -453,15 +363,6 @@ export interface CreateApiKeyRequest {
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateApiKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -615,15 +516,6 @@ export interface CreateAuthorizerRequest {
   authorizerResultTtlInSeconds?: number;
 }
 
-export namespace CreateAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the base path that callers of the API must provide as part of the URL after the domain name.</p>
  */
@@ -642,15 +534,6 @@ export interface BasePathMapping {
    * <p>The name of the associated stage.</p>
    */
   stage?: string;
-}
-
-export namespace BasePathMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BasePathMapping): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -676,15 +559,6 @@ export interface CreateBasePathMappingRequest {
    * <p>The name of the API's stage that you want to use for this mapping. Specify '(none)' if you want callers to explicitly specify the stage name after any base path name.</p>
    */
   stage?: string;
-}
-
-export namespace CreateBasePathMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBasePathMappingRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CacheClusterSize {
@@ -716,15 +590,6 @@ export interface DeploymentCanarySettings {
    * <p>A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.</p>
    */
   useStageCache?: boolean;
-}
-
-export namespace DeploymentCanarySettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentCanarySettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -779,15 +644,6 @@ export interface CreateDeploymentRequest {
   tracingEnabled?: boolean;
 }
 
-export namespace CreateDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a summary of a Method resource, given a particular date and time.</p>
  */
@@ -801,15 +657,6 @@ export interface MethodSnapshot {
    * <p>Specifies whether the method requires a valid ApiKey.</p>
    */
   apiKeyRequired?: boolean;
-}
-
-export namespace MethodSnapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MethodSnapshot): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -835,15 +682,6 @@ export interface Deployment {
    * <p>A summary of the RestApi at the date and time that the deployment resource was created.</p>
    */
   apiSummary?: Record<string, Record<string, MethodSnapshot>>;
-}
-
-export namespace Deployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deployment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -912,15 +750,6 @@ export interface DocumentationPartLocation {
   name?: string;
 }
 
-export namespace DocumentationPartLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentationPartLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates a new documentation part of a given API.</p>
  */
@@ -941,15 +770,6 @@ export interface CreateDocumentationPartRequest {
   properties: string | undefined;
 }
 
-export namespace CreateDocumentationPartRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDocumentationPartRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A documentation part for a targeted API entity.</p>
  */
@@ -968,15 +788,6 @@ export interface DocumentationPart {
    * <p>A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., <code>"{ \"description\": \"The API does ...\" }"</code>.  Only OpenAPI-compliant documentation-related fields from the properties map are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of <code>x-amazon-apigateway-documentation</code>.</p>
    */
   properties?: string;
-}
-
-export namespace DocumentationPart {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentationPart): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1004,15 +815,6 @@ export interface CreateDocumentationVersionRequest {
   description?: string;
 }
 
-export namespace CreateDocumentationVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDocumentationVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A snapshot of the documentation of an API.</p>
  */
@@ -1033,15 +835,6 @@ export interface DocumentationVersion {
   description?: string;
 }
 
-export namespace DocumentationVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentationVersion): any => ({
-    ...obj,
-  });
-}
-
 export type EndpointType = "EDGE" | "PRIVATE" | "REGIONAL";
 
 /**
@@ -1057,15 +850,6 @@ export interface EndpointConfiguration {
    * <p>A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for <code>PRIVATE</code> endpoint type.</p>
    */
   vpcEndpointIds?: string[];
-}
-
-export namespace EndpointConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1087,15 +871,6 @@ export interface MutualTlsAuthenticationInput {
    * <p>The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket</p>
    */
   truststoreVersion?: string;
-}
-
-export namespace MutualTlsAuthenticationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MutualTlsAuthenticationInput): any => ({
-    ...obj,
-  });
 }
 
 export type SecurityPolicy = "TLS_1_0" | "TLS_1_2";
@@ -1174,15 +949,6 @@ export interface CreateDomainNameRequest {
   ownershipVerificationCertificateArn?: string;
 }
 
-export namespace CreateDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainNameRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum DomainNameStatus {
   AVAILABLE = "AVAILABLE",
   PENDING = "PENDING",
@@ -1218,15 +984,6 @@ export interface MutualTlsAuthentication {
    *       domain name to use the new version.</p>
    */
   truststoreWarnings?: string[];
-}
-
-export namespace MutualTlsAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MutualTlsAuthentication): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1323,15 +1080,6 @@ export interface DomainName {
   ownershipVerificationCertificateArn?: string;
 }
 
-export namespace DomainName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainName): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to add a new Model to an existing RestApi resource.</p>
  */
@@ -1360,15 +1108,6 @@ export interface CreateModelRequest {
    * <p>The content-type for the model.</p>
    */
   contentType: string | undefined;
-}
-
-export namespace CreateModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1401,15 +1140,6 @@ export interface Model {
   contentType?: string;
 }
 
-export namespace Model {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Model): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates a RequestValidator of a given RestApi.</p>
  */
@@ -1433,15 +1163,6 @@ export interface CreateRequestValidatorRequest {
    * <p>A Boolean flag to indicate whether to validate request parameters, <code>true</code>, or not <code>false</code>.</p>
    */
   validateRequestParameters?: boolean;
-}
-
-export namespace CreateRequestValidatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRequestValidatorRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1469,15 +1190,6 @@ export interface RequestValidator {
   validateRequestParameters?: boolean;
 }
 
-export namespace RequestValidator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestValidator): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Requests API Gateway to create a Resource resource.</p>
  */
@@ -1496,15 +1208,6 @@ export interface CreateResourceRequest {
    * <p>The last path segment for this resource.</p>
    */
   pathPart: string | undefined;
-}
-
-export namespace CreateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionType {
@@ -1550,15 +1253,6 @@ export interface IntegrationResponse {
   contentHandling?: ContentHandlingStrategy | string;
 }
 
-export namespace IntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntegrationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the TLS configuration for an integration.</p>
  */
@@ -1577,15 +1271,6 @@ export interface TlsConfig {
    *          </important>
    */
   insecureSkipVerification?: boolean;
-}
-
-export namespace TlsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TlsConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum IntegrationType {
@@ -1710,15 +1395,6 @@ export interface Integration {
   tlsConfig?: TlsConfig;
 }
 
-export namespace Integration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Integration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a method response of a given HTTP status code returned to the client. The method response is passed from the back end through the associated integration response that can be transformed using a mapping template. </p>
  */
@@ -1737,15 +1413,6 @@ export interface MethodResponse {
    * <p>Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.</p>
    */
   responseModels?: Record<string, string>;
-}
-
-export namespace MethodResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MethodResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1815,15 +1482,6 @@ export interface Method {
   authorizationScopes?: string[];
 }
 
-export namespace Method {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Method): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an API resource.</p>
  */
@@ -1852,15 +1510,6 @@ export interface Resource {
    * <p>Gets an API resource's method of a given HTTP verb.</p>
    */
   resourceMethods?: Record<string, Method>;
-}
-
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1927,15 +1576,6 @@ export interface CreateRestApiRequest {
    *       custom domain name to invoke your API, disable the default endpoint</p>
    */
   disableExecuteApiEndpoint?: boolean;
-}
-
-export namespace CreateRestApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRestApiRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2014,15 +1654,6 @@ export interface RestApi {
   disableExecuteApiEndpoint?: boolean;
 }
 
-export namespace RestApi {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestApi): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration settings of a canary deployment.</p>
  */
@@ -2046,15 +1677,6 @@ export interface CanarySettings {
    * <p>A Boolean flag to indicate whether the canary deployment uses the stage cache or not.</p>
    */
   useStageCache?: boolean;
-}
-
-export namespace CanarySettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanarySettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2117,15 +1739,6 @@ export interface CreateStageRequest {
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStageRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CacheClusterStatus {
@@ -2195,15 +1808,6 @@ export interface MethodSetting {
    * <p>Specifies how to handle unauthorized requests for cache invalidation. The PATCH path for this setting is <code>/{method_setting_key}/caching/unauthorizedCacheControlHeaderStrategy</code>, and the available values are <code>FAIL_WITH_403</code>, <code>SUCCEED_WITH_RESPONSE_HEADER</code>, <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>.</p>
    */
   unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy | string;
-}
-
-export namespace MethodSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MethodSetting): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2297,15 +1901,6 @@ export interface Stage {
   lastUpdatedDate?: Date;
 }
 
-export namespace Stage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Stage): any => ({
-    ...obj,
-  });
-}
-
 export enum QuotaPeriodType {
   DAY = "DAY",
   MONTH = "MONTH",
@@ -2330,15 +1925,6 @@ export interface QuotaSettings {
    * <p>The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".</p>
    */
   period?: QuotaPeriodType | string;
-}
-
-export namespace QuotaSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuotaSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2374,15 +1960,6 @@ export interface CreateUsagePlanRequest {
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateUsagePlanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUsagePlanRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2433,15 +2010,6 @@ export interface UsagePlan {
   tags?: Record<string, string>;
 }
 
-export namespace UsagePlan {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsagePlan): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The POST request to create a usage plan key for adding an existing API key to a usage plan.</p>
  */
@@ -2460,15 +2028,6 @@ export interface CreateUsagePlanKeyRequest {
    * <p>The type of a UsagePlanKey resource for a plan customer.</p>
    */
   keyType: string | undefined;
-}
-
-export namespace CreateUsagePlanKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUsagePlanKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2496,15 +2055,6 @@ export interface UsagePlanKey {
   name?: string;
 }
 
-export namespace UsagePlanKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsagePlanKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates a VPC link, under the caller's account in a selected region, in an asynchronous operation that typically takes 2-4 minutes to complete and become operational. The caller must have permissions to create and update VPC Endpoint services.</p>
  */
@@ -2528,15 +2078,6 @@ export interface CreateVpcLinkRequest {
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateVpcLinkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcLinkRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum VpcLinkStatus {
@@ -2586,15 +2127,6 @@ export interface VpcLink {
   tags?: Record<string, string>;
 }
 
-export namespace VpcLink {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcLink): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to delete the ApiKey resource.</p>
  */
@@ -2603,15 +2135,6 @@ export interface DeleteApiKeyRequest {
    * <p>The identifier of the ApiKey resource to be deleted.</p>
    */
   apiKey: string | undefined;
-}
-
-export namespace DeleteApiKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApiKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2627,15 +2150,6 @@ export interface DeleteAuthorizerRequest {
    * <p>The identifier of the Authorizer resource.</p>
    */
   authorizerId: string | undefined;
-}
-
-export namespace DeleteAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAuthorizerRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2654,15 +2168,6 @@ export interface DeleteBasePathMappingRequest {
   basePath: string | undefined;
 }
 
-export namespace DeleteBasePathMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBasePathMappingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to delete the ClientCertificate resource.</p>
  */
@@ -2671,15 +2176,6 @@ export interface DeleteClientCertificateRequest {
    * <p>The identifier of the ClientCertificate resource to be deleted.</p>
    */
   clientCertificateId: string | undefined;
-}
-
-export namespace DeleteClientCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteClientCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2697,15 +2193,6 @@ export interface DeleteDeploymentRequest {
   deploymentId: string | undefined;
 }
 
-export namespace DeleteDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Deletes an existing documentation part of an API.</p>
  */
@@ -2719,15 +2206,6 @@ export interface DeleteDocumentationPartRequest {
    * <p>The identifier of the to-be-deleted documentation part.</p>
    */
   documentationPartId: string | undefined;
-}
-
-export namespace DeleteDocumentationPartRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDocumentationPartRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2745,15 +2223,6 @@ export interface DeleteDocumentationVersionRequest {
   documentationVersion: string | undefined;
 }
 
-export namespace DeleteDocumentationVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDocumentationVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to delete the DomainName resource.</p>
  */
@@ -2762,15 +2231,6 @@ export interface DeleteDomainNameRequest {
    * <p>The name of the DomainName resource to be deleted.</p>
    */
   domainName: string | undefined;
-}
-
-export namespace DeleteDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainNameRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum GatewayResponseType {
@@ -2812,15 +2272,6 @@ export interface DeleteGatewayResponseRequest {
   responseType: GatewayResponseType | string | undefined;
 }
 
-export namespace DeleteGatewayResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGatewayResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a delete integration request.</p>
  */
@@ -2839,15 +2290,6 @@ export interface DeleteIntegrationRequest {
    * <p>Specifies a delete integration request's HTTP method.</p>
    */
   httpMethod: string | undefined;
-}
-
-export namespace DeleteIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2875,15 +2317,6 @@ export interface DeleteIntegrationResponseRequest {
   statusCode: string | undefined;
 }
 
-export namespace DeleteIntegrationResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIntegrationResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to delete an existing Method resource.</p>
  */
@@ -2902,15 +2335,6 @@ export interface DeleteMethodRequest {
    * <p>The HTTP verb of the Method resource.</p>
    */
   httpMethod: string | undefined;
-}
-
-export namespace DeleteMethodRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMethodRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2938,15 +2362,6 @@ export interface DeleteMethodResponseRequest {
   statusCode: string | undefined;
 }
 
-export namespace DeleteMethodResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMethodResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to delete an existing model in an existing RestApi resource.</p>
  */
@@ -2960,15 +2375,6 @@ export interface DeleteModelRequest {
    * <p>The name of the model to delete.</p>
    */
   modelName: string | undefined;
-}
-
-export namespace DeleteModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteModelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2986,15 +2392,6 @@ export interface DeleteRequestValidatorRequest {
   requestValidatorId: string | undefined;
 }
 
-export namespace DeleteRequestValidatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRequestValidatorRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to delete a Resource.</p>
  */
@@ -3010,15 +2407,6 @@ export interface DeleteResourceRequest {
   resourceId: string | undefined;
 }
 
-export namespace DeleteResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to delete the specified API from your collection.</p>
  */
@@ -3027,15 +2415,6 @@ export interface DeleteRestApiRequest {
    * <p>The string identifier of the associated RestApi.</p>
    */
   restApiId: string | undefined;
-}
-
-export namespace DeleteRestApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRestApiRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3053,15 +2432,6 @@ export interface DeleteStageRequest {
   stageName: string | undefined;
 }
 
-export namespace DeleteStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The DELETE request to delete a usage plan of a given plan Id.</p>
  */
@@ -3070,15 +2440,6 @@ export interface DeleteUsagePlanRequest {
    * <p>The Id of the to-be-deleted usage plan.</p>
    */
   usagePlanId: string | undefined;
-}
-
-export namespace DeleteUsagePlanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUsagePlanRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3096,15 +2457,6 @@ export interface DeleteUsagePlanKeyRequest {
   keyId: string | undefined;
 }
 
-export namespace DeleteUsagePlanKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUsagePlanKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Deletes an existing VpcLink of a specified identifier.</p>
  */
@@ -3113,15 +2465,6 @@ export interface DeleteVpcLinkRequest {
    * <p>The identifier of the  VpcLink. It is used in an Integration to reference this VpcLink.</p>
    */
   vpcLinkId: string | undefined;
-}
-
-export namespace DeleteVpcLinkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVpcLinkRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3139,15 +2482,6 @@ export interface FlushStageAuthorizersCacheRequest {
   stageName: string | undefined;
 }
 
-export namespace FlushStageAuthorizersCacheRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FlushStageAuthorizersCacheRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Requests API Gateway to flush a stage's cache.</p>
  */
@@ -3161,15 +2495,6 @@ export interface FlushStageCacheRequest {
    * <p>The name of the stage to flush its cache.</p>
    */
   stageName: string | undefined;
-}
-
-export namespace FlushStageCacheRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FlushStageCacheRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3207,15 +2532,6 @@ export interface ClientCertificate {
   tags?: Record<string, string>;
 }
 
-export namespace ClientCertificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientCertificate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to generate a ClientCertificate resource.</p>
  */
@@ -3231,28 +2547,10 @@ export interface GenerateClientCertificateRequest {
   tags?: Record<string, string>;
 }
 
-export namespace GenerateClientCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenerateClientCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Requests API Gateway to get information about the current Account resource.</p>
  */
 export interface GetAccountRequest {}
-
-export namespace GetAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to get information about the current ApiKey resource.</p>
@@ -3267,15 +2565,6 @@ export interface GetApiKeyRequest {
    * <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains the key value.</p>
    */
   includeValue?: boolean;
-}
-
-export namespace GetApiKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3308,15 +2597,6 @@ export interface GetApiKeysRequest {
   includeValues?: boolean;
 }
 
-export namespace GetApiKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiKeysRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to describe an existing Authorizer resource.</p>
  */
@@ -3330,15 +2610,6 @@ export interface GetAuthorizerRequest {
    * <p>The identifier of the Authorizer resource.</p>
    */
   authorizerId: string | undefined;
-}
-
-export namespace GetAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAuthorizerRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3361,15 +2632,6 @@ export interface GetAuthorizersRequest {
   limit?: number;
 }
 
-export namespace GetAuthorizersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAuthorizersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to describe a BasePathMapping resource.</p>
  */
@@ -3385,15 +2647,6 @@ export interface GetBasePathMappingRequest {
   basePath: string | undefined;
 }
 
-export namespace GetBasePathMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBasePathMappingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a collection of BasePathMapping resources.</p>
  */
@@ -3407,15 +2660,6 @@ export interface BasePathMappings {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace BasePathMappings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BasePathMappings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3438,15 +2682,6 @@ export interface GetBasePathMappingsRequest {
   limit?: number;
 }
 
-export namespace GetBasePathMappingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBasePathMappingsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to get information about the current ClientCertificate resource.</p>
  */
@@ -3455,15 +2690,6 @@ export interface GetClientCertificateRequest {
    * <p>The identifier of the ClientCertificate resource to be described.</p>
    */
   clientCertificateId: string | undefined;
-}
-
-export namespace GetClientCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetClientCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3481,15 +2707,6 @@ export interface ClientCertificates {
   position?: string;
 }
 
-export namespace ClientCertificates {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientCertificates): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to get information about a collection of ClientCertificate resources.</p>
  */
@@ -3503,15 +2720,6 @@ export interface GetClientCertificatesRequest {
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
-}
-
-export namespace GetClientCertificatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetClientCertificatesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3534,15 +2742,6 @@ export interface GetDeploymentRequest {
   embed?: string[];
 }
 
-export namespace GetDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a collection resource that contains zero or more references to your existing deployments, and links that guide you on how to interact with your collection. The collection offers a paginated view of the contained deployments.</p>
  */
@@ -3556,15 +2755,6 @@ export interface Deployments {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace Deployments {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deployments): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3587,15 +2777,6 @@ export interface GetDeploymentsRequest {
   limit?: number;
 }
 
-export namespace GetDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Gets a specified documentation part of a given API.</p>
  */
@@ -3611,15 +2792,6 @@ export interface GetDocumentationPartRequest {
   documentationPartId: string | undefined;
 }
 
-export namespace GetDocumentationPartRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentationPartRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The collection of documentation parts of an API.</p>
  */
@@ -3633,15 +2805,6 @@ export interface DocumentationParts {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace DocumentationParts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentationParts): any => ({
-    ...obj,
-  });
 }
 
 export enum LocationStatusType {
@@ -3689,15 +2852,6 @@ export interface GetDocumentationPartsRequest {
   locationStatus?: LocationStatusType | string;
 }
 
-export namespace GetDocumentationPartsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentationPartsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Gets a documentation snapshot of an API.</p>
  */
@@ -3713,15 +2867,6 @@ export interface GetDocumentationVersionRequest {
   documentationVersion: string | undefined;
 }
 
-export namespace GetDocumentationVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentationVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The collection of documentation snapshots of an API. </p>
  */
@@ -3735,15 +2880,6 @@ export interface DocumentationVersions {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace DocumentationVersions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentationVersions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3766,15 +2902,6 @@ export interface GetDocumentationVersionsRequest {
   limit?: number;
 }
 
-export namespace GetDocumentationVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDocumentationVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to get the name of a DomainName resource.</p>
  */
@@ -3783,15 +2910,6 @@ export interface GetDomainNameRequest {
    * <p>The name of the DomainName resource.</p>
    */
   domainName: string | undefined;
-}
-
-export namespace GetDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainNameRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3809,15 +2927,6 @@ export interface DomainNames {
   position?: string;
 }
 
-export namespace DomainNames {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainNames): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to describe a collection of DomainName resources.</p>
  */
@@ -3831,15 +2940,6 @@ export interface GetDomainNamesRequest {
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    */
   limit?: number;
-}
-
-export namespace GetDomainNamesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainNamesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3860,15 +2960,6 @@ export interface ExportResponse {
    * <p>The binary blob response to GetExport, which contains the export.</p>
    */
   body?: Uint8Array;
-}
-
-export namespace ExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3902,15 +2993,6 @@ export interface GetExportRequest {
   accepts?: string;
 }
 
-export namespace GetExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A gateway response of a given response type and status code, with optional response parameters and mapping templates.</p>
  */
@@ -3942,15 +3024,6 @@ export interface GatewayResponse {
   defaultResponse?: boolean;
 }
 
-export namespace GatewayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatewayResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Gets a GatewayResponse of a specified response type on the given RestApi.</p>
  */
@@ -3966,15 +3039,6 @@ export interface GetGatewayResponseRequest {
   responseType: GatewayResponseType | string | undefined;
 }
 
-export namespace GetGatewayResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGatewayResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The collection of the GatewayResponse instances of a RestApi as a <code>responseType</code>-to-GatewayResponse object map of key-value pairs. As such, pagination is not supported for querying this collection.</p>
  */
@@ -3988,15 +3052,6 @@ export interface GatewayResponses {
    * <p>The current pagination position in the paged result set. The GatewayResponse collection does not support pagination and the position does not apply here.</p>
    */
   position?: string;
-}
-
-export namespace GatewayResponses {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GatewayResponses): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4019,15 +3074,6 @@ export interface GetGatewayResponsesRequest {
   limit?: number;
 }
 
-export namespace GetGatewayResponsesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGatewayResponsesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a request to get the integration configuration.</p>
  */
@@ -4046,15 +3092,6 @@ export interface GetIntegrationRequest {
    * <p>Specifies a get integration request's HTTP method.</p>
    */
   httpMethod: string | undefined;
-}
-
-export namespace GetIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4082,15 +3119,6 @@ export interface GetIntegrationResponseRequest {
   statusCode: string | undefined;
 }
 
-export namespace GetIntegrationResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to describe an existing Method resource.</p>
  */
@@ -4109,15 +3137,6 @@ export interface GetMethodRequest {
    * <p>Specifies the method request's HTTP method type.</p>
    */
   httpMethod: string | undefined;
-}
-
-export namespace GetMethodRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMethodRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4145,15 +3164,6 @@ export interface GetMethodResponseRequest {
   statusCode: string | undefined;
 }
 
-export namespace GetMethodResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMethodResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to list information about a model in an existing RestApi resource.</p>
  */
@@ -4172,15 +3182,6 @@ export interface GetModelRequest {
    * <p>A query parameter of a Boolean value to resolve (<code>true</code>) all external model references and returns a flattened model schema or not (<code>false</code>) The default is <code>false</code>.</p>
    */
   flatten?: boolean;
-}
-
-export namespace GetModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetModelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4203,15 +3204,6 @@ export interface GetModelsRequest {
   limit?: number;
 }
 
-export namespace GetModelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetModelsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a collection of Model resources.</p>
  */
@@ -4225,15 +3217,6 @@ export interface Models {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace Models {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Models): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4251,15 +3234,6 @@ export interface GetModelTemplateRequest {
   modelName: string | undefined;
 }
 
-export namespace GetModelTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetModelTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a mapping template used to transform a payload.</p>
  */
@@ -4268,15 +3242,6 @@ export interface Template {
    * <p>The Apache Velocity Template Language (VTL) template content used for the template resource.</p>
    */
   value?: string;
-}
-
-export namespace Template {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Template): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4292,15 +3257,6 @@ export interface GetRequestValidatorRequest {
    * <p>The identifier of the RequestValidator to be retrieved.</p>
    */
   requestValidatorId: string | undefined;
-}
-
-export namespace GetRequestValidatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRequestValidatorRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4323,15 +3279,6 @@ export interface GetRequestValidatorsRequest {
   limit?: number;
 }
 
-export namespace GetRequestValidatorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRequestValidatorsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A collection of RequestValidator resources of a given RestApi.</p>
  */
@@ -4345,15 +3292,6 @@ export interface RequestValidators {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace RequestValidators {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestValidators): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4374,15 +3312,6 @@ export interface GetResourceRequest {
    * <p>A query parameter to retrieve the specified resources embedded in the returned Resource representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/{restapi_id}/resources/{resource_id}?embed=methods</code>.</p>
    */
   embed?: string[];
-}
-
-export namespace GetResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4410,15 +3339,6 @@ export interface GetResourcesRequest {
   embed?: string[];
 }
 
-export namespace GetResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a collection of Resource resources.</p>
  */
@@ -4434,15 +3354,6 @@ export interface Resources {
   position?: string;
 }
 
-export namespace Resources {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resources): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The GET request to list an existing RestApi defined for your collection. </p>
  */
@@ -4451,15 +3362,6 @@ export interface GetRestApiRequest {
    * <p>The string identifier of the associated RestApi.</p>
    */
   restApiId: string | undefined;
-}
-
-export namespace GetRestApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRestApiRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4477,15 +3379,6 @@ export interface GetRestApisRequest {
   limit?: number;
 }
 
-export namespace GetRestApisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRestApisRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains references to your APIs and links that guide you in how to interact with your collection. A collection offers a paginated view of your APIs.</p>
  */
@@ -4499,15 +3392,6 @@ export interface RestApis {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace RestApis {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestApis): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4535,15 +3419,6 @@ export interface GetSdkRequest {
   parameters?: Record<string, string>;
 }
 
-export namespace GetSdkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSdkRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The binary blob response to GetSdk, which contains the generated SDK.</p>
  */
@@ -4564,15 +3439,6 @@ export interface SdkResponse {
   body?: Uint8Array;
 }
 
-export namespace SdkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SdkResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Get an SdkType instance.</p>
  */
@@ -4581,15 +3447,6 @@ export interface GetSdkTypeRequest {
    * <p>The identifier of the queried SdkType instance.</p>
    */
   id: string | undefined;
-}
-
-export namespace GetSdkTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSdkTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4622,15 +3479,6 @@ export interface SdkConfigurationProperty {
   defaultValue?: string;
 }
 
-export namespace SdkConfigurationProperty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SdkConfigurationProperty): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A type of SDK that API Gateway can generate.</p>
  */
@@ -4656,15 +3504,6 @@ export interface SdkType {
   configurationProperties?: SdkConfigurationProperty[];
 }
 
-export namespace SdkType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SdkType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Get the SdkTypes collection.</p>
  */
@@ -4680,15 +3519,6 @@ export interface GetSdkTypesRequest {
   limit?: number;
 }
 
-export namespace GetSdkTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSdkTypesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The collection of SdkType instances.</p>
  */
@@ -4697,15 +3527,6 @@ export interface SdkTypes {
    * <p>The current page of elements from this collection.</p>
    */
   items?: SdkType[];
-}
-
-export namespace SdkTypes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SdkTypes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4723,15 +3544,6 @@ export interface GetStageRequest {
   stageName: string | undefined;
 }
 
-export namespace GetStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Requests API Gateway to get information about one or more Stage resources.</p>
  */
@@ -4747,15 +3559,6 @@ export interface GetStagesRequest {
   deploymentId?: string;
 }
 
-export namespace GetStagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStagesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of Stage resources that are associated with the ApiKey resource.</p>
  */
@@ -4764,15 +3567,6 @@ export interface Stages {
    * <p>The current page of elements from this collection.</p>
    */
   item?: Stage[];
-}
-
-export namespace Stages {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Stages): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4795,15 +3589,6 @@ export interface GetTagsRequest {
   limit?: number;
 }
 
-export namespace GetTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The collection of tags. Each tag element is associated with a given resource.</p>
  */
@@ -4812,15 +3597,6 @@ export interface Tags {
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace Tags {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tags): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4858,15 +3634,6 @@ export interface GetUsageRequest {
   limit?: number;
 }
 
-export namespace GetUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUsageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the usage data of a usage plan.</p>
  */
@@ -4897,15 +3664,6 @@ export interface Usage {
   position?: string;
 }
 
-export namespace Usage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Usage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The GET request to get a usage plan of a given plan identifier.</p>
  */
@@ -4914,15 +3672,6 @@ export interface GetUsagePlanRequest {
    * <p>The identifier of the UsagePlan resource to be retrieved.</p>
    */
   usagePlanId: string | undefined;
-}
-
-export namespace GetUsagePlanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUsagePlanRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4938,15 +3687,6 @@ export interface GetUsagePlanKeyRequest {
    * <p>The key Id of the to-be-retrieved UsagePlanKey resource representing a plan customer.</p>
    */
   keyId: string | undefined;
-}
-
-export namespace GetUsagePlanKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUsagePlanKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4974,15 +3714,6 @@ export interface GetUsagePlanKeysRequest {
   nameQuery?: string;
 }
 
-export namespace GetUsagePlanKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUsagePlanKeysRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the collection of usage plan keys added to usage plans for the associated API keys and, possibly, other types of keys.</p>
  */
@@ -4996,15 +3727,6 @@ export interface UsagePlanKeys {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace UsagePlanKeys {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsagePlanKeys): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5027,15 +3749,6 @@ export interface GetUsagePlansRequest {
   limit?: number;
 }
 
-export namespace GetUsagePlansRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUsagePlansRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a collection of usage plans for an AWS account.</p>
  */
@@ -5051,15 +3764,6 @@ export interface UsagePlans {
   position?: string;
 }
 
-export namespace UsagePlans {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsagePlans): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Gets a specified VPC link under the caller's account in a region.</p>
  */
@@ -5068,15 +3772,6 @@ export interface GetVpcLinkRequest {
    * <p>The identifier of the  VpcLink. It is used in an Integration to reference this VpcLink.</p>
    */
   vpcLinkId: string | undefined;
-}
-
-export namespace GetVpcLinkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVpcLinkRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5094,15 +3789,6 @@ export interface GetVpcLinksRequest {
   limit?: number;
 }
 
-export namespace GetVpcLinksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVpcLinksRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The collection of VPC links under the caller's account in a region.</p>
  */
@@ -5116,15 +3802,6 @@ export interface VpcLinks {
    * <p>The current pagination position in the paged result set.</p>
    */
   position?: string;
-}
-
-export namespace VpcLinks {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcLinks): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5147,15 +3824,6 @@ export interface ImportApiKeysRequest {
   failOnWarnings?: boolean;
 }
 
-export namespace ImportApiKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportApiKeysRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A collection of the imported  DocumentationPart identifiers.</p>
  */
@@ -5169,15 +3837,6 @@ export interface DocumentationPartIds {
    * <p>A list of warning messages reported during import of documentation parts.</p>
    */
   warnings?: string[];
-}
-
-export namespace DocumentationPartIds {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentationPartIds): any => ({
-    ...obj,
-  });
 }
 
 export enum PutMode {
@@ -5210,15 +3869,6 @@ export interface ImportDocumentationPartsRequest {
   body: Uint8Array | undefined;
 }
 
-export namespace ImportDocumentationPartsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportDocumentationPartsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A POST request to import an API to API Gateway using an input of an API definition file.</p>
  */
@@ -5243,15 +3893,6 @@ export interface ImportRestApiRequest {
    * <p>The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.</p>
    */
   body: Uint8Array | undefined;
-}
-
-export namespace ImportRestApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportRestApiRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5282,15 +3923,6 @@ export interface PutGatewayResponseRequest {
    * <p>Response templates of the GatewayResponse as a string-to-string map of key-value pairs.</p>
    */
   responseTemplates?: Record<string, string>;
-}
-
-export namespace PutGatewayResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutGatewayResponseRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5401,15 +4033,6 @@ export interface PutIntegrationRequest {
   tlsConfig?: TlsConfig;
 }
 
-export namespace PutIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutIntegrationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a put integration response request.</p>
  */
@@ -5456,15 +4079,6 @@ export interface PutIntegrationResponseRequest {
    *          <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    */
   contentHandling?: ContentHandlingStrategy | string;
-}
-
-export namespace PutIntegrationResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutIntegrationResponseRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5527,15 +4141,6 @@ export interface PutMethodRequest {
   authorizationScopes?: string[];
 }
 
-export namespace PutMethodRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMethodRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to add a MethodResponse to an existing Method resource.</p>
  */
@@ -5571,15 +4176,6 @@ export interface PutMethodResponseRequest {
   responseModels?: Record<string, string>;
 }
 
-export namespace PutMethodResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMethodResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A PUT request to update an existing API, with external API definitions specified as the request body.</p>
  */
@@ -5612,15 +4208,6 @@ export interface PutRestApiRequest {
   body: Uint8Array | undefined;
 }
 
-export namespace PutRestApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutRestApiRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Adds or updates a tag on a given resource.</p>
  */
@@ -5634,15 +4221,6 @@ export interface TagResourceRequest {
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    */
   tags: Record<string, string> | undefined;
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5690,15 +4268,6 @@ export interface TestInvokeAuthorizerRequest {
   additionalContext?: Record<string, string>;
 }
 
-export namespace TestInvokeAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestInvokeAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the response of the test invoke request for a custom Authorizer</p>
  */
@@ -5737,15 +4306,6 @@ export interface TestInvokeAuthorizerResponse {
    * <p>The open identity claims, with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.</p>
    */
   claims?: Record<string, string>;
-}
-
-export namespace TestInvokeAuthorizerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestInvokeAuthorizerResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5798,15 +4358,6 @@ export interface TestInvokeMethodRequest {
   stageVariables?: Record<string, string>;
 }
 
-export namespace TestInvokeMethodRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestInvokeMethodRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the response of the test invoke request in the HTTP method.</p>
  */
@@ -5842,15 +4393,6 @@ export interface TestInvokeMethodResponse {
   latency?: number;
 }
 
-export namespace TestInvokeMethodResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestInvokeMethodResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Removes a tag from a given resource.</p>
  */
@@ -5864,15 +4406,6 @@ export interface UntagResourceRequest {
    * <p>The Tag keys to delete.</p>
    */
   tagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test";
@@ -5917,15 +4450,6 @@ export interface PatchOperation {
   from?: string;
 }
 
-export namespace PatchOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PatchOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Requests API Gateway to change information about the current Account resource.</p>
  */
@@ -5934,15 +4458,6 @@ export interface UpdateAccountRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAccountRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5958,15 +4473,6 @@ export interface UpdateApiKeyRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateApiKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiKeyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5987,15 +4493,6 @@ export interface UpdateAuthorizerRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6019,15 +4516,6 @@ export interface UpdateBasePathMappingRequest {
   patchOperations?: PatchOperation[];
 }
 
-export namespace UpdateBasePathMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBasePathMappingRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to change information about an ClientCertificate resource.</p>
  */
@@ -6041,15 +4529,6 @@ export interface UpdateClientCertificateRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateClientCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateClientCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6072,15 +4551,6 @@ export interface UpdateDeploymentRequest {
   patchOperations?: PatchOperation[];
 }
 
-export namespace UpdateDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates an existing documentation part of a given API.</p>
  */
@@ -6099,15 +4569,6 @@ export interface UpdateDocumentationPartRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateDocumentationPartRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentationPartRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6130,15 +4591,6 @@ export interface UpdateDocumentationVersionRequest {
   patchOperations?: PatchOperation[];
 }
 
-export namespace UpdateDocumentationVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDocumentationVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to change information about the DomainName resource.</p>
  */
@@ -6152,15 +4604,6 @@ export interface UpdateDomainNameRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainNameRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6181,15 +4624,6 @@ export interface UpdateGatewayResponseRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateGatewayResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGatewayResponseRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6215,15 +4649,6 @@ export interface UpdateIntegrationRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6256,15 +4681,6 @@ export interface UpdateIntegrationResponseRequest {
   patchOperations?: PatchOperation[];
 }
 
-export namespace UpdateIntegrationResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIntegrationResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to update an existing Method resource.</p>
  */
@@ -6288,15 +4704,6 @@ export interface UpdateMethodRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateMethodRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMethodRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6329,15 +4736,6 @@ export interface UpdateMethodResponseRequest {
   patchOperations?: PatchOperation[];
 }
 
-export namespace UpdateMethodResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMethodResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to update an existing model in an existing RestApi resource.</p>
  */
@@ -6356,15 +4754,6 @@ export interface UpdateModelRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateModelRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6387,15 +4776,6 @@ export interface UpdateRequestValidatorRequest {
   patchOperations?: PatchOperation[];
 }
 
-export namespace UpdateRequestValidatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRequestValidatorRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to change information about a Resource resource.</p>
  */
@@ -6416,15 +4796,6 @@ export interface UpdateResourceRequest {
   patchOperations?: PatchOperation[];
 }
 
-export namespace UpdateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request to update an existing RestApi resource in your collection.</p>
  */
@@ -6438,15 +4809,6 @@ export interface UpdateRestApiRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateRestApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRestApiRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6469,15 +4831,6 @@ export interface UpdateStageRequest {
   patchOperations?: PatchOperation[];
 }
 
-export namespace UpdateStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The PATCH request to grant a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
  */
@@ -6498,15 +4851,6 @@ export interface UpdateUsageRequest {
   patchOperations?: PatchOperation[];
 }
 
-export namespace UpdateUsageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUsageRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The PATCH request to update a usage plan of a given plan Id.</p>
  */
@@ -6520,15 +4864,6 @@ export interface UpdateUsagePlanRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    */
   patchOperations?: PatchOperation[];
-}
-
-export namespace UpdateUsagePlanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUsagePlanRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6546,11 +4881,1304 @@ export interface UpdateVpcLinkRequest {
   patchOperations?: PatchOperation[];
 }
 
-export namespace UpdateVpcLinkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVpcLinkRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccessLogSettingsFilterSensitiveLog = (obj: AccessLogSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThrottleSettingsFilterSensitiveLog = (obj: ThrottleSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountFilterSensitiveLog = (obj: Account): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiKeyFilterSensitiveLog = (obj: ApiKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiKeyIdsFilterSensitiveLog = (obj: ApiKeyIds): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiKeysFilterSensitiveLog = (obj: ApiKeys): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiStageFilterSensitiveLog = (obj: ApiStage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizerFilterSensitiveLog = (obj: Authorizer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizersFilterSensitiveLog = (obj: Authorizers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageKeyFilterSensitiveLog = (obj: StageKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApiKeyRequestFilterSensitiveLog = (obj: CreateApiKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAuthorizerRequestFilterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BasePathMappingFilterSensitiveLog = (obj: BasePathMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBasePathMappingRequestFilterSensitiveLog = (obj: CreateBasePathMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentCanarySettingsFilterSensitiveLog = (obj: DeploymentCanarySettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentRequestFilterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MethodSnapshotFilterSensitiveLog = (obj: MethodSnapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentationPartLocationFilterSensitiveLog = (obj: DocumentationPartLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDocumentationPartRequestFilterSensitiveLog = (obj: CreateDocumentationPartRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentationPartFilterSensitiveLog = (obj: DocumentationPart): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDocumentationVersionRequestFilterSensitiveLog = (obj: CreateDocumentationVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentationVersionFilterSensitiveLog = (obj: DocumentationVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointConfigurationFilterSensitiveLog = (obj: EndpointConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MutualTlsAuthenticationInputFilterSensitiveLog = (obj: MutualTlsAuthenticationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainNameRequestFilterSensitiveLog = (obj: CreateDomainNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MutualTlsAuthenticationFilterSensitiveLog = (obj: MutualTlsAuthentication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainNameFilterSensitiveLog = (obj: DomainName): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateModelRequestFilterSensitiveLog = (obj: CreateModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelFilterSensitiveLog = (obj: Model): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRequestValidatorRequestFilterSensitiveLog = (obj: CreateRequestValidatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestValidatorFilterSensitiveLog = (obj: RequestValidator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourceRequestFilterSensitiveLog = (obj: CreateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegrationResponseFilterSensitiveLog = (obj: IntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TlsConfigFilterSensitiveLog = (obj: TlsConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegrationFilterSensitiveLog = (obj: Integration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MethodResponseFilterSensitiveLog = (obj: MethodResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MethodFilterSensitiveLog = (obj: Method): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRestApiRequestFilterSensitiveLog = (obj: CreateRestApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestApiFilterSensitiveLog = (obj: RestApi): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanarySettingsFilterSensitiveLog = (obj: CanarySettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStageRequestFilterSensitiveLog = (obj: CreateStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MethodSettingFilterSensitiveLog = (obj: MethodSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageFilterSensitiveLog = (obj: Stage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QuotaSettingsFilterSensitiveLog = (obj: QuotaSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUsagePlanRequestFilterSensitiveLog = (obj: CreateUsagePlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsagePlanFilterSensitiveLog = (obj: UsagePlan): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUsagePlanKeyRequestFilterSensitiveLog = (obj: CreateUsagePlanKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsagePlanKeyFilterSensitiveLog = (obj: UsagePlanKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcLinkRequestFilterSensitiveLog = (obj: CreateVpcLinkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcLinkFilterSensitiveLog = (obj: VpcLink): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApiKeyRequestFilterSensitiveLog = (obj: DeleteApiKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAuthorizerRequestFilterSensitiveLog = (obj: DeleteAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBasePathMappingRequestFilterSensitiveLog = (obj: DeleteBasePathMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteClientCertificateRequestFilterSensitiveLog = (obj: DeleteClientCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeploymentRequestFilterSensitiveLog = (obj: DeleteDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDocumentationPartRequestFilterSensitiveLog = (obj: DeleteDocumentationPartRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDocumentationVersionRequestFilterSensitiveLog = (obj: DeleteDocumentationVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainNameRequestFilterSensitiveLog = (obj: DeleteDomainNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGatewayResponseRequestFilterSensitiveLog = (obj: DeleteGatewayResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIntegrationRequestFilterSensitiveLog = (obj: DeleteIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIntegrationResponseRequestFilterSensitiveLog = (obj: DeleteIntegrationResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMethodRequestFilterSensitiveLog = (obj: DeleteMethodRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMethodResponseRequestFilterSensitiveLog = (obj: DeleteMethodResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteModelRequestFilterSensitiveLog = (obj: DeleteModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRequestValidatorRequestFilterSensitiveLog = (obj: DeleteRequestValidatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceRequestFilterSensitiveLog = (obj: DeleteResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRestApiRequestFilterSensitiveLog = (obj: DeleteRestApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStageRequestFilterSensitiveLog = (obj: DeleteStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUsagePlanRequestFilterSensitiveLog = (obj: DeleteUsagePlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUsagePlanKeyRequestFilterSensitiveLog = (obj: DeleteUsagePlanKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcLinkRequestFilterSensitiveLog = (obj: DeleteVpcLinkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlushStageAuthorizersCacheRequestFilterSensitiveLog = (obj: FlushStageAuthorizersCacheRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlushStageCacheRequestFilterSensitiveLog = (obj: FlushStageCacheRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClientCertificateFilterSensitiveLog = (obj: ClientCertificate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerateClientCertificateRequestFilterSensitiveLog = (obj: GenerateClientCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountRequestFilterSensitiveLog = (obj: GetAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApiKeyRequestFilterSensitiveLog = (obj: GetApiKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApiKeysRequestFilterSensitiveLog = (obj: GetApiKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAuthorizerRequestFilterSensitiveLog = (obj: GetAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAuthorizersRequestFilterSensitiveLog = (obj: GetAuthorizersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBasePathMappingRequestFilterSensitiveLog = (obj: GetBasePathMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BasePathMappingsFilterSensitiveLog = (obj: BasePathMappings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBasePathMappingsRequestFilterSensitiveLog = (obj: GetBasePathMappingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetClientCertificateRequestFilterSensitiveLog = (obj: GetClientCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClientCertificatesFilterSensitiveLog = (obj: ClientCertificates): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetClientCertificatesRequestFilterSensitiveLog = (obj: GetClientCertificatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentRequestFilterSensitiveLog = (obj: GetDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentsFilterSensitiveLog = (obj: Deployments): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentsRequestFilterSensitiveLog = (obj: GetDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentationPartRequestFilterSensitiveLog = (obj: GetDocumentationPartRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentationPartsFilterSensitiveLog = (obj: DocumentationParts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentationPartsRequestFilterSensitiveLog = (obj: GetDocumentationPartsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentationVersionRequestFilterSensitiveLog = (obj: GetDocumentationVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentationVersionsFilterSensitiveLog = (obj: DocumentationVersions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDocumentationVersionsRequestFilterSensitiveLog = (obj: GetDocumentationVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainNameRequestFilterSensitiveLog = (obj: GetDomainNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainNamesFilterSensitiveLog = (obj: DomainNames): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainNamesRequestFilterSensitiveLog = (obj: GetDomainNamesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportResponseFilterSensitiveLog = (obj: ExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExportRequestFilterSensitiveLog = (obj: GetExportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatewayResponseFilterSensitiveLog = (obj: GatewayResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGatewayResponseRequestFilterSensitiveLog = (obj: GetGatewayResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GatewayResponsesFilterSensitiveLog = (obj: GatewayResponses): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGatewayResponsesRequestFilterSensitiveLog = (obj: GetGatewayResponsesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationRequestFilterSensitiveLog = (obj: GetIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationResponseRequestFilterSensitiveLog = (obj: GetIntegrationResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMethodRequestFilterSensitiveLog = (obj: GetMethodRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMethodResponseRequestFilterSensitiveLog = (obj: GetMethodResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetModelRequestFilterSensitiveLog = (obj: GetModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetModelsRequestFilterSensitiveLog = (obj: GetModelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelsFilterSensitiveLog = (obj: Models): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetModelTemplateRequestFilterSensitiveLog = (obj: GetModelTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateFilterSensitiveLog = (obj: Template): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRequestValidatorRequestFilterSensitiveLog = (obj: GetRequestValidatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRequestValidatorsRequestFilterSensitiveLog = (obj: GetRequestValidatorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestValidatorsFilterSensitiveLog = (obj: RequestValidators): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceRequestFilterSensitiveLog = (obj: GetResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourcesRequestFilterSensitiveLog = (obj: GetResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourcesFilterSensitiveLog = (obj: Resources): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRestApiRequestFilterSensitiveLog = (obj: GetRestApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRestApisRequestFilterSensitiveLog = (obj: GetRestApisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestApisFilterSensitiveLog = (obj: RestApis): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSdkRequestFilterSensitiveLog = (obj: GetSdkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SdkResponseFilterSensitiveLog = (obj: SdkResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSdkTypeRequestFilterSensitiveLog = (obj: GetSdkTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SdkConfigurationPropertyFilterSensitiveLog = (obj: SdkConfigurationProperty): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SdkTypeFilterSensitiveLog = (obj: SdkType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSdkTypesRequestFilterSensitiveLog = (obj: GetSdkTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SdkTypesFilterSensitiveLog = (obj: SdkTypes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStageRequestFilterSensitiveLog = (obj: GetStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStagesRequestFilterSensitiveLog = (obj: GetStagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StagesFilterSensitiveLog = (obj: Stages): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagsRequestFilterSensitiveLog = (obj: GetTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagsFilterSensitiveLog = (obj: Tags): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUsageRequestFilterSensitiveLog = (obj: GetUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageFilterSensitiveLog = (obj: Usage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUsagePlanRequestFilterSensitiveLog = (obj: GetUsagePlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUsagePlanKeyRequestFilterSensitiveLog = (obj: GetUsagePlanKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUsagePlanKeysRequestFilterSensitiveLog = (obj: GetUsagePlanKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsagePlanKeysFilterSensitiveLog = (obj: UsagePlanKeys): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetUsagePlansRequestFilterSensitiveLog = (obj: GetUsagePlansRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsagePlansFilterSensitiveLog = (obj: UsagePlans): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVpcLinkRequestFilterSensitiveLog = (obj: GetVpcLinkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVpcLinksRequestFilterSensitiveLog = (obj: GetVpcLinksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcLinksFilterSensitiveLog = (obj: VpcLinks): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportApiKeysRequestFilterSensitiveLog = (obj: ImportApiKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentationPartIdsFilterSensitiveLog = (obj: DocumentationPartIds): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportDocumentationPartsRequestFilterSensitiveLog = (obj: ImportDocumentationPartsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportRestApiRequestFilterSensitiveLog = (obj: ImportRestApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutGatewayResponseRequestFilterSensitiveLog = (obj: PutGatewayResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutIntegrationRequestFilterSensitiveLog = (obj: PutIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutIntegrationResponseRequestFilterSensitiveLog = (obj: PutIntegrationResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMethodRequestFilterSensitiveLog = (obj: PutMethodRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMethodResponseRequestFilterSensitiveLog = (obj: PutMethodResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutRestApiRequestFilterSensitiveLog = (obj: PutRestApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestInvokeAuthorizerRequestFilterSensitiveLog = (obj: TestInvokeAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestInvokeAuthorizerResponseFilterSensitiveLog = (obj: TestInvokeAuthorizerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestInvokeMethodRequestFilterSensitiveLog = (obj: TestInvokeMethodRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestInvokeMethodResponseFilterSensitiveLog = (obj: TestInvokeMethodResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PatchOperationFilterSensitiveLog = (obj: PatchOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAccountRequestFilterSensitiveLog = (obj: UpdateAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApiKeyRequestFilterSensitiveLog = (obj: UpdateApiKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAuthorizerRequestFilterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBasePathMappingRequestFilterSensitiveLog = (obj: UpdateBasePathMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateClientCertificateRequestFilterSensitiveLog = (obj: UpdateClientCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeploymentRequestFilterSensitiveLog = (obj: UpdateDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentationPartRequestFilterSensitiveLog = (obj: UpdateDocumentationPartRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentationVersionRequestFilterSensitiveLog = (obj: UpdateDocumentationVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainNameRequestFilterSensitiveLog = (obj: UpdateDomainNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGatewayResponseRequestFilterSensitiveLog = (obj: UpdateGatewayResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIntegrationRequestFilterSensitiveLog = (obj: UpdateIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIntegrationResponseRequestFilterSensitiveLog = (obj: UpdateIntegrationResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMethodRequestFilterSensitiveLog = (obj: UpdateMethodRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMethodResponseRequestFilterSensitiveLog = (obj: UpdateMethodResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateModelRequestFilterSensitiveLog = (obj: UpdateModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRequestValidatorRequestFilterSensitiveLog = (obj: UpdateRequestValidatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceRequestFilterSensitiveLog = (obj: UpdateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRestApiRequestFilterSensitiveLog = (obj: UpdateRestApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStageRequestFilterSensitiveLog = (obj: UpdateStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUsageRequestFilterSensitiveLog = (obj: UpdateUsageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateUsagePlanRequestFilterSensitiveLog = (obj: UpdateUsagePlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVpcLinkRequestFilterSensitiveLog = (obj: UpdateVpcLinkRequest): any => ({
+  ...obj,
+});

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteUserByPrincipalIdRequest, DeleteUserByPrincipalIdResponse } from "../models/models_0";
+import {
+  DeleteUserByPrincipalIdRequest,
+  DeleteUserByPrincipalIdRequestFilterSensitiveLog,
+  DeleteUserByPrincipalIdResponse,
+  DeleteUserByPrincipalIdResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteUserByPrincipalIdCommand,
   serializeAws_restJson1DeleteUserByPrincipalIdCommand,
@@ -72,8 +77,8 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserByPrincipalIdRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserByPrincipalIdResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUserByPrincipalIdRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUserByPrincipalIdResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

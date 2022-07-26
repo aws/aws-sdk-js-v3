@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetSipRuleRequest, GetSipRuleResponse } from "../models/models_1";
+import {
+  GetSipRuleRequest,
+  GetSipRuleRequestFilterSensitiveLog,
+  GetSipRuleResponse,
+  GetSipRuleResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetSipRuleCommand,
   serializeAws_restJson1GetSipRuleCommand,
@@ -72,8 +77,8 @@ export class GetSipRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSipRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSipRuleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSipRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSipRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDocumentVersionRequest, GetDocumentVersionResponse } from "../models/models_0";
+import {
+  GetDocumentVersionRequest,
+  GetDocumentVersionRequestFilterSensitiveLog,
+  GetDocumentVersionResponse,
+  GetDocumentVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDocumentVersionCommand,
   serializeAws_restJson1GetDocumentVersionCommand,
@@ -72,8 +77,8 @@ export class GetDocumentVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDocumentVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDocumentVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDocumentVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDocumentVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

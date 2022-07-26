@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetBucketLifecycleConfigurationOutput, GetBucketLifecycleConfigurationRequest } from "../models/models_0";
+import {
+  GetBucketLifecycleConfigurationOutput,
+  GetBucketLifecycleConfigurationOutputFilterSensitiveLog,
+  GetBucketLifecycleConfigurationRequest,
+  GetBucketLifecycleConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketLifecycleConfigurationCommand,
   serializeAws_restXmlGetBucketLifecycleConfigurationCommand,
@@ -131,8 +136,8 @@ export class GetBucketLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketLifecycleConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketLifecycleConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketLifecycleConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketLifecycleConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

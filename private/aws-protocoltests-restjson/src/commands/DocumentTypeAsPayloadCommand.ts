@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DocumentTypeAsPayloadInputOutput } from "../models/models_0";
+import {
+  DocumentTypeAsPayloadInputOutput,
+  DocumentTypeAsPayloadInputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DocumentTypeAsPayloadCommand,
   serializeAws_restJson1DocumentTypeAsPayloadCommand,
@@ -72,8 +75,8 @@ export class DocumentTypeAsPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DocumentTypeAsPayloadInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: DocumentTypeAsPayloadInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DocumentTypeAsPayloadInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: DocumentTypeAsPayloadInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

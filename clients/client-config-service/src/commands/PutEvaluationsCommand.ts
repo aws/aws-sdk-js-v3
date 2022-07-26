@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutEvaluationsRequest, PutEvaluationsResponse } from "../models/models_0";
+import {
+  PutEvaluationsRequest,
+  PutEvaluationsRequestFilterSensitiveLog,
+  PutEvaluationsResponse,
+  PutEvaluationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutEvaluationsCommand,
   serializeAws_json1_1PutEvaluationsCommand,
@@ -74,8 +79,8 @@ export class PutEvaluationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEvaluationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutEvaluationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutEvaluationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutEvaluationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import { ListKeyspacesRequest, ListKeyspacesResponse } from "../models/models_0";
+import {
+  ListKeyspacesRequest,
+  ListKeyspacesRequestFilterSensitiveLog,
+  ListKeyspacesResponse,
+  ListKeyspacesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ListKeyspacesCommand,
   serializeAws_json1_0ListKeyspacesCommand,
@@ -72,8 +77,8 @@ export class ListKeyspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListKeyspacesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListKeyspacesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListKeyspacesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListKeyspacesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

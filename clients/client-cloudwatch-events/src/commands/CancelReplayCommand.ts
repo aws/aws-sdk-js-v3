@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { CancelReplayRequest, CancelReplayResponse } from "../models/models_0";
+import {
+  CancelReplayRequest,
+  CancelReplayRequestFilterSensitiveLog,
+  CancelReplayResponse,
+  CancelReplayResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CancelReplayCommand,
   serializeAws_json1_1CancelReplayCommand,
@@ -72,8 +77,8 @@ export class CancelReplayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelReplayRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelReplayResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelReplayRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelReplayResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

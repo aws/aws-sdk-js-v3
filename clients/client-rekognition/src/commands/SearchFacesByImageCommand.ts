@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SearchFacesByImageRequest, SearchFacesByImageResponse } from "../models/models_0";
+import {
+  SearchFacesByImageRequest,
+  SearchFacesByImageRequestFilterSensitiveLog,
+  SearchFacesByImageResponse,
+  SearchFacesByImageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SearchFacesByImageCommand,
   serializeAws_json1_1SearchFacesByImageCommand,
@@ -118,8 +123,8 @@ export class SearchFacesByImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchFacesByImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchFacesByImageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchFacesByImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchFacesByImageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

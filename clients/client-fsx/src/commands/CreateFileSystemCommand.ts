@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateFileSystemRequest, CreateFileSystemResponse } from "../models/models_0";
+import {
+  CreateFileSystemRequest,
+  CreateFileSystemRequestFilterSensitiveLog,
+  CreateFileSystemResponse,
+  CreateFileSystemResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateFileSystemCommand,
   serializeAws_json1_1CreateFileSystemCommand,
@@ -127,8 +132,8 @@ export class CreateFileSystemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFileSystemRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateFileSystemResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFileSystemRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateFileSystemResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

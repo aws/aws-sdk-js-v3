@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { SearchOrganizationInsightsRequest, SearchOrganizationInsightsResponse } from "../models/models_0";
+import {
+  SearchOrganizationInsightsRequest,
+  SearchOrganizationInsightsRequestFilterSensitiveLog,
+  SearchOrganizationInsightsResponse,
+  SearchOrganizationInsightsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1SearchOrganizationInsightsCommand,
   serializeAws_restJson1SearchOrganizationInsightsCommand,
@@ -79,8 +84,8 @@ export class SearchOrganizationInsightsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchOrganizationInsightsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchOrganizationInsightsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchOrganizationInsightsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchOrganizationInsightsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateLabelsRequest, CreateLabelsResponse } from "../models/models_0";
+import {
+  CreateLabelsRequest,
+  CreateLabelsRequestFilterSensitiveLog,
+  CreateLabelsResponse,
+  CreateLabelsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateLabelsCommand,
   serializeAws_restJson1CreateLabelsCommand,
@@ -73,8 +78,8 @@ export class CreateLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLabelsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLabelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLabelsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLabelsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

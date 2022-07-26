@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { GetIntrospectionSchemaRequest, GetIntrospectionSchemaResponse } from "../models/models_0";
+import {
+  GetIntrospectionSchemaRequest,
+  GetIntrospectionSchemaRequestFilterSensitiveLog,
+  GetIntrospectionSchemaResponse,
+  GetIntrospectionSchemaResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetIntrospectionSchemaCommand,
   serializeAws_restJson1GetIntrospectionSchemaCommand,
@@ -72,8 +77,8 @@ export class GetIntrospectionSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntrospectionSchemaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetIntrospectionSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIntrospectionSchemaRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetIntrospectionSchemaResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

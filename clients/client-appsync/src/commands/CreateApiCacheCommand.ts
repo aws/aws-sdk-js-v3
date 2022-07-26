@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { CreateApiCacheRequest, CreateApiCacheResponse } from "../models/models_0";
+import {
+  CreateApiCacheRequest,
+  CreateApiCacheRequestFilterSensitiveLog,
+  CreateApiCacheResponse,
+  CreateApiCacheResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateApiCacheCommand,
   serializeAws_restJson1CreateApiCacheCommand,
@@ -72,8 +77,8 @@ export class CreateApiCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApiCacheRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateApiCacheResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateApiCacheRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateApiCacheResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

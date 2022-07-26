@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateServerEngineAttributesRequest, UpdateServerEngineAttributesResponse } from "../models/models_0";
+import {
+  UpdateServerEngineAttributesRequest,
+  UpdateServerEngineAttributesRequestFilterSensitiveLog,
+  UpdateServerEngineAttributesResponse,
+  UpdateServerEngineAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1UpdateServerEngineAttributesCommand,
@@ -87,8 +92,8 @@ export class UpdateServerEngineAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerEngineAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServerEngineAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateServerEngineAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateServerEngineAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { DeleteCollectorRequest } from "../models/models_0";
+import { DeleteCollectorRequest, DeleteCollectorRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFleetAdvisorCollectorCommand,
   serializeAws_json1_1DeleteFleetAdvisorCollectorCommand,
@@ -76,7 +76,7 @@ export class DeleteFleetAdvisorCollectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCollectorRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCollectorRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

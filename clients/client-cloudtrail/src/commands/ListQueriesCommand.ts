@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { ListQueriesRequest, ListQueriesResponse } from "../models/models_0";
+import {
+  ListQueriesRequest,
+  ListQueriesRequestFilterSensitiveLog,
+  ListQueriesResponse,
+  ListQueriesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListQueriesCommand,
   serializeAws_json1_1ListQueriesCommand,
@@ -76,8 +81,8 @@ export class ListQueriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueriesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListQueriesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListQueriesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListQueriesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

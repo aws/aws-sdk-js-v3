@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateElasticIpRequest } from "../models/models_0";
+import { UpdateElasticIpRequest, UpdateElasticIpRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1UpdateElasticIpCommand,
@@ -77,7 +77,7 @@ export class UpdateElasticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateElasticIpRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateElasticIpRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

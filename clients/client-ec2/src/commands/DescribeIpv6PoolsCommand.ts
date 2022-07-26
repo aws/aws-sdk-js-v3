@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_3";
+import {
+  DescribeIpv6PoolsRequest,
+  DescribeIpv6PoolsRequestFilterSensitiveLog,
+  DescribeIpv6PoolsResult,
+  DescribeIpv6PoolsResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeIpv6PoolsCommand,
   serializeAws_ec2DescribeIpv6PoolsCommand,
@@ -72,8 +77,8 @@ export class DescribeIpv6PoolsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIpv6PoolsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIpv6PoolsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeIpv6PoolsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIpv6PoolsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

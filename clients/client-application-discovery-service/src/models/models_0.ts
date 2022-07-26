@@ -28,15 +28,6 @@ export interface AgentConfigurationStatus {
   description?: string;
 }
 
-export namespace AgentConfigurationStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentConfigurationStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Network details about the host where the agent/connector resides.</p>
  */
@@ -50,15 +41,6 @@ export interface AgentNetworkInfo {
    * <p>The MAC address for the host where the agent/connector resides.</p>
    */
   macAddress?: string;
-}
-
-export namespace AgentNetworkInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentNetworkInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum AgentStatus {
@@ -129,15 +111,6 @@ export interface AgentInfo {
   registeredTime?: string;
 }
 
-export namespace AgentInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateConfigurationItemsToApplicationRequest {
   /**
    * <p>The configuration ID of an application with which items are to be associated.</p>
@@ -150,25 +123,7 @@ export interface AssociateConfigurationItemsToApplicationRequest {
   configurationIds: string[] | undefined;
 }
 
-export namespace AssociateConfigurationItemsToApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateConfigurationItemsToApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateConfigurationItemsToApplicationResponse {}
-
-export namespace AssociateConfigurationItemsToApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateConfigurationItemsToApplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
@@ -274,15 +229,6 @@ export interface BatchDeleteImportDataRequest {
   importTaskIds: string[] | undefined;
 }
 
-export namespace BatchDeleteImportDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteImportDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum BatchDeleteImportDataErrorCode {
   INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
   NOT_FOUND = "NOT_FOUND",
@@ -310,30 +256,12 @@ export interface BatchDeleteImportDataError {
   errorDescription?: string;
 }
 
-export namespace BatchDeleteImportDataError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteImportDataError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteImportDataResponse {
   /**
    * <p>Error messages returned for each import task that you deleted as a response for this
    *       command.</p>
    */
   errors?: BatchDeleteImportDataError[];
-}
-
-export namespace BatchDeleteImportDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteImportDataResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateApplicationRequest {
@@ -348,29 +276,11 @@ export interface CreateApplicationRequest {
   description?: string;
 }
 
-export namespace CreateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApplicationResponse {
   /**
    * <p>Configuration ID of an application to be created.</p>
    */
   configurationId?: string;
-}
-
-export namespace CreateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -391,15 +301,6 @@ export interface Tag {
   value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTagsRequest {
   /**
    * <p>A list of configuration items that you want to tag.</p>
@@ -417,25 +318,7 @@ export interface CreateTagsRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace CreateTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTagsResponse {}
-
-export namespace CreateTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTagsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified configuration ID was not located. Verify the configuration ID and try
@@ -464,25 +347,7 @@ export interface DeleteApplicationsRequest {
   configurationIds: string[] | undefined;
 }
 
-export namespace DeleteApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApplicationsResponse {}
-
-export namespace DeleteApplicationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteTagsRequest {
   /**
@@ -501,25 +366,7 @@ export interface DeleteTagsRequest {
   tags?: Tag[];
 }
 
-export namespace DeleteTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTagsResponse {}
-
-export namespace DeleteTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTagsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A filter that can use conditional operators.</p>
@@ -549,15 +396,6 @@ export interface Filter {
    *       returns attributes of matching configuration items.</p>
    */
   condition: string | undefined;
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAgentsRequest {
@@ -592,15 +430,6 @@ export interface DescribeAgentsRequest {
   nextToken?: string;
 }
 
-export namespace DescribeAgentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAgentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAgentsResponse {
   /**
    * <p>Lists agents or the Connector by ID or lists all agents/Connectors associated with your
@@ -619,15 +448,6 @@ export interface DescribeAgentsResponse {
   nextToken?: string;
 }
 
-export namespace DescribeAgentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAgentsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConfigurationsRequest {
   /**
    * <p>One or more configuration IDs.</p>
@@ -635,29 +455,11 @@ export interface DescribeConfigurationsRequest {
   configurationIds: string[] | undefined;
 }
 
-export namespace DescribeConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConfigurationsResponse {
   /**
    * <p>A key in the response map. The value is an array of data.</p>
    */
   configurations?: Record<string, string>[];
-}
-
-export namespace DescribeConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeContinuousExportsRequest {
@@ -676,15 +478,6 @@ export interface DescribeContinuousExportsRequest {
    * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeContinuousExportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContinuousExportsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DataSource {
@@ -859,15 +652,6 @@ export interface ContinuousExportDescription {
   schemaStorageConfig?: Record<string, string>;
 }
 
-export namespace ContinuousExportDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContinuousExportDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeContinuousExportsResponse {
   /**
    * <p>A list of continuous export descriptions.</p>
@@ -878,15 +662,6 @@ export interface DescribeContinuousExportsResponse {
    * <p>The token from the previous call to <code>DescribeExportTasks</code>.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeContinuousExportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeContinuousExportsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -924,15 +699,6 @@ export interface DescribeExportConfigurationsRequest {
    * <p>The token from the previous call to describe-export-tasks.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeExportConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ExportStatus {
@@ -995,15 +761,6 @@ export interface ExportInfo {
   requestedEndTime?: Date;
 }
 
-export namespace ExportInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeExportConfigurationsResponse {
   /**
    * <p></p>
@@ -1014,15 +771,6 @@ export interface DescribeExportConfigurationsResponse {
    * <p>The token from the previous call to describe-export-tasks.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeExportConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1047,15 +795,6 @@ export interface ExportFilter {
    *          </p>
    */
   condition: string | undefined;
-}
-
-export namespace ExportFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeExportTasksRequest {
@@ -1094,15 +833,6 @@ export interface DescribeExportTasksRequest {
   nextToken?: string;
 }
 
-export namespace DescribeExportTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportTasksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeExportTasksResponse {
   /**
    * <p>Contains one or more sets of export request details. When the status of a request is
@@ -1119,15 +849,6 @@ export interface DescribeExportTasksResponse {
    *       to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeExportTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportTasksResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ImportTaskFilterName {
@@ -1157,15 +878,6 @@ export interface ImportTaskFilter {
   values?: string[];
 }
 
-export namespace ImportTaskFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportTaskFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeImportTasksRequest {
   /**
    * <p>An array of name-value pairs that you provide to filter the results for the
@@ -1183,15 +895,6 @@ export interface DescribeImportTasksRequest {
    * <p>The token to request a specific page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeImportTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportTasksRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ImportStatus {
@@ -1304,15 +1007,6 @@ export interface ImportTask {
   errorsAndFailedEntriesZip?: string;
 }
 
-export namespace ImportTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportTask): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeImportTasksResponse {
   /**
    * <p>The token to request the next page of results.</p>
@@ -1324,15 +1018,6 @@ export interface DescribeImportTasksResponse {
    *       number of maximum results.</p>
    */
   tasks?: ImportTask[];
-}
-
-export namespace DescribeImportTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportTasksResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1349,15 +1034,6 @@ export interface TagFilter {
    * <p>Values for the tag filter.</p>
    */
   values: string[] | undefined;
-}
-
-export namespace TagFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeTagsRequest {
@@ -1378,15 +1054,6 @@ export interface DescribeTagsRequest {
    * <p>A token to start the list. Use this token to get the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfigurationItemType {
@@ -1431,15 +1098,6 @@ export interface ConfigurationTag {
   timeOfCreation?: Date;
 }
 
-export namespace ConfigurationTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationTag): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTagsResponse {
   /**
    * <p>Depending on the input, this is a list of configuration items tagged with a specific
@@ -1451,15 +1109,6 @@ export interface DescribeTagsResponse {
    * <p>The call returns a token. Use this token to get the next set of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace DescribeTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateConfigurationItemsFromApplicationRequest {
@@ -1474,25 +1123,7 @@ export interface DisassociateConfigurationItemsFromApplicationRequest {
   configurationIds: string[] | undefined;
 }
 
-export namespace DisassociateConfigurationItemsFromApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateConfigurationItemsFromApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateConfigurationItemsFromApplicationResponse {}
-
-export namespace DisassociateConfigurationItemsFromApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateConfigurationItemsFromApplicationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ExportConfigurationsResponse {
   /**
@@ -1501,25 +1132,7 @@ export interface ExportConfigurationsResponse {
   exportId?: string;
 }
 
-export namespace ExportConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportConfigurationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDiscoverySummaryRequest {}
-
-export namespace GetDiscoverySummaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiscoverySummaryRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface CustomerAgentlessCollectorInfo {
   activeAgentlessCollectors: number | undefined;
@@ -1529,15 +1142,6 @@ export interface CustomerAgentlessCollectorInfo {
   unhealthyAgentlessCollectors: number | undefined;
   totalAgentlessCollectors: number | undefined;
   unknownAgentlessCollectors: number | undefined;
-}
-
-export namespace CustomerAgentlessCollectorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerAgentlessCollectorInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1580,15 +1184,6 @@ export interface CustomerAgentInfo {
   unknownAgents: number | undefined;
 }
 
-export namespace CustomerAgentInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerAgentInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Inventory data for installed discovery connectors.</p>
  */
@@ -1627,15 +1222,6 @@ export interface CustomerConnectorInfo {
    * <p>Number of unknown discovery connectors.</p>
    */
   unknownConnectors: number | undefined;
-}
-
-export namespace CustomerConnectorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerConnectorInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1694,15 +1280,6 @@ export interface CustomerMeCollectorInfo {
   unknownMeCollectors: number | undefined;
 }
 
-export namespace CustomerMeCollectorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerMeCollectorInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDiscoverySummaryResponse {
   /**
    * <p>The number of servers discovered.</p>
@@ -1744,15 +1321,6 @@ export interface GetDiscoverySummaryResponse {
   agentlessCollectorSummary?: CustomerAgentlessCollectorInfo;
 }
 
-export namespace GetDiscoverySummaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDiscoverySummaryResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum OrderString {
   ASC = "ASC",
   DESC = "DESC",
@@ -1771,15 +1339,6 @@ export interface OrderByElement {
    * <p>Ordering direction.</p>
    */
   sortOrder?: OrderString | string;
-}
-
-export namespace OrderByElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrderByElement): any => ({
-    ...obj,
-  });
 }
 
 export interface ListConfigurationsRequest {
@@ -1821,15 +1380,6 @@ export interface ListConfigurationsRequest {
   orderBy?: OrderByElement[];
 }
 
-export namespace ListConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConfigurationsResponse {
   /**
    * <p>Returns configuration details, including the configuration ID, attribute names, and
@@ -1845,15 +1395,6 @@ export interface ListConfigurationsResponse {
    *       10.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListServerNeighborsRequest {
@@ -1887,15 +1428,6 @@ export interface ListServerNeighborsRequest {
   nextToken?: string;
 }
 
-export namespace ListServerNeighborsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServerNeighborsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about neighboring servers.</p>
  */
@@ -1926,15 +1458,6 @@ export interface NeighborConnectionDetail {
   connectionsCount: number | undefined;
 }
 
-export namespace NeighborConnectionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NeighborConnectionDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServerNeighborsResponse {
   /**
    * <p>List of distinct servers that are one hop away from the given server.</p>
@@ -1954,15 +1477,6 @@ export interface ListServerNeighborsResponse {
    * <p>Count of distinct servers that are one hop away from the given server.</p>
    */
   knownDependencyCount?: number;
-}
-
-export namespace ListServerNeighborsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServerNeighborsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2009,15 +1523,6 @@ export class ResourceInUseException extends __BaseException {
 
 export interface StartContinuousExportRequest {}
 
-export namespace StartContinuousExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartContinuousExportRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartContinuousExportResponse {
   /**
    * <p>The unique ID assigned to this export.</p>
@@ -2053,15 +1558,6 @@ export interface StartContinuousExportResponse {
   schemaStorageConfig?: Record<string, string>;
 }
 
-export namespace StartContinuousExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartContinuousExportResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDataCollectionByAgentIdsRequest {
   /**
    * <p>The IDs of the agents or connectors from which to start collecting data. If you send a
@@ -2075,15 +1571,6 @@ export interface StartDataCollectionByAgentIdsRequest {
   agentIds: string[] | undefined;
 }
 
-export namespace StartDataCollectionByAgentIdsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDataCollectionByAgentIdsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDataCollectionByAgentIdsResponse {
   /**
    * <p>Information about agents or the connector that were instructed to start collecting
@@ -2091,15 +1578,6 @@ export interface StartDataCollectionByAgentIdsResponse {
    *       and whether the agent/connector configuration was updated.</p>
    */
   agentsConfigurationStatus?: AgentConfigurationStatus[];
-}
-
-export namespace StartDataCollectionByAgentIdsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDataCollectionByAgentIdsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ExportDataFormat {
@@ -2143,29 +1621,11 @@ export interface StartExportTaskRequest {
   endTime?: Date;
 }
 
-export namespace StartExportTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartExportTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartExportTaskResponse {
   /**
    * <p>A unique identifier used to query the status of an export request.</p>
    */
   exportId?: string;
-}
-
-export namespace StartExportTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartExportTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartImportTaskRequest {
@@ -2199,15 +1659,6 @@ export interface StartImportTaskRequest {
   importUrl: string | undefined;
 }
 
-export namespace StartImportTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImportTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartImportTaskResponse {
   /**
    * <p>An array of information related to the import task request including status information,
@@ -2216,29 +1667,11 @@ export interface StartImportTaskResponse {
   task?: ImportTask;
 }
 
-export namespace StartImportTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImportTaskResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopContinuousExportRequest {
   /**
    * <p>The unique ID assigned to this export.</p>
    */
   exportId: string | undefined;
-}
-
-export namespace StopContinuousExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopContinuousExportRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopContinuousExportResponse {
@@ -2254,29 +1687,11 @@ export interface StopContinuousExportResponse {
   stopTime?: Date;
 }
 
-export namespace StopContinuousExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopContinuousExportResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StopDataCollectionByAgentIdsRequest {
   /**
    * <p>The IDs of the agents or connectors from which to stop collecting data.</p>
    */
   agentIds: string[] | undefined;
-}
-
-export namespace StopDataCollectionByAgentIdsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDataCollectionByAgentIdsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopDataCollectionByAgentIdsResponse {
@@ -2286,15 +1701,6 @@ export interface StopDataCollectionByAgentIdsResponse {
    *       whether the agent/connector configuration was updated.</p>
    */
   agentsConfigurationStatus?: AgentConfigurationStatus[];
-}
-
-export namespace StopDataCollectionByAgentIdsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDataCollectionByAgentIdsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApplicationRequest {
@@ -2314,22 +1720,500 @@ export interface UpdateApplicationRequest {
   description?: string;
 }
 
-export namespace UpdateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApplicationResponse {}
 
-export namespace UpdateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AgentConfigurationStatusFilterSensitiveLog = (obj: AgentConfigurationStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentNetworkInfoFilterSensitiveLog = (obj: AgentNetworkInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentInfoFilterSensitiveLog = (obj: AgentInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateConfigurationItemsToApplicationRequestFilterSensitiveLog = (
+  obj: AssociateConfigurationItemsToApplicationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateConfigurationItemsToApplicationResponseFilterSensitiveLog = (
+  obj: AssociateConfigurationItemsToApplicationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteImportDataRequestFilterSensitiveLog = (obj: BatchDeleteImportDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteImportDataErrorFilterSensitiveLog = (obj: BatchDeleteImportDataError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteImportDataResponseFilterSensitiveLog = (obj: BatchDeleteImportDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationResponseFilterSensitiveLog = (obj: CreateApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTagsResponseFilterSensitiveLog = (obj: CreateTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationsRequestFilterSensitiveLog = (obj: DeleteApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationsResponseFilterSensitiveLog = (obj: DeleteApplicationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsRequestFilterSensitiveLog = (obj: DeleteTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTagsResponseFilterSensitiveLog = (obj: DeleteTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAgentsRequestFilterSensitiveLog = (obj: DescribeAgentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAgentsResponseFilterSensitiveLog = (obj: DescribeAgentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationsRequestFilterSensitiveLog = (obj: DescribeConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationsResponseFilterSensitiveLog = (obj: DescribeConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContinuousExportsRequestFilterSensitiveLog = (obj: DescribeContinuousExportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinuousExportDescriptionFilterSensitiveLog = (obj: ContinuousExportDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeContinuousExportsResponseFilterSensitiveLog = (obj: DescribeContinuousExportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExportConfigurationsRequestFilterSensitiveLog = (
+  obj: DescribeExportConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportInfoFilterSensitiveLog = (obj: ExportInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExportConfigurationsResponseFilterSensitiveLog = (
+  obj: DescribeExportConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportFilterFilterSensitiveLog = (obj: ExportFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExportTasksRequestFilterSensitiveLog = (obj: DescribeExportTasksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExportTasksResponseFilterSensitiveLog = (obj: DescribeExportTasksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTaskFilterFilterSensitiveLog = (obj: ImportTaskFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImportTasksRequestFilterSensitiveLog = (obj: DescribeImportTasksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTaskFilterSensitiveLog = (obj: ImportTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImportTasksResponseFilterSensitiveLog = (obj: DescribeImportTasksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterFilterSensitiveLog = (obj: TagFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsRequestFilterSensitiveLog = (obj: DescribeTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationTagFilterSensitiveLog = (obj: ConfigurationTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTagsResponseFilterSensitiveLog = (obj: DescribeTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateConfigurationItemsFromApplicationRequestFilterSensitiveLog = (
+  obj: DisassociateConfigurationItemsFromApplicationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateConfigurationItemsFromApplicationResponseFilterSensitiveLog = (
+  obj: DisassociateConfigurationItemsFromApplicationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportConfigurationsResponseFilterSensitiveLog = (obj: ExportConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiscoverySummaryRequestFilterSensitiveLog = (obj: GetDiscoverySummaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerAgentlessCollectorInfoFilterSensitiveLog = (obj: CustomerAgentlessCollectorInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerAgentInfoFilterSensitiveLog = (obj: CustomerAgentInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerConnectorInfoFilterSensitiveLog = (obj: CustomerConnectorInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomerMeCollectorInfoFilterSensitiveLog = (obj: CustomerMeCollectorInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDiscoverySummaryResponseFilterSensitiveLog = (obj: GetDiscoverySummaryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrderByElementFilterSensitiveLog = (obj: OrderByElement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationsRequestFilterSensitiveLog = (obj: ListConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationsResponseFilterSensitiveLog = (obj: ListConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServerNeighborsRequestFilterSensitiveLog = (obj: ListServerNeighborsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NeighborConnectionDetailFilterSensitiveLog = (obj: NeighborConnectionDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServerNeighborsResponseFilterSensitiveLog = (obj: ListServerNeighborsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartContinuousExportRequestFilterSensitiveLog = (obj: StartContinuousExportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartContinuousExportResponseFilterSensitiveLog = (obj: StartContinuousExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDataCollectionByAgentIdsRequestFilterSensitiveLog = (
+  obj: StartDataCollectionByAgentIdsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDataCollectionByAgentIdsResponseFilterSensitiveLog = (
+  obj: StartDataCollectionByAgentIdsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartExportTaskRequestFilterSensitiveLog = (obj: StartExportTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartExportTaskResponseFilterSensitiveLog = (obj: StartExportTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImportTaskRequestFilterSensitiveLog = (obj: StartImportTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImportTaskResponseFilterSensitiveLog = (obj: StartImportTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopContinuousExportRequestFilterSensitiveLog = (obj: StopContinuousExportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopContinuousExportResponseFilterSensitiveLog = (obj: StopContinuousExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDataCollectionByAgentIdsRequestFilterSensitiveLog = (
+  obj: StopDataCollectionByAgentIdsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDataCollectionByAgentIdsResponseFilterSensitiveLog = (
+  obj: StopDataCollectionByAgentIdsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationResponseFilterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
+  ...obj,
+});

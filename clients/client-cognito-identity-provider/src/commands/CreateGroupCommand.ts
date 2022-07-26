@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { CreateGroupRequest, CreateGroupResponse } from "../models/models_0";
+import {
+  CreateGroupRequest,
+  CreateGroupRequestFilterSensitiveLog,
+  CreateGroupResponse,
+  CreateGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateGroupCommand,
   serializeAws_json1_1CreateGroupCommand,
@@ -79,8 +84,8 @@ export class CreateGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

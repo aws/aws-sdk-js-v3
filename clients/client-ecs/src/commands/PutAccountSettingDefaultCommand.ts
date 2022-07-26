@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { PutAccountSettingDefaultRequest, PutAccountSettingDefaultResponse } from "../models/models_0";
+import {
+  PutAccountSettingDefaultRequest,
+  PutAccountSettingDefaultRequestFilterSensitiveLog,
+  PutAccountSettingDefaultResponse,
+  PutAccountSettingDefaultResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutAccountSettingDefaultCommand,
   serializeAws_json1_1PutAccountSettingDefaultCommand,
@@ -74,8 +79,8 @@ export class PutAccountSettingDefaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountSettingDefaultRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountSettingDefaultResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAccountSettingDefaultRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAccountSettingDefaultResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetEnabledStandardsRequest, GetEnabledStandardsResponse } from "../models/models_1";
+import {
+  GetEnabledStandardsRequest,
+  GetEnabledStandardsRequestFilterSensitiveLog,
+  GetEnabledStandardsResponse,
+  GetEnabledStandardsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetEnabledStandardsCommand,
   serializeAws_restJson1GetEnabledStandardsCommand,
@@ -72,8 +77,8 @@ export class GetEnabledStandardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnabledStandardsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEnabledStandardsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEnabledStandardsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEnabledStandardsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

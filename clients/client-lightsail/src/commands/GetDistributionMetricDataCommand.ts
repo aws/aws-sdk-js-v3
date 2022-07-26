@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetDistributionMetricDataRequest, GetDistributionMetricDataResult } from "../models/models_0";
+import {
+  GetDistributionMetricDataRequest,
+  GetDistributionMetricDataRequestFilterSensitiveLog,
+  GetDistributionMetricDataResult,
+  GetDistributionMetricDataResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDistributionMetricDataCommand,
   serializeAws_json1_1GetDistributionMetricDataCommand,
@@ -76,8 +81,8 @@ export class GetDistributionMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDistributionMetricDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDistributionMetricDataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDistributionMetricDataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDistributionMetricDataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

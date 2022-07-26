@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { UpdateExportRequest, UpdateExportResponse } from "../models/models_0";
+import {
+  UpdateExportRequest,
+  UpdateExportRequestFilterSensitiveLog,
+  UpdateExportResponse,
+  UpdateExportResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateExportCommand,
   serializeAws_restJson1UpdateExportCommand,
@@ -76,8 +81,8 @@ export class UpdateExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateExportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateExportRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateExportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

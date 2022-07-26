@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateSecurityProfileRequest } from "../models/models_1";
+import { UpdateSecurityProfileRequest, UpdateSecurityProfileRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateSecurityProfileCommand,
   serializeAws_restJson1UpdateSecurityProfileCommand,
@@ -73,7 +73,7 @@ export class UpdateSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecurityProfileRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSecurityProfileRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

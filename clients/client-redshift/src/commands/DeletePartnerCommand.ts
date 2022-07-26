@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PartnerIntegrationInputMessage, PartnerIntegrationOutputMessage } from "../models/models_0";
+import {
+  PartnerIntegrationInputMessage,
+  PartnerIntegrationInputMessageFilterSensitiveLog,
+  PartnerIntegrationOutputMessage,
+  PartnerIntegrationOutputMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeletePartnerCommand,
   serializeAws_queryDeletePartnerCommand,
@@ -72,8 +77,8 @@ export class DeletePartnerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PartnerIntegrationInputMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: PartnerIntegrationOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: PartnerIntegrationInputMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: PartnerIntegrationOutputMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

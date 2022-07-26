@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { DeleteApiDestinationRequest, DeleteApiDestinationResponse } from "../models/models_0";
+import {
+  DeleteApiDestinationRequest,
+  DeleteApiDestinationRequestFilterSensitiveLog,
+  DeleteApiDestinationResponse,
+  DeleteApiDestinationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApiDestinationCommand,
   serializeAws_json1_1DeleteApiDestinationCommand,
@@ -72,8 +77,8 @@ export class DeleteApiDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApiDestinationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApiDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApiDestinationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApiDestinationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

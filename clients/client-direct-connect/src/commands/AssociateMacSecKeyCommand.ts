@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { AssociateMacSecKeyRequest, AssociateMacSecKeyResponse } from "../models/models_0";
+import {
+  AssociateMacSecKeyRequest,
+  AssociateMacSecKeyRequestFilterSensitiveLog,
+  AssociateMacSecKeyResponse,
+  AssociateMacSecKeyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateMacSecKeyCommand,
   serializeAws_json1_1AssociateMacSecKeyCommand,
@@ -74,8 +79,8 @@ export class AssociateMacSecKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateMacSecKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateMacSecKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateMacSecKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateMacSecKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

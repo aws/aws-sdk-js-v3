@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { GetRepositoryEndpointRequest, GetRepositoryEndpointResult } from "../models/models_0";
+import {
+  GetRepositoryEndpointRequest,
+  GetRepositoryEndpointRequestFilterSensitiveLog,
+  GetRepositoryEndpointResult,
+  GetRepositoryEndpointResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetRepositoryEndpointCommand,
   serializeAws_restJson1GetRepositoryEndpointCommand,
@@ -97,8 +102,8 @@ export class GetRepositoryEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositoryEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositoryEndpointResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRepositoryEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRepositoryEndpointResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

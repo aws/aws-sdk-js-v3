@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { CreateRouteResponseRequest, CreateRouteResponseResponse } from "../models/models_0";
+import {
+  CreateRouteResponseRequest,
+  CreateRouteResponseRequestFilterSensitiveLog,
+  CreateRouteResponseResponse,
+  CreateRouteResponseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRouteResponseCommand,
   serializeAws_restJson1CreateRouteResponseCommand,
@@ -72,8 +77,8 @@ export class CreateRouteResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRouteResponseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRouteResponseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRouteResponseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRouteResponseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

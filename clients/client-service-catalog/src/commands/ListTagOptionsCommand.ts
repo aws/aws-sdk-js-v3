@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTagOptionsInput, ListTagOptionsOutput } from "../models/models_0";
+import {
+  ListTagOptionsInput,
+  ListTagOptionsInputFilterSensitiveLog,
+  ListTagOptionsOutput,
+  ListTagOptionsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListTagOptionsCommand,
   serializeAws_json1_1ListTagOptionsCommand,
@@ -72,8 +77,8 @@ export class ListTagOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagOptionsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagOptionsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagOptionsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagOptionsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeEventsRequest, DescribeEventsResponse } from "../models/models_0";
+import {
+  DescribeEventsRequest,
+  DescribeEventsRequestFilterSensitiveLog,
+  DescribeEventsResponse,
+  DescribeEventsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
   deserializeAws_json1_1DescribeEventsCommand,
@@ -81,8 +86,8 @@ export class DescribeEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

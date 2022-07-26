@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
-import { UpdateReportDefinitionRequest, UpdateReportDefinitionResult } from "../models/models_0";
+import {
+  UpdateReportDefinitionRequest,
+  UpdateReportDefinitionRequestFilterSensitiveLog,
+  UpdateReportDefinitionResult,
+  UpdateReportDefinitionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateReportDefinitionCommand,
   serializeAws_restJson1UpdateReportDefinitionCommand,
@@ -76,8 +81,8 @@ export class UpdateReportDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateReportDefinitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateReportDefinitionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateReportDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateReportDefinitionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

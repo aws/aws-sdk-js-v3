@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteUsageLimitRequest, DeleteUsageLimitResponse } from "../models/models_0";
+import {
+  DeleteUsageLimitRequest,
+  DeleteUsageLimitRequestFilterSensitiveLog,
+  DeleteUsageLimitResponse,
+  DeleteUsageLimitResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteUsageLimitCommand,
   serializeAws_json1_1DeleteUsageLimitCommand,
@@ -76,8 +81,8 @@ export class DeleteUsageLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUsageLimitRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUsageLimitResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUsageLimitRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteUsageLimitResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

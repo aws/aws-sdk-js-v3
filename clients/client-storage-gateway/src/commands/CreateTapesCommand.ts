@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTapesInput, CreateTapesOutput } from "../models/models_0";
+import {
+  CreateTapesInput,
+  CreateTapesInputFilterSensitiveLog,
+  CreateTapesOutput,
+  CreateTapesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTapesCommand,
   serializeAws_json1_1CreateTapesCommand,
@@ -78,8 +83,8 @@ export class CreateTapesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTapesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateTapesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTapesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateTapesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

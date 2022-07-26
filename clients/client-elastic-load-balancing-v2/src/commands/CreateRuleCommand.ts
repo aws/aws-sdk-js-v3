@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { CreateRuleInput, CreateRuleOutput } from "../models/models_0";
+import {
+  CreateRuleInput,
+  CreateRuleInputFilterSensitiveLog,
+  CreateRuleOutput,
+  CreateRuleOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryCreateRuleCommand, serializeAws_queryCreateRuleCommand } from "../protocols/Aws_query";
 
 export interface CreateRuleCommandInput extends CreateRuleInput {}
@@ -78,8 +83,8 @@ export class CreateRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRuleInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRuleOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRuleInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRuleOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

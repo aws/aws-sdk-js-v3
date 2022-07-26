@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import { DeleteEnvironmentRequest, DeleteEnvironmentResponse } from "../models/models_0";
+import {
+  DeleteEnvironmentRequest,
+  DeleteEnvironmentRequestFilterSensitiveLog,
+  DeleteEnvironmentResponse,
+  DeleteEnvironmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEnvironmentCommand,
   serializeAws_restJson1DeleteEnvironmentCommand,
@@ -77,8 +82,8 @@ export class DeleteEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEnvironmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEnvironmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEnvironmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterElasticIpRequest } from "../models/models_0";
+import { DeregisterElasticIpRequest, DeregisterElasticIpRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DeregisterElasticIpCommand,
@@ -78,7 +78,7 @@ export class DeregisterElasticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterElasticIpRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterElasticIpRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

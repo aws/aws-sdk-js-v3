@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { AssociateKmsKeyRequest } from "../models/models_0";
+import { AssociateKmsKeyRequest, AssociateKmsKeyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateKmsKeyCommand,
   serializeAws_json1_1AssociateKmsKeyCommand,
@@ -84,7 +84,7 @@ export class AssociateKmsKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateKmsKeyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateKmsKeyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

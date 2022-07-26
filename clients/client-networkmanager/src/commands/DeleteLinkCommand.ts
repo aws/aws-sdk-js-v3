@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteLinkRequest, DeleteLinkResponse } from "../models/models_0";
+import {
+  DeleteLinkRequest,
+  DeleteLinkRequestFilterSensitiveLog,
+  DeleteLinkResponse,
+  DeleteLinkResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1DeleteLinkCommand,
@@ -73,8 +78,8 @@ export class DeleteLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLinkRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLinkResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLinkRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLinkResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

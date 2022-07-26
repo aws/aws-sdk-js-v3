@@ -38,15 +38,6 @@ export interface Cors {
   MaxAge?: number;
 }
 
-export namespace Cors {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cors): any => ({
-    ...obj,
-  });
-}
-
 export enum ProtocolType {
   HTTP = "HTTP",
   WEBSOCKET = "WEBSOCKET",
@@ -137,15 +128,6 @@ export interface Api {
   Warnings?: string[];
 }
 
-export namespace Api {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Api): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an API mapping.</p>
  */
@@ -171,15 +153,6 @@ export interface ApiMapping {
   Stage: string | undefined;
 }
 
-export namespace ApiMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiMapping): any => ({
-    ...obj,
-  });
-}
-
 export enum AuthorizerType {
   JWT = "JWT",
   REQUEST = "REQUEST",
@@ -199,15 +172,6 @@ export interface JWTConfiguration {
    *                . Required for the JWT authorizer type. Supported only for HTTP APIs.</p>
    */
   Issuer?: string;
-}
-
-export namespace JWTConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JWTConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -271,15 +235,6 @@ export interface Authorizer {
   Name: string | undefined;
 }
 
-export namespace Authorizer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Authorizer): any => ({
-    ...obj,
-  });
-}
-
 export enum DeploymentStatus {
   DEPLOYED = "DEPLOYED",
   FAILED = "FAILED",
@@ -319,15 +274,6 @@ export interface Deployment {
    * <p>The description for the deployment.</p>
    */
   Description?: string;
-}
-
-export namespace Deployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deployment): any => ({
-    ...obj,
-  });
 }
 
 export enum DomainNameStatus {
@@ -402,15 +348,6 @@ export interface DomainNameConfiguration {
   OwnershipVerificationCertificateArn?: string;
 }
 
-export namespace DomainNameConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainNameConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface MutualTlsAuthentication {
   /**
    * <p>An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, s3://<replaceable>bucket-name</replaceable>/<replaceable>key-name</replaceable>. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.</p>
@@ -426,15 +363,6 @@ export interface MutualTlsAuthentication {
    * <p>A list of warnings that API Gateway returns while processing your truststore. Invalid certificates produce warnings. Mutual TLS is still enabled, but some clients might not be able to access your API. To resolve warnings, upload a new truststore to S3, and then update you domain name to use the new version.</p>
    */
   TruststoreWarnings?: string[];
-}
-
-export namespace MutualTlsAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MutualTlsAuthentication): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -465,15 +393,6 @@ export interface DomainName {
    * <p>The collection of tags associated with a domain name.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace DomainName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainName): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionType {
@@ -508,15 +427,6 @@ export interface TlsConfig {
    * <p>If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.</p>
    */
   ServerNameToVerify?: string;
-}
-
-export namespace TlsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TlsConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -629,15 +539,6 @@ export interface Integration {
   TlsConfig?: TlsConfig;
 }
 
-export namespace Integration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Integration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an integration response.</p>
  */
@@ -673,15 +574,6 @@ export interface IntegrationResponse {
   TemplateSelectionExpression?: string;
 }
 
-export namespace IntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntegrationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a data model for an API. Supported only for WebSocket APIs. See <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html">Create Models and Mapping Templates for Request and Response Mappings</a>.</p>
  */
@@ -712,15 +604,6 @@ export interface Model {
   Schema?: string;
 }
 
-export namespace Model {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Model): any => ({
-    ...obj,
-  });
-}
-
 export enum AuthorizationType {
   AWS_IAM = "AWS_IAM",
   CUSTOM = "CUSTOM",
@@ -736,15 +619,6 @@ export interface ParameterConstraints {
    * <p>Whether or not the parameter is required.</p>
    */
   Required?: boolean;
-}
-
-export namespace ParameterConstraints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterConstraints): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -817,15 +691,6 @@ export interface Route {
   Target?: string;
 }
 
-export namespace Route {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Route): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a route response.</p>
  */
@@ -856,15 +721,6 @@ export interface RouteResponse {
   RouteResponseKey: string | undefined;
 }
 
-export namespace RouteResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RouteResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Settings for logging access in a stage.</p>
  */
@@ -878,15 +734,6 @@ export interface AccessLogSettings {
    * <p>A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.</p>
    */
   Format?: string;
-}
-
-export namespace AccessLogSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessLogSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum LoggingLevel {
@@ -923,15 +770,6 @@ export interface RouteSettings {
    * <p>Specifies the throttling rate limit.</p>
    */
   ThrottlingRateLimit?: number;
-}
-
-export namespace RouteSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RouteSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1009,15 +847,6 @@ export interface Stage {
   Tags?: Record<string, string>;
 }
 
-export namespace Stage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Stage): any => ({
-    ...obj,
-  });
-}
-
 export enum VpcLinkStatus {
   AVAILABLE = "AVAILABLE",
   DELETING = "DELETING",
@@ -1078,15 +907,6 @@ export interface VpcLink {
    * <p>The version of the VPC link.</p>
    */
   VpcLinkVersion?: VpcLinkVersion | string;
-}
-
-export namespace VpcLink {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcLink): any => ({
-    ...obj,
-  });
 }
 
 export class AccessDeniedException extends __BaseException {
@@ -1225,15 +1045,6 @@ export interface CreateApiRequest {
   Version?: string;
 }
 
-export namespace CreateApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApiResponse {
   /**
    * <p>The URI of the API, of the form {api-id}.execute-api.{region}.amazonaws.com. The stage name is typically appended to this URI to form a complete path to a deployed API stage.</p>
@@ -1314,15 +1125,6 @@ export interface CreateApiResponse {
    * <p>The warning messages reported when failonwarnings is turned on during API import.</p>
    */
   Warnings?: string[];
-}
-
-export namespace CreateApiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1410,15 +1212,6 @@ export interface CreateApiMappingRequest {
   Stage: string | undefined;
 }
 
-export namespace CreateApiMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiMappingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApiMappingResponse {
   /**
    * <p>The API identifier.</p>
@@ -1439,15 +1232,6 @@ export interface CreateApiMappingResponse {
    * <p>The API stage.</p>
    */
   Stage?: string;
-}
-
-export namespace CreateApiMappingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApiMappingResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1511,15 +1295,6 @@ export interface CreateAuthorizerRequest {
   Name: string | undefined;
 }
 
-export namespace CreateAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAuthorizerResponse {
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
@@ -1578,15 +1353,6 @@ export interface CreateAuthorizerResponse {
   Name?: string;
 }
 
-export namespace CreateAuthorizerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAuthorizerResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates a new Deployment resource to represent a deployment.</p>
  */
@@ -1605,15 +1371,6 @@ export interface CreateDeploymentRequest {
    * <p>The name of the Stage resource for the Deployment resource to create.</p>
    */
   StageName?: string;
-}
-
-export namespace CreateDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDeploymentResponse {
@@ -1648,15 +1405,6 @@ export interface CreateDeploymentResponse {
   Description?: string;
 }
 
-export namespace CreateDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface MutualTlsAuthenticationInput {
   /**
    * <p>An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, s3://<replaceable>bucket-name</replaceable>/<replaceable>key-name</replaceable>. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.</p>
@@ -1667,15 +1415,6 @@ export interface MutualTlsAuthenticationInput {
    * <p>The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.</p>
    */
   TruststoreVersion?: string;
-}
-
-export namespace MutualTlsAuthenticationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MutualTlsAuthenticationInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1701,15 +1440,6 @@ export interface CreateDomainNameRequest {
    * <p>The collection of tags associated with a domain name.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainNameRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDomainNameResponse {
@@ -1739,15 +1469,6 @@ export interface CreateDomainNameResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateDomainNameResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainNameResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
  */
@@ -1756,15 +1477,6 @@ export interface TlsConfigInput {
    * <p>If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.</p>
    */
   ServerNameToVerify?: string;
-}
-
-export namespace TlsConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TlsConfigInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1865,15 +1577,6 @@ export interface CreateIntegrationRequest {
    * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
    */
   TlsConfig?: TlsConfigInput;
-}
-
-export namespace CreateIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateIntegrationResult {
@@ -1983,15 +1686,6 @@ export interface CreateIntegrationResult {
   TlsConfig?: TlsConfig;
 }
 
-export namespace CreateIntegrationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntegrationResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates a new IntegrationResponse resource to represent an integration response.</p>
  */
@@ -2032,15 +1726,6 @@ export interface CreateIntegrationResponseRequest {
   TemplateSelectionExpression?: string;
 }
 
-export namespace CreateIntegrationResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntegrationResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIntegrationResponseResponse {
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
@@ -2073,15 +1758,6 @@ export interface CreateIntegrationResponseResponse {
   TemplateSelectionExpression?: string;
 }
 
-export namespace CreateIntegrationResponseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntegrationResponseResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates a new Model.</p>
  */
@@ -2112,15 +1788,6 @@ export interface CreateModelRequest {
   Schema: string | undefined;
 }
 
-export namespace CreateModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateModelResponse {
   /**
    * <p>The content-type for the model, for example, "application/json".</p>
@@ -2146,15 +1813,6 @@ export interface CreateModelResponse {
    * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
    */
   Schema?: string;
-}
-
-export namespace CreateModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2220,15 +1878,6 @@ export interface CreateRouteRequest {
    * <p>The target for the route.</p>
    */
   Target?: string;
-}
-
-export namespace CreateRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRouteRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRouteResult {
@@ -2298,15 +1947,6 @@ export interface CreateRouteResult {
   Target?: string;
 }
 
-export namespace CreateRouteResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRouteResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates a new RouteResponse resource to represent a route response.</p>
  */
@@ -2342,15 +1982,6 @@ export interface CreateRouteResponseRequest {
   RouteResponseKey: string | undefined;
 }
 
-export namespace CreateRouteResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRouteResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRouteResponseResponse {
   /**
    * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
@@ -2376,15 +2007,6 @@ export interface CreateRouteResponseResponse {
    * <p>Represents the route response key of a route response.</p>
    */
   RouteResponseKey?: string;
-}
-
-export namespace CreateRouteResponseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRouteResponseResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2445,15 +2067,6 @@ export interface CreateStageRequest {
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStageRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateStageResponse {
@@ -2528,15 +2141,6 @@ export interface CreateStageResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateStageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStageResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Creates a VPC link</p>
  */
@@ -2560,15 +2164,6 @@ export interface CreateVpcLinkRequest {
    * <p>A list of tags.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateVpcLinkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcLinkRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateVpcLinkResponse {
@@ -2618,15 +2213,6 @@ export interface CreateVpcLinkResponse {
   VpcLinkVersion?: VpcLinkVersion | string;
 }
 
-export namespace CreateVpcLinkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcLinkResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccessLogSettingsRequest {
   /**
    * <p>The API identifier.</p>
@@ -2639,29 +2225,11 @@ export interface DeleteAccessLogSettingsRequest {
   StageName: string | undefined;
 }
 
-export namespace DeleteAccessLogSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessLogSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApiRequest {
   /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
-}
-
-export namespace DeleteApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApiRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteApiMappingRequest {
@@ -2676,15 +2244,6 @@ export interface DeleteApiMappingRequest {
   DomainName: string | undefined;
 }
 
-export namespace DeleteApiMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApiMappingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAuthorizerRequest {
   /**
    * <p>The API identifier.</p>
@@ -2697,29 +2256,11 @@ export interface DeleteAuthorizerRequest {
   AuthorizerId: string | undefined;
 }
 
-export namespace DeleteAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCorsConfigurationRequest {
   /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
-}
-
-export namespace DeleteCorsConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCorsConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDeploymentRequest {
@@ -2734,29 +2275,11 @@ export interface DeleteDeploymentRequest {
   DeploymentId: string | undefined;
 }
 
-export namespace DeleteDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDomainNameRequest {
   /**
    * <p>The domain name.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace DeleteDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainNameRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteIntegrationRequest {
@@ -2769,15 +2292,6 @@ export interface DeleteIntegrationRequest {
    * <p>The integration ID.</p>
    */
   IntegrationId: string | undefined;
-}
-
-export namespace DeleteIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteIntegrationResponseRequest {
@@ -2797,15 +2311,6 @@ export interface DeleteIntegrationResponseRequest {
   IntegrationResponseId: string | undefined;
 }
 
-export namespace DeleteIntegrationResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIntegrationResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteModelRequest {
   /**
    * <p>The API identifier.</p>
@@ -2818,15 +2323,6 @@ export interface DeleteModelRequest {
   ModelId: string | undefined;
 }
 
-export namespace DeleteModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteModelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRouteRequest {
   /**
    * <p>The API identifier.</p>
@@ -2837,15 +2333,6 @@ export interface DeleteRouteRequest {
    * <p>The route ID.</p>
    */
   RouteId: string | undefined;
-}
-
-export namespace DeleteRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRouteRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRouteRequestParameterRequest {
@@ -2865,15 +2352,6 @@ export interface DeleteRouteRequestParameterRequest {
   RouteId: string | undefined;
 }
 
-export namespace DeleteRouteRequestParameterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRouteRequestParameterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRouteResponseRequest {
   /**
    * <p>The API identifier.</p>
@@ -2889,15 +2367,6 @@ export interface DeleteRouteResponseRequest {
    * <p>The route response ID.</p>
    */
   RouteResponseId: string | undefined;
-}
-
-export namespace DeleteRouteResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRouteResponseRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRouteSettingsRequest {
@@ -2917,15 +2386,6 @@ export interface DeleteRouteSettingsRequest {
   StageName: string | undefined;
 }
 
-export namespace DeleteRouteSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRouteSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStageRequest {
   /**
    * <p>The API identifier.</p>
@@ -2938,15 +2398,6 @@ export interface DeleteStageRequest {
   StageName: string | undefined;
 }
 
-export namespace DeleteStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVpcLinkRequest {
   /**
    * <p>The ID of the VPC link.</p>
@@ -2954,25 +2405,7 @@ export interface DeleteVpcLinkRequest {
   VpcLinkId: string | undefined;
 }
 
-export namespace DeleteVpcLinkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVpcLinkRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVpcLinkResponse {}
-
-export namespace DeleteVpcLinkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVpcLinkResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ExportApiRequest {
   /**
@@ -3006,15 +2439,6 @@ export interface ExportApiRequest {
   StageName?: string;
 }
 
-export namespace ExportApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportApiRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportApiResponse {
   /**
    * <p>Represents an exported definition of an API in a particular output format, for example, YAML. The API is serialized to the requested specification, for example, OpenAPI 3.0.</p>
@@ -3022,29 +2446,11 @@ export interface ExportApiResponse {
   body?: Uint8Array;
 }
 
-export namespace ExportApiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportApiResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApiRequest {
   /**
    * <p>The API identifier.</p>
    */
   ApiId: string | undefined;
-}
-
-export namespace GetApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetApiResponse {
@@ -3129,15 +2535,6 @@ export interface GetApiResponse {
   Warnings?: string[];
 }
 
-export namespace GetApiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApiMappingRequest {
   /**
    * <p>The API mapping identifier.</p>
@@ -3148,15 +2545,6 @@ export interface GetApiMappingRequest {
    * <p>The domain name.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace GetApiMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiMappingRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetApiMappingResponse {
@@ -3181,15 +2569,6 @@ export interface GetApiMappingResponse {
   Stage?: string;
 }
 
-export namespace GetApiMappingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiMappingResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApiMappingsRequest {
   /**
    * <p>The domain name.</p>
@@ -3207,15 +2586,6 @@ export interface GetApiMappingsRequest {
   NextToken?: string;
 }
 
-export namespace GetApiMappingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiMappingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApiMappingsResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3226,15 +2596,6 @@ export interface GetApiMappingsResponse {
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetApiMappingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApiMappingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetApisRequest {
@@ -3249,15 +2610,6 @@ export interface GetApisRequest {
   NextToken?: string;
 }
 
-export namespace GetApisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApisRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApisResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3270,15 +2622,6 @@ export interface GetApisResponse {
   NextToken?: string;
 }
 
-export namespace GetApisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApisResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAuthorizerRequest {
   /**
    * <p>The API identifier.</p>
@@ -3289,15 +2632,6 @@ export interface GetAuthorizerRequest {
    * <p>The authorizer identifier.</p>
    */
   AuthorizerId: string | undefined;
-}
-
-export namespace GetAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAuthorizerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAuthorizerResponse {
@@ -3358,15 +2692,6 @@ export interface GetAuthorizerResponse {
   Name?: string;
 }
 
-export namespace GetAuthorizerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAuthorizerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAuthorizersRequest {
   /**
    * <p>The API identifier.</p>
@@ -3384,15 +2709,6 @@ export interface GetAuthorizersRequest {
   NextToken?: string;
 }
 
-export namespace GetAuthorizersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAuthorizersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAuthorizersResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3405,15 +2721,6 @@ export interface GetAuthorizersResponse {
   NextToken?: string;
 }
 
-export namespace GetAuthorizersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAuthorizersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeploymentRequest {
   /**
    * <p>The API identifier.</p>
@@ -3424,15 +2731,6 @@ export interface GetDeploymentRequest {
    * <p>The deployment ID.</p>
    */
   DeploymentId: string | undefined;
-}
-
-export namespace GetDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDeploymentResponse {
@@ -3467,15 +2765,6 @@ export interface GetDeploymentResponse {
   Description?: string;
 }
 
-export namespace GetDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeploymentsRequest {
   /**
    * <p>The API identifier.</p>
@@ -3493,15 +2782,6 @@ export interface GetDeploymentsRequest {
   NextToken?: string;
 }
 
-export namespace GetDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeploymentsResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3514,29 +2794,11 @@ export interface GetDeploymentsResponse {
   NextToken?: string;
 }
 
-export namespace GetDeploymentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDomainNameRequest {
   /**
    * <p>The domain name.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace GetDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainNameRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDomainNameResponse {
@@ -3566,15 +2828,6 @@ export interface GetDomainNameResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetDomainNameResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainNameResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDomainNamesRequest {
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
@@ -3585,15 +2838,6 @@ export interface GetDomainNamesRequest {
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetDomainNamesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainNamesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDomainNamesResponse {
@@ -3608,15 +2852,6 @@ export interface GetDomainNamesResponse {
   NextToken?: string;
 }
 
-export namespace GetDomainNamesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainNamesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIntegrationRequest {
   /**
    * <p>The API identifier.</p>
@@ -3627,15 +2862,6 @@ export interface GetIntegrationRequest {
    * <p>The integration ID.</p>
    */
   IntegrationId: string | undefined;
-}
-
-export namespace GetIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetIntegrationResult {
@@ -3745,15 +2971,6 @@ export interface GetIntegrationResult {
   TlsConfig?: TlsConfig;
 }
 
-export namespace GetIntegrationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIntegrationResponseRequest {
   /**
    * <p>The API identifier.</p>
@@ -3769,15 +2986,6 @@ export interface GetIntegrationResponseRequest {
    * <p>The integration response ID.</p>
    */
   IntegrationResponseId: string | undefined;
-}
-
-export namespace GetIntegrationResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationResponseRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetIntegrationResponseResponse {
@@ -3812,15 +3020,6 @@ export interface GetIntegrationResponseResponse {
   TemplateSelectionExpression?: string;
 }
 
-export namespace GetIntegrationResponseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationResponseResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIntegrationResponsesRequest {
   /**
    * <p>The API identifier.</p>
@@ -3843,15 +3042,6 @@ export interface GetIntegrationResponsesRequest {
   NextToken?: string;
 }
 
-export namespace GetIntegrationResponsesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationResponsesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIntegrationResponsesResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3862,15 +3052,6 @@ export interface GetIntegrationResponsesResponse {
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetIntegrationResponsesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationResponsesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetIntegrationsRequest {
@@ -3890,15 +3071,6 @@ export interface GetIntegrationsRequest {
   NextToken?: string;
 }
 
-export namespace GetIntegrationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIntegrationsResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -3911,15 +3083,6 @@ export interface GetIntegrationsResponse {
   NextToken?: string;
 }
 
-export namespace GetIntegrationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetModelRequest {
   /**
    * <p>The API identifier.</p>
@@ -3930,15 +3093,6 @@ export interface GetModelRequest {
    * <p>The model ID.</p>
    */
   ModelId: string | undefined;
-}
-
-export namespace GetModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetModelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetModelResponse {
@@ -3968,15 +3122,6 @@ export interface GetModelResponse {
   Schema?: string;
 }
 
-export namespace GetModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetModelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetModelsRequest {
   /**
    * <p>The API identifier.</p>
@@ -3994,15 +3139,6 @@ export interface GetModelsRequest {
   NextToken?: string;
 }
 
-export namespace GetModelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetModelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetModelsResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -4013,15 +3149,6 @@ export interface GetModelsResponse {
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetModelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetModelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetModelTemplateRequest {
@@ -4036,29 +3163,11 @@ export interface GetModelTemplateRequest {
   ModelId: string | undefined;
 }
 
-export namespace GetModelTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetModelTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetModelTemplateResponse {
   /**
    * <p>The template value.</p>
    */
   Value?: string;
-}
-
-export namespace GetModelTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetModelTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRouteRequest {
@@ -4071,15 +3180,6 @@ export interface GetRouteRequest {
    * <p>The route ID.</p>
    */
   RouteId: string | undefined;
-}
-
-export namespace GetRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRouteRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRouteResult {
@@ -4149,15 +3249,6 @@ export interface GetRouteResult {
   Target?: string;
 }
 
-export namespace GetRouteResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRouteResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRouteResponseRequest {
   /**
    * <p>The API identifier.</p>
@@ -4173,15 +3264,6 @@ export interface GetRouteResponseRequest {
    * <p>The route response ID.</p>
    */
   RouteResponseId: string | undefined;
-}
-
-export namespace GetRouteResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRouteResponseRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRouteResponseResponse {
@@ -4211,15 +3293,6 @@ export interface GetRouteResponseResponse {
   RouteResponseKey?: string;
 }
 
-export namespace GetRouteResponseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRouteResponseResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRouteResponsesRequest {
   /**
    * <p>The API identifier.</p>
@@ -4242,15 +3315,6 @@ export interface GetRouteResponsesRequest {
   RouteId: string | undefined;
 }
 
-export namespace GetRouteResponsesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRouteResponsesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRouteResponsesResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -4261,15 +3325,6 @@ export interface GetRouteResponsesResponse {
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetRouteResponsesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRouteResponsesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRoutesRequest {
@@ -4289,15 +3344,6 @@ export interface GetRoutesRequest {
   NextToken?: string;
 }
 
-export namespace GetRoutesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoutesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRoutesResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -4310,15 +3356,6 @@ export interface GetRoutesResponse {
   NextToken?: string;
 }
 
-export namespace GetRoutesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRoutesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStageRequest {
   /**
    * <p>The API identifier.</p>
@@ -4329,15 +3366,6 @@ export interface GetStageRequest {
    * <p>The stage name. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
    */
   StageName: string | undefined;
-}
-
-export namespace GetStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStageRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetStageResponse {
@@ -4412,15 +3440,6 @@ export interface GetStageResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetStageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStagesRequest {
   /**
    * <p>The API identifier.</p>
@@ -4438,15 +3457,6 @@ export interface GetStagesRequest {
   NextToken?: string;
 }
 
-export namespace GetStagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStagesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStagesResponse {
   /**
    * <p>The elements from this collection.</p>
@@ -4459,29 +3469,11 @@ export interface GetStagesResponse {
   NextToken?: string;
 }
 
-export namespace GetStagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStagesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTagsRequest {
   /**
    * <p>The resource ARN for the tag.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace GetTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTagsResponse {
@@ -4491,29 +3483,11 @@ export interface GetTagsResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTagsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetVpcLinkRequest {
   /**
    * <p>The ID of the VPC link.</p>
    */
   VpcLinkId: string | undefined;
-}
-
-export namespace GetVpcLinkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVpcLinkRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetVpcLinkResponse {
@@ -4563,15 +3537,6 @@ export interface GetVpcLinkResponse {
   VpcLinkVersion?: VpcLinkVersion | string;
 }
 
-export namespace GetVpcLinkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVpcLinkResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetVpcLinksRequest {
   /**
    * <p>The maximum number of elements to be returned for this resource.</p>
@@ -4584,15 +3549,6 @@ export interface GetVpcLinksRequest {
   NextToken?: string;
 }
 
-export namespace GetVpcLinksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVpcLinksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetVpcLinksResponse {
   /**
    * <p>A collection of VPC links.</p>
@@ -4603,15 +3559,6 @@ export interface GetVpcLinksResponse {
    * <p>The next page of elements from this collection. Not valid for the last element of the collection.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetVpcLinksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetVpcLinksResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4632,15 +3579,6 @@ export interface ImportApiRequest {
    * <p>Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.</p>
    */
   FailOnWarnings?: boolean;
-}
-
-export namespace ImportApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportApiRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportApiResponse {
@@ -4725,15 +3663,6 @@ export interface ImportApiResponse {
   Warnings?: string[];
 }
 
-export namespace ImportApiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportApiResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -4757,15 +3686,6 @@ export interface ReimportApiRequest {
    * <p>Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.</p>
    */
   FailOnWarnings?: boolean;
-}
-
-export namespace ReimportApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReimportApiRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ReimportApiResponse {
@@ -4850,15 +3770,6 @@ export interface ReimportApiResponse {
   Warnings?: string[];
 }
 
-export namespace ReimportApiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReimportApiResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetAuthorizersCacheRequest {
   /**
    * <p>The API identifier.</p>
@@ -4869,15 +3780,6 @@ export interface ResetAuthorizersCacheRequest {
    * <p>The stage name. Stage names can contain only alphanumeric characters, hyphens, and underscores, or be $default. Maximum length is 128 characters.</p>
    */
   StageName: string | undefined;
-}
-
-export namespace ResetAuthorizersCacheRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetAuthorizersCacheRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4895,25 +3797,7 @@ export interface TagResourceRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4925,15 +3809,6 @@ export interface UntagResourceRequest {
    * <p>The Tag keys to delete</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4999,15 +3874,6 @@ export interface UpdateApiRequest {
    * <p>A version identifier for the API.</p>
    */
   Version?: string;
-}
-
-export namespace UpdateApiRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApiResponse {
@@ -5092,15 +3958,6 @@ export interface UpdateApiResponse {
   Warnings?: string[];
 }
 
-export namespace UpdateApiResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates an ApiMapping.</p>
  */
@@ -5131,15 +3988,6 @@ export interface UpdateApiMappingRequest {
   Stage?: string;
 }
 
-export namespace UpdateApiMappingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiMappingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApiMappingResponse {
   /**
    * <p>The API identifier.</p>
@@ -5160,15 +4008,6 @@ export interface UpdateApiMappingResponse {
    * <p>The API stage.</p>
    */
   Stage?: string;
-}
-
-export namespace UpdateApiMappingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApiMappingResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5237,15 +4076,6 @@ export interface UpdateAuthorizerRequest {
   Name?: string;
 }
 
-export namespace UpdateAuthorizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAuthorizerResponse {
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, don't specify this parameter. Supported only for REQUEST authorizers.</p>
@@ -5304,15 +4134,6 @@ export interface UpdateAuthorizerResponse {
   Name?: string;
 }
 
-export namespace UpdateAuthorizerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAuthorizerResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates a Deployment.</p>
  */
@@ -5331,15 +4152,6 @@ export interface UpdateDeploymentRequest {
    * <p>The description for the deployment resource.</p>
    */
   Description?: string;
-}
-
-export namespace UpdateDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeploymentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDeploymentResponse {
@@ -5374,15 +4186,6 @@ export interface UpdateDeploymentResponse {
   Description?: string;
 }
 
-export namespace UpdateDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeploymentResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates a DomainName.</p>
  */
@@ -5401,15 +4204,6 @@ export interface UpdateDomainNameRequest {
    * <p>The mutual TLS authentication configuration for a custom domain name.</p>
    */
   MutualTlsAuthentication?: MutualTlsAuthenticationInput;
-}
-
-export namespace UpdateDomainNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainNameRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDomainNameResponse {
@@ -5437,15 +4231,6 @@ export interface UpdateDomainNameResponse {
    * <p>The collection of tags associated with a domain name.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace UpdateDomainNameResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainNameResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5551,15 +4336,6 @@ export interface UpdateIntegrationRequest {
    * <p>The TLS configuration for a private integration. If you specify a TLS configuration, private integration traffic uses the HTTPS protocol. Supported only for HTTP APIs.</p>
    */
   TlsConfig?: TlsConfigInput;
-}
-
-export namespace UpdateIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateIntegrationResult {
@@ -5669,15 +4445,6 @@ export interface UpdateIntegrationResult {
   TlsConfig?: TlsConfig;
 }
 
-export namespace UpdateIntegrationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIntegrationResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates an IntegrationResponses.</p>
  */
@@ -5730,15 +4497,6 @@ export interface UpdateIntegrationResponseRequest {
   TemplateSelectionExpression?: string;
 }
 
-export namespace UpdateIntegrationResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIntegrationResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateIntegrationResponseResponse {
   /**
    * <p>Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are CONVERT_TO_BINARY and CONVERT_TO_TEXT, with the following behaviors:</p> <p>CONVERT_TO_BINARY: Converts a response payload from a Base64-encoded string to the corresponding binary blob.</p> <p>CONVERT_TO_TEXT: Converts a response payload from a binary blob to a Base64-encoded string.</p> <p>If this property is not defined, the response payload will be passed through from the integration response to the route response or method response without modification.</p>
@@ -5769,15 +4527,6 @@ export interface UpdateIntegrationResponseResponse {
    * <p>The template selection expressions for the integration response.</p>
    */
   TemplateSelectionExpression?: string;
-}
-
-export namespace UpdateIntegrationResponseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIntegrationResponseResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5815,15 +4564,6 @@ export interface UpdateModelRequest {
   Schema?: string;
 }
 
-export namespace UpdateModelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateModelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateModelResponse {
   /**
    * <p>The content-type for the model, for example, "application/json".</p>
@@ -5849,15 +4589,6 @@ export interface UpdateModelResponse {
    * <p>The schema for the model. For application/json models, this should be JSON schema draft 4 model.</p>
    */
   Schema?: string;
-}
-
-export namespace UpdateModelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateModelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5930,15 +4661,6 @@ export interface UpdateRouteRequest {
   Target?: string;
 }
 
-export namespace UpdateRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRouteRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRouteResult {
   /**
    * <p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>
@@ -6006,15 +4728,6 @@ export interface UpdateRouteResult {
   Target?: string;
 }
 
-export namespace UpdateRouteResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRouteResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates a RouteResponse.</p>
  */
@@ -6055,15 +4768,6 @@ export interface UpdateRouteResponseRequest {
   RouteResponseKey?: string;
 }
 
-export namespace UpdateRouteResponseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRouteResponseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRouteResponseResponse {
   /**
    * <p>Represents the model selection expression of a route response. Supported only for WebSocket APIs.</p>
@@ -6089,15 +4793,6 @@ export interface UpdateRouteResponseResponse {
    * <p>Represents the route response key of a route response.</p>
    */
   RouteResponseKey?: string;
-}
-
-export namespace UpdateRouteResponseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRouteResponseResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6153,15 +4848,6 @@ export interface UpdateStageRequest {
    * <p>A map that defines the stage variables for a Stage. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9-._~:/?#&amp;=,]+.</p>
    */
   StageVariables?: Record<string, string>;
-}
-
-export namespace UpdateStageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStageRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateStageResponse {
@@ -6236,15 +4922,6 @@ export interface UpdateStageResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace UpdateStageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStageResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Updates a VPC link.</p>
  */
@@ -6258,15 +4935,6 @@ export interface UpdateVpcLinkRequest {
    * <p>The ID of the VPC link.</p>
    */
   VpcLinkId: string | undefined;
-}
-
-export namespace UpdateVpcLinkRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVpcLinkRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateVpcLinkResponse {
@@ -6316,11 +4984,1045 @@ export interface UpdateVpcLinkResponse {
   VpcLinkVersion?: VpcLinkVersion | string;
 }
 
-export namespace UpdateVpcLinkResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVpcLinkResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CorsFilterSensitiveLog = (obj: Cors): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiFilterSensitiveLog = (obj: Api): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiMappingFilterSensitiveLog = (obj: ApiMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JWTConfigurationFilterSensitiveLog = (obj: JWTConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthorizerFilterSensitiveLog = (obj: Authorizer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainNameConfigurationFilterSensitiveLog = (obj: DomainNameConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MutualTlsAuthenticationFilterSensitiveLog = (obj: MutualTlsAuthentication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainNameFilterSensitiveLog = (obj: DomainName): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TlsConfigFilterSensitiveLog = (obj: TlsConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegrationFilterSensitiveLog = (obj: Integration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegrationResponseFilterSensitiveLog = (obj: IntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelFilterSensitiveLog = (obj: Model): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterConstraintsFilterSensitiveLog = (obj: ParameterConstraints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RouteFilterSensitiveLog = (obj: Route): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RouteResponseFilterSensitiveLog = (obj: RouteResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessLogSettingsFilterSensitiveLog = (obj: AccessLogSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RouteSettingsFilterSensitiveLog = (obj: RouteSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StageFilterSensitiveLog = (obj: Stage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcLinkFilterSensitiveLog = (obj: VpcLink): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApiRequestFilterSensitiveLog = (obj: CreateApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApiResponseFilterSensitiveLog = (obj: CreateApiResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApiMappingRequestFilterSensitiveLog = (obj: CreateApiMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApiMappingResponseFilterSensitiveLog = (obj: CreateApiMappingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAuthorizerRequestFilterSensitiveLog = (obj: CreateAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAuthorizerResponseFilterSensitiveLog = (obj: CreateAuthorizerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentRequestFilterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentResponseFilterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MutualTlsAuthenticationInputFilterSensitiveLog = (obj: MutualTlsAuthenticationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainNameRequestFilterSensitiveLog = (obj: CreateDomainNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainNameResponseFilterSensitiveLog = (obj: CreateDomainNameResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TlsConfigInputFilterSensitiveLog = (obj: TlsConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIntegrationRequestFilterSensitiveLog = (obj: CreateIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIntegrationResultFilterSensitiveLog = (obj: CreateIntegrationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIntegrationResponseRequestFilterSensitiveLog = (obj: CreateIntegrationResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIntegrationResponseResponseFilterSensitiveLog = (obj: CreateIntegrationResponseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateModelRequestFilterSensitiveLog = (obj: CreateModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateModelResponseFilterSensitiveLog = (obj: CreateModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRouteRequestFilterSensitiveLog = (obj: CreateRouteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRouteResultFilterSensitiveLog = (obj: CreateRouteResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRouteResponseRequestFilterSensitiveLog = (obj: CreateRouteResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRouteResponseResponseFilterSensitiveLog = (obj: CreateRouteResponseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStageRequestFilterSensitiveLog = (obj: CreateStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStageResponseFilterSensitiveLog = (obj: CreateStageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcLinkRequestFilterSensitiveLog = (obj: CreateVpcLinkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVpcLinkResponseFilterSensitiveLog = (obj: CreateVpcLinkResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessLogSettingsRequestFilterSensitiveLog = (obj: DeleteAccessLogSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApiRequestFilterSensitiveLog = (obj: DeleteApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApiMappingRequestFilterSensitiveLog = (obj: DeleteApiMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAuthorizerRequestFilterSensitiveLog = (obj: DeleteAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCorsConfigurationRequestFilterSensitiveLog = (obj: DeleteCorsConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeploymentRequestFilterSensitiveLog = (obj: DeleteDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainNameRequestFilterSensitiveLog = (obj: DeleteDomainNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIntegrationRequestFilterSensitiveLog = (obj: DeleteIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIntegrationResponseRequestFilterSensitiveLog = (obj: DeleteIntegrationResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteModelRequestFilterSensitiveLog = (obj: DeleteModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRouteRequestFilterSensitiveLog = (obj: DeleteRouteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRouteRequestParameterRequestFilterSensitiveLog = (obj: DeleteRouteRequestParameterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRouteResponseRequestFilterSensitiveLog = (obj: DeleteRouteResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRouteSettingsRequestFilterSensitiveLog = (obj: DeleteRouteSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStageRequestFilterSensitiveLog = (obj: DeleteStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcLinkRequestFilterSensitiveLog = (obj: DeleteVpcLinkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVpcLinkResponseFilterSensitiveLog = (obj: DeleteVpcLinkResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportApiRequestFilterSensitiveLog = (obj: ExportApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportApiResponseFilterSensitiveLog = (obj: ExportApiResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApiRequestFilterSensitiveLog = (obj: GetApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApiResponseFilterSensitiveLog = (obj: GetApiResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApiMappingRequestFilterSensitiveLog = (obj: GetApiMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApiMappingResponseFilterSensitiveLog = (obj: GetApiMappingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApiMappingsRequestFilterSensitiveLog = (obj: GetApiMappingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApiMappingsResponseFilterSensitiveLog = (obj: GetApiMappingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApisRequestFilterSensitiveLog = (obj: GetApisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApisResponseFilterSensitiveLog = (obj: GetApisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAuthorizerRequestFilterSensitiveLog = (obj: GetAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAuthorizerResponseFilterSensitiveLog = (obj: GetAuthorizerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAuthorizersRequestFilterSensitiveLog = (obj: GetAuthorizersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAuthorizersResponseFilterSensitiveLog = (obj: GetAuthorizersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentRequestFilterSensitiveLog = (obj: GetDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentResponseFilterSensitiveLog = (obj: GetDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentsRequestFilterSensitiveLog = (obj: GetDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentsResponseFilterSensitiveLog = (obj: GetDeploymentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainNameRequestFilterSensitiveLog = (obj: GetDomainNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainNameResponseFilterSensitiveLog = (obj: GetDomainNameResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainNamesRequestFilterSensitiveLog = (obj: GetDomainNamesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainNamesResponseFilterSensitiveLog = (obj: GetDomainNamesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationRequestFilterSensitiveLog = (obj: GetIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationResultFilterSensitiveLog = (obj: GetIntegrationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationResponseRequestFilterSensitiveLog = (obj: GetIntegrationResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationResponseResponseFilterSensitiveLog = (obj: GetIntegrationResponseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationResponsesRequestFilterSensitiveLog = (obj: GetIntegrationResponsesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationResponsesResponseFilterSensitiveLog = (obj: GetIntegrationResponsesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationsRequestFilterSensitiveLog = (obj: GetIntegrationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationsResponseFilterSensitiveLog = (obj: GetIntegrationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetModelRequestFilterSensitiveLog = (obj: GetModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetModelResponseFilterSensitiveLog = (obj: GetModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetModelsRequestFilterSensitiveLog = (obj: GetModelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetModelsResponseFilterSensitiveLog = (obj: GetModelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetModelTemplateRequestFilterSensitiveLog = (obj: GetModelTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetModelTemplateResponseFilterSensitiveLog = (obj: GetModelTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRouteRequestFilterSensitiveLog = (obj: GetRouteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRouteResultFilterSensitiveLog = (obj: GetRouteResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRouteResponseRequestFilterSensitiveLog = (obj: GetRouteResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRouteResponseResponseFilterSensitiveLog = (obj: GetRouteResponseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRouteResponsesRequestFilterSensitiveLog = (obj: GetRouteResponsesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRouteResponsesResponseFilterSensitiveLog = (obj: GetRouteResponsesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRoutesRequestFilterSensitiveLog = (obj: GetRoutesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRoutesResponseFilterSensitiveLog = (obj: GetRoutesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStageRequestFilterSensitiveLog = (obj: GetStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStageResponseFilterSensitiveLog = (obj: GetStageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStagesRequestFilterSensitiveLog = (obj: GetStagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStagesResponseFilterSensitiveLog = (obj: GetStagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagsRequestFilterSensitiveLog = (obj: GetTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTagsResponseFilterSensitiveLog = (obj: GetTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVpcLinkRequestFilterSensitiveLog = (obj: GetVpcLinkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVpcLinkResponseFilterSensitiveLog = (obj: GetVpcLinkResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVpcLinksRequestFilterSensitiveLog = (obj: GetVpcLinksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetVpcLinksResponseFilterSensitiveLog = (obj: GetVpcLinksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportApiRequestFilterSensitiveLog = (obj: ImportApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportApiResponseFilterSensitiveLog = (obj: ImportApiResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReimportApiRequestFilterSensitiveLog = (obj: ReimportApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReimportApiResponseFilterSensitiveLog = (obj: ReimportApiResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetAuthorizersCacheRequestFilterSensitiveLog = (obj: ResetAuthorizersCacheRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApiRequestFilterSensitiveLog = (obj: UpdateApiRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApiResponseFilterSensitiveLog = (obj: UpdateApiResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApiMappingRequestFilterSensitiveLog = (obj: UpdateApiMappingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApiMappingResponseFilterSensitiveLog = (obj: UpdateApiMappingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAuthorizerRequestFilterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAuthorizerResponseFilterSensitiveLog = (obj: UpdateAuthorizerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeploymentRequestFilterSensitiveLog = (obj: UpdateDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeploymentResponseFilterSensitiveLog = (obj: UpdateDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainNameRequestFilterSensitiveLog = (obj: UpdateDomainNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainNameResponseFilterSensitiveLog = (obj: UpdateDomainNameResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIntegrationRequestFilterSensitiveLog = (obj: UpdateIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIntegrationResultFilterSensitiveLog = (obj: UpdateIntegrationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIntegrationResponseRequestFilterSensitiveLog = (obj: UpdateIntegrationResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIntegrationResponseResponseFilterSensitiveLog = (obj: UpdateIntegrationResponseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateModelRequestFilterSensitiveLog = (obj: UpdateModelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateModelResponseFilterSensitiveLog = (obj: UpdateModelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRouteRequestFilterSensitiveLog = (obj: UpdateRouteRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRouteResultFilterSensitiveLog = (obj: UpdateRouteResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRouteResponseRequestFilterSensitiveLog = (obj: UpdateRouteResponseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRouteResponseResponseFilterSensitiveLog = (obj: UpdateRouteResponseResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStageRequestFilterSensitiveLog = (obj: UpdateStageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStageResponseFilterSensitiveLog = (obj: UpdateStageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVpcLinkRequestFilterSensitiveLog = (obj: UpdateVpcLinkRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVpcLinkResponseFilterSensitiveLog = (obj: UpdateVpcLinkResponse): any => ({
+  ...obj,
+});

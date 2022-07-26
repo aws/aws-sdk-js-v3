@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyActivityStreamRequest, ModifyActivityStreamResponse } from "../models/models_1";
+import {
+  ModifyActivityStreamRequest,
+  ModifyActivityStreamRequestFilterSensitiveLog,
+  ModifyActivityStreamResponse,
+  ModifyActivityStreamResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryModifyActivityStreamCommand,
   serializeAws_queryModifyActivityStreamCommand,
@@ -76,8 +81,8 @@ export class ModifyActivityStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyActivityStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyActivityStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyActivityStreamRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyActivityStreamResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

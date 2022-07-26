@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlEnumsInputOutput } from "../models/models_0";
+import { XmlEnumsInputOutput, XmlEnumsInputOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_restXmlXmlEnumsCommand, serializeAws_restXmlXmlEnumsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -69,8 +69,8 @@ export class XmlEnumsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlEnumsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: XmlEnumsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlEnumsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: XmlEnumsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

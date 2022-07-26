@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { DisassociateRoleFromGroupRequest, DisassociateRoleFromGroupResponse } from "../models/models_0";
+import {
+  DisassociateRoleFromGroupRequest,
+  DisassociateRoleFromGroupRequestFilterSensitiveLog,
+  DisassociateRoleFromGroupResponse,
+  DisassociateRoleFromGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateRoleFromGroupCommand,
   serializeAws_restJson1DisassociateRoleFromGroupCommand,
@@ -72,8 +77,8 @@ export class DisassociateRoleFromGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateRoleFromGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateRoleFromGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateRoleFromGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateRoleFromGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

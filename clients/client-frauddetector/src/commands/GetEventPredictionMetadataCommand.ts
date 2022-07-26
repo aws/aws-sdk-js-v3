@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetEventPredictionMetadataRequest, GetEventPredictionMetadataResult } from "../models/models_0";
+import {
+  GetEventPredictionMetadataRequest,
+  GetEventPredictionMetadataRequestFilterSensitiveLog,
+  GetEventPredictionMetadataResult,
+  GetEventPredictionMetadataResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetEventPredictionMetadataCommand,
   serializeAws_json1_1GetEventPredictionMetadataCommand,
@@ -74,8 +79,8 @@ export class GetEventPredictionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventPredictionMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEventPredictionMetadataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEventPredictionMetadataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEventPredictionMetadataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

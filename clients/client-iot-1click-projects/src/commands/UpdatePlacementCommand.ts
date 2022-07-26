@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { UpdatePlacementRequest, UpdatePlacementResponse } from "../models/models_0";
+import {
+  UpdatePlacementRequest,
+  UpdatePlacementRequestFilterSensitiveLog,
+  UpdatePlacementResponse,
+  UpdatePlacementResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePlacementCommand,
   serializeAws_restJson1UpdatePlacementCommand,
@@ -77,8 +82,8 @@ export class UpdatePlacementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePlacementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePlacementResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePlacementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePlacementResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

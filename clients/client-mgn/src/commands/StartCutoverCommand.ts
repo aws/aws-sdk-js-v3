@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { StartCutoverRequest, StartCutoverResponse } from "../models/models_0";
+import {
+  StartCutoverRequest,
+  StartCutoverRequestFilterSensitiveLog,
+  StartCutoverResponse,
+  StartCutoverResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartCutoverCommand,
   serializeAws_restJson1StartCutoverCommand,
@@ -72,8 +77,8 @@ export class StartCutoverCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartCutoverRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartCutoverResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartCutoverRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartCutoverResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

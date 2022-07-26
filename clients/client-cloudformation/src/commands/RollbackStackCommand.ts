@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { RollbackStackInput, RollbackStackOutput } from "../models/models_0";
+import {
+  RollbackStackInput,
+  RollbackStackInputFilterSensitiveLog,
+  RollbackStackOutput,
+  RollbackStackOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryRollbackStackCommand,
   serializeAws_queryRollbackStackCommand,
@@ -106,8 +111,8 @@ export class RollbackStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RollbackStackInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RollbackStackOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RollbackStackInputFilterSensitiveLog,
+      outputFilterSensitiveLog: RollbackStackOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

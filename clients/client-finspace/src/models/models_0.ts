@@ -66,15 +66,6 @@ export interface FederationParameters {
   attributeMap?: Record<string, string>;
 }
 
-export namespace FederationParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FederationParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information for the superuser.</p>
  */
@@ -93,16 +84,6 @@ export interface SuperuserParameters {
    * <p>The last name of the superuser.</p>
    */
   lastName: string | undefined;
-}
-
-export namespace SuperuserParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuperuserParameters): any => ({
-    ...obj,
-    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
-  });
 }
 
 export interface CreateEnvironmentRequest {
@@ -167,18 +148,6 @@ export interface CreateEnvironmentRequest {
   dataBundles?: string[];
 }
 
-export namespace CreateEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
-    ...obj,
-    ...(obj.superuserParameters && {
-      superuserParameters: SuperuserParameters.filterSensitiveLog(obj.superuserParameters),
-    }),
-  });
-}
-
 export interface CreateEnvironmentResponse {
   /**
    * <p>The unique identifier for FinSpace environment that you created.</p>
@@ -194,15 +163,6 @@ export interface CreateEnvironmentResponse {
    * <p>The sign-in url for the web application of the FinSpace environment you created.</p>
    */
   environmentUrl?: string;
-}
-
-export namespace CreateEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEnvironmentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -309,25 +269,7 @@ export interface DeleteEnvironmentRequest {
   environmentId: string | undefined;
 }
 
-export namespace DeleteEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEnvironmentResponse {}
-
-export namespace DeleteEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEnvironmentResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>One or more resources can't be found.</p>
@@ -353,15 +295,6 @@ export interface GetEnvironmentRequest {
    * <p>The identifier of the FinSpace environment.</p>
    */
   environmentId: string | undefined;
-}
-
-export namespace GetEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EnvironmentStatus {
@@ -443,29 +376,11 @@ export interface Environment {
   federationParameters?: FederationParameters;
 }
 
-export namespace Environment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Environment): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEnvironmentResponse {
   /**
    * <p>The name of the FinSpace environment.</p>
    */
   environment?: Environment;
-}
-
-export namespace GetEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnvironmentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEnvironmentsRequest {
@@ -482,15 +397,6 @@ export interface ListEnvironmentsRequest {
   maxResults?: number;
 }
 
-export namespace ListEnvironmentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnvironmentsResponse {
   /**
    * <p>A list of all of your FinSpace environments.</p>
@@ -502,15 +408,6 @@ export interface ListEnvironmentsResponse {
    *          results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListEnvironmentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnvironmentsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -539,29 +436,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of all tags for a resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -576,25 +455,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -609,25 +470,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateEnvironmentRequest {
   /**
@@ -666,15 +509,6 @@ export interface UpdateEnvironmentRequest {
   federationParameters?: FederationParameters;
 }
 
-export namespace UpdateEnvironmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEnvironmentResponse {
   /**
    * <p>Returns the FinSpace environment object.</p>
@@ -682,11 +516,139 @@ export interface UpdateEnvironmentResponse {
   environment?: Environment;
 }
 
-export namespace UpdateEnvironmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEnvironmentResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const FederationParametersFilterSensitiveLog = (obj: FederationParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuperuserParametersFilterSensitiveLog = (obj: SuperuserParameters): any => ({
+  ...obj,
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentRequestFilterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
+  ...obj,
+  ...(obj.superuserParameters && {
+    superuserParameters: SuperuserParametersFilterSensitiveLog(obj.superuserParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateEnvironmentResponseFilterSensitiveLog = (obj: CreateEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentRequestFilterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEnvironmentResponseFilterSensitiveLog = (obj: DeleteEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentRequestFilterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnvironmentResponseFilterSensitiveLog = (obj: GetEnvironmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsRequestFilterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnvironmentsResponseFilterSensitiveLog = (obj: ListEnvironmentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentRequestFilterSensitiveLog = (obj: UpdateEnvironmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEnvironmentResponseFilterSensitiveLog = (obj: UpdateEnvironmentResponse): any => ({
+  ...obj,
+});

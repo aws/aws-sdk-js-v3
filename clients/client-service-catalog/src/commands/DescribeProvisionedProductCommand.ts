@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeProvisionedProductInput, DescribeProvisionedProductOutput } from "../models/models_0";
+import {
+  DescribeProvisionedProductInput,
+  DescribeProvisionedProductInputFilterSensitiveLog,
+  DescribeProvisionedProductOutput,
+  DescribeProvisionedProductOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeProvisionedProductCommand,
   serializeAws_json1_1DescribeProvisionedProductCommand,
@@ -72,8 +77,8 @@ export class DescribeProvisionedProductCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProvisionedProductInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProvisionedProductOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeProvisionedProductInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProvisionedProductOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

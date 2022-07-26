@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { PutAutoScalingPolicyInput, PutAutoScalingPolicyOutput } from "../models/models_0";
+import {
+  PutAutoScalingPolicyInput,
+  PutAutoScalingPolicyInputFilterSensitiveLog,
+  PutAutoScalingPolicyOutput,
+  PutAutoScalingPolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutAutoScalingPolicyCommand,
   serializeAws_json1_1PutAutoScalingPolicyCommand,
@@ -75,8 +80,8 @@ export class PutAutoScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAutoScalingPolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAutoScalingPolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAutoScalingPolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAutoScalingPolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

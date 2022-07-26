@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import { CreateChatTokenRequest, CreateChatTokenResponse } from "../models/models_0";
+import {
+  CreateChatTokenRequest,
+  CreateChatTokenRequestFilterSensitiveLog,
+  CreateChatTokenResponse,
+  CreateChatTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateChatTokenCommand,
   serializeAws_restJson1CreateChatTokenCommand,
@@ -76,8 +81,8 @@ export class CreateChatTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChatTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateChatTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateChatTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateChatTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

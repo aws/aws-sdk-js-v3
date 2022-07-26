@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import { DescribeScheduledActionsRequest, DescribeScheduledActionsResponse } from "../models/models_0";
+import {
+  DescribeScheduledActionsRequest,
+  DescribeScheduledActionsRequestFilterSensitiveLog,
+  DescribeScheduledActionsResponse,
+  DescribeScheduledActionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeScheduledActionsCommand,
   serializeAws_json1_1DescribeScheduledActionsCommand,
@@ -80,8 +85,8 @@ export class DescribeScheduledActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScheduledActionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScheduledActionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeScheduledActionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeScheduledActionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

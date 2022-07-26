@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
-import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
+import {
+  CreateApplicationRequest,
+  CreateApplicationRequestFilterSensitiveLog,
+  CreateApplicationResponse,
+  CreateApplicationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateApplicationCommand,
   serializeAws_json1_1CreateApplicationCommand,
@@ -98,8 +103,8 @@ export class CreateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

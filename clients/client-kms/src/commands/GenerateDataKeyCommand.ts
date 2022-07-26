@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { GenerateDataKeyRequest, GenerateDataKeyResponse } from "../models/models_0";
+import {
+  GenerateDataKeyRequest,
+  GenerateDataKeyRequestFilterSensitiveLog,
+  GenerateDataKeyResponse,
+  GenerateDataKeyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateDataKeyCommand,
   serializeAws_json1_1GenerateDataKeyCommand,
@@ -172,8 +177,8 @@ export class GenerateDataKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateDataKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GenerateDataKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateDataKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GenerateDataKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

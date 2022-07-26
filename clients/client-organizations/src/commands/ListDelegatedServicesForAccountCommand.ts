@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListDelegatedServicesForAccountRequest, ListDelegatedServicesForAccountResponse } from "../models/models_0";
+import {
+  ListDelegatedServicesForAccountRequest,
+  ListDelegatedServicesForAccountRequestFilterSensitiveLog,
+  ListDelegatedServicesForAccountResponse,
+  ListDelegatedServicesForAccountResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1ListDelegatedServicesForAccountCommand,
@@ -77,8 +82,8 @@ export class ListDelegatedServicesForAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDelegatedServicesForAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDelegatedServicesForAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDelegatedServicesForAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDelegatedServicesForAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

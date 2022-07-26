@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteStreamingDistributionRequest } from "../models/models_1";
+import {
+  DeleteStreamingDistributionRequest,
+  DeleteStreamingDistributionRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteStreamingDistributionCommand,
   serializeAws_restXmlDeleteStreamingDistributionCommand,
@@ -119,7 +122,7 @@ export class DeleteStreamingDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamingDistributionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStreamingDistributionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

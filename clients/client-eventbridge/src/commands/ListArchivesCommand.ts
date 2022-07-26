@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { ListArchivesRequest, ListArchivesResponse } from "../models/models_0";
+import {
+  ListArchivesRequest,
+  ListArchivesRequestFilterSensitiveLog,
+  ListArchivesResponse,
+  ListArchivesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListArchivesCommand,
   serializeAws_json1_1ListArchivesCommand,
@@ -73,8 +78,8 @@ export class ListArchivesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListArchivesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListArchivesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListArchivesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListArchivesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

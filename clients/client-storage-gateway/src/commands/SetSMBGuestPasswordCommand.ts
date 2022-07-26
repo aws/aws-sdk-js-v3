@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetSMBGuestPasswordInput, SetSMBGuestPasswordOutput } from "../models/models_0";
+import {
+  SetSMBGuestPasswordInput,
+  SetSMBGuestPasswordInputFilterSensitiveLog,
+  SetSMBGuestPasswordOutput,
+  SetSMBGuestPasswordOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SetSMBGuestPasswordCommand,
   serializeAws_json1_1SetSMBGuestPasswordCommand,
@@ -74,8 +79,8 @@ export class SetSMBGuestPasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetSMBGuestPasswordInput.filterSensitiveLog,
-      outputFilterSensitiveLog: SetSMBGuestPasswordOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetSMBGuestPasswordInputFilterSensitiveLog,
+      outputFilterSensitiveLog: SetSMBGuestPasswordOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

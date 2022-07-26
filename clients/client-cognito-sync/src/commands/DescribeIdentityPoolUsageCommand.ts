@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { DescribeIdentityPoolUsageRequest, DescribeIdentityPoolUsageResponse } from "../models/models_0";
+import {
+  DescribeIdentityPoolUsageRequest,
+  DescribeIdentityPoolUsageRequestFilterSensitiveLog,
+  DescribeIdentityPoolUsageResponse,
+  DescribeIdentityPoolUsageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeIdentityPoolUsageCommand,
   serializeAws_restJson1DescribeIdentityPoolUsageCommand,
@@ -120,8 +125,8 @@ export class DescribeIdentityPoolUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIdentityPoolUsageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIdentityPoolUsageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeIdentityPoolUsageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeIdentityPoolUsageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

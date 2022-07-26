@@ -116,15 +116,6 @@ export interface Encryption {
   InitializationVector?: string;
 }
 
-export namespace Encryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Encryption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The file to be used as album art. There can be multiple artworks associated with an
  *             audio file, to a maximum of 20.</p>
@@ -226,15 +217,6 @@ export interface Artwork {
   Encryption?: Encryption;
 }
 
-export namespace Artwork {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Artwork): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Options associated with your audio codec.</p>
  */
@@ -298,15 +280,6 @@ export interface AudioCodecOptions {
    *         <p>The supported value is <code>Signed</code>.</p>
    */
   Signed?: string;
-}
-
-export namespace AudioCodecOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioCodecOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -571,15 +544,6 @@ export interface AudioParameters {
   CodecOptions?: AudioCodecOptions;
 }
 
-export namespace AudioParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>CancelJobRequest</code> structure.</p>
  */
@@ -592,29 +556,11 @@ export interface CancelJobRequest {
   Id: string | undefined;
 }
 
-export namespace CancelJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response body contains a JSON object. If the job is successfully canceled, the value
  *             of <code>Success</code> is <code>true</code>.</p>
  */
 export interface CancelJobResponse {}
-
-export namespace CancelJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobResponse): any => ({
-    ...obj,
-  });
-}
 
 export class IncompatibleVersionException extends __BaseException {
   readonly name: "IncompatibleVersionException" = "IncompatibleVersionException";
@@ -800,15 +746,6 @@ export interface CaptionFormat {
   Encryption?: Encryption;
 }
 
-export namespace CaptionFormat {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionFormat): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A source file for the input sidecar captions used during the transcoding process.</p>
  */
@@ -852,15 +789,6 @@ export interface CaptionSource {
    *             want Elastic Transcoder to apply to your caption sources.</p>
    */
   Encryption?: Encryption;
-}
-
-export namespace CaptionSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CaptionSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -912,15 +840,6 @@ export interface Captions {
   CaptionFormats?: CaptionFormat[];
 }
 
-export namespace Captions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Captions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Settings that determine when a clip begins and how long it lasts.</p>
  */
@@ -943,15 +862,6 @@ export interface TimeSpan {
   Duration?: string;
 }
 
-export namespace TimeSpan {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeSpan): any => ({
-    ...obj,
-  });
-}
-
 /**
  * @deprecated
  *
@@ -962,15 +872,6 @@ export interface Clip {
    * <p>Settings that determine when a clip begins and how long it lasts.</p>
    */
   TimeSpan?: TimeSpan;
-}
-
-export namespace Clip {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Clip): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1001,15 +902,6 @@ export interface DetectedProperties {
    * <p>The detected duration of the input file, in milliseconds.</p>
    */
   DurationMillis?: number;
-}
-
-export namespace DetectedProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectedProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1050,15 +942,6 @@ export interface InputCaptions {
    *             process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
    */
   CaptionSources?: CaptionSource[];
-}
-
-export namespace InputCaptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputCaptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1191,15 +1074,6 @@ export interface JobInput {
   DetectedProperties?: DetectedProperties;
 }
 
-export namespace JobInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The .jpg or .png file associated with an audio file.</p>
  */
@@ -1239,15 +1113,6 @@ export interface JobAlbumArt {
   Artwork?: Artwork[];
 }
 
-export namespace JobAlbumArt {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobAlbumArt): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Watermarks can be in .png or .jpg format. If you want to display a watermark that is not
  *     rectangular, use the .png format, which supports transparency.</p>
@@ -1275,15 +1140,6 @@ export interface JobWatermark {
    * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your watermarks.</p>
    */
   Encryption?: Encryption;
-}
-
-export namespace JobWatermark {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobWatermark): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1459,15 +1315,6 @@ export interface CreateJobOutput {
   Encryption?: Encryption;
 }
 
-export namespace CreateJobOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The HLS content protection settings, if any, that you want Elastic Transcoder to apply to your output files.</p>
  */
@@ -1517,15 +1364,6 @@ export interface HlsContentProtection {
    * writes your data key into the same bucket as the associated playlist.</p>
    */
   KeyStoragePolicy?: string;
-}
-
-export namespace HlsContentProtection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsContentProtection): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1581,15 +1419,6 @@ export interface PlayReadyDrm {
    *          </p>
    */
   LicenseAcquisitionUrl?: string;
-}
-
-export namespace PlayReadyDrm {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlayReadyDrm): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1673,15 +1502,6 @@ export interface CreateJobPlaylist {
   PlayReadyDrm?: PlayReadyDrm;
 }
 
-export namespace CreateJobPlaylist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobPlaylist): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>CreateJobRequest</code> structure.</p>
  */
@@ -1741,15 +1561,6 @@ export interface CreateJobRequest {
    *             order in which you specify them.</p>
    */
   UserMetadata?: Record<string, string>;
-}
-
-export namespace CreateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2025,15 +1836,6 @@ export interface JobOutput {
   AppliedColorSpaceConversion?: string;
 }
 
-export namespace JobOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset for which the value of Container
  *             is <code>fmp4</code> (Fragmented MP4) or <code>ts</code> (MPEG-TS), Playlists
@@ -2125,15 +1927,6 @@ export interface Playlist {
   StatusDetail?: string;
 }
 
-export namespace Playlist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Playlist): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the timing of a job.</p>
  */
@@ -2152,15 +1945,6 @@ export interface Timing {
    * <p>The time the job finished transcoding, in epoch milliseconds.</p>
    */
   FinishTimeMillis?: number;
-}
-
-export namespace Timing {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Timing): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2278,15 +2062,6 @@ export interface Job {
   Timing?: Timing;
 }
 
-export namespace Job {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Job): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The CreateJobResponse structure.</p>
  */
@@ -2295,15 +2070,6 @@ export interface CreateJobResponse {
    * <p>A section of the response body that provides information about the job that is created.</p>
    */
   Job?: Job;
-}
-
-export namespace CreateJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2394,15 +2160,6 @@ export interface Permission {
   Access?: string[];
 }
 
-export namespace Permission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Permission): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>PipelineOutputConfig</code> structure.</p>
  */
@@ -2457,15 +2214,6 @@ export interface PipelineOutputConfig {
   Permissions?: Permission[];
 }
 
-export namespace PipelineOutputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineOutputConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon Simple Notification Service (Amazon SNS) topic or topics to notify in order to report job status.</p>
  *         <important>
@@ -2492,15 +2240,6 @@ export interface Notifications {
    * <p>The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition.</p>
    */
   Error?: string;
-}
-
-export namespace Notifications {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Notifications): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2807,15 +2546,6 @@ export interface CreatePipelineRequest {
   ThumbnailConfig?: PipelineOutputConfig;
 }
 
-export namespace CreatePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The pipeline (queue) that is used to manage jobs.</p>
  */
@@ -3087,15 +2817,6 @@ export interface Pipeline {
   ThumbnailConfig?: PipelineOutputConfig;
 }
 
-export namespace Pipeline {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Pipeline): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Elastic Transcoder returns a warning if the resources used by your pipeline are not in the same region
  *             as the pipeline.</p>
@@ -3117,15 +2838,6 @@ export interface Warning {
   Message?: string;
 }
 
-export namespace Warning {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Warning): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>When you create a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  */
@@ -3142,15 +2854,6 @@ export interface CreatePipelineResponse {
    *             AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
    */
   Warnings?: Warning[];
-}
-
-export namespace CreatePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePipelineResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3277,15 +2980,6 @@ export interface Thumbnails {
    *                 <code>MaxWidth</code> and <code>MaxHeight</code> settings.</p>
    */
   PaddingPolicy?: string;
-}
-
-export namespace Thumbnails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Thumbnails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3513,15 +3207,6 @@ export interface PresetWatermark {
    *          </ul>
    */
   Target?: string;
-}
-
-export namespace PresetWatermark {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PresetWatermark): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4098,15 +3783,6 @@ export interface VideoParameters {
   Watermarks?: PresetWatermark[];
 }
 
-export namespace VideoParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VideoParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>CreatePresetRequest</code> structure.</p>
  */
@@ -4144,15 +3820,6 @@ export interface CreatePresetRequest {
    * <p>A section of the request body that specifies the thumbnail parameters, if any.</p>
    */
   Thumbnails?: Thumbnails;
-}
-
-export namespace CreatePresetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePresetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4213,15 +3880,6 @@ export interface Preset {
   Type?: string;
 }
 
-export namespace Preset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Preset): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>CreatePresetResponse</code> structure.</p>
  */
@@ -4240,15 +3898,6 @@ export interface CreatePresetResponse {
   Warning?: string;
 }
 
-export namespace CreatePresetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePresetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>DeletePipelineRequest</code> structure.</p>
  */
@@ -4259,28 +3908,10 @@ export interface DeletePipelineRequest {
   Id: string | undefined;
 }
 
-export namespace DeletePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>DeletePipelineResponse</code> structure.</p>
  */
 export interface DeletePipelineResponse {}
-
-export namespace DeletePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePipelineResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The <code>DeletePresetRequest</code> structure.</p>
@@ -4292,28 +3923,10 @@ export interface DeletePresetRequest {
   Id: string | undefined;
 }
 
-export namespace DeletePresetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePresetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>DeletePresetResponse</code> structure.</p>
  */
 export interface DeletePresetResponse {}
-
-export namespace DeletePresetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePresetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The <code>ListJobsByPipelineRequest</code> structure.</p>
@@ -4338,15 +3951,6 @@ export interface ListJobsByPipelineRequest {
   PageToken?: string;
 }
 
-export namespace ListJobsByPipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsByPipelineRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>ListJobsByPipelineResponse</code> structure.</p>
  */
@@ -4362,15 +3966,6 @@ export interface ListJobsByPipelineResponse {
    *             of results, the value of <code>NextPageToken</code> is <code>null</code>. </p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListJobsByPipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsByPipelineResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4399,15 +3994,6 @@ export interface ListJobsByStatusRequest {
   PageToken?: string;
 }
 
-export namespace ListJobsByStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsByStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             The <code>ListJobsByStatusResponse</code> structure.
@@ -4425,15 +4011,6 @@ export interface ListJobsByStatusResponse {
    *             of results, the value of <code>NextPageToken</code> is <code>null</code>. </p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListJobsByStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsByStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4454,15 +4031,6 @@ export interface ListPipelinesRequest {
   PageToken?: string;
 }
 
-export namespace ListPipelinesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPipelinesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of the pipelines associated with the current AWS account.</p>
  */
@@ -4478,15 +4046,6 @@ export interface ListPipelinesResponse {
    *             of results, the value of <code>NextPageToken</code> is <code>null</code>.</p>
    */
   NextPageToken?: string;
-}
-
-export namespace ListPipelinesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPipelinesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4507,15 +4066,6 @@ export interface ListPresetsRequest {
   PageToken?: string;
 }
 
-export namespace ListPresetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPresetsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>ListPresetsResponse</code> structure.</p>
  */
@@ -4533,15 +4083,6 @@ export interface ListPresetsResponse {
   NextPageToken?: string;
 }
 
-export namespace ListPresetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPresetsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>ReadJobRequest</code> structure.</p>
  */
@@ -4550,15 +4091,6 @@ export interface ReadJobRequest {
    * <p>The identifier of the job for which you want to get detailed information.</p>
    */
   Id: string | undefined;
-}
-
-export namespace ReadJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReadJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4571,15 +4103,6 @@ export interface ReadJobResponse {
   Job?: Job;
 }
 
-export namespace ReadJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReadJobResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>ReadPipelineRequest</code> structure.</p>
  */
@@ -4588,15 +4111,6 @@ export interface ReadPipelineRequest {
    * <p>The identifier of the pipeline to read.</p>
    */
   Id: string | undefined;
-}
-
-export namespace ReadPipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReadPipelineRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4617,15 +4131,6 @@ export interface ReadPipelineResponse {
   Warnings?: Warning[];
 }
 
-export namespace ReadPipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReadPipelineResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>ReadPresetRequest</code> structure.</p>
  */
@@ -4636,15 +4141,6 @@ export interface ReadPresetRequest {
   Id: string | undefined;
 }
 
-export namespace ReadPresetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReadPresetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>ReadPresetResponse</code> structure.</p>
  */
@@ -4653,15 +4149,6 @@ export interface ReadPresetResponse {
    * <p>A section of the response body that provides information about the preset.</p>
    */
   Preset?: Preset;
-}
-
-export namespace ReadPresetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReadPresetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4691,15 +4178,6 @@ export interface TestRoleRequest {
   Topics: string[] | undefined;
 }
 
-export namespace TestRoleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRoleRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * @deprecated
  *
@@ -4717,15 +4195,6 @@ export interface TestRoleResponse {
    *             of one or more error messages that were generated during the test process.</p>
    */
   Messages?: string[];
-}
-
-export namespace TestRoleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestRoleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4999,15 +4468,6 @@ export interface UpdatePipelineRequest {
   ThumbnailConfig?: PipelineOutputConfig;
 }
 
-export namespace UpdatePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>When you update a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
  */
@@ -5024,15 +4484,6 @@ export interface UpdatePipelineResponse {
    *             AWS KMS key, reduces processing time and prevents cross-regional charges.</p>
    */
   Warnings?: Warning[];
-}
-
-export namespace UpdatePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5079,15 +4530,6 @@ export interface UpdatePipelineNotificationsRequest {
   Notifications: Notifications | undefined;
 }
 
-export namespace UpdatePipelineNotificationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineNotificationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>UpdatePipelineNotificationsResponse</code> structure.</p>
  */
@@ -5097,15 +4539,6 @@ export interface UpdatePipelineNotificationsResponse {
    *             with this notification.</p>
    */
   Pipeline?: Pipeline;
-}
-
-export namespace UpdatePipelineNotificationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineNotificationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5133,15 +4566,6 @@ export interface UpdatePipelineStatusRequest {
   Status: string | undefined;
 }
 
-export namespace UpdatePipelineStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>When you update status for a pipeline,
  *             Elastic Transcoder returns the values that you specified in the request.</p>
@@ -5153,11 +4577,459 @@ export interface UpdatePipelineStatusResponse {
   Pipeline?: Pipeline;
 }
 
-export namespace UpdatePipelineStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePipelineStatusResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EncryptionFilterSensitiveLog = (obj: Encryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtworkFilterSensitiveLog = (obj: Artwork): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioCodecOptionsFilterSensitiveLog = (obj: AudioCodecOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioParametersFilterSensitiveLog = (obj: AudioParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobRequestFilterSensitiveLog = (obj: CancelJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobResponseFilterSensitiveLog = (obj: CancelJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionFormatFilterSensitiveLog = (obj: CaptionFormat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionSourceFilterSensitiveLog = (obj: CaptionSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CaptionsFilterSensitiveLog = (obj: Captions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeSpanFilterSensitiveLog = (obj: TimeSpan): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClipFilterSensitiveLog = (obj: Clip): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectedPropertiesFilterSensitiveLog = (obj: DetectedProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputCaptionsFilterSensitiveLog = (obj: InputCaptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobInputFilterSensitiveLog = (obj: JobInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobAlbumArtFilterSensitiveLog = (obj: JobAlbumArt): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobWatermarkFilterSensitiveLog = (obj: JobWatermark): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobOutputFilterSensitiveLog = (obj: CreateJobOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsContentProtectionFilterSensitiveLog = (obj: HlsContentProtection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlayReadyDrmFilterSensitiveLog = (obj: PlayReadyDrm): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobPlaylistFilterSensitiveLog = (obj: CreateJobPlaylist): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobOutputFilterSensitiveLog = (obj: JobOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlaylistFilterSensitiveLog = (obj: Playlist): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimingFilterSensitiveLog = (obj: Timing): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobFilterSensitiveLog = (obj: Job): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobResponseFilterSensitiveLog = (obj: CreateJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PermissionFilterSensitiveLog = (obj: Permission): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineOutputConfigFilterSensitiveLog = (obj: PipelineOutputConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationsFilterSensitiveLog = (obj: Notifications): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePipelineRequestFilterSensitiveLog = (obj: CreatePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineFilterSensitiveLog = (obj: Pipeline): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WarningFilterSensitiveLog = (obj: Warning): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePipelineResponseFilterSensitiveLog = (obj: CreatePipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThumbnailsFilterSensitiveLog = (obj: Thumbnails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PresetWatermarkFilterSensitiveLog = (obj: PresetWatermark): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VideoParametersFilterSensitiveLog = (obj: VideoParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePresetRequestFilterSensitiveLog = (obj: CreatePresetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PresetFilterSensitiveLog = (obj: Preset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePresetResponseFilterSensitiveLog = (obj: CreatePresetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePipelineRequestFilterSensitiveLog = (obj: DeletePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePipelineResponseFilterSensitiveLog = (obj: DeletePipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePresetRequestFilterSensitiveLog = (obj: DeletePresetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePresetResponseFilterSensitiveLog = (obj: DeletePresetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsByPipelineRequestFilterSensitiveLog = (obj: ListJobsByPipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsByPipelineResponseFilterSensitiveLog = (obj: ListJobsByPipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsByStatusRequestFilterSensitiveLog = (obj: ListJobsByStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsByStatusResponseFilterSensitiveLog = (obj: ListJobsByStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPipelinesRequestFilterSensitiveLog = (obj: ListPipelinesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPipelinesResponseFilterSensitiveLog = (obj: ListPipelinesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPresetsRequestFilterSensitiveLog = (obj: ListPresetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPresetsResponseFilterSensitiveLog = (obj: ListPresetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReadJobRequestFilterSensitiveLog = (obj: ReadJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReadJobResponseFilterSensitiveLog = (obj: ReadJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReadPipelineRequestFilterSensitiveLog = (obj: ReadPipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReadPipelineResponseFilterSensitiveLog = (obj: ReadPipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReadPresetRequestFilterSensitiveLog = (obj: ReadPresetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReadPresetResponseFilterSensitiveLog = (obj: ReadPresetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestRoleRequestFilterSensitiveLog = (obj: TestRoleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestRoleResponseFilterSensitiveLog = (obj: TestRoleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePipelineRequestFilterSensitiveLog = (obj: UpdatePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePipelineResponseFilterSensitiveLog = (obj: UpdatePipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePipelineNotificationsRequestFilterSensitiveLog = (obj: UpdatePipelineNotificationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePipelineNotificationsResponseFilterSensitiveLog = (
+  obj: UpdatePipelineNotificationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePipelineStatusRequestFilterSensitiveLog = (obj: UpdatePipelineStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePipelineStatusResponseFilterSensitiveLog = (obj: UpdatePipelineStatusResponse): any => ({
+  ...obj,
+});

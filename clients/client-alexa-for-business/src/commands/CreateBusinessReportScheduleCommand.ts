@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { CreateBusinessReportScheduleRequest, CreateBusinessReportScheduleResponse } from "../models/models_0";
+import {
+  CreateBusinessReportScheduleRequest,
+  CreateBusinessReportScheduleRequestFilterSensitiveLog,
+  CreateBusinessReportScheduleResponse,
+  CreateBusinessReportScheduleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateBusinessReportScheduleCommand,
   serializeAws_json1_1CreateBusinessReportScheduleCommand,
@@ -75,8 +80,8 @@ export class CreateBusinessReportScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBusinessReportScheduleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateBusinessReportScheduleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateBusinessReportScheduleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateBusinessReportScheduleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

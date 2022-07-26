@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ImportWorkspaceImageRequest, ImportWorkspaceImageResult } from "../models/models_0";
+import {
+  ImportWorkspaceImageRequest,
+  ImportWorkspaceImageRequestFilterSensitiveLog,
+  ImportWorkspaceImageResult,
+  ImportWorkspaceImageResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ImportWorkspaceImageCommand,
   serializeAws_json1_1ImportWorkspaceImageCommand,
@@ -75,8 +80,8 @@ export class ImportWorkspaceImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportWorkspaceImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportWorkspaceImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportWorkspaceImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportWorkspaceImageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

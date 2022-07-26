@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListVirtualMFADevicesRequest, ListVirtualMFADevicesResponse } from "../models/models_0";
+import {
+  ListVirtualMFADevicesRequest,
+  ListVirtualMFADevicesRequestFilterSensitiveLog,
+  ListVirtualMFADevicesResponse,
+  ListVirtualMFADevicesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListVirtualMFADevicesCommand,
   serializeAws_queryListVirtualMFADevicesCommand,
@@ -81,8 +86,8 @@ export class ListVirtualMFADevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVirtualMFADevicesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListVirtualMFADevicesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListVirtualMFADevicesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListVirtualMFADevicesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

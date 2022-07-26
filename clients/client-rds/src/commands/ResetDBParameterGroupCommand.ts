@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBParameterGroupNameMessage, ResetDBParameterGroupMessage } from "../models/models_1";
+import {
+  DBParameterGroupNameMessage,
+  DBParameterGroupNameMessageFilterSensitiveLog,
+  ResetDBParameterGroupMessage,
+  ResetDBParameterGroupMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryResetDBParameterGroupCommand,
   serializeAws_queryResetDBParameterGroupCommand,
@@ -79,8 +84,8 @@ export class ResetDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetDBParameterGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBParameterGroupNameMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetDBParameterGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBParameterGroupNameMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

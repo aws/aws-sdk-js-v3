@@ -36,15 +36,6 @@ export interface AssociateMemberAccountRequest {
   memberAccountId: string | undefined;
 }
 
-export namespace AssociateMemberAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateMemberAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>(Discontinued) Internal server error.</p>
  */
@@ -162,15 +153,6 @@ export interface ClassificationType {
   continuous: S3ContinuousClassificationType | string | undefined;
 }
 
-export namespace ClassificationType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClassificationType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>(Discontinued) The S3 resources that you want to associate with Amazon Macie Classic
  *       for monitoring and data classification. This data type is used as a request parameter in the
@@ -196,15 +178,6 @@ export interface S3ResourceClassification {
   classificationType: ClassificationType | undefined;
 }
 
-export namespace S3ResourceClassification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ResourceClassification): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateS3ResourcesRequest {
   /**
    * <p>(Discontinued) The ID of the Amazon Macie Classic member account whose resources you
@@ -217,15 +190,6 @@ export interface AssociateS3ResourcesRequest {
    *       for monitoring and data classification.</p>
    */
   s3Resources: S3ResourceClassification[] | undefined;
-}
-
-export namespace AssociateS3ResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateS3ResourcesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -243,15 +207,6 @@ export interface S3Resource {
    * <p>(Discontinued) The prefix of the S3 bucket.</p>
    */
   prefix?: string;
-}
-
-export namespace S3Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Resource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -274,30 +229,12 @@ export interface FailedS3Resource {
   errorMessage?: string;
 }
 
-export namespace FailedS3Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedS3Resource): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateS3ResourcesResult {
   /**
    * <p>(Discontinued) S3 resources that couldn't be associated with Amazon Macie Classic. An
    *       error code and an error message are provided for each failed item.</p>
    */
   failedS3Resources?: FailedS3Resource[];
-}
-
-export namespace AssociateS3ResourcesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateS3ResourcesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -320,30 +257,12 @@ export interface ClassificationTypeUpdate {
   continuous?: S3ContinuousClassificationType | string;
 }
 
-export namespace ClassificationTypeUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClassificationTypeUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateMemberAccountRequest {
   /**
    * <p>(Discontinued) The ID of the member account that you want to remove from Amazon Macie
    *       Classic.</p>
    */
   memberAccountId: string | undefined;
-}
-
-export namespace DisassociateMemberAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMemberAccountRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateS3ResourcesRequest {
@@ -360,15 +279,6 @@ export interface DisassociateS3ResourcesRequest {
   associatedS3Resources: S3Resource[] | undefined;
 }
 
-export namespace DisassociateS3ResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateS3ResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateS3ResourcesResult {
   /**
    * <p>(Discontinued) S3 resources that couldn't be removed from being monitored and
@@ -376,15 +286,6 @@ export interface DisassociateS3ResourcesResult {
    *       failed item. </p>
    */
   failedS3Resources?: FailedS3Resource[];
-}
-
-export namespace DisassociateS3ResourcesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateS3ResourcesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMemberAccountsRequest {
@@ -403,15 +304,6 @@ export interface ListMemberAccountsRequest {
   maxResults?: number;
 }
 
-export namespace ListMemberAccountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMemberAccountsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>(Discontinued) Contains information about the Amazon Macie Classic member
  *       account.</p>
@@ -421,15 +313,6 @@ export interface MemberAccount {
    * <p>(Discontinued) The Amazon Web Services account ID of the Amazon Macie Classic member account.</p>
    */
   accountId?: string;
-}
-
-export namespace MemberAccount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberAccount): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMemberAccountsResult {
@@ -447,15 +330,6 @@ export interface ListMemberAccountsResult {
    *       set to null. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListMemberAccountsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMemberAccountsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListS3ResourcesRequest {
@@ -480,15 +354,6 @@ export interface ListS3ResourcesRequest {
   maxResults?: number;
 }
 
-export namespace ListS3ResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListS3ResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListS3ResourcesResult {
   /**
    * <p>(Discontinued) A list of the associated S3 resources returned by the action.</p>
@@ -502,15 +367,6 @@ export interface ListS3ResourcesResult {
    *       set to null. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListS3ResourcesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListS3ResourcesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -537,15 +393,6 @@ export interface S3ResourceClassificationUpdate {
   classificationTypeUpdate: ClassificationTypeUpdate | undefined;
 }
 
-export namespace S3ResourceClassificationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ResourceClassificationUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateS3ResourcesRequest {
   /**
    * <p>(Discontinued) The Amazon Web Services account ID of the Amazon Macie Classic member account whose S3
@@ -560,15 +407,6 @@ export interface UpdateS3ResourcesRequest {
   s3ResourcesUpdate: S3ResourceClassificationUpdate[] | undefined;
 }
 
-export namespace UpdateS3ResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateS3ResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateS3ResourcesResult {
   /**
    * <p>(Discontinued) The S3 resources whose classification types can't be updated. An error
@@ -577,11 +415,135 @@ export interface UpdateS3ResourcesResult {
   failedS3Resources?: FailedS3Resource[];
 }
 
-export namespace UpdateS3ResourcesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateS3ResourcesResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AssociateMemberAccountRequestFilterSensitiveLog = (obj: AssociateMemberAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClassificationTypeFilterSensitiveLog = (obj: ClassificationType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ResourceClassificationFilterSensitiveLog = (obj: S3ResourceClassification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateS3ResourcesRequestFilterSensitiveLog = (obj: AssociateS3ResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ResourceFilterSensitiveLog = (obj: S3Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedS3ResourceFilterSensitiveLog = (obj: FailedS3Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateS3ResourcesResultFilterSensitiveLog = (obj: AssociateS3ResourcesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClassificationTypeUpdateFilterSensitiveLog = (obj: ClassificationTypeUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMemberAccountRequestFilterSensitiveLog = (obj: DisassociateMemberAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateS3ResourcesRequestFilterSensitiveLog = (obj: DisassociateS3ResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateS3ResourcesResultFilterSensitiveLog = (obj: DisassociateS3ResourcesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMemberAccountsRequestFilterSensitiveLog = (obj: ListMemberAccountsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberAccountFilterSensitiveLog = (obj: MemberAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMemberAccountsResultFilterSensitiveLog = (obj: ListMemberAccountsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListS3ResourcesRequestFilterSensitiveLog = (obj: ListS3ResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListS3ResourcesResultFilterSensitiveLog = (obj: ListS3ResourcesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ResourceClassificationUpdateFilterSensitiveLog = (obj: S3ResourceClassificationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateS3ResourcesRequestFilterSensitiveLog = (obj: UpdateS3ResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateS3ResourcesResultFilterSensitiveLog = (obj: UpdateS3ResourcesResult): any => ({
+  ...obj,
+});

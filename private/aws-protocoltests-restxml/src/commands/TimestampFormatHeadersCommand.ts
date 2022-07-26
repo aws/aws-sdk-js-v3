@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TimestampFormatHeadersIO } from "../models/models_0";
+import { TimestampFormatHeadersIO, TimestampFormatHeadersIOFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlTimestampFormatHeadersCommand,
   serializeAws_restXmlTimestampFormatHeadersCommand,
@@ -72,8 +72,8 @@ export class TimestampFormatHeadersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
-      outputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
+      inputFilterSensitiveLog: TimestampFormatHeadersIOFilterSensitiveLog,
+      outputFilterSensitiveLog: TimestampFormatHeadersIOFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

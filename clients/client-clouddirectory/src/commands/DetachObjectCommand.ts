@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { DetachObjectRequest, DetachObjectResponse } from "../models/models_0";
+import {
+  DetachObjectRequest,
+  DetachObjectRequestFilterSensitiveLog,
+  DetachObjectResponse,
+  DetachObjectResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DetachObjectCommand,
   serializeAws_restJson1DetachObjectCommand,
@@ -73,8 +78,8 @@ export class DetachObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachObjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetachObjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetachObjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetachObjectResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

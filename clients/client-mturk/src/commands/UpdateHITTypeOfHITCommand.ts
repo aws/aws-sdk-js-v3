@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateHITTypeOfHITRequest, UpdateHITTypeOfHITResponse } from "../models/models_0";
+import {
+  UpdateHITTypeOfHITRequest,
+  UpdateHITTypeOfHITRequestFilterSensitiveLog,
+  UpdateHITTypeOfHITResponse,
+  UpdateHITTypeOfHITResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1UpdateHITTypeOfHITCommand,
@@ -79,8 +84,8 @@ export class UpdateHITTypeOfHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHITTypeOfHITRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHITTypeOfHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateHITTypeOfHITRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateHITTypeOfHITResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

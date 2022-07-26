@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
+import {
+  DeleteResourcePolicyRequest,
+  DeleteResourcePolicyRequestFilterSensitiveLog,
+  DeleteResourcePolicyResponse,
+  DeleteResourcePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteResourcePolicyCommand,
   serializeAws_restJson1DeleteResourcePolicyCommand,
@@ -73,8 +78,8 @@ export class DeleteResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResourcePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResourcePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

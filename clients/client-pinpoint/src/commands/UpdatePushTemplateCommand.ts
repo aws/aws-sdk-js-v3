@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdatePushTemplateRequest, UpdatePushTemplateResponse } from "../models/models_1";
+import {
+  UpdatePushTemplateRequest,
+  UpdatePushTemplateRequestFilterSensitiveLog,
+  UpdatePushTemplateResponse,
+  UpdatePushTemplateResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdatePushTemplateCommand,
@@ -72,8 +77,8 @@ export class UpdatePushTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePushTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePushTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePushTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePushTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteSubscriptionFilterRequest } from "../models/models_0";
+import { DeleteSubscriptionFilterRequest, DeleteSubscriptionFilterRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSubscriptionFilterCommand,
   serializeAws_json1_1DeleteSubscriptionFilterCommand,
@@ -72,7 +72,7 @@ export class DeleteSubscriptionFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubscriptionFilterRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSubscriptionFilterRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

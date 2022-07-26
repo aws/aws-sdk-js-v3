@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import { ListAssetsRequest, ListAssetsResponse } from "../models/models_0";
+import {
+  ListAssetsRequest,
+  ListAssetsRequestFilterSensitiveLog,
+  ListAssetsResponse,
+  ListAssetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAssetsCommand,
   serializeAws_restJson1ListAssetsCommand,
@@ -72,8 +77,8 @@ export class ListAssetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAssetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAssetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAssetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

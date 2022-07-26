@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { GetStageRequest, GetStageResponse } from "../models/models_0";
+import {
+  GetStageRequest,
+  GetStageRequestFilterSensitiveLog,
+  GetStageResponse,
+  GetStageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetStageCommand,
   serializeAws_restJson1GetStageCommand,
@@ -72,8 +77,8 @@ export class GetStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetStageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetStageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetStageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

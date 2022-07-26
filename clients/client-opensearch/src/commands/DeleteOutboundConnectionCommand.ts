@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteOutboundConnectionRequest, DeleteOutboundConnectionResponse } from "../models/models_0";
+import {
+  DeleteOutboundConnectionRequest,
+  DeleteOutboundConnectionRequestFilterSensitiveLog,
+  DeleteOutboundConnectionResponse,
+  DeleteOutboundConnectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1DeleteOutboundConnectionCommand,
@@ -72,8 +77,8 @@ export class DeleteOutboundConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOutboundConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteOutboundConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteOutboundConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteOutboundConnectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

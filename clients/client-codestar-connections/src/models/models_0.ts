@@ -25,15 +25,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectionInput {
   /**
    * <p>The name of the external provider where your third-party code repository is
@@ -58,15 +49,6 @@ export interface CreateConnectionInput {
   HostArn?: string;
 }
 
-export namespace CreateConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectionOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the
@@ -81,15 +63,6 @@ export interface CreateConnectionOutput {
    * <p>Specifies the tags applied to the resource.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConnectionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -183,15 +156,6 @@ export interface VpcConfiguration {
   TlsCertificate?: string;
 }
 
-export namespace VpcConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHostInput {
   /**
    * <p>The name of the host to be created. The name must be unique in the calling AWS
@@ -221,15 +185,6 @@ export interface CreateHostInput {
   Tags?: Tag[];
 }
 
-export namespace CreateHostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHostInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateHostOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the host to be created.</p>
@@ -237,15 +192,6 @@ export interface CreateHostOutput {
   HostArn?: string;
 
   Tags?: Tag[];
-}
-
-export namespace CreateHostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateHostOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteConnectionInput {
@@ -258,25 +204,7 @@ export interface DeleteConnectionInput {
   ConnectionArn: string | undefined;
 }
 
-export namespace DeleteConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConnectionOutput {}
-
-export namespace DeleteConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectionOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteHostInput {
   /**
@@ -285,40 +213,13 @@ export interface DeleteHostInput {
   HostArn: string | undefined;
 }
 
-export namespace DeleteHostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHostInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteHostOutput {}
-
-export namespace DeleteHostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteHostOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface GetConnectionInput {
   /**
    * <p>The Amazon Resource Name (ARN) of a connection.</p>
    */
   ConnectionArn: string | undefined;
-}
-
-export namespace GetConnectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectionInput): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionStatus {
@@ -370,15 +271,6 @@ export interface Connection {
   HostArn?: string;
 }
 
-export namespace Connection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Connection): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConnectionOutput {
   /**
    * <p>The connection details, such as status, owner, and provider type.</p>
@@ -386,29 +278,11 @@ export interface GetConnectionOutput {
   Connection?: Connection;
 }
 
-export namespace GetConnectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectionOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetHostInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the requested host.</p>
    */
   HostArn: string | undefined;
-}
-
-export namespace GetHostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostInput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetHostOutput {
@@ -438,15 +312,6 @@ export interface GetHostOutput {
   VpcConfiguration?: VpcConfiguration;
 }
 
-export namespace GetHostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetHostOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConnectionsInput {
   /**
    * <p>Filters the list of connections to those associated with a specified provider, such as
@@ -472,15 +337,6 @@ export interface ListConnectionsInput {
   NextToken?: string;
 }
 
-export namespace ListConnectionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectionsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListConnectionsOutput {
   /**
    * <p>A list of connections and the details for each connection, such as status, owner, and
@@ -496,15 +352,6 @@ export interface ListConnectionsOutput {
   NextToken?: string;
 }
 
-export namespace ListConnectionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConnectionsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHostsInput {
   /**
    * <p>The maximum number of results to return in a single call. To retrieve the remaining
@@ -517,15 +364,6 @@ export interface ListHostsInput {
    *       used to return the next set of hosts in the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListHostsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHostsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -576,15 +414,6 @@ export interface Host {
   StatusMessage?: string;
 }
 
-export namespace Host {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Host): any => ({
-    ...obj,
-  });
-}
-
 export interface ListHostsOutput {
   /**
    * <p>A list of hosts and the details for each host, such as status, endpoint, and provider
@@ -600,15 +429,6 @@ export interface ListHostsOutput {
   NextToken?: string;
 }
 
-export namespace ListHostsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListHostsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to get information about tags, if any.</p>
@@ -616,29 +436,11 @@ export interface ListTagsForResourceInput {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceInput {
@@ -653,25 +455,7 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceOutput {}
-
-export namespace TagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceInput {
   /**
@@ -685,25 +469,7 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceOutput {}
-
-export namespace UntagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Two conflicting operations have been made on the same resource.</p>
@@ -765,22 +531,200 @@ export interface UpdateHostInput {
   VpcConfiguration?: VpcConfiguration;
 }
 
-export namespace UpdateHostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHostInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateHostOutput {}
 
-export namespace UpdateHostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateHostOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionInputFilterSensitiveLog = (obj: CreateConnectionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionOutputFilterSensitiveLog = (obj: CreateConnectionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigurationFilterSensitiveLog = (obj: VpcConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHostInputFilterSensitiveLog = (obj: CreateHostInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateHostOutputFilterSensitiveLog = (obj: CreateHostOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectionInputFilterSensitiveLog = (obj: DeleteConnectionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectionOutputFilterSensitiveLog = (obj: DeleteConnectionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHostInputFilterSensitiveLog = (obj: DeleteHostInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteHostOutputFilterSensitiveLog = (obj: DeleteHostOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectionInputFilterSensitiveLog = (obj: GetConnectionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionFilterSensitiveLog = (obj: Connection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectionOutputFilterSensitiveLog = (obj: GetConnectionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHostInputFilterSensitiveLog = (obj: GetHostInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetHostOutputFilterSensitiveLog = (obj: GetHostOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectionsInputFilterSensitiveLog = (obj: ListConnectionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConnectionsOutputFilterSensitiveLog = (obj: ListConnectionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostsInputFilterSensitiveLog = (obj: ListHostsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostFilterSensitiveLog = (obj: Host): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHostsOutputFilterSensitiveLog = (obj: ListHostsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHostInputFilterSensitiveLog = (obj: UpdateHostInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHostOutputFilterSensitiveLog = (obj: UpdateHostOutput): any => ({
+  ...obj,
+});

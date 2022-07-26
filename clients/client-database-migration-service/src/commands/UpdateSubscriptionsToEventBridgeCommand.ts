@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { UpdateSubscriptionsToEventBridgeMessage, UpdateSubscriptionsToEventBridgeResponse } from "../models/models_0";
+import {
+  UpdateSubscriptionsToEventBridgeMessage,
+  UpdateSubscriptionsToEventBridgeMessageFilterSensitiveLog,
+  UpdateSubscriptionsToEventBridgeResponse,
+  UpdateSubscriptionsToEventBridgeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand,
   serializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand,
@@ -86,8 +91,8 @@ export class UpdateSubscriptionsToEventBridgeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubscriptionsToEventBridgeMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubscriptionsToEventBridgeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSubscriptionsToEventBridgeMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSubscriptionsToEventBridgeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

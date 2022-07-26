@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { ListByoipCidrsRequest, ListByoipCidrsResponse } from "../models/models_0";
+import {
+  ListByoipCidrsRequest,
+  ListByoipCidrsRequestFilterSensitiveLog,
+  ListByoipCidrsResponse,
+  ListByoipCidrsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListByoipCidrsCommand,
   serializeAws_json1_1ListByoipCidrsCommand,
@@ -77,8 +82,8 @@ export class ListByoipCidrsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListByoipCidrsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListByoipCidrsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListByoipCidrsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListByoipCidrsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

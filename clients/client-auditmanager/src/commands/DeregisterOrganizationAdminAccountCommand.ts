@@ -15,7 +15,9 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   DeregisterOrganizationAdminAccountRequest,
+  DeregisterOrganizationAdminAccountRequestFilterSensitiveLog,
   DeregisterOrganizationAdminAccountResponse,
+  DeregisterOrganizationAdminAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DeregisterOrganizationAdminAccountCommand,
@@ -125,8 +127,8 @@ export class DeregisterOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterOrganizationAdminAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterOrganizationAdminAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterOrganizationAdminAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterOrganizationAdminAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

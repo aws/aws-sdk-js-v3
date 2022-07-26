@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/models_1";
+import {
+  RestoreDBClusterFromS3Message,
+  RestoreDBClusterFromS3MessageFilterSensitiveLog,
+  RestoreDBClusterFromS3Result,
+  RestoreDBClusterFromS3ResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryRestoreDBClusterFromS3Command,
   serializeAws_queryRestoreDBClusterFromS3Command,
@@ -90,8 +95,8 @@ export class RestoreDBClusterFromS3Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBClusterFromS3Message.filterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBClusterFromS3Result.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreDBClusterFromS3MessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RestoreDBClusterFromS3ResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

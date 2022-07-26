@@ -15,7 +15,9 @@ import {
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
 import {
   GetTemporaryGluePartitionCredentialsRequest,
+  GetTemporaryGluePartitionCredentialsRequestFilterSensitiveLog,
   GetTemporaryGluePartitionCredentialsResponse,
+  GetTemporaryGluePartitionCredentialsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand,
@@ -77,8 +79,8 @@ export class GetTemporaryGluePartitionCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTemporaryGluePartitionCredentialsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTemporaryGluePartitionCredentialsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTemporaryGluePartitionCredentialsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTemporaryGluePartitionCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

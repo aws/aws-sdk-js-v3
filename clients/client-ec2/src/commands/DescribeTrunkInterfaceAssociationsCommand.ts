@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTrunkInterfaceAssociationsRequest,
+  DescribeTrunkInterfaceAssociationsRequestFilterSensitiveLog,
   DescribeTrunkInterfaceAssociationsResult,
+  DescribeTrunkInterfaceAssociationsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommand,
@@ -81,8 +83,8 @@ export class DescribeTrunkInterfaceAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrunkInterfaceAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrunkInterfaceAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTrunkInterfaceAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrunkInterfaceAssociationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

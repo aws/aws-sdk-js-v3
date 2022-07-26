@@ -15,7 +15,9 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetVoiceConnectorEmergencyCallingConfigurationRequest,
+  GetVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
   GetVoiceConnectorEmergencyCallingConfigurationResponse,
+  GetVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurationCommand,
@@ -81,8 +83,8 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

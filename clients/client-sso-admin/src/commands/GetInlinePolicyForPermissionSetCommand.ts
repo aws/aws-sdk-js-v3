@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetInlinePolicyForPermissionSetRequest, GetInlinePolicyForPermissionSetResponse } from "../models/models_0";
+import {
+  GetInlinePolicyForPermissionSetRequest,
+  GetInlinePolicyForPermissionSetRequestFilterSensitiveLog,
+  GetInlinePolicyForPermissionSetResponse,
+  GetInlinePolicyForPermissionSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetInlinePolicyForPermissionSetCommand,
   serializeAws_json1_1GetInlinePolicyForPermissionSetCommand,
@@ -74,8 +79,8 @@ export class GetInlinePolicyForPermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInlinePolicyForPermissionSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInlinePolicyForPermissionSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInlinePolicyForPermissionSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInlinePolicyForPermissionSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,9 @@ import {
 
 import {
   PutConfigurationSetSuppressionOptionsRequest,
+  PutConfigurationSetSuppressionOptionsRequestFilterSensitiveLog,
   PutConfigurationSetSuppressionOptionsResponse,
+  PutConfigurationSetSuppressionOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand,
@@ -78,8 +80,8 @@ export class PutConfigurationSetSuppressionOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationSetSuppressionOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationSetSuppressionOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutConfigurationSetSuppressionOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutConfigurationSetSuppressionOptionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

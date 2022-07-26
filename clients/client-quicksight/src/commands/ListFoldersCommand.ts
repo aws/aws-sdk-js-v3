@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListFoldersRequest, ListFoldersResponse } from "../models/models_1";
+import {
+  ListFoldersRequest,
+  ListFoldersRequestFilterSensitiveLog,
+  ListFoldersResponse,
+  ListFoldersResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListFoldersCommand,
   serializeAws_restJson1ListFoldersCommand,
@@ -72,8 +77,8 @@ export class ListFoldersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFoldersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFoldersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFoldersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFoldersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

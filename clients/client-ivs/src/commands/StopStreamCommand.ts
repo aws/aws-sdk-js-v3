@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { StopStreamRequest, StopStreamResponse } from "../models/models_0";
+import {
+  StopStreamRequest,
+  StopStreamRequestFilterSensitiveLog,
+  StopStreamResponse,
+  StopStreamResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopStreamCommand,
   serializeAws_restJson1StopStreamCommand,
@@ -79,8 +84,8 @@ export class StopStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStreamRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopStreamResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopStreamRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopStreamResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

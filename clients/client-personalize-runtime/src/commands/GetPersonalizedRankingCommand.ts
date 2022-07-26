@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetPersonalizedRankingRequest, GetPersonalizedRankingResponse } from "../models/models_0";
+import {
+  GetPersonalizedRankingRequest,
+  GetPersonalizedRankingRequestFilterSensitiveLog,
+  GetPersonalizedRankingResponse,
+  GetPersonalizedRankingResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
   ServiceInputTypes,
@@ -81,8 +86,8 @@ export class GetPersonalizedRankingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPersonalizedRankingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPersonalizedRankingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPersonalizedRankingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPersonalizedRankingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

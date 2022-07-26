@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { UpdateConnectorProfileRequest, UpdateConnectorProfileResponse } from "../models/models_0";
+import {
+  UpdateConnectorProfileRequest,
+  UpdateConnectorProfileRequestFilterSensitiveLog,
+  UpdateConnectorProfileResponse,
+  UpdateConnectorProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateConnectorProfileCommand,
   serializeAws_restJson1UpdateConnectorProfileCommand,
@@ -72,8 +77,8 @@ export class UpdateConnectorProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectorProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectorProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConnectorProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConnectorProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

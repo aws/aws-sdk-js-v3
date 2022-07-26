@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { CreateCustomKeyStoreRequest, CreateCustomKeyStoreResponse } from "../models/models_0";
+import {
+  CreateCustomKeyStoreRequest,
+  CreateCustomKeyStoreRequestFilterSensitiveLog,
+  CreateCustomKeyStoreResponse,
+  CreateCustomKeyStoreResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCustomKeyStoreCommand,
   serializeAws_json1_1CreateCustomKeyStoreCommand,
@@ -121,8 +126,8 @@ export class CreateCustomKeyStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomKeyStoreRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomKeyStoreResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCustomKeyStoreRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCustomKeyStoreResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

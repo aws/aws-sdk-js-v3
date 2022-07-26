@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import { CreateManagedEndpointRequest, CreateManagedEndpointResponse } from "../models/models_0";
+import {
+  CreateManagedEndpointRequest,
+  CreateManagedEndpointRequestFilterSensitiveLog,
+  CreateManagedEndpointResponse,
+  CreateManagedEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateManagedEndpointCommand,
   serializeAws_restJson1CreateManagedEndpointCommand,
@@ -72,8 +77,8 @@ export class CreateManagedEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateManagedEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateManagedEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateManagedEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateManagedEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

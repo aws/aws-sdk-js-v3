@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { DeleteOutcomeRequest, DeleteOutcomeResult } from "../models/models_0";
+import {
+  DeleteOutcomeRequest,
+  DeleteOutcomeRequestFilterSensitiveLog,
+  DeleteOutcomeResult,
+  DeleteOutcomeResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteOutcomeCommand,
   serializeAws_json1_1DeleteOutcomeCommand,
@@ -74,8 +79,8 @@ export class DeleteOutcomeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOutcomeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteOutcomeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteOutcomeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteOutcomeResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

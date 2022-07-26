@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { DeleteDomainNameRequest, DeleteDomainNameResponse } from "../models/models_0";
+import {
+  DeleteDomainNameRequest,
+  DeleteDomainNameRequestFilterSensitiveLog,
+  DeleteDomainNameResponse,
+  DeleteDomainNameResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDomainNameCommand,
   serializeAws_restJson1DeleteDomainNameCommand,
@@ -72,8 +77,8 @@ export class DeleteDomainNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainNameRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainNameResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDomainNameRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDomainNameResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

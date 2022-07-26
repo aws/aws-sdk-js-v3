@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { DeleteGraphqlApiRequest, DeleteGraphqlApiResponse } from "../models/models_0";
+import {
+  DeleteGraphqlApiRequest,
+  DeleteGraphqlApiRequestFilterSensitiveLog,
+  DeleteGraphqlApiResponse,
+  DeleteGraphqlApiResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteGraphqlApiCommand,
   serializeAws_restJson1DeleteGraphqlApiCommand,
@@ -72,8 +77,8 @@ export class DeleteGraphqlApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGraphqlApiRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGraphqlApiResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteGraphqlApiRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteGraphqlApiResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TestAvailabilityConfigurationRequest, TestAvailabilityConfigurationResponse } from "../models/models_0";
+import {
+  TestAvailabilityConfigurationRequest,
+  TestAvailabilityConfigurationRequestFilterSensitiveLog,
+  TestAvailabilityConfigurationResponse,
+  TestAvailabilityConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1TestAvailabilityConfigurationCommand,
   serializeAws_json1_1TestAvailabilityConfigurationCommand,
@@ -81,8 +86,8 @@ export class TestAvailabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestAvailabilityConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestAvailabilityConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestAvailabilityConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestAvailabilityConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   RejectTransitGatewayPeeringAttachmentRequest,
+  RejectTransitGatewayPeeringAttachmentRequestFilterSensitiveLog,
   RejectTransitGatewayPeeringAttachmentResult,
+  RejectTransitGatewayPeeringAttachmentResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,
@@ -78,8 +80,8 @@ export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectTransitGatewayPeeringAttachmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RejectTransitGatewayPeeringAttachmentResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectTransitGatewayPeeringAttachmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RejectTransitGatewayPeeringAttachmentResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

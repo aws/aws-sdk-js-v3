@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateClusterRequest, CreateClusterResult } from "../models/models_0";
+import {
+  CreateClusterRequest,
+  CreateClusterRequestFilterSensitiveLog,
+  CreateClusterResult,
+  CreateClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateClusterCommand,
   serializeAws_json1_1CreateClusterCommand,
@@ -73,8 +78,8 @@ export class CreateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateClusterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import { GetThingShadowRequest, GetThingShadowResponse } from "../models/models_0";
+import {
+  GetThingShadowRequest,
+  GetThingShadowRequestFilterSensitiveLog,
+  GetThingShadowResponse,
+  GetThingShadowResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetThingShadowCommand,
   serializeAws_restJson1GetThingShadowCommand,
@@ -75,8 +80,8 @@ export class GetThingShadowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetThingShadowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetThingShadowResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetThingShadowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetThingShadowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

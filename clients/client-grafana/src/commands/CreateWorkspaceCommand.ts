@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import { CreateWorkspaceRequest, CreateWorkspaceResponse } from "../models/models_0";
+import {
+  CreateWorkspaceRequest,
+  CreateWorkspaceRequestFilterSensitiveLog,
+  CreateWorkspaceResponse,
+  CreateWorkspaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateWorkspaceCommand,
   serializeAws_restJson1CreateWorkspaceCommand,
@@ -76,8 +81,8 @@ export class CreateWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkspaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkspaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateWorkspaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateWorkspaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

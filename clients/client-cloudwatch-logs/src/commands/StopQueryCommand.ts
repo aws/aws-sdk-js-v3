@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { StopQueryRequest, StopQueryResponse } from "../models/models_0";
+import {
+  StopQueryRequest,
+  StopQueryRequestFilterSensitiveLog,
+  StopQueryResponse,
+  StopQueryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1StopQueryCommand, serializeAws_json1_1StopQueryCommand } from "../protocols/Aws_json1_1";
 
 export interface StopQueryCommandInput extends StopQueryRequest {}
@@ -70,8 +75,8 @@ export class StopQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopQueryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopQueryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopQueryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopQueryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

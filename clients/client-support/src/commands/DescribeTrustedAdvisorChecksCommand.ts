@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeTrustedAdvisorChecksRequest, DescribeTrustedAdvisorChecksResponse } from "../models/models_0";
+import {
+  DescribeTrustedAdvisorChecksRequest,
+  DescribeTrustedAdvisorChecksRequestFilterSensitiveLog,
+  DescribeTrustedAdvisorChecksResponse,
+  DescribeTrustedAdvisorChecksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand,
   serializeAws_json1_1DescribeTrustedAdvisorChecksCommand,
@@ -97,8 +102,8 @@ export class DescribeTrustedAdvisorChecksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrustedAdvisorChecksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrustedAdvisorChecksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTrustedAdvisorChecksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTrustedAdvisorChecksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

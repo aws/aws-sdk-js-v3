@@ -61,17 +61,6 @@ export interface AccountAssociationsListElement {
   AccountEmail?: string;
 }
 
-export namespace AccountAssociationsListElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAssociationsListElement): any => ({
-    ...obj,
-    ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
-    ...(obj.AccountEmail && { AccountEmail: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>
  *      The set of accounts that will be under the billing group. The set of accounts resemble the linked accounts in a consolidated family.
@@ -84,15 +73,6 @@ export interface AccountGrouping {
    *     </p>
    */
   LinkedAccountIds: string[] | undefined;
-}
-
-export namespace AccountGrouping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountGrouping): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateAccountsInput {
@@ -110,30 +90,12 @@ export interface AssociateAccountsInput {
   AccountIds: string[] | undefined;
 }
 
-export namespace AssociateAccountsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAccountsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateAccountsOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the billing group that associates the array of
    *       account IDs. </p>
    */
   Arn?: string;
-}
-
-export namespace AssociateAccountsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAccountsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -329,15 +291,6 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   ACCOUNTS_ALREADY_ASSOCIATED = "ACCOUNTS_ALREADY_ASSOCIATED",
   ACCOUNTS_NOT_ASSOCIATED = "ACCOUNTS_NOT_ASSOCIATED",
@@ -435,15 +388,6 @@ export interface AssociatePricingRulesInput {
   PricingRuleArns: string[] | undefined;
 }
 
-export namespace AssociatePricingRulesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePricingRulesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociatePricingRulesOutput {
   /**
    * <p>
@@ -451,15 +395,6 @@ export interface AssociatePricingRulesOutput {
    *     </p>
    */
   Arn?: string;
-}
-
-export namespace AssociatePricingRulesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatePricingRulesOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum AssociateResourceErrorReason {
@@ -490,15 +425,6 @@ export interface AssociateResourceError {
   Reason?: AssociateResourceErrorReason | string;
 }
 
-export namespace AssociateResourceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       A resource association result for a percentage custom line item.
@@ -520,15 +446,6 @@ export interface AssociateResourceResponseElement {
   Error?: AssociateResourceError;
 }
 
-export namespace AssociateResourceResponseElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceResponseElement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       The preferences and settings that will be used to compute the Amazon Web Services charges for a billing group.
@@ -541,15 +458,6 @@ export interface ComputationPreference {
    *     </p>
    */
   PricingPlanArn: string | undefined;
-}
-
-export namespace ComputationPreference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComputationPreference): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBillingGroupInput {
@@ -599,31 +507,11 @@ export interface CreateBillingGroupInput {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateBillingGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBillingGroupInput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateBillingGroupOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the created billing group. </p>
    */
   Arn?: string;
-}
-
-export namespace CreateBillingGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBillingGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBillingGroupInput {
@@ -633,29 +521,11 @@ export interface DeleteBillingGroupInput {
   Arn: string | undefined;
 }
 
-export namespace DeleteBillingGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBillingGroupInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBillingGroupOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the deleted billing group.</p>
    */
   Arn?: string;
-}
-
-export namespace DeleteBillingGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBillingGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateAccountsInput {
@@ -672,30 +542,12 @@ export interface DisassociateAccountsInput {
   AccountIds: string[] | undefined;
 }
 
-export namespace DisassociateAccountsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAccountsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateAccountsOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the billing group that the array of account IDs is
    *       disassociated from. </p>
    */
   Arn?: string;
-}
-
-export namespace DisassociateAccountsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAccountsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -712,15 +564,6 @@ export interface ListBillingGroupsFilter {
    * <p>The pricing plan Amazon Resource Names (ARNs) to retrieve information. </p>
    */
   PricingPlan?: string;
-}
-
-export namespace ListBillingGroupsFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBillingGroupsFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBillingGroupsInput {
@@ -747,15 +590,6 @@ export interface ListBillingGroupsInput {
    *     </p>
    */
   Filters?: ListBillingGroupsFilter;
-}
-
-export namespace ListBillingGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBillingGroupsInput): any => ({
-    ...obj,
-  });
 }
 
 export enum BillingGroupStatus {
@@ -831,17 +665,6 @@ export interface BillingGroupListElement {
   StatusReason?: string;
 }
 
-export namespace BillingGroupListElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BillingGroupListElement): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListBillingGroupsOutput {
   /**
    * <p>A list of <code>BillingGroupListElement</code> retrieved.
@@ -854,18 +677,6 @@ export interface ListBillingGroupsOutput {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace ListBillingGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBillingGroupsOutput): any => ({
-    ...obj,
-    ...(obj.BillingGroups && {
-      BillingGroups: obj.BillingGroups.map((item) => BillingGroupListElement.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface UpdateBillingGroupInput {
@@ -898,17 +709,6 @@ export interface UpdateBillingGroupInput {
    *     </p>
    */
   Description?: string;
-}
-
-export namespace UpdateBillingGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBillingGroupInput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdateBillingGroupOutput {
@@ -975,17 +775,6 @@ export interface UpdateBillingGroupOutput {
   StatusReason?: string;
 }
 
-export namespace UpdateBillingGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBillingGroupOutput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>
  *       The billing period range in which the custom line item request will be applied.
@@ -1005,15 +794,6 @@ export interface CustomLineItemBillingPeriodRange {
    *     </p>
    */
   ExclusiveEndBillingPeriod: string | undefined;
-}
-
-export namespace CustomLineItemBillingPeriodRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomLineItemBillingPeriodRange): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchAssociateResourcesToCustomLineItemInput {
@@ -1039,15 +819,6 @@ export interface BatchAssociateResourcesToCustomLineItemInput {
   BillingPeriodRange?: CustomLineItemBillingPeriodRange;
 }
 
-export namespace BatchAssociateResourcesToCustomLineItemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateResourcesToCustomLineItemInput): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchAssociateResourcesToCustomLineItemOutput {
   /**
    * <p>
@@ -1062,15 +833,6 @@ export interface BatchAssociateResourcesToCustomLineItemOutput {
    *     </p>
    */
   FailedAssociatedResources?: AssociateResourceResponseElement[];
-}
-
-export namespace BatchAssociateResourcesToCustomLineItemOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateResourcesToCustomLineItemOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDisassociateResourcesFromCustomLineItemInput {
@@ -1096,15 +858,6 @@ export interface BatchDisassociateResourcesFromCustomLineItemInput {
   BillingPeriodRange?: CustomLineItemBillingPeriodRange;
 }
 
-export namespace BatchDisassociateResourcesFromCustomLineItemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateResourcesFromCustomLineItemInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       A resource disassociation result for a percentage custom line item.
@@ -1126,15 +879,6 @@ export interface DisassociateResourceResponseElement {
   Error?: AssociateResourceError;
 }
 
-export namespace DisassociateResourceResponseElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceResponseElement): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDisassociateResourcesFromCustomLineItemOutput {
   /**
    * <p>
@@ -1151,15 +895,6 @@ export interface BatchDisassociateResourcesFromCustomLineItemOutput {
   FailedDisassociatedResources?: DisassociateResourceResponseElement[];
 }
 
-export namespace BatchDisassociateResourcesFromCustomLineItemOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateResourcesFromCustomLineItemOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       A representation of the charge details associated with a flat custom line item.
@@ -1172,15 +907,6 @@ export interface CustomLineItemFlatChargeDetails {
    *     </p>
    */
   ChargeValue: number | undefined;
-}
-
-export namespace CustomLineItemFlatChargeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomLineItemFlatChargeDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1202,15 +928,6 @@ export interface CustomLineItemPercentageChargeDetails {
    *     </p>
    */
   AssociatedValues?: string[];
-}
-
-export namespace CustomLineItemPercentageChargeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomLineItemPercentageChargeDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum CustomLineItemType {
@@ -1244,15 +961,6 @@ export interface CustomLineItemChargeDetails {
    *     </p>
    */
   Type: CustomLineItemType | string | undefined;
-}
-
-export namespace CustomLineItemChargeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomLineItemChargeDetails): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCustomLineItemInput {
@@ -1301,31 +1009,11 @@ export interface CreateCustomLineItemInput {
   ChargeDetails: CustomLineItemChargeDetails | undefined;
 }
 
-export namespace CreateCustomLineItemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomLineItemInput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateCustomLineItemOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the created custom line item. </p>
    */
   Arn?: string;
-}
-
-export namespace CreateCustomLineItemOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomLineItemOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCustomLineItemInput {
@@ -1344,15 +1032,6 @@ export interface DeleteCustomLineItemInput {
   BillingPeriodRange?: CustomLineItemBillingPeriodRange;
 }
 
-export namespace DeleteCustomLineItemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomLineItemInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCustomLineItemOutput {
   /**
    * <p>
@@ -1360,15 +1039,6 @@ export interface DeleteCustomLineItemOutput {
    *     </p>
    */
   Arn?: string;
-}
-
-export namespace DeleteCustomLineItemOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomLineItemOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1395,16 +1065,6 @@ export interface ListCustomLineItemsFilter {
    *     </p>
    */
   Arns?: string[];
-}
-
-export namespace ListCustomLineItemsFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomLineItemsFilter): any => ({
-    ...obj,
-    ...(obj.Names && { Names: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListCustomLineItemsInput {
@@ -1436,16 +1096,6 @@ export interface ListCustomLineItemsInput {
   Filters?: ListCustomLineItemsFilter;
 }
 
-export namespace ListCustomLineItemsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomLineItemsInput): any => ({
-    ...obj,
-    ...(obj.Filters && { Filters: ListCustomLineItemsFilter.filterSensitiveLog(obj.Filters) }),
-  });
-}
-
 /**
  * <p>
  *       A representation of the charge details associated with a flat custom line item.
@@ -1460,15 +1110,6 @@ export interface ListCustomLineItemFlatChargeDetails {
   ChargeValue: number | undefined;
 }
 
-export namespace ListCustomLineItemFlatChargeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomLineItemFlatChargeDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       A representation of the charge details associated with a percentage custom line item.
@@ -1481,15 +1122,6 @@ export interface ListCustomLineItemPercentageChargeDetails {
    *     </p>
    */
   PercentageValue: number | undefined;
-}
-
-export namespace ListCustomLineItemPercentageChargeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomLineItemPercentageChargeDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1518,15 +1150,6 @@ export interface ListCustomLineItemChargeDetails {
    *     </p>
    */
   Type: CustomLineItemType | string | undefined;
-}
-
-export namespace ListCustomLineItemChargeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomLineItemChargeDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum CurrencyCode {
@@ -1608,17 +1231,6 @@ export interface CustomLineItemListElement {
   AssociationSize?: number;
 }
 
-export namespace CustomLineItemListElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomLineItemListElement): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListCustomLineItemsOutput {
   /**
    * <p>
@@ -1633,18 +1245,6 @@ export interface ListCustomLineItemsOutput {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace ListCustomLineItemsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomLineItemsOutput): any => ({
-    ...obj,
-    ...(obj.CustomLineItems && {
-      CustomLineItems: obj.CustomLineItems.map((item) => CustomLineItemListElement.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export enum CustomLineItemRelationship {
@@ -1664,15 +1264,6 @@ export interface ListResourcesAssociatedToCustomLineItemFilter {
    *     </p>
    */
   Relationship?: CustomLineItemRelationship | string;
-}
-
-export namespace ListResourcesAssociatedToCustomLineItemFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesAssociatedToCustomLineItemFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourcesAssociatedToCustomLineItemInput {
@@ -1712,15 +1303,6 @@ export interface ListResourcesAssociatedToCustomLineItemInput {
   Filters?: ListResourcesAssociatedToCustomLineItemFilter;
 }
 
-export namespace ListResourcesAssociatedToCustomLineItemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesAssociatedToCustomLineItemInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       A representation of a resource association for a custom line item.
@@ -1740,15 +1322,6 @@ export interface ListResourcesAssociatedToCustomLineItemResponseElement {
    *     </p>
    */
   Relationship?: CustomLineItemRelationship | string;
-}
-
-export namespace ListResourcesAssociatedToCustomLineItemResponseElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesAssociatedToCustomLineItemResponseElement): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResourcesAssociatedToCustomLineItemOutput {
@@ -1774,15 +1347,6 @@ export interface ListResourcesAssociatedToCustomLineItemOutput {
   NextToken?: string;
 }
 
-export namespace ListResourcesAssociatedToCustomLineItemOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesAssociatedToCustomLineItemOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       A representation of the new charge details associated with a flat custom line item.
@@ -1797,15 +1361,6 @@ export interface UpdateCustomLineItemFlatChargeDetails {
   ChargeValue: number | undefined;
 }
 
-export namespace UpdateCustomLineItemFlatChargeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomLineItemFlatChargeDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *       A representation of the new charge details associated with a percentage custom line item.
@@ -1818,15 +1373,6 @@ export interface UpdateCustomLineItemPercentageChargeDetails {
    *     </p>
    */
   PercentageValue: number | undefined;
-}
-
-export namespace UpdateCustomLineItemPercentageChargeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomLineItemPercentageChargeDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1848,15 +1394,6 @@ export interface UpdateCustomLineItemChargeDetails {
    *     </p>
    */
   Percentage?: UpdateCustomLineItemPercentageChargeDetails;
-}
-
-export namespace UpdateCustomLineItemChargeDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomLineItemChargeDetails): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCustomLineItemInput {
@@ -1894,17 +1431,6 @@ export interface UpdateCustomLineItemInput {
    *     </p>
    */
   BillingPeriodRange?: CustomLineItemBillingPeriodRange;
-}
-
-export namespace UpdateCustomLineItemInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomLineItemInput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdateCustomLineItemOutput {
@@ -1958,17 +1484,6 @@ export interface UpdateCustomLineItemOutput {
   AssociationSize?: number;
 }
 
-export namespace UpdateCustomLineItemOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomLineItemOutput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The filter on the account ID of the linked account, or any of the following:</p>
  *          <p>
@@ -2001,15 +1516,6 @@ export interface ListAccountAssociationsFilter {
   AccountId?: string;
 }
 
-export namespace ListAccountAssociationsFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssociationsFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountAssociationsInput {
   /**
    * <p>
@@ -2039,15 +1545,6 @@ export interface ListAccountAssociationsInput {
   NextToken?: string;
 }
 
-export namespace ListAccountAssociationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssociationsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountAssociationsOutput {
   /**
    * <p> The list of linked accounts in the payer account. </p>
@@ -2062,18 +1559,6 @@ export interface ListAccountAssociationsOutput {
   NextToken?: string;
 }
 
-export namespace ListAccountAssociationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountAssociationsOutput): any => ({
-    ...obj,
-    ...(obj.LinkedAccounts && {
-      LinkedAccounts: obj.LinkedAccounts.map((item) => AccountAssociationsListElement.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>The filter used to retrieve specific <code>BillingGroupCostReportElements</code>.
  *     </p>
@@ -2084,15 +1569,6 @@ export interface ListBillingGroupCostReportsFilter {
    *       reports. </p>
    */
   BillingGroupArns?: string[];
-}
-
-export namespace ListBillingGroupCostReportsFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBillingGroupCostReportsFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBillingGroupCostReportsInput {
@@ -2119,15 +1595,6 @@ export interface ListBillingGroupCostReportsInput {
    *     </p>
    */
   Filters?: ListBillingGroupCostReportsFilter;
-}
-
-export namespace ListBillingGroupCostReportsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBillingGroupCostReportsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2173,15 +1640,6 @@ export interface BillingGroupCostReportElement {
   Currency?: string;
 }
 
-export namespace BillingGroupCostReportElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BillingGroupCostReportElement): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBillingGroupCostReportsOutput {
   /**
    * <p>A list of <code>BillingGroupCostReportElement</code> retrieved.
@@ -2196,15 +1654,6 @@ export interface ListBillingGroupCostReportsOutput {
   NextToken?: string;
 }
 
-export namespace ListBillingGroupCostReportsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBillingGroupCostReportsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>
@@ -2214,15 +1663,6 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>
@@ -2230,15 +1670,6 @@ export interface ListTagsForResourceResponse {
    *     </p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePricingPlanInput {
@@ -2274,31 +1705,11 @@ export interface CreatePricingPlanInput {
   Tags?: Record<string, string>;
 }
 
-export namespace CreatePricingPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePricingPlanInput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreatePricingPlanOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the created pricing plan.</p>
    */
   Arn?: string;
-}
-
-export namespace CreatePricingPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePricingPlanOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePricingPlanInput {
@@ -2308,29 +1719,11 @@ export interface DeletePricingPlanInput {
   Arn: string | undefined;
 }
 
-export namespace DeletePricingPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePricingPlanInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePricingPlanOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the deleted pricing plan. </p>
    */
   Arn?: string;
-}
-
-export namespace DeletePricingPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePricingPlanOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociatePricingRulesInput {
@@ -2346,30 +1739,12 @@ export interface DisassociatePricingRulesInput {
   PricingRuleArns: string[] | undefined;
 }
 
-export namespace DisassociatePricingRulesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociatePricingRulesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociatePricingRulesOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the pricing plan that the pricing rules successfully
    *       disassociated from. </p>
    */
   Arn?: string;
-}
-
-export namespace DisassociatePricingRulesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociatePricingRulesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2381,15 +1756,6 @@ export interface ListPricingPlansFilter {
    * <p>A list of pricing plan Amazon Resource Names (ARNs) to retrieve information. </p>
    */
   Arns?: string[];
-}
-
-export namespace ListPricingPlansFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricingPlansFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPricingPlansInput {
@@ -2415,15 +1781,6 @@ export interface ListPricingPlansInput {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace ListPricingPlansInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricingPlansInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2471,17 +1828,6 @@ export interface PricingPlanListElement {
   LastModifiedTime?: number;
 }
 
-export namespace PricingPlanListElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PricingPlanListElement): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListPricingPlansOutput {
   /**
    * <p>
@@ -2501,18 +1847,6 @@ export interface ListPricingPlansOutput {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace ListPricingPlansOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricingPlansOutput): any => ({
-    ...obj,
-    ...(obj.PricingPlans && {
-      PricingPlans: obj.PricingPlans.map((item) => PricingPlanListElement.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListPricingPlansAssociatedWithPricingRuleInput {
@@ -2543,15 +1877,6 @@ export interface ListPricingPlansAssociatedWithPricingRuleInput {
   NextToken?: string;
 }
 
-export namespace ListPricingPlansAssociatedWithPricingRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricingPlansAssociatedWithPricingRuleInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPricingPlansAssociatedWithPricingRuleOutput {
   /**
    * <p>
@@ -2580,15 +1905,6 @@ export interface ListPricingPlansAssociatedWithPricingRuleOutput {
   NextToken?: string;
 }
 
-export namespace ListPricingPlansAssociatedWithPricingRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricingPlansAssociatedWithPricingRuleOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePricingPlanInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the pricing plan you're updating. </p>
@@ -2606,17 +1922,6 @@ export interface UpdatePricingPlanInput {
    *     </p>
    */
   Description?: string;
-}
-
-export namespace UpdatePricingPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePricingPlanInput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdatePricingPlanOutput {
@@ -2652,17 +1957,6 @@ export interface UpdatePricingPlanOutput {
    *     </p>
    */
   LastModifiedTime?: number;
-}
-
-export namespace UpdatePricingPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePricingPlanOutput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
 }
 
 export enum PricingRuleScope {
@@ -2733,31 +2027,11 @@ export interface CreatePricingRuleInput {
   Tags?: Record<string, string>;
 }
 
-export namespace CreatePricingRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePricingRuleInput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreatePricingRuleOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the created pricing rule. </p>
    */
   Arn?: string;
-}
-
-export namespace CreatePricingRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePricingRuleOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePricingRuleInput {
@@ -2767,29 +2041,11 @@ export interface DeletePricingRuleInput {
   Arn: string | undefined;
 }
 
-export namespace DeletePricingRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePricingRuleInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePricingRuleOutput {
   /**
    * <p> The Amazon Resource Name (ARN) of the deleted pricing rule. </p>
    */
   Arn?: string;
-}
-
-export namespace DeletePricingRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePricingRuleOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2802,15 +2058,6 @@ export interface ListPricingRulesFilter {
    *       response. </p>
    */
   Arns?: string[];
-}
-
-export namespace ListPricingRulesFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricingRulesFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPricingRulesInput {
@@ -2840,15 +2087,6 @@ export interface ListPricingRulesInput {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace ListPricingRulesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricingRulesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2926,17 +2164,6 @@ export interface PricingRuleListElement {
   LastModifiedTime?: number;
 }
 
-export namespace PricingRuleListElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PricingRuleListElement): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListPricingRulesOutput {
   /**
    * <p>
@@ -2958,18 +2185,6 @@ export interface ListPricingRulesOutput {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace ListPricingRulesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricingRulesOutput): any => ({
-    ...obj,
-    ...(obj.PricingRules && {
-      PricingRules: obj.PricingRules.map((item) => PricingRuleListElement.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListPricingRulesAssociatedToPricingPlanInput {
@@ -2999,15 +2214,6 @@ export interface ListPricingRulesAssociatedToPricingPlanInput {
   NextToken?: string;
 }
 
-export namespace ListPricingRulesAssociatedToPricingPlanInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricingRulesAssociatedToPricingPlanInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPricingRulesAssociatedToPricingPlanOutput {
   /**
    * <p>
@@ -3035,15 +2241,6 @@ export interface ListPricingRulesAssociatedToPricingPlanOutput {
    *     </p>
    */
   NextToken?: string;
-}
-
-export namespace ListPricingRulesAssociatedToPricingPlanOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPricingRulesAssociatedToPricingPlanOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePricingRuleInput {
@@ -3079,17 +2276,6 @@ export interface UpdatePricingRuleInput {
    *     </p>
    */
   ModifierPercentage?: number;
-}
-
-export namespace UpdatePricingRuleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePricingRuleInput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdatePricingRuleOutput {
@@ -3155,17 +2341,6 @@ export interface UpdatePricingRuleOutput {
   LastModifiedTime?: number;
 }
 
-export namespace UpdatePricingRuleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePricingRuleOutput): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Description && { Description: SENSITIVE_STRING }),
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>
@@ -3182,25 +2357,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3218,22 +2375,721 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountAssociationsListElementFilterSensitiveLog = (obj: AccountAssociationsListElement): any => ({
+  ...obj,
+  ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
+  ...(obj.AccountEmail && { AccountEmail: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AccountGroupingFilterSensitiveLog = (obj: AccountGrouping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateAccountsInputFilterSensitiveLog = (obj: AssociateAccountsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateAccountsOutputFilterSensitiveLog = (obj: AssociateAccountsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatePricingRulesInputFilterSensitiveLog = (obj: AssociatePricingRulesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatePricingRulesOutputFilterSensitiveLog = (obj: AssociatePricingRulesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResourceErrorFilterSensitiveLog = (obj: AssociateResourceError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResourceResponseElementFilterSensitiveLog = (obj: AssociateResourceResponseElement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComputationPreferenceFilterSensitiveLog = (obj: ComputationPreference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBillingGroupInputFilterSensitiveLog = (obj: CreateBillingGroupInput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateBillingGroupOutputFilterSensitiveLog = (obj: CreateBillingGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBillingGroupInputFilterSensitiveLog = (obj: DeleteBillingGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBillingGroupOutputFilterSensitiveLog = (obj: DeleteBillingGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateAccountsInputFilterSensitiveLog = (obj: DisassociateAccountsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateAccountsOutputFilterSensitiveLog = (obj: DisassociateAccountsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBillingGroupsFilterFilterSensitiveLog = (obj: ListBillingGroupsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBillingGroupsInputFilterSensitiveLog = (obj: ListBillingGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BillingGroupListElementFilterSensitiveLog = (obj: BillingGroupListElement): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListBillingGroupsOutputFilterSensitiveLog = (obj: ListBillingGroupsOutput): any => ({
+  ...obj,
+  ...(obj.BillingGroups && {
+    BillingGroups: obj.BillingGroups.map((item) => BillingGroupListElementFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateBillingGroupInputFilterSensitiveLog = (obj: UpdateBillingGroupInput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateBillingGroupOutputFilterSensitiveLog = (obj: UpdateBillingGroupOutput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CustomLineItemBillingPeriodRangeFilterSensitiveLog = (obj: CustomLineItemBillingPeriodRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateResourcesToCustomLineItemInputFilterSensitiveLog = (
+  obj: BatchAssociateResourcesToCustomLineItemInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateResourcesToCustomLineItemOutputFilterSensitiveLog = (
+  obj: BatchAssociateResourcesToCustomLineItemOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateResourcesFromCustomLineItemInputFilterSensitiveLog = (
+  obj: BatchDisassociateResourcesFromCustomLineItemInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResourceResponseElementFilterSensitiveLog = (
+  obj: DisassociateResourceResponseElement
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateResourcesFromCustomLineItemOutputFilterSensitiveLog = (
+  obj: BatchDisassociateResourcesFromCustomLineItemOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomLineItemFlatChargeDetailsFilterSensitiveLog = (obj: CustomLineItemFlatChargeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomLineItemPercentageChargeDetailsFilterSensitiveLog = (
+  obj: CustomLineItemPercentageChargeDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomLineItemChargeDetailsFilterSensitiveLog = (obj: CustomLineItemChargeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomLineItemInputFilterSensitiveLog = (obj: CreateCustomLineItemInput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomLineItemOutputFilterSensitiveLog = (obj: CreateCustomLineItemOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomLineItemInputFilterSensitiveLog = (obj: DeleteCustomLineItemInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomLineItemOutputFilterSensitiveLog = (obj: DeleteCustomLineItemOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomLineItemsFilterFilterSensitiveLog = (obj: ListCustomLineItemsFilter): any => ({
+  ...obj,
+  ...(obj.Names && { Names: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListCustomLineItemsInputFilterSensitiveLog = (obj: ListCustomLineItemsInput): any => ({
+  ...obj,
+  ...(obj.Filters && { Filters: ListCustomLineItemsFilterFilterSensitiveLog(obj.Filters) }),
+});
+
+/**
+ * @internal
+ */
+export const ListCustomLineItemFlatChargeDetailsFilterSensitiveLog = (
+  obj: ListCustomLineItemFlatChargeDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomLineItemPercentageChargeDetailsFilterSensitiveLog = (
+  obj: ListCustomLineItemPercentageChargeDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomLineItemChargeDetailsFilterSensitiveLog = (obj: ListCustomLineItemChargeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomLineItemListElementFilterSensitiveLog = (obj: CustomLineItemListElement): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListCustomLineItemsOutputFilterSensitiveLog = (obj: ListCustomLineItemsOutput): any => ({
+  ...obj,
+  ...(obj.CustomLineItems && {
+    CustomLineItems: obj.CustomLineItems.map((item) => CustomLineItemListElementFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesAssociatedToCustomLineItemFilterFilterSensitiveLog = (
+  obj: ListResourcesAssociatedToCustomLineItemFilter
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesAssociatedToCustomLineItemInputFilterSensitiveLog = (
+  obj: ListResourcesAssociatedToCustomLineItemInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesAssociatedToCustomLineItemResponseElementFilterSensitiveLog = (
+  obj: ListResourcesAssociatedToCustomLineItemResponseElement
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesAssociatedToCustomLineItemOutputFilterSensitiveLog = (
+  obj: ListResourcesAssociatedToCustomLineItemOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomLineItemFlatChargeDetailsFilterSensitiveLog = (
+  obj: UpdateCustomLineItemFlatChargeDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomLineItemPercentageChargeDetailsFilterSensitiveLog = (
+  obj: UpdateCustomLineItemPercentageChargeDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomLineItemChargeDetailsFilterSensitiveLog = (obj: UpdateCustomLineItemChargeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomLineItemInputFilterSensitiveLog = (obj: UpdateCustomLineItemInput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomLineItemOutputFilterSensitiveLog = (obj: UpdateCustomLineItemOutput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListAccountAssociationsFilterFilterSensitiveLog = (obj: ListAccountAssociationsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountAssociationsInputFilterSensitiveLog = (obj: ListAccountAssociationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountAssociationsOutputFilterSensitiveLog = (obj: ListAccountAssociationsOutput): any => ({
+  ...obj,
+  ...(obj.LinkedAccounts && {
+    LinkedAccounts: obj.LinkedAccounts.map((item) => AccountAssociationsListElementFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListBillingGroupCostReportsFilterFilterSensitiveLog = (obj: ListBillingGroupCostReportsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBillingGroupCostReportsInputFilterSensitiveLog = (obj: ListBillingGroupCostReportsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BillingGroupCostReportElementFilterSensitiveLog = (obj: BillingGroupCostReportElement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBillingGroupCostReportsOutputFilterSensitiveLog = (obj: ListBillingGroupCostReportsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePricingPlanInputFilterSensitiveLog = (obj: CreatePricingPlanInput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePricingPlanOutputFilterSensitiveLog = (obj: CreatePricingPlanOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePricingPlanInputFilterSensitiveLog = (obj: DeletePricingPlanInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePricingPlanOutputFilterSensitiveLog = (obj: DeletePricingPlanOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociatePricingRulesInputFilterSensitiveLog = (obj: DisassociatePricingRulesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociatePricingRulesOutputFilterSensitiveLog = (obj: DisassociatePricingRulesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPricingPlansFilterFilterSensitiveLog = (obj: ListPricingPlansFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPricingPlansInputFilterSensitiveLog = (obj: ListPricingPlansInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PricingPlanListElementFilterSensitiveLog = (obj: PricingPlanListElement): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListPricingPlansOutputFilterSensitiveLog = (obj: ListPricingPlansOutput): any => ({
+  ...obj,
+  ...(obj.PricingPlans && {
+    PricingPlans: obj.PricingPlans.map((item) => PricingPlanListElementFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListPricingPlansAssociatedWithPricingRuleInputFilterSensitiveLog = (
+  obj: ListPricingPlansAssociatedWithPricingRuleInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPricingPlansAssociatedWithPricingRuleOutputFilterSensitiveLog = (
+  obj: ListPricingPlansAssociatedWithPricingRuleOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePricingPlanInputFilterSensitiveLog = (obj: UpdatePricingPlanInput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePricingPlanOutputFilterSensitiveLog = (obj: UpdatePricingPlanOutput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePricingRuleInputFilterSensitiveLog = (obj: CreatePricingRuleInput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePricingRuleOutputFilterSensitiveLog = (obj: CreatePricingRuleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePricingRuleInputFilterSensitiveLog = (obj: DeletePricingRuleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePricingRuleOutputFilterSensitiveLog = (obj: DeletePricingRuleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPricingRulesFilterFilterSensitiveLog = (obj: ListPricingRulesFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPricingRulesInputFilterSensitiveLog = (obj: ListPricingRulesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PricingRuleListElementFilterSensitiveLog = (obj: PricingRuleListElement): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListPricingRulesOutputFilterSensitiveLog = (obj: ListPricingRulesOutput): any => ({
+  ...obj,
+  ...(obj.PricingRules && {
+    PricingRules: obj.PricingRules.map((item) => PricingRuleListElementFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListPricingRulesAssociatedToPricingPlanInputFilterSensitiveLog = (
+  obj: ListPricingRulesAssociatedToPricingPlanInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPricingRulesAssociatedToPricingPlanOutputFilterSensitiveLog = (
+  obj: ListPricingRulesAssociatedToPricingPlanOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePricingRuleInputFilterSensitiveLog = (obj: UpdatePricingRuleInput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePricingRuleOutputFilterSensitiveLog = (obj: UpdatePricingRuleOutput): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

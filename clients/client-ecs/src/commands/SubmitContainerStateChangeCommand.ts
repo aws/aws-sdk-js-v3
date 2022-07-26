@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse } from "../models/models_0";
+import {
+  SubmitContainerStateChangeRequest,
+  SubmitContainerStateChangeRequestFilterSensitiveLog,
+  SubmitContainerStateChangeResponse,
+  SubmitContainerStateChangeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SubmitContainerStateChangeCommand,
   serializeAws_json1_1SubmitContainerStateChangeCommand,
@@ -75,8 +80,8 @@ export class SubmitContainerStateChangeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitContainerStateChangeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SubmitContainerStateChangeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SubmitContainerStateChangeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SubmitContainerStateChangeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

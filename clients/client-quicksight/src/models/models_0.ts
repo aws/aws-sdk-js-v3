@@ -47,15 +47,6 @@ export interface AccountCustomization {
   DefaultEmailCustomizationTemplate?: string;
 }
 
-export namespace AccountCustomization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountCustomization): any => ({
-    ...obj,
-  });
-}
-
 export enum Edition {
   ENTERPRISE = "ENTERPRISE",
   ENTERPRISE_AND_Q = "ENTERPRISE_AND_Q",
@@ -113,15 +104,6 @@ export interface AccountInfo {
   AccountSubscriptionStatus?: string;
 }
 
-export namespace AccountInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon QuickSight settings associated with your Amazon Web Services account.</p>
  */
@@ -155,15 +137,6 @@ export interface AccountSettings {
   PublicSharingEnabled?: boolean;
 }
 
-export namespace AccountSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The active Identity and Access Management (IAM) policy assignment.</p>
  */
@@ -177,15 +150,6 @@ export interface ActiveIAMPolicyAssignment {
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   PolicyArn?: string;
-}
-
-export namespace ActiveIAMPolicyAssignment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveIAMPolicyAssignment): any => ({
-    ...obj,
-  });
 }
 
 export enum DashboardBehavior {
@@ -203,15 +167,6 @@ export interface AdHocFilteringOption {
   AvailabilityStatus?: DashboardBehavior | string;
 }
 
-export namespace AdHocFilteringOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdHocFilteringOption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for OpenSearch.</p>
  */
@@ -222,15 +177,6 @@ export interface AmazonElasticsearchParameters {
   Domain: string | undefined;
 }
 
-export namespace AmazonElasticsearchParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmazonElasticsearchParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for OpenSearch.</p>
  */
@@ -239,15 +185,6 @@ export interface AmazonOpenSearchParameters {
    * <p>The OpenSearch domain.</p>
    */
   Domain: string | undefined;
-}
-
-export namespace AmazonOpenSearchParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmazonOpenSearchParameters): any => ({
-    ...obj,
-  });
 }
 
 export enum AnalysisErrorType {
@@ -278,15 +215,6 @@ export interface AnalysisError {
   Message?: string;
 }
 
-export namespace AnalysisError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
  *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
@@ -305,15 +233,6 @@ export interface Sheet {
    *             console.</p>
    */
   Name?: string;
-}
-
-export namespace Sheet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Sheet): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceStatus {
@@ -381,15 +300,6 @@ export interface Analysis {
   Sheets?: Sheet[];
 }
 
-export namespace Analysis {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Analysis): any => ({
-    ...obj,
-  });
-}
-
 export enum AnalysisFilterAttribute {
   QUICKSIGHT_USER = "QUICKSIGHT_USER",
 }
@@ -422,15 +332,6 @@ export interface AnalysisSearchFilter {
   Value?: string;
 }
 
-export namespace AnalysisSearchFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisSearchFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Dataset reference.</p>
  */
@@ -444,15 +345,6 @@ export interface DataSetReference {
    * <p>Dataset Amazon Resource Name (ARN).</p>
    */
   DataSetArn: string | undefined;
-}
-
-export namespace DataSetReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -470,15 +362,6 @@ export interface AnalysisSourceTemplate {
   Arn: string | undefined;
 }
 
-export namespace AnalysisSourceTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisSourceTemplate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The source entity of an analysis.</p>
  */
@@ -487,15 +370,6 @@ export interface AnalysisSourceEntity {
    * <p>The source template for the source entity of the analysis.</p>
    */
   SourceTemplate?: AnalysisSourceTemplate;
-}
-
-export namespace AnalysisSourceEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisSourceEntity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -534,15 +408,6 @@ export interface AnalysisSummary {
   LastUpdatedTime?: Date;
 }
 
-export namespace AnalysisSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnalysisSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the dashboard that you want to embed.</p>
  */
@@ -554,15 +419,6 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
   InitialDashboardId: string | undefined;
 }
 
-export namespace AnonymousUserDashboardEmbeddingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnonymousUserDashboardEmbeddingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
  */
@@ -571,15 +427,6 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
    * <p>The type of embedding experience. In this case, Amazon QuickSight dashboards.</p>
    */
   Dashboard?: AnonymousUserDashboardEmbeddingConfiguration;
-}
-
-export namespace AnonymousUserEmbeddingExperienceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnonymousUserEmbeddingExperienceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum AssignmentStatus {
@@ -596,15 +443,6 @@ export interface AthenaParameters {
    * <p>The workgroup that Amazon Athena uses.</p>
    */
   WorkGroup?: string;
-}
-
-export namespace AthenaParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AthenaParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -627,15 +465,6 @@ export interface AuroraParameters {
   Database: string | undefined;
 }
 
-export namespace AuroraParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuroraParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
  */
@@ -656,15 +485,6 @@ export interface AuroraPostgreSqlParameters {
   Database: string | undefined;
 }
 
-export namespace AuroraPostgreSqlParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuroraPostgreSqlParameters): any => ({
-    ...obj,
-  });
-}
-
 export enum AuthenticationMethodOption {
   ACTIVE_DIRECTORY = "ACTIVE_DIRECTORY",
   IAM_AND_QUICKSIGHT = "IAM_AND_QUICKSIGHT",
@@ -681,15 +501,6 @@ export interface AwsIotAnalyticsParameters {
   DataSetName: string | undefined;
 }
 
-export namespace AwsIotAnalyticsParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsIotAnalyticsParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The display options for tile borders for visuals.</p>
  */
@@ -698,15 +509,6 @@ export interface BorderStyle {
    * <p>The option to enable display of borders for visuals.</p>
    */
   Show?: boolean;
-}
-
-export namespace BorderStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BorderStyle): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -731,15 +533,6 @@ export interface CalculatedColumn {
   Expression: string | undefined;
 }
 
-export namespace CalculatedColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CalculatedColumn): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelIngestionRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -755,15 +548,6 @@ export interface CancelIngestionRequest {
    * <p>An ID for the ingestion.</p>
    */
   IngestionId: string | undefined;
-}
-
-export namespace CancelIngestionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelIngestionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelIngestionResponse {
@@ -786,15 +570,6 @@ export interface CancelIngestionResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace CancelIngestionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelIngestionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -979,15 +754,6 @@ export interface CastColumnTypeOperation {
   Format?: string;
 }
 
-export namespace CastColumnTypeOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CastColumnTypeOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metadata that contains a description for a column.</p>
  */
@@ -996,15 +762,6 @@ export interface ColumnDescription {
    * <p>The text of a description for a column.</p>
    */
   Text?: string;
-}
-
-export namespace ColumnDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnDescription): any => ({
-    ...obj,
-  });
 }
 
 export enum GeoSpatialCountryCode {
@@ -1031,15 +788,6 @@ export interface GeoSpatialColumnGroup {
   Columns: string[] | undefined;
 }
 
-export namespace GeoSpatialColumnGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoSpatialColumnGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
  *             a variant type structure. For this structure to be valid, only one of the attributes can
@@ -1052,15 +800,6 @@ export interface ColumnGroup {
   GeoSpatialColumnGroup?: GeoSpatialColumnGroup;
 }
 
-export namespace ColumnGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure describing the name, data type, and geographic role of the columns.</p>
  */
@@ -1069,15 +808,6 @@ export interface ColumnGroupColumnSchema {
    * <p>The name of the column group's column schema.</p>
    */
   Name?: string;
-}
-
-export namespace ColumnGroupColumnSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnGroupColumnSchema): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1093,15 +823,6 @@ export interface ColumnGroupSchema {
    * <p>A structure containing the list of schemas for column group columns.</p>
    */
   ColumnGroupColumnSchemaList?: ColumnGroupColumnSchema[];
-}
-
-export namespace ColumnGroupSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnGroupSchema): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1124,15 +845,6 @@ export interface ColumnLevelPermissionRule {
   ColumnNames?: string[];
 }
 
-export namespace ColumnLevelPermissionRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnLevelPermissionRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The column schema.</p>
  */
@@ -1151,15 +863,6 @@ export interface ColumnSchema {
    * <p>The geographic role of the column schema.</p>
    */
   GeographicRole?: string;
-}
-
-export namespace ColumnSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnSchema): any => ({
-    ...obj,
-  });
 }
 
 export enum GeoSpatialDataRole {
@@ -1191,15 +894,6 @@ export interface ColumnTag {
    * <p>A description for a column.</p>
    */
   ColumnDescription?: ColumnDescription;
-}
-
-export namespace ColumnTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnTag): any => ({
-    ...obj,
-  });
 }
 
 export enum ColumnTagName {
@@ -1273,15 +967,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAccountCustomizationRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to customize Amazon QuickSight for.</p>
@@ -1309,15 +994,6 @@ export interface CreateAccountCustomizationRequest {
    * <p>A list of the tags that you want to attach to this resource.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateAccountCustomizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountCustomizationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAccountCustomizationResponse {
@@ -1350,15 +1026,6 @@ export interface CreateAccountCustomizationResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace CreateAccountCustomizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountCustomizationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1517,15 +1184,6 @@ export interface CreateAccountSubscriptionRequest {
   ContactNumber?: string;
 }
 
-export namespace CreateAccountSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A <code>SignupResponse</code> object that contains a summary of a newly created account.</p>
  */
@@ -1554,15 +1212,6 @@ export interface SignupResponse {
   directoryType?: string;
 }
 
-export namespace SignupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAccountSubscriptionResponse {
   /**
    * <p>A <code>SignupResponse</code> object that returns information about a newly created Amazon QuickSight account.</p>
@@ -1578,15 +1227,6 @@ export interface CreateAccountSubscriptionResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace CreateAccountSubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccountSubscriptionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1630,15 +1270,6 @@ export interface DateTimeParameter {
   Values: Date[] | undefined;
 }
 
-export namespace DateTimeParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateTimeParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A decimal parameter.</p>
  */
@@ -1652,15 +1283,6 @@ export interface DecimalParameter {
    * <p>The values for the decimal parameter.</p>
    */
   Values: number[] | undefined;
-}
-
-export namespace DecimalParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecimalParameter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1678,15 +1300,6 @@ export interface IntegerParameter {
   Values: number[] | undefined;
 }
 
-export namespace IntegerParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntegerParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A string parameter.</p>
  */
@@ -1700,15 +1313,6 @@ export interface StringParameter {
    * <p>The values of a string parameter.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace StringParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StringParameter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1734,15 +1338,6 @@ export interface _Parameters {
    * <p>The parameters that have a data type of date-time.</p>
    */
   DateTimeParameters?: DateTimeParameter[];
-}
-
-export namespace _Parameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Parameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1772,15 +1367,6 @@ export interface ResourcePermission {
    * <p>The IAM action to grant or revoke permissions on.</p>
    */
   Actions: string[] | undefined;
-}
-
-export namespace ResourcePermission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourcePermission): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAnalysisRequest {
@@ -1836,15 +1422,6 @@ export interface CreateAnalysisRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAnalysisRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAnalysisResponse {
   /**
    * <p>The ARN for the analysis.</p>
@@ -1870,15 +1447,6 @@ export interface CreateAnalysisResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace CreateAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAnalysisResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1921,15 +1489,6 @@ export interface CreateColumnsOperation {
   Columns: CalculatedColumn[] | undefined;
 }
 
-export namespace CreateColumnsOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateColumnsOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Export to .csv option.</p>
  */
@@ -1938,15 +1497,6 @@ export interface ExportToCSVOption {
    * <p>Availability status.</p>
    */
   AvailabilityStatus?: DashboardBehavior | string;
-}
-
-export namespace ExportToCSVOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportToCSVOption): any => ({
-    ...obj,
-  });
 }
 
 export enum DashboardUIState {
@@ -1962,15 +1512,6 @@ export interface SheetControlsOption {
    * <p>Visibility state.</p>
    */
   VisibilityState?: DashboardUIState | string;
-}
-
-export namespace SheetControlsOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SheetControlsOption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1993,15 +1534,6 @@ export interface DashboardPublishOptions {
   SheetControlsOption?: SheetControlsOption;
 }
 
-export namespace DashboardPublishOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardPublishOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Dashboard source template.</p>
  */
@@ -2017,15 +1549,6 @@ export interface DashboardSourceTemplate {
   Arn: string | undefined;
 }
 
-export namespace DashboardSourceTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardSourceTemplate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Dashboard source entity.</p>
  */
@@ -2034,15 +1557,6 @@ export interface DashboardSourceEntity {
    * <p>Source template.</p>
    */
   SourceTemplate?: DashboardSourceTemplate;
-}
-
-export namespace DashboardSourceEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardSourceEntity): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDashboardRequest {
@@ -2143,15 +1657,6 @@ export interface CreateDashboardRequest {
   ThemeArn?: string;
 }
 
-export namespace CreateDashboardRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDashboardRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDashboardResponse {
   /**
    * <p>The ARN of the dashboard.</p>
@@ -2185,15 +1690,6 @@ export interface CreateDashboardResponse {
   RequestId?: string;
 }
 
-export namespace CreateDashboardResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDashboardResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
  */
@@ -2209,15 +1705,6 @@ export interface DataSetUsageConfiguration {
   DisableUseAsImportedSource?: boolean;
 }
 
-export namespace DataSetUsageConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetUsageConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
  */
@@ -2231,15 +1718,6 @@ export interface FieldFolder {
    * <p>A folder has a list of columns. A column can only be in one folder.</p>
    */
   columns?: string[];
-}
-
-export namespace FieldFolder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldFolder): any => ({
-    ...obj,
-  });
 }
 
 export enum DataSetImportMode {
@@ -2258,15 +1736,6 @@ export interface FilterOperation {
   ConditionExpression: string | undefined;
 }
 
-export namespace FilterOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A transform operation that projects columns. Operations that come after a projection
  *             can only refer to projected columns.</p>
@@ -2276,15 +1745,6 @@ export interface ProjectOperation {
    * <p>Projected columns.</p>
    */
   ProjectedColumns: string[] | undefined;
-}
-
-export namespace ProjectOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProjectOperation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2300,15 +1760,6 @@ export interface RenameColumnOperation {
    * <p>The new name for the column.</p>
    */
   NewColumnName: string | undefined;
-}
-
-export namespace RenameColumnOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RenameColumnOperation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2329,15 +1780,6 @@ export interface TagColumnOperation {
   Tags: ColumnTag[] | undefined;
 }
 
-export namespace TagColumnOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagColumnOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A transform operation that removes tags associated with a column.</p>
  */
@@ -2351,15 +1793,6 @@ export interface UntagColumnOperation {
    * <p>The column tags to remove from this column.</p>
    */
   TagNames: (ColumnTagName | string)[] | undefined;
-}
-
-export namespace UntagColumnOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagColumnOperation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2510,27 +1943,6 @@ export namespace TransformOperation {
     if (value.UntagColumnOperation !== undefined) return visitor.UntagColumnOperation(value.UntagColumnOperation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransformOperation): any => {
-    if (obj.ProjectOperation !== undefined)
-      return { ProjectOperation: ProjectOperation.filterSensitiveLog(obj.ProjectOperation) };
-    if (obj.FilterOperation !== undefined)
-      return { FilterOperation: FilterOperation.filterSensitiveLog(obj.FilterOperation) };
-    if (obj.CreateColumnsOperation !== undefined)
-      return { CreateColumnsOperation: CreateColumnsOperation.filterSensitiveLog(obj.CreateColumnsOperation) };
-    if (obj.RenameColumnOperation !== undefined)
-      return { RenameColumnOperation: RenameColumnOperation.filterSensitiveLog(obj.RenameColumnOperation) };
-    if (obj.CastColumnTypeOperation !== undefined)
-      return { CastColumnTypeOperation: CastColumnTypeOperation.filterSensitiveLog(obj.CastColumnTypeOperation) };
-    if (obj.TagColumnOperation !== undefined)
-      return { TagColumnOperation: TagColumnOperation.filterSensitiveLog(obj.TagColumnOperation) };
-    if (obj.UntagColumnOperation !== undefined)
-      return { UntagColumnOperation: UntagColumnOperation.filterSensitiveLog(obj.UntagColumnOperation) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -2542,15 +1954,6 @@ export interface JoinKeyProperties {
    *             a join key. This is used by Amazon QuickSight to optimize query performance.</p>
    */
   UniqueKey?: boolean;
-}
-
-export namespace JoinKeyProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JoinKeyProperties): any => ({
-    ...obj,
-  });
 }
 
 export enum JoinType {
@@ -2595,15 +1998,6 @@ export interface JoinInstruction {
   OnClause: string | undefined;
 }
 
-export namespace JoinInstruction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JoinInstruction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the source of a logical table. This is a variant type structure. For
  *             this structure to be valid, only one of the attributes can be non-null.</p>
@@ -2623,15 +2017,6 @@ export interface LogicalTableSource {
    * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
    */
   DataSetArn?: string;
-}
-
-export namespace LogicalTableSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogicalTableSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2655,18 +2040,6 @@ export interface LogicalTable {
    * <p>Source of this logical table.</p>
    */
   Source: LogicalTableSource | undefined;
-}
-
-export namespace LogicalTable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogicalTable): any => ({
-    ...obj,
-    ...(obj.DataTransforms && {
-      DataTransforms: obj.DataTransforms.map((item) => TransformOperation.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export enum InputColumnDataType {
@@ -2694,15 +2067,6 @@ export interface InputColumn {
   Type: InputColumnDataType | string | undefined;
 }
 
-export namespace InputColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputColumn): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A physical table type built from the results of the custom SQL query.</p>
  */
@@ -2726,15 +2090,6 @@ export interface CustomSql {
    * <p>The column schema from the SQL query result set.</p>
    */
   Columns?: InputColumn[];
-}
-
-export namespace CustomSql {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomSql): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2765,15 +2120,6 @@ export interface RelationalTable {
    * <p>The column schema of the table.</p>
    */
   InputColumns: InputColumn[] | undefined;
-}
-
-export namespace RelationalTable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalTable): any => ({
-    ...obj,
-  });
 }
 
 export enum FileFormat {
@@ -2820,15 +2166,6 @@ export interface UploadSettings {
   Delimiter?: string;
 }
 
-export namespace UploadSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A physical table type for an S3 data source.</p>
  */
@@ -2850,15 +2187,6 @@ export interface S3Source {
    *         </note>
    */
   InputColumns: InputColumn[] | undefined;
-}
-
-export namespace S3Source {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Source): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2923,17 +2251,6 @@ export namespace PhysicalTable {
     if (value.S3Source !== undefined) return visitor.S3Source(value.S3Source);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhysicalTable): any => {
-    if (obj.RelationalTable !== undefined)
-      return { RelationalTable: RelationalTable.filterSensitiveLog(obj.RelationalTable) };
-    if (obj.CustomSql !== undefined) return { CustomSql: CustomSql.filterSensitiveLog(obj.CustomSql) };
-    if (obj.S3Source !== undefined) return { S3Source: S3Source.filterSensitiveLog(obj.S3Source) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export enum RowLevelPermissionFormatVersion {
@@ -2988,15 +2305,6 @@ export interface RowLevelPermissionDataSet {
   Status?: Status | string;
 }
 
-export namespace RowLevelPermissionDataSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RowLevelPermissionDataSet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A set of rules associated with a tag.</p>
  */
@@ -3022,16 +2330,6 @@ export interface RowLevelPermissionTagRule {
   MatchAllValue?: string;
 }
 
-export namespace RowLevelPermissionTagRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RowLevelPermissionTagRule): any => ({
-    ...obj,
-    ...(obj.MatchAllValue && { MatchAllValue: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The configuration of tags on a dataset to set row-level security. </p>
  */
@@ -3045,16 +2343,6 @@ export interface RowLevelPermissionTagConfiguration {
    * <p>A set of rules associated with row-level security, such as the tag names and columns that they are assigned to.</p>
    */
   TagRules: RowLevelPermissionTagRule[] | undefined;
-}
-
-export namespace RowLevelPermissionTagConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RowLevelPermissionTagConfiguration): any => ({
-    ...obj,
-    ...(obj.TagRules && { TagRules: obj.TagRules.map((item) => RowLevelPermissionTagRule.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface CreateDataSetRequest {
@@ -3131,38 +2419,6 @@ export interface CreateDataSetRequest {
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
-export namespace CreateDataSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSetRequest): any => ({
-    ...obj,
-    ...(obj.PhysicalTableMap && {
-      PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-        (acc: any, [key, value]: [string, PhysicalTable]) => ({
-          ...acc,
-          [key]: PhysicalTable.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-    ...(obj.LogicalTableMap && {
-      LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-        (acc: any, [key, value]: [string, LogicalTable]) => ({
-          ...acc,
-          [key]: LogicalTable.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-    ...(obj.RowLevelPermissionTagConfiguration && {
-      RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfiguration.filterSensitiveLog(
-        obj.RowLevelPermissionTagConfiguration
-      ),
-    }),
-  });
-}
-
 export interface CreateDataSetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
@@ -3195,15 +2451,6 @@ export interface CreateDataSetResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace CreateDataSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3253,15 +2500,6 @@ export interface ExasolParameters {
   Port: number | undefined;
 }
 
-export namespace ExasolParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExasolParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for Jira.</p>
  */
@@ -3270,15 +2508,6 @@ export interface JiraParameters {
    * <p>The base URL of the Jira site.</p>
    */
   SiteBaseUrl: string | undefined;
-}
-
-export namespace JiraParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JiraParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3301,15 +2530,6 @@ export interface MariaDbParameters {
   Database: string | undefined;
 }
 
-export namespace MariaDbParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MariaDbParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for MySQL.</p>
  */
@@ -3328,15 +2548,6 @@ export interface MySqlParameters {
    * <p>Database.</p>
    */
   Database: string | undefined;
-}
-
-export namespace MySqlParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MySqlParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3359,15 +2570,6 @@ export interface OracleParameters {
   Database: string | undefined;
 }
 
-export namespace OracleParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OracleParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for PostgreSQL.</p>
  */
@@ -3386,15 +2588,6 @@ export interface PostgreSqlParameters {
    * <p>Database.</p>
    */
   Database: string | undefined;
-}
-
-export namespace PostgreSqlParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostgreSqlParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3417,15 +2610,6 @@ export interface PrestoParameters {
   Catalog: string | undefined;
 }
 
-export namespace PrestoParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrestoParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for Amazon RDS.</p>
  */
@@ -3439,15 +2623,6 @@ export interface RdsParameters {
    * <p>Database.</p>
    */
   Database: string | undefined;
-}
-
-export namespace RdsParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RdsParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3478,15 +2653,6 @@ export interface RedshiftParameters {
   ClusterId?: string;
 }
 
-export namespace RedshiftParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedshiftParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon S3 manifest file location.</p>
  */
@@ -3502,15 +2668,6 @@ export interface ManifestFileLocation {
   Key: string | undefined;
 }
 
-export namespace ManifestFileLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManifestFileLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for S3.</p>
  */
@@ -3522,15 +2679,6 @@ export interface S3Parameters {
   ManifestFileLocation: ManifestFileLocation | undefined;
 }
 
-export namespace S3Parameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Parameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for ServiceNow.</p>
  */
@@ -3539,15 +2687,6 @@ export interface ServiceNowParameters {
    * <p>URL of the base site.</p>
    */
   SiteBaseUrl: string | undefined;
-}
-
-export namespace ServiceNowParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3570,15 +2709,6 @@ export interface SnowflakeParameters {
   Warehouse: string | undefined;
 }
 
-export namespace SnowflakeParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnowflakeParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for Spark.</p>
  */
@@ -3592,15 +2722,6 @@ export interface SparkParameters {
    * <p>Port.</p>
    */
   Port: number | undefined;
-}
-
-export namespace SparkParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SparkParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3623,15 +2744,6 @@ export interface SqlServerParameters {
   Database: string | undefined;
 }
 
-export namespace SqlServerParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlServerParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for Teradata.</p>
  */
@@ -3652,15 +2764,6 @@ export interface TeradataParameters {
   Database: string | undefined;
 }
 
-export namespace TeradataParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TeradataParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameters for Twitter.</p>
  */
@@ -3674,15 +2777,6 @@ export interface TwitterParameters {
    * <p>Maximum number of rows to query Twitter.</p>
    */
   MaxRows: number | undefined;
-}
-
-export namespace TwitterParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TwitterParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4435,63 +3529,6 @@ export namespace DataSourceParameters {
     if (value.ExasolParameters !== undefined) return visitor.ExasolParameters(value.ExasolParameters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceParameters): any => {
-    if (obj.AmazonElasticsearchParameters !== undefined)
-      return {
-        AmazonElasticsearchParameters: AmazonElasticsearchParameters.filterSensitiveLog(
-          obj.AmazonElasticsearchParameters
-        ),
-      };
-    if (obj.AthenaParameters !== undefined)
-      return { AthenaParameters: AthenaParameters.filterSensitiveLog(obj.AthenaParameters) };
-    if (obj.AuroraParameters !== undefined)
-      return { AuroraParameters: AuroraParameters.filterSensitiveLog(obj.AuroraParameters) };
-    if (obj.AuroraPostgreSqlParameters !== undefined)
-      return {
-        AuroraPostgreSqlParameters: AuroraPostgreSqlParameters.filterSensitiveLog(obj.AuroraPostgreSqlParameters),
-      };
-    if (obj.AwsIotAnalyticsParameters !== undefined)
-      return { AwsIotAnalyticsParameters: AwsIotAnalyticsParameters.filterSensitiveLog(obj.AwsIotAnalyticsParameters) };
-    if (obj.JiraParameters !== undefined)
-      return { JiraParameters: JiraParameters.filterSensitiveLog(obj.JiraParameters) };
-    if (obj.MariaDbParameters !== undefined)
-      return { MariaDbParameters: MariaDbParameters.filterSensitiveLog(obj.MariaDbParameters) };
-    if (obj.MySqlParameters !== undefined)
-      return { MySqlParameters: MySqlParameters.filterSensitiveLog(obj.MySqlParameters) };
-    if (obj.OracleParameters !== undefined)
-      return { OracleParameters: OracleParameters.filterSensitiveLog(obj.OracleParameters) };
-    if (obj.PostgreSqlParameters !== undefined)
-      return { PostgreSqlParameters: PostgreSqlParameters.filterSensitiveLog(obj.PostgreSqlParameters) };
-    if (obj.PrestoParameters !== undefined)
-      return { PrestoParameters: PrestoParameters.filterSensitiveLog(obj.PrestoParameters) };
-    if (obj.RdsParameters !== undefined) return { RdsParameters: RdsParameters.filterSensitiveLog(obj.RdsParameters) };
-    if (obj.RedshiftParameters !== undefined)
-      return { RedshiftParameters: RedshiftParameters.filterSensitiveLog(obj.RedshiftParameters) };
-    if (obj.S3Parameters !== undefined) return { S3Parameters: S3Parameters.filterSensitiveLog(obj.S3Parameters) };
-    if (obj.ServiceNowParameters !== undefined)
-      return { ServiceNowParameters: ServiceNowParameters.filterSensitiveLog(obj.ServiceNowParameters) };
-    if (obj.SnowflakeParameters !== undefined)
-      return { SnowflakeParameters: SnowflakeParameters.filterSensitiveLog(obj.SnowflakeParameters) };
-    if (obj.SparkParameters !== undefined)
-      return { SparkParameters: SparkParameters.filterSensitiveLog(obj.SparkParameters) };
-    if (obj.SqlServerParameters !== undefined)
-      return { SqlServerParameters: SqlServerParameters.filterSensitiveLog(obj.SqlServerParameters) };
-    if (obj.TeradataParameters !== undefined)
-      return { TeradataParameters: TeradataParameters.filterSensitiveLog(obj.TeradataParameters) };
-    if (obj.TwitterParameters !== undefined)
-      return { TwitterParameters: TwitterParameters.filterSensitiveLog(obj.TwitterParameters) };
-    if (obj.AmazonOpenSearchParameters !== undefined)
-      return {
-        AmazonOpenSearchParameters: AmazonOpenSearchParameters.filterSensitiveLog(obj.AmazonOpenSearchParameters),
-      };
-    if (obj.ExasolParameters !== undefined)
-      return { ExasolParameters: ExasolParameters.filterSensitiveLog(obj.ExasolParameters) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -4522,20 +3559,6 @@ export interface CredentialPair {
   AlternateDataSourceParameters?: DataSourceParameters[];
 }
 
-export namespace CredentialPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CredentialPair): any => ({
-    ...obj,
-    ...(obj.AlternateDataSourceParameters && {
-      AlternateDataSourceParameters: obj.AlternateDataSourceParameters.map((item) =>
-        DataSourceParameters.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
 /**
  * <p>Data source credentials. This is a variant type structure. For this structure to be
  *             valid, only one of the attributes can be non-null.</p>
@@ -4558,16 +3581,6 @@ export interface DataSourceCredentials {
   CopySourceArn?: string;
 }
 
-export namespace DataSourceCredentials {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceCredentials): any => ({
-    ...obj,
-    ...(obj.CredentialPair && { CredentialPair: CredentialPair.filterSensitiveLog(obj.CredentialPair) }),
-  });
-}
-
 /**
  * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
  *             underlying data source.</p>
@@ -4577,15 +3590,6 @@ export interface SslProperties {
    * <p>A Boolean option to control whether SSL should be disabled.</p>
    */
   DisableSsl?: boolean;
-}
-
-export namespace SslProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SslProperties): any => ({
-    ...obj,
-  });
 }
 
 export enum DataSourceType {
@@ -4624,15 +3628,6 @@ export interface VpcConnectionProperties {
    * <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
    */
   VpcConnectionArn: string | undefined;
-}
-
-export namespace VpcConnectionProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConnectionProperties): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDataSourceRequest {
@@ -4691,19 +3686,6 @@ export interface CreateDataSourceRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
-    ...obj,
-    ...(obj.DataSourceParameters && {
-      DataSourceParameters: DataSourceParameters.filterSensitiveLog(obj.DataSourceParameters),
-    }),
-    ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateDataSourceResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
@@ -4729,15 +3711,6 @@ export interface CreateDataSourceResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace CreateDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum FolderType {
@@ -4784,15 +3757,6 @@ export interface CreateFolderRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFolderRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFolderResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -4813,15 +3777,6 @@ export interface CreateFolderResponse {
    * <p>The request ID for the newly created folder.</p>
    */
   RequestId?: string;
-}
-
-export namespace CreateFolderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFolderResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum MemberType {
@@ -4852,15 +3807,6 @@ export interface CreateFolderMembershipRequest {
   MemberType: MemberType | string | undefined;
 }
 
-export namespace CreateFolderMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFolderMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An asset in a Amazon QuickSight folder, such as a dashboard, analysis, or dataset.</p>
  */
@@ -4874,15 +3820,6 @@ export interface FolderMember {
    * <p>The type of asset that it is.</p>
    */
   MemberType?: MemberType | string;
-}
-
-export namespace FolderMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FolderMember): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFolderMembershipResponse {
@@ -4900,15 +3837,6 @@ export interface CreateFolderMembershipResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace CreateFolderMembershipResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFolderMembershipResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4937,15 +3865,6 @@ export interface CreateGroupRequest {
   Namespace: string | undefined;
 }
 
-export namespace CreateGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A <i>group</i> in Amazon QuickSight consists of a set of users. You can
  *             use groups to make it easier to manage access and security. </p>
@@ -4972,15 +3891,6 @@ export interface Group {
   PrincipalId?: string;
 }
 
-export namespace Group {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response object for this operation.</p>
  */
@@ -4999,15 +3909,6 @@ export interface CreateGroupResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace CreateGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGroupMembershipRequest {
@@ -5033,15 +3934,6 @@ export interface CreateGroupMembershipRequest {
   Namespace: string | undefined;
 }
 
-export namespace CreateGroupMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
  *             can't be members of another group. .</p>
@@ -5056,15 +3948,6 @@ export interface GroupMember {
    * <p>The name of the group member (user).</p>
    */
   MemberName?: string;
-}
-
-export namespace GroupMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupMember): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGroupMembershipResponse {
@@ -5082,15 +3965,6 @@ export interface CreateGroupMembershipResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace CreateGroupMembershipResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupMembershipResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateIAMPolicyAssignmentRequest {
@@ -5141,15 +4015,6 @@ export interface CreateIAMPolicyAssignmentRequest {
    * <p>The namespace that contains the assignment.</p>
    */
   Namespace: string | undefined;
-}
-
-export namespace CreateIAMPolicyAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIAMPolicyAssignmentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateIAMPolicyAssignmentResponse {
@@ -5205,15 +4070,6 @@ export interface CreateIAMPolicyAssignmentResponse {
   Status?: number;
 }
 
-export namespace CreateIAMPolicyAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIAMPolicyAssignmentResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum IngestionType {
   FULL_REFRESH = "FULL_REFRESH",
   INCREMENTAL_REFRESH = "INCREMENTAL_REFRESH",
@@ -5239,15 +4095,6 @@ export interface CreateIngestionRequest {
    * <p>The type of ingestion that you want to create.</p>
    */
   IngestionType?: IngestionType | string;
-}
-
-export namespace CreateIngestionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIngestionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum IngestionStatus {
@@ -5286,15 +4133,6 @@ export interface CreateIngestionResponse {
   Status?: number;
 }
 
-export namespace CreateIngestionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIngestionResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum IdentityStore {
   QUICKSIGHT = "QUICKSIGHT",
 }
@@ -5320,15 +4158,6 @@ export interface CreateNamespaceRequest {
    * <p>The tags that you want to associate with the namespace that you're creating.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNamespaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum NamespaceStatus {
@@ -5382,15 +4211,6 @@ export interface CreateNamespaceResponse {
   Status?: number;
 }
 
-export namespace CreateNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNamespaceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The source analysis of the template.</p>
  */
@@ -5407,15 +4227,6 @@ export interface TemplateSourceAnalysis {
   DataSetReferences: DataSetReference[] | undefined;
 }
 
-export namespace TemplateSourceAnalysis {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateSourceAnalysis): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The source template of the template.</p>
  */
@@ -5424,15 +4235,6 @@ export interface TemplateSourceTemplate {
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    */
   Arn: string | undefined;
-}
-
-export namespace TemplateSourceTemplate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateSourceTemplate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5448,15 +4250,6 @@ export interface TemplateSourceEntity {
    * <p>The source template, if it is based on an template.</p>
    */
   SourceTemplate?: TemplateSourceTemplate;
-}
-
-export namespace TemplateSourceEntity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateSourceEntity): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTemplateRequest {
@@ -5509,15 +4302,6 @@ export interface CreateTemplateRequest {
   VersionDescription?: string;
 }
 
-export namespace CreateTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTemplateResponse {
   /**
    * <p>The ARN for the template.</p>
@@ -5551,15 +4335,6 @@ export interface CreateTemplateResponse {
   RequestId?: string;
 }
 
-export namespace CreateTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTemplateAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you creating an alias for.</p>
@@ -5584,15 +4359,6 @@ export interface CreateTemplateAliasRequest {
   TemplateVersionNumber: number | undefined;
 }
 
-export namespace CreateTemplateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTemplateAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The template alias.</p>
  */
@@ -5613,15 +4379,6 @@ export interface TemplateAlias {
   TemplateVersionNumber?: number;
 }
 
-export namespace TemplateAlias {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateAlias): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTemplateAliasResponse {
   /**
    * <p>Information about the template alias.</p>
@@ -5637,15 +4394,6 @@ export interface CreateTemplateAliasResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace CreateTemplateAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTemplateAliasResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5671,15 +4419,6 @@ export interface DataColorPalette {
   EmptyFillColor?: string;
 }
 
-export namespace DataColorPalette {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataColorPalette): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Display options related to tiles on a sheet.</p>
  */
@@ -5688,15 +4427,6 @@ export interface TileStyle {
    * <p>The border around a tile.</p>
    */
   Border?: BorderStyle;
-}
-
-export namespace TileStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TileStyle): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5710,15 +4440,6 @@ export interface GutterStyle {
   Show?: boolean;
 }
 
-export namespace GutterStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GutterStyle): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The display options for margins around the outside edge of sheets.</p>
  */
@@ -5727,15 +4448,6 @@ export interface MarginStyle {
    * <p>This Boolean value controls whether to display sheet margins.</p>
    */
   Show?: boolean;
-}
-
-export namespace MarginStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarginStyle): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5753,15 +4465,6 @@ export interface TileLayoutStyle {
   Margin?: MarginStyle;
 }
 
-export namespace TileLayoutStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TileLayoutStyle): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The theme display options for sheets. </p>
  */
@@ -5775,15 +4478,6 @@ export interface SheetStyle {
    * <p>The layout options for tiles.</p>
    */
   TileLayout?: TileLayoutStyle;
-}
-
-export namespace SheetStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SheetStyle): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5885,15 +4579,6 @@ export interface UIColorPalette {
   MeasureForeground?: string;
 }
 
-export namespace UIColorPalette {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UIColorPalette): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The theme configuration. This configuration contains all of the display properties for
  *             a theme.</p>
@@ -5914,15 +4599,6 @@ export interface ThemeConfiguration {
    * <p>Display options related to sheets.</p>
    */
   Sheet?: SheetStyle;
-}
-
-export namespace ThemeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateThemeRequest {
@@ -5976,15 +4652,6 @@ export interface CreateThemeRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateThemeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThemeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateThemeResponse {
   /**
    * <p>The Amazon Resource Name (ARN) for the theme.</p>
@@ -6017,15 +4684,6 @@ export interface CreateThemeResponse {
   RequestId?: string;
 }
 
-export namespace CreateThemeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThemeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateThemeAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme for the new theme alias.</p>
@@ -6050,15 +4708,6 @@ export interface CreateThemeAliasRequest {
   ThemeVersionNumber: number | undefined;
 }
 
-export namespace CreateThemeAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThemeAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An alias for a theme.</p>
  */
@@ -6079,15 +4728,6 @@ export interface ThemeAlias {
   ThemeVersionNumber?: number;
 }
 
-export namespace ThemeAlias {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeAlias): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateThemeAliasResponse {
   /**
    * <p>Information about the theme alias.</p>
@@ -6103,15 +4743,6 @@ export interface CreateThemeAliasResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace CreateThemeAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateThemeAliasResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DashboardErrorType {
@@ -6140,15 +4771,6 @@ export interface DashboardError {
    * <p>Message.</p>
    */
   Message?: string;
-}
-
-export namespace DashboardError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6207,15 +4829,6 @@ export interface DashboardVersion {
   Sheets?: Sheet[];
 }
 
-export namespace DashboardVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Dashboard.</p>
  */
@@ -6256,15 +4869,6 @@ export interface Dashboard {
   LastUpdatedTime?: Date;
 }
 
-export namespace Dashboard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Dashboard): any => ({
-    ...obj,
-  });
-}
-
 export enum DashboardFilterAttribute {
   QUICKSIGHT_USER = "QUICKSIGHT_USER",
 }
@@ -6291,15 +4895,6 @@ export interface DashboardSearchFilter {
    *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>. </p>
    */
   Value?: string;
-}
-
-export namespace DashboardSearchFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardSearchFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6342,15 +4937,6 @@ export interface DashboardSummary {
   LastPublishedTime?: Date;
 }
 
-export namespace DashboardSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Dashboard version summary.</p>
  */
@@ -6386,15 +4972,6 @@ export interface DashboardVersionSummary {
   Description?: string;
 }
 
-export namespace DashboardVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashboardVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output column.</p>
  */
@@ -6413,15 +4990,6 @@ export interface OutputColumn {
    * <p>Type.</p>
    */
   Type?: ColumnDataType | string;
-}
-
-export namespace OutputColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputColumn): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6515,38 +5083,6 @@ export interface DataSet {
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
 }
 
-export namespace DataSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSet): any => ({
-    ...obj,
-    ...(obj.PhysicalTableMap && {
-      PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-        (acc: any, [key, value]: [string, PhysicalTable]) => ({
-          ...acc,
-          [key]: PhysicalTable.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-    ...(obj.LogicalTableMap && {
-      LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-        (acc: any, [key, value]: [string, LogicalTable]) => ({
-          ...acc,
-          [key]: LogicalTable.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-    ...(obj.RowLevelPermissionTagConfiguration && {
-      RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfiguration.filterSensitiveLog(
-        obj.RowLevelPermissionTagConfiguration
-      ),
-    }),
-  });
-}
-
 /**
  * <p>Dataset schema.</p>
  */
@@ -6555,15 +5091,6 @@ export interface DataSetSchema {
    * <p>A structure containing the list of column schemas.</p>
    */
   ColumnSchemaList?: ColumnSchema[];
-}
-
-export namespace DataSetSchema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetSchema): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6584,15 +5111,6 @@ export interface DataSetConfiguration {
    * <p>A structure containing the list of column group schemas.</p>
    */
   ColumnGroupSchemaList?: ColumnGroupSchema[];
-}
-
-export namespace DataSetConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6645,15 +5163,6 @@ export interface DataSetSummary {
   ColumnLevelPermissionRulesApplied?: boolean;
 }
 
-export namespace DataSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum DataSourceErrorInfoType {
   ACCESS_DENIED = "ACCESS_DENIED",
   CONFLICT = "CONFLICT",
@@ -6678,15 +5187,6 @@ export interface DataSourceErrorInfo {
    * <p>Error message.</p>
    */
   Message?: string;
-}
-
-export namespace DataSourceErrorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSourceErrorInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6768,23 +5268,6 @@ export interface DataSource {
   ErrorInfo?: DataSourceErrorInfo;
 }
 
-export namespace DataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj,
-    ...(obj.DataSourceParameters && {
-      DataSourceParameters: DataSourceParameters.filterSensitiveLog(obj.DataSourceParameters),
-    }),
-    ...(obj.AlternateDataSourceParameters && {
-      AlternateDataSourceParameters: obj.AlternateDataSourceParameters.map((item) =>
-        DataSourceParameters.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
 export interface DeleteAccountCustomizationRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to delete Amazon QuickSight customizations from in
@@ -6798,15 +5281,6 @@ export interface DeleteAccountCustomizationRequest {
   Namespace?: string;
 }
 
-export namespace DeleteAccountCustomizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccountCustomizationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccountCustomizationResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -6817,15 +5291,6 @@ export interface DeleteAccountCustomizationResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace DeleteAccountCustomizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccountCustomizationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAnalysisRequest {
@@ -6852,15 +5317,6 @@ export interface DeleteAnalysisRequest {
    *             You can't restore an analysis after it's deleted. </p>
    */
   ForceDeleteWithoutRecovery?: boolean;
-}
-
-export namespace DeleteAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAnalysisRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAnalysisResponse {
@@ -6890,15 +5346,6 @@ export interface DeleteAnalysisResponse {
   RequestId?: string;
 }
 
-export namespace DeleteAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAnalysisResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -6916,15 +5363,6 @@ export interface DeleteDashboardRequest {
    *             the specified version of the dashboard is deleted.</p>
    */
   VersionNumber?: number;
-}
-
-export namespace DeleteDashboardRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDashboardRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDashboardResponse {
@@ -6949,15 +5387,6 @@ export interface DeleteDashboardResponse {
   RequestId?: string;
 }
 
-export namespace DeleteDashboardResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDashboardResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDataSetRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -6968,15 +5397,6 @@ export interface DeleteDataSetRequest {
    * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
-}
-
-export namespace DeleteDataSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDataSetResponse {
@@ -7001,15 +5421,6 @@ export interface DeleteDataSetResponse {
   Status?: number;
 }
 
-export namespace DeleteDataSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDataSourceRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -7020,15 +5431,6 @@ export interface DeleteDataSourceRequest {
    * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSourceId: string | undefined;
-}
-
-export namespace DeleteDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDataSourceResponse {
@@ -7053,15 +5455,6 @@ export interface DeleteDataSourceResponse {
   Status?: number;
 }
 
-export namespace DeleteDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -7072,15 +5465,6 @@ export interface DeleteFolderRequest {
    * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
-}
-
-export namespace DeleteFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFolderRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFolderResponse {
@@ -7103,15 +5487,6 @@ export interface DeleteFolderResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace DeleteFolderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFolderResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFolderMembershipRequest {
@@ -7137,15 +5512,6 @@ export interface DeleteFolderMembershipRequest {
   MemberType: MemberType | string | undefined;
 }
 
-export namespace DeleteFolderMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFolderMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFolderMembershipResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -7156,15 +5522,6 @@ export interface DeleteFolderMembershipResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace DeleteFolderMembershipResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFolderMembershipResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGroupRequest {
@@ -7185,15 +5542,6 @@ export interface DeleteGroupRequest {
   Namespace: string | undefined;
 }
 
-export namespace DeleteGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGroupResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -7204,15 +5552,6 @@ export interface DeleteGroupResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace DeleteGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGroupMembershipRequest {
@@ -7238,15 +5577,6 @@ export interface DeleteGroupMembershipRequest {
   Namespace: string | undefined;
 }
 
-export namespace DeleteGroupMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGroupMembershipResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -7257,15 +5587,6 @@ export interface DeleteGroupMembershipResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace DeleteGroupMembershipResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupMembershipResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteIAMPolicyAssignmentRequest {
@@ -7285,15 +5606,6 @@ export interface DeleteIAMPolicyAssignmentRequest {
   Namespace: string | undefined;
 }
 
-export namespace DeleteIAMPolicyAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIAMPolicyAssignmentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteIAMPolicyAssignmentResponse {
   /**
    * <p>The name of the assignment. </p>
@@ -7311,15 +5623,6 @@ export interface DeleteIAMPolicyAssignmentResponse {
   Status?: number;
 }
 
-export namespace DeleteIAMPolicyAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIAMPolicyAssignmentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to delete the Amazon QuickSight namespace from.</p>
@@ -7332,15 +5635,6 @@ export interface DeleteNamespaceRequest {
   Namespace: string | undefined;
 }
 
-export namespace DeleteNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteNamespaceResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -7351,15 +5645,6 @@ export interface DeleteNamespaceResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace DeleteNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteTemplateRequest {
@@ -7379,15 +5664,6 @@ export interface DeleteTemplateRequest {
    * 	 </p>
    */
   VersionNumber?: number;
-}
-
-export namespace DeleteTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteTemplateResponse {
@@ -7412,15 +5688,6 @@ export interface DeleteTemplateResponse {
   Status?: number;
 }
 
-export namespace DeleteTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTemplateAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the item to delete.</p>
@@ -7439,15 +5706,6 @@ export interface DeleteTemplateAliasRequest {
    * 			parameter. </p>
    */
   AliasName: string | undefined;
-}
-
-export namespace DeleteTemplateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTemplateAliasRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteTemplateAliasResponse {
@@ -7477,15 +5735,6 @@ export interface DeleteTemplateAliasResponse {
   RequestId?: string;
 }
 
-export namespace DeleteTemplateAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTemplateAliasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteThemeRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme that you're deleting.</p>
@@ -7504,15 +5753,6 @@ export interface DeleteThemeRequest {
    * 			using this call to <code>DeleteTheme</code> to delete all versions of the theme.</p>
    */
   VersionNumber?: number;
-}
-
-export namespace DeleteThemeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThemeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteThemeResponse {
@@ -7537,15 +5777,6 @@ export interface DeleteThemeResponse {
   ThemeId?: string;
 }
 
-export namespace DeleteThemeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThemeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteThemeAliasRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme alias to delete.</p>
@@ -7561,15 +5792,6 @@ export interface DeleteThemeAliasRequest {
    * <p>The unique name for the theme alias to delete.</p>
    */
   AliasName: string | undefined;
-}
-
-export namespace DeleteThemeAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThemeAliasRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteThemeAliasResponse {
@@ -7599,15 +5821,6 @@ export interface DeleteThemeAliasResponse {
   ThemeId?: string;
 }
 
-export namespace DeleteThemeAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteThemeAliasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserRequest {
   /**
    * <p>The name of the user that you want to delete.</p>
@@ -7626,15 +5839,6 @@ export interface DeleteUserRequest {
   Namespace: string | undefined;
 }
 
-export namespace DeleteUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -7645,15 +5849,6 @@ export interface DeleteUserResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace DeleteUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7677,15 +5872,6 @@ export interface DeleteUserByPrincipalIdRequest {
   Namespace: string | undefined;
 }
 
-export namespace DeleteUserByPrincipalIdRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserByPrincipalIdRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserByPrincipalIdResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -7696,15 +5882,6 @@ export interface DeleteUserByPrincipalIdResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace DeleteUserByPrincipalIdResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUserByPrincipalIdResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountCustomizationRequest {
@@ -7728,15 +5905,6 @@ export interface DescribeAccountCustomizationRequest {
    *             that are configured at different levels. </p>
    */
   Resolved?: boolean;
-}
-
-export namespace DescribeAccountCustomizationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountCustomizationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountCustomizationResponse {
@@ -7771,29 +5939,11 @@ export interface DescribeAccountCustomizationResponse {
   Status?: number;
 }
 
-export namespace DescribeAccountCustomizationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountCustomizationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountSettingsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the settings that you want to list.</p>
    */
   AwsAccountId: string | undefined;
-}
-
-export namespace DescribeAccountSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountSettingsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountSettingsResponse {
@@ -7819,29 +5969,11 @@ export interface DescribeAccountSettingsResponse {
   Status?: number;
 }
 
-export namespace DescribeAccountSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountSettingsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountSubscriptionRequest {
   /**
    * <p>The Amazon Web Services account ID associated with your Amazon QuickSight account.</p>
    */
   AwsAccountId: string | undefined;
-}
-
-export namespace DescribeAccountSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountSubscriptionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountSubscriptionResponse {
@@ -7880,15 +6012,6 @@ export interface DescribeAccountSubscriptionResponse {
   RequestId?: string;
 }
 
-export namespace DescribeAccountSubscriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountSubscriptionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAnalysisRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
@@ -7901,15 +6024,6 @@ export interface DescribeAnalysisRequest {
    *             analysis.</p>
    */
   AnalysisId: string | undefined;
-}
-
-export namespace DescribeAnalysisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnalysisRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAnalysisResponse {
@@ -7930,15 +6044,6 @@ export interface DescribeAnalysisResponse {
   RequestId?: string;
 }
 
-export namespace DescribeAnalysisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAnalysisPermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
@@ -7951,15 +6056,6 @@ export interface DescribeAnalysisPermissionsRequest {
    *             analysis URL.</p>
    */
   AnalysisId: string | undefined;
-}
-
-export namespace DescribeAnalysisPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnalysisPermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAnalysisPermissionsResponse {
@@ -7991,15 +6087,6 @@ export interface DescribeAnalysisPermissionsResponse {
   RequestId?: string;
 }
 
-export namespace DescribeAnalysisPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAnalysisPermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -8024,15 +6111,6 @@ export interface DescribeDashboardRequest {
   AliasName?: string;
 }
 
-export namespace DescribeDashboardRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDashboardRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDashboardResponse {
   /**
    * <p>Information about the dashboard.</p>
@@ -8050,15 +6128,6 @@ export interface DescribeDashboardResponse {
   RequestId?: string;
 }
 
-export namespace DescribeDashboardResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDashboardResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDashboardPermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're describing
@@ -8072,15 +6141,6 @@ export interface DescribeDashboardPermissionsRequest {
   DashboardId: string | undefined;
 }
 
-export namespace DescribeDashboardPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDashboardPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains the configuration of a shareable link to the dashboard.</p>
  */
@@ -8089,15 +6149,6 @@ export interface LinkSharingConfiguration {
    * <p>A structure that contains the permissions of a shareable link.</p>
    */
   Permissions?: ResourcePermission[];
-}
-
-export namespace LinkSharingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LinkSharingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDashboardPermissionsResponse {
@@ -8135,15 +6186,6 @@ export interface DescribeDashboardPermissionsResponse {
   LinkSharingConfiguration?: LinkSharingConfiguration;
 }
 
-export namespace DescribeDashboardPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDashboardPermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDataSetRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -8154,15 +6196,6 @@ export interface DescribeDataSetRequest {
    * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
-}
-
-export namespace DescribeDataSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDataSetResponse {
@@ -8182,16 +6215,6 @@ export interface DescribeDataSetResponse {
   Status?: number;
 }
 
-export namespace DescribeDataSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSetResponse): any => ({
-    ...obj,
-    ...(obj.DataSet && { DataSet: DataSet.filterSensitiveLog(obj.DataSet) }),
-  });
-}
-
 export interface DescribeDataSetPermissionsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -8202,15 +6225,6 @@ export interface DescribeDataSetPermissionsRequest {
    * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
-}
-
-export namespace DescribeDataSetPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSetPermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDataSetPermissionsResponse {
@@ -8240,15 +6254,6 @@ export interface DescribeDataSetPermissionsResponse {
   Status?: number;
 }
 
-export namespace DescribeDataSetPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSetPermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDataSourceRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -8259,15 +6264,6 @@ export interface DescribeDataSourceRequest {
    * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSourceId: string | undefined;
-}
-
-export namespace DescribeDataSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDataSourceResponse {
@@ -8287,16 +6283,6 @@ export interface DescribeDataSourceResponse {
   Status?: number;
 }
 
-export namespace DescribeDataSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSourceResponse): any => ({
-    ...obj,
-    ...(obj.DataSource && { DataSource: DataSource.filterSensitiveLog(obj.DataSource) }),
-  });
-}
-
 export interface DescribeDataSourcePermissionsRequest {
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -8307,15 +6293,6 @@ export interface DescribeDataSourcePermissionsRequest {
    * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSourceId: string | undefined;
-}
-
-export namespace DescribeDataSourcePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSourcePermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDataSourcePermissionsResponse {
@@ -8345,15 +6322,6 @@ export interface DescribeDataSourcePermissionsResponse {
   Status?: number;
 }
 
-export namespace DescribeDataSourcePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDataSourcePermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFolderRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -8364,15 +6332,6 @@ export interface DescribeFolderRequest {
    * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
-}
-
-export namespace DescribeFolderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFolderRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8415,15 +6374,6 @@ export interface Folder {
   LastUpdatedTime?: Date;
 }
 
-export namespace Folder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Folder): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFolderResponse {
   /**
    * <p>The HTTP status of the request.</p>
@@ -8441,15 +6391,6 @@ export interface DescribeFolderResponse {
   RequestId?: string;
 }
 
-export namespace DescribeFolderResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFolderResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFolderPermissionsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -8460,15 +6401,6 @@ export interface DescribeFolderPermissionsRequest {
    * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
-}
-
-export namespace DescribeFolderPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFolderPermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFolderPermissionsResponse {
@@ -8498,15 +6430,6 @@ export interface DescribeFolderPermissionsResponse {
   RequestId?: string;
 }
 
-export namespace DescribeFolderPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFolderPermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFolderResolvedPermissionsRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -8517,15 +6440,6 @@ export interface DescribeFolderResolvedPermissionsRequest {
    * <p>The ID of the folder.</p>
    */
   FolderId: string | undefined;
-}
-
-export namespace DescribeFolderResolvedPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFolderResolvedPermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFolderResolvedPermissionsResponse {
@@ -8555,15 +6469,6 @@ export interface DescribeFolderResolvedPermissionsResponse {
   RequestId?: string;
 }
 
-export namespace DescribeFolderResolvedPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFolderResolvedPermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeGroupRequest {
   /**
    * <p>The name of the group that you want to describe.</p>
@@ -8582,15 +6487,6 @@ export interface DescribeGroupRequest {
   Namespace: string | undefined;
 }
 
-export namespace DescribeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeGroupResponse {
   /**
    * <p>The name of the group.</p>
@@ -8606,15 +6502,6 @@ export interface DescribeGroupResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace DescribeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeGroupMembershipRequest {
@@ -8640,15 +6527,6 @@ export interface DescribeGroupMembershipRequest {
   Namespace: string | undefined;
 }
 
-export namespace DescribeGroupMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGroupMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeGroupMembershipResponse {
   /**
    * <p>A member of an Amazon QuickSight group. Currently, group members must be users. Groups
@@ -8667,15 +6545,6 @@ export interface DescribeGroupMembershipResponse {
   Status?: number;
 }
 
-export namespace DescribeGroupMembershipResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGroupMembershipResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeIAMPolicyAssignmentRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the assignment that you want to describe.</p>
@@ -8691,15 +6560,6 @@ export interface DescribeIAMPolicyAssignmentRequest {
    * <p>The namespace that contains the assignment.</p>
    */
   Namespace: string | undefined;
-}
-
-export namespace DescribeIAMPolicyAssignmentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIAMPolicyAssignmentRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8737,15 +6597,6 @@ export interface IAMPolicyAssignment {
   AssignmentStatus?: AssignmentStatus | string;
 }
 
-export namespace IAMPolicyAssignment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IAMPolicyAssignment): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeIAMPolicyAssignmentResponse {
   /**
    * <p>Information describing the IAM policy assignment.</p>
@@ -8761,15 +6612,6 @@ export interface DescribeIAMPolicyAssignmentResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace DescribeIAMPolicyAssignmentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIAMPolicyAssignmentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8813,15 +6655,6 @@ export interface DescribeIngestionRequest {
    * <p>An ID for the ingestion.</p>
    */
   IngestionId: string | undefined;
-}
-
-export namespace DescribeIngestionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIngestionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum IngestionErrorType {
@@ -8886,15 +6719,6 @@ export interface ErrorInfo {
   Message?: string;
 }
 
-export namespace ErrorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a queued dataset SPICE ingestion.</p>
  */
@@ -8909,15 +6733,6 @@ export interface QueueInfo {
    *             ingestion to complete.</p>
    */
   QueuedIngestion: string | undefined;
-}
-
-export namespace QueueInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueueInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum IngestionRequestSource {
@@ -8950,15 +6765,6 @@ export interface RowInfo {
    * <p>The total number of rows in the dataset.</p>
    */
   TotalRowsInDataset?: number;
-}
-
-export namespace RowInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RowInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9021,15 +6827,6 @@ export interface Ingestion {
   RequestType?: IngestionRequestType | string;
 }
 
-export namespace Ingestion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ingestion): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeIngestionResponse {
   /**
    * <p>Information about the ingestion.</p>
@@ -9047,29 +6844,11 @@ export interface DescribeIngestionResponse {
   Status?: number;
 }
 
-export namespace DescribeIngestionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIngestionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeIpRestrictionRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
    */
   AwsAccountId: string | undefined;
-}
-
-export namespace DescribeIpRestrictionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpRestrictionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeIpRestrictionResponse {
@@ -9099,15 +6878,6 @@ export interface DescribeIpRestrictionResponse {
   Status?: number;
 }
 
-export namespace DescribeIpRestrictionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIpRestrictionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeNamespaceRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespace that you want to describe.</p>
@@ -9118,15 +6888,6 @@ export interface DescribeNamespaceRequest {
    * <p>The namespace that you want to describe.</p>
    */
   Namespace: string | undefined;
-}
-
-export namespace DescribeNamespaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNamespaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum NamespaceErrorType {
@@ -9147,15 +6908,6 @@ export interface NamespaceError {
    * <p>The message for the error.</p>
    */
   Message?: string;
-}
-
-export namespace NamespaceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NamespaceError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9193,15 +6945,6 @@ export interface NamespaceInfoV2 {
   NamespaceError?: NamespaceError;
 }
 
-export namespace NamespaceInfoV2 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NamespaceInfoV2): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeNamespaceResponse {
   /**
    * <p>The information about the namespace that you're describing. The response includes
@@ -9220,15 +6963,6 @@ export interface DescribeNamespaceResponse {
    * <p>The HTTP status of the request.</p>
    */
   Status?: number;
-}
-
-export namespace DescribeNamespaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeNamespaceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeTemplateRequest {
@@ -9257,15 +6991,6 @@ export interface DescribeTemplateRequest {
   AliasName?: string;
 }
 
-export namespace DescribeTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum TemplateErrorType {
   ACCESS_DENIED = "ACCESS_DENIED",
   DATA_SET_NOT_FOUND = "DATA_SET_NOT_FOUND",
@@ -9286,15 +7011,6 @@ export interface TemplateError {
    * <p>Description of the error type.</p>
    */
   Message?: string;
-}
-
-export namespace TemplateError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9350,15 +7066,6 @@ export interface TemplateVersion {
   Sheets?: Sheet[];
 }
 
-export namespace TemplateVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A template object. A <i>template</i> is an entity in Amazon QuickSight that
  *             encapsulates the metadata required to create an analysis and that you can use to create
@@ -9401,15 +7108,6 @@ export interface Template {
   CreatedTime?: Date;
 }
 
-export namespace Template {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Template): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTemplateResponse {
   /**
    * <p>The template structure for the object you want to describe.</p>
@@ -9425,15 +7123,6 @@ export interface DescribeTemplateResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId?: string;
-}
-
-export namespace DescribeTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTemplateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeTemplateAliasRequest {
@@ -9457,15 +7146,6 @@ export interface DescribeTemplateAliasRequest {
   AliasName: string | undefined;
 }
 
-export namespace DescribeTemplateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTemplateAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTemplateAliasResponse {
   /**
    * <p>Information about the template alias.</p>
@@ -9483,15 +7163,6 @@ export interface DescribeTemplateAliasResponse {
   RequestId?: string;
 }
 
-export namespace DescribeTemplateAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTemplateAliasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTemplatePermissionsRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
@@ -9502,15 +7173,6 @@ export interface DescribeTemplatePermissionsRequest {
    * <p>The ID for the template.</p>
    */
   TemplateId: string | undefined;
-}
-
-export namespace DescribeTemplatePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTemplatePermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeTemplatePermissionsResponse {
@@ -9540,15 +7202,6 @@ export interface DescribeTemplatePermissionsResponse {
   Status?: number;
 }
 
-export namespace DescribeTemplatePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTemplatePermissionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeThemeRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
@@ -9573,15 +7226,6 @@ export interface DescribeThemeRequest {
    * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</p>
    */
   AliasName?: string;
-}
-
-export namespace DescribeThemeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeThemeRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ThemeType {
@@ -9609,11 +7253,1898 @@ export interface ThemeError {
   Message?: string;
 }
 
-export namespace ThemeError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThemeError): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountCustomizationFilterSensitiveLog = (obj: AccountCustomization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountInfoFilterSensitiveLog = (obj: AccountInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountSettingsFilterSensitiveLog = (obj: AccountSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActiveIAMPolicyAssignmentFilterSensitiveLog = (obj: ActiveIAMPolicyAssignment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdHocFilteringOptionFilterSensitiveLog = (obj: AdHocFilteringOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonElasticsearchParametersFilterSensitiveLog = (obj: AmazonElasticsearchParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonOpenSearchParametersFilterSensitiveLog = (obj: AmazonOpenSearchParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisErrorFilterSensitiveLog = (obj: AnalysisError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SheetFilterSensitiveLog = (obj: Sheet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisFilterSensitiveLog = (obj: Analysis): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisSearchFilterFilterSensitiveLog = (obj: AnalysisSearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSetReferenceFilterSensitiveLog = (obj: DataSetReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisSourceTemplateFilterSensitiveLog = (obj: AnalysisSourceTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisSourceEntityFilterSensitiveLog = (obj: AnalysisSourceEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnalysisSummaryFilterSensitiveLog = (obj: AnalysisSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnonymousUserDashboardEmbeddingConfigurationFilterSensitiveLog = (
+  obj: AnonymousUserDashboardEmbeddingConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnonymousUserEmbeddingExperienceConfigurationFilterSensitiveLog = (
+  obj: AnonymousUserEmbeddingExperienceConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AthenaParametersFilterSensitiveLog = (obj: AthenaParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuroraParametersFilterSensitiveLog = (obj: AuroraParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuroraPostgreSqlParametersFilterSensitiveLog = (obj: AuroraPostgreSqlParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsIotAnalyticsParametersFilterSensitiveLog = (obj: AwsIotAnalyticsParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BorderStyleFilterSensitiveLog = (obj: BorderStyle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CalculatedColumnFilterSensitiveLog = (obj: CalculatedColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelIngestionRequestFilterSensitiveLog = (obj: CancelIngestionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelIngestionResponseFilterSensitiveLog = (obj: CancelIngestionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CastColumnTypeOperationFilterSensitiveLog = (obj: CastColumnTypeOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnDescriptionFilterSensitiveLog = (obj: ColumnDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeoSpatialColumnGroupFilterSensitiveLog = (obj: GeoSpatialColumnGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnGroupFilterSensitiveLog = (obj: ColumnGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnGroupColumnSchemaFilterSensitiveLog = (obj: ColumnGroupColumnSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnGroupSchemaFilterSensitiveLog = (obj: ColumnGroupSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnLevelPermissionRuleFilterSensitiveLog = (obj: ColumnLevelPermissionRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnSchemaFilterSensitiveLog = (obj: ColumnSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnTagFilterSensitiveLog = (obj: ColumnTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountCustomizationRequestFilterSensitiveLog = (obj: CreateAccountCustomizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountCustomizationResponseFilterSensitiveLog = (obj: CreateAccountCustomizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountSubscriptionRequestFilterSensitiveLog = (obj: CreateAccountSubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignupResponseFilterSensitiveLog = (obj: SignupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccountSubscriptionResponseFilterSensitiveLog = (obj: CreateAccountSubscriptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateTimeParameterFilterSensitiveLog = (obj: DateTimeParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecimalParameterFilterSensitiveLog = (obj: DecimalParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegerParameterFilterSensitiveLog = (obj: IntegerParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StringParameterFilterSensitiveLog = (obj: StringParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _ParametersFilterSensitiveLog = (obj: _Parameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourcePermissionFilterSensitiveLog = (obj: ResourcePermission): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAnalysisRequestFilterSensitiveLog = (obj: CreateAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAnalysisResponseFilterSensitiveLog = (obj: CreateAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateColumnsOperationFilterSensitiveLog = (obj: CreateColumnsOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportToCSVOptionFilterSensitiveLog = (obj: ExportToCSVOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SheetControlsOptionFilterSensitiveLog = (obj: SheetControlsOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardPublishOptionsFilterSensitiveLog = (obj: DashboardPublishOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardSourceTemplateFilterSensitiveLog = (obj: DashboardSourceTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardSourceEntityFilterSensitiveLog = (obj: DashboardSourceEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDashboardRequestFilterSensitiveLog = (obj: CreateDashboardRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDashboardResponseFilterSensitiveLog = (obj: CreateDashboardResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSetUsageConfigurationFilterSensitiveLog = (obj: DataSetUsageConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldFolderFilterSensitiveLog = (obj: FieldFolder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterOperationFilterSensitiveLog = (obj: FilterOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectOperationFilterSensitiveLog = (obj: ProjectOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RenameColumnOperationFilterSensitiveLog = (obj: RenameColumnOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagColumnOperationFilterSensitiveLog = (obj: TagColumnOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagColumnOperationFilterSensitiveLog = (obj: UntagColumnOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransformOperationFilterSensitiveLog = (obj: TransformOperation): any => {
+  if (obj.ProjectOperation !== undefined)
+    return { ProjectOperation: ProjectOperationFilterSensitiveLog(obj.ProjectOperation) };
+  if (obj.FilterOperation !== undefined)
+    return { FilterOperation: FilterOperationFilterSensitiveLog(obj.FilterOperation) };
+  if (obj.CreateColumnsOperation !== undefined)
+    return { CreateColumnsOperation: CreateColumnsOperationFilterSensitiveLog(obj.CreateColumnsOperation) };
+  if (obj.RenameColumnOperation !== undefined)
+    return { RenameColumnOperation: RenameColumnOperationFilterSensitiveLog(obj.RenameColumnOperation) };
+  if (obj.CastColumnTypeOperation !== undefined)
+    return { CastColumnTypeOperation: CastColumnTypeOperationFilterSensitiveLog(obj.CastColumnTypeOperation) };
+  if (obj.TagColumnOperation !== undefined)
+    return { TagColumnOperation: TagColumnOperationFilterSensitiveLog(obj.TagColumnOperation) };
+  if (obj.UntagColumnOperation !== undefined)
+    return { UntagColumnOperation: UntagColumnOperationFilterSensitiveLog(obj.UntagColumnOperation) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const JoinKeyPropertiesFilterSensitiveLog = (obj: JoinKeyProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JoinInstructionFilterSensitiveLog = (obj: JoinInstruction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogicalTableSourceFilterSensitiveLog = (obj: LogicalTableSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogicalTableFilterSensitiveLog = (obj: LogicalTable): any => ({
+  ...obj,
+  ...(obj.DataTransforms && {
+    DataTransforms: obj.DataTransforms.map((item) => TransformOperationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const InputColumnFilterSensitiveLog = (obj: InputColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomSqlFilterSensitiveLog = (obj: CustomSql): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationalTableFilterSensitiveLog = (obj: RelationalTable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadSettingsFilterSensitiveLog = (obj: UploadSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SourceFilterSensitiveLog = (obj: S3Source): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhysicalTableFilterSensitiveLog = (obj: PhysicalTable): any => {
+  if (obj.RelationalTable !== undefined)
+    return { RelationalTable: RelationalTableFilterSensitiveLog(obj.RelationalTable) };
+  if (obj.CustomSql !== undefined) return { CustomSql: CustomSqlFilterSensitiveLog(obj.CustomSql) };
+  if (obj.S3Source !== undefined) return { S3Source: S3SourceFilterSensitiveLog(obj.S3Source) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RowLevelPermissionDataSetFilterSensitiveLog = (obj: RowLevelPermissionDataSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RowLevelPermissionTagRuleFilterSensitiveLog = (obj: RowLevelPermissionTagRule): any => ({
+  ...obj,
+  ...(obj.MatchAllValue && { MatchAllValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RowLevelPermissionTagConfigurationFilterSensitiveLog = (obj: RowLevelPermissionTagConfiguration): any => ({
+  ...obj,
+  ...(obj.TagRules && { TagRules: obj.TagRules.map((item) => RowLevelPermissionTagRuleFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSetRequestFilterSensitiveLog = (obj: CreateDataSetRequest): any => ({
+  ...obj,
+  ...(obj.PhysicalTableMap && {
+    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+      (acc: any, [key, value]: [string, PhysicalTable]) => ({
+        ...acc,
+        [key]: PhysicalTableFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+  ...(obj.LogicalTableMap && {
+    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+      (acc: any, [key, value]: [string, LogicalTable]) => ({
+        ...acc,
+        [key]: LogicalTableFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+  ...(obj.RowLevelPermissionTagConfiguration && {
+    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
+      obj.RowLevelPermissionTagConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSetResponseFilterSensitiveLog = (obj: CreateDataSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExasolParametersFilterSensitiveLog = (obj: ExasolParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JiraParametersFilterSensitiveLog = (obj: JiraParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MariaDbParametersFilterSensitiveLog = (obj: MariaDbParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MySqlParametersFilterSensitiveLog = (obj: MySqlParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OracleParametersFilterSensitiveLog = (obj: OracleParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostgreSqlParametersFilterSensitiveLog = (obj: PostgreSqlParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrestoParametersFilterSensitiveLog = (obj: PrestoParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RdsParametersFilterSensitiveLog = (obj: RdsParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedshiftParametersFilterSensitiveLog = (obj: RedshiftParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManifestFileLocationFilterSensitiveLog = (obj: ManifestFileLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ParametersFilterSensitiveLog = (obj: S3Parameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceNowParametersFilterSensitiveLog = (obj: ServiceNowParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnowflakeParametersFilterSensitiveLog = (obj: SnowflakeParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SparkParametersFilterSensitiveLog = (obj: SparkParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqlServerParametersFilterSensitiveLog = (obj: SqlServerParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TeradataParametersFilterSensitiveLog = (obj: TeradataParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TwitterParametersFilterSensitiveLog = (obj: TwitterParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceParametersFilterSensitiveLog = (obj: DataSourceParameters): any => {
+  if (obj.AmazonElasticsearchParameters !== undefined)
+    return {
+      AmazonElasticsearchParameters: AmazonElasticsearchParametersFilterSensitiveLog(obj.AmazonElasticsearchParameters),
+    };
+  if (obj.AthenaParameters !== undefined)
+    return { AthenaParameters: AthenaParametersFilterSensitiveLog(obj.AthenaParameters) };
+  if (obj.AuroraParameters !== undefined)
+    return { AuroraParameters: AuroraParametersFilterSensitiveLog(obj.AuroraParameters) };
+  if (obj.AuroraPostgreSqlParameters !== undefined)
+    return { AuroraPostgreSqlParameters: AuroraPostgreSqlParametersFilterSensitiveLog(obj.AuroraPostgreSqlParameters) };
+  if (obj.AwsIotAnalyticsParameters !== undefined)
+    return { AwsIotAnalyticsParameters: AwsIotAnalyticsParametersFilterSensitiveLog(obj.AwsIotAnalyticsParameters) };
+  if (obj.JiraParameters !== undefined) return { JiraParameters: JiraParametersFilterSensitiveLog(obj.JiraParameters) };
+  if (obj.MariaDbParameters !== undefined)
+    return { MariaDbParameters: MariaDbParametersFilterSensitiveLog(obj.MariaDbParameters) };
+  if (obj.MySqlParameters !== undefined)
+    return { MySqlParameters: MySqlParametersFilterSensitiveLog(obj.MySqlParameters) };
+  if (obj.OracleParameters !== undefined)
+    return { OracleParameters: OracleParametersFilterSensitiveLog(obj.OracleParameters) };
+  if (obj.PostgreSqlParameters !== undefined)
+    return { PostgreSqlParameters: PostgreSqlParametersFilterSensitiveLog(obj.PostgreSqlParameters) };
+  if (obj.PrestoParameters !== undefined)
+    return { PrestoParameters: PrestoParametersFilterSensitiveLog(obj.PrestoParameters) };
+  if (obj.RdsParameters !== undefined) return { RdsParameters: RdsParametersFilterSensitiveLog(obj.RdsParameters) };
+  if (obj.RedshiftParameters !== undefined)
+    return { RedshiftParameters: RedshiftParametersFilterSensitiveLog(obj.RedshiftParameters) };
+  if (obj.S3Parameters !== undefined) return { S3Parameters: S3ParametersFilterSensitiveLog(obj.S3Parameters) };
+  if (obj.ServiceNowParameters !== undefined)
+    return { ServiceNowParameters: ServiceNowParametersFilterSensitiveLog(obj.ServiceNowParameters) };
+  if (obj.SnowflakeParameters !== undefined)
+    return { SnowflakeParameters: SnowflakeParametersFilterSensitiveLog(obj.SnowflakeParameters) };
+  if (obj.SparkParameters !== undefined)
+    return { SparkParameters: SparkParametersFilterSensitiveLog(obj.SparkParameters) };
+  if (obj.SqlServerParameters !== undefined)
+    return { SqlServerParameters: SqlServerParametersFilterSensitiveLog(obj.SqlServerParameters) };
+  if (obj.TeradataParameters !== undefined)
+    return { TeradataParameters: TeradataParametersFilterSensitiveLog(obj.TeradataParameters) };
+  if (obj.TwitterParameters !== undefined)
+    return { TwitterParameters: TwitterParametersFilterSensitiveLog(obj.TwitterParameters) };
+  if (obj.AmazonOpenSearchParameters !== undefined)
+    return { AmazonOpenSearchParameters: AmazonOpenSearchParametersFilterSensitiveLog(obj.AmazonOpenSearchParameters) };
+  if (obj.ExasolParameters !== undefined)
+    return { ExasolParameters: ExasolParametersFilterSensitiveLog(obj.ExasolParameters) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CredentialPairFilterSensitiveLog = (obj: CredentialPair): any => ({
+  ...obj,
+  ...(obj.AlternateDataSourceParameters && {
+    AlternateDataSourceParameters: obj.AlternateDataSourceParameters.map((item) =>
+      DataSourceParametersFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DataSourceCredentialsFilterSensitiveLog = (obj: DataSourceCredentials): any => ({
+  ...obj,
+  ...(obj.CredentialPair && { CredentialPair: CredentialPairFilterSensitiveLog(obj.CredentialPair) }),
+});
+
+/**
+ * @internal
+ */
+export const SslPropertiesFilterSensitiveLog = (obj: SslProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConnectionPropertiesFilterSensitiveLog = (obj: VpcConnectionProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSourceRequestFilterSensitiveLog = (obj: CreateDataSourceRequest): any => ({
+  ...obj,
+  ...(obj.DataSourceParameters && {
+    DataSourceParameters: DataSourceParametersFilterSensitiveLog(obj.DataSourceParameters),
+  }),
+  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDataSourceResponseFilterSensitiveLog = (obj: CreateDataSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFolderRequestFilterSensitiveLog = (obj: CreateFolderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFolderResponseFilterSensitiveLog = (obj: CreateFolderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFolderMembershipRequestFilterSensitiveLog = (obj: CreateFolderMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FolderMemberFilterSensitiveLog = (obj: FolderMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFolderMembershipResponseFilterSensitiveLog = (obj: CreateFolderMembershipResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupFilterSensitiveLog = (obj: Group): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupResponseFilterSensitiveLog = (obj: CreateGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupMembershipRequestFilterSensitiveLog = (obj: CreateGroupMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupMemberFilterSensitiveLog = (obj: GroupMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupMembershipResponseFilterSensitiveLog = (obj: CreateGroupMembershipResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIAMPolicyAssignmentRequestFilterSensitiveLog = (obj: CreateIAMPolicyAssignmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIAMPolicyAssignmentResponseFilterSensitiveLog = (obj: CreateIAMPolicyAssignmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIngestionRequestFilterSensitiveLog = (obj: CreateIngestionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIngestionResponseFilterSensitiveLog = (obj: CreateIngestionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNamespaceRequestFilterSensitiveLog = (obj: CreateNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNamespaceResponseFilterSensitiveLog = (obj: CreateNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateSourceAnalysisFilterSensitiveLog = (obj: TemplateSourceAnalysis): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateSourceTemplateFilterSensitiveLog = (obj: TemplateSourceTemplate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateSourceEntityFilterSensitiveLog = (obj: TemplateSourceEntity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTemplateRequestFilterSensitiveLog = (obj: CreateTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTemplateResponseFilterSensitiveLog = (obj: CreateTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTemplateAliasRequestFilterSensitiveLog = (obj: CreateTemplateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateAliasFilterSensitiveLog = (obj: TemplateAlias): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTemplateAliasResponseFilterSensitiveLog = (obj: CreateTemplateAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataColorPaletteFilterSensitiveLog = (obj: DataColorPalette): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TileStyleFilterSensitiveLog = (obj: TileStyle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GutterStyleFilterSensitiveLog = (obj: GutterStyle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MarginStyleFilterSensitiveLog = (obj: MarginStyle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TileLayoutStyleFilterSensitiveLog = (obj: TileLayoutStyle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SheetStyleFilterSensitiveLog = (obj: SheetStyle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UIColorPaletteFilterSensitiveLog = (obj: UIColorPalette): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThemeConfigurationFilterSensitiveLog = (obj: ThemeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThemeRequestFilterSensitiveLog = (obj: CreateThemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThemeResponseFilterSensitiveLog = (obj: CreateThemeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThemeAliasRequestFilterSensitiveLog = (obj: CreateThemeAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThemeAliasFilterSensitiveLog = (obj: ThemeAlias): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateThemeAliasResponseFilterSensitiveLog = (obj: CreateThemeAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardErrorFilterSensitiveLog = (obj: DashboardError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardVersionFilterSensitiveLog = (obj: DashboardVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardFilterSensitiveLog = (obj: Dashboard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardSearchFilterFilterSensitiveLog = (obj: DashboardSearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardSummaryFilterSensitiveLog = (obj: DashboardSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashboardVersionSummaryFilterSensitiveLog = (obj: DashboardVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputColumnFilterSensitiveLog = (obj: OutputColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
+  ...obj,
+  ...(obj.PhysicalTableMap && {
+    PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
+      (acc: any, [key, value]: [string, PhysicalTable]) => ({
+        ...acc,
+        [key]: PhysicalTableFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+  ...(obj.LogicalTableMap && {
+    LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
+      (acc: any, [key, value]: [string, LogicalTable]) => ({
+        ...acc,
+        [key]: LogicalTableFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+  ...(obj.RowLevelPermissionTagConfiguration && {
+    RowLevelPermissionTagConfiguration: RowLevelPermissionTagConfigurationFilterSensitiveLog(
+      obj.RowLevelPermissionTagConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DataSetSchemaFilterSensitiveLog = (obj: DataSetSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSetConfigurationFilterSensitiveLog = (obj: DataSetConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSetSummaryFilterSensitiveLog = (obj: DataSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceErrorInfoFilterSensitiveLog = (obj: DataSourceErrorInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
+  ...obj,
+  ...(obj.DataSourceParameters && {
+    DataSourceParameters: DataSourceParametersFilterSensitiveLog(obj.DataSourceParameters),
+  }),
+  ...(obj.AlternateDataSourceParameters && {
+    AlternateDataSourceParameters: obj.AlternateDataSourceParameters.map((item) =>
+      DataSourceParametersFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccountCustomizationRequestFilterSensitiveLog = (obj: DeleteAccountCustomizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccountCustomizationResponseFilterSensitiveLog = (obj: DeleteAccountCustomizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAnalysisRequestFilterSensitiveLog = (obj: DeleteAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAnalysisResponseFilterSensitiveLog = (obj: DeleteAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDashboardRequestFilterSensitiveLog = (obj: DeleteDashboardRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDashboardResponseFilterSensitiveLog = (obj: DeleteDashboardResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataSetRequestFilterSensitiveLog = (obj: DeleteDataSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataSetResponseFilterSensitiveLog = (obj: DeleteDataSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataSourceRequestFilterSensitiveLog = (obj: DeleteDataSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataSourceResponseFilterSensitiveLog = (obj: DeleteDataSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFolderRequestFilterSensitiveLog = (obj: DeleteFolderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFolderResponseFilterSensitiveLog = (obj: DeleteFolderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFolderMembershipRequestFilterSensitiveLog = (obj: DeleteFolderMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFolderMembershipResponseFilterSensitiveLog = (obj: DeleteFolderMembershipResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupResponseFilterSensitiveLog = (obj: DeleteGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupMembershipRequestFilterSensitiveLog = (obj: DeleteGroupMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupMembershipResponseFilterSensitiveLog = (obj: DeleteGroupMembershipResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIAMPolicyAssignmentRequestFilterSensitiveLog = (obj: DeleteIAMPolicyAssignmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIAMPolicyAssignmentResponseFilterSensitiveLog = (obj: DeleteIAMPolicyAssignmentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNamespaceRequestFilterSensitiveLog = (obj: DeleteNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNamespaceResponseFilterSensitiveLog = (obj: DeleteNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTemplateRequestFilterSensitiveLog = (obj: DeleteTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTemplateResponseFilterSensitiveLog = (obj: DeleteTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTemplateAliasRequestFilterSensitiveLog = (obj: DeleteTemplateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTemplateAliasResponseFilterSensitiveLog = (obj: DeleteTemplateAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteThemeRequestFilterSensitiveLog = (obj: DeleteThemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteThemeResponseFilterSensitiveLog = (obj: DeleteThemeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteThemeAliasRequestFilterSensitiveLog = (obj: DeleteThemeAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteThemeAliasResponseFilterSensitiveLog = (obj: DeleteThemeAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserResponseFilterSensitiveLog = (obj: DeleteUserResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserByPrincipalIdRequestFilterSensitiveLog = (obj: DeleteUserByPrincipalIdRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUserByPrincipalIdResponseFilterSensitiveLog = (obj: DeleteUserByPrincipalIdResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountCustomizationRequestFilterSensitiveLog = (
+  obj: DescribeAccountCustomizationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountCustomizationResponseFilterSensitiveLog = (
+  obj: DescribeAccountCustomizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountSettingsRequestFilterSensitiveLog = (obj: DescribeAccountSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountSettingsResponseFilterSensitiveLog = (obj: DescribeAccountSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountSubscriptionRequestFilterSensitiveLog = (obj: DescribeAccountSubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountSubscriptionResponseFilterSensitiveLog = (
+  obj: DescribeAccountSubscriptionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnalysisRequestFilterSensitiveLog = (obj: DescribeAnalysisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnalysisResponseFilterSensitiveLog = (obj: DescribeAnalysisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnalysisPermissionsRequestFilterSensitiveLog = (obj: DescribeAnalysisPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAnalysisPermissionsResponseFilterSensitiveLog = (
+  obj: DescribeAnalysisPermissionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDashboardRequestFilterSensitiveLog = (obj: DescribeDashboardRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDashboardResponseFilterSensitiveLog = (obj: DescribeDashboardResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDashboardPermissionsRequestFilterSensitiveLog = (
+  obj: DescribeDashboardPermissionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LinkSharingConfigurationFilterSensitiveLog = (obj: LinkSharingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDashboardPermissionsResponseFilterSensitiveLog = (
+  obj: DescribeDashboardPermissionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSetRequestFilterSensitiveLog = (obj: DescribeDataSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSetResponseFilterSensitiveLog = (obj: DescribeDataSetResponse): any => ({
+  ...obj,
+  ...(obj.DataSet && { DataSet: DataSetFilterSensitiveLog(obj.DataSet) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSetPermissionsRequestFilterSensitiveLog = (obj: DescribeDataSetPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSetPermissionsResponseFilterSensitiveLog = (obj: DescribeDataSetPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSourceRequestFilterSensitiveLog = (obj: DescribeDataSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSourceResponseFilterSensitiveLog = (obj: DescribeDataSourceResponse): any => ({
+  ...obj,
+  ...(obj.DataSource && { DataSource: DataSourceFilterSensitiveLog(obj.DataSource) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSourcePermissionsRequestFilterSensitiveLog = (
+  obj: DescribeDataSourcePermissionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDataSourcePermissionsResponseFilterSensitiveLog = (
+  obj: DescribeDataSourcePermissionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFolderRequestFilterSensitiveLog = (obj: DescribeFolderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FolderFilterSensitiveLog = (obj: Folder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFolderResponseFilterSensitiveLog = (obj: DescribeFolderResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFolderPermissionsRequestFilterSensitiveLog = (obj: DescribeFolderPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFolderPermissionsResponseFilterSensitiveLog = (obj: DescribeFolderPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFolderResolvedPermissionsRequestFilterSensitiveLog = (
+  obj: DescribeFolderResolvedPermissionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFolderResolvedPermissionsResponseFilterSensitiveLog = (
+  obj: DescribeFolderResolvedPermissionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupRequestFilterSensitiveLog = (obj: DescribeGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupResponseFilterSensitiveLog = (obj: DescribeGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupMembershipRequestFilterSensitiveLog = (obj: DescribeGroupMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGroupMembershipResponseFilterSensitiveLog = (obj: DescribeGroupMembershipResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIAMPolicyAssignmentRequestFilterSensitiveLog = (obj: DescribeIAMPolicyAssignmentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IAMPolicyAssignmentFilterSensitiveLog = (obj: IAMPolicyAssignment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIAMPolicyAssignmentResponseFilterSensitiveLog = (
+  obj: DescribeIAMPolicyAssignmentResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIngestionRequestFilterSensitiveLog = (obj: DescribeIngestionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorInfoFilterSensitiveLog = (obj: ErrorInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueueInfoFilterSensitiveLog = (obj: QueueInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RowInfoFilterSensitiveLog = (obj: RowInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IngestionFilterSensitiveLog = (obj: Ingestion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIngestionResponseFilterSensitiveLog = (obj: DescribeIngestionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpRestrictionRequestFilterSensitiveLog = (obj: DescribeIpRestrictionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIpRestrictionResponseFilterSensitiveLog = (obj: DescribeIpRestrictionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNamespaceRequestFilterSensitiveLog = (obj: DescribeNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NamespaceErrorFilterSensitiveLog = (obj: NamespaceError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NamespaceInfoV2FilterSensitiveLog = (obj: NamespaceInfoV2): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeNamespaceResponseFilterSensitiveLog = (obj: DescribeNamespaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplateRequestFilterSensitiveLog = (obj: DescribeTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateErrorFilterSensitiveLog = (obj: TemplateError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateVersionFilterSensitiveLog = (obj: TemplateVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateFilterSensitiveLog = (obj: Template): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplateResponseFilterSensitiveLog = (obj: DescribeTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplateAliasRequestFilterSensitiveLog = (obj: DescribeTemplateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplateAliasResponseFilterSensitiveLog = (obj: DescribeTemplateAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplatePermissionsRequestFilterSensitiveLog = (obj: DescribeTemplatePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplatePermissionsResponseFilterSensitiveLog = (
+  obj: DescribeTemplatePermissionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeThemeRequestFilterSensitiveLog = (obj: DescribeThemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThemeErrorFilterSensitiveLog = (obj: ThemeError): any => ({
+  ...obj,
+});

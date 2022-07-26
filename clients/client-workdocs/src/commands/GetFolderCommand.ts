@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetFolderRequest, GetFolderResponse } from "../models/models_0";
+import {
+  GetFolderRequest,
+  GetFolderRequestFilterSensitiveLog,
+  GetFolderResponse,
+  GetFolderResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetFolderCommand,
   serializeAws_restJson1GetFolderCommand,
@@ -72,8 +77,8 @@ export class GetFolderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFolderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFolderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFolderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetFolderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

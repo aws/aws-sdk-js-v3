@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyClusterIamRolesMessage, ModifyClusterIamRolesResult } from "../models/models_1";
+import {
+  ModifyClusterIamRolesMessage,
+  ModifyClusterIamRolesMessageFilterSensitiveLog,
+  ModifyClusterIamRolesResult,
+  ModifyClusterIamRolesResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryModifyClusterIamRolesCommand,
   serializeAws_queryModifyClusterIamRolesCommand,
@@ -76,8 +81,8 @@ export class ModifyClusterIamRolesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterIamRolesMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterIamRolesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyClusterIamRolesMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterIamRolesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { DescribeLifecycleHookTypesAnswer } from "../models/models_0";
+import {
+  DescribeLifecycleHookTypesAnswer,
+  DescribeLifecycleHookTypesAnswerFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeLifecycleHookTypesCommand,
   serializeAws_queryDescribeLifecycleHookTypesCommand,
@@ -86,7 +89,7 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeLifecycleHookTypesAnswer.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLifecycleHookTypesAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

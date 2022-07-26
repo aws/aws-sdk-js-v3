@@ -14,7 +14,9 @@ import {
 
 import {
   AssociateWebsiteAuthorizationProviderRequest,
+  AssociateWebsiteAuthorizationProviderRequestFilterSensitiveLog,
   AssociateWebsiteAuthorizationProviderResponse,
+  AssociateWebsiteAuthorizationProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateWebsiteAuthorizationProviderCommand,
@@ -80,8 +82,8 @@ export class AssociateWebsiteAuthorizationProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateWebsiteAuthorizationProviderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateWebsiteAuthorizationProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateWebsiteAuthorizationProviderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateWebsiteAuthorizationProviderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

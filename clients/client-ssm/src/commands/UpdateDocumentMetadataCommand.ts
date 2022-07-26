@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateDocumentMetadataRequest, UpdateDocumentMetadataResponse } from "../models/models_2";
+import {
+  UpdateDocumentMetadataRequest,
+  UpdateDocumentMetadataRequestFilterSensitiveLog,
+  UpdateDocumentMetadataResponse,
+  UpdateDocumentMetadataResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateDocumentMetadataCommand,
   serializeAws_json1_1UpdateDocumentMetadataCommand,
@@ -73,8 +78,8 @@ export class UpdateDocumentMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDocumentMetadataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDocumentMetadataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDocumentMetadataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

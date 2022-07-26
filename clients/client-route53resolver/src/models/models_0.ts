@@ -52,15 +52,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateFirewallRuleGroupRequest {
   /**
    * <p>A unique string that identifies the request and that allows failed requests to be
@@ -105,15 +96,6 @@ export interface AssociateFirewallRuleGroupRequest {
    * <p>A list of the tag keys and values that you want to associate with the rule group association. </p>
    */
   Tags?: Tag[];
-}
-
-export namespace AssociateFirewallRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateFirewallRuleGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FirewallRuleGroupAssociationStatus {
@@ -197,30 +179,12 @@ export interface FirewallRuleGroupAssociation {
   ModificationTime?: string;
 }
 
-export namespace FirewallRuleGroupAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallRuleGroupAssociation): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateFirewallRuleGroupResponse {
   /**
    * <p>The association that you just created. The association has an ID that you can use to
    * 			identify it in other requests, like update and delete.</p>
    */
   FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
-}
-
-export namespace AssociateFirewallRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateFirewallRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -385,15 +349,6 @@ export interface IpAddressUpdate {
   Ip?: string;
 }
 
-export namespace IpAddressUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpAddressUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateResolverEndpointIpAddressRequest {
   /**
    * <p>The ID of the Resolver endpoint that you want to associate IP addresses with.</p>
@@ -405,15 +360,6 @@ export interface AssociateResolverEndpointIpAddressRequest {
    * 			Resolver chooses an IP address for you from the available IPs in the specified subnet.</p>
    */
   IpAddress: IpAddressUpdate | undefined;
-}
-
-export namespace AssociateResolverEndpointIpAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResolverEndpointIpAddressRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResolverEndpointDirection {
@@ -561,29 +507,11 @@ export interface ResolverEndpoint {
   ModificationTime?: string;
 }
 
-export namespace ResolverEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolverEndpoint): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateResolverEndpointIpAddressResponse {
   /**
    * <p>The response to an <code>AssociateResolverEndpointIpAddress</code> request.</p>
    */
   ResolverEndpoint?: ResolverEndpoint;
-}
-
-export namespace AssociateResolverEndpointIpAddressResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResolverEndpointIpAddressResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -673,15 +601,6 @@ export interface AssociateResolverQueryLogConfigRequest {
    * 		       </note>
    */
   ResourceId: string | undefined;
-}
-
-export namespace AssociateResolverQueryLogConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResolverQueryLogConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResolverQueryLogConfigAssociationError {
@@ -775,29 +694,11 @@ export interface ResolverQueryLogConfigAssociation {
   CreationTime?: string;
 }
 
-export namespace ResolverQueryLogConfigAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolverQueryLogConfigAssociation): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateResolverQueryLogConfigResponse {
   /**
    * <p>A complex type that contains settings for a specified association between an Amazon VPC and a query logging configuration.</p>
    */
   ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation;
-}
-
-export namespace AssociateResolverQueryLogConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResolverQueryLogConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateResolverRuleRequest {
@@ -816,15 +717,6 @@ export interface AssociateResolverRuleRequest {
    * <p>The ID of the VPC that you want to associate the Resolver rule with.</p>
    */
   VPCId: string | undefined;
-}
-
-export namespace AssociateResolverRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResolverRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResolverRuleAssociationStatus {
@@ -878,29 +770,11 @@ export interface ResolverRuleAssociation {
   StatusMessage?: string;
 }
 
-export namespace ResolverRuleAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolverRuleAssociation): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateResolverRuleResponse {
   /**
    * <p>Information about the <code>AssociateResolverRule</code> request, including the status of the request.</p>
    */
   ResolverRuleAssociation?: ResolverRuleAssociation;
-}
-
-export namespace AssociateResolverRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResolverRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -961,15 +835,6 @@ export interface CreateFirewallDomainListRequest {
    * <p>A list of the tag keys and values that you want to associate with the domain list. </p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateFirewallDomainListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFirewallDomainListRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FirewallDomainListStatus {
@@ -1038,30 +903,12 @@ export interface FirewallDomainList {
   ModificationTime?: string;
 }
 
-export namespace FirewallDomainList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallDomainList): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFirewallDomainListResponse {
   /**
    * <p>The
    * 			domain list that you just created.</p>
    */
   FirewallDomainList?: FirewallDomainList;
-}
-
-export namespace CreateFirewallDomainListResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFirewallDomainListResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFirewallRuleRequest {
@@ -1153,15 +1000,6 @@ export interface CreateFirewallRuleRequest {
    * <p>A name that lets you identify the rule in the rule group.</p>
    */
   Name: string | undefined;
-}
-
-export namespace CreateFirewallRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFirewallRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1258,30 +1096,12 @@ export interface FirewallRule {
   ModificationTime?: string;
 }
 
-export namespace FirewallRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallRule): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFirewallRuleResponse {
   /**
    * <p>The
    * 			firewall rule that you just created. </p>
    */
   FirewallRule?: FirewallRule;
-}
-
-export namespace CreateFirewallRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFirewallRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFirewallRuleGroupRequest {
@@ -1301,15 +1121,6 @@ export interface CreateFirewallRuleGroupRequest {
    * <p>A list of the tag keys and values that you want to associate with the rule group. </p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateFirewallRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFirewallRuleGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ShareStatus {
@@ -1388,29 +1199,11 @@ export interface FirewallRuleGroup {
   ModificationTime?: string;
 }
 
-export namespace FirewallRuleGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallRuleGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFirewallRuleGroupResponse {
   /**
    * <p>A collection of rules used to filter DNS network traffic. </p>
    */
   FirewallRuleGroup?: FirewallRuleGroup;
-}
-
-export namespace CreateFirewallRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFirewallRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1429,15 +1222,6 @@ export interface IpAddressRequest {
    * <p>The IP address that you want to use for DNS queries.</p>
    */
   Ip?: string;
-}
-
-export namespace IpAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpAddressRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateResolverEndpointRequest {
@@ -1488,29 +1272,11 @@ export interface CreateResolverEndpointRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateResolverEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResolverEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResolverEndpointResponse {
   /**
    * <p>Information about the <code>CreateResolverEndpoint</code> request, including the status of the request.</p>
    */
   ResolverEndpoint?: ResolverEndpoint;
-}
-
-export namespace CreateResolverEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResolverEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateResolverQueryLogConfigRequest {
@@ -1564,15 +1330,6 @@ export interface CreateResolverQueryLogConfigRequest {
    * <p>A list of the tag keys and values that you want to associate with the query logging configuration.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateResolverQueryLogConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResolverQueryLogConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResolverQueryLogConfigStatus {
@@ -1675,29 +1432,11 @@ export interface ResolverQueryLogConfig {
   CreationTime?: string;
 }
 
-export namespace ResolverQueryLogConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolverQueryLogConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResolverQueryLogConfigResponse {
   /**
    * <p>Information about the <code>CreateResolverQueryLogConfig</code> request, including the status of the request.</p>
    */
   ResolverQueryLogConfig?: ResolverQueryLogConfig;
-}
-
-export namespace CreateResolverQueryLogConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResolverQueryLogConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum RuleTypeOption {
@@ -1721,15 +1460,6 @@ export interface TargetAddress {
    * <p>The port at <code>Ip</code> that you want to forward DNS queries to.</p>
    */
   Port?: number;
-}
-
-export namespace TargetAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetAddress): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateResolverRuleRequest {
@@ -1780,15 +1510,6 @@ export interface CreateResolverRuleRequest {
    * <p>A list of the tag keys and values that you want to associate with the endpoint.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateResolverRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResolverRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResolverRuleStatus {
@@ -1892,29 +1613,11 @@ export interface ResolverRule {
   ModificationTime?: string;
 }
 
-export namespace ResolverRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolverRule): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResolverRuleResponse {
   /**
    * <p>Information about the <code>CreateResolverRule</code> request, including the status of the request.</p>
    */
   ResolverRule?: ResolverRule;
-}
-
-export namespace CreateResolverRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResolverRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFirewallDomainListRequest {
@@ -1924,29 +1627,11 @@ export interface DeleteFirewallDomainListRequest {
   FirewallDomainListId: string | undefined;
 }
 
-export namespace DeleteFirewallDomainListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallDomainListRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFirewallDomainListResponse {
   /**
    * <p>The domain list that you just deleted. </p>
    */
   FirewallDomainList?: FirewallDomainList;
-}
-
-export namespace DeleteFirewallDomainListResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallDomainListResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFirewallRuleRequest {
@@ -1961,29 +1646,11 @@ export interface DeleteFirewallRuleRequest {
   FirewallDomainListId: string | undefined;
 }
 
-export namespace DeleteFirewallRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFirewallRuleResponse {
   /**
    * <p>The specification for the firewall rule that you just deleted.</p>
    */
   FirewallRule?: FirewallRule;
-}
-
-export namespace DeleteFirewallRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFirewallRuleGroupRequest {
@@ -1993,29 +1660,11 @@ export interface DeleteFirewallRuleGroupRequest {
   FirewallRuleGroupId: string | undefined;
 }
 
-export namespace DeleteFirewallRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFirewallRuleGroupResponse {
   /**
    * <p>A collection of rules used to filter DNS network traffic. </p>
    */
   FirewallRuleGroup?: FirewallRuleGroup;
-}
-
-export namespace DeleteFirewallRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResolverEndpointRequest {
@@ -2025,29 +1674,11 @@ export interface DeleteResolverEndpointRequest {
   ResolverEndpointId: string | undefined;
 }
 
-export namespace DeleteResolverEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResolverEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResolverEndpointResponse {
   /**
    * <p>Information about the <code>DeleteResolverEndpoint</code> request, including the status of the request.</p>
    */
   ResolverEndpoint?: ResolverEndpoint;
-}
-
-export namespace DeleteResolverEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResolverEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResolverQueryLogConfigRequest {
@@ -2057,29 +1688,11 @@ export interface DeleteResolverQueryLogConfigRequest {
   ResolverQueryLogConfigId: string | undefined;
 }
 
-export namespace DeleteResolverQueryLogConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResolverQueryLogConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResolverQueryLogConfigResponse {
   /**
    * <p>Information about the query logging configuration that you deleted, including the status of the request.</p>
    */
   ResolverQueryLogConfig?: ResolverQueryLogConfig;
-}
-
-export namespace DeleteResolverQueryLogConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResolverQueryLogConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResolverRuleRequest {
@@ -2089,29 +1702,11 @@ export interface DeleteResolverRuleRequest {
   ResolverRuleId: string | undefined;
 }
 
-export namespace DeleteResolverRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResolverRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResolverRuleResponse {
   /**
    * <p>Information about the <code>DeleteResolverRule</code> request, including the status of the request.</p>
    */
   ResolverRule?: ResolverRule;
-}
-
-export namespace DeleteResolverRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResolverRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2147,29 +1742,11 @@ export interface DisassociateFirewallRuleGroupRequest {
   FirewallRuleGroupAssociationId: string | undefined;
 }
 
-export namespace DisassociateFirewallRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFirewallRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateFirewallRuleGroupResponse {
   /**
    * <p>The firewall rule group association that you just removed. </p>
    */
   FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
-}
-
-export namespace DisassociateFirewallRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFirewallRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateResolverEndpointIpAddressRequest {
@@ -2184,29 +1761,11 @@ export interface DisassociateResolverEndpointIpAddressRequest {
   IpAddress: IpAddressUpdate | undefined;
 }
 
-export namespace DisassociateResolverEndpointIpAddressRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResolverEndpointIpAddressRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateResolverEndpointIpAddressResponse {
   /**
    * <p>The response to an <code>DisassociateResolverEndpointIpAddress</code> request.</p>
    */
   ResolverEndpoint?: ResolverEndpoint;
-}
-
-export namespace DisassociateResolverEndpointIpAddressResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResolverEndpointIpAddressResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateResolverQueryLogConfigRequest {
@@ -2221,29 +1780,11 @@ export interface DisassociateResolverQueryLogConfigRequest {
   ResourceId: string | undefined;
 }
 
-export namespace DisassociateResolverQueryLogConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResolverQueryLogConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateResolverQueryLogConfigResponse {
   /**
    * <p>A complex type that contains settings for the association that you deleted between an Amazon VPC and a query logging configuration.</p>
    */
   ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation;
-}
-
-export namespace DisassociateResolverQueryLogConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResolverQueryLogConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateResolverRuleRequest {
@@ -2258,29 +1799,11 @@ export interface DisassociateResolverRuleRequest {
   ResolverRuleId: string | undefined;
 }
 
-export namespace DisassociateResolverRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResolverRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateResolverRuleResponse {
   /**
    * <p>Information about the <code>DisassociateResolverRule</code> request, including the status of the request.</p>
    */
   ResolverRuleAssociation?: ResolverRuleAssociation;
-}
-
-export namespace DisassociateResolverRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResolverRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2549,15 +2072,6 @@ export interface Filter {
   Values?: string[];
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 export enum FirewallFailOpenStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -2600,15 +2114,6 @@ export interface FirewallConfig {
   FirewallFailOpen?: FirewallFailOpenStatus | string;
 }
 
-export namespace FirewallConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallConfig): any => ({
-    ...obj,
-  });
-}
-
 export enum FirewallDomainImportOperation {
   REPLACE = "REPLACE",
 }
@@ -2644,15 +2149,6 @@ export interface FirewallDomainListMetadata {
    * <p>The owner of the list, used only for lists that are not managed by you. For example, the managed domain list <code>AWSManagedDomainsMalwareDomainList</code> has the managed owner name <code>Route 53 Resolver DNS Firewall</code>.</p>
    */
   ManagedOwnerName?: string;
-}
-
-export namespace FirewallDomainListMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallDomainListMetadata): any => ({
-    ...obj,
-  });
 }
 
 export enum FirewallDomainUpdateOperation {
@@ -2701,29 +2197,11 @@ export interface FirewallRuleGroupMetadata {
   ShareStatus?: ShareStatus | string;
 }
 
-export namespace FirewallRuleGroupMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallRuleGroupMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFirewallConfigRequest {
   /**
    * <p>The ID of the VPC from Amazon VPC that the configuration is for.</p>
    */
   ResourceId: string | undefined;
-}
-
-export namespace GetFirewallConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFirewallConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFirewallConfigResponse {
@@ -2734,29 +2212,11 @@ export interface GetFirewallConfigResponse {
   FirewallConfig?: FirewallConfig;
 }
 
-export namespace GetFirewallConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFirewallConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFirewallDomainListRequest {
   /**
    * <p>The ID of the domain list.  </p>
    */
   FirewallDomainListId: string | undefined;
-}
-
-export namespace GetFirewallDomainListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFirewallDomainListRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFirewallDomainListResponse {
@@ -2766,29 +2226,11 @@ export interface GetFirewallDomainListResponse {
   FirewallDomainList?: FirewallDomainList;
 }
 
-export namespace GetFirewallDomainListResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFirewallDomainListResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFirewallRuleGroupRequest {
   /**
    * <p>The unique identifier of the firewall rule group. </p>
    */
   FirewallRuleGroupId: string | undefined;
-}
-
-export namespace GetFirewallRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFirewallRuleGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFirewallRuleGroupResponse {
@@ -2798,29 +2240,11 @@ export interface GetFirewallRuleGroupResponse {
   FirewallRuleGroup?: FirewallRuleGroup;
 }
 
-export namespace GetFirewallRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFirewallRuleGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFirewallRuleGroupAssociationRequest {
   /**
    * <p>The identifier of the <a>FirewallRuleGroupAssociation</a>. </p>
    */
   FirewallRuleGroupAssociationId: string | undefined;
-}
-
-export namespace GetFirewallRuleGroupAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFirewallRuleGroupAssociationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFirewallRuleGroupAssociationResponse {
@@ -2830,29 +2254,11 @@ export interface GetFirewallRuleGroupAssociationResponse {
   FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
 }
 
-export namespace GetFirewallRuleGroupAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFirewallRuleGroupAssociationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFirewallRuleGroupPolicyRequest {
   /**
    * <p>The ARN (Amazon Resource Name) for the rule group.</p>
    */
   Arn: string | undefined;
-}
-
-export namespace GetFirewallRuleGroupPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFirewallRuleGroupPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFirewallRuleGroupPolicyResponse {
@@ -2864,29 +2270,11 @@ export interface GetFirewallRuleGroupPolicyResponse {
   FirewallRuleGroupPolicy?: string;
 }
 
-export namespace GetFirewallRuleGroupPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFirewallRuleGroupPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverConfigRequest {
   /**
    * <p>Resource ID of the Amazon VPC that you want to get information about.</p>
    */
   ResourceId: string | undefined;
-}
-
-export namespace GetResolverConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResolverAutodefinedReverseStatus {
@@ -2947,15 +2335,6 @@ export interface ResolverConfig {
   AutodefinedReverse?: ResolverAutodefinedReverseStatus | string;
 }
 
-export namespace ResolverConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolverConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverConfigResponse {
   /**
    * <p>Information about the behavior configuration of Route 53 Resolver behavior for the VPC you
@@ -2964,29 +2343,11 @@ export interface GetResolverConfigResponse {
   ResolverConfig?: ResolverConfig;
 }
 
-export namespace GetResolverConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverDnssecConfigRequest {
   /**
    * <p>The ID of the virtual private cloud (VPC) for the DNSSEC validation status.</p>
    */
   ResourceId: string | undefined;
-}
-
-export namespace GetResolverDnssecConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverDnssecConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResolverDNSSECValidationStatus {
@@ -3039,29 +2400,11 @@ export interface ResolverDnssecConfig {
   ValidationStatus?: ResolverDNSSECValidationStatus | string;
 }
 
-export namespace ResolverDnssecConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolverDnssecConfig): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverDnssecConfigResponse {
   /**
    * <p>The information about a configuration for DNSSEC validation.</p>
    */
   ResolverDNSSECConfig?: ResolverDnssecConfig;
-}
-
-export namespace GetResolverDnssecConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverDnssecConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResolverEndpointRequest {
@@ -3071,29 +2414,11 @@ export interface GetResolverEndpointRequest {
   ResolverEndpointId: string | undefined;
 }
 
-export namespace GetResolverEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverEndpointResponse {
   /**
    * <p>Information about the Resolver endpoint that you specified in a <code>GetResolverEndpoint</code> request.</p>
    */
   ResolverEndpoint?: ResolverEndpoint;
-}
-
-export namespace GetResolverEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResolverQueryLogConfigRequest {
@@ -3103,29 +2428,11 @@ export interface GetResolverQueryLogConfigRequest {
   ResolverQueryLogConfigId: string | undefined;
 }
 
-export namespace GetResolverQueryLogConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverQueryLogConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverQueryLogConfigResponse {
   /**
    * <p>Information about the Resolver query logging configuration that you specified in a <code>GetQueryLogConfig</code> request.</p>
    */
   ResolverQueryLogConfig?: ResolverQueryLogConfig;
-}
-
-export namespace GetResolverQueryLogConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverQueryLogConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResolverQueryLogConfigAssociationRequest {
@@ -3135,29 +2442,11 @@ export interface GetResolverQueryLogConfigAssociationRequest {
   ResolverQueryLogConfigAssociationId: string | undefined;
 }
 
-export namespace GetResolverQueryLogConfigAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverQueryLogConfigAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverQueryLogConfigAssociationResponse {
   /**
    * <p>Information about the Resolver query logging configuration association that you specified in a <code>GetQueryLogConfigAssociation</code> request.</p>
    */
   ResolverQueryLogConfigAssociation?: ResolverQueryLogConfigAssociation;
-}
-
-export namespace GetResolverQueryLogConfigAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverQueryLogConfigAssociationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResolverQueryLogConfigPolicyRequest {
@@ -3167,30 +2456,12 @@ export interface GetResolverQueryLogConfigPolicyRequest {
   Arn: string | undefined;
 }
 
-export namespace GetResolverQueryLogConfigPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverQueryLogConfigPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverQueryLogConfigPolicyResponse {
   /**
    * <p>Information about the query logging policy for the query logging configuration that you specified in a
    * 			<code>GetResolverQueryLogConfigPolicy</code> request.</p>
    */
   ResolverQueryLogConfigPolicy?: string;
-}
-
-export namespace GetResolverQueryLogConfigPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverQueryLogConfigPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3221,29 +2492,11 @@ export interface GetResolverRuleRequest {
   ResolverRuleId: string | undefined;
 }
 
-export namespace GetResolverRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverRuleResponse {
   /**
    * <p>Information about the Resolver rule that you specified in a <code>GetResolverRule</code> request.</p>
    */
   ResolverRule?: ResolverRule;
-}
-
-export namespace GetResolverRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResolverRuleAssociationRequest {
@@ -3253,29 +2506,11 @@ export interface GetResolverRuleAssociationRequest {
   ResolverRuleAssociationId: string | undefined;
 }
 
-export namespace GetResolverRuleAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverRuleAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverRuleAssociationResponse {
   /**
    * <p>Information about the Resolver rule association that you specified in a <code>GetResolverRuleAssociation</code> request.</p>
    */
   ResolverRuleAssociation?: ResolverRuleAssociation;
-}
-
-export namespace GetResolverRuleAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverRuleAssociationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResolverRulePolicyRequest {
@@ -3285,29 +2520,11 @@ export interface GetResolverRulePolicyRequest {
   Arn: string | undefined;
 }
 
-export namespace GetResolverRulePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverRulePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResolverRulePolicyResponse {
   /**
    * <p>The Resolver rule policy for the rule that you specified in a <code>GetResolverRulePolicy</code> request.</p>
    */
   ResolverRulePolicy?: string;
-}
-
-export namespace GetResolverRulePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResolverRulePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportFirewallDomainsRequest {
@@ -3330,15 +2547,6 @@ export interface ImportFirewallDomainsRequest {
   DomainFileUrl: string | undefined;
 }
 
-export namespace ImportFirewallDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportFirewallDomainsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportFirewallDomainsResponse {
   /**
    * <p>The Id of the firewall domain list that DNS Firewall just updated.</p>
@@ -3359,15 +2567,6 @@ export interface ImportFirewallDomainsResponse {
    * <p>Additional information about the status of the list, if available.</p>
    */
   StatusMessage?: string;
-}
-
-export namespace ImportFirewallDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportFirewallDomainsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3488,15 +2687,6 @@ export interface IpAddressResponse {
   ModificationTime?: string;
 }
 
-export namespace IpAddressResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpAddressResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFirewallConfigsRequest {
   /**
    * <p>The maximum number of objects that you want Resolver to return for this request. If more
@@ -3516,15 +2706,6 @@ export interface ListFirewallConfigsRequest {
   NextToken?: string;
 }
 
-export namespace ListFirewallConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallConfigsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFirewallConfigsResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -3537,15 +2718,6 @@ export interface ListFirewallConfigsResponse {
    * 			Amazon Virtual Private Cloud (Amazon VPC). </p>
    */
   FirewallConfigs?: FirewallConfig[];
-}
-
-export namespace ListFirewallConfigsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallConfigsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFirewallDomainListsRequest {
@@ -3567,15 +2739,6 @@ export interface ListFirewallDomainListsRequest {
   NextToken?: string;
 }
 
-export namespace ListFirewallDomainListsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallDomainListsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFirewallDomainListsResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -3589,15 +2752,6 @@ export interface ListFirewallDomainListsResponse {
    * 			see <code>MaxResults</code>. </p>
    */
   FirewallDomainLists?: FirewallDomainListMetadata[];
-}
-
-export namespace ListFirewallDomainListsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallDomainListsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFirewallDomainsRequest {
@@ -3624,15 +2778,6 @@ export interface ListFirewallDomainsRequest {
   NextToken?: string;
 }
 
-export namespace ListFirewallDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallDomainsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFirewallDomainsResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -3646,15 +2791,6 @@ export interface ListFirewallDomainsResponse {
    * 			information, see <code>MaxResults</code>. </p>
    */
   Domains?: string[];
-}
-
-export namespace ListFirewallDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallDomainsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFirewallRuleGroupAssociationsRequest {
@@ -3700,15 +2836,6 @@ export interface ListFirewallRuleGroupAssociationsRequest {
   NextToken?: string;
 }
 
-export namespace ListFirewallRuleGroupAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallRuleGroupAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFirewallRuleGroupAssociationsResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -3721,15 +2848,6 @@ export interface ListFirewallRuleGroupAssociationsResponse {
    *          <p>This might be a partial list of the associations that you have defined. For information, see <code>MaxResults</code>. </p>
    */
   FirewallRuleGroupAssociations?: FirewallRuleGroupAssociation[];
-}
-
-export namespace ListFirewallRuleGroupAssociationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallRuleGroupAssociationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFirewallRuleGroupsRequest {
@@ -3751,15 +2869,6 @@ export interface ListFirewallRuleGroupsRequest {
   NextToken?: string;
 }
 
-export namespace ListFirewallRuleGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallRuleGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFirewallRuleGroupsResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -3772,15 +2881,6 @@ export interface ListFirewallRuleGroupsResponse {
    *          <p>This might be a partial list of the rule groups that you have defined. For information, see <code>MaxResults</code>. </p>
    */
   FirewallRuleGroups?: FirewallRuleGroupMetadata[];
-}
-
-export namespace ListFirewallRuleGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallRuleGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFirewallRulesRequest {
@@ -3834,15 +2934,6 @@ export interface ListFirewallRulesRequest {
   NextToken?: string;
 }
 
-export namespace ListFirewallRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFirewallRulesResponse {
   /**
    * <p>If objects are still available for retrieval, Resolver returns this token in the response.
@@ -3856,15 +2947,6 @@ export interface ListFirewallRulesResponse {
    * 			see <code>MaxResults</code>. </p>
    */
   FirewallRules?: FirewallRule[];
-}
-
-export namespace ListFirewallRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallRulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResolverConfigsRequest {
@@ -3885,15 +2967,6 @@ export interface ListResolverConfigsRequest {
   NextToken?: string;
 }
 
-export namespace ListResolverConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverConfigsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResolverConfigsResponse {
   /**
    * <p>If a response includes the last of the Resolver configurations that are associated with the current Amazon Web Services account,
@@ -3911,15 +2984,6 @@ export interface ListResolverConfigsResponse {
    * 			with the current Amazon Web Services account.</p>
    */
   ResolverConfigs?: ResolverConfig[];
-}
-
-export namespace ListResolverConfigsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverConfigsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResolverDnssecConfigsRequest {
@@ -3945,15 +3009,6 @@ export interface ListResolverDnssecConfigsRequest {
   Filters?: Filter[];
 }
 
-export namespace ListResolverDnssecConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverDnssecConfigsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResolverDnssecConfigsResponse {
   /**
    * <p>If a response includes the last of the DNSSEC configurations that are associated with the current Amazon Web Services account,
@@ -3971,15 +3026,6 @@ export interface ListResolverDnssecConfigsResponse {
    * 			for each configuration for DNSSEC validation that is associated with the current Amazon Web Services account.</p>
    */
   ResolverDnssecConfigs?: ResolverDnssecConfig[];
-}
-
-export namespace ListResolverDnssecConfigsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverDnssecConfigsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResolverEndpointIpAddressesRequest {
@@ -4003,15 +3049,6 @@ export interface ListResolverEndpointIpAddressesRequest {
   NextToken?: string;
 }
 
-export namespace ListResolverEndpointIpAddressesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverEndpointIpAddressesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResolverEndpointIpAddressesResponse {
   /**
    * <p>If the specified endpoint has more than <code>MaxResults</code> IP addresses, you can submit another
@@ -4030,15 +3067,6 @@ export interface ListResolverEndpointIpAddressesResponse {
    * 			DNS queries to (for inbound endpoints).</p>
    */
   IpAddresses?: IpAddressResponse[];
-}
-
-export namespace ListResolverEndpointIpAddressesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverEndpointIpAddressesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResolverEndpointsRequest {
@@ -4065,15 +3093,6 @@ export interface ListResolverEndpointsRequest {
   Filters?: Filter[];
 }
 
-export namespace ListResolverEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResolverEndpointsResponse {
   /**
    * <p>If more than <code>MaxResults</code> IP addresses match the specified criteria, you can submit another <code>ListResolverEndpoint</code> request
@@ -4090,15 +3109,6 @@ export interface ListResolverEndpointsResponse {
    * <p>The Resolver endpoints that were created by using the current Amazon Web Services account, and that match the specified filters, if any.</p>
    */
   ResolverEndpoints?: ResolverEndpoint[];
-}
-
-export namespace ListResolverEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverEndpointsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SortOrder {
@@ -4219,15 +3229,6 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
   SortOrder?: SortOrder | string;
 }
 
-export namespace ListResolverQueryLogConfigAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverQueryLogConfigAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResolverQueryLogConfigAssociationsResponse {
   /**
    * <p>If there are more than <code>MaxResults</code> query logging associations, you can submit another <code>ListResolverQueryLogConfigAssociations</code> request
@@ -4254,15 +3255,6 @@ export interface ListResolverQueryLogConfigAssociationsResponse {
    * 			values that you specified for <code>Filter</code>.</p>
    */
   ResolverQueryLogConfigAssociations?: ResolverQueryLogConfigAssociation[];
-}
-
-export namespace ListResolverQueryLogConfigAssociationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverQueryLogConfigAssociationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResolverQueryLogConfigsRequest {
@@ -4383,15 +3375,6 @@ export interface ListResolverQueryLogConfigsRequest {
   SortOrder?: SortOrder | string;
 }
 
-export namespace ListResolverQueryLogConfigsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverQueryLogConfigsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResolverQueryLogConfigsResponse {
   /**
    * <p>If there are more than <code>MaxResults</code> query logging configurations, you can submit another <code>ListResolverQueryLogConfigs</code> request
@@ -4420,15 +3403,6 @@ export interface ListResolverQueryLogConfigsResponse {
   ResolverQueryLogConfigs?: ResolverQueryLogConfig[];
 }
 
-export namespace ListResolverQueryLogConfigsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverQueryLogConfigsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResolverRuleAssociationsRequest {
   /**
    * <p>The maximum number of rule associations that you want to return in the response to a <code>ListResolverRuleAssociations</code> request.
@@ -4453,15 +3427,6 @@ export interface ListResolverRuleAssociationsRequest {
   Filters?: Filter[];
 }
 
-export namespace ListResolverRuleAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverRuleAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResolverRuleAssociationsResponse {
   /**
    * <p>If more than <code>MaxResults</code> rule associations match the specified criteria, you can submit another
@@ -4480,15 +3445,6 @@ export interface ListResolverRuleAssociationsResponse {
    * 			specified filters, if any.</p>
    */
   ResolverRuleAssociations?: ResolverRuleAssociation[];
-}
-
-export namespace ListResolverRuleAssociationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverRuleAssociationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListResolverRulesRequest {
@@ -4515,15 +3471,6 @@ export interface ListResolverRulesRequest {
   Filters?: Filter[];
 }
 
-export namespace ListResolverRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResolverRulesResponse {
   /**
    * <p>If more than <code>MaxResults</code> Resolver rules match the specified criteria, you can submit another
@@ -4541,15 +3488,6 @@ export interface ListResolverRulesResponse {
    * <p>The Resolver rules that were created using the current Amazon Web Services account and that match the specified filters, if any.</p>
    */
   ResolverRules?: ResolverRule[];
-}
-
-export namespace ListResolverRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResolverRulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -4572,15 +3510,6 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are associated with the resource that you specified in the <code>ListTagsForResource</code> request.</p>
@@ -4595,15 +3524,6 @@ export interface ListTagsForResourceResponse {
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutFirewallRuleGroupPolicyRequest {
   /**
    * <p>The ARN (Amazon Resource Name) for the rule group that you want to share.</p>
@@ -4616,29 +3536,11 @@ export interface PutFirewallRuleGroupPolicyRequest {
   FirewallRuleGroupPolicy: string | undefined;
 }
 
-export namespace PutFirewallRuleGroupPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFirewallRuleGroupPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutFirewallRuleGroupPolicyResponse {
   /**
    * <p></p>
    */
   ReturnValue?: boolean;
-}
-
-export namespace PutFirewallRuleGroupPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutFirewallRuleGroupPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutResolverQueryLogConfigPolicyRequest {
@@ -4680,15 +3582,6 @@ export interface PutResolverQueryLogConfigPolicyRequest {
   ResolverQueryLogConfigPolicy: string | undefined;
 }
 
-export namespace PutResolverQueryLogConfigPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResolverQueryLogConfigPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to a <code>PutResolverQueryLogConfigPolicy</code> request.</p>
  */
@@ -4697,15 +3590,6 @@ export interface PutResolverQueryLogConfigPolicyResponse {
    * <p>Whether the <code>PutResolverQueryLogConfigPolicy</code> request was successful.</p>
    */
   ReturnValue?: boolean;
-}
-
-export namespace PutResolverQueryLogConfigPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResolverQueryLogConfigPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutResolverRulePolicyRequest {
@@ -4751,15 +3635,6 @@ export interface PutResolverRulePolicyRequest {
   ResolverRulePolicy: string | undefined;
 }
 
-export namespace PutResolverRulePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResolverRulePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to a <code>PutResolverRulePolicy</code> request.</p>
  */
@@ -4768,15 +3643,6 @@ export interface PutResolverRulePolicyResponse {
    * <p>Whether the <code>PutResolverRulePolicy</code> request was successful.</p>
    */
   ReturnValue?: boolean;
-}
-
-export namespace PutResolverRulePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResolverRulePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4800,15 +3666,6 @@ export interface ResolverRuleConfig {
    * 			<code>TargetIps</code>.</p>
    */
   ResolverEndpointId?: string;
-}
-
-export namespace ResolverRuleConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolverRuleConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4856,25 +3713,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4921,25 +3760,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateFirewallConfigRequest {
   /**
@@ -4964,29 +3785,11 @@ export interface UpdateFirewallConfigRequest {
   FirewallFailOpen: FirewallFailOpenStatus | string | undefined;
 }
 
-export namespace UpdateFirewallConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFirewallConfigResponse {
   /**
    * <p>Configuration of the firewall behavior provided by DNS Firewall for a single VPC. </p>
    */
   FirewallConfig?: FirewallConfig;
-}
-
-export namespace UpdateFirewallConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFirewallDomainsRequest {
@@ -5035,15 +3838,6 @@ export interface UpdateFirewallDomainsRequest {
   Domains: string[] | undefined;
 }
 
-export namespace UpdateFirewallDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallDomainsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFirewallDomainsResponse {
   /**
    * <p>The ID of the firewall domain list that DNS Firewall just updated.</p>
@@ -5064,15 +3858,6 @@ export interface UpdateFirewallDomainsResponse {
    * <p>Additional information about the status of the list, if available.</p>
    */
   StatusMessage?: string;
-}
-
-export namespace UpdateFirewallDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallDomainsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFirewallRuleRequest {
@@ -5154,29 +3939,11 @@ export interface UpdateFirewallRuleRequest {
   Name?: string;
 }
 
-export namespace UpdateFirewallRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFirewallRuleResponse {
   /**
    * <p>The firewall rule that you just updated. </p>
    */
   FirewallRule?: FirewallRule;
-}
-
-export namespace UpdateFirewallRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFirewallRuleGroupAssociationRequest {
@@ -5206,29 +3973,11 @@ export interface UpdateFirewallRuleGroupAssociationRequest {
   Name?: string;
 }
 
-export namespace UpdateFirewallRuleGroupAssociationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallRuleGroupAssociationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFirewallRuleGroupAssociationResponse {
   /**
    * <p>The association that you just updated. </p>
    */
   FirewallRuleGroupAssociation?: FirewallRuleGroupAssociation;
-}
-
-export namespace UpdateFirewallRuleGroupAssociationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallRuleGroupAssociationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateResolverConfigRequest {
@@ -5250,29 +3999,11 @@ export interface UpdateResolverConfigRequest {
   AutodefinedReverseFlag: AutodefinedReverseFlag | string | undefined;
 }
 
-export namespace UpdateResolverConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResolverConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResolverConfigResponse {
   /**
    * <p>An array that contains settings for the specified Resolver configuration.</p>
    */
   ResolverConfig?: ResolverConfig;
-}
-
-export namespace UpdateResolverConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResolverConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Validation {
@@ -5293,29 +4024,11 @@ export interface UpdateResolverDnssecConfigRequest {
   Validation: Validation | string | undefined;
 }
 
-export namespace UpdateResolverDnssecConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResolverDnssecConfigRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResolverDnssecConfigResponse {
   /**
    * <p>A complex type that contains settings for the specified DNSSEC configuration.</p>
    */
   ResolverDNSSECConfig?: ResolverDnssecConfig;
-}
-
-export namespace UpdateResolverDnssecConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResolverDnssecConfigResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateResolverEndpointRequest {
@@ -5330,29 +4043,11 @@ export interface UpdateResolverEndpointRequest {
   Name?: string;
 }
 
-export namespace UpdateResolverEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResolverEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResolverEndpointResponse {
   /**
    * <p>The response to an <code>UpdateResolverEndpoint</code> request.</p>
    */
   ResolverEndpoint?: ResolverEndpoint;
-}
-
-export namespace UpdateResolverEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResolverEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateResolverRuleRequest {
@@ -5367,15 +4062,6 @@ export interface UpdateResolverRuleRequest {
   Config: ResolverRuleConfig | undefined;
 }
 
-export namespace UpdateResolverRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResolverRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResolverRuleResponse {
   /**
    * <p>The response to an <code>UpdateResolverRule</code> request.</p>
@@ -5383,11 +4069,1097 @@ export interface UpdateResolverRuleResponse {
   ResolverRule?: ResolverRule;
 }
 
-export namespace UpdateResolverRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResolverRuleResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateFirewallRuleGroupRequestFilterSensitiveLog = (obj: AssociateFirewallRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallRuleGroupAssociationFilterSensitiveLog = (obj: FirewallRuleGroupAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateFirewallRuleGroupResponseFilterSensitiveLog = (obj: AssociateFirewallRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpAddressUpdateFilterSensitiveLog = (obj: IpAddressUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResolverEndpointIpAddressRequestFilterSensitiveLog = (
+  obj: AssociateResolverEndpointIpAddressRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolverEndpointFilterSensitiveLog = (obj: ResolverEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResolverEndpointIpAddressResponseFilterSensitiveLog = (
+  obj: AssociateResolverEndpointIpAddressResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResolverQueryLogConfigRequestFilterSensitiveLog = (
+  obj: AssociateResolverQueryLogConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolverQueryLogConfigAssociationFilterSensitiveLog = (obj: ResolverQueryLogConfigAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResolverQueryLogConfigResponseFilterSensitiveLog = (
+  obj: AssociateResolverQueryLogConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResolverRuleRequestFilterSensitiveLog = (obj: AssociateResolverRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolverRuleAssociationFilterSensitiveLog = (obj: ResolverRuleAssociation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResolverRuleResponseFilterSensitiveLog = (obj: AssociateResolverRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFirewallDomainListRequestFilterSensitiveLog = (obj: CreateFirewallDomainListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallDomainListFilterSensitiveLog = (obj: FirewallDomainList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFirewallDomainListResponseFilterSensitiveLog = (obj: CreateFirewallDomainListResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFirewallRuleRequestFilterSensitiveLog = (obj: CreateFirewallRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallRuleFilterSensitiveLog = (obj: FirewallRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFirewallRuleResponseFilterSensitiveLog = (obj: CreateFirewallRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFirewallRuleGroupRequestFilterSensitiveLog = (obj: CreateFirewallRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallRuleGroupFilterSensitiveLog = (obj: FirewallRuleGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFirewallRuleGroupResponseFilterSensitiveLog = (obj: CreateFirewallRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpAddressRequestFilterSensitiveLog = (obj: IpAddressRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResolverEndpointRequestFilterSensitiveLog = (obj: CreateResolverEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResolverEndpointResponseFilterSensitiveLog = (obj: CreateResolverEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResolverQueryLogConfigRequestFilterSensitiveLog = (
+  obj: CreateResolverQueryLogConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolverQueryLogConfigFilterSensitiveLog = (obj: ResolverQueryLogConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResolverQueryLogConfigResponseFilterSensitiveLog = (
+  obj: CreateResolverQueryLogConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetAddressFilterSensitiveLog = (obj: TargetAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResolverRuleRequestFilterSensitiveLog = (obj: CreateResolverRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolverRuleFilterSensitiveLog = (obj: ResolverRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResolverRuleResponseFilterSensitiveLog = (obj: CreateResolverRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallDomainListRequestFilterSensitiveLog = (obj: DeleteFirewallDomainListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallDomainListResponseFilterSensitiveLog = (obj: DeleteFirewallDomainListResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallRuleRequestFilterSensitiveLog = (obj: DeleteFirewallRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallRuleResponseFilterSensitiveLog = (obj: DeleteFirewallRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallRuleGroupRequestFilterSensitiveLog = (obj: DeleteFirewallRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallRuleGroupResponseFilterSensitiveLog = (obj: DeleteFirewallRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResolverEndpointRequestFilterSensitiveLog = (obj: DeleteResolverEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResolverEndpointResponseFilterSensitiveLog = (obj: DeleteResolverEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResolverQueryLogConfigRequestFilterSensitiveLog = (
+  obj: DeleteResolverQueryLogConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResolverQueryLogConfigResponseFilterSensitiveLog = (
+  obj: DeleteResolverQueryLogConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResolverRuleRequestFilterSensitiveLog = (obj: DeleteResolverRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResolverRuleResponseFilterSensitiveLog = (obj: DeleteResolverRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFirewallRuleGroupRequestFilterSensitiveLog = (
+  obj: DisassociateFirewallRuleGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFirewallRuleGroupResponseFilterSensitiveLog = (
+  obj: DisassociateFirewallRuleGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResolverEndpointIpAddressRequestFilterSensitiveLog = (
+  obj: DisassociateResolverEndpointIpAddressRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResolverEndpointIpAddressResponseFilterSensitiveLog = (
+  obj: DisassociateResolverEndpointIpAddressResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResolverQueryLogConfigRequestFilterSensitiveLog = (
+  obj: DisassociateResolverQueryLogConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResolverQueryLogConfigResponseFilterSensitiveLog = (
+  obj: DisassociateResolverQueryLogConfigResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResolverRuleRequestFilterSensitiveLog = (obj: DisassociateResolverRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResolverRuleResponseFilterSensitiveLog = (obj: DisassociateResolverRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallConfigFilterSensitiveLog = (obj: FirewallConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallDomainListMetadataFilterSensitiveLog = (obj: FirewallDomainListMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallRuleGroupMetadataFilterSensitiveLog = (obj: FirewallRuleGroupMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFirewallConfigRequestFilterSensitiveLog = (obj: GetFirewallConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFirewallConfigResponseFilterSensitiveLog = (obj: GetFirewallConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFirewallDomainListRequestFilterSensitiveLog = (obj: GetFirewallDomainListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFirewallDomainListResponseFilterSensitiveLog = (obj: GetFirewallDomainListResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFirewallRuleGroupRequestFilterSensitiveLog = (obj: GetFirewallRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFirewallRuleGroupResponseFilterSensitiveLog = (obj: GetFirewallRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFirewallRuleGroupAssociationRequestFilterSensitiveLog = (
+  obj: GetFirewallRuleGroupAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFirewallRuleGroupAssociationResponseFilterSensitiveLog = (
+  obj: GetFirewallRuleGroupAssociationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFirewallRuleGroupPolicyRequestFilterSensitiveLog = (obj: GetFirewallRuleGroupPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFirewallRuleGroupPolicyResponseFilterSensitiveLog = (obj: GetFirewallRuleGroupPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverConfigRequestFilterSensitiveLog = (obj: GetResolverConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolverConfigFilterSensitiveLog = (obj: ResolverConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverConfigResponseFilterSensitiveLog = (obj: GetResolverConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverDnssecConfigRequestFilterSensitiveLog = (obj: GetResolverDnssecConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolverDnssecConfigFilterSensitiveLog = (obj: ResolverDnssecConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverDnssecConfigResponseFilterSensitiveLog = (obj: GetResolverDnssecConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverEndpointRequestFilterSensitiveLog = (obj: GetResolverEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverEndpointResponseFilterSensitiveLog = (obj: GetResolverEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverQueryLogConfigRequestFilterSensitiveLog = (obj: GetResolverQueryLogConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverQueryLogConfigResponseFilterSensitiveLog = (obj: GetResolverQueryLogConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverQueryLogConfigAssociationRequestFilterSensitiveLog = (
+  obj: GetResolverQueryLogConfigAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverQueryLogConfigAssociationResponseFilterSensitiveLog = (
+  obj: GetResolverQueryLogConfigAssociationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverQueryLogConfigPolicyRequestFilterSensitiveLog = (
+  obj: GetResolverQueryLogConfigPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverQueryLogConfigPolicyResponseFilterSensitiveLog = (
+  obj: GetResolverQueryLogConfigPolicyResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverRuleRequestFilterSensitiveLog = (obj: GetResolverRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverRuleResponseFilterSensitiveLog = (obj: GetResolverRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverRuleAssociationRequestFilterSensitiveLog = (obj: GetResolverRuleAssociationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverRuleAssociationResponseFilterSensitiveLog = (obj: GetResolverRuleAssociationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverRulePolicyRequestFilterSensitiveLog = (obj: GetResolverRulePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResolverRulePolicyResponseFilterSensitiveLog = (obj: GetResolverRulePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportFirewallDomainsRequestFilterSensitiveLog = (obj: ImportFirewallDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportFirewallDomainsResponseFilterSensitiveLog = (obj: ImportFirewallDomainsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpAddressResponseFilterSensitiveLog = (obj: IpAddressResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallConfigsRequestFilterSensitiveLog = (obj: ListFirewallConfigsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallConfigsResponseFilterSensitiveLog = (obj: ListFirewallConfigsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallDomainListsRequestFilterSensitiveLog = (obj: ListFirewallDomainListsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallDomainListsResponseFilterSensitiveLog = (obj: ListFirewallDomainListsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallDomainsRequestFilterSensitiveLog = (obj: ListFirewallDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallDomainsResponseFilterSensitiveLog = (obj: ListFirewallDomainsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallRuleGroupAssociationsRequestFilterSensitiveLog = (
+  obj: ListFirewallRuleGroupAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallRuleGroupAssociationsResponseFilterSensitiveLog = (
+  obj: ListFirewallRuleGroupAssociationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallRuleGroupsRequestFilterSensitiveLog = (obj: ListFirewallRuleGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallRuleGroupsResponseFilterSensitiveLog = (obj: ListFirewallRuleGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallRulesRequestFilterSensitiveLog = (obj: ListFirewallRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallRulesResponseFilterSensitiveLog = (obj: ListFirewallRulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverConfigsRequestFilterSensitiveLog = (obj: ListResolverConfigsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverConfigsResponseFilterSensitiveLog = (obj: ListResolverConfigsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverDnssecConfigsRequestFilterSensitiveLog = (obj: ListResolverDnssecConfigsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverDnssecConfigsResponseFilterSensitiveLog = (obj: ListResolverDnssecConfigsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverEndpointIpAddressesRequestFilterSensitiveLog = (
+  obj: ListResolverEndpointIpAddressesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverEndpointIpAddressesResponseFilterSensitiveLog = (
+  obj: ListResolverEndpointIpAddressesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverEndpointsRequestFilterSensitiveLog = (obj: ListResolverEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverEndpointsResponseFilterSensitiveLog = (obj: ListResolverEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverQueryLogConfigAssociationsRequestFilterSensitiveLog = (
+  obj: ListResolverQueryLogConfigAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverQueryLogConfigAssociationsResponseFilterSensitiveLog = (
+  obj: ListResolverQueryLogConfigAssociationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverQueryLogConfigsRequestFilterSensitiveLog = (obj: ListResolverQueryLogConfigsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverQueryLogConfigsResponseFilterSensitiveLog = (
+  obj: ListResolverQueryLogConfigsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverRuleAssociationsRequestFilterSensitiveLog = (
+  obj: ListResolverRuleAssociationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverRuleAssociationsResponseFilterSensitiveLog = (
+  obj: ListResolverRuleAssociationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverRulesRequestFilterSensitiveLog = (obj: ListResolverRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResolverRulesResponseFilterSensitiveLog = (obj: ListResolverRulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFirewallRuleGroupPolicyRequestFilterSensitiveLog = (obj: PutFirewallRuleGroupPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutFirewallRuleGroupPolicyResponseFilterSensitiveLog = (obj: PutFirewallRuleGroupPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResolverQueryLogConfigPolicyRequestFilterSensitiveLog = (
+  obj: PutResolverQueryLogConfigPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResolverQueryLogConfigPolicyResponseFilterSensitiveLog = (
+  obj: PutResolverQueryLogConfigPolicyResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResolverRulePolicyRequestFilterSensitiveLog = (obj: PutResolverRulePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResolverRulePolicyResponseFilterSensitiveLog = (obj: PutResolverRulePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolverRuleConfigFilterSensitiveLog = (obj: ResolverRuleConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallConfigRequestFilterSensitiveLog = (obj: UpdateFirewallConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallConfigResponseFilterSensitiveLog = (obj: UpdateFirewallConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallDomainsRequestFilterSensitiveLog = (obj: UpdateFirewallDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallDomainsResponseFilterSensitiveLog = (obj: UpdateFirewallDomainsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallRuleRequestFilterSensitiveLog = (obj: UpdateFirewallRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallRuleResponseFilterSensitiveLog = (obj: UpdateFirewallRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallRuleGroupAssociationRequestFilterSensitiveLog = (
+  obj: UpdateFirewallRuleGroupAssociationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallRuleGroupAssociationResponseFilterSensitiveLog = (
+  obj: UpdateFirewallRuleGroupAssociationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResolverConfigRequestFilterSensitiveLog = (obj: UpdateResolverConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResolverConfigResponseFilterSensitiveLog = (obj: UpdateResolverConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResolverDnssecConfigRequestFilterSensitiveLog = (obj: UpdateResolverDnssecConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResolverDnssecConfigResponseFilterSensitiveLog = (obj: UpdateResolverDnssecConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResolverEndpointRequestFilterSensitiveLog = (obj: UpdateResolverEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResolverEndpointResponseFilterSensitiveLog = (obj: UpdateResolverEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResolverRuleRequestFilterSensitiveLog = (obj: UpdateResolverRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResolverRuleResponseFilterSensitiveLog = (obj: UpdateResolverRuleResponse): any => ({
+  ...obj,
+});

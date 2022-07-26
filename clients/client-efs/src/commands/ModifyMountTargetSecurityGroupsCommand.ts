@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { ModifyMountTargetSecurityGroupsRequest } from "../models/models_0";
+import {
+  ModifyMountTargetSecurityGroupsRequest,
+  ModifyMountTargetSecurityGroupsRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ModifyMountTargetSecurityGroupsCommand,
   serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand,
@@ -91,7 +94,7 @@ export class ModifyMountTargetSecurityGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyMountTargetSecurityGroupsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyMountTargetSecurityGroupsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

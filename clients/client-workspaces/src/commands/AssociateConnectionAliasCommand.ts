@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateConnectionAliasRequest, AssociateConnectionAliasResult } from "../models/models_0";
+import {
+  AssociateConnectionAliasRequest,
+  AssociateConnectionAliasRequestFilterSensitiveLog,
+  AssociateConnectionAliasResult,
+  AssociateConnectionAliasResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateConnectionAliasCommand,
   serializeAws_json1_1AssociateConnectionAliasCommand,
@@ -79,8 +84,8 @@ export class AssociateConnectionAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateConnectionAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateConnectionAliasResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateConnectionAliasRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateConnectionAliasResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

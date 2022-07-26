@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ScalarSubjectRequest, SubjectDetailResponse } from "../models/models_0";
+import {
+  ScalarSubjectRequest,
+  ScalarSubjectRequestFilterSensitiveLog,
+  SubjectDetailResponse,
+  SubjectDetailResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetSubjectCommand,
   serializeAws_restJson1GetSubjectCommand,
@@ -76,8 +81,8 @@ export class GetSubjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarSubjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SubjectDetailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ScalarSubjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SubjectDetailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

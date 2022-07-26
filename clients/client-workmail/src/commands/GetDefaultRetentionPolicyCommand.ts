@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDefaultRetentionPolicyRequest, GetDefaultRetentionPolicyResponse } from "../models/models_0";
+import {
+  GetDefaultRetentionPolicyRequest,
+  GetDefaultRetentionPolicyRequestFilterSensitiveLog,
+  GetDefaultRetentionPolicyResponse,
+  GetDefaultRetentionPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDefaultRetentionPolicyCommand,
   serializeAws_json1_1GetDefaultRetentionPolicyCommand,
@@ -72,8 +77,8 @@ export class GetDefaultRetentionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDefaultRetentionPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDefaultRetentionPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDefaultRetentionPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDefaultRetentionPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

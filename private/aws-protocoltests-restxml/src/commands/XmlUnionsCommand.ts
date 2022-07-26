@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlUnionsInputOutput } from "../models/models_0";
+import { XmlUnionsInputOutput, XmlUnionsInputOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_restXmlXmlUnionsCommand, serializeAws_restXmlXmlUnionsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -52,8 +52,8 @@ export class XmlUnionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlUnionsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: XmlUnionsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: XmlUnionsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: XmlUnionsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

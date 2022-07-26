@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { StopEntitiesDetectionJobRequest, StopEntitiesDetectionJobResponse } from "../models/models_0";
+import {
+  StopEntitiesDetectionJobRequest,
+  StopEntitiesDetectionJobRequestFilterSensitiveLog,
+  StopEntitiesDetectionJobResponse,
+  StopEntitiesDetectionJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StopEntitiesDetectionJobCommand,
   serializeAws_json1_1StopEntitiesDetectionJobCommand,
@@ -81,8 +86,8 @@ export class StopEntitiesDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopEntitiesDetectionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopEntitiesDetectionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopEntitiesDetectionJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopEntitiesDetectionJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

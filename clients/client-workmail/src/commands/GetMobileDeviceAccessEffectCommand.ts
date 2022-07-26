@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetMobileDeviceAccessEffectRequest, GetMobileDeviceAccessEffectResponse } from "../models/models_0";
+import {
+  GetMobileDeviceAccessEffectRequest,
+  GetMobileDeviceAccessEffectRequestFilterSensitiveLog,
+  GetMobileDeviceAccessEffectResponse,
+  GetMobileDeviceAccessEffectResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetMobileDeviceAccessEffectCommand,
   serializeAws_json1_1GetMobileDeviceAccessEffectCommand,
@@ -75,8 +80,8 @@ export class GetMobileDeviceAccessEffectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMobileDeviceAccessEffectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMobileDeviceAccessEffectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMobileDeviceAccessEffectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMobileDeviceAccessEffectResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

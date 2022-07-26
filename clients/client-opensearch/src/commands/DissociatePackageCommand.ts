@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DissociatePackageRequest, DissociatePackageResponse } from "../models/models_0";
+import {
+  DissociatePackageRequest,
+  DissociatePackageRequestFilterSensitiveLog,
+  DissociatePackageResponse,
+  DissociatePackageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1DissociatePackageCommand,
@@ -72,8 +77,8 @@ export class DissociatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DissociatePackageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DissociatePackageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DissociatePackageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DissociatePackageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

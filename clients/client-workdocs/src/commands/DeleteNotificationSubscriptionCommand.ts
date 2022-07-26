@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteNotificationSubscriptionRequest } from "../models/models_0";
+import {
+  DeleteNotificationSubscriptionRequest,
+  DeleteNotificationSubscriptionRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNotificationSubscriptionCommand,
   serializeAws_restJson1DeleteNotificationSubscriptionCommand,
@@ -72,7 +75,7 @@ export class DeleteNotificationSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNotificationSubscriptionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteNotificationSubscriptionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

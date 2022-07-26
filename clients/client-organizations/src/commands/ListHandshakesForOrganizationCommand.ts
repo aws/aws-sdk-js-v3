@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListHandshakesForOrganizationRequest, ListHandshakesForOrganizationResponse } from "../models/models_0";
+import {
+  ListHandshakesForOrganizationRequest,
+  ListHandshakesForOrganizationRequestFilterSensitiveLog,
+  ListHandshakesForOrganizationResponse,
+  ListHandshakesForOrganizationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1ListHandshakesForOrganizationCommand,
@@ -91,8 +96,8 @@ export class ListHandshakesForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHandshakesForOrganizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListHandshakesForOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHandshakesForOrganizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListHandshakesForOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

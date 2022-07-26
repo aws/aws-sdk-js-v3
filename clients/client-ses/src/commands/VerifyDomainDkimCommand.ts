@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { VerifyDomainDkimRequest, VerifyDomainDkimResponse } from "../models/models_0";
+import {
+  VerifyDomainDkimRequest,
+  VerifyDomainDkimRequestFilterSensitiveLog,
+  VerifyDomainDkimResponse,
+  VerifyDomainDkimResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryVerifyDomainDkimCommand,
   serializeAws_queryVerifyDomainDkimCommand,
@@ -110,8 +115,8 @@ export class VerifyDomainDkimCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: VerifyDomainDkimRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VerifyDomainDkimResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: VerifyDomainDkimRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: VerifyDomainDkimResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -75,15 +75,6 @@ export interface AccountGateResult {
   StatusReason?: string;
 }
 
-export namespace AccountGateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountGateResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The AccountLimit data type.</p>
  *          <p>CloudFormation has the following limits per account:</p>
@@ -117,15 +108,6 @@ export interface AccountLimit {
   Value?: number;
 }
 
-export namespace AccountLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountLimit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains logging configuration information for an extension.</p>
  */
@@ -141,15 +123,6 @@ export interface LoggingConfig {
    *          information when invoking the extension's handlers.</p>
    */
   LogGroupName: string | undefined;
-}
-
-export namespace LoggingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum ThirdPartyType {
@@ -251,30 +224,12 @@ export interface ActivateTypeInput {
   MajorVersion?: number;
 }
 
-export namespace ActivateTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ActivateTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the activated extension, in this account and
    *          region.</p>
    */
   Arn?: string;
-}
-
-export namespace ActivateTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivateTypeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -362,15 +317,6 @@ export interface AutoDeployment {
   RetainStacksOnAccountRemoval?: boolean;
 }
 
-export namespace AutoDeployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoDeployment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifying information for the configuration of a CloudFormation
  *          extension.</p>
@@ -405,29 +351,11 @@ export interface TypeConfigurationIdentifier {
   TypeName?: string;
 }
 
-export namespace TypeConfigurationIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypeConfigurationIdentifier): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDescribeTypeConfigurationsInput {
   /**
    * <p>The list of identifiers for the desired extension configurations.</p>
    */
   TypeConfigurationIdentifiers: TypeConfigurationIdentifier[] | undefined;
-}
-
-export namespace BatchDescribeTypeConfigurationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDescribeTypeConfigurationsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -450,15 +378,6 @@ export interface BatchDescribeTypeConfigurationsError {
    *          extension.</p>
    */
   TypeConfigurationIdentifier?: TypeConfigurationIdentifier;
-}
-
-export namespace BatchDescribeTypeConfigurationsError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDescribeTypeConfigurationsError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -513,15 +432,6 @@ export interface TypeConfigurationDetails {
   IsDefaultConfiguration?: boolean;
 }
 
-export namespace TypeConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypeConfigurationDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDescribeTypeConfigurationsOutput {
   /**
    * <p>A list of information concerning any errors generated during the setting of the
@@ -540,15 +450,6 @@ export interface BatchDescribeTypeConfigurationsOutput {
    *          registry.</p>
    */
   TypeConfigurations?: TypeConfigurationDetails[];
-}
-
-export namespace BatchDescribeTypeConfigurationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDescribeTypeConfigurationsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -594,15 +495,6 @@ export interface CancelUpdateStackInput {
    *          received them.</p>
    */
   ClientRequestToken?: string;
-}
-
-export namespace CancelUpdateStackInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelUpdateStackInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -703,15 +595,6 @@ export interface ResourceTargetDefinition {
   RequiresRecreation?: RequiresRecreation | string;
 }
 
-export namespace ResourceTargetDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTargetDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>For a resource with <code>Modify</code> as the action, the <code>ResourceChange</code>
  *          structure describes the changes CloudFormation will make to that resource.</p>
@@ -791,15 +674,6 @@ export interface ResourceChangeDetail {
   CausingEntity?: string;
 }
 
-export namespace ResourceChangeDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceChangeDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the module from which the resource was created, if the
  *          resource was created from a module included in the stack template.</p>
@@ -835,15 +709,6 @@ export interface ModuleInfo {
    *             Guide</i>.</p>
    */
   LogicalIdHierarchy?: string;
-}
-
-export namespace ModuleInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModuleInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum Replacement {
@@ -924,15 +789,6 @@ export interface ResourceChange {
   ModuleInfo?: ModuleInfo;
 }
 
-export namespace ResourceChange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceChange): any => ({
-    ...obj,
-  });
-}
-
 export enum ChangeType {
   Resource = "Resource",
 }
@@ -959,15 +815,6 @@ export interface Change {
    *             CloudFormation will perform.</p>
    */
   ResourceChange?: ResourceChange;
-}
-
-export namespace Change {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Change): any => ({
-    ...obj,
-  });
 }
 
 export enum HookFailureMode {
@@ -999,15 +846,6 @@ export interface ChangeSetHookResourceTargetDetails {
   ResourceAction?: ChangeAction | string;
 }
 
-export namespace ChangeSetHookResourceTargetDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeSetHookResourceTargetDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum HookTargetType {
   RESOURCE = "RESOURCE",
 }
@@ -1025,15 +863,6 @@ export interface ChangeSetHookTargetDetails {
    * <p>Required if <code>TargetType</code> is <code>RESOURCE</code>.</p>
    */
   ResourceTargetDetails?: ChangeSetHookResourceTargetDetails;
-}
-
-export namespace ChangeSetHookTargetDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeSetHookTargetDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1121,15 +950,6 @@ export interface ChangeSetHook {
    * <p>Specifies details about the target that the hook will run against.</p>
    */
   TargetDetails?: ChangeSetHookTargetDetails;
-}
-
-export namespace ChangeSetHook {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeSetHook): any => ({
-    ...obj,
-  });
 }
 
 export enum ChangeSetHooksStatus {
@@ -1253,15 +1073,6 @@ export interface ChangeSetSummary {
   RootChangeSetId?: string;
 }
 
-export namespace ChangeSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum ChangeSetType {
   CREATE = "CREATE",
   IMPORT = "IMPORT",
@@ -1339,28 +1150,10 @@ export interface ContinueUpdateRollbackInput {
   ClientRequestToken?: string;
 }
 
-export namespace ContinueUpdateRollbackInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContinueUpdateRollbackInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for a <a>ContinueUpdateRollback</a> operation.</p>
  */
 export interface ContinueUpdateRollbackOutput {}
-
-export namespace ContinueUpdateRollbackOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContinueUpdateRollbackOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The Parameter data type.</p>
@@ -1394,15 +1187,6 @@ export interface Parameter {
   ResolvedValue?: string;
 }
 
-export namespace Parameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Parameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the target resource of an import operation.</p>
  */
@@ -1426,15 +1210,6 @@ export interface ResourceToImport {
   ResourceIdentifier: Record<string, string> | undefined;
 }
 
-export namespace ResourceToImport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceToImport): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A rollback trigger CloudFormation monitors during creation and updating of stacks. If any of the
  *          alarms you specify goes to ALARM state during the stack operation or within the specified
@@ -1453,15 +1228,6 @@ export interface RollbackTrigger {
    * <p>The resource type of the rollback trigger. Specify either <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html">AWS::CloudWatch::Alarm</a> or <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html">AWS::CloudWatch::CompositeAlarm</a> resource types.</p>
    */
   Type: string | undefined;
-}
-
-export namespace RollbackTrigger {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackTrigger): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1517,15 +1283,6 @@ export interface RollbackConfiguration {
   MonitoringTimeInMinutes?: number;
 }
 
-export namespace RollbackConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Tag type enables you to specify a key-value pair that can be used to store
  *          information about an CloudFormation stack.</p>
@@ -1544,15 +1301,6 @@ export interface Tag {
    *          a maximum of 256 characters for a tag value.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1791,15 +1539,6 @@ export interface CreateChangeSetInput {
   IncludeNestedStacks?: boolean;
 }
 
-export namespace CreateChangeSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChangeSetInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the <a>CreateChangeSet</a> action.</p>
  */
@@ -1813,15 +1552,6 @@ export interface CreateChangeSetOutput {
    * <p>The unique ID of the stack.</p>
    */
   StackId?: string;
-}
-
-export namespace CreateChangeSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChangeSetOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2147,15 +1877,6 @@ export interface CreateStackInput {
   EnableTerminationProtection?: boolean;
 }
 
-export namespace CreateStackInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStackInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for a <a>CreateStack</a> action.</p>
  */
@@ -2164,15 +1885,6 @@ export interface CreateStackOutput {
    * <p>Unique identifier of the stack.</p>
    */
   StackId?: string;
-}
-
-export namespace CreateStackOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStackOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2235,15 +1947,6 @@ export interface DeploymentTargets {
    *          </ul>
    */
   AccountFilterType?: AccountFilterType | string;
-}
-
-export namespace DeploymentTargets {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentTargets): any => ({
-    ...obj,
-  });
 }
 
 export enum RegionConcurrencyType {
@@ -2316,15 +2019,6 @@ export interface StackSetOperationPreferences {
    *          <p>By default, <code>1</code> is specified.</p>
    */
   MaxConcurrentPercentage?: number;
-}
-
-export namespace StackSetOperationPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackSetOperationPreferences): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateStackInstancesInput {
@@ -2428,29 +2122,11 @@ export interface CreateStackInstancesInput {
   CallAs?: CallAs | string;
 }
 
-export namespace CreateStackInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStackInstancesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStackInstancesOutput {
   /**
    * <p>The unique identifier for this stack set operation.</p>
    */
   OperationId?: string;
-}
-
-export namespace CreateStackInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStackInstancesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2600,15 +2276,6 @@ export interface ManagedExecution {
    *          order.</p>
    */
   Active?: boolean;
-}
-
-export namespace ManagedExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedExecution): any => ({
-    ...obj,
-  });
 }
 
 export type PermissionModels = "SELF_MANAGED" | "SERVICE_MANAGED";
@@ -2853,29 +2520,11 @@ export interface CreateStackSetInput {
   ManagedExecution?: ManagedExecution;
 }
 
-export namespace CreateStackSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStackSetInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateStackSetOutput {
   /**
    * <p>The ID of the stack set that you're creating.</p>
    */
   StackSetId?: string;
-}
-
-export namespace CreateStackSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateStackSetOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2923,25 +2572,7 @@ export interface DeactivateTypeInput {
   Arn?: string;
 }
 
-export namespace DeactivateTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivateTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeactivateTypeOutput {}
-
-export namespace DeactivateTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivateTypeOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The input for the <a>DeleteChangeSet</a> action.</p>
@@ -2959,28 +2590,10 @@ export interface DeleteChangeSetInput {
   StackName?: string;
 }
 
-export namespace DeleteChangeSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChangeSetInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the <a>DeleteChangeSet</a> action.</p>
  */
 export interface DeleteChangeSetOutput {}
-
-export namespace DeleteChangeSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChangeSetOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified change set can't be used to update the stack. For example, the change set
@@ -3050,15 +2663,6 @@ export interface DeleteStackInput {
    *             <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</p>
    */
   ClientRequestToken?: string;
-}
-
-export namespace DeleteStackInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStackInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteStackInstancesInput {
@@ -3135,29 +2739,11 @@ export interface DeleteStackInstancesInput {
   CallAs?: CallAs | string;
 }
 
-export namespace DeleteStackInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStackInstancesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStackInstancesOutput {
   /**
    * <p>The unique identifier for this stack set operation.</p>
    */
   OperationId?: string;
-}
-
-export namespace DeleteStackInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStackInstancesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteStackSetInput {
@@ -3189,25 +2775,7 @@ export interface DeleteStackSetInput {
   CallAs?: CallAs | string;
 }
 
-export namespace DeleteStackSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStackSetInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStackSetOutput {}
-
-export namespace DeleteStackSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStackSetOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>You can't yet delete this stack set, because it still contains one or more stack
@@ -3264,25 +2832,7 @@ export interface DeregisterTypeInput {
   VersionId?: string;
 }
 
-export namespace DeregisterTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterTypeOutput {}
-
-export namespace DeregisterTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterTypeOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The input for the <a>DescribeAccountLimits</a> action.</p>
@@ -3292,15 +2842,6 @@ export interface DescribeAccountLimitsInput {
    * <p>A string that identifies the next page of limits that you want to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAccountLimitsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3318,15 +2859,6 @@ export interface DescribeAccountLimitsOutput {
    *          no additional page exists, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAccountLimitsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3350,15 +2882,6 @@ export interface DescribeChangeSetInput {
    *          identifies the next page of information that you want to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeChangeSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChangeSetInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3476,15 +2999,6 @@ export interface DescribeChangeSetOutput {
   RootChangeSetId?: string;
 }
 
-export namespace DescribeChangeSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChangeSetOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeChangeSetHooksInput {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
@@ -3509,15 +3023,6 @@ export interface DescribeChangeSetHooksInput {
    *             <code>LogicalResourceId</code>.</p>
    */
   LogicalResourceId?: string;
-}
-
-export namespace DescribeChangeSetHooksInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChangeSetHooksInput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeChangeSetHooksOutput {
@@ -3557,15 +3062,6 @@ export interface DescribeChangeSetHooksOutput {
   StackName?: string;
 }
 
-export namespace DescribeChangeSetHooksOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChangeSetHooksOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePublisherInput {
   /**
    * <p>The ID of the extension publisher.</p>
@@ -3574,15 +3070,6 @@ export interface DescribePublisherInput {
    *          account.</p>
    */
   PublisherId?: string;
-}
-
-export namespace DescribePublisherInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePublisherInput): any => ({
-    ...obj,
-  });
 }
 
 export enum IdentityProvider {
@@ -3620,15 +3107,6 @@ export interface DescribePublisherOutput {
   PublisherProfile?: string;
 }
 
-export namespace DescribePublisherOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePublisherOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStackDriftDetectionStatusInput {
   /**
    * <p>The ID of the drift detection results of this operation.</p>
@@ -3637,15 +3115,6 @@ export interface DescribeStackDriftDetectionStatusInput {
    *          long, may vary.</p>
    */
   StackDriftDetectionId: string | undefined;
-}
-
-export namespace DescribeStackDriftDetectionStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackDriftDetectionStatusInput): any => ({
-    ...obj,
-  });
 }
 
 export enum StackDriftDetectionStatus {
@@ -3748,15 +3217,6 @@ export interface DescribeStackDriftDetectionStatusOutput {
   Timestamp: Date | undefined;
 }
 
-export namespace DescribeStackDriftDetectionStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackDriftDetectionStatusOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for <a>DescribeStackEvents</a> action.</p>
  */
@@ -3781,15 +3241,6 @@ export interface DescribeStackEventsInput {
    * <p>A string that identifies the next page of events that you want to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeStackEventsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackEventsInput): any => ({
-    ...obj,
-  });
 }
 
 export enum HookStatus {
@@ -3931,15 +3382,6 @@ export interface StackEvent {
   HookFailureMode?: HookFailureMode | string;
 }
 
-export namespace StackEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for a <a>DescribeStackEvents</a> action.</p>
  */
@@ -3954,15 +3396,6 @@ export interface DescribeStackEventsOutput {
    *          no additional page exists, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeStackEventsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackEventsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeStackInstanceInput {
@@ -4003,15 +3436,6 @@ export interface DescribeStackInstanceInput {
    *          </ul>
    */
   CallAs?: CallAs | string;
-}
-
-export namespace DescribeStackInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackInstanceInput): any => ({
-    ...obj,
-  });
 }
 
 export type StackInstanceDetailedStatus = "CANCELLED" | "FAILED" | "INOPERABLE" | "PENDING" | "RUNNING" | "SUCCEEDED";
@@ -4061,15 +3485,6 @@ export interface StackInstanceComprehensiveStatus {
    *          </ul>
    */
   DetailedStatus?: StackInstanceDetailedStatus | string;
-}
-
-export namespace StackInstanceComprehensiveStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackInstanceComprehensiveStatus): any => ({
-    ...obj,
-  });
 }
 
 export type StackInstanceStatus = "CURRENT" | "INOPERABLE" | "OUTDATED";
@@ -4203,29 +3618,11 @@ export interface StackInstance {
   LastDriftCheckTimestamp?: Date;
 }
 
-export namespace StackInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackInstance): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStackInstanceOutput {
   /**
    * <p>The stack instance that matches the specified request parameters.</p>
    */
   StackInstance?: StackInstance;
-}
-
-export namespace DescribeStackInstanceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackInstanceOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4276,15 +3673,6 @@ export interface DescribeStackResourceInput {
   LogicalResourceId: string | undefined;
 }
 
-export namespace DescribeStackResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export enum StackResourceDriftStatus {
   DELETED = "DELETED",
   IN_SYNC = "IN_SYNC",
@@ -4332,15 +3720,6 @@ export interface StackResourceDriftInformation {
    *          configuration.</p>
    */
   LastCheckTimestamp?: Date;
-}
-
-export namespace StackResourceDriftInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackResourceDriftInformation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4415,15 +3794,6 @@ export interface StackResourceDetail {
   ModuleInfo?: ModuleInfo;
 }
 
-export namespace StackResourceDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackResourceDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for a <a>DescribeStackResource</a> action.</p>
  */
@@ -4433,15 +3803,6 @@ export interface DescribeStackResourceOutput {
    *          resource in the specified stack.</p>
    */
   StackResourceDetail?: StackResourceDetail;
-}
-
-export namespace DescribeStackResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeStackResourceDriftsInput {
@@ -4491,15 +3852,6 @@ export interface DescribeStackResourceDriftsInput {
   MaxResults?: number;
 }
 
-export namespace DescribeStackResourceDriftsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackResourceDriftsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Context information that enables CloudFormation to uniquely identify a resource. CloudFormation uses
  *          context key-value pairs in cases where a resource's logical and physical IDs aren't enough
@@ -4516,15 +3868,6 @@ export interface PhysicalResourceIdContextKeyValuePair {
    * <p>The resource context value.</p>
    */
   Value: string | undefined;
-}
-
-export namespace PhysicalResourceIdContextKeyValuePair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhysicalResourceIdContextKeyValuePair): any => ({
-    ...obj,
-  });
 }
 
 export enum DifferenceType {
@@ -4579,15 +3922,6 @@ export interface PropertyDifference {
    *          </ul>
    */
   DifferenceType: DifferenceType | string | undefined;
-}
-
-export namespace PropertyDifference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PropertyDifference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4696,15 +4030,6 @@ export interface StackResourceDrift {
   ModuleInfo?: ModuleInfo;
 }
 
-export namespace StackResourceDrift {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackResourceDrift): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStackResourceDriftsOutput {
   /**
    * <p>Drift information for the resources that have been checked for drift in the specified
@@ -4725,15 +4050,6 @@ export interface DescribeStackResourceDriftsOutput {
    *             <code>NextToken</code> is set to <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeStackResourceDriftsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackResourceDriftsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4776,15 +4092,6 @@ export interface DescribeStackResourcesInput {
    *          <p>Default: There is no default value.</p>
    */
   PhysicalResourceId?: string;
-}
-
-export namespace DescribeStackResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackResourcesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4853,15 +4160,6 @@ export interface StackResource {
   ModuleInfo?: ModuleInfo;
 }
 
-export namespace StackResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for a <a>DescribeStackResources</a> action.</p>
  */
@@ -4870,15 +4168,6 @@ export interface DescribeStackResourcesOutput {
    * <p>A list of <code>StackResource</code> structures.</p>
    */
   StackResources?: StackResource[];
-}
-
-export namespace DescribeStackResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackResourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4905,15 +4194,6 @@ export interface DescribeStacksInput {
    * <p>A string that identifies the next page of stacks that you want to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeStacksInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStacksInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4958,15 +4238,6 @@ export interface StackDriftInformation {
   LastCheckTimestamp?: Date;
 }
 
-export namespace StackDriftInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackDriftInformation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Output data type.</p>
  */
@@ -4990,15 +4261,6 @@ export interface Output {
    * <p>The name of the export associated with the output.</p>
    */
   ExportName?: string;
-}
-
-export namespace Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Output): any => ({
-    ...obj,
-  });
 }
 
 export enum StackStatus {
@@ -5169,15 +4431,6 @@ export interface Stack {
   DriftInformation?: StackDriftInformation;
 }
 
-export namespace Stack {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Stack): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for a <a>DescribeStacks</a> action.</p>
  */
@@ -5192,15 +4445,6 @@ export interface DescribeStacksOutput {
    *          no additional page exists, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeStacksOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStacksOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeStackSetInput {
@@ -5229,15 +4473,6 @@ export interface DescribeStackSetInput {
    *          </ul>
    */
   CallAs?: CallAs | string;
-}
-
-export namespace DescribeStackSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackSetInput): any => ({
-    ...obj,
-  });
 }
 
 export enum StackSetDriftDetectionStatus {
@@ -5374,15 +4609,6 @@ export interface StackSetDriftDetectionDetails {
   FailedStackInstancesCount?: number;
 }
 
-export namespace StackSetDriftDetectionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackSetDriftDetectionDetails): any => ({
-    ...obj,
-  });
-}
-
 export type StackSetStatus = "ACTIVE" | "DELETED";
 
 /**
@@ -5508,29 +4734,11 @@ export interface StackSet {
   ManagedExecution?: ManagedExecution;
 }
 
-export namespace StackSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackSet): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStackSetOutput {
   /**
    * <p>The specified stack set.</p>
    */
   StackSet?: StackSet;
-}
-
-export namespace DescribeStackSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackSetOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeStackSetOperationInput {
@@ -5564,15 +4772,6 @@ export interface DescribeStackSetOperationInput {
    *          </ul>
    */
   CallAs?: CallAs | string;
-}
-
-export namespace DescribeStackSetOperationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackSetOperationInput): any => ({
-    ...obj,
-  });
 }
 
 export type StackSetOperationAction = "CREATE" | "DELETE" | "DETECT_DRIFT" | "UPDATE";
@@ -5710,29 +4909,11 @@ export interface StackSetOperation {
   StatusReason?: string;
 }
 
-export namespace StackSetOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackSetOperation): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStackSetOperationOutput {
   /**
    * <p>The specified stack set operation.</p>
    */
   StackSetOperation?: StackSetOperation;
-}
-
-export namespace DescribeStackSetOperationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStackSetOperationOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5800,15 +4981,6 @@ export interface DescribeTypeInput {
   PublicVersionNumber?: string;
 }
 
-export namespace DescribeTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export type DeprecatedStatus = "DEPRECATED" | "LIVE";
 
 export type ProvisioningType = "FULLY_MUTABLE" | "IMMUTABLE" | "NON_PROVISIONABLE";
@@ -5848,15 +5020,6 @@ export interface RequiredActivatedType {
    * <p>A list of the major versions of the extension type that the macro supports.</p>
    */
   SupportedMajorVersions?: number[];
-}
-
-export namespace RequiredActivatedType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequiredActivatedType): any => ({
-    ...obj,
-  });
 }
 
 export enum TypeTestsStatus {
@@ -6162,15 +5325,6 @@ export interface DescribeTypeOutput {
   AutoUpdate?: boolean;
 }
 
-export namespace DescribeTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTypeOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTypeRegistrationInput {
   /**
    * <p>The identifier for this registration request.</p>
@@ -6180,15 +5334,6 @@ export interface DescribeTypeRegistrationInput {
    *             </code>.</p>
    */
   RegistrationToken: string | undefined;
-}
-
-export namespace DescribeTypeRegistrationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTypeRegistrationInput): any => ({
-    ...obj,
-  });
 }
 
 export type RegistrationStatus = "COMPLETE" | "FAILED" | "IN_PROGRESS";
@@ -6220,15 +5365,6 @@ export interface DescribeTypeRegistrationOutput {
   TypeVersionArn?: string;
 }
 
-export namespace DescribeTypeRegistrationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTypeRegistrationOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectStackDriftInput {
   /**
    * <p>The name of the stack for which you want to detect drift.</p>
@@ -6241,15 +5377,6 @@ export interface DetectStackDriftInput {
   LogicalResourceIds?: string[];
 }
 
-export namespace DetectStackDriftInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectStackDriftInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectStackDriftOutput {
   /**
    * <p>The ID of the drift detection results of this operation.</p>
@@ -6258,15 +5385,6 @@ export interface DetectStackDriftOutput {
    *          long, may vary.</p>
    */
   StackDriftDetectionId: string | undefined;
-}
-
-export namespace DetectStackDriftOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectStackDriftOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DetectStackResourceDriftInput {
@@ -6281,15 +5399,6 @@ export interface DetectStackResourceDriftInput {
   LogicalResourceId: string | undefined;
 }
 
-export namespace DetectStackResourceDriftInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectStackResourceDriftInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectStackResourceDriftOutput {
   /**
    * <p>Information about whether the resource's actual configuration has drifted from its
@@ -6297,15 +5406,6 @@ export interface DetectStackResourceDriftOutput {
    *          differences detected.</p>
    */
   StackResourceDrift: StackResourceDrift | undefined;
-}
-
-export namespace DetectStackResourceDriftOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectStackResourceDriftOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DetectStackSetDriftInput {
@@ -6350,15 +5450,6 @@ export interface DetectStackSetDriftInput {
   CallAs?: CallAs | string;
 }
 
-export namespace DetectStackSetDriftInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectStackSetDriftInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DetectStackSetDriftOutput {
   /**
    * <p>The ID of the drift detection stack set operation.</p>
@@ -6367,15 +5458,6 @@ export interface DetectStackSetDriftOutput {
    *             </code> to monitor the progress of the drift detection operation.</p>
    */
   OperationId?: string;
-}
-
-export namespace DetectStackSetDriftOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetectStackSetDriftOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6407,15 +5489,6 @@ export interface EstimateTemplateCostInput {
   Parameters?: Parameter[];
 }
 
-export namespace EstimateTemplateCostInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EstimateTemplateCostInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for a <a>EstimateTemplateCost</a> action.</p>
  */
@@ -6425,15 +5498,6 @@ export interface EstimateTemplateCostOutput {
    *          the resources required to run the template.</p>
    */
   Url?: string;
-}
-
-export namespace EstimateTemplateCostOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EstimateTemplateCostOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6469,28 +5533,10 @@ export interface ExecuteChangeSetInput {
   DisableRollback?: boolean;
 }
 
-export namespace ExecuteChangeSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteChangeSetInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the <a>ExecuteChangeSet</a> action.</p>
  */
 export interface ExecuteChangeSetOutput {}
-
-export namespace ExecuteChangeSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecuteChangeSetOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The input for the <a>GetStackPolicy</a> action.</p>
@@ -6503,15 +5549,6 @@ export interface GetStackPolicyInput {
   StackName: string | undefined;
 }
 
-export namespace GetStackPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStackPolicyInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the <a>GetStackPolicy</a> action.</p>
  */
@@ -6521,15 +5558,6 @@ export interface GetStackPolicyOutput {
    *             to Stack Resources</a> in the CloudFormation User Guide.)</p>
    */
   StackPolicyBody?: string;
-}
-
-export namespace GetStackPolicyOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStackPolicyOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum TemplateStage {
@@ -6575,15 +5603,6 @@ export interface GetTemplateInput {
   TemplateStage?: TemplateStage | string;
 }
 
-export namespace GetTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for <a>GetTemplate</a> action.</p>
  */
@@ -6603,15 +5622,6 @@ export interface GetTemplateOutput {
    *          available.</p>
    */
   StagesAvailable?: (TemplateStage | string)[];
-}
-
-export namespace GetTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6678,15 +5688,6 @@ export interface GetTemplateSummaryInput {
   CallAs?: CallAs | string;
 }
 
-export namespace GetTemplateSummaryInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateSummaryInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A set of criteria that CloudFormation uses to validate parameter values. Although
  *          other constraints might be defined in the stack template, CloudFormation returns only
@@ -6697,15 +5698,6 @@ export interface ParameterConstraints {
    * <p>A list of values that are permitted for a parameter.</p>
    */
   AllowedValues?: string[];
-}
-
-export namespace ParameterConstraints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterConstraints): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6744,15 +5736,6 @@ export interface ParameterDeclaration {
   ParameterConstraints?: ParameterConstraints;
 }
 
-export namespace ParameterDeclaration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterDeclaration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the target resources of a specific type in your import template (for example,
  *          all <code>AWS::S3::Bucket</code> resources) and the properties you can provide during the
@@ -6777,15 +5760,6 @@ export interface ResourceIdentifierSummary {
    *             <code>AWS::S3::Bucket</code> resources.</p>
    */
   ResourceIdentifiers?: string[];
-}
-
-export namespace ResourceIdentifierSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceIdentifierSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6852,15 +5826,6 @@ export interface GetTemplateSummaryOutput {
   ResourceIdentifierSummaries?: ResourceIdentifierSummary[];
 }
 
-export namespace GetTemplateSummaryOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemplateSummaryOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportStacksToStackSetInput {
   /**
    * <p>The name of the stack set. The name must be unique in the Region where you create your
@@ -6915,29 +5880,11 @@ export interface ImportStacksToStackSetInput {
   CallAs?: CallAs | string;
 }
 
-export namespace ImportStacksToStackSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportStacksToStackSetInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportStacksToStackSetOutput {
   /**
    * <p>The unique identifier for the stack set operation.</p>
    */
   OperationId?: string;
-}
-
-export namespace ImportStacksToStackSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportStacksToStackSetOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6979,15 +5926,6 @@ export interface ListChangeSetsInput {
   NextToken?: string;
 }
 
-export namespace ListChangeSetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChangeSetsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for the <a>ListChangeSets</a> action.</p>
  */
@@ -7005,30 +5943,12 @@ export interface ListChangeSetsOutput {
   NextToken?: string;
 }
 
-export namespace ListChangeSetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChangeSetsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExportsInput {
   /**
    * <p>A string (provided by the <a>ListExports</a> response output) that identifies
    *          the next page of exported output values that you asked to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListExportsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExportsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7056,15 +5976,6 @@ export interface Export {
   Value?: string;
 }
 
-export namespace Export {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Export): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExportsOutput {
   /**
    * <p>The output for the <a>ListExports</a> action.</p>
@@ -7076,15 +5987,6 @@ export interface ListExportsOutput {
    *          of exports. If there is no additional page, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListExportsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExportsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListImportsInput {
@@ -7101,15 +6003,6 @@ export interface ListImportsInput {
   NextToken?: string;
 }
 
-export namespace ListImportsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImportsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListImportsOutput {
   /**
    * <p>A list of stack names that are importing the specified exported output value.</p>
@@ -7121,15 +6014,6 @@ export interface ListImportsOutput {
    *          value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListImportsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImportsOutput): any => ({
-    ...obj,
-  });
 }
 
 export type StackInstanceFilterName = "DETAILED_STATUS";
@@ -7147,15 +6031,6 @@ export interface StackInstanceFilter {
    * <p>The status to filter by.</p>
    */
   Values?: string;
-}
-
-export namespace StackInstanceFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackInstanceFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStackInstancesInput {
@@ -7217,15 +6092,6 @@ export interface ListStackInstancesInput {
    *          </ul>
    */
   CallAs?: CallAs | string;
-}
-
-export namespace ListStackInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackInstancesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7345,15 +6211,6 @@ export interface StackInstanceSummary {
   LastDriftCheckTimestamp?: Date;
 }
 
-export namespace StackInstanceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackInstanceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStackInstancesOutput {
   /**
    * <p>A list of <code>StackInstanceSummary</code> structures that contain information about
@@ -7368,15 +6225,6 @@ export interface ListStackInstancesOutput {
    *          request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListStackInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackInstancesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7404,15 +6252,6 @@ export interface ListStackResourcesInput {
    *          retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListStackResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackResourcesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7457,15 +6296,6 @@ export interface StackResourceDriftInformationSummary {
    *          configuration.</p>
    */
   LastCheckTimestamp?: Date;
-}
-
-export namespace StackResourceDriftInformationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackResourceDriftInformationSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7518,15 +6348,6 @@ export interface StackResourceSummary {
   ModuleInfo?: ModuleInfo;
 }
 
-export namespace StackResourceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackResourceSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for a <a>ListStackResources</a> action.</p>
  */
@@ -7541,15 +6362,6 @@ export interface ListStackResourcesOutput {
    *          If no additional page exists, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListStackResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackResourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7567,15 +6379,6 @@ export interface ListStacksInput {
    *             <code>StackStatus</code> parameter of the <a>Stack</a> data type.</p>
    */
   StackStatusFilter?: (StackStatus | string)[];
-}
-
-export namespace ListStacksInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStacksInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7618,15 +6421,6 @@ export interface StackDriftInformationSummary {
    *          its individual resources that support drift detection.</p>
    */
   LastCheckTimestamp?: Date;
-}
-
-export namespace StackDriftInformationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackDriftInformationSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7698,15 +6492,6 @@ export interface StackSummary {
   DriftInformation?: StackDriftInformationSummary;
 }
 
-export namespace StackSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for <a>ListStacks</a> action.</p>
  */
@@ -7722,15 +6507,6 @@ export interface ListStacksOutput {
    *          no additional page exists, this value is null.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListStacksOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStacksOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStackSetOperationResultsInput {
@@ -7783,15 +6559,6 @@ export interface ListStackSetOperationResultsInput {
    *          </ul>
    */
   CallAs?: CallAs | string;
-}
-
-export namespace ListStackSetOperationResultsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackSetOperationResultsInput): any => ({
-    ...obj,
-  });
 }
 
 export type StackSetOperationResultStatus = "CANCELLED" | "FAILED" | "PENDING" | "RUNNING" | "SUCCEEDED";
@@ -7866,15 +6633,6 @@ export interface StackSetOperationResultSummary {
   OrganizationalUnitId?: string;
 }
 
-export namespace StackSetOperationResultSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackSetOperationResultSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStackSetOperationResultsOutput {
   /**
    * <p>A list of <code>StackSetOperationResultSummary</code> structures that contain
@@ -7889,15 +6647,6 @@ export interface ListStackSetOperationResultsOutput {
    *          remaining results, <code>NextToken</code> is set to <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListStackSetOperationResultsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackSetOperationResultsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStackSetOperationsInput {
@@ -7945,15 +6694,6 @@ export interface ListStackSetOperationsInput {
    *          </ul>
    */
   CallAs?: CallAs | string;
-}
-
-export namespace ListStackSetOperationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackSetOperationsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8036,15 +6776,6 @@ export interface StackSetOperationSummary {
   StatusReason?: string;
 }
 
-export namespace StackSetOperationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackSetOperationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStackSetOperationsOutput {
   /**
    * <p>A list of <code>StackSetOperationSummary</code> structures that contain summary
@@ -8059,15 +6790,6 @@ export interface ListStackSetOperationsOutput {
    *          remaining results, <code>NextToken</code> is set to <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListStackSetOperationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackSetOperationsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListStackSetsInput {
@@ -8113,15 +6835,6 @@ export interface ListStackSetsInput {
    *          </ul>
    */
   CallAs?: CallAs | string;
-}
-
-export namespace ListStackSetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackSetsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8218,15 +6931,6 @@ export interface StackSetSummary {
   ManagedExecution?: ManagedExecution;
 }
 
-export namespace StackSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStackSetsOutput {
   /**
    * <p>A list of <code>StackSetSummary</code> structures that contain information about the
@@ -8241,15 +6945,6 @@ export interface ListStackSetsOutput {
    *          the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListStackSetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStackSetsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTypeRegistrationsInput {
@@ -8298,15 +6993,6 @@ export interface ListTypeRegistrationsInput {
   NextToken?: string;
 }
 
-export namespace ListTypeRegistrationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypeRegistrationsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTypeRegistrationsOutput {
   /**
    * <p>A list of extension registration tokens.</p>
@@ -8324,15 +7010,6 @@ export interface ListTypeRegistrationsOutput {
    *          results, <code>NextToken</code> is set to <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTypeRegistrationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypeRegistrationsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8385,15 +7062,6 @@ export interface TypeFilters {
    * <p>A prefix to use as a filter for results.</p>
    */
   TypeNamePrefix?: string;
-}
-
-export namespace TypeFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypeFilters): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTypesInput {
@@ -8502,15 +7170,6 @@ export interface ListTypesInput {
    *          response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTypesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8628,15 +7287,6 @@ export interface TypeSummary {
   IsActivated?: boolean;
 }
 
-export namespace TypeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypeSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTypesOutput {
   /**
    * <p>A list of <code>TypeSummary</code> structures that contain information about the
@@ -8651,15 +7301,6 @@ export interface ListTypesOutput {
    *          results, <code>NextToken</code> is set to <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTypesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTypeVersionsInput {
@@ -8729,15 +7370,6 @@ export interface ListTypeVersionsInput {
   PublisherId?: string;
 }
 
-export namespace ListTypeVersionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypeVersionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains summary information about a specific version of a CloudFormation
  *          extension.</p>
@@ -8795,15 +7427,6 @@ export interface TypeVersionSummary {
   PublicVersionNumber?: string;
 }
 
-export namespace TypeVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypeVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTypeVersionsOutput {
   /**
    * <p>A list of <code>TypeVersionSummary</code> structures that contain information about the
@@ -8818,15 +7441,6 @@ export interface ListTypeVersionsOutput {
    *          results, <code>NextToken</code> is set to <code>null</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTypeVersionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTypeVersionsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface PublishTypeInput {
@@ -8868,29 +7482,11 @@ export interface PublishTypeInput {
   PublicVersionNumber?: string;
 }
 
-export namespace PublishTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PublishTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) assigned to the public extension upon publication.</p>
    */
   PublicTypeArn?: string;
-}
-
-export namespace PublishTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishTypeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9002,25 +7598,7 @@ export interface RecordHandlerProgressInput {
   ClientRequestToken?: string;
 }
 
-export namespace RecordHandlerProgressInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordHandlerProgressInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RecordHandlerProgressOutput {}
-
-export namespace RecordHandlerProgressOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecordHandlerProgressOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface RegisterPublisherInput {
   /**
@@ -9041,30 +7619,12 @@ export interface RegisterPublisherInput {
   ConnectionArn?: string;
 }
 
-export namespace RegisterPublisherInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterPublisherInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterPublisherOutput {
   /**
    * <p>The ID assigned this account by CloudFormation for publishing
    *          extensions.</p>
    */
   PublisherId?: string;
-}
-
-export namespace RegisterPublisherOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterPublisherOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterTypeInput {
@@ -9179,15 +7739,6 @@ export interface RegisterTypeInput {
   ClientRequestToken?: string;
 }
 
-export namespace RegisterTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterTypeOutput {
   /**
    * <p>The identifier for this registration request.</p>
@@ -9197,15 +7748,6 @@ export interface RegisterTypeOutput {
    *          registration.</p>
    */
   RegistrationToken?: string;
-}
-
-export namespace RegisterTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterTypeOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface RollbackStackInput {
@@ -9226,29 +7768,11 @@ export interface RollbackStackInput {
   ClientRequestToken?: string;
 }
 
-export namespace RollbackStackInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackStackInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RollbackStackOutput {
   /**
    * <p>Unique identifier of the stack.</p>
    */
   StackId?: string;
-}
-
-export namespace RollbackStackOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackStackOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9275,15 +7799,6 @@ export interface SetStackPolicyInput {
    *             <code>StackPolicyURL</code> parameter, but not both.</p>
    */
   StackPolicyURL?: string;
-}
-
-export namespace SetStackPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetStackPolicyInput): any => ({
-    ...obj,
-  });
 }
 
 export interface SetTypeConfigurationInput {
@@ -9326,15 +7841,6 @@ export interface SetTypeConfigurationInput {
   Type?: ThirdPartyType | string;
 }
 
-export namespace SetTypeConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTypeConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SetTypeConfigurationOutput {
   /**
    * <p>The Amazon Resource Name (ARN) for the configuration data, in this account and
@@ -9343,15 +7849,6 @@ export interface SetTypeConfigurationOutput {
    *             <code>TypeName</code>.</p>
    */
   ConfigurationArn?: string;
-}
-
-export namespace SetTypeConfigurationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTypeConfigurationOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface SetTypeDefaultVersionInput {
@@ -9385,25 +7882,7 @@ export interface SetTypeDefaultVersionInput {
   VersionId?: string;
 }
 
-export namespace SetTypeDefaultVersionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTypeDefaultVersionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SetTypeDefaultVersionOutput {}
-
-export namespace SetTypeDefaultVersionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTypeDefaultVersionOutput): any => ({
-    ...obj,
-  });
-}
 
 export enum ResourceSignalStatus {
   FAILURE = "FAILURE",
@@ -9440,15 +7919,6 @@ export interface SignalResourceInput {
   Status: ResourceSignalStatus | string | undefined;
 }
 
-export namespace SignalResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SignalResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StopStackSetOperationInput {
   /**
    * <p>The name or unique ID of the stack set that you want to stop the operation for.</p>
@@ -9482,25 +7952,7 @@ export interface StopStackSetOperationInput {
   CallAs?: CallAs | string;
 }
 
-export namespace StopStackSetOperationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopStackSetOperationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface StopStackSetOperationOutput {}
-
-export namespace StopStackSetOperationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopStackSetOperationOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface TestTypeInput {
   /**
@@ -9560,29 +8012,11 @@ export interface TestTypeInput {
   LogDeliveryBucket?: string;
 }
 
-export namespace TestTypeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestTypeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TestTypeOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
    */
   TypeVersionArn?: string;
-}
-
-export namespace TestTypeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestTypeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9850,15 +8284,6 @@ export interface UpdateStackInput {
   ClientRequestToken?: string;
 }
 
-export namespace UpdateStackInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStackInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The output for an <a>UpdateStack</a> action.</p>
  */
@@ -9867,15 +8292,6 @@ export interface UpdateStackOutput {
    * <p>Unique identifier of the stack.</p>
    */
   StackId?: string;
-}
-
-export namespace UpdateStackOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStackOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateStackInstancesInput {
@@ -9985,29 +8401,11 @@ export interface UpdateStackInstancesInput {
   CallAs?: CallAs | string;
 }
 
-export namespace UpdateStackInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStackInstancesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateStackInstancesOutput {
   /**
    * <p>The unique identifier for this stack set operation.</p>
    */
   OperationId?: string;
-}
-
-export namespace UpdateStackInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStackInstancesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateStackSetInput {
@@ -10334,29 +8732,11 @@ export interface UpdateStackSetInput {
   ManagedExecution?: ManagedExecution;
 }
 
-export namespace UpdateStackSetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStackSetInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateStackSetOutput {
   /**
    * <p>The unique ID for this stack set operation.</p>
    */
   OperationId?: string;
-}
-
-export namespace UpdateStackSetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateStackSetOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTerminationProtectionInput {
@@ -10372,29 +8752,11 @@ export interface UpdateTerminationProtectionInput {
   StackName: string | undefined;
 }
 
-export namespace UpdateTerminationProtectionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTerminationProtectionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTerminationProtectionOutput {
   /**
    * <p>The unique ID of the stack.</p>
    */
   StackId?: string;
-}
-
-export namespace UpdateTerminationProtectionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTerminationProtectionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10421,15 +8783,6 @@ export interface ValidateTemplateInput {
   TemplateURL?: string;
 }
 
-export namespace ValidateTemplateInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidateTemplateInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The TemplateParameter data type.</p>
  */
@@ -10454,15 +8807,6 @@ export interface TemplateParameter {
    * <p>User defined description associated with the parameter.</p>
    */
   Description?: string;
-}
-
-export namespace TemplateParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TemplateParameter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10502,11 +8846,1311 @@ export interface ValidateTemplateOutput {
   DeclaredTransforms?: string[];
 }
 
-export namespace ValidateTemplateOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidateTemplateOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountGateResultFilterSensitiveLog = (obj: AccountGateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountLimitFilterSensitiveLog = (obj: AccountLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigFilterSensitiveLog = (obj: LoggingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateTypeInputFilterSensitiveLog = (obj: ActivateTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivateTypeOutputFilterSensitiveLog = (obj: ActivateTypeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoDeploymentFilterSensitiveLog = (obj: AutoDeployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TypeConfigurationIdentifierFilterSensitiveLog = (obj: TypeConfigurationIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDescribeTypeConfigurationsInputFilterSensitiveLog = (
+  obj: BatchDescribeTypeConfigurationsInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDescribeTypeConfigurationsErrorFilterSensitiveLog = (
+  obj: BatchDescribeTypeConfigurationsError
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TypeConfigurationDetailsFilterSensitiveLog = (obj: TypeConfigurationDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDescribeTypeConfigurationsOutputFilterSensitiveLog = (
+  obj: BatchDescribeTypeConfigurationsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelUpdateStackInputFilterSensitiveLog = (obj: CancelUpdateStackInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceTargetDefinitionFilterSensitiveLog = (obj: ResourceTargetDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceChangeDetailFilterSensitiveLog = (obj: ResourceChangeDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModuleInfoFilterSensitiveLog = (obj: ModuleInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceChangeFilterSensitiveLog = (obj: ResourceChange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeFilterSensitiveLog = (obj: Change): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeSetHookResourceTargetDetailsFilterSensitiveLog = (obj: ChangeSetHookResourceTargetDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeSetHookTargetDetailsFilterSensitiveLog = (obj: ChangeSetHookTargetDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeSetHookFilterSensitiveLog = (obj: ChangeSetHook): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeSetSummaryFilterSensitiveLog = (obj: ChangeSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinueUpdateRollbackInputFilterSensitiveLog = (obj: ContinueUpdateRollbackInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinueUpdateRollbackOutputFilterSensitiveLog = (obj: ContinueUpdateRollbackOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceToImportFilterSensitiveLog = (obj: ResourceToImport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RollbackTriggerFilterSensitiveLog = (obj: RollbackTrigger): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RollbackConfigurationFilterSensitiveLog = (obj: RollbackConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChangeSetInputFilterSensitiveLog = (obj: CreateChangeSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChangeSetOutputFilterSensitiveLog = (obj: CreateChangeSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStackInputFilterSensitiveLog = (obj: CreateStackInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStackOutputFilterSensitiveLog = (obj: CreateStackOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentTargetsFilterSensitiveLog = (obj: DeploymentTargets): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackSetOperationPreferencesFilterSensitiveLog = (obj: StackSetOperationPreferences): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStackInstancesInputFilterSensitiveLog = (obj: CreateStackInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStackInstancesOutputFilterSensitiveLog = (obj: CreateStackInstancesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManagedExecutionFilterSensitiveLog = (obj: ManagedExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStackSetInputFilterSensitiveLog = (obj: CreateStackSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStackSetOutputFilterSensitiveLog = (obj: CreateStackSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivateTypeInputFilterSensitiveLog = (obj: DeactivateTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivateTypeOutputFilterSensitiveLog = (obj: DeactivateTypeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChangeSetInputFilterSensitiveLog = (obj: DeleteChangeSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChangeSetOutputFilterSensitiveLog = (obj: DeleteChangeSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStackInputFilterSensitiveLog = (obj: DeleteStackInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStackInstancesInputFilterSensitiveLog = (obj: DeleteStackInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStackInstancesOutputFilterSensitiveLog = (obj: DeleteStackInstancesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStackSetInputFilterSensitiveLog = (obj: DeleteStackSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStackSetOutputFilterSensitiveLog = (obj: DeleteStackSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterTypeInputFilterSensitiveLog = (obj: DeregisterTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterTypeOutputFilterSensitiveLog = (obj: DeregisterTypeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountLimitsInputFilterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountLimitsOutputFilterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChangeSetInputFilterSensitiveLog = (obj: DescribeChangeSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChangeSetOutputFilterSensitiveLog = (obj: DescribeChangeSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChangeSetHooksInputFilterSensitiveLog = (obj: DescribeChangeSetHooksInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChangeSetHooksOutputFilterSensitiveLog = (obj: DescribeChangeSetHooksOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePublisherInputFilterSensitiveLog = (obj: DescribePublisherInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePublisherOutputFilterSensitiveLog = (obj: DescribePublisherOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackDriftDetectionStatusInputFilterSensitiveLog = (
+  obj: DescribeStackDriftDetectionStatusInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackDriftDetectionStatusOutputFilterSensitiveLog = (
+  obj: DescribeStackDriftDetectionStatusOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackEventsInputFilterSensitiveLog = (obj: DescribeStackEventsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackEventFilterSensitiveLog = (obj: StackEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackEventsOutputFilterSensitiveLog = (obj: DescribeStackEventsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackInstanceInputFilterSensitiveLog = (obj: DescribeStackInstanceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackInstanceComprehensiveStatusFilterSensitiveLog = (obj: StackInstanceComprehensiveStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackInstanceFilterSensitiveLog = (obj: StackInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackInstanceOutputFilterSensitiveLog = (obj: DescribeStackInstanceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackResourceInputFilterSensitiveLog = (obj: DescribeStackResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackResourceDriftInformationFilterSensitiveLog = (obj: StackResourceDriftInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackResourceDetailFilterSensitiveLog = (obj: StackResourceDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackResourceOutputFilterSensitiveLog = (obj: DescribeStackResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackResourceDriftsInputFilterSensitiveLog = (obj: DescribeStackResourceDriftsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhysicalResourceIdContextKeyValuePairFilterSensitiveLog = (
+  obj: PhysicalResourceIdContextKeyValuePair
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyDifferenceFilterSensitiveLog = (obj: PropertyDifference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackResourceDriftFilterSensitiveLog = (obj: StackResourceDrift): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackResourceDriftsOutputFilterSensitiveLog = (obj: DescribeStackResourceDriftsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackResourcesInputFilterSensitiveLog = (obj: DescribeStackResourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackResourceFilterSensitiveLog = (obj: StackResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackResourcesOutputFilterSensitiveLog = (obj: DescribeStackResourcesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStacksInputFilterSensitiveLog = (obj: DescribeStacksInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackDriftInformationFilterSensitiveLog = (obj: StackDriftInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputFilterSensitiveLog = (obj: Output): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackFilterSensitiveLog = (obj: Stack): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStacksOutputFilterSensitiveLog = (obj: DescribeStacksOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackSetInputFilterSensitiveLog = (obj: DescribeStackSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackSetDriftDetectionDetailsFilterSensitiveLog = (obj: StackSetDriftDetectionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackSetFilterSensitiveLog = (obj: StackSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackSetOutputFilterSensitiveLog = (obj: DescribeStackSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackSetOperationInputFilterSensitiveLog = (obj: DescribeStackSetOperationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackSetOperationFilterSensitiveLog = (obj: StackSetOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStackSetOperationOutputFilterSensitiveLog = (obj: DescribeStackSetOperationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTypeInputFilterSensitiveLog = (obj: DescribeTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequiredActivatedTypeFilterSensitiveLog = (obj: RequiredActivatedType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTypeOutputFilterSensitiveLog = (obj: DescribeTypeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTypeRegistrationInputFilterSensitiveLog = (obj: DescribeTypeRegistrationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTypeRegistrationOutputFilterSensitiveLog = (obj: DescribeTypeRegistrationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectStackDriftInputFilterSensitiveLog = (obj: DetectStackDriftInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectStackDriftOutputFilterSensitiveLog = (obj: DetectStackDriftOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectStackResourceDriftInputFilterSensitiveLog = (obj: DetectStackResourceDriftInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectStackResourceDriftOutputFilterSensitiveLog = (obj: DetectStackResourceDriftOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectStackSetDriftInputFilterSensitiveLog = (obj: DetectStackSetDriftInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectStackSetDriftOutputFilterSensitiveLog = (obj: DetectStackSetDriftOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EstimateTemplateCostInputFilterSensitiveLog = (obj: EstimateTemplateCostInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EstimateTemplateCostOutputFilterSensitiveLog = (obj: EstimateTemplateCostOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteChangeSetInputFilterSensitiveLog = (obj: ExecuteChangeSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteChangeSetOutputFilterSensitiveLog = (obj: ExecuteChangeSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStackPolicyInputFilterSensitiveLog = (obj: GetStackPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStackPolicyOutputFilterSensitiveLog = (obj: GetStackPolicyOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemplateInputFilterSensitiveLog = (obj: GetTemplateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemplateOutputFilterSensitiveLog = (obj: GetTemplateOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemplateSummaryInputFilterSensitiveLog = (obj: GetTemplateSummaryInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterConstraintsFilterSensitiveLog = (obj: ParameterConstraints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterDeclarationFilterSensitiveLog = (obj: ParameterDeclaration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceIdentifierSummaryFilterSensitiveLog = (obj: ResourceIdentifierSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemplateSummaryOutputFilterSensitiveLog = (obj: GetTemplateSummaryOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportStacksToStackSetInputFilterSensitiveLog = (obj: ImportStacksToStackSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportStacksToStackSetOutputFilterSensitiveLog = (obj: ImportStacksToStackSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChangeSetsInputFilterSensitiveLog = (obj: ListChangeSetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChangeSetsOutputFilterSensitiveLog = (obj: ListChangeSetsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExportsInputFilterSensitiveLog = (obj: ListExportsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportFilterSensitiveLog = (obj: Export): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExportsOutputFilterSensitiveLog = (obj: ListExportsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsInputFilterSensitiveLog = (obj: ListImportsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsOutputFilterSensitiveLog = (obj: ListImportsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackInstanceFilterFilterSensitiveLog = (obj: StackInstanceFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackInstancesInputFilterSensitiveLog = (obj: ListStackInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackInstanceSummaryFilterSensitiveLog = (obj: StackInstanceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackInstancesOutputFilterSensitiveLog = (obj: ListStackInstancesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackResourcesInputFilterSensitiveLog = (obj: ListStackResourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackResourceDriftInformationSummaryFilterSensitiveLog = (
+  obj: StackResourceDriftInformationSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackResourceSummaryFilterSensitiveLog = (obj: StackResourceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackResourcesOutputFilterSensitiveLog = (obj: ListStackResourcesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStacksInputFilterSensitiveLog = (obj: ListStacksInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackDriftInformationSummaryFilterSensitiveLog = (obj: StackDriftInformationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackSummaryFilterSensitiveLog = (obj: StackSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStacksOutputFilterSensitiveLog = (obj: ListStacksOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackSetOperationResultsInputFilterSensitiveLog = (obj: ListStackSetOperationResultsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackSetOperationResultSummaryFilterSensitiveLog = (obj: StackSetOperationResultSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackSetOperationResultsOutputFilterSensitiveLog = (obj: ListStackSetOperationResultsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackSetOperationsInputFilterSensitiveLog = (obj: ListStackSetOperationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackSetOperationSummaryFilterSensitiveLog = (obj: StackSetOperationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackSetOperationsOutputFilterSensitiveLog = (obj: ListStackSetOperationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackSetsInputFilterSensitiveLog = (obj: ListStackSetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StackSetSummaryFilterSensitiveLog = (obj: StackSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStackSetsOutputFilterSensitiveLog = (obj: ListStackSetsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTypeRegistrationsInputFilterSensitiveLog = (obj: ListTypeRegistrationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTypeRegistrationsOutputFilterSensitiveLog = (obj: ListTypeRegistrationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TypeFiltersFilterSensitiveLog = (obj: TypeFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTypesInputFilterSensitiveLog = (obj: ListTypesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TypeSummaryFilterSensitiveLog = (obj: TypeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTypesOutputFilterSensitiveLog = (obj: ListTypesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTypeVersionsInputFilterSensitiveLog = (obj: ListTypeVersionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TypeVersionSummaryFilterSensitiveLog = (obj: TypeVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTypeVersionsOutputFilterSensitiveLog = (obj: ListTypeVersionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishTypeInputFilterSensitiveLog = (obj: PublishTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishTypeOutputFilterSensitiveLog = (obj: PublishTypeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordHandlerProgressInputFilterSensitiveLog = (obj: RecordHandlerProgressInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecordHandlerProgressOutputFilterSensitiveLog = (obj: RecordHandlerProgressOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterPublisherInputFilterSensitiveLog = (obj: RegisterPublisherInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterPublisherOutputFilterSensitiveLog = (obj: RegisterPublisherOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTypeInputFilterSensitiveLog = (obj: RegisterTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterTypeOutputFilterSensitiveLog = (obj: RegisterTypeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RollbackStackInputFilterSensitiveLog = (obj: RollbackStackInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RollbackStackOutputFilterSensitiveLog = (obj: RollbackStackOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetStackPolicyInputFilterSensitiveLog = (obj: SetStackPolicyInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTypeConfigurationInputFilterSensitiveLog = (obj: SetTypeConfigurationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTypeConfigurationOutputFilterSensitiveLog = (obj: SetTypeConfigurationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTypeDefaultVersionInputFilterSensitiveLog = (obj: SetTypeDefaultVersionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTypeDefaultVersionOutputFilterSensitiveLog = (obj: SetTypeDefaultVersionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SignalResourceInputFilterSensitiveLog = (obj: SignalResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopStackSetOperationInputFilterSensitiveLog = (obj: StopStackSetOperationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopStackSetOperationOutputFilterSensitiveLog = (obj: StopStackSetOperationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestTypeInputFilterSensitiveLog = (obj: TestTypeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestTypeOutputFilterSensitiveLog = (obj: TestTypeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStackInputFilterSensitiveLog = (obj: UpdateStackInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStackOutputFilterSensitiveLog = (obj: UpdateStackOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStackInstancesInputFilterSensitiveLog = (obj: UpdateStackInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStackInstancesOutputFilterSensitiveLog = (obj: UpdateStackInstancesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStackSetInputFilterSensitiveLog = (obj: UpdateStackSetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStackSetOutputFilterSensitiveLog = (obj: UpdateStackSetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTerminationProtectionInputFilterSensitiveLog = (obj: UpdateTerminationProtectionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTerminationProtectionOutputFilterSensitiveLog = (obj: UpdateTerminationProtectionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateTemplateInputFilterSensitiveLog = (obj: ValidateTemplateInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateParameterFilterSensitiveLog = (obj: TemplateParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateTemplateOutputFilterSensitiveLog = (obj: ValidateTemplateOutput): any => ({
+  ...obj,
+});

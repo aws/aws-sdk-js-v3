@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { RebootReplicationInstanceMessage, RebootReplicationInstanceResponse } from "../models/models_0";
+import {
+  RebootReplicationInstanceMessage,
+  RebootReplicationInstanceMessageFilterSensitiveLog,
+  RebootReplicationInstanceResponse,
+  RebootReplicationInstanceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RebootReplicationInstanceCommand,
   serializeAws_json1_1RebootReplicationInstanceCommand,
@@ -77,8 +82,8 @@ export class RebootReplicationInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootReplicationInstanceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RebootReplicationInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootReplicationInstanceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RebootReplicationInstanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

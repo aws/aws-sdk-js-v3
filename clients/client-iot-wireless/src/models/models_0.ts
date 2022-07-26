@@ -18,15 +18,6 @@ export interface SessionKeysAbpV1_0_x {
   AppSKey?: string;
 }
 
-export namespace SessionKeysAbpV1_0_x {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionKeysAbpV1_0_x): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>ABP device object for LoRaWAN specification v1.0.x</p>
  */
@@ -45,15 +36,6 @@ export interface AbpV1_0_x {
    * <p>The FCnt init value.</p>
    */
   FCntStart?: number;
-}
-
-export namespace AbpV1_0_x {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbpV1_0_x): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -81,15 +63,6 @@ export interface SessionKeysAbpV1_1 {
   AppSKey?: string;
 }
 
-export namespace SessionKeysAbpV1_1 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SessionKeysAbpV1_1): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>ABP device object for LoRaWAN specification v1.1</p>
  */
@@ -108,15 +81,6 @@ export interface AbpV1_1 {
    * <p>The FCnt init value.</p>
    */
   FCntStart?: number;
-}
-
-export namespace AbpV1_1 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbpV1_1): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -157,15 +121,6 @@ export interface Accuracy {
   VerticalAccuracy?: number;
 }
 
-export namespace Accuracy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Accuracy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a Sidewalk account.</p>
  */
@@ -181,16 +136,6 @@ export interface SidewalkAccountInfo {
   AppServerPrivateKey?: string;
 }
 
-export namespace SidewalkAccountInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SidewalkAccountInfo): any => ({
-    ...obj,
-    ...(obj.AppServerPrivateKey && { AppServerPrivateKey: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A simple label consisting of a customer-defined key-value pair</p>
  */
@@ -204,15 +149,6 @@ export interface Tag {
    * <p>The tag's value.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateAwsAccountWithPartnerAccountRequest {
@@ -232,16 +168,6 @@ export interface AssociateAwsAccountWithPartnerAccountRequest {
   Tags?: Tag[];
 }
 
-export namespace AssociateAwsAccountWithPartnerAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAwsAccountWithPartnerAccountRequest): any => ({
-    ...obj,
-    ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfo.filterSensitiveLog(obj.Sidewalk) }),
-  });
-}
-
 export interface AssociateAwsAccountWithPartnerAccountResponse {
   /**
    * <p>The Sidewalk account credentials.</p>
@@ -252,16 +178,6 @@ export interface AssociateAwsAccountWithPartnerAccountResponse {
    * <p>The Amazon Resource Name of the resource.</p>
    */
   Arn?: string;
-}
-
-export namespace AssociateAwsAccountWithPartnerAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAwsAccountWithPartnerAccountResponse): any => ({
-    ...obj,
-    ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfo.filterSensitiveLog(obj.Sidewalk) }),
-  });
 }
 
 /**
@@ -403,25 +319,7 @@ export interface AssociateMulticastGroupWithFuotaTaskRequest {
   MulticastGroupId: string | undefined;
 }
 
-export namespace AssociateMulticastGroupWithFuotaTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateMulticastGroupWithFuotaTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateMulticastGroupWithFuotaTaskResponse {}
-
-export namespace AssociateMulticastGroupWithFuotaTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateMulticastGroupWithFuotaTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateWirelessDeviceWithFuotaTaskRequest {
   /**
@@ -435,25 +333,7 @@ export interface AssociateWirelessDeviceWithFuotaTaskRequest {
   WirelessDeviceId: string | undefined;
 }
 
-export namespace AssociateWirelessDeviceWithFuotaTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWirelessDeviceWithFuotaTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateWirelessDeviceWithFuotaTaskResponse {}
-
-export namespace AssociateWirelessDeviceWithFuotaTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWirelessDeviceWithFuotaTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateWirelessDeviceWithMulticastGroupRequest {
   /**
@@ -467,25 +347,7 @@ export interface AssociateWirelessDeviceWithMulticastGroupRequest {
   WirelessDeviceId: string | undefined;
 }
 
-export namespace AssociateWirelessDeviceWithMulticastGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWirelessDeviceWithMulticastGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateWirelessDeviceWithMulticastGroupResponse {}
-
-export namespace AssociateWirelessDeviceWithMulticastGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWirelessDeviceWithMulticastGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateWirelessDeviceWithThingRequest {
   /**
@@ -499,25 +361,7 @@ export interface AssociateWirelessDeviceWithThingRequest {
   ThingArn: string | undefined;
 }
 
-export namespace AssociateWirelessDeviceWithThingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWirelessDeviceWithThingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateWirelessDeviceWithThingResponse {}
-
-export namespace AssociateWirelessDeviceWithThingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWirelessDeviceWithThingResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface AssociateWirelessGatewayWithCertificateRequest {
   /**
@@ -531,29 +375,11 @@ export interface AssociateWirelessGatewayWithCertificateRequest {
   IotCertificateId: string | undefined;
 }
 
-export namespace AssociateWirelessGatewayWithCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWirelessGatewayWithCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateWirelessGatewayWithCertificateResponse {
   /**
    * <p>The ID of the certificate associated with the wireless gateway.</p>
    */
   IotCertificateId?: string;
-}
-
-export namespace AssociateWirelessGatewayWithCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWirelessGatewayWithCertificateResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateWirelessGatewayWithThingRequest {
@@ -568,25 +394,7 @@ export interface AssociateWirelessGatewayWithThingRequest {
   ThingArn: string | undefined;
 }
 
-export namespace AssociateWirelessGatewayWithThingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWirelessGatewayWithThingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateWirelessGatewayWithThingResponse {}
-
-export namespace AssociateWirelessGatewayWithThingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWirelessGatewayWithThingResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum BatteryLevel {
   CRITICAL = "critical",
@@ -601,25 +409,7 @@ export interface CancelMulticastGroupSessionRequest {
   Id: string | undefined;
 }
 
-export namespace CancelMulticastGroupSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelMulticastGroupSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelMulticastGroupSessionResponse {}
-
-export namespace CancelMulticastGroupSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelMulticastGroupSessionResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum SigningAlg {
   Ed25519 = "Ed25519",
@@ -639,15 +429,6 @@ export interface CertificateList {
    * <p>The value of the chosen sidewalk certificate.</p>
    */
   Value: string | undefined;
-}
-
-export namespace CertificateList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateList): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionStatus {
@@ -670,15 +451,6 @@ export interface LoRaWANConnectionStatusEventNotificationConfigurations {
   GatewayEuiEventTopic?: EventNotificationTopicStatus | string;
 }
 
-export namespace LoRaWANConnectionStatusEventNotificationConfigurations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANConnectionStatusEventNotificationConfigurations): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Connection status event configuration object for enabling or disabling topic.</p>
  */
@@ -694,15 +466,6 @@ export interface ConnectionStatusEventConfiguration {
   WirelessGatewayIdEventTopic?: EventNotificationTopicStatus | string;
 }
 
-export namespace ConnectionStatusEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionStatusEventConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Object for LoRaWAN connection status resource type event configuration.</p>
  */
@@ -711,15 +474,6 @@ export interface LoRaWANConnectionStatusResourceTypeEventConfiguration {
    * <p>Enum to denote whether the wireless gateway connection status event topic is enabled or disabled.</p>
    */
   WirelessGatewayEventTopic?: EventNotificationTopicStatus | string;
-}
-
-export namespace LoRaWANConnectionStatusResourceTypeEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANConnectionStatusResourceTypeEventConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -731,15 +485,6 @@ export interface ConnectionStatusResourceTypeEventConfiguration {
    *             event topics.</p>
    */
   LoRaWAN?: LoRaWANConnectionStatusResourceTypeEventConfiguration;
-}
-
-export namespace ConnectionStatusResourceTypeEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectionStatusResourceTypeEventConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ExpressionType {
@@ -784,15 +529,6 @@ export interface CreateDestinationRequest {
   ClientRequestToken?: string;
 }
 
-export namespace CreateDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDestinationResponse {
   /**
    * <p>The Amazon Resource Name of the new resource.</p>
@@ -803,15 +539,6 @@ export interface CreateDestinationResponse {
    * <p>The name of the new resource.</p>
    */
   Name?: string;
-}
-
-export namespace CreateDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDestinationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -914,15 +641,6 @@ export interface LoRaWANDeviceProfile {
   Supports32BitFCnt?: boolean;
 }
 
-export namespace LoRaWANDeviceProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANDeviceProfile): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDeviceProfileRequest {
   /**
    * <p>The name of the new resource.</p>
@@ -945,15 +663,6 @@ export interface CreateDeviceProfileRequest {
   ClientRequestToken?: string;
 }
 
-export namespace CreateDeviceProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeviceProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDeviceProfileResponse {
   /**
    * <p>The Amazon Resource Name of the new resource.</p>
@@ -964,15 +673,6 @@ export interface CreateDeviceProfileResponse {
    * <p>The ID of the new device profile.</p>
    */
   Id?: string;
-}
-
-export namespace CreateDeviceProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeviceProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SupportedRfRegion {
@@ -990,15 +690,6 @@ export interface LoRaWANFuotaTask {
    * <p>Supported RfRegions</p>
    */
   RfRegion?: SupportedRfRegion | string;
-}
-
-export namespace LoRaWANFuotaTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANFuotaTask): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFuotaTaskRequest {
@@ -1038,15 +729,6 @@ export interface CreateFuotaTaskRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateFuotaTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFuotaTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFuotaTaskResponse {
   /**
    * <p>The arn of a FUOTA task.</p>
@@ -1057,15 +739,6 @@ export interface CreateFuotaTaskResponse {
    * <p>The ID of a FUOTA task.</p>
    */
   Id?: string;
-}
-
-export namespace CreateFuotaTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFuotaTaskResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DlClass {
@@ -1086,15 +759,6 @@ export interface LoRaWANMulticast {
    * <p>DlClass for LoRaWAM, valid values are ClassB and ClassC.</p>
    */
   DlClass?: DlClass | string;
-}
-
-export namespace LoRaWANMulticast {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANMulticast): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMulticastGroupRequest {
@@ -1126,15 +790,6 @@ export interface CreateMulticastGroupRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateMulticastGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMulticastGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMulticastGroupResponse {
   /**
    * <p>The arn of the multicast group.</p>
@@ -1145,15 +800,6 @@ export interface CreateMulticastGroupResponse {
    * <p>The ID of the multicast group.</p>
    */
   Id?: string;
-}
-
-export namespace CreateMulticastGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMulticastGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum LogLevel {
@@ -1183,15 +829,6 @@ export interface TraceContent {
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel?: LogLevel | string;
-}
-
-export namespace TraceContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TraceContent): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateNetworkAnalyzerConfigurationRequest {
@@ -1231,15 +868,6 @@ export interface CreateNetworkAnalyzerConfigurationRequest {
   ClientRequestToken?: string;
 }
 
-export namespace CreateNetworkAnalyzerConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNetworkAnalyzerConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateNetworkAnalyzerConfigurationResponse {
   /**
    * <p>The Amazon Resource Name of the new resource.</p>
@@ -1252,15 +880,6 @@ export interface CreateNetworkAnalyzerConfigurationResponse {
   Name?: string;
 }
 
-export namespace CreateNetworkAnalyzerConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNetworkAnalyzerConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>LoRaWANServiceProfile object.</p>
  */
@@ -1269,15 +888,6 @@ export interface LoRaWANServiceProfile {
    * <p>The AddGWMetaData value.</p>
    */
   AddGwMetadata?: boolean;
-}
-
-export namespace LoRaWANServiceProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANServiceProfile): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateServiceProfileRequest {
@@ -1302,15 +912,6 @@ export interface CreateServiceProfileRequest {
   ClientRequestToken?: string;
 }
 
-export namespace CreateServiceProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateServiceProfileResponse {
   /**
    * <p>The Amazon Resource Name of the new resource.</p>
@@ -1321,15 +922,6 @@ export interface CreateServiceProfileResponse {
    * <p>The ID of the new service profile.</p>
    */
   Id?: string;
-}
-
-export namespace CreateServiceProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateServiceProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1350,15 +942,6 @@ export interface Positioning {
    * <p>The Fport value.</p>
    */
   Gnss?: number;
-}
-
-export namespace Positioning {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Positioning): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1386,15 +969,6 @@ export interface FPorts {
   Positioning?: Positioning;
 }
 
-export namespace FPorts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FPorts): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>OTAA device object for v1.0.x</p>
  */
@@ -1415,15 +989,6 @@ export interface OtaaV1_0_x {
   GenAppKey?: string;
 }
 
-export namespace OtaaV1_0_x {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OtaaV1_0_x): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>OTAA device object for v1.1</p>
  */
@@ -1442,15 +1007,6 @@ export interface OtaaV1_1 {
    * <p>The JoinEUI value.</p>
    */
   JoinEui?: string;
-}
-
-export namespace OtaaV1_1 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OtaaV1_1): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1498,15 +1054,6 @@ export interface LoRaWANDevice {
   FPorts?: FPorts;
 }
 
-export namespace LoRaWANDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANDevice): any => ({
-    ...obj,
-  });
-}
-
 export enum WirelessDeviceType {
   LoRaWAN = "LoRaWAN",
   Sidewalk = "Sidewalk",
@@ -1549,15 +1096,6 @@ export interface CreateWirelessDeviceRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateWirelessDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWirelessDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWirelessDeviceResponse {
   /**
    * <p>The Amazon Resource Name of the new resource.</p>
@@ -1568,15 +1106,6 @@ export interface CreateWirelessDeviceResponse {
    * <p>The ID of the new wireless device.</p>
    */
   Id?: string;
-}
-
-export namespace CreateWirelessDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWirelessDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1609,15 +1138,6 @@ export interface LoRaWANGateway {
   SubBands?: number[];
 }
 
-export namespace LoRaWANGateway {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANGateway): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWirelessGatewayRequest {
   /**
    * <p>The name of the new resource.</p>
@@ -1645,15 +1165,6 @@ export interface CreateWirelessGatewayRequest {
   ClientRequestToken?: string;
 }
 
-export namespace CreateWirelessGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWirelessGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWirelessGatewayResponse {
   /**
    * <p>The Amazon Resource Name of the new resource.</p>
@@ -1666,15 +1177,6 @@ export interface CreateWirelessGatewayResponse {
   Id?: string;
 }
 
-export namespace CreateWirelessGatewayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWirelessGatewayResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWirelessGatewayTaskRequest {
   /**
    * <p>The ID of the resource to update.</p>
@@ -1685,15 +1187,6 @@ export interface CreateWirelessGatewayTaskRequest {
    * <p>The ID of the WirelessGatewayTaskDefinition.</p>
    */
   WirelessGatewayTaskDefinitionId: string | undefined;
-}
-
-export namespace CreateWirelessGatewayTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWirelessGatewayTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum WirelessGatewayTaskStatus {
@@ -1717,15 +1210,6 @@ export interface CreateWirelessGatewayTaskResponse {
   Status?: WirelessGatewayTaskStatus | string;
 }
 
-export namespace CreateWirelessGatewayTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWirelessGatewayTaskResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>LoRaWANGatewayVersion object.</p>
  */
@@ -1744,15 +1228,6 @@ export interface LoRaWANGatewayVersion {
    * <p>The basic station version of the wireless gateway.</p>
    */
   Station?: string;
-}
-
-export namespace LoRaWANGatewayVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANGatewayVersion): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1780,15 +1255,6 @@ export interface LoRaWANUpdateGatewayTaskCreate {
   UpdateVersion?: LoRaWANGatewayVersion;
 }
 
-export namespace LoRaWANUpdateGatewayTaskCreate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANUpdateGatewayTaskCreate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>UpdateWirelessGatewayTaskCreate object.</p>
  */
@@ -1807,15 +1273,6 @@ export interface UpdateWirelessGatewayTaskCreate {
    * <p>The properties that relate to the LoRaWAN wireless gateway.</p>
    */
   LoRaWAN?: LoRaWANUpdateGatewayTaskCreate;
-}
-
-export namespace UpdateWirelessGatewayTaskCreate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWirelessGatewayTaskCreate): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateWirelessGatewayTaskDefinitionRequest {
@@ -1845,15 +1302,6 @@ export interface CreateWirelessGatewayTaskDefinitionRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateWirelessGatewayTaskDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWirelessGatewayTaskDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWirelessGatewayTaskDefinitionResponse {
   /**
    * <p>The ID of the new wireless gateway task definition.</p>
@@ -1866,15 +1314,6 @@ export interface CreateWirelessGatewayTaskDefinitionResponse {
   Arn?: string;
 }
 
-export namespace CreateWirelessGatewayTaskDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWirelessGatewayTaskDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDestinationRequest {
   /**
    * <p>The name of the resource to delete.</p>
@@ -1882,25 +1321,7 @@ export interface DeleteDestinationRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDestinationResponse {}
-
-export namespace DeleteDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDeviceProfileRequest {
   /**
@@ -1909,25 +1330,7 @@ export interface DeleteDeviceProfileRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteDeviceProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDeviceProfileResponse {}
-
-export namespace DeleteDeviceProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeviceProfileResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteFuotaTaskRequest {
   /**
@@ -1936,25 +1339,7 @@ export interface DeleteFuotaTaskRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteFuotaTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFuotaTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFuotaTaskResponse {}
-
-export namespace DeleteFuotaTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFuotaTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteMulticastGroupRequest {
   /**
@@ -1963,25 +1348,7 @@ export interface DeleteMulticastGroupRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteMulticastGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMulticastGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMulticastGroupResponse {}
-
-export namespace DeleteMulticastGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMulticastGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteNetworkAnalyzerConfigurationRequest {
   /**
@@ -1990,25 +1357,7 @@ export interface DeleteNetworkAnalyzerConfigurationRequest {
   ConfigurationName: string | undefined;
 }
 
-export namespace DeleteNetworkAnalyzerConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNetworkAnalyzerConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteNetworkAnalyzerConfigurationResponse {}
-
-export namespace DeleteNetworkAnalyzerConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNetworkAnalyzerConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteQueuedMessagesRequest {
   /**
@@ -2029,25 +1378,7 @@ export interface DeleteQueuedMessagesRequest {
   WirelessDeviceType?: WirelessDeviceType | string;
 }
 
-export namespace DeleteQueuedMessagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQueuedMessagesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteQueuedMessagesResponse {}
-
-export namespace DeleteQueuedMessagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteQueuedMessagesResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteServiceProfileRequest {
   /**
@@ -2056,25 +1387,7 @@ export interface DeleteServiceProfileRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteServiceProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceProfileResponse {}
-
-export namespace DeleteServiceProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteServiceProfileResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteWirelessDeviceRequest {
   /**
@@ -2083,25 +1396,7 @@ export interface DeleteWirelessDeviceRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteWirelessDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWirelessDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWirelessDeviceResponse {}
-
-export namespace DeleteWirelessDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWirelessDeviceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteWirelessGatewayRequest {
   /**
@@ -2110,25 +1405,7 @@ export interface DeleteWirelessGatewayRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteWirelessGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWirelessGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWirelessGatewayResponse {}
-
-export namespace DeleteWirelessGatewayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWirelessGatewayResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteWirelessGatewayTaskRequest {
   /**
@@ -2137,25 +1414,7 @@ export interface DeleteWirelessGatewayTaskRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteWirelessGatewayTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWirelessGatewayTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWirelessGatewayTaskResponse {}
-
-export namespace DeleteWirelessGatewayTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWirelessGatewayTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteWirelessGatewayTaskDefinitionRequest {
   /**
@@ -2164,25 +1423,7 @@ export interface DeleteWirelessGatewayTaskDefinitionRequest {
   Id: string | undefined;
 }
 
-export namespace DeleteWirelessGatewayTaskDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWirelessGatewayTaskDefinitionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWirelessGatewayTaskDefinitionResponse {}
-
-export namespace DeleteWirelessGatewayTaskDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWirelessGatewayTaskDefinitionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Describes a destination.</p>
@@ -2219,15 +1460,6 @@ export interface Destinations {
   RoleArn?: string;
 }
 
-export namespace Destinations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Destinations): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a device profile.</p>
  */
@@ -2248,15 +1480,6 @@ export interface DeviceProfile {
   Id?: string;
 }
 
-export namespace DeviceProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceProfile): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>SidewalkEventNotificationConfigurations</code>  object, which is the event configuration
@@ -2267,15 +1490,6 @@ export interface SidewalkEventNotificationConfigurations {
    * <p>Enum to denote whether amazon id event topic is enabled or disabled.</p>
    */
   AmazonIdEventTopic?: EventNotificationTopicStatus | string;
-}
-
-export namespace SidewalkEventNotificationConfigurations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SidewalkEventNotificationConfigurations): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2294,15 +1508,6 @@ export interface DeviceRegistrationStateEventConfiguration {
   WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
 }
 
-export namespace DeviceRegistrationStateEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceRegistrationStateEventConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Sidewalk resource type event configuration object for enabling or disabling topic.</p>
  */
@@ -2311,15 +1516,6 @@ export interface SidewalkResourceTypeEventConfiguration {
    * <p>Enum to denote whether the wireless device join event topic is enabled or disabled.</p>
    */
   WirelessDeviceEventTopic?: EventNotificationTopicStatus | string;
-}
-
-export namespace SidewalkResourceTypeEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SidewalkResourceTypeEventConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2331,15 +1527,6 @@ export interface DeviceRegistrationStateResourceTypeEventConfiguration {
    *             related event topics.</p>
    */
   Sidewalk?: SidewalkResourceTypeEventConfiguration;
-}
-
-export namespace DeviceRegistrationStateResourceTypeEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceRegistrationStateResourceTypeEventConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum DeviceState {
@@ -2365,25 +1552,7 @@ export interface DisassociateAwsAccountFromPartnerAccountRequest {
   PartnerType: PartnerType | string | undefined;
 }
 
-export namespace DisassociateAwsAccountFromPartnerAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAwsAccountFromPartnerAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateAwsAccountFromPartnerAccountResponse {}
-
-export namespace DisassociateAwsAccountFromPartnerAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAwsAccountFromPartnerAccountResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateMulticastGroupFromFuotaTaskRequest {
   /**
@@ -2397,25 +1566,7 @@ export interface DisassociateMulticastGroupFromFuotaTaskRequest {
   MulticastGroupId: string | undefined;
 }
 
-export namespace DisassociateMulticastGroupFromFuotaTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMulticastGroupFromFuotaTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateMulticastGroupFromFuotaTaskResponse {}
-
-export namespace DisassociateMulticastGroupFromFuotaTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMulticastGroupFromFuotaTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateWirelessDeviceFromFuotaTaskRequest {
   /**
@@ -2429,25 +1580,7 @@ export interface DisassociateWirelessDeviceFromFuotaTaskRequest {
   WirelessDeviceId: string | undefined;
 }
 
-export namespace DisassociateWirelessDeviceFromFuotaTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWirelessDeviceFromFuotaTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateWirelessDeviceFromFuotaTaskResponse {}
-
-export namespace DisassociateWirelessDeviceFromFuotaTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWirelessDeviceFromFuotaTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateWirelessDeviceFromMulticastGroupRequest {
   /**
@@ -2461,25 +1594,7 @@ export interface DisassociateWirelessDeviceFromMulticastGroupRequest {
   WirelessDeviceId: string | undefined;
 }
 
-export namespace DisassociateWirelessDeviceFromMulticastGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWirelessDeviceFromMulticastGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateWirelessDeviceFromMulticastGroupResponse {}
-
-export namespace DisassociateWirelessDeviceFromMulticastGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWirelessDeviceFromMulticastGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateWirelessDeviceFromThingRequest {
   /**
@@ -2488,25 +1603,7 @@ export interface DisassociateWirelessDeviceFromThingRequest {
   Id: string | undefined;
 }
 
-export namespace DisassociateWirelessDeviceFromThingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWirelessDeviceFromThingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateWirelessDeviceFromThingResponse {}
-
-export namespace DisassociateWirelessDeviceFromThingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWirelessDeviceFromThingResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateWirelessGatewayFromCertificateRequest {
   /**
@@ -2515,25 +1612,7 @@ export interface DisassociateWirelessGatewayFromCertificateRequest {
   Id: string | undefined;
 }
 
-export namespace DisassociateWirelessGatewayFromCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWirelessGatewayFromCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateWirelessGatewayFromCertificateResponse {}
-
-export namespace DisassociateWirelessGatewayFromCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWirelessGatewayFromCertificateResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateWirelessGatewayFromThingRequest {
   /**
@@ -2542,25 +1621,7 @@ export interface DisassociateWirelessGatewayFromThingRequest {
   Id: string | undefined;
 }
 
-export namespace DisassociateWirelessGatewayFromThingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWirelessGatewayFromThingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateWirelessGatewayFromThingResponse {}
-
-export namespace DisassociateWirelessGatewayFromThingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWirelessGatewayFromThingResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>LoRaWAN router info.</p>
@@ -2570,15 +1631,6 @@ export interface LoRaWANSendDataToDevice {
    * <p>The Fport value.</p>
    */
   FPort?: number;
-}
-
-export namespace LoRaWANSendDataToDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANSendDataToDevice): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2608,15 +1660,6 @@ export interface DownlinkQueueMessage {
   LoRaWAN?: LoRaWANSendDataToDevice;
 }
 
-export namespace DownlinkQueueMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DownlinkQueueMessage): any => ({
-    ...obj,
-  });
-}
-
 export enum Event {
   ACK = "ack",
   DISCOVERED = "discovered",
@@ -2635,15 +1678,6 @@ export interface LoRaWANJoinEventNotificationConfigurations {
   DevEuiEventTopic?: EventNotificationTopicStatus | string;
 }
 
-export namespace LoRaWANJoinEventNotificationConfigurations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANJoinEventNotificationConfigurations): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Join event configuration object for enabling or disabling topic.</p>
  */
@@ -2659,15 +1693,6 @@ export interface JoinEventConfiguration {
   WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
 }
 
-export namespace JoinEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JoinEventConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Proximity event configuration object for enabling and disabling relevant topics.</p>
  */
@@ -2681,15 +1706,6 @@ export interface ProximityEventConfiguration {
    * <p>Enum to denote whether the wireless device id proximity event topic is enabled or disabled.</p>
    */
   WirelessDeviceIdEventTopic?: EventNotificationTopicStatus | string;
-}
-
-export namespace ProximityEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProximityEventConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2715,15 +1731,6 @@ export interface EventNotificationItemConfigurations {
    * <p>Connection status event configuration for an event configuration item.</p>
    */
   ConnectionStatus?: ConnectionStatusEventConfiguration;
-}
-
-export namespace EventNotificationItemConfigurations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventNotificationItemConfigurations): any => ({
-    ...obj,
-  });
 }
 
 export enum IdentifierType {
@@ -2761,15 +1768,6 @@ export interface EventConfigurationItem {
    * <p>Object of all event configurations and the status of the event topics.</p>
    */
   Events?: EventNotificationItemConfigurations;
-}
-
-export namespace EventConfigurationItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventConfigurationItem): any => ({
-    ...obj,
-  });
 }
 
 export enum EventNotificationResourceType {
@@ -2812,15 +1810,6 @@ export interface FuotaTask {
   Name?: string;
 }
 
-export namespace FuotaTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FuotaTask): any => ({
-    ...obj,
-  });
-}
-
 export enum FuotaTaskStatus {
   Delete_Waiting = "Delete_Waiting",
   FuotaDone = "FuotaDone",
@@ -2834,15 +1823,6 @@ export interface GetDestinationRequest {
    * <p>The name of the resource to get.</p>
    */
   Name: string | undefined;
-}
-
-export namespace GetDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDestinationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDestinationResponse {
@@ -2877,29 +1857,11 @@ export interface GetDestinationResponse {
   RoleArn?: string;
 }
 
-export namespace GetDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDestinationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeviceProfileRequest {
   /**
    * <p>The ID of the resource to get.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetDeviceProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDeviceProfileResponse {
@@ -2924,25 +1886,7 @@ export interface GetDeviceProfileResponse {
   LoRaWAN?: LoRaWANDeviceProfile;
 }
 
-export namespace GetDeviceProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceProfileResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEventConfigurationByResourceTypesRequest {}
-
-export namespace GetEventConfigurationByResourceTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventConfigurationByResourceTypesRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Object for LoRaWAN join resource type event configuration.</p>
@@ -2952,15 +1896,6 @@ export interface LoRaWANJoinResourceTypeEventConfiguration {
    * <p>Enum to denote whether the wireless device join event topic is enabled or disabled.</p>
    */
   WirelessDeviceEventTopic?: EventNotificationTopicStatus | string;
-}
-
-export namespace LoRaWANJoinResourceTypeEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANJoinResourceTypeEventConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2974,15 +1909,6 @@ export interface JoinResourceTypeEventConfiguration {
   LoRaWAN?: LoRaWANJoinResourceTypeEventConfiguration;
 }
 
-export namespace JoinResourceTypeEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JoinResourceTypeEventConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Proximity resource type event configuration object for enabling or disabling topic.</p>
  */
@@ -2991,15 +1917,6 @@ export interface ProximityResourceTypeEventConfiguration {
    * <p>Proximity resource type event configuration object for enabling and disabling wireless device topic.</p>
    */
   Sidewalk?: SidewalkResourceTypeEventConfiguration;
-}
-
-export namespace ProximityResourceTypeEventConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProximityResourceTypeEventConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEventConfigurationByResourceTypesResponse {
@@ -3024,29 +1941,11 @@ export interface GetEventConfigurationByResourceTypesResponse {
   ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
 }
 
-export namespace GetEventConfigurationByResourceTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEventConfigurationByResourceTypesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFuotaTaskRequest {
   /**
    * <p>The ID of a FUOTA task.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetFuotaTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFuotaTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3062,15 +1961,6 @@ export interface LoRaWANFuotaTaskGetInfo {
    * <p>Start time of a FUOTA task.</p>
    */
   StartTime?: Date;
-}
-
-export namespace LoRaWANFuotaTaskGetInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANFuotaTaskGetInfo): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFuotaTaskResponse {
@@ -3120,25 +2010,7 @@ export interface GetFuotaTaskResponse {
   CreatedAt?: Date;
 }
 
-export namespace GetFuotaTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFuotaTaskResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLogLevelsByResourceTypesRequest {}
-
-export namespace GetLogLevelsByResourceTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLogLevelsByResourceTypesRequest): any => ({
-    ...obj,
-  });
-}
 
 export enum WirelessDeviceEvent {
   Downlink_Data = "Downlink_Data",
@@ -3167,15 +2039,6 @@ export interface WirelessDeviceEventLogOption {
   LogLevel: LogLevel | string | undefined;
 }
 
-export namespace WirelessDeviceEventLogOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WirelessDeviceEventLogOption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The log options for wireless devices and can be used to set log levels for a specific type of wireless device.</p>
  */
@@ -3195,15 +2058,6 @@ export interface WirelessDeviceLogOption {
    * <p>The list of wireless device event log options.</p>
    */
   Events?: WirelessDeviceEventLogOption[];
-}
-
-export namespace WirelessDeviceLogOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WirelessDeviceLogOption): any => ({
-    ...obj,
-  });
 }
 
 export enum WirelessGatewayEvent {
@@ -3226,15 +2080,6 @@ export interface WirelessGatewayEventLogOption {
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel: LogLevel | string | undefined;
-}
-
-export namespace WirelessGatewayEventLogOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WirelessGatewayEventLogOption): any => ({
-    ...obj,
-  });
 }
 
 export enum WirelessGatewayType {
@@ -3262,15 +2107,6 @@ export interface WirelessGatewayLogOption {
   Events?: WirelessGatewayEventLogOption[];
 }
 
-export namespace WirelessGatewayLogOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WirelessGatewayLogOption): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLogLevelsByResourceTypesResponse {
   /**
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
@@ -3289,29 +2125,11 @@ export interface GetLogLevelsByResourceTypesResponse {
   WirelessDeviceLogOptions?: WirelessDeviceLogOption[];
 }
 
-export namespace GetLogLevelsByResourceTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLogLevelsByResourceTypesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMulticastGroupRequest {
   /**
    * <p>The ID of the multicast group.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetMulticastGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMulticastGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3337,15 +2155,6 @@ export interface LoRaWANMulticastGet {
    * <p>Number of devices that are associated to the multicast group.</p>
    */
   NumberOfDevicesInGroup?: number;
-}
-
-export namespace LoRaWANMulticastGet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANMulticastGet): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMulticastGroupResponse {
@@ -3385,29 +2194,11 @@ export interface GetMulticastGroupResponse {
   CreatedAt?: Date;
 }
 
-export namespace GetMulticastGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMulticastGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMulticastGroupSessionRequest {
   /**
    * <p>The ID of the multicast group.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetMulticastGroupSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMulticastGroupSessionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3435,15 +2226,6 @@ export interface LoRaWANMulticastSession {
   SessionTimeout?: number;
 }
 
-export namespace LoRaWANMulticastSession {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANMulticastSession): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMulticastGroupSessionResponse {
   /**
    * <p>The LoRaWAN information used with the multicast session.</p>
@@ -3451,29 +2233,11 @@ export interface GetMulticastGroupSessionResponse {
   LoRaWAN?: LoRaWANMulticastSession;
 }
 
-export namespace GetMulticastGroupSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMulticastGroupSessionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetNetworkAnalyzerConfigurationRequest {
   /**
    * <p>Name of the network analyzer configuration.</p>
    */
   ConfigurationName: string | undefined;
-}
-
-export namespace GetNetworkAnalyzerConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNetworkAnalyzerConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetNetworkAnalyzerConfigurationResponse {
@@ -3508,15 +2272,6 @@ export interface GetNetworkAnalyzerConfigurationResponse {
   Name?: string;
 }
 
-export namespace GetNetworkAnalyzerConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNetworkAnalyzerConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPartnerAccountRequest {
   /**
    * <p>The partner account ID to disassociate from the AWS account.</p>
@@ -3527,15 +2282,6 @@ export interface GetPartnerAccountRequest {
    * <p>The partner type.</p>
    */
   PartnerType: PartnerType | string | undefined;
-}
-
-export namespace GetPartnerAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPartnerAccountRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3558,16 +2304,6 @@ export interface SidewalkAccountInfoWithFingerprint {
   Arn?: string;
 }
 
-export namespace SidewalkAccountInfoWithFingerprint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SidewalkAccountInfoWithFingerprint): any => ({
-    ...obj,
-    ...(obj.Fingerprint && { Fingerprint: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetPartnerAccountResponse {
   /**
    * <p>The Sidewalk account credentials.</p>
@@ -3578,16 +2314,6 @@ export interface GetPartnerAccountResponse {
    * <p>Whether the partner account is linked to the AWS account.</p>
    */
   AccountLinked?: boolean;
-}
-
-export namespace GetPartnerAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPartnerAccountResponse): any => ({
-    ...obj,
-    ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoWithFingerprint.filterSensitiveLog(obj.Sidewalk) }),
-  });
 }
 
 export enum PositionResourceType {
@@ -3605,15 +2331,6 @@ export interface GetPositionRequest {
    * <p>Resource type of the resource for which position information is retrieved.</p>
    */
   ResourceType: PositionResourceType | string | undefined;
-}
-
-export namespace GetPositionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPositionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PositionSolverProvider {
@@ -3658,15 +2375,6 @@ export interface GetPositionResponse {
   Timestamp?: string;
 }
 
-export namespace GetPositionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPositionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPositionConfigurationRequest {
   /**
    * <p>Resource identifier used in a position configuration.</p>
@@ -3677,15 +2385,6 @@ export interface GetPositionConfigurationRequest {
    * <p>Resource type of the resource for which position configuration is retrieved.</p>
    */
   ResourceType: PositionResourceType | string | undefined;
-}
-
-export namespace GetPositionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPositionConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PositionConfigurationFec {
@@ -3723,15 +2422,6 @@ export interface SemtechGnssDetail {
   Fec?: PositionConfigurationFec | string;
 }
 
-export namespace SemtechGnssDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SemtechGnssDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The wrapper for position solver details.</p>
  */
@@ -3740,15 +2430,6 @@ export interface PositionSolverDetails {
    * <p>The Semtech GNSS solver object details.</p>
    */
   SemtechGnss?: SemtechGnssDetail;
-}
-
-export namespace PositionSolverDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PositionSolverDetails): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPositionConfigurationResponse {
@@ -3762,15 +2443,6 @@ export interface GetPositionConfigurationResponse {
    *             AWS IoT Core for LoRaWAN.</p>
    */
   Destination?: string;
-}
-
-export namespace GetPositionConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPositionConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceEventConfigurationRequest {
@@ -3788,15 +2460,6 @@ export interface GetResourceEventConfigurationRequest {
    * <p>Partner type of the resource if the identifier type is <code>PartnerAccountId</code>.</p>
    */
   PartnerType?: EventNotificationPartnerType | string;
-}
-
-export namespace GetResourceEventConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceEventConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceEventConfigurationResponse {
@@ -3821,15 +2484,6 @@ export interface GetResourceEventConfigurationResponse {
   ConnectionStatus?: ConnectionStatusEventConfiguration;
 }
 
-export namespace GetResourceEventConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceEventConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceLogLevelRequest {
   /**
    * <p>The identifier of the resource. For a Wireless Device, it is the wireless device ID. For a wireless gateway,
@@ -3843,30 +2497,12 @@ export interface GetResourceLogLevelRequest {
   ResourceType: string | undefined;
 }
 
-export namespace GetResourceLogLevelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceLogLevelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceLogLevelResponse {
   /**
    * <p>The log level for a log message. The log levels can be disabled, or set to <code>ERROR</code> to display
    *             less verbose logs containing only error information, or to <code>INFO</code> for more detailed logs.</p>
    */
   LogLevel?: LogLevel | string;
-}
-
-export namespace GetResourceLogLevelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceLogLevelResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum WirelessGatewayServiceType {
@@ -3881,15 +2517,6 @@ export interface GetServiceEndpointRequest {
    *             <code>CLAIM</code> for the global endpoint.</p>
    */
   ServiceType?: WirelessGatewayServiceType | string;
-}
-
-export namespace GetServiceEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceEndpointRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetServiceEndpointResponse {
@@ -3909,29 +2536,11 @@ export interface GetServiceEndpointResponse {
   ServerTrust?: string;
 }
 
-export namespace GetServiceEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceEndpointResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceProfileRequest {
   /**
    * <p>The ID of the resource to get.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetServiceProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceProfileRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4034,15 +2643,6 @@ export interface LoRaWANGetServiceProfileInfo {
   MinGwDiversity?: number;
 }
 
-export namespace LoRaWANGetServiceProfileInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANGetServiceProfileInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceProfileResponse {
   /**
    * <p>The Amazon Resource Name of the resource.</p>
@@ -4065,15 +2665,6 @@ export interface GetServiceProfileResponse {
   LoRaWAN?: LoRaWANGetServiceProfileInfo;
 }
 
-export namespace GetServiceProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceProfileResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum WirelessDeviceIdType {
   DevEui = "DevEui",
   SidewalkManufacturingSn = "SidewalkManufacturingSn",
@@ -4091,15 +2682,6 @@ export interface GetWirelessDeviceRequest {
    * <p>The type of identifier used in <code>identifier</code>.</p>
    */
   IdentifierType: WirelessDeviceIdType | string | undefined;
-}
-
-export namespace GetWirelessDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4125,15 +2707,6 @@ export interface SidewalkDevice {
    * <p>The sidewalk device certificates for Ed25519 and P256r1.</p>
    */
   DeviceCertificates?: CertificateList[];
-}
-
-export namespace SidewalkDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SidewalkDevice): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWirelessDeviceResponse {
@@ -4188,29 +2761,11 @@ export interface GetWirelessDeviceResponse {
   Sidewalk?: SidewalkDevice;
 }
 
-export namespace GetWirelessDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWirelessDeviceStatisticsRequest {
   /**
    * <p>The ID of the wireless device for which to get the data.</p>
    */
   WirelessDeviceId: string | undefined;
-}
-
-export namespace GetWirelessDeviceStatisticsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessDeviceStatisticsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4231,15 +2786,6 @@ export interface LoRaWANGatewayMetadata {
    * <p>The RSSI value.</p>
    */
   Rssi?: number;
-}
-
-export namespace LoRaWANGatewayMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANGatewayMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4277,15 +2823,6 @@ export interface LoRaWANDeviceMetadata {
   Gateways?: LoRaWANGatewayMetadata[];
 }
 
-export namespace LoRaWANDeviceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANDeviceMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>MetaData for Sidewalk device.</p>
  */
@@ -4311,15 +2848,6 @@ export interface SidewalkDeviceMetadata {
   DeviceState?: DeviceState | string;
 }
 
-export namespace SidewalkDeviceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SidewalkDeviceMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWirelessDeviceStatisticsResponse {
   /**
    * <p>The ID of the wireless device.</p>
@@ -4342,15 +2870,6 @@ export interface GetWirelessDeviceStatisticsResponse {
   Sidewalk?: SidewalkDeviceMetadata;
 }
 
-export namespace GetWirelessDeviceStatisticsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessDeviceStatisticsResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum WirelessGatewayIdType {
   GatewayEui = "GatewayEui",
   ThingName = "ThingName",
@@ -4367,15 +2886,6 @@ export interface GetWirelessGatewayRequest {
    * <p>The type of identifier used in <code>identifier</code>.</p>
    */
   IdentifierType: WirelessGatewayIdType | string | undefined;
-}
-
-export namespace GetWirelessGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWirelessGatewayResponse {
@@ -4415,29 +2925,11 @@ export interface GetWirelessGatewayResponse {
   ThingArn?: string;
 }
 
-export namespace GetWirelessGatewayResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWirelessGatewayCertificateRequest {
   /**
    * <p>The ID of the resource to get.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetWirelessGatewayCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWirelessGatewayCertificateResponse {
@@ -4452,29 +2944,11 @@ export interface GetWirelessGatewayCertificateResponse {
   LoRaWANNetworkServerCertificateId?: string;
 }
 
-export namespace GetWirelessGatewayCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayCertificateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWirelessGatewayFirmwareInformationRequest {
   /**
    * <p>The ID of the resource to get.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetWirelessGatewayFirmwareInformationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayFirmwareInformationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4487,15 +2961,6 @@ export interface LoRaWANGatewayCurrentVersion {
   CurrentVersion?: LoRaWANGatewayVersion;
 }
 
-export namespace LoRaWANGatewayCurrentVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANGatewayCurrentVersion): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWirelessGatewayFirmwareInformationResponse {
   /**
    * <p>Information about the wireless gateway's firmware.</p>
@@ -4503,29 +2968,11 @@ export interface GetWirelessGatewayFirmwareInformationResponse {
   LoRaWAN?: LoRaWANGatewayCurrentVersion;
 }
 
-export namespace GetWirelessGatewayFirmwareInformationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayFirmwareInformationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWirelessGatewayStatisticsRequest {
   /**
    * <p>The ID of the wireless gateway for which to get the data.</p>
    */
   WirelessGatewayId: string | undefined;
-}
-
-export namespace GetWirelessGatewayStatisticsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayStatisticsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWirelessGatewayStatisticsResponse {
@@ -4545,29 +2992,11 @@ export interface GetWirelessGatewayStatisticsResponse {
   ConnectionStatus?: ConnectionStatus | string;
 }
 
-export namespace GetWirelessGatewayStatisticsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayStatisticsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWirelessGatewayTaskRequest {
   /**
    * <p>The ID of the resource to get.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetWirelessGatewayTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayTaskRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWirelessGatewayTaskResponse {
@@ -4597,29 +3026,11 @@ export interface GetWirelessGatewayTaskResponse {
   Status?: WirelessGatewayTaskStatus | string;
 }
 
-export namespace GetWirelessGatewayTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayTaskResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWirelessGatewayTaskDefinitionRequest {
   /**
    * <p>The ID of the resource to get.</p>
    */
   Id: string | undefined;
-}
-
-export namespace GetWirelessGatewayTaskDefinitionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayTaskDefinitionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWirelessGatewayTaskDefinitionResponse {
@@ -4644,15 +3055,6 @@ export interface GetWirelessGatewayTaskDefinitionResponse {
   Arn?: string;
 }
 
-export namespace GetWirelessGatewayTaskDefinitionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWirelessGatewayTaskDefinitionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDestinationsRequest {
   /**
    * <p>The maximum number of results to return in this operation.</p>
@@ -4663,15 +3065,6 @@ export interface ListDestinationsRequest {
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDestinationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDestinationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDestinationsResponse {
@@ -4686,15 +3079,6 @@ export interface ListDestinationsResponse {
   DestinationList?: Destinations[];
 }
 
-export namespace ListDestinationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDestinationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeviceProfilesRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -4707,15 +3091,6 @@ export interface ListDeviceProfilesRequest {
   MaxResults?: number;
 }
 
-export namespace ListDeviceProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceProfilesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeviceProfilesResponse {
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -4726,15 +3101,6 @@ export interface ListDeviceProfilesResponse {
    * <p>The list of device profiles.</p>
    */
   DeviceProfileList?: DeviceProfile[];
-}
-
-export namespace ListDeviceProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceProfilesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEventConfigurationsRequest {
@@ -4755,15 +3121,6 @@ export interface ListEventConfigurationsRequest {
   NextToken?: string;
 }
 
-export namespace ListEventConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEventConfigurationsResponse {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response;
@@ -4775,15 +3132,6 @@ export interface ListEventConfigurationsResponse {
    * <p>Event configurations of all events for a single resource.</p>
    */
   EventConfigurationsList?: EventConfigurationItem[];
-}
-
-export namespace ListEventConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEventConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFuotaTasksRequest {
@@ -4798,15 +3146,6 @@ export interface ListFuotaTasksRequest {
   MaxResults?: number;
 }
 
-export namespace ListFuotaTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFuotaTasksRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFuotaTasksResponse {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -4819,15 +3158,6 @@ export interface ListFuotaTasksResponse {
   FuotaTaskList?: FuotaTask[];
 }
 
-export namespace ListFuotaTasksResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFuotaTasksResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMulticastGroupsRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -4838,15 +3168,6 @@ export interface ListMulticastGroupsRequest {
    * <p>The maximum number of results to return in this operation.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListMulticastGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMulticastGroupsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4869,15 +3190,6 @@ export interface MulticastGroup {
   Name?: string;
 }
 
-export namespace MulticastGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MulticastGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMulticastGroupsResponse {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -4888,15 +3200,6 @@ export interface ListMulticastGroupsResponse {
    * <p>List of multicast groups.</p>
    */
   MulticastGroupList?: MulticastGroup[];
-}
-
-export namespace ListMulticastGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMulticastGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMulticastGroupsByFuotaTaskRequest {
@@ -4916,15 +3219,6 @@ export interface ListMulticastGroupsByFuotaTaskRequest {
   MaxResults?: number;
 }
 
-export namespace ListMulticastGroupsByFuotaTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMulticastGroupsByFuotaTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A multicast group that is associated with a FUOTA task.</p>
  */
@@ -4933,15 +3227,6 @@ export interface MulticastGroupByFuotaTask {
    * <p>The ID of the multicast group.</p>
    */
   Id?: string;
-}
-
-export namespace MulticastGroupByFuotaTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MulticastGroupByFuotaTask): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMulticastGroupsByFuotaTaskResponse {
@@ -4956,15 +3241,6 @@ export interface ListMulticastGroupsByFuotaTaskResponse {
   MulticastGroupList?: MulticastGroupByFuotaTask[];
 }
 
-export namespace ListMulticastGroupsByFuotaTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMulticastGroupsByFuotaTaskResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNetworkAnalyzerConfigurationsRequest {
   /**
    * <p>The maximum number of results to return in this operation.</p>
@@ -4975,15 +3251,6 @@ export interface ListNetworkAnalyzerConfigurationsRequest {
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListNetworkAnalyzerConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNetworkAnalyzerConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5001,15 +3268,6 @@ export interface NetworkAnalyzerConfigurations {
   Name?: string;
 }
 
-export namespace NetworkAnalyzerConfigurations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkAnalyzerConfigurations): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNetworkAnalyzerConfigurationsResponse {
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -5020,15 +3278,6 @@ export interface ListNetworkAnalyzerConfigurationsResponse {
    * <p>The list of network analyzer configurations.</p>
    */
   NetworkAnalyzerConfigurationList?: NetworkAnalyzerConfigurations[];
-}
-
-export namespace ListNetworkAnalyzerConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNetworkAnalyzerConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPartnerAccountsRequest {
@@ -5043,15 +3292,6 @@ export interface ListPartnerAccountsRequest {
   MaxResults?: number;
 }
 
-export namespace ListPartnerAccountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPartnerAccountsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPartnerAccountsResponse {
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -5062,18 +3302,6 @@ export interface ListPartnerAccountsResponse {
    * <p>The Sidewalk account credentials.</p>
    */
   Sidewalk?: SidewalkAccountInfoWithFingerprint[];
-}
-
-export namespace ListPartnerAccountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPartnerAccountsResponse): any => ({
-    ...obj,
-    ...(obj.Sidewalk && {
-      Sidewalk: obj.Sidewalk.map((item) => SidewalkAccountInfoWithFingerprint.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListPositionConfigurationsRequest {
@@ -5092,15 +3320,6 @@ export interface ListPositionConfigurationsRequest {
    *             to receive the first set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPositionConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPositionConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5129,15 +3348,6 @@ export interface PositionConfigurationItem {
   Destination?: string;
 }
 
-export namespace PositionConfigurationItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PositionConfigurationItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPositionConfigurationsResponse {
   /**
    * <p>A list of position configurations.</p>
@@ -5148,15 +3358,6 @@ export interface ListPositionConfigurationsResponse {
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPositionConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPositionConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListQueuedMessagesRequest {
@@ -5182,15 +3383,6 @@ export interface ListQueuedMessagesRequest {
   WirelessDeviceType?: WirelessDeviceType | string;
 }
 
-export namespace ListQueuedMessagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueuedMessagesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListQueuedMessagesResponse {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response;
@@ -5204,15 +3396,6 @@ export interface ListQueuedMessagesResponse {
   DownlinkQueueMessagesList?: DownlinkQueueMessage[];
 }
 
-export namespace ListQueuedMessagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListQueuedMessagesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServiceProfilesRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -5223,15 +3406,6 @@ export interface ListServiceProfilesRequest {
    * <p>The maximum number of results to return in this operation.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListServiceProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceProfilesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5254,15 +3428,6 @@ export interface ServiceProfile {
   Id?: string;
 }
 
-export namespace ServiceProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceProfile): any => ({
-    ...obj,
-  });
-}
-
 export interface ListServiceProfilesResponse {
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -5275,15 +3440,6 @@ export interface ListServiceProfilesResponse {
   ServiceProfileList?: ServiceProfile[];
 }
 
-export namespace ListServiceProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListServiceProfilesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource for which you want to list tags.</p>
@@ -5291,29 +3447,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWirelessDevicesRequest {
@@ -5358,15 +3496,6 @@ export interface ListWirelessDevicesRequest {
   MulticastGroupId?: string;
 }
 
-export namespace ListWirelessDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWirelessDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>LoRaWAN object for list functions.</p>
  */
@@ -5375,15 +3504,6 @@ export interface LoRaWANListDevice {
    * <p>The DevEUI value.</p>
    */
   DevEui?: string;
-}
-
-export namespace LoRaWANListDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANListDevice): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5409,15 +3529,6 @@ export interface SidewalkListDevice {
    * <p>The sidewalk device certificates for Ed25519 and P256r1.</p>
    */
   DeviceCertificates?: CertificateList[];
-}
-
-export namespace SidewalkListDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SidewalkListDevice): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5480,15 +3591,6 @@ export interface WirelessDeviceStatistics {
   McGroupId?: number;
 }
 
-export namespace WirelessDeviceStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WirelessDeviceStatistics): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWirelessDevicesResponse {
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -5501,15 +3603,6 @@ export interface ListWirelessDevicesResponse {
   WirelessDeviceList?: WirelessDeviceStatistics[];
 }
 
-export namespace ListWirelessDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWirelessDevicesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWirelessGatewaysRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -5520,15 +3613,6 @@ export interface ListWirelessGatewaysRequest {
    * <p>The maximum number of results to return in this operation.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListWirelessGatewaysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWirelessGatewaysRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5566,15 +3650,6 @@ export interface WirelessGatewayStatistics {
   LastUplinkReceivedAt?: string;
 }
 
-export namespace WirelessGatewayStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WirelessGatewayStatistics): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWirelessGatewaysResponse {
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -5585,15 +3660,6 @@ export interface ListWirelessGatewaysResponse {
    * <p>The ID of the wireless gateway.</p>
    */
   WirelessGatewayList?: WirelessGatewayStatistics[];
-}
-
-export namespace ListWirelessGatewaysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWirelessGatewaysResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum WirelessGatewayTaskDefinitionType {
@@ -5617,15 +3683,6 @@ export interface ListWirelessGatewayTaskDefinitionsRequest {
   TaskDefinitionType?: WirelessGatewayTaskDefinitionType | string;
 }
 
-export namespace ListWirelessGatewayTaskDefinitionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWirelessGatewayTaskDefinitionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>LoRaWANUpdateGatewayTaskEntry object.</p>
  */
@@ -5639,15 +3696,6 @@ export interface LoRaWANUpdateGatewayTaskEntry {
    * <p>The firmware version to update the gateway to.</p>
    */
   UpdateVersion?: LoRaWANGatewayVersion;
-}
-
-export namespace LoRaWANUpdateGatewayTaskEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANUpdateGatewayTaskEntry): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5670,15 +3718,6 @@ export interface UpdateWirelessGatewayTaskEntry {
   Arn?: string;
 }
 
-export namespace UpdateWirelessGatewayTaskEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWirelessGatewayTaskEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWirelessGatewayTaskDefinitionsResponse {
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -5689,15 +3728,6 @@ export interface ListWirelessGatewayTaskDefinitionsResponse {
    * <p>The list of task definitions.</p>
    */
   TaskDefinitions?: UpdateWirelessGatewayTaskEntry[];
-}
-
-export namespace ListWirelessGatewayTaskDefinitionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWirelessGatewayTaskDefinitionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5715,15 +3745,6 @@ export interface SemtechGnssConfiguration {
   Fec: PositionConfigurationFec | string | undefined;
 }
 
-export namespace SemtechGnssConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SemtechGnssConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The wrapper for position solver configurations.</p>
  */
@@ -5732,15 +3753,6 @@ export interface PositionSolverConfigurations {
    * <p>The Semtech GNSS solver configuration object.</p>
    */
   SemtechGnss?: SemtechGnssConfiguration;
-}
-
-export namespace PositionSolverConfigurations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PositionSolverConfigurations): any => ({
-    ...obj,
-  });
 }
 
 export interface PutPositionConfigurationRequest {
@@ -5766,25 +3778,7 @@ export interface PutPositionConfigurationRequest {
   Destination?: string;
 }
 
-export namespace PutPositionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPositionConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPositionConfigurationResponse {}
-
-export namespace PutPositionConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPositionConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutResourceLogLevelRequest {
   /**
@@ -5805,47 +3799,11 @@ export interface PutResourceLogLevelRequest {
   LogLevel: LogLevel | string | undefined;
 }
 
-export namespace PutResourceLogLevelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourceLogLevelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutResourceLogLevelResponse {}
-
-export namespace PutResourceLogLevelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourceLogLevelResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ResetAllResourceLogLevelsRequest {}
 
-export namespace ResetAllResourceLogLevelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetAllResourceLogLevelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetAllResourceLogLevelsResponse {}
-
-export namespace ResetAllResourceLogLevelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetAllResourceLogLevelsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ResetResourceLogLevelRequest {
   /**
@@ -5860,25 +3818,7 @@ export interface ResetResourceLogLevelRequest {
   ResourceType: string | undefined;
 }
 
-export namespace ResetResourceLogLevelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetResourceLogLevelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetResourceLogLevelResponse {}
-
-export namespace ResetResourceLogLevelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetResourceLogLevelResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The metadata information of the LoRaWAN multicast group.</p>
@@ -5890,15 +3830,6 @@ export interface LoRaWANMulticastMetadata {
   FPort?: number;
 }
 
-export namespace LoRaWANMulticastMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANMulticastMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Wireless metadata that is to be sent to multicast group.</p>
  */
@@ -5907,15 +3838,6 @@ export interface MulticastWirelessMetadata {
    * <p>The metadata information of the LoRaWAN multicast group.</p>
    */
   LoRaWAN?: LoRaWANMulticastMetadata;
-}
-
-export namespace MulticastWirelessMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MulticastWirelessMetadata): any => ({
-    ...obj,
-  });
 }
 
 export interface SendDataToMulticastGroupRequest {
@@ -5935,29 +3857,11 @@ export interface SendDataToMulticastGroupRequest {
   WirelessMetadata: MulticastWirelessMetadata | undefined;
 }
 
-export namespace SendDataToMulticastGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendDataToMulticastGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendDataToMulticastGroupResponse {
   /**
    * <p>ID of a multicast group message.</p>
    */
   MessageId?: string;
-}
-
-export namespace SendDataToMulticastGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendDataToMulticastGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum MessageType {
@@ -5982,15 +3886,6 @@ export interface SidewalkSendDataToDevice {
   MessageType?: MessageType | string;
 }
 
-export namespace SidewalkSendDataToDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SidewalkSendDataToDevice): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>WirelessMetadata object.</p>
  */
@@ -6004,15 +3899,6 @@ export interface WirelessMetadata {
    * <p>The Sidewalk account credentials.</p>
    */
   Sidewalk?: SidewalkSendDataToDevice;
-}
-
-export namespace WirelessMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WirelessMetadata): any => ({
-    ...obj,
-  });
 }
 
 export interface SendDataToWirelessDeviceRequest {
@@ -6037,29 +3923,11 @@ export interface SendDataToWirelessDeviceRequest {
   WirelessMetadata?: WirelessMetadata;
 }
 
-export namespace SendDataToWirelessDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendDataToWirelessDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendDataToWirelessDeviceResponse {
   /**
    * <p>The ID of the message sent to the wireless device.</p>
    */
   MessageId?: string;
-}
-
-export namespace SendDataToWirelessDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendDataToWirelessDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
@@ -6079,25 +3947,7 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
   Tags?: Tag[];
 }
 
-export namespace StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBulkAssociateWirelessDeviceWithMulticastGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartBulkAssociateWirelessDeviceWithMulticastGroupResponse {}
-
-export namespace StartBulkAssociateWirelessDeviceWithMulticastGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBulkAssociateWirelessDeviceWithMulticastGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
   /**
@@ -6116,25 +3966,7 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
   Tags?: Tag[];
 }
 
-export namespace StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse {}
-
-export namespace StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The LoRaWAN information used to start a FUOTA task.</p>
@@ -6144,15 +3976,6 @@ export interface LoRaWANStartFuotaTask {
    * <p>Start time of a FUOTA task.</p>
    */
   StartTime?: Date;
-}
-
-export namespace LoRaWANStartFuotaTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANStartFuotaTask): any => ({
-    ...obj,
-  });
 }
 
 export interface StartFuotaTaskRequest {
@@ -6167,25 +3990,7 @@ export interface StartFuotaTaskRequest {
   LoRaWAN?: LoRaWANStartFuotaTask;
 }
 
-export namespace StartFuotaTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFuotaTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartFuotaTaskResponse {}
-
-export namespace StartFuotaTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartFuotaTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StartMulticastGroupSessionRequest {
   /**
@@ -6199,25 +4004,7 @@ export interface StartMulticastGroupSessionRequest {
   LoRaWAN: LoRaWANMulticastSession | undefined;
 }
 
-export namespace StartMulticastGroupSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMulticastGroupSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartMulticastGroupSessionResponse {}
-
-export namespace StartMulticastGroupSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMulticastGroupSessionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -6231,25 +4018,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The request was denied because the resource can't have any more tags.</p>
@@ -6284,29 +4053,11 @@ export interface TestWirelessDeviceRequest {
   Id: string | undefined;
 }
 
-export namespace TestWirelessDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestWirelessDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TestWirelessDeviceResponse {
   /**
    * <p>The result returned by the test.</p>
    */
   Result?: string;
-}
-
-export namespace TestWirelessDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestWirelessDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {
@@ -6321,25 +4072,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDestinationRequest {
   /**
@@ -6368,25 +4101,7 @@ export interface UpdateDestinationRequest {
   RoleArn?: string;
 }
 
-export namespace UpdateDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDestinationResponse {}
-
-export namespace UpdateDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateEventConfigurationByResourceTypesRequest {
   /**
@@ -6411,25 +4126,7 @@ export interface UpdateEventConfigurationByResourceTypesRequest {
   ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
 }
 
-export namespace UpdateEventConfigurationByResourceTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventConfigurationByResourceTypesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEventConfigurationByResourceTypesResponse {}
-
-export namespace UpdateEventConfigurationByResourceTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventConfigurationByResourceTypesResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateFuotaTaskRequest {
   /**
@@ -6463,25 +4160,7 @@ export interface UpdateFuotaTaskRequest {
   FirmwareUpdateRole?: string;
 }
 
-export namespace UpdateFuotaTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFuotaTaskRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFuotaTaskResponse {}
-
-export namespace UpdateFuotaTaskResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFuotaTaskResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateLogLevelsByResourceTypesRequest {
   /**
@@ -6501,25 +4180,7 @@ export interface UpdateLogLevelsByResourceTypesRequest {
   WirelessGatewayLogOptions?: WirelessGatewayLogOption[];
 }
 
-export namespace UpdateLogLevelsByResourceTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLogLevelsByResourceTypesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLogLevelsByResourceTypesResponse {}
-
-export namespace UpdateLogLevelsByResourceTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLogLevelsByResourceTypesResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateMulticastGroupRequest {
   /**
@@ -6543,22 +4204,1995 @@ export interface UpdateMulticastGroupRequest {
   LoRaWAN?: LoRaWANMulticast;
 }
 
-export namespace UpdateMulticastGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMulticastGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateMulticastGroupResponse {}
 
-export namespace UpdateMulticastGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMulticastGroupResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SessionKeysAbpV1_0_xFilterSensitiveLog = (obj: SessionKeysAbpV1_0_x): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AbpV1_0_xFilterSensitiveLog = (obj: AbpV1_0_x): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionKeysAbpV1_1FilterSensitiveLog = (obj: SessionKeysAbpV1_1): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AbpV1_1FilterSensitiveLog = (obj: AbpV1_1): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccuracyFilterSensitiveLog = (obj: Accuracy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SidewalkAccountInfoFilterSensitiveLog = (obj: SidewalkAccountInfo): any => ({
+  ...obj,
+  ...(obj.AppServerPrivateKey && { AppServerPrivateKey: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateAwsAccountWithPartnerAccountRequestFilterSensitiveLog = (
+  obj: AssociateAwsAccountWithPartnerAccountRequest
+): any => ({
+  ...obj,
+  ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoFilterSensitiveLog(obj.Sidewalk) }),
+});
+
+/**
+ * @internal
+ */
+export const AssociateAwsAccountWithPartnerAccountResponseFilterSensitiveLog = (
+  obj: AssociateAwsAccountWithPartnerAccountResponse
+): any => ({
+  ...obj,
+  ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoFilterSensitiveLog(obj.Sidewalk) }),
+});
+
+/**
+ * @internal
+ */
+export const AssociateMulticastGroupWithFuotaTaskRequestFilterSensitiveLog = (
+  obj: AssociateMulticastGroupWithFuotaTaskRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateMulticastGroupWithFuotaTaskResponseFilterSensitiveLog = (
+  obj: AssociateMulticastGroupWithFuotaTaskResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWirelessDeviceWithFuotaTaskRequestFilterSensitiveLog = (
+  obj: AssociateWirelessDeviceWithFuotaTaskRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWirelessDeviceWithFuotaTaskResponseFilterSensitiveLog = (
+  obj: AssociateWirelessDeviceWithFuotaTaskResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWirelessDeviceWithMulticastGroupRequestFilterSensitiveLog = (
+  obj: AssociateWirelessDeviceWithMulticastGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWirelessDeviceWithMulticastGroupResponseFilterSensitiveLog = (
+  obj: AssociateWirelessDeviceWithMulticastGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWirelessDeviceWithThingRequestFilterSensitiveLog = (
+  obj: AssociateWirelessDeviceWithThingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWirelessDeviceWithThingResponseFilterSensitiveLog = (
+  obj: AssociateWirelessDeviceWithThingResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWirelessGatewayWithCertificateRequestFilterSensitiveLog = (
+  obj: AssociateWirelessGatewayWithCertificateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWirelessGatewayWithCertificateResponseFilterSensitiveLog = (
+  obj: AssociateWirelessGatewayWithCertificateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWirelessGatewayWithThingRequestFilterSensitiveLog = (
+  obj: AssociateWirelessGatewayWithThingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWirelessGatewayWithThingResponseFilterSensitiveLog = (
+  obj: AssociateWirelessGatewayWithThingResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelMulticastGroupSessionRequestFilterSensitiveLog = (obj: CancelMulticastGroupSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelMulticastGroupSessionResponseFilterSensitiveLog = (
+  obj: CancelMulticastGroupSessionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateListFilterSensitiveLog = (obj: CertificateList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANConnectionStatusEventNotificationConfigurationsFilterSensitiveLog = (
+  obj: LoRaWANConnectionStatusEventNotificationConfigurations
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionStatusEventConfigurationFilterSensitiveLog = (obj: ConnectionStatusEventConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANConnectionStatusResourceTypeEventConfigurationFilterSensitiveLog = (
+  obj: LoRaWANConnectionStatusResourceTypeEventConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionStatusResourceTypeEventConfigurationFilterSensitiveLog = (
+  obj: ConnectionStatusResourceTypeEventConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDestinationRequestFilterSensitiveLog = (obj: CreateDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDestinationResponseFilterSensitiveLog = (obj: CreateDestinationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANDeviceProfileFilterSensitiveLog = (obj: LoRaWANDeviceProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeviceProfileRequestFilterSensitiveLog = (obj: CreateDeviceProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeviceProfileResponseFilterSensitiveLog = (obj: CreateDeviceProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANFuotaTaskFilterSensitiveLog = (obj: LoRaWANFuotaTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFuotaTaskRequestFilterSensitiveLog = (obj: CreateFuotaTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFuotaTaskResponseFilterSensitiveLog = (obj: CreateFuotaTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANMulticastFilterSensitiveLog = (obj: LoRaWANMulticast): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMulticastGroupRequestFilterSensitiveLog = (obj: CreateMulticastGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMulticastGroupResponseFilterSensitiveLog = (obj: CreateMulticastGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TraceContentFilterSensitiveLog = (obj: TraceContent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNetworkAnalyzerConfigurationRequestFilterSensitiveLog = (
+  obj: CreateNetworkAnalyzerConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNetworkAnalyzerConfigurationResponseFilterSensitiveLog = (
+  obj: CreateNetworkAnalyzerConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANServiceProfileFilterSensitiveLog = (obj: LoRaWANServiceProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceProfileRequestFilterSensitiveLog = (obj: CreateServiceProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateServiceProfileResponseFilterSensitiveLog = (obj: CreateServiceProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PositioningFilterSensitiveLog = (obj: Positioning): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FPortsFilterSensitiveLog = (obj: FPorts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OtaaV1_0_xFilterSensitiveLog = (obj: OtaaV1_0_x): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OtaaV1_1FilterSensitiveLog = (obj: OtaaV1_1): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANDeviceFilterSensitiveLog = (obj: LoRaWANDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWirelessDeviceRequestFilterSensitiveLog = (obj: CreateWirelessDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWirelessDeviceResponseFilterSensitiveLog = (obj: CreateWirelessDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANGatewayFilterSensitiveLog = (obj: LoRaWANGateway): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWirelessGatewayRequestFilterSensitiveLog = (obj: CreateWirelessGatewayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWirelessGatewayResponseFilterSensitiveLog = (obj: CreateWirelessGatewayResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWirelessGatewayTaskRequestFilterSensitiveLog = (obj: CreateWirelessGatewayTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWirelessGatewayTaskResponseFilterSensitiveLog = (obj: CreateWirelessGatewayTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANGatewayVersionFilterSensitiveLog = (obj: LoRaWANGatewayVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANUpdateGatewayTaskCreateFilterSensitiveLog = (obj: LoRaWANUpdateGatewayTaskCreate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWirelessGatewayTaskCreateFilterSensitiveLog = (obj: UpdateWirelessGatewayTaskCreate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWirelessGatewayTaskDefinitionRequestFilterSensitiveLog = (
+  obj: CreateWirelessGatewayTaskDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWirelessGatewayTaskDefinitionResponseFilterSensitiveLog = (
+  obj: CreateWirelessGatewayTaskDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDestinationRequestFilterSensitiveLog = (obj: DeleteDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDestinationResponseFilterSensitiveLog = (obj: DeleteDestinationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeviceProfileRequestFilterSensitiveLog = (obj: DeleteDeviceProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeviceProfileResponseFilterSensitiveLog = (obj: DeleteDeviceProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFuotaTaskRequestFilterSensitiveLog = (obj: DeleteFuotaTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFuotaTaskResponseFilterSensitiveLog = (obj: DeleteFuotaTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMulticastGroupRequestFilterSensitiveLog = (obj: DeleteMulticastGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMulticastGroupResponseFilterSensitiveLog = (obj: DeleteMulticastGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNetworkAnalyzerConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteNetworkAnalyzerConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNetworkAnalyzerConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteNetworkAnalyzerConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQueuedMessagesRequestFilterSensitiveLog = (obj: DeleteQueuedMessagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteQueuedMessagesResponseFilterSensitiveLog = (obj: DeleteQueuedMessagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceProfileRequestFilterSensitiveLog = (obj: DeleteServiceProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteServiceProfileResponseFilterSensitiveLog = (obj: DeleteServiceProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWirelessDeviceRequestFilterSensitiveLog = (obj: DeleteWirelessDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWirelessDeviceResponseFilterSensitiveLog = (obj: DeleteWirelessDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWirelessGatewayRequestFilterSensitiveLog = (obj: DeleteWirelessGatewayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWirelessGatewayResponseFilterSensitiveLog = (obj: DeleteWirelessGatewayResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWirelessGatewayTaskRequestFilterSensitiveLog = (obj: DeleteWirelessGatewayTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWirelessGatewayTaskResponseFilterSensitiveLog = (obj: DeleteWirelessGatewayTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWirelessGatewayTaskDefinitionRequestFilterSensitiveLog = (
+  obj: DeleteWirelessGatewayTaskDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWirelessGatewayTaskDefinitionResponseFilterSensitiveLog = (
+  obj: DeleteWirelessGatewayTaskDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationsFilterSensitiveLog = (obj: Destinations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceProfileFilterSensitiveLog = (obj: DeviceProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SidewalkEventNotificationConfigurationsFilterSensitiveLog = (
+  obj: SidewalkEventNotificationConfigurations
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceRegistrationStateEventConfigurationFilterSensitiveLog = (
+  obj: DeviceRegistrationStateEventConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SidewalkResourceTypeEventConfigurationFilterSensitiveLog = (
+  obj: SidewalkResourceTypeEventConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceRegistrationStateResourceTypeEventConfigurationFilterSensitiveLog = (
+  obj: DeviceRegistrationStateResourceTypeEventConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateAwsAccountFromPartnerAccountRequestFilterSensitiveLog = (
+  obj: DisassociateAwsAccountFromPartnerAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateAwsAccountFromPartnerAccountResponseFilterSensitiveLog = (
+  obj: DisassociateAwsAccountFromPartnerAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMulticastGroupFromFuotaTaskRequestFilterSensitiveLog = (
+  obj: DisassociateMulticastGroupFromFuotaTaskRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMulticastGroupFromFuotaTaskResponseFilterSensitiveLog = (
+  obj: DisassociateMulticastGroupFromFuotaTaskResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWirelessDeviceFromFuotaTaskRequestFilterSensitiveLog = (
+  obj: DisassociateWirelessDeviceFromFuotaTaskRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWirelessDeviceFromFuotaTaskResponseFilterSensitiveLog = (
+  obj: DisassociateWirelessDeviceFromFuotaTaskResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWirelessDeviceFromMulticastGroupRequestFilterSensitiveLog = (
+  obj: DisassociateWirelessDeviceFromMulticastGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWirelessDeviceFromMulticastGroupResponseFilterSensitiveLog = (
+  obj: DisassociateWirelessDeviceFromMulticastGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWirelessDeviceFromThingRequestFilterSensitiveLog = (
+  obj: DisassociateWirelessDeviceFromThingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWirelessDeviceFromThingResponseFilterSensitiveLog = (
+  obj: DisassociateWirelessDeviceFromThingResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWirelessGatewayFromCertificateRequestFilterSensitiveLog = (
+  obj: DisassociateWirelessGatewayFromCertificateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWirelessGatewayFromCertificateResponseFilterSensitiveLog = (
+  obj: DisassociateWirelessGatewayFromCertificateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWirelessGatewayFromThingRequestFilterSensitiveLog = (
+  obj: DisassociateWirelessGatewayFromThingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWirelessGatewayFromThingResponseFilterSensitiveLog = (
+  obj: DisassociateWirelessGatewayFromThingResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANSendDataToDeviceFilterSensitiveLog = (obj: LoRaWANSendDataToDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DownlinkQueueMessageFilterSensitiveLog = (obj: DownlinkQueueMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANJoinEventNotificationConfigurationsFilterSensitiveLog = (
+  obj: LoRaWANJoinEventNotificationConfigurations
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JoinEventConfigurationFilterSensitiveLog = (obj: JoinEventConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProximityEventConfigurationFilterSensitiveLog = (obj: ProximityEventConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventNotificationItemConfigurationsFilterSensitiveLog = (
+  obj: EventNotificationItemConfigurations
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventConfigurationItemFilterSensitiveLog = (obj: EventConfigurationItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FuotaTaskFilterSensitiveLog = (obj: FuotaTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDestinationRequestFilterSensitiveLog = (obj: GetDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDestinationResponseFilterSensitiveLog = (obj: GetDestinationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceProfileRequestFilterSensitiveLog = (obj: GetDeviceProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceProfileResponseFilterSensitiveLog = (obj: GetDeviceProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventConfigurationByResourceTypesRequestFilterSensitiveLog = (
+  obj: GetEventConfigurationByResourceTypesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANJoinResourceTypeEventConfigurationFilterSensitiveLog = (
+  obj: LoRaWANJoinResourceTypeEventConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JoinResourceTypeEventConfigurationFilterSensitiveLog = (obj: JoinResourceTypeEventConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProximityResourceTypeEventConfigurationFilterSensitiveLog = (
+  obj: ProximityResourceTypeEventConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEventConfigurationByResourceTypesResponseFilterSensitiveLog = (
+  obj: GetEventConfigurationByResourceTypesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFuotaTaskRequestFilterSensitiveLog = (obj: GetFuotaTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANFuotaTaskGetInfoFilterSensitiveLog = (obj: LoRaWANFuotaTaskGetInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFuotaTaskResponseFilterSensitiveLog = (obj: GetFuotaTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLogLevelsByResourceTypesRequestFilterSensitiveLog = (obj: GetLogLevelsByResourceTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WirelessDeviceEventLogOptionFilterSensitiveLog = (obj: WirelessDeviceEventLogOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WirelessDeviceLogOptionFilterSensitiveLog = (obj: WirelessDeviceLogOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WirelessGatewayEventLogOptionFilterSensitiveLog = (obj: WirelessGatewayEventLogOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WirelessGatewayLogOptionFilterSensitiveLog = (obj: WirelessGatewayLogOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLogLevelsByResourceTypesResponseFilterSensitiveLog = (
+  obj: GetLogLevelsByResourceTypesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMulticastGroupRequestFilterSensitiveLog = (obj: GetMulticastGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANMulticastGetFilterSensitiveLog = (obj: LoRaWANMulticastGet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMulticastGroupResponseFilterSensitiveLog = (obj: GetMulticastGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMulticastGroupSessionRequestFilterSensitiveLog = (obj: GetMulticastGroupSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANMulticastSessionFilterSensitiveLog = (obj: LoRaWANMulticastSession): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMulticastGroupSessionResponseFilterSensitiveLog = (obj: GetMulticastGroupSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNetworkAnalyzerConfigurationRequestFilterSensitiveLog = (
+  obj: GetNetworkAnalyzerConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNetworkAnalyzerConfigurationResponseFilterSensitiveLog = (
+  obj: GetNetworkAnalyzerConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPartnerAccountRequestFilterSensitiveLog = (obj: GetPartnerAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SidewalkAccountInfoWithFingerprintFilterSensitiveLog = (obj: SidewalkAccountInfoWithFingerprint): any => ({
+  ...obj,
+  ...(obj.Fingerprint && { Fingerprint: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetPartnerAccountResponseFilterSensitiveLog = (obj: GetPartnerAccountResponse): any => ({
+  ...obj,
+  ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoWithFingerprintFilterSensitiveLog(obj.Sidewalk) }),
+});
+
+/**
+ * @internal
+ */
+export const GetPositionRequestFilterSensitiveLog = (obj: GetPositionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPositionResponseFilterSensitiveLog = (obj: GetPositionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPositionConfigurationRequestFilterSensitiveLog = (obj: GetPositionConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SemtechGnssDetailFilterSensitiveLog = (obj: SemtechGnssDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PositionSolverDetailsFilterSensitiveLog = (obj: PositionSolverDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPositionConfigurationResponseFilterSensitiveLog = (obj: GetPositionConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceEventConfigurationRequestFilterSensitiveLog = (
+  obj: GetResourceEventConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceEventConfigurationResponseFilterSensitiveLog = (
+  obj: GetResourceEventConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceLogLevelRequestFilterSensitiveLog = (obj: GetResourceLogLevelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceLogLevelResponseFilterSensitiveLog = (obj: GetResourceLogLevelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceEndpointRequestFilterSensitiveLog = (obj: GetServiceEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceEndpointResponseFilterSensitiveLog = (obj: GetServiceEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceProfileRequestFilterSensitiveLog = (obj: GetServiceProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANGetServiceProfileInfoFilterSensitiveLog = (obj: LoRaWANGetServiceProfileInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceProfileResponseFilterSensitiveLog = (obj: GetServiceProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessDeviceRequestFilterSensitiveLog = (obj: GetWirelessDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SidewalkDeviceFilterSensitiveLog = (obj: SidewalkDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessDeviceResponseFilterSensitiveLog = (obj: GetWirelessDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessDeviceStatisticsRequestFilterSensitiveLog = (obj: GetWirelessDeviceStatisticsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANGatewayMetadataFilterSensitiveLog = (obj: LoRaWANGatewayMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANDeviceMetadataFilterSensitiveLog = (obj: LoRaWANDeviceMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SidewalkDeviceMetadataFilterSensitiveLog = (obj: SidewalkDeviceMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessDeviceStatisticsResponseFilterSensitiveLog = (
+  obj: GetWirelessDeviceStatisticsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayRequestFilterSensitiveLog = (obj: GetWirelessGatewayRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayResponseFilterSensitiveLog = (obj: GetWirelessGatewayResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayCertificateRequestFilterSensitiveLog = (
+  obj: GetWirelessGatewayCertificateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayCertificateResponseFilterSensitiveLog = (
+  obj: GetWirelessGatewayCertificateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayFirmwareInformationRequestFilterSensitiveLog = (
+  obj: GetWirelessGatewayFirmwareInformationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANGatewayCurrentVersionFilterSensitiveLog = (obj: LoRaWANGatewayCurrentVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayFirmwareInformationResponseFilterSensitiveLog = (
+  obj: GetWirelessGatewayFirmwareInformationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayStatisticsRequestFilterSensitiveLog = (
+  obj: GetWirelessGatewayStatisticsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayStatisticsResponseFilterSensitiveLog = (
+  obj: GetWirelessGatewayStatisticsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayTaskRequestFilterSensitiveLog = (obj: GetWirelessGatewayTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayTaskResponseFilterSensitiveLog = (obj: GetWirelessGatewayTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayTaskDefinitionRequestFilterSensitiveLog = (
+  obj: GetWirelessGatewayTaskDefinitionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWirelessGatewayTaskDefinitionResponseFilterSensitiveLog = (
+  obj: GetWirelessGatewayTaskDefinitionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDestinationsRequestFilterSensitiveLog = (obj: ListDestinationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDestinationsResponseFilterSensitiveLog = (obj: ListDestinationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceProfilesRequestFilterSensitiveLog = (obj: ListDeviceProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceProfilesResponseFilterSensitiveLog = (obj: ListDeviceProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventConfigurationsRequestFilterSensitiveLog = (obj: ListEventConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEventConfigurationsResponseFilterSensitiveLog = (obj: ListEventConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFuotaTasksRequestFilterSensitiveLog = (obj: ListFuotaTasksRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFuotaTasksResponseFilterSensitiveLog = (obj: ListFuotaTasksResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMulticastGroupsRequestFilterSensitiveLog = (obj: ListMulticastGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MulticastGroupFilterSensitiveLog = (obj: MulticastGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMulticastGroupsResponseFilterSensitiveLog = (obj: ListMulticastGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMulticastGroupsByFuotaTaskRequestFilterSensitiveLog = (
+  obj: ListMulticastGroupsByFuotaTaskRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MulticastGroupByFuotaTaskFilterSensitiveLog = (obj: MulticastGroupByFuotaTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMulticastGroupsByFuotaTaskResponseFilterSensitiveLog = (
+  obj: ListMulticastGroupsByFuotaTaskResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNetworkAnalyzerConfigurationsRequestFilterSensitiveLog = (
+  obj: ListNetworkAnalyzerConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkAnalyzerConfigurationsFilterSensitiveLog = (obj: NetworkAnalyzerConfigurations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNetworkAnalyzerConfigurationsResponseFilterSensitiveLog = (
+  obj: ListNetworkAnalyzerConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPartnerAccountsRequestFilterSensitiveLog = (obj: ListPartnerAccountsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPartnerAccountsResponseFilterSensitiveLog = (obj: ListPartnerAccountsResponse): any => ({
+  ...obj,
+  ...(obj.Sidewalk && {
+    Sidewalk: obj.Sidewalk.map((item) => SidewalkAccountInfoWithFingerprintFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListPositionConfigurationsRequestFilterSensitiveLog = (obj: ListPositionConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PositionConfigurationItemFilterSensitiveLog = (obj: PositionConfigurationItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPositionConfigurationsResponseFilterSensitiveLog = (obj: ListPositionConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueuedMessagesRequestFilterSensitiveLog = (obj: ListQueuedMessagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListQueuedMessagesResponseFilterSensitiveLog = (obj: ListQueuedMessagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceProfilesRequestFilterSensitiveLog = (obj: ListServiceProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceProfileFilterSensitiveLog = (obj: ServiceProfile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServiceProfilesResponseFilterSensitiveLog = (obj: ListServiceProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWirelessDevicesRequestFilterSensitiveLog = (obj: ListWirelessDevicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANListDeviceFilterSensitiveLog = (obj: LoRaWANListDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SidewalkListDeviceFilterSensitiveLog = (obj: SidewalkListDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WirelessDeviceStatisticsFilterSensitiveLog = (obj: WirelessDeviceStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWirelessDevicesResponseFilterSensitiveLog = (obj: ListWirelessDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWirelessGatewaysRequestFilterSensitiveLog = (obj: ListWirelessGatewaysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WirelessGatewayStatisticsFilterSensitiveLog = (obj: WirelessGatewayStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWirelessGatewaysResponseFilterSensitiveLog = (obj: ListWirelessGatewaysResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWirelessGatewayTaskDefinitionsRequestFilterSensitiveLog = (
+  obj: ListWirelessGatewayTaskDefinitionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANUpdateGatewayTaskEntryFilterSensitiveLog = (obj: LoRaWANUpdateGatewayTaskEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWirelessGatewayTaskEntryFilterSensitiveLog = (obj: UpdateWirelessGatewayTaskEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWirelessGatewayTaskDefinitionsResponseFilterSensitiveLog = (
+  obj: ListWirelessGatewayTaskDefinitionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SemtechGnssConfigurationFilterSensitiveLog = (obj: SemtechGnssConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PositionSolverConfigurationsFilterSensitiveLog = (obj: PositionSolverConfigurations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPositionConfigurationRequestFilterSensitiveLog = (obj: PutPositionConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPositionConfigurationResponseFilterSensitiveLog = (obj: PutPositionConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourceLogLevelRequestFilterSensitiveLog = (obj: PutResourceLogLevelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourceLogLevelResponseFilterSensitiveLog = (obj: PutResourceLogLevelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetAllResourceLogLevelsRequestFilterSensitiveLog = (obj: ResetAllResourceLogLevelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetAllResourceLogLevelsResponseFilterSensitiveLog = (obj: ResetAllResourceLogLevelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetResourceLogLevelRequestFilterSensitiveLog = (obj: ResetResourceLogLevelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetResourceLogLevelResponseFilterSensitiveLog = (obj: ResetResourceLogLevelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANMulticastMetadataFilterSensitiveLog = (obj: LoRaWANMulticastMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MulticastWirelessMetadataFilterSensitiveLog = (obj: MulticastWirelessMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendDataToMulticastGroupRequestFilterSensitiveLog = (obj: SendDataToMulticastGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendDataToMulticastGroupResponseFilterSensitiveLog = (obj: SendDataToMulticastGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SidewalkSendDataToDeviceFilterSensitiveLog = (obj: SidewalkSendDataToDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WirelessMetadataFilterSensitiveLog = (obj: WirelessMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendDataToWirelessDeviceRequestFilterSensitiveLog = (obj: SendDataToWirelessDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendDataToWirelessDeviceResponseFilterSensitiveLog = (obj: SendDataToWirelessDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBulkAssociateWirelessDeviceWithMulticastGroupRequestFilterSensitiveLog = (
+  obj: StartBulkAssociateWirelessDeviceWithMulticastGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBulkAssociateWirelessDeviceWithMulticastGroupResponseFilterSensitiveLog = (
+  obj: StartBulkAssociateWirelessDeviceWithMulticastGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestFilterSensitiveLog = (
+  obj: StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBulkDisassociateWirelessDeviceFromMulticastGroupResponseFilterSensitiveLog = (
+  obj: StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANStartFuotaTaskFilterSensitiveLog = (obj: LoRaWANStartFuotaTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFuotaTaskRequestFilterSensitiveLog = (obj: StartFuotaTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFuotaTaskResponseFilterSensitiveLog = (obj: StartFuotaTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMulticastGroupSessionRequestFilterSensitiveLog = (obj: StartMulticastGroupSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMulticastGroupSessionResponseFilterSensitiveLog = (obj: StartMulticastGroupSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestWirelessDeviceRequestFilterSensitiveLog = (obj: TestWirelessDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestWirelessDeviceResponseFilterSensitiveLog = (obj: TestWirelessDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDestinationRequestFilterSensitiveLog = (obj: UpdateDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDestinationResponseFilterSensitiveLog = (obj: UpdateDestinationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventConfigurationByResourceTypesRequestFilterSensitiveLog = (
+  obj: UpdateEventConfigurationByResourceTypesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventConfigurationByResourceTypesResponseFilterSensitiveLog = (
+  obj: UpdateEventConfigurationByResourceTypesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFuotaTaskRequestFilterSensitiveLog = (obj: UpdateFuotaTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFuotaTaskResponseFilterSensitiveLog = (obj: UpdateFuotaTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLogLevelsByResourceTypesRequestFilterSensitiveLog = (
+  obj: UpdateLogLevelsByResourceTypesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLogLevelsByResourceTypesResponseFilterSensitiveLog = (
+  obj: UpdateLogLevelsByResourceTypesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMulticastGroupRequestFilterSensitiveLog = (obj: UpdateMulticastGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMulticastGroupResponseFilterSensitiveLog = (obj: UpdateMulticastGroupResponse): any => ({
+  ...obj,
+});

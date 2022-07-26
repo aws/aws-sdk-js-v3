@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import { ListDistributedGrantsRequest, ListDistributedGrantsResponse } from "../models/models_0";
+import {
+  ListDistributedGrantsRequest,
+  ListDistributedGrantsRequestFilterSensitiveLog,
+  ListDistributedGrantsResponse,
+  ListDistributedGrantsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListDistributedGrantsCommand,
   serializeAws_json1_1ListDistributedGrantsCommand,
@@ -72,8 +77,8 @@ export class ListDistributedGrantsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributedGrantsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDistributedGrantsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDistributedGrantsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDistributedGrantsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

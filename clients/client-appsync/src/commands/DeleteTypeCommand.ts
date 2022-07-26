@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { DeleteTypeRequest, DeleteTypeResponse } from "../models/models_0";
+import {
+  DeleteTypeRequest,
+  DeleteTypeRequestFilterSensitiveLog,
+  DeleteTypeResponse,
+  DeleteTypeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTypeCommand,
   serializeAws_restJson1DeleteTypeCommand,
@@ -72,8 +77,8 @@ export class DeleteTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTypeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteTypeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

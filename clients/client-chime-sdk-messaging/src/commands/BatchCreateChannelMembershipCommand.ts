@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { BatchCreateChannelMembershipRequest, BatchCreateChannelMembershipResponse } from "../models/models_0";
+import {
+  BatchCreateChannelMembershipRequest,
+  BatchCreateChannelMembershipRequestFilterSensitiveLog,
+  BatchCreateChannelMembershipResponse,
+  BatchCreateChannelMembershipResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchCreateChannelMembershipCommand,
   serializeAws_restJson1BatchCreateChannelMembershipCommand,
@@ -78,8 +83,8 @@ export class BatchCreateChannelMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateChannelMembershipRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateChannelMembershipResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchCreateChannelMembershipRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchCreateChannelMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

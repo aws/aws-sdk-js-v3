@@ -15,15 +15,6 @@ export interface CancelJobRunRequest {
   virtualClusterId: string | undefined;
 }
 
-export namespace CancelJobRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobRunRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelJobRunResponse {
   /**
    * <p>The output contains the ID of the cancelled job run.</p>
@@ -34,15 +25,6 @@ export interface CancelJobRunResponse {
    * <p>The output contains the virtual cluster ID for which the job run is cancelled.</p>
    */
   virtualClusterId?: string;
-}
-
-export namespace CancelJobRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJobRunResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -98,15 +80,6 @@ export interface CloudWatchMonitoringConfiguration {
   logStreamNamePrefix?: string;
 }
 
-export namespace CloudWatchMonitoringConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchMonitoringConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum PersistentAppUI {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -120,15 +93,6 @@ export interface S3MonitoringConfiguration {
    * <p>Amazon S3 destination URI for log publishing.</p>
    */
   logUri: string | undefined;
-}
-
-export namespace S3MonitoringConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3MonitoringConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -151,15 +115,6 @@ export interface MonitoringConfiguration {
   s3MonitoringConfiguration?: S3MonitoringConfiguration;
 }
 
-export namespace MonitoringConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoringConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateManagedEndpointResponse {
   /**
    * <p>The output contains the ID of the managed endpoint.</p>
@@ -180,15 +135,6 @@ export interface CreateManagedEndpointResponse {
    * <p>The output contains the ID of the virtual cluster.</p>
    */
   virtualClusterId?: string;
-}
-
-export namespace CreateManagedEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateManagedEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -220,15 +166,6 @@ export interface EksInfo {
   namespace?: string;
 }
 
-export namespace EksInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EksInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The information about the container used for a job run or a managed endpoint.</p>
  */
@@ -257,14 +194,6 @@ export namespace ContainerInfo {
     if (value.eksInfo !== undefined) return visitor.eksInfo(value.eksInfo);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerInfo): any => {
-    if (obj.eksInfo !== undefined) return { eksInfo: EksInfo.filterSensitiveLog(obj.eksInfo) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 export enum ContainerProviderType {
@@ -291,16 +220,6 @@ export interface ContainerProvider {
   info?: ContainerInfo;
 }
 
-export namespace ContainerProvider {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerProvider): any => ({
-    ...obj,
-    ...(obj.info && { info: ContainerInfo.filterSensitiveLog(obj.info) }),
-  });
-}
-
 export interface CreateVirtualClusterRequest {
   /**
    * <p>The specified name of the virtual cluster.</p>
@@ -323,16 +242,6 @@ export interface CreateVirtualClusterRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateVirtualClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVirtualClusterRequest): any => ({
-    ...obj,
-    ...(obj.containerProvider && { containerProvider: ContainerProvider.filterSensitiveLog(obj.containerProvider) }),
-  });
-}
-
 export interface CreateVirtualClusterResponse {
   /**
    * <p>This output contains the virtual cluster ID.</p>
@@ -350,15 +259,6 @@ export interface CreateVirtualClusterResponse {
   arn?: string;
 }
 
-export namespace CreateVirtualClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVirtualClusterResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteManagedEndpointRequest {
   /**
    * <p>The ID of the managed endpoint.</p>
@@ -369,15 +269,6 @@ export interface DeleteManagedEndpointRequest {
    * <p>The ID of the endpoint's virtual cluster.</p>
    */
   virtualClusterId: string | undefined;
-}
-
-export namespace DeleteManagedEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteManagedEndpointRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteManagedEndpointResponse {
@@ -392,15 +283,6 @@ export interface DeleteManagedEndpointResponse {
   virtualClusterId?: string;
 }
 
-export namespace DeleteManagedEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteManagedEndpointResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVirtualClusterRequest {
   /**
    * <p>The ID of the virtual cluster that will be deleted.</p>
@@ -408,29 +290,11 @@ export interface DeleteVirtualClusterRequest {
   id: string | undefined;
 }
 
-export namespace DeleteVirtualClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVirtualClusterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVirtualClusterResponse {
   /**
    * <p>This output contains the ID of the virtual cluster that will be deleted. </p>
    */
   id?: string;
-}
-
-export namespace DeleteVirtualClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVirtualClusterResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeJobRunRequest {
@@ -443,15 +307,6 @@ export interface DescribeJobRunRequest {
    * <p>The ID of the virtual cluster for which the job run is submitted.</p>
    */
   virtualClusterId: string | undefined;
-}
-
-export namespace DescribeJobRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobRunRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FailureReason {
@@ -481,18 +336,6 @@ export interface SparkSubmitJobDriver {
   sparkSubmitParameters?: string;
 }
 
-export namespace SparkSubmitJobDriver {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SparkSubmitJobDriver): any => ({
-    ...obj,
-    ...(obj.entryPoint && { entryPoint: SENSITIVE_STRING }),
-    ...(obj.entryPointArguments && { entryPointArguments: SENSITIVE_STRING }),
-    ...(obj.sparkSubmitParameters && { sparkSubmitParameters: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Specify the driver that the job runs on.</p>
  */
@@ -501,18 +344,6 @@ export interface JobDriver {
    * <p>The job driver parameters specified for spark submit.</p>
    */
   sparkSubmitJobDriver?: SparkSubmitJobDriver;
-}
-
-export namespace JobDriver {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobDriver): any => ({
-    ...obj,
-    ...(obj.sparkSubmitJobDriver && {
-      sparkSubmitJobDriver: SparkSubmitJobDriver.filterSensitiveLog(obj.sparkSubmitJobDriver),
-    }),
-  });
 }
 
 export enum JobRunState {
@@ -537,15 +368,6 @@ export interface DescribeManagedEndpointRequest {
   virtualClusterId: string | undefined;
 }
 
-export namespace DescribeManagedEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeManagedEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The entity representing certificate data generated for managed endpoint.</p>
  */
@@ -561,15 +383,6 @@ export interface Certificate {
   certificateData?: string;
 }
 
-export namespace Certificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Certificate): any => ({
-    ...obj,
-  });
-}
-
 export enum EndpointState {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -583,15 +396,6 @@ export interface DescribeVirtualClusterRequest {
    * <p>The ID of the virtual cluster that will be described.</p>
    */
   id: string | undefined;
-}
-
-export namespace DescribeVirtualClusterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVirtualClusterRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum VirtualClusterState {
@@ -641,31 +445,11 @@ export interface VirtualCluster {
   tags?: Record<string, string>;
 }
 
-export namespace VirtualCluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VirtualCluster): any => ({
-    ...obj,
-    ...(obj.containerProvider && { containerProvider: ContainerProvider.filterSensitiveLog(obj.containerProvider) }),
-  });
-}
-
 export interface DescribeVirtualClusterResponse {
   /**
    * <p>This output displays information about the specified virtual cluster.</p>
    */
   virtualCluster?: VirtualCluster;
-}
-
-export namespace DescribeVirtualClusterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVirtualClusterResponse): any => ({
-    ...obj,
-    ...(obj.virtualCluster && { virtualCluster: VirtualCluster.filterSensitiveLog(obj.virtualCluster) }),
-  });
 }
 
 export interface ListJobRunsRequest {
@@ -705,15 +489,6 @@ export interface ListJobRunsRequest {
   nextToken?: string;
 }
 
-export namespace ListJobRunsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobRunsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListManagedEndpointsRequest {
   /**
    * <p>The ID of the virtual cluster.</p>
@@ -751,15 +526,6 @@ export interface ListManagedEndpointsRequest {
   nextToken?: string;
 }
 
-export namespace ListManagedEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of tagged resources.</p>
@@ -767,29 +533,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags assigned to resources.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListVirtualClustersRequest {
@@ -829,15 +577,6 @@ export interface ListVirtualClustersRequest {
   nextToken?: string;
 }
 
-export namespace ListVirtualClustersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVirtualClustersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListVirtualClustersResponse {
   /**
    * <p>This output lists the specified virtual clusters.</p>
@@ -848,18 +587,6 @@ export interface ListVirtualClustersResponse {
    * <p>This output displays the token for the next set of virtual clusters.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListVirtualClustersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVirtualClustersResponse): any => ({
-    ...obj,
-    ...(obj.virtualClusters && {
-      virtualClusters: obj.virtualClusters.map((item) => VirtualCluster.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface StartJobRunResponse {
@@ -884,15 +611,6 @@ export interface StartJobRunResponse {
   virtualClusterId?: string;
 }
 
-export namespace StartJobRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartJobRunResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The ARN of resources.</p>
@@ -905,25 +623,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -937,25 +637,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.</p>
@@ -977,19 +659,6 @@ export interface Configuration {
   configurations?: Configuration[];
 }
 
-export namespace Configuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Configuration): any => ({
-    ...obj,
-    ...(obj.properties && { properties: SENSITIVE_STRING }),
-    ...(obj.configurations && {
-      configurations: obj.configurations.map((item) => Configuration.filterSensitiveLog(item)),
-    }),
-  });
-}
-
 /**
  * <p>A configuration specification to be used to override existing configurations.</p>
  */
@@ -1003,18 +672,6 @@ export interface ConfigurationOverrides {
    * <p>The configurations for monitoring.</p>
    */
   monitoringConfiguration?: MonitoringConfiguration;
-}
-
-export namespace ConfigurationOverrides {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationOverrides): any => ({
-    ...obj,
-    ...(obj.applicationConfiguration && {
-      applicationConfiguration: obj.applicationConfiguration.map((item) => Configuration.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface CreateManagedEndpointRequest {
@@ -1065,18 +722,6 @@ export interface CreateManagedEndpointRequest {
    *       </p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateManagedEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateManagedEndpointRequest): any => ({
-    ...obj,
-    ...(obj.configurationOverrides && {
-      configurationOverrides: ConfigurationOverrides.filterSensitiveLog(obj.configurationOverrides),
-    }),
-  });
 }
 
 /**
@@ -1183,18 +828,6 @@ export interface Endpoint {
   tags?: Record<string, string>;
 }
 
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-    ...(obj.configurationOverrides && {
-      configurationOverrides: ConfigurationOverrides.filterSensitiveLog(obj.configurationOverrides),
-    }),
-  });
-}
-
 /**
  * <p>This entity describes a job run. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS. </p>
  */
@@ -1280,19 +913,6 @@ export interface JobRun {
   tags?: Record<string, string>;
 }
 
-export namespace JobRun {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobRun): any => ({
-    ...obj,
-    ...(obj.configurationOverrides && {
-      configurationOverrides: ConfigurationOverrides.filterSensitiveLog(obj.configurationOverrides),
-    }),
-    ...(obj.jobDriver && { jobDriver: JobDriver.filterSensitiveLog(obj.jobDriver) }),
-  });
-}
-
 export interface StartJobRunRequest {
   /**
    * <p>The name of the job run.</p>
@@ -1335,19 +955,6 @@ export interface StartJobRunRequest {
   tags?: Record<string, string>;
 }
 
-export namespace StartJobRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartJobRunRequest): any => ({
-    ...obj,
-    ...(obj.jobDriver && { jobDriver: JobDriver.filterSensitiveLog(obj.jobDriver) }),
-    ...(obj.configurationOverrides && {
-      configurationOverrides: ConfigurationOverrides.filterSensitiveLog(obj.configurationOverrides),
-    }),
-  });
-}
-
 export interface DescribeJobRunResponse {
   /**
    * <p>The output displays information about a job run.</p>
@@ -1355,31 +962,11 @@ export interface DescribeJobRunResponse {
   jobRun?: JobRun;
 }
 
-export namespace DescribeJobRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobRunResponse): any => ({
-    ...obj,
-    ...(obj.jobRun && { jobRun: JobRun.filterSensitiveLog(obj.jobRun) }),
-  });
-}
-
 export interface DescribeManagedEndpointResponse {
   /**
    * <p>This output displays information about a managed endpoint.</p>
    */
   endpoint?: Endpoint;
-}
-
-export namespace DescribeManagedEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeManagedEndpointResponse): any => ({
-    ...obj,
-    ...(obj.endpoint && { endpoint: Endpoint.filterSensitiveLog(obj.endpoint) }),
-  });
 }
 
 export interface ListJobRunsResponse {
@@ -1394,16 +981,6 @@ export interface ListJobRunsResponse {
   nextToken?: string;
 }
 
-export namespace ListJobRunsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobRunsResponse): any => ({
-    ...obj,
-    ...(obj.jobRuns && { jobRuns: obj.jobRuns.map((item) => JobRun.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface ListManagedEndpointsResponse {
   /**
    * <p>The managed endpoints to be listed.</p>
@@ -1416,11 +993,348 @@ export interface ListManagedEndpointsResponse {
   nextToken?: string;
 }
 
-export namespace ListManagedEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListManagedEndpointsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CancelJobRunRequestFilterSensitiveLog = (obj: CancelJobRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJobRunResponseFilterSensitiveLog = (obj: CancelJobRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchMonitoringConfigurationFilterSensitiveLog = (obj: CloudWatchMonitoringConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3MonitoringConfigurationFilterSensitiveLog = (obj: S3MonitoringConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitoringConfigurationFilterSensitiveLog = (obj: MonitoringConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateManagedEndpointResponseFilterSensitiveLog = (obj: CreateManagedEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EksInfoFilterSensitiveLog = (obj: EksInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerInfoFilterSensitiveLog = (obj: ContainerInfo): any => {
+  if (obj.eksInfo !== undefined) return { eksInfo: EksInfoFilterSensitiveLog(obj.eksInfo) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ContainerProviderFilterSensitiveLog = (obj: ContainerProvider): any => ({
+  ...obj,
+  ...(obj.info && { info: ContainerInfoFilterSensitiveLog(obj.info) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateVirtualClusterRequestFilterSensitiveLog = (obj: CreateVirtualClusterRequest): any => ({
+  ...obj,
+  ...(obj.containerProvider && { containerProvider: ContainerProviderFilterSensitiveLog(obj.containerProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateVirtualClusterResponseFilterSensitiveLog = (obj: CreateVirtualClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteManagedEndpointRequestFilterSensitiveLog = (obj: DeleteManagedEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteManagedEndpointResponseFilterSensitiveLog = (obj: DeleteManagedEndpointResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVirtualClusterRequestFilterSensitiveLog = (obj: DeleteVirtualClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVirtualClusterResponseFilterSensitiveLog = (obj: DeleteVirtualClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobRunRequestFilterSensitiveLog = (obj: DescribeJobRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SparkSubmitJobDriverFilterSensitiveLog = (obj: SparkSubmitJobDriver): any => ({
+  ...obj,
+  ...(obj.entryPoint && { entryPoint: SENSITIVE_STRING }),
+  ...(obj.entryPointArguments && { entryPointArguments: SENSITIVE_STRING }),
+  ...(obj.sparkSubmitParameters && { sparkSubmitParameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const JobDriverFilterSensitiveLog = (obj: JobDriver): any => ({
+  ...obj,
+  ...(obj.sparkSubmitJobDriver && {
+    sparkSubmitJobDriver: SparkSubmitJobDriverFilterSensitiveLog(obj.sparkSubmitJobDriver),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeManagedEndpointRequestFilterSensitiveLog = (obj: DescribeManagedEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVirtualClusterRequestFilterSensitiveLog = (obj: DescribeVirtualClusterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VirtualClusterFilterSensitiveLog = (obj: VirtualCluster): any => ({
+  ...obj,
+  ...(obj.containerProvider && { containerProvider: ContainerProviderFilterSensitiveLog(obj.containerProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeVirtualClusterResponseFilterSensitiveLog = (obj: DescribeVirtualClusterResponse): any => ({
+  ...obj,
+  ...(obj.virtualCluster && { virtualCluster: VirtualClusterFilterSensitiveLog(obj.virtualCluster) }),
+});
+
+/**
+ * @internal
+ */
+export const ListJobRunsRequestFilterSensitiveLog = (obj: ListJobRunsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListManagedEndpointsRequestFilterSensitiveLog = (obj: ListManagedEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVirtualClustersRequestFilterSensitiveLog = (obj: ListVirtualClustersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVirtualClustersResponseFilterSensitiveLog = (obj: ListVirtualClustersResponse): any => ({
+  ...obj,
+  ...(obj.virtualClusters && {
+    virtualClusters: obj.virtualClusters.map((item) => VirtualClusterFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StartJobRunResponseFilterSensitiveLog = (obj: StartJobRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => ({
+  ...obj,
+  ...(obj.properties && { properties: SENSITIVE_STRING }),
+  ...(obj.configurations && {
+    configurations: obj.configurations.map((item) => ConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationOverridesFilterSensitiveLog = (obj: ConfigurationOverrides): any => ({
+  ...obj,
+  ...(obj.applicationConfiguration && {
+    applicationConfiguration: obj.applicationConfiguration.map((item) => ConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateManagedEndpointRequestFilterSensitiveLog = (obj: CreateManagedEndpointRequest): any => ({
+  ...obj,
+  ...(obj.configurationOverrides && {
+    configurationOverrides: ConfigurationOverridesFilterSensitiveLog(obj.configurationOverrides),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+  ...(obj.configurationOverrides && {
+    configurationOverrides: ConfigurationOverridesFilterSensitiveLog(obj.configurationOverrides),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const JobRunFilterSensitiveLog = (obj: JobRun): any => ({
+  ...obj,
+  ...(obj.configurationOverrides && {
+    configurationOverrides: ConfigurationOverridesFilterSensitiveLog(obj.configurationOverrides),
+  }),
+  ...(obj.jobDriver && { jobDriver: JobDriverFilterSensitiveLog(obj.jobDriver) }),
+});
+
+/**
+ * @internal
+ */
+export const StartJobRunRequestFilterSensitiveLog = (obj: StartJobRunRequest): any => ({
+  ...obj,
+  ...(obj.jobDriver && { jobDriver: JobDriverFilterSensitiveLog(obj.jobDriver) }),
+  ...(obj.configurationOverrides && {
+    configurationOverrides: ConfigurationOverridesFilterSensitiveLog(obj.configurationOverrides),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobRunResponseFilterSensitiveLog = (obj: DescribeJobRunResponse): any => ({
+  ...obj,
+  ...(obj.jobRun && { jobRun: JobRunFilterSensitiveLog(obj.jobRun) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeManagedEndpointResponseFilterSensitiveLog = (obj: DescribeManagedEndpointResponse): any => ({
+  ...obj,
+  ...(obj.endpoint && { endpoint: EndpointFilterSensitiveLog(obj.endpoint) }),
+});
+
+/**
+ * @internal
+ */
+export const ListJobRunsResponseFilterSensitiveLog = (obj: ListJobRunsResponse): any => ({
+  ...obj,
+  ...(obj.jobRuns && { jobRuns: obj.jobRuns.map((item) => JobRunFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListManagedEndpointsResponseFilterSensitiveLog = (obj: ListManagedEndpointsResponse): any => ({
+  ...obj,
+});

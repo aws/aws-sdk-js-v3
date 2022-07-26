@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { CreateGraphRequest, CreateGraphResponse } from "../models/models_0";
+import {
+  CreateGraphRequest,
+  CreateGraphRequestFilterSensitiveLog,
+  CreateGraphResponse,
+  CreateGraphResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateGraphCommand,
   serializeAws_restJson1CreateGraphCommand,
@@ -87,8 +92,8 @@ export class CreateGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGraphRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateGraphResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateGraphRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateGraphResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

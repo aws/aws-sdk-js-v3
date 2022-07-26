@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import { DeleteModelRequest, DeleteModelResponse } from "../models/models_0";
+import {
+  DeleteModelRequest,
+  DeleteModelRequestFilterSensitiveLog,
+  DeleteModelResponse,
+  DeleteModelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteModelCommand,
   serializeAws_restJson1DeleteModelCommand,
@@ -79,8 +84,8 @@ export class DeleteModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteModelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteModelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteModelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

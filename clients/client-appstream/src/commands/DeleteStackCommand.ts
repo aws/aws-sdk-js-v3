@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DeleteStackRequest, DeleteStackResult } from "../models/models_0";
+import {
+  DeleteStackRequest,
+  DeleteStackRequestFilterSensitiveLog,
+  DeleteStackResult,
+  DeleteStackResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteStackCommand,
   serializeAws_json1_1DeleteStackCommand,
@@ -72,8 +77,8 @@ export class DeleteStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStackRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStackResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStackRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteStackResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

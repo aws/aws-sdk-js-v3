@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateThemePermissionsRequest, UpdateThemePermissionsResponse } from "../models/models_1";
+import {
+  UpdateThemePermissionsRequest,
+  UpdateThemePermissionsRequestFilterSensitiveLog,
+  UpdateThemePermissionsResponse,
+  UpdateThemePermissionsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateThemePermissionsCommand,
   serializeAws_restJson1UpdateThemePermissionsCommand,
@@ -165,8 +170,8 @@ export class UpdateThemePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateThemePermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateThemePermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateThemePermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateThemePermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { PutImageTagMutabilityRequest, PutImageTagMutabilityResponse } from "../models/models_0";
+import {
+  PutImageTagMutabilityRequest,
+  PutImageTagMutabilityRequestFilterSensitiveLog,
+  PutImageTagMutabilityResponse,
+  PutImageTagMutabilityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutImageTagMutabilityCommand,
   serializeAws_json1_1PutImageTagMutabilityCommand,
@@ -74,8 +79,8 @@ export class PutImageTagMutabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutImageTagMutabilityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutImageTagMutabilityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutImageTagMutabilityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutImageTagMutabilityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

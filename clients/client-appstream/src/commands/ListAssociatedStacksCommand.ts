@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { ListAssociatedStacksRequest, ListAssociatedStacksResult } from "../models/models_0";
+import {
+  ListAssociatedStacksRequest,
+  ListAssociatedStacksRequestFilterSensitiveLog,
+  ListAssociatedStacksResult,
+  ListAssociatedStacksResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListAssociatedStacksCommand,
   serializeAws_json1_1ListAssociatedStacksCommand,
@@ -72,8 +77,8 @@ export class ListAssociatedStacksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedStacksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedStacksResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAssociatedStacksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAssociatedStacksResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

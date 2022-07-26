@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import { DisconnectParticipantRequest, DisconnectParticipantResponse } from "../models/models_0";
+import {
+  DisconnectParticipantRequest,
+  DisconnectParticipantRequestFilterSensitiveLog,
+  DisconnectParticipantResponse,
+  DisconnectParticipantResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisconnectParticipantCommand,
   serializeAws_restJson1DisconnectParticipantCommand,
@@ -79,8 +84,8 @@ export class DisconnectParticipantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectParticipantRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisconnectParticipantResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisconnectParticipantRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisconnectParticipantResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

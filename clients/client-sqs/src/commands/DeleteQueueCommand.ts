@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteQueueRequest } from "../models/models_0";
+import { DeleteQueueRequest, DeleteQueueRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryDeleteQueueCommand, serializeAws_queryDeleteQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
@@ -83,7 +83,7 @@ export class DeleteQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueueRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteQueueRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

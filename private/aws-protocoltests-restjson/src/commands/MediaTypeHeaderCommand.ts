@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MediaTypeHeaderInput, MediaTypeHeaderOutput } from "../models/models_0";
+import {
+  MediaTypeHeaderInput,
+  MediaTypeHeaderInputFilterSensitiveLog,
+  MediaTypeHeaderOutput,
+  MediaTypeHeaderOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1MediaTypeHeaderCommand,
   serializeAws_restJson1MediaTypeHeaderCommand,
@@ -72,8 +77,8 @@ export class MediaTypeHeaderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MediaTypeHeaderInput.filterSensitiveLog,
-      outputFilterSensitiveLog: MediaTypeHeaderOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: MediaTypeHeaderInputFilterSensitiveLog,
+      outputFilterSensitiveLog: MediaTypeHeaderOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateMaintenanceStartTimeInput, UpdateMaintenanceStartTimeOutput } from "../models/models_0";
+import {
+  UpdateMaintenanceStartTimeInput,
+  UpdateMaintenanceStartTimeInputFilterSensitiveLog,
+  UpdateMaintenanceStartTimeOutput,
+  UpdateMaintenanceStartTimeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateMaintenanceStartTimeCommand,
   serializeAws_json1_1UpdateMaintenanceStartTimeCommand,
@@ -73,8 +78,8 @@ export class UpdateMaintenanceStartTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMaintenanceStartTimeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMaintenanceStartTimeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMaintenanceStartTimeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMaintenanceStartTimeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

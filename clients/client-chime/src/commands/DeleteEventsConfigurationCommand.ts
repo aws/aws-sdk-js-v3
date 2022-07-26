@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteEventsConfigurationRequest } from "../models/models_0";
+import {
+  DeleteEventsConfigurationRequest,
+  DeleteEventsConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEventsConfigurationCommand,
   serializeAws_restJson1DeleteEventsConfigurationCommand,
@@ -72,7 +75,7 @@ export class DeleteEventsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventsConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEventsConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,15 +12,6 @@ export interface AcceptInvitationRequest {
   GraphArn: string | undefined;
 }
 
-export namespace AcceptInvitationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request attempted an invalid action.</p>
  */
@@ -122,15 +113,6 @@ export interface Account {
   EmailAddress: string | undefined;
 }
 
-export namespace Account {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Account): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the Detective administrator account for an
  *          organization.</p>
@@ -155,15 +137,6 @@ export interface Administrator {
   DelegationTime?: Date;
 }
 
-export namespace Administrator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Administrator): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGraphRequest {
   /**
    * <p>The tags to assign to the new behavior graph. You can add up to 50 tags. For each tag,
@@ -173,29 +146,11 @@ export interface CreateGraphRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateGraphRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGraphRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGraphResponse {
   /**
    * <p>The ARN of the new behavior graph.</p>
    */
   GraphArn?: string;
-}
-
-export namespace CreateGraphResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGraphResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -263,15 +218,6 @@ export interface CreateMembersRequest {
    *          required.</p>
    */
   Accounts: Account[] | undefined;
-}
-
-export namespace CreateMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum MemberDisabledReason {
@@ -446,15 +392,6 @@ export interface MemberDetail {
   InvitationType?: InvitationType | string;
 }
 
-export namespace MemberDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A member account that was included in a request but for which the request could not be
  *          processed.</p>
@@ -470,15 +407,6 @@ export interface UnprocessedAccount {
    * <p>The reason that the member account request could not be processed.</p>
    */
   Reason?: string;
-}
-
-export namespace UnprocessedAccount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnprocessedAccount): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMembersResponse {
@@ -498,29 +426,11 @@ export interface CreateMembersResponse {
   UnprocessedAccounts?: UnprocessedAccount[];
 }
 
-export namespace CreateMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGraphRequest {
   /**
    * <p>The ARN of the behavior graph to disable.</p>
    */
   GraphArn: string | undefined;
-}
-
-export namespace DeleteGraphRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGraphRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteMembersRequest {
@@ -534,15 +444,6 @@ export interface DeleteMembersRequest {
    *          from the behavior graph. You can remove up to 50 member accounts at a time.</p>
    */
   AccountIds: string[] | undefined;
-}
-
-export namespace DeleteMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMembersRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteMembersResponse {
@@ -559,29 +460,11 @@ export interface DeleteMembersResponse {
   UnprocessedAccounts?: UnprocessedAccount[];
 }
 
-export namespace DeleteMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationConfigurationRequest {
   /**
    * <p>The ARN of the organization behavior graph.</p>
    */
   GraphArn: string | undefined;
-}
-
-export namespace DescribeOrganizationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOrganizationConfigurationResponse {
@@ -590,15 +473,6 @@ export interface DescribeOrganizationConfigurationResponse {
    *          in the organization behavior graph.</p>
    */
   AutoEnable?: boolean;
-}
-
-export namespace DescribeOrganizationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -632,29 +506,11 @@ export interface DisassociateMembershipRequest {
   GraphArn: string | undefined;
 }
 
-export namespace DisassociateMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableOrganizationAdminAccountRequest {
   /**
    * <p>The Amazon Web Services account identifier of the account to designate as the Detective administrator account for the organization.</p>
    */
   AccountId: string | undefined;
-}
-
-export namespace EnableOrganizationAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableOrganizationAdminAccountRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMembersRequest {
@@ -673,15 +529,6 @@ export interface GetMembersRequest {
   AccountIds: string[] | undefined;
 }
 
-export namespace GetMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMembersResponse {
   /**
    * <p>The member account details that Detective is returning in response to the
@@ -697,15 +544,6 @@ export interface GetMembersResponse {
   UnprocessedAccounts?: UnprocessedAccount[];
 }
 
-export namespace GetMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMembersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGraphsRequest {
   /**
    * <p>For requests to get the next page of results, the pagination token that was returned
@@ -719,15 +557,6 @@ export interface ListGraphsRequest {
    *          overall limit on the number of results to return, which is currently 200.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListGraphsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGraphsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -746,15 +575,6 @@ export interface Graph {
   CreatedTime?: Date;
 }
 
-export namespace Graph {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Graph): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGraphsResponse {
   /**
    * <p>A list of behavior graphs that the account is an administrator account for.</p>
@@ -766,15 +586,6 @@ export interface ListGraphsResponse {
    *          token to use to request the next page of behavior graphs.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGraphsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGraphsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInvitationsRequest {
@@ -793,15 +604,6 @@ export interface ListInvitationsRequest {
   MaxResults?: number;
 }
 
-export namespace ListInvitationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInvitationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInvitationsResponse {
   /**
    * <p>The list of behavior graphs for which the member account has open or accepted
@@ -814,15 +616,6 @@ export interface ListInvitationsResponse {
    *          token to use to request the next page of behavior graphs.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListInvitationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMembersRequest {
@@ -845,15 +638,6 @@ export interface ListMembersRequest {
   MaxResults?: number;
 }
 
-export namespace ListMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMembersResponse {
   /**
    * <p>The list of member accounts in the behavior graph.</p>
@@ -873,15 +657,6 @@ export interface ListMembersResponse {
   NextToken?: string;
 }
 
-export namespace ListMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOrganizationAdminAccountsRequest {
   /**
    * <p>For requests to get the next page of results, the pagination token that was returned
@@ -894,15 +669,6 @@ export interface ListOrganizationAdminAccountsRequest {
    * <p>The maximum number of results to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListOrganizationAdminAccountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationAdminAccountsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOrganizationAdminAccountsResponse {
@@ -918,29 +684,11 @@ export interface ListOrganizationAdminAccountsResponse {
   NextToken?: string;
 }
 
-export namespace ListOrganizationAdminAccountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationAdminAccountsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the behavior graph for which to retrieve the tag values.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -951,15 +699,6 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectInvitationRequest {
   /**
    * <p>The ARN of the behavior graph to reject the invitation to.</p>
@@ -967,15 +706,6 @@ export interface RejectInvitationRequest {
    *             <code>INVITED</code>.</p>
    */
   GraphArn: string | undefined;
-}
-
-export namespace RejectInvitationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectInvitationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartMonitoringMemberRequest {
@@ -992,15 +722,6 @@ export interface StartMonitoringMemberRequest {
   AccountId: string | undefined;
 }
 
-export namespace StartMonitoringMemberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartMonitoringMemberRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The ARN of the behavior graph to assign the tags to.</p>
@@ -1015,25 +736,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1048,25 +751,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateOrganizationConfigurationRequest {
   /**
@@ -1081,11 +766,266 @@ export interface UpdateOrganizationConfigurationRequest {
   AutoEnable?: boolean;
 }
 
-export namespace UpdateOrganizationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateOrganizationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptInvitationRequestFilterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountFilterSensitiveLog = (obj: Account): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdministratorFilterSensitiveLog = (obj: Administrator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGraphRequestFilterSensitiveLog = (obj: CreateGraphRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGraphResponseFilterSensitiveLog = (obj: CreateGraphResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMembersRequestFilterSensitiveLog = (obj: CreateMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberDetailFilterSensitiveLog = (obj: MemberDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedAccountFilterSensitiveLog = (obj: UnprocessedAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMembersResponseFilterSensitiveLog = (obj: CreateMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGraphRequestFilterSensitiveLog = (obj: DeleteGraphRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMembersRequestFilterSensitiveLog = (obj: DeleteMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMembersResponseFilterSensitiveLog = (obj: DeleteMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMembershipRequestFilterSensitiveLog = (obj: DisassociateMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableOrganizationAdminAccountRequestFilterSensitiveLog = (
+  obj: EnableOrganizationAdminAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMembersRequestFilterSensitiveLog = (obj: GetMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGraphsRequestFilterSensitiveLog = (obj: ListGraphsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GraphFilterSensitiveLog = (obj: Graph): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGraphsResponseFilterSensitiveLog = (obj: ListGraphsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInvitationsRequestFilterSensitiveLog = (obj: ListInvitationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInvitationsResponseFilterSensitiveLog = (obj: ListInvitationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMembersRequestFilterSensitiveLog = (obj: ListMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationAdminAccountsRequestFilterSensitiveLog = (
+  obj: ListOrganizationAdminAccountsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationAdminAccountsResponseFilterSensitiveLog = (
+  obj: ListOrganizationAdminAccountsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectInvitationRequestFilterSensitiveLog = (obj: RejectInvitationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMonitoringMemberRequestFilterSensitiveLog = (obj: StartMonitoringMemberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateOrganizationConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateOrganizationConfigurationRequest
+): any => ({
+  ...obj,
+});

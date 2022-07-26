@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAppImageConfigRequest } from "../models/models_1";
+import { DeleteAppImageConfigRequest, DeleteAppImageConfigRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteAppImageConfigCommand,
   serializeAws_json1_1DeleteAppImageConfigCommand,
@@ -72,7 +72,7 @@ export class DeleteAppImageConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppImageConfigRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAppImageConfigRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeTransitGatewayVpcAttachmentsRequest,
+  DescribeTransitGatewayVpcAttachmentsRequestFilterSensitiveLog,
   DescribeTransitGatewayVpcAttachmentsResult,
+  DescribeTransitGatewayVpcAttachmentsResultFilterSensitiveLog,
 } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand,
@@ -78,8 +80,8 @@ export class DescribeTransitGatewayVpcAttachmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTransitGatewayVpcAttachmentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTransitGatewayVpcAttachmentsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeTransitGatewayVpcAttachmentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeTransitGatewayVpcAttachmentsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

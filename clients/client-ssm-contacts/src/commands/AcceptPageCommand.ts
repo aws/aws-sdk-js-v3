@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AcceptPageRequest, AcceptPageResult } from "../models/models_0";
+import {
+  AcceptPageRequest,
+  AcceptPageRequestFilterSensitiveLog,
+  AcceptPageResult,
+  AcceptPageResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AcceptPageCommand,
   serializeAws_json1_1AcceptPageCommand,
@@ -72,8 +77,8 @@ export class AcceptPageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptPageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AcceptPageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AcceptPageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AcceptPageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

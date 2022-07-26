@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { ListInstancesInput, ListInstancesOutput } from "../models/models_0";
+import {
+  ListInstancesInput,
+  ListInstancesInputFilterSensitiveLog,
+  ListInstancesOutput,
+  ListInstancesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListInstancesCommand,
   serializeAws_json1_1ListInstancesCommand,
@@ -74,8 +79,8 @@ export class ListInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInstancesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListInstancesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListInstancesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListInstancesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

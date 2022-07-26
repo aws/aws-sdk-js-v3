@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetUnfilteredPartitionMetadataRequest, GetUnfilteredPartitionMetadataResponse } from "../models/models_1";
+import {
+  GetUnfilteredPartitionMetadataRequest,
+  GetUnfilteredPartitionMetadataRequestFilterSensitiveLog,
+  GetUnfilteredPartitionMetadataResponse,
+  GetUnfilteredPartitionMetadataResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetUnfilteredPartitionMetadataCommand,
   serializeAws_json1_1GetUnfilteredPartitionMetadataCommand,
@@ -57,8 +62,8 @@ export class GetUnfilteredPartitionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUnfilteredPartitionMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetUnfilteredPartitionMetadataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUnfilteredPartitionMetadataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetUnfilteredPartitionMetadataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

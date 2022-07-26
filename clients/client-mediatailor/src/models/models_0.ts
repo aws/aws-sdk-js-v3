@@ -22,15 +22,6 @@ export interface SlateSource {
   VodSourceName?: string;
 }
 
-export namespace SlateSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlateSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Splice insert message configuration.</p>
  */
@@ -56,15 +47,6 @@ export interface SpliceInsertMessage {
   UniqueProgramId?: number;
 }
 
-export namespace SpliceInsertMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpliceInsertMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Ad break configuration parameters.</p>
  */
@@ -88,15 +70,6 @@ export interface AdBreak {
    * <p>This defines the SCTE-35 splice_insert() message inserted around the ad. For information about using splice_insert(), see the SCTE-35 specficiaiton, section 9.7.3.1.</p>
    */
   SpliceInsertMessage?: SpliceInsertMessage;
-}
-
-export namespace AdBreak {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdBreak): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -129,15 +102,6 @@ export interface Alert {
   ResourceArn: string | undefined;
 }
 
-export namespace Alert {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alert): any => ({
-    ...obj,
-  });
-}
-
 export enum Operator {
   EQUALS = "EQUALS",
 }
@@ -155,15 +119,6 @@ export interface AvailMatchingCriteria {
    * <p>For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.</p>
    */
   Operator: Operator | string | undefined;
-}
-
-export namespace AvailMatchingCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailMatchingCriteria): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -191,15 +146,6 @@ export interface DashPlaylistSettings {
   SuggestedPresentationDelaySeconds?: number;
 }
 
-export namespace DashPlaylistSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashPlaylistSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>HLS playlist configuration parameters.</p>
  */
@@ -208,15 +154,6 @@ export interface HlsPlaylistSettings {
    * <p>The total duration (in seconds) of each manifest. Minimum value: 30 seconds. Maximum value: 3600 seconds.</p>
    */
   ManifestWindowSeconds?: number;
-}
-
-export namespace HlsPlaylistSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsPlaylistSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -247,15 +184,6 @@ export interface ResponseOutputItem {
    * <p>A string used to associate a package configuration source group with a channel output.</p>
    */
   SourceGroup: string | undefined;
-}
-
-export namespace ResponseOutputItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseOutputItem): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -313,15 +241,6 @@ export interface Channel {
   Tier: string | undefined;
 }
 
-export namespace Channel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Channel): any => ({
-    ...obj,
-  });
-}
-
 export enum Type {
   DASH = "DASH",
   HLS = "HLS",
@@ -345,15 +264,6 @@ export interface HttpPackageConfiguration {
    * <p>The streaming protocol for this package configuration. Supported values are HLS and DASH.</p>
    */
   Type: Type | string | undefined;
-}
-
-export namespace HttpPackageConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpPackageConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -396,15 +306,6 @@ export interface LiveSource {
   Tags?: Record<string, string>;
 }
 
-export namespace LiveSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LiveSource): any => ({
-    ...obj,
-  });
-}
-
 export enum Mode {
   BEHIND_LIVE_EDGE = "BEHIND_LIVE_EDGE",
   OFF = "OFF",
@@ -425,15 +326,6 @@ export interface AvailSuppression {
   Value?: string;
 }
 
-export namespace AvailSuppression {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailSuppression): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for bumpers. Bumpers are short audio or video clips that play at the start or before the end of an ad break. To learn more about bumpers, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/bumpers.html">Bumpers</a>.</p>
  */
@@ -449,15 +341,6 @@ export interface Bumper {
   StartUrl?: string;
 }
 
-export namespace Bumper {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Bumper): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for using a content delivery network (CDN), like Amazon CloudFront, for content and ad segment management.</p>
  */
@@ -471,15 +354,6 @@ export interface CdnConfiguration {
    * <p>A content delivery network (CDN) to cache content segments, so that content requests don’t always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.</p>
    */
   ContentSegmentUrlPrefix?: string;
-}
-
-export namespace CdnConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CdnConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum OriginManifestType {
@@ -507,15 +381,6 @@ export interface DashConfiguration {
   OriginManifestType?: OriginManifestType | string;
 }
 
-export namespace DashConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for HLS content.</p>
  */
@@ -524,15 +389,6 @@ export interface HlsConfiguration {
    * <p>The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.</p>
    */
   ManifestEndpointPrefix?: string;
-}
-
-export namespace HlsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HlsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -550,15 +406,6 @@ export interface LivePreRollConfiguration {
   MaxDurationSeconds?: number;
 }
 
-export namespace LivePreRollConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LivePreRollConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Returns Amazon CloudWatch log settings for a playback configuration.</p>
  */
@@ -567,15 +414,6 @@ export interface LogConfiguration {
    * <p>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/debug-log-mode.html">debug log mode</a>.</p> <p>Valid values: 0 - 100</p>
    */
   PercentEnabled: number | undefined;
-}
-
-export namespace LogConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -588,15 +426,6 @@ export interface AdMarkerPassthrough {
   Enabled?: boolean;
 }
 
-export namespace AdMarkerPassthrough {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdMarkerPassthrough): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.</p>
  */
@@ -605,15 +434,6 @@ export interface ManifestProcessingRules {
    * <p>For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest.</p> <p>No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.</p>
    */
   AdMarkerPassthrough?: AdMarkerPassthrough;
-}
-
-export namespace ManifestProcessingRules {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManifestProcessingRules): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -716,15 +536,6 @@ export interface PlaybackConfiguration {
   VideoContentSourceUrl?: string;
 }
 
-export namespace PlaybackConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlaybackConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains settings that determine how and when that MediaTailor places prefetched ads into upcoming ad breaks.</p>
  */
@@ -745,15 +556,6 @@ export interface PrefetchConsumption {
   StartTime?: Date;
 }
 
-export namespace PrefetchConsumption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrefetchConsumption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains settings governing when MediaTailor prefetches ads, and which dynamic variables that MediaTailor includes in the request to the ad decision server.</p>
  */
@@ -772,15 +574,6 @@ export interface PrefetchRetrieval {
    * <p>The time when prefetch retrievals can start for this break. Ad prefetching will be attempted for manifest requests that occur at or after this time. Defaults to the current time. If not specified, the prefetch retrieval starts as soon as possible.</p>
    */
   StartTime?: Date;
-}
-
-export namespace PrefetchRetrieval {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrefetchRetrieval): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -818,15 +611,6 @@ export interface PrefetchSchedule {
   StreamId?: string;
 }
 
-export namespace PrefetchSchedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrefetchSchedule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The schedule's ad break properties.</p>
  */
@@ -850,15 +634,6 @@ export interface ScheduleAdBreak {
    * <p>The name of the VOD source used for the ad break.</p>
    */
   VodSourceName?: string;
-}
-
-export namespace ScheduleAdBreak {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleAdBreak): any => ({
-    ...obj,
-  });
 }
 
 export enum ScheduleEntryType {
@@ -921,15 +696,6 @@ export interface ScheduleEntry {
   VodSourceName?: string;
 }
 
-export namespace ScheduleEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as https://example.com/some/path. To use a relative URL specify the relative path, such as /some/path*.</p>
  */
@@ -943,15 +709,6 @@ export interface SegmentDeliveryConfiguration {
    * <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
    */
   Name?: string;
-}
-
-export namespace SegmentDeliveryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SegmentDeliveryConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum AccessType {
@@ -979,15 +736,6 @@ export interface SecretsManagerAccessTokenConfiguration {
   SecretStringKey?: string;
 }
 
-export namespace SecretsManagerAccessTokenConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecretsManagerAccessTokenConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Access configuration parameters.</p>
  */
@@ -1003,15 +751,6 @@ export interface AccessConfiguration {
   SecretsManagerAccessTokenConfiguration?: SecretsManagerAccessTokenConfiguration;
 }
 
-export namespace AccessConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
  */
@@ -1022,15 +761,6 @@ export interface DefaultSegmentDeliveryConfiguration {
   BaseUrl?: string;
 }
 
-export namespace DefaultSegmentDeliveryConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultSegmentDeliveryConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The HTTP configuration for the source location.</p>
  */
@@ -1039,15 +769,6 @@ export interface HttpConfiguration {
    * <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
    */
   BaseUrl: string | undefined;
-}
-
-export namespace HttpConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HttpConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1100,15 +821,6 @@ export interface SourceLocation {
   Tags?: Record<string, string>;
 }
 
-export namespace SourceLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>VOD source configuration parameters.</p>
  */
@@ -1147,15 +859,6 @@ export interface VodSource {
    * <p>The name of the VOD source.</p>
    */
   VodSourceName: string | undefined;
-}
-
-export namespace VodSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VodSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1199,15 +902,6 @@ export interface ConfigureLogsForPlaybackConfigurationRequest {
   PlaybackConfigurationName: string | undefined;
 }
 
-export namespace ConfigureLogsForPlaybackConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigureLogsForPlaybackConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ConfigureLogsForPlaybackConfigurationResponse {
   /**
    * <p>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account.</p>
@@ -1218,15 +912,6 @@ export interface ConfigureLogsForPlaybackConfigurationResponse {
    * <p>The name of the playback configuration.</p>
    */
   PlaybackConfigurationName?: string;
-}
-
-export namespace ConfigureLogsForPlaybackConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigureLogsForPlaybackConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1252,15 +937,6 @@ export interface RequestOutputItem {
    * <p>A string used to match which HttpPackageConfiguration is used for each VodSource.</p>
    */
   SourceGroup: string | undefined;
-}
-
-export namespace RequestOutputItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestOutputItem): any => ({
-    ...obj,
-  });
 }
 
 export enum PlaybackMode {
@@ -1303,15 +979,6 @@ export interface CreateChannelRequest {
    * <p>The tier of the channel.</p>
    */
   Tier?: Tier | string;
-}
-
-export namespace CreateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateChannelResponse {
@@ -1366,15 +1033,6 @@ export interface CreateChannelResponse {
   Tier?: string;
 }
 
-export namespace CreateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLiveSourceRequest {
   /**
    * <p>A list of HTTP package configuration parameters for this live source.</p>
@@ -1395,15 +1053,6 @@ export interface CreateLiveSourceRequest {
    * <p>The tags to assign to the live source.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateLiveSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLiveSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLiveSourceResponse {
@@ -1443,15 +1092,6 @@ export interface CreateLiveSourceResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateLiveSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLiveSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreatePrefetchScheduleRequest {
   /**
    * <p>The configuration settings for MediaTailor's <i>consumption</i> of the prefetched ads from the ad decision server. Each consumption configuration contains an end time and an optional start time that define the <i>consumption window</i>. Prefetch schedules automatically expire no earlier than seven days after the end time.</p>
@@ -1477,15 +1117,6 @@ export interface CreatePrefetchScheduleRequest {
    * <p>An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration. If StreamId is specified, MediaTailor returns all of the prefetch schedules with an exact match on StreamId. If not specified, MediaTailor returns all of the prefetch schedules for the playback configuration, regardless of StreamId.</p>
    */
   StreamId?: string;
-}
-
-export namespace CreatePrefetchScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePrefetchScheduleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePrefetchScheduleResponse {
@@ -1518,15 +1149,6 @@ export interface CreatePrefetchScheduleResponse {
    * <p>An optional stream identifier that you can specify in order to prefetch for multiple streams that use the same playback configuration.</p>
    */
   StreamId?: string;
-}
-
-export namespace CreatePrefetchScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePrefetchScheduleResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum RelativePosition {
@@ -1564,15 +1186,6 @@ export interface Transition {
   Type: string | undefined;
 }
 
-export namespace Transition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Transition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Schedule configuration parameters. A channel must be stopped before changes can be made to the schedule.</p>
  */
@@ -1581,15 +1194,6 @@ export interface ScheduleConfiguration {
    * <p>Program transition configurations.</p>
    */
   Transition: Transition | undefined;
-}
-
-export namespace ScheduleConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduleConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProgramRequest {
@@ -1627,15 +1231,6 @@ export interface CreateProgramRequest {
    * <p>The name that's used to refer to a VOD source.</p>
    */
   VodSourceName?: string;
-}
-
-export namespace CreateProgramRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProgramRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProgramResponse {
@@ -1685,15 +1280,6 @@ export interface CreateProgramResponse {
   VodSourceName?: string;
 }
 
-export namespace CreateProgramResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProgramResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSourceLocationRequest {
   /**
    * <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
@@ -1724,15 +1310,6 @@ export interface CreateSourceLocationRequest {
    * <p>The tags to assign to the source location.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace CreateSourceLocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSourceLocationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSourceLocationResponse {
@@ -1782,15 +1359,6 @@ export interface CreateSourceLocationResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateSourceLocationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSourceLocationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateVodSourceRequest {
   /**
    * <p>A list of HTTP package configuration parameters for this VOD source.</p>
@@ -1811,15 +1379,6 @@ export interface CreateVodSourceRequest {
    * <p>The identifier for the VOD source you are working on.</p>
    */
   VodSourceName: string | undefined;
-}
-
-export namespace CreateVodSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVodSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateVodSourceResponse {
@@ -1859,15 +1418,6 @@ export interface CreateVodSourceResponse {
   VodSourceName?: string;
 }
 
-export namespace CreateVodSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVodSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for DASH PUT operations.</p>
  */
@@ -1883,15 +1433,6 @@ export interface DashConfigurationForPut {
   OriginManifestType?: OriginManifestType | string;
 }
 
-export namespace DashConfigurationForPut {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DashConfigurationForPut): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteChannelRequest {
   /**
    * <p>The identifier for the channel you are working on.</p>
@@ -1899,25 +1440,7 @@ export interface DeleteChannelRequest {
   ChannelName: string | undefined;
 }
 
-export namespace DeleteChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteChannelResponse {}
-
-export namespace DeleteChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteChannelPolicyRequest {
   /**
@@ -1926,25 +1449,7 @@ export interface DeleteChannelPolicyRequest {
   ChannelName: string | undefined;
 }
 
-export namespace DeleteChannelPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteChannelPolicyResponse {}
-
-export namespace DeleteChannelPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteLiveSourceRequest {
   /**
@@ -1958,25 +1463,7 @@ export interface DeleteLiveSourceRequest {
   SourceLocationName: string | undefined;
 }
 
-export namespace DeleteLiveSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLiveSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLiveSourceResponse {}
-
-export namespace DeleteLiveSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLiveSourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePlaybackConfigurationRequest {
   /**
@@ -1985,25 +1472,7 @@ export interface DeletePlaybackConfigurationRequest {
   Name: string | undefined;
 }
 
-export namespace DeletePlaybackConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlaybackConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePlaybackConfigurationResponse {}
-
-export namespace DeletePlaybackConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePlaybackConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePrefetchScheduleRequest {
   /**
@@ -2017,25 +1486,7 @@ export interface DeletePrefetchScheduleRequest {
   PlaybackConfigurationName: string | undefined;
 }
 
-export namespace DeletePrefetchScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePrefetchScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePrefetchScheduleResponse {}
-
-export namespace DeletePrefetchScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePrefetchScheduleResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteProgramRequest {
   /**
@@ -2049,25 +1500,7 @@ export interface DeleteProgramRequest {
   ProgramName: string | undefined;
 }
 
-export namespace DeleteProgramRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProgramRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProgramResponse {}
-
-export namespace DeleteProgramResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProgramResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteSourceLocationRequest {
   /**
@@ -2076,25 +1509,7 @@ export interface DeleteSourceLocationRequest {
   SourceLocationName: string | undefined;
 }
 
-export namespace DeleteSourceLocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSourceLocationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSourceLocationResponse {}
-
-export namespace DeleteSourceLocationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSourceLocationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteVodSourceRequest {
   /**
@@ -2108,40 +1523,13 @@ export interface DeleteVodSourceRequest {
   VodSourceName: string | undefined;
 }
 
-export namespace DeleteVodSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVodSourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVodSourceResponse {}
-
-export namespace DeleteVodSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVodSourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeChannelRequest {
   /**
    * <p>The identifier for the channel you are working on.</p>
    */
   ChannelName: string | undefined;
-}
-
-export namespace DescribeChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeChannelResponse {
@@ -2196,15 +1584,6 @@ export interface DescribeChannelResponse {
   Tier?: string;
 }
 
-export namespace DescribeChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLiveSourceRequest {
   /**
    * <p>The identifier for the live source you are working on.</p>
@@ -2215,15 +1594,6 @@ export interface DescribeLiveSourceRequest {
    * <p>The identifier for the source location you are working on.</p>
    */
   SourceLocationName: string | undefined;
-}
-
-export namespace DescribeLiveSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLiveSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeLiveSourceResponse {
@@ -2263,15 +1633,6 @@ export interface DescribeLiveSourceResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeLiveSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLiveSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProgramRequest {
   /**
    * <p>The identifier for the channel you are working on.</p>
@@ -2282,15 +1643,6 @@ export interface DescribeProgramRequest {
    * <p>The identifier for the program you are working on.</p>
    */
   ProgramName: string | undefined;
-}
-
-export namespace DescribeProgramRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProgramRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeProgramResponse {
@@ -2340,29 +1692,11 @@ export interface DescribeProgramResponse {
   VodSourceName?: string;
 }
 
-export namespace DescribeProgramResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProgramResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSourceLocationRequest {
   /**
    * <p>The identifier for the source location you are working on.</p>
    */
   SourceLocationName: string | undefined;
-}
-
-export namespace DescribeSourceLocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSourceLocationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSourceLocationResponse {
@@ -2412,15 +1746,6 @@ export interface DescribeSourceLocationResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeSourceLocationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSourceLocationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeVodSourceRequest {
   /**
    * <p>The identifier for the source location you are working on.</p>
@@ -2431,15 +1756,6 @@ export interface DescribeVodSourceRequest {
    * <p>The identifier for the VOD source you are working on.</p>
    */
   VodSourceName: string | undefined;
-}
-
-export namespace DescribeVodSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVodSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeVodSourceResponse {
@@ -2479,15 +1795,6 @@ export interface DescribeVodSourceResponse {
   VodSourceName?: string;
 }
 
-export namespace DescribeVodSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVodSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetChannelPolicyRequest {
   /**
    * <p>The identifier for the channel you are working on.</p>
@@ -2495,29 +1802,11 @@ export interface GetChannelPolicyRequest {
   ChannelName: string | undefined;
 }
 
-export namespace GetChannelPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetChannelPolicyResponse {
   /**
    * <p>The IAM policy for the channel.</p>
    */
   Policy?: string;
-}
-
-export namespace GetChannelPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetChannelScheduleRequest {
@@ -2542,15 +1831,6 @@ export interface GetChannelScheduleRequest {
   NextToken?: string;
 }
 
-export namespace GetChannelScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetChannelScheduleResponse {
   /**
    * <p>A list of schedule entries for the channel.</p>
@@ -2563,29 +1843,11 @@ export interface GetChannelScheduleResponse {
   NextToken?: string;
 }
 
-export namespace GetChannelScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPlaybackConfigurationRequest {
   /**
    * <p>The identifier for the playback configuration.</p>
    */
   Name: string | undefined;
-}
-
-export namespace GetPlaybackConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPlaybackConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPlaybackConfigurationResponse {
@@ -2685,15 +1947,6 @@ export interface GetPlaybackConfigurationResponse {
   VideoContentSourceUrl?: string;
 }
 
-export namespace GetPlaybackConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPlaybackConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPrefetchScheduleRequest {
   /**
    * <p>The identifier for the playback configuration.</p>
@@ -2704,15 +1957,6 @@ export interface GetPrefetchScheduleRequest {
    * <p>The name of the playback configuration.</p>
    */
   PlaybackConfigurationName: string | undefined;
-}
-
-export namespace GetPrefetchScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPrefetchScheduleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPrefetchScheduleResponse {
@@ -2747,15 +1991,6 @@ export interface GetPrefetchScheduleResponse {
   StreamId?: string;
 }
 
-export namespace GetPrefetchScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPrefetchScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAlertsRequest {
   /**
    * <p>Upper bound on number of records to return. The maximum number of results is 100.</p>
@@ -2773,15 +2008,6 @@ export interface ListAlertsRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListAlertsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlertsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAlertsResponse {
   /**
    * <p>A list of alerts that are associated with this resource.</p>
@@ -2792,15 +2018,6 @@ export interface ListAlertsResponse {
    * <p>Pagination token from the list request. Use the token to fetch the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAlertsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAlertsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListChannelsRequest {
@@ -2815,15 +2032,6 @@ export interface ListChannelsRequest {
   NextToken?: string;
 }
 
-export namespace ListChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListChannelsResponse {
   /**
    * <p>A list of channels that are associated with this account.</p>
@@ -2834,15 +2042,6 @@ export interface ListChannelsResponse {
    * <p>Pagination token returned by the list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListChannelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLiveSourcesRequest {
@@ -2862,15 +2061,6 @@ export interface ListLiveSourcesRequest {
   SourceLocationName: string | undefined;
 }
 
-export namespace ListLiveSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLiveSourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLiveSourcesResponse {
   /**
    * <p>Lists the live sources.</p>
@@ -2881,15 +2071,6 @@ export interface ListLiveSourcesResponse {
    * <p>Pagination token from the list request. Use the token to fetch the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLiveSourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLiveSourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPlaybackConfigurationsRequest {
@@ -2904,15 +2085,6 @@ export interface ListPlaybackConfigurationsRequest {
   NextToken?: string;
 }
 
-export namespace ListPlaybackConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlaybackConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPlaybackConfigurationsResponse {
   /**
    * <p>Array of playback configurations. This might be all the available configurations or a subset, depending on the settings that you provide and the total number of configurations stored.</p>
@@ -2923,15 +2095,6 @@ export interface ListPlaybackConfigurationsResponse {
    * <p>Pagination token returned by the GET list request when results exceed the maximum allowed. Use the token to fetch the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPlaybackConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPlaybackConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPrefetchSchedulesRequest {
@@ -2956,15 +2119,6 @@ export interface ListPrefetchSchedulesRequest {
   StreamId?: string;
 }
 
-export namespace ListPrefetchSchedulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPrefetchSchedulesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPrefetchSchedulesResponse {
   /**
    * <p>Lists the prefetch schedules. An empty Items list doesn't mean there aren't more items to fetch, just that that page was empty.</p>
@@ -2975,15 +2129,6 @@ export interface ListPrefetchSchedulesResponse {
    * <p>The value that you will use forNextToken in the next ListPrefetchSchedulesRequest request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPrefetchSchedulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPrefetchSchedulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSourceLocationsRequest {
@@ -2998,15 +2143,6 @@ export interface ListSourceLocationsRequest {
   NextToken?: string;
 }
 
-export namespace ListSourceLocationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSourceLocationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSourceLocationsResponse {
   /**
    * <p>A list of source locations.</p>
@@ -3019,15 +2155,6 @@ export interface ListSourceLocationsResponse {
   NextToken?: string;
 }
 
-export namespace ListSourceLocationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSourceLocationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request.</p>
@@ -3035,29 +2162,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A comma-separated list of tag key:value pairs.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListVodSourcesRequest {
@@ -3077,15 +2186,6 @@ export interface ListVodSourcesRequest {
   SourceLocationName: string | undefined;
 }
 
-export namespace ListVodSourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVodSourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListVodSourcesResponse {
   /**
    * <p>Lists the VOD sources.</p>
@@ -3096,15 +2196,6 @@ export interface ListVodSourcesResponse {
    * <p>Pagination token from the list request. Use the token to fetch the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListVodSourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListVodSourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutChannelPolicyRequest {
@@ -3119,25 +2210,7 @@ export interface PutChannelPolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutChannelPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutChannelPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutChannelPolicyResponse {}
-
-export namespace PutChannelPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutChannelPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface PutPlaybackConfigurationRequest {
   /**
@@ -3209,15 +2282,6 @@ export interface PutPlaybackConfigurationRequest {
    * <p>The URL prefix for the parent manifest for the stream, minus the asset ID. The maximum length is 512 characters.</p>
    */
   VideoContentSourceUrl?: string;
-}
-
-export namespace PutPlaybackConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPlaybackConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutPlaybackConfigurationResponse {
@@ -3317,15 +2381,6 @@ export interface PutPlaybackConfigurationResponse {
   VideoContentSourceUrl?: string;
 }
 
-export namespace PutPlaybackConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPlaybackConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartChannelRequest {
   /**
    * <p>The identifier for the channel you are working on.</p>
@@ -3333,25 +2388,7 @@ export interface StartChannelRequest {
   ChannelName: string | undefined;
 }
 
-export namespace StartChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartChannelResponse {}
-
-export namespace StartChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChannelResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StopChannelRequest {
   /**
@@ -3360,25 +2397,7 @@ export interface StopChannelRequest {
   ChannelName: string | undefined;
 }
 
-export namespace StopChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopChannelResponse {}
-
-export namespace StopChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopChannelResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -3392,15 +2411,6 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for the playback configuration. You can get this from the response to any playback configuration request.</p>
@@ -3411,15 +2421,6 @@ export interface UntagResourceRequest {
    * <p>A comma-separated list of the tag keys to remove from the playback configuration.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateChannelRequest {
@@ -3437,15 +2438,6 @@ export interface UpdateChannelRequest {
    * <p>The channel's output properties.</p>
    */
   Outputs: RequestOutputItem[] | undefined;
-}
-
-export namespace UpdateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateChannelResponse {
@@ -3500,15 +2492,6 @@ export interface UpdateChannelResponse {
   Tier?: string;
 }
 
-export namespace UpdateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLiveSourceRequest {
   /**
    * <p>A list of HTTP package configurations for the live source on this account.</p>
@@ -3524,15 +2507,6 @@ export interface UpdateLiveSourceRequest {
    * <p>The identifier for the source location you are working on.</p>
    */
   SourceLocationName: string | undefined;
-}
-
-export namespace UpdateLiveSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLiveSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateLiveSourceResponse {
@@ -3572,15 +2546,6 @@ export interface UpdateLiveSourceResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace UpdateLiveSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLiveSourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSourceLocationRequest {
   /**
    * <p>Access configuration parameters. Configures the type of authentication used to access content from your source location.</p>
@@ -3606,15 +2571,6 @@ export interface UpdateSourceLocationRequest {
    * <p>The identifier for the source location you are working on.</p>
    */
   SourceLocationName: string | undefined;
-}
-
-export namespace UpdateSourceLocationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSourceLocationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSourceLocationResponse {
@@ -3664,15 +2620,6 @@ export interface UpdateSourceLocationResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace UpdateSourceLocationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSourceLocationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateVodSourceRequest {
   /**
    * <p>A list of HTTP package configurations for the VOD source on this account.</p>
@@ -3688,15 +2635,6 @@ export interface UpdateVodSourceRequest {
    * <p>The identifier for the VOD source you are working on.</p>
    */
   VodSourceName: string | undefined;
-}
-
-export namespace UpdateVodSourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVodSourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateVodSourceResponse {
@@ -3736,11 +2674,845 @@ export interface UpdateVodSourceResponse {
   VodSourceName?: string;
 }
 
-export namespace UpdateVodSourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateVodSourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SlateSourceFilterSensitiveLog = (obj: SlateSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpliceInsertMessageFilterSensitiveLog = (obj: SpliceInsertMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdBreakFilterSensitiveLog = (obj: AdBreak): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlertFilterSensitiveLog = (obj: Alert): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailMatchingCriteriaFilterSensitiveLog = (obj: AvailMatchingCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashPlaylistSettingsFilterSensitiveLog = (obj: DashPlaylistSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsPlaylistSettingsFilterSensitiveLog = (obj: HlsPlaylistSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseOutputItemFilterSensitiveLog = (obj: ResponseOutputItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpPackageConfigurationFilterSensitiveLog = (obj: HttpPackageConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LiveSourceFilterSensitiveLog = (obj: LiveSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailSuppressionFilterSensitiveLog = (obj: AvailSuppression): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BumperFilterSensitiveLog = (obj: Bumper): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CdnConfigurationFilterSensitiveLog = (obj: CdnConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashConfigurationFilterSensitiveLog = (obj: DashConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HlsConfigurationFilterSensitiveLog = (obj: HlsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LivePreRollConfigurationFilterSensitiveLog = (obj: LivePreRollConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogConfigurationFilterSensitiveLog = (obj: LogConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdMarkerPassthroughFilterSensitiveLog = (obj: AdMarkerPassthrough): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ManifestProcessingRulesFilterSensitiveLog = (obj: ManifestProcessingRules): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlaybackConfigurationFilterSensitiveLog = (obj: PlaybackConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrefetchConsumptionFilterSensitiveLog = (obj: PrefetchConsumption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrefetchRetrievalFilterSensitiveLog = (obj: PrefetchRetrieval): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrefetchScheduleFilterSensitiveLog = (obj: PrefetchSchedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleAdBreakFilterSensitiveLog = (obj: ScheduleAdBreak): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleEntryFilterSensitiveLog = (obj: ScheduleEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SegmentDeliveryConfigurationFilterSensitiveLog = (obj: SegmentDeliveryConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecretsManagerAccessTokenConfigurationFilterSensitiveLog = (
+  obj: SecretsManagerAccessTokenConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessConfigurationFilterSensitiveLog = (obj: AccessConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefaultSegmentDeliveryConfigurationFilterSensitiveLog = (
+  obj: DefaultSegmentDeliveryConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HttpConfigurationFilterSensitiveLog = (obj: HttpConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceLocationFilterSensitiveLog = (obj: SourceLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VodSourceFilterSensitiveLog = (obj: VodSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureLogsForPlaybackConfigurationRequestFilterSensitiveLog = (
+  obj: ConfigureLogsForPlaybackConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureLogsForPlaybackConfigurationResponseFilterSensitiveLog = (
+  obj: ConfigureLogsForPlaybackConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestOutputItemFilterSensitiveLog = (obj: RequestOutputItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLiveSourceRequestFilterSensitiveLog = (obj: CreateLiveSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLiveSourceResponseFilterSensitiveLog = (obj: CreateLiveSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePrefetchScheduleRequestFilterSensitiveLog = (obj: CreatePrefetchScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePrefetchScheduleResponseFilterSensitiveLog = (obj: CreatePrefetchScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransitionFilterSensitiveLog = (obj: Transition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleConfigurationFilterSensitiveLog = (obj: ScheduleConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProgramRequestFilterSensitiveLog = (obj: CreateProgramRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProgramResponseFilterSensitiveLog = (obj: CreateProgramResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSourceLocationRequestFilterSensitiveLog = (obj: CreateSourceLocationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSourceLocationResponseFilterSensitiveLog = (obj: CreateSourceLocationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVodSourceRequestFilterSensitiveLog = (obj: CreateVodSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVodSourceResponseFilterSensitiveLog = (obj: CreateVodSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DashConfigurationForPutFilterSensitiveLog = (obj: DashConfigurationForPut): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelResponseFilterSensitiveLog = (obj: DeleteChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelPolicyRequestFilterSensitiveLog = (obj: DeleteChannelPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelPolicyResponseFilterSensitiveLog = (obj: DeleteChannelPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLiveSourceRequestFilterSensitiveLog = (obj: DeleteLiveSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLiveSourceResponseFilterSensitiveLog = (obj: DeleteLiveSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlaybackConfigurationRequestFilterSensitiveLog = (obj: DeletePlaybackConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePlaybackConfigurationResponseFilterSensitiveLog = (
+  obj: DeletePlaybackConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePrefetchScheduleRequestFilterSensitiveLog = (obj: DeletePrefetchScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePrefetchScheduleResponseFilterSensitiveLog = (obj: DeletePrefetchScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProgramRequestFilterSensitiveLog = (obj: DeleteProgramRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProgramResponseFilterSensitiveLog = (obj: DeleteProgramResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSourceLocationRequestFilterSensitiveLog = (obj: DeleteSourceLocationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSourceLocationResponseFilterSensitiveLog = (obj: DeleteSourceLocationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVodSourceRequestFilterSensitiveLog = (obj: DeleteVodSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVodSourceResponseFilterSensitiveLog = (obj: DeleteVodSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLiveSourceRequestFilterSensitiveLog = (obj: DescribeLiveSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLiveSourceResponseFilterSensitiveLog = (obj: DescribeLiveSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProgramRequestFilterSensitiveLog = (obj: DescribeProgramRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProgramResponseFilterSensitiveLog = (obj: DescribeProgramResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSourceLocationRequestFilterSensitiveLog = (obj: DescribeSourceLocationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSourceLocationResponseFilterSensitiveLog = (obj: DescribeSourceLocationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVodSourceRequestFilterSensitiveLog = (obj: DescribeVodSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeVodSourceResponseFilterSensitiveLog = (obj: DescribeVodSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelPolicyRequestFilterSensitiveLog = (obj: GetChannelPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelPolicyResponseFilterSensitiveLog = (obj: GetChannelPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelScheduleRequestFilterSensitiveLog = (obj: GetChannelScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelScheduleResponseFilterSensitiveLog = (obj: GetChannelScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPlaybackConfigurationRequestFilterSensitiveLog = (obj: GetPlaybackConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPlaybackConfigurationResponseFilterSensitiveLog = (obj: GetPlaybackConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPrefetchScheduleRequestFilterSensitiveLog = (obj: GetPrefetchScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPrefetchScheduleResponseFilterSensitiveLog = (obj: GetPrefetchScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlertsRequestFilterSensitiveLog = (obj: ListAlertsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAlertsResponseFilterSensitiveLog = (obj: ListAlertsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLiveSourcesRequestFilterSensitiveLog = (obj: ListLiveSourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLiveSourcesResponseFilterSensitiveLog = (obj: ListLiveSourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlaybackConfigurationsRequestFilterSensitiveLog = (obj: ListPlaybackConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPlaybackConfigurationsResponseFilterSensitiveLog = (obj: ListPlaybackConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPrefetchSchedulesRequestFilterSensitiveLog = (obj: ListPrefetchSchedulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPrefetchSchedulesResponseFilterSensitiveLog = (obj: ListPrefetchSchedulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSourceLocationsRequestFilterSensitiveLog = (obj: ListSourceLocationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSourceLocationsResponseFilterSensitiveLog = (obj: ListSourceLocationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVodSourcesRequestFilterSensitiveLog = (obj: ListVodSourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListVodSourcesResponseFilterSensitiveLog = (obj: ListVodSourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutChannelPolicyRequestFilterSensitiveLog = (obj: PutChannelPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutChannelPolicyResponseFilterSensitiveLog = (obj: PutChannelPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPlaybackConfigurationRequestFilterSensitiveLog = (obj: PutPlaybackConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPlaybackConfigurationResponseFilterSensitiveLog = (obj: PutPlaybackConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChannelRequestFilterSensitiveLog = (obj: StartChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChannelResponseFilterSensitiveLog = (obj: StartChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopChannelRequestFilterSensitiveLog = (obj: StopChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopChannelResponseFilterSensitiveLog = (obj: StopChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLiveSourceRequestFilterSensitiveLog = (obj: UpdateLiveSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLiveSourceResponseFilterSensitiveLog = (obj: UpdateLiveSourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSourceLocationRequestFilterSensitiveLog = (obj: UpdateSourceLocationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSourceLocationResponseFilterSensitiveLog = (obj: UpdateSourceLocationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVodSourceRequestFilterSensitiveLog = (obj: UpdateVodSourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateVodSourceResponseFilterSensitiveLog = (obj: UpdateVodSourceResponse): any => ({
+  ...obj,
+});

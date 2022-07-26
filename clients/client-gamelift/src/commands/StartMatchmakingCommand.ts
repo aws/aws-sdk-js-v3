@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { StartMatchmakingInput, StartMatchmakingOutput } from "../models/models_0";
+import {
+  StartMatchmakingInput,
+  StartMatchmakingInputFilterSensitiveLog,
+  StartMatchmakingOutput,
+  StartMatchmakingOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartMatchmakingCommand,
   serializeAws_json1_1StartMatchmakingCommand,
@@ -112,8 +117,8 @@ export class StartMatchmakingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMatchmakingInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StartMatchmakingOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMatchmakingInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StartMatchmakingOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

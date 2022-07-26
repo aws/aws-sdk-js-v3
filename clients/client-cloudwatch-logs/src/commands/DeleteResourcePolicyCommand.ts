@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteResourcePolicyRequest } from "../models/models_0";
+import { DeleteResourcePolicyRequest, DeleteResourcePolicyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourcePolicyCommand,
   serializeAws_json1_1DeleteResourcePolicyCommand,
@@ -73,7 +73,7 @@ export class DeleteResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResourcePolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { PutPolicyRequest, PutPolicyResponse } from "../models/models_2";
+import {
+  PutPolicyRequest,
+  PutPolicyRequestFilterSensitiveLog,
+  PutPolicyResponse,
+  PutPolicyResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1PutPolicyCommand,
   serializeAws_restJson1PutPolicyCommand,
@@ -72,8 +77,8 @@ export class PutPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

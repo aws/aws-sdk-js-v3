@@ -15,7 +15,9 @@ import {
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import {
   AddApplicationInputProcessingConfigurationRequest,
+  AddApplicationInputProcessingConfigurationRequestFilterSensitiveLog,
   AddApplicationInputProcessingConfigurationResponse,
+  AddApplicationInputProcessingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,
@@ -86,8 +88,8 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddApplicationInputProcessingConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddApplicationInputProcessingConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddApplicationInputProcessingConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddApplicationInputProcessingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

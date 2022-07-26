@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DBClusterEndpoint, DeleteDBClusterEndpointMessage } from "../models/models_0";
+import {
+  DBClusterEndpoint,
+  DBClusterEndpointFilterSensitiveLog,
+  DeleteDBClusterEndpointMessage,
+  DeleteDBClusterEndpointMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBClusterEndpointCommand,
   serializeAws_queryDeleteDBClusterEndpointCommand,
@@ -75,8 +80,8 @@ export class DeleteDBClusterEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBClusterEndpointMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterEndpoint.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDBClusterEndpointMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DBClusterEndpointFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

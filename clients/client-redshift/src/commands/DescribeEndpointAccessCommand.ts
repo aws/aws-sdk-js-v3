@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeEndpointAccessMessage, EndpointAccessList } from "../models/models_0";
+import {
+  DescribeEndpointAccessMessage,
+  DescribeEndpointAccessMessageFilterSensitiveLog,
+  EndpointAccessList,
+  EndpointAccessListFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeEndpointAccessCommand,
   serializeAws_queryDescribeEndpointAccessCommand,
@@ -72,8 +77,8 @@ export class DescribeEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEndpointAccessMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: EndpointAccessList.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEndpointAccessMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: EndpointAccessListFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

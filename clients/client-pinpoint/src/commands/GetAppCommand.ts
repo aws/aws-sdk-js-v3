@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAppRequest, GetAppResponse } from "../models/models_0";
+import {
+  GetAppRequest,
+  GetAppRequestFilterSensitiveLog,
+  GetAppResponse,
+  GetAppResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { deserializeAws_restJson1GetAppCommand, serializeAws_restJson1GetAppCommand } from "../protocols/Aws_restJson1";
 
@@ -65,8 +70,8 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAppResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAppRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAppResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

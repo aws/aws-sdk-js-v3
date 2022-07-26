@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { BatchEvaluateFeatureRequest, BatchEvaluateFeatureResponse } from "../models/models_0";
+import {
+  BatchEvaluateFeatureRequest,
+  BatchEvaluateFeatureRequestFilterSensitiveLog,
+  BatchEvaluateFeatureResponse,
+  BatchEvaluateFeatureResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1BatchEvaluateFeatureCommand,
   serializeAws_restJson1BatchEvaluateFeatureCommand,
@@ -86,8 +91,8 @@ export class BatchEvaluateFeatureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchEvaluateFeatureRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchEvaluateFeatureResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchEvaluateFeatureRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchEvaluateFeatureResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { PutResourcePolicyInput, PutResourcePolicyOutput } from "../models/models_0";
+import {
+  PutResourcePolicyInput,
+  PutResourcePolicyInputFilterSensitiveLog,
+  PutResourcePolicyOutput,
+  PutResourcePolicyOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutResourcePolicyCommand,
   serializeAws_json1_1PutResourcePolicyCommand,
@@ -73,8 +78,8 @@ export class PutResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourcePolicyInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutResourcePolicyOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutResourcePolicyInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutResourcePolicyOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

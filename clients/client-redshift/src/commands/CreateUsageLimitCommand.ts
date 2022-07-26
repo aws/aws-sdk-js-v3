@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateUsageLimitMessage, UsageLimit } from "../models/models_0";
+import {
+  CreateUsageLimitMessage,
+  CreateUsageLimitMessageFilterSensitiveLog,
+  UsageLimit,
+  UsageLimitFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateUsageLimitCommand,
   serializeAws_queryCreateUsageLimitCommand,
@@ -73,8 +78,8 @@ export class CreateUsageLimitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUsageLimitMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: UsageLimit.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateUsageLimitMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: UsageLimitFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

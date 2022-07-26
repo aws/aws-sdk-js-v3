@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { DeleteFileSystemRequest, DeleteFileSystemResponse } from "../models/models_0";
+import {
+  DeleteFileSystemRequest,
+  DeleteFileSystemRequestFilterSensitiveLog,
+  DeleteFileSystemResponse,
+  DeleteFileSystemResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFileSystemCommand,
   serializeAws_json1_1DeleteFileSystemCommand,
@@ -96,8 +101,8 @@ export class DeleteFileSystemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFileSystemRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFileSystemResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFileSystemRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFileSystemResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

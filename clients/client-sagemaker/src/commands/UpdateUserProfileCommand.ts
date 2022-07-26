@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateUserProfileRequest, UpdateUserProfileResponse } from "../models/models_3";
+import {
+  UpdateUserProfileRequest,
+  UpdateUserProfileRequestFilterSensitiveLog,
+  UpdateUserProfileResponse,
+  UpdateUserProfileResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateUserProfileCommand,
   serializeAws_json1_1UpdateUserProfileCommand,
@@ -72,8 +77,8 @@ export class UpdateUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateUserProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateUserProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

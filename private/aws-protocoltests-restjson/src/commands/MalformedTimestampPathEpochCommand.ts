@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedTimestampPathEpochInput } from "../models/models_0";
+import {
+  MalformedTimestampPathEpochInput,
+  MalformedTimestampPathEpochInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedTimestampPathEpochCommand,
   serializeAws_restJson1MalformedTimestampPathEpochCommand,
@@ -55,7 +58,7 @@ export class MalformedTimestampPathEpochCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedTimestampPathEpochInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MalformedTimestampPathEpochInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

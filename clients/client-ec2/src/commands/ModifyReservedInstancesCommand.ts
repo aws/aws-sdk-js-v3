@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyReservedInstancesRequest, ModifyReservedInstancesResult } from "../models/models_5";
+import {
+  ModifyReservedInstancesRequest,
+  ModifyReservedInstancesRequestFilterSensitiveLog,
+  ModifyReservedInstancesResult,
+  ModifyReservedInstancesResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyReservedInstancesCommand,
   serializeAws_ec2ModifyReservedInstancesCommand,
@@ -77,8 +82,8 @@ export class ModifyReservedInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReservedInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReservedInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyReservedInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyReservedInstancesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

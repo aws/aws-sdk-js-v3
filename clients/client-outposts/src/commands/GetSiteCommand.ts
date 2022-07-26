@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetSiteInput, GetSiteOutput } from "../models/models_0";
+import {
+  GetSiteInput,
+  GetSiteInputFilterSensitiveLog,
+  GetSiteOutput,
+  GetSiteOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1GetSiteCommand,
@@ -70,8 +75,8 @@ export class GetSiteCommand extends $Command<GetSiteCommandInput, GetSiteCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSiteInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSiteOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSiteInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSiteOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

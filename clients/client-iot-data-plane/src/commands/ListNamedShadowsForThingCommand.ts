@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import { ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse } from "../models/models_0";
+import {
+  ListNamedShadowsForThingRequest,
+  ListNamedShadowsForThingRequestFilterSensitiveLog,
+  ListNamedShadowsForThingResponse,
+  ListNamedShadowsForThingResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListNamedShadowsForThingCommand,
   serializeAws_restJson1ListNamedShadowsForThingCommand,
@@ -73,8 +78,8 @@ export class ListNamedShadowsForThingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNamedShadowsForThingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListNamedShadowsForThingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListNamedShadowsForThingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListNamedShadowsForThingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -11,15 +11,6 @@ export interface AcceptSharedDirectoryRequest {
   SharedDirectoryId: string | undefined;
 }
 
-export namespace AcceptSharedDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptSharedDirectoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ShareMethod {
   HANDSHAKE = "HANDSHAKE",
   ORGANIZATIONS = "ORGANIZATIONS",
@@ -95,31 +86,11 @@ export interface SharedDirectory {
   LastUpdatedDateTime?: Date;
 }
 
-export namespace SharedDirectory {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SharedDirectory): any => ({
-    ...obj,
-    ...(obj.ShareNotes && { ShareNotes: SENSITIVE_STRING }),
-  });
-}
-
 export interface AcceptSharedDirectoryResult {
   /**
    * <p>The shared directory in the directory consumer account.</p>
    */
   SharedDirectory?: SharedDirectory;
-}
-
-export namespace AcceptSharedDirectoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceptSharedDirectoryResult): any => ({
-    ...obj,
-    ...(obj.SharedDirectory && { SharedDirectory: SharedDirectory.filterSensitiveLog(obj.SharedDirectory) }),
-  });
 }
 
 /**
@@ -320,15 +291,6 @@ export interface IpRoute {
   Description?: string;
 }
 
-export namespace IpRoute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpRoute): any => ({
-    ...obj,
-  });
-}
-
 export interface AddIpRoutesRequest {
   /**
    * <p>Identifier (ID) of the directory to which to add the address block.</p>
@@ -415,25 +377,7 @@ export interface AddIpRoutesRequest {
   UpdateSecurityGroupForDirectoryControllers?: boolean;
 }
 
-export namespace AddIpRoutesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddIpRoutesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddIpRoutesResult {}
-
-export namespace AddIpRoutesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddIpRoutesResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified directory is unavailable or could not be found.</p>
@@ -543,15 +487,6 @@ export interface DirectoryVpcSettings {
   SubnetIds: string[] | undefined;
 }
 
-export namespace DirectoryVpcSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryVpcSettings): any => ({
-    ...obj,
-  });
-}
-
 export interface AddRegionRequest {
   /**
    * <p>The identifier of the directory to which you want to add Region replication.</p>
@@ -570,25 +505,7 @@ export interface AddRegionRequest {
   VPCSettings: DirectoryVpcSettings | undefined;
 }
 
-export namespace AddRegionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddRegionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddRegionResult {}
-
-export namespace AddRegionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddRegionResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The Region you specified is the same Region where the Managed Microsoft AD directory
@@ -732,15 +649,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface AddTagsToResourceRequest {
   /**
    * <p>Identifier (ID) for the directory to which to add the tag.</p>
@@ -753,25 +661,7 @@ export interface AddTagsToResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace AddTagsToResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsToResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddTagsToResourceResult {}
-
-export namespace AddTagsToResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsToResourceResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The maximum allowed number of tags was exceeded.</p>
@@ -818,15 +708,6 @@ export interface Attribute {
   Value?: string;
 }
 
-export namespace Attribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An authentication error occurred.</p>
  */
@@ -869,25 +750,7 @@ export interface CancelSchemaExtensionRequest {
   SchemaExtensionId: string | undefined;
 }
 
-export namespace CancelSchemaExtensionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelSchemaExtensionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelSchemaExtensionResult {}
-
-export namespace CancelSchemaExtensionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelSchemaExtensionResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains information about the client certificate authentication settings for the <code>RegisterCertificate</code> and <code>DescribeCertificate</code> operations. </p>
@@ -897,15 +760,6 @@ export interface ClientCertAuthSettings {
    * <p>Specifies the URL of the default OCSP server used to check for revocation status. A secondary value to any OCSP address found in the AIA extension of the user certificate.</p>
    */
   OCSPUrl?: string;
-}
-
-export namespace ClientCertAuthSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientCertAuthSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum CertificateState {
@@ -965,15 +819,6 @@ export interface Certificate {
    * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>
    */
   ClientCertAuthSettings?: ClientCertAuthSettings;
-}
-
-export namespace Certificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Certificate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1064,15 +909,6 @@ export interface CertificateInfo {
    * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
    */
   Type?: CertificateType | string;
-}
-
-export namespace CertificateInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1166,15 +1002,6 @@ export interface ClientAuthenticationSettingInfo {
   LastUpdatedDateTime?: Date;
 }
 
-export namespace ClientAuthenticationSettingInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientAuthenticationSettingInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a computer account in a directory.</p>
  */
@@ -1194,15 +1021,6 @@ export interface Computer {
    *             computer account.</p>
    */
   ComputerAttributes?: Attribute[];
-}
-
-export namespace Computer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Computer): any => ({
-    ...obj,
-  });
 }
 
 export enum ReplicationScope {
@@ -1233,15 +1051,6 @@ export interface ConditionalForwarder {
    *       controllers for your Amazon Web Services directory.</p>
    */
   ReplicationScope?: ReplicationScope | string;
-}
-
-export namespace ConditionalForwarder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConditionalForwarder): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1281,15 +1090,6 @@ export interface DirectoryConnectSettings {
    *          </ul>
    */
   CustomerUserName: string | undefined;
-}
-
-export namespace DirectoryConnectSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryConnectSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum DirectorySize {
@@ -1339,16 +1139,6 @@ export interface ConnectDirectoryRequest {
   Tags?: Tag[];
 }
 
-export namespace ConnectDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectDirectoryRequest): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Contains the results of the <a>ConnectDirectory</a> operation.</p>
  */
@@ -1357,15 +1147,6 @@ export interface ConnectDirectoryResult {
    * <p>The identifier of the new directory.</p>
    */
   DirectoryId?: string;
-}
-
-export namespace ConnectDirectoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectDirectoryResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1417,15 +1198,6 @@ export interface CreateAliasRequest {
   Alias: string | undefined;
 }
 
-export namespace CreateAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAliasRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the results of the <a>CreateAlias</a> operation.</p>
  */
@@ -1439,15 +1211,6 @@ export interface CreateAliasResult {
    * <p>The alias for the directory.</p>
    */
   Alias?: string;
-}
-
-export namespace CreateAliasResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAliasResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1481,16 +1244,6 @@ export interface CreateComputerRequest {
   ComputerAttributes?: Attribute[];
 }
 
-export namespace CreateComputerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComputerRequest): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Contains the results for the <a>CreateComputer</a> operation.</p>
  */
@@ -1499,15 +1252,6 @@ export interface CreateComputerResult {
    * <p>A <a>Computer</a> object that represents the computer account.</p>
    */
   Computer?: Computer;
-}
-
-export namespace CreateComputerResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComputerResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1534,28 +1278,10 @@ export interface CreateConditionalForwarderRequest {
   DnsIpAddrs: string[] | undefined;
 }
 
-export namespace CreateConditionalForwarderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConditionalForwarderRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a CreateConditinalForwarder request.</p>
  */
 export interface CreateConditionalForwarderResult {}
-
-export namespace CreateConditionalForwarderResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConditionalForwarderResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the inputs for the <a>CreateDirectory</a> operation. </p>
@@ -1626,16 +1352,6 @@ export interface CreateDirectoryRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectoryRequest): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Contains the results of the <a>CreateDirectory</a> operation.</p>
  */
@@ -1644,15 +1360,6 @@ export interface CreateDirectoryResult {
    * <p>The identifier of the directory that was created.</p>
    */
   DirectoryId?: string;
-}
-
-export namespace CreateDirectoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDirectoryResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLogSubscriptionRequest {
@@ -1669,25 +1376,7 @@ export interface CreateLogSubscriptionRequest {
   LogGroupName: string | undefined;
 }
 
-export namespace CreateLogSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLogSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLogSubscriptionResult {}
-
-export namespace CreateLogSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLogSubscriptionResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The account does not have sufficient permission to perform the operation.</p>
@@ -1771,16 +1460,6 @@ export interface CreateMicrosoftADRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateMicrosoftADRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMicrosoftADRequest): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Result of a CreateMicrosoftAD request.</p>
  */
@@ -1789,15 +1468,6 @@ export interface CreateMicrosoftADResult {
    * <p>The identifier of the directory that was created.</p>
    */
   DirectoryId?: string;
-}
-
-export namespace CreateMicrosoftADResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMicrosoftADResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1815,15 +1485,6 @@ export interface CreateSnapshotRequest {
   Name?: string;
 }
 
-export namespace CreateSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the results of the <a>CreateSnapshot</a> operation.</p>
  */
@@ -1832,15 +1493,6 @@ export interface CreateSnapshotResult {
    * <p>The identifier of the snapshot that was created.</p>
    */
   SnapshotId?: string;
-}
-
-export namespace CreateSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1939,16 +1591,6 @@ export interface CreateTrustRequest {
   SelectiveAuth?: SelectiveAuth | string;
 }
 
-export namespace CreateTrustRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrustRequest): any => ({
-    ...obj,
-    ...(obj.TrustPassword && { TrustPassword: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The result of a CreateTrust request.</p>
  */
@@ -1957,15 +1599,6 @@ export interface CreateTrustResult {
    * <p>A unique identifier for the trust relationship that was created.</p>
    */
   TrustId?: string;
-}
-
-export namespace CreateTrustResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTrustResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1984,28 +1617,10 @@ export interface DeleteConditionalForwarderRequest {
   RemoteDomainName: string | undefined;
 }
 
-export namespace DeleteConditionalForwarderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConditionalForwarderRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a DeleteConditionalForwarder request.</p>
  */
 export interface DeleteConditionalForwarderResult {}
-
-export namespace DeleteConditionalForwarderResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConditionalForwarderResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the inputs for the <a>DeleteDirectory</a> operation.</p>
@@ -2015,15 +1630,6 @@ export interface DeleteDirectoryRequest {
    * <p>The identifier of the directory to delete.</p>
    */
   DirectoryId: string | undefined;
-}
-
-export namespace DeleteDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectoryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2036,15 +1642,6 @@ export interface DeleteDirectoryResult {
   DirectoryId?: string;
 }
 
-export namespace DeleteDirectoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDirectoryResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLogSubscriptionRequest {
   /**
    * <p>Identifier of the directory whose log subscription you want to delete.</p>
@@ -2052,25 +1649,7 @@ export interface DeleteLogSubscriptionRequest {
   DirectoryId: string | undefined;
 }
 
-export namespace DeleteLogSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLogSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLogSubscriptionResult {}
-
-export namespace DeleteLogSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLogSubscriptionResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the inputs for the <a>DeleteSnapshot</a> operation.</p>
@@ -2082,15 +1661,6 @@ export interface DeleteSnapshotRequest {
   SnapshotId: string | undefined;
 }
 
-export namespace DeleteSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the results of the <a>DeleteSnapshot</a> operation.</p>
  */
@@ -2099,15 +1669,6 @@ export interface DeleteSnapshotResult {
    * <p>The identifier of the directory snapshot that was deleted.</p>
    */
   SnapshotId?: string;
-}
-
-export namespace DeleteSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2126,15 +1687,6 @@ export interface DeleteTrustRequest {
   DeleteAssociatedConditionalForwarder?: boolean;
 }
 
-export namespace DeleteTrustRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrustRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a DeleteTrust request.</p>
  */
@@ -2143,15 +1695,6 @@ export interface DeleteTrustResult {
    * <p>The Trust ID of the trust relationship that was deleted.</p>
    */
   TrustId?: string;
-}
-
-export namespace DeleteTrustResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTrustResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterCertificateRequest {
@@ -2166,25 +1709,7 @@ export interface DeregisterCertificateRequest {
   CertificateId: string | undefined;
 }
 
-export namespace DeregisterCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterCertificateResult {}
-
-export namespace DeregisterCertificateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterCertificateResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Removes the specified directory as a publisher to the specified Amazon SNS topic.</p>
@@ -2203,28 +1728,10 @@ export interface DeregisterEventTopicRequest {
   TopicName: string | undefined;
 }
 
-export namespace DeregisterEventTopicRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterEventTopicRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a DeregisterEventTopic request.</p>
  */
 export interface DeregisterEventTopicResult {}
-
-export namespace DeregisterEventTopicResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterEventTopicResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeCertificateRequest {
   /**
@@ -2238,30 +1745,12 @@ export interface DescribeCertificateRequest {
   CertificateId: string | undefined;
 }
 
-export namespace DescribeCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCertificateResult {
   /**
    * <p>Information about the certificate, including registered date time, certificate state, the
    *       reason for the state, expiration date time, and certificate common name.</p>
    */
   Certificate?: Certificate;
-}
-
-export namespace DescribeCertificateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificateResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeClientAuthenticationSettingsRequest {
@@ -2286,15 +1775,6 @@ export interface DescribeClientAuthenticationSettingsRequest {
   Limit?: number;
 }
 
-export namespace DescribeClientAuthenticationSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientAuthenticationSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeClientAuthenticationSettingsResult {
   /**
    * <p>Information about the type of client authentication for the specified directory. The following information is retrieved: The date and time when the status of the client authentication type was last updated, whether the client authentication type is enabled or disabled, and the type of client authentication.</p>
@@ -2306,15 +1786,6 @@ export interface DescribeClientAuthenticationSettingsResult {
    *       page limit and there is another page.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeClientAuthenticationSettingsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeClientAuthenticationSettingsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2335,15 +1806,6 @@ export interface DescribeConditionalForwardersRequest {
   RemoteDomainNames?: string[];
 }
 
-export namespace DescribeConditionalForwardersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConditionalForwardersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a DescribeConditionalForwarder request.</p>
  */
@@ -2352,15 +1814,6 @@ export interface DescribeConditionalForwardersResult {
    * <p>The list of conditional forwarders that have been created.</p>
    */
   ConditionalForwarders?: ConditionalForwarder[];
-}
-
-export namespace DescribeConditionalForwardersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConditionalForwardersResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2384,15 +1837,6 @@ export interface DescribeDirectoriesRequest {
    *       is specified by the limitations of the operation.</p>
    */
   Limit?: number;
-}
-
-export namespace DescribeDirectoriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectoriesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2428,15 +1872,6 @@ export interface DirectoryConnectSettingsDescription {
    * <p>The IP addresses of the AD Connector servers.</p>
    */
   ConnectIps?: string[];
-}
-
-export namespace DirectoryConnectSettingsDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryConnectSettingsDescription): any => ({
-    ...obj,
-  });
 }
 
 export enum RadiusAuthenticationProtocol {
@@ -2496,16 +1931,6 @@ export interface RadiusSettings {
   UseSameUsername?: boolean;
 }
 
-export namespace RadiusSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RadiusSettings): any => ({
-    ...obj,
-    ...(obj.SharedSecret && { SharedSecret: SENSITIVE_STRING }),
-  });
-}
-
 export enum RadiusStatus {
   COMPLETED = "Completed",
   CREATING = "Creating",
@@ -2535,15 +1960,6 @@ export interface DirectoryVpcSettingsDescription {
    * <p>The list of Availability Zones that the directory is in.</p>
    */
   AvailabilityZones?: string[];
-}
-
-export namespace DirectoryVpcSettingsDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryVpcSettingsDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2584,16 +2000,6 @@ export interface OwnerDirectoryDescription {
   RadiusStatus?: RadiusStatus | string;
 }
 
-export namespace OwnerDirectoryDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OwnerDirectoryDescription): any => ({
-    ...obj,
-    ...(obj.RadiusSettings && { RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings) }),
-  });
-}
-
 /**
  * <p>Provides information about the Regions that are configured for multi-Region
  *       replication.</p>
@@ -2609,15 +2015,6 @@ export interface RegionsInfo {
    *       Region.</p>
    */
   AdditionalRegions?: string[];
-}
-
-export namespace RegionsInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionsInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum DirectoryStage {
@@ -2788,20 +2185,6 @@ export interface DirectoryDescription {
   RegionsInfo?: RegionsInfo;
 }
 
-export namespace DirectoryDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryDescription): any => ({
-    ...obj,
-    ...(obj.ShareNotes && { ShareNotes: SENSITIVE_STRING }),
-    ...(obj.RadiusSettings && { RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings) }),
-    ...(obj.OwnerDirectoryDescription && {
-      OwnerDirectoryDescription: OwnerDirectoryDescription.filterSensitiveLog(obj.OwnerDirectoryDescription),
-    }),
-  });
-}
-
 /**
  * <p>Contains the results of the <a>DescribeDirectories</a> operation.</p>
  */
@@ -2821,18 +2204,6 @@ export interface DescribeDirectoriesResult {
    *       set of items.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeDirectoriesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDirectoriesResult): any => ({
-    ...obj,
-    ...(obj.DirectoryDescriptions && {
-      DirectoryDescriptions: obj.DirectoryDescriptions.map((item) => DirectoryDescription.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -2889,15 +2260,6 @@ export interface DescribeDomainControllersRequest {
    * <p>The maximum number of items to return.</p>
    */
   Limit?: number;
-}
-
-export namespace DescribeDomainControllersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainControllersRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DomainControllerStatus {
@@ -2965,15 +2327,6 @@ export interface DomainController {
   StatusLastUpdatedDateTime?: Date;
 }
 
-export namespace DomainController {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainController): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDomainControllersResult {
   /**
    * <p>List of the <a>DomainController</a> objects that were retrieved.</p>
@@ -2986,15 +2339,6 @@ export interface DescribeDomainControllersResult {
    *       next set of items.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeDomainControllersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDomainControllersResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3014,15 +2358,6 @@ export interface DescribeEventTopicsRequest {
    *       thrown.</p>
    */
   TopicNames?: string[];
-}
-
-export namespace DescribeEventTopicsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventTopicsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum TopicStatus {
@@ -3063,15 +2398,6 @@ export interface EventTopic {
   Status?: TopicStatus | string;
 }
 
-export namespace EventTopic {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventTopic): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a DescribeEventTopic request.</p>
  */
@@ -3081,15 +2407,6 @@ export interface DescribeEventTopicsResult {
    *       ID.</p>
    */
   EventTopics?: EventTopic[];
-}
-
-export namespace DescribeEventTopicsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventTopicsResult): any => ({
-    ...obj,
-  });
 }
 
 export enum LDAPSType {
@@ -3119,15 +2436,6 @@ export interface DescribeLDAPSSettingsRequest {
   Limit?: number;
 }
 
-export namespace DescribeLDAPSSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLDAPSSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum LDAPSStatus {
   DISABLED = "Disabled",
   ENABLED = "Enabled",
@@ -3155,15 +2463,6 @@ export interface LDAPSSettingInfo {
   LastUpdatedDateTime?: Date;
 }
 
-export namespace LDAPSSettingInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LDAPSSettingInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLDAPSSettingsResult {
   /**
    * <p>Information about LDAP security for the specified directory, including status of
@@ -3176,15 +2475,6 @@ export interface DescribeLDAPSSettingsResult {
    *       page limit and there is another page.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeLDAPSSettingsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLDAPSSettingsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRegionsRequest {
@@ -3202,15 +2492,6 @@ export interface DescribeRegionsRequest {
    * <p>The <code>DescribeRegionsResult.NextToken</code> value from a previous call to <a>DescribeRegions</a>. Pass null if this is the first call.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeRegionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRegionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RegionType {
@@ -3269,15 +2550,6 @@ export interface RegionDescription {
   LastUpdatedDateTime?: Date;
 }
 
-export namespace RegionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRegionsResult {
   /**
    * <p>List of Region information related to the directory for each replicated Region.</p>
@@ -3290,15 +2562,6 @@ export interface DescribeRegionsResult {
    *       of items.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeRegionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRegionsResult): any => ({
-    ...obj,
-  });
 }
 
 export enum DirectoryConfigurationStatus {
@@ -3324,15 +2587,6 @@ export interface DescribeSettingsRequest {
    * <p>The <code>DescribeSettingsResult.NextToken</code> value from a previous call to <a>DescribeSettings</a>. Pass null if this is the first call.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSettingsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3393,15 +2647,6 @@ export interface SettingEntry {
   LastRequestedDateTime?: Date;
 }
 
-export namespace SettingEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SettingEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSettingsResult {
   /**
    * <p>The identifier of the directory.</p>
@@ -3421,15 +2666,6 @@ export interface DescribeSettingsResult {
    * <p>If not null, token that indicates that more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <code>DescribeSettings</code> to retrieve the next set of items. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeSettingsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSettingsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSharedDirectoriesRequest {
@@ -3455,15 +2691,6 @@ export interface DescribeSharedDirectoriesRequest {
   Limit?: number;
 }
 
-export namespace DescribeSharedDirectoriesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSharedDirectoriesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSharedDirectoriesResult {
   /**
    * <p>A list of all shared directories in your account.</p>
@@ -3475,18 +2702,6 @@ export interface DescribeSharedDirectoriesResult {
    *         <code>NextToken</code> parameter in a subsequent call to <a>DescribeSharedDirectories</a> to retrieve the next set of items.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeSharedDirectoriesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSharedDirectoriesResult): any => ({
-    ...obj,
-    ...(obj.SharedDirectories && {
-      SharedDirectories: obj.SharedDirectories.map((item) => SharedDirectory.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 /**
@@ -3515,15 +2730,6 @@ export interface DescribeSnapshotsRequest {
    * <p>The maximum number of objects to return.</p>
    */
   Limit?: number;
-}
-
-export namespace DescribeSnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SnapshotStatus {
@@ -3572,15 +2778,6 @@ export interface Snapshot {
   StartTime?: Date;
 }
 
-export namespace Snapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Snapshot): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the results of the <a>DescribeSnapshots</a> operation.</p>
  */
@@ -3599,15 +2796,6 @@ export interface DescribeSnapshotsResult {
    *          a subsequent call to <a>DescribeSnapshots</a>.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeSnapshotsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSnapshotsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3640,15 +2828,6 @@ export interface DescribeTrustsRequest {
    * <p>The maximum number of objects to return.</p>
    */
   Limit?: number;
-}
-
-export namespace DescribeTrustsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrustsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum TrustState {
@@ -3727,15 +2906,6 @@ export interface Trust {
   SelectiveAuth?: SelectiveAuth | string;
 }
 
-export namespace Trust {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Trust): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a DescribeTrust request.</p>
  */
@@ -3754,15 +2924,6 @@ export interface DescribeTrustsResult {
    *         <i>NextToken</i> parameter in a subsequent call to <a>DescribeTrusts</a> to retrieve the next set of items.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeTrustsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrustsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3815,15 +2976,6 @@ export interface DirectoryLimits {
   ConnectedDirectoriesLimitReached?: boolean;
 }
 
-export namespace DirectoryLimits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryLimits): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified directory has not been shared with this Amazon Web Services account.</p>
  */
@@ -3866,25 +3018,7 @@ export interface DisableClientAuthenticationRequest {
   Type: ClientAuthenticationType | string | undefined;
 }
 
-export namespace DisableClientAuthenticationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableClientAuthenticationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableClientAuthenticationResult {}
-
-export namespace DisableClientAuthenticationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableClientAuthenticationResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Client authentication is already enabled.</p>
@@ -3929,25 +3063,7 @@ export interface DisableLDAPSRequest {
   Type: LDAPSType | string | undefined;
 }
 
-export namespace DisableLDAPSRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableLDAPSRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableLDAPSResult {}
-
-export namespace DisableLDAPSResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableLDAPSResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The LDAP activities could not be performed because they are limited by the LDAPS
@@ -3990,28 +3106,10 @@ export interface DisableRadiusRequest {
   DirectoryId: string | undefined;
 }
 
-export namespace DisableRadiusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableRadiusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the results of the <a>DisableRadius</a> operation.</p>
  */
 export interface DisableRadiusResult {}
-
-export namespace DisableRadiusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableRadiusResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the inputs for the <a>DisableSso</a> operation.</p>
@@ -4042,29 +3140,10 @@ export interface DisableSsoRequest {
   Password?: string;
 }
 
-export namespace DisableSsoRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableSsoRequest): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Contains the results of the <a>DisableSso</a> operation.</p>
  */
 export interface DisableSsoResult {}
-
-export namespace DisableSsoResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableSsoResult): any => ({
-    ...obj,
-  });
-}
 
 export interface EnableClientAuthenticationRequest {
   /**
@@ -4081,25 +3160,7 @@ export interface EnableClientAuthenticationRequest {
   Type: ClientAuthenticationType | string | undefined;
 }
 
-export namespace EnableClientAuthenticationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableClientAuthenticationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableClientAuthenticationResult {}
-
-export namespace EnableClientAuthenticationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableClientAuthenticationResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Client authentication setup could not be completed because at least one valid certificate must be
@@ -4145,25 +3206,7 @@ export interface EnableLDAPSRequest {
   Type: LDAPSType | string | undefined;
 }
 
-export namespace EnableLDAPSRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableLDAPSRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableLDAPSResult {}
-
-export namespace EnableLDAPSResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableLDAPSResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the inputs for the <a>EnableRadius</a> operation.</p>
@@ -4181,29 +3224,10 @@ export interface EnableRadiusRequest {
   RadiusSettings: RadiusSettings | undefined;
 }
 
-export namespace EnableRadiusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableRadiusRequest): any => ({
-    ...obj,
-    ...(obj.RadiusSettings && { RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings) }),
-  });
-}
-
 /**
  * <p>Contains the results of the <a>EnableRadius</a> operation.</p>
  */
 export interface EnableRadiusResult {}
-
-export namespace EnableRadiusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableRadiusResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the inputs for the <a>EnableSso</a> operation.</p>
@@ -4234,43 +3258,15 @@ export interface EnableSsoRequest {
   Password?: string;
 }
 
-export namespace EnableSsoRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableSsoRequest): any => ({
-    ...obj,
-    ...(obj.Password && { Password: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Contains the results of the <a>EnableSso</a> operation.</p>
  */
 export interface EnableSsoResult {}
 
-export namespace EnableSsoResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableSsoResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the inputs for the <a>GetDirectoryLimits</a> operation.</p>
  */
 export interface GetDirectoryLimitsRequest {}
-
-export namespace GetDirectoryLimitsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDirectoryLimitsRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the results of the <a>GetDirectoryLimits</a> operation.</p>
@@ -4283,15 +3279,6 @@ export interface GetDirectoryLimitsResult {
   DirectoryLimits?: DirectoryLimits;
 }
 
-export namespace GetDirectoryLimitsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDirectoryLimitsResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the inputs for the <a>GetSnapshotLimits</a> operation.</p>
  */
@@ -4300,15 +3287,6 @@ export interface GetSnapshotLimitsRequest {
    * <p>Contains the identifier of the directory to obtain the limits for.</p>
    */
   DirectoryId: string | undefined;
-}
-
-export namespace GetSnapshotLimitsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnapshotLimitsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4331,15 +3309,6 @@ export interface SnapshotLimits {
   ManualSnapshotsLimitReached?: boolean;
 }
 
-export namespace SnapshotLimits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotLimits): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the results of the <a>GetSnapshotLimits</a> operation.</p>
  */
@@ -4349,15 +3318,6 @@ export interface GetSnapshotLimitsResult {
    *          directory.</p>
    */
   SnapshotLimits?: SnapshotLimits;
-}
-
-export namespace GetSnapshotLimitsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSnapshotLimitsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCertificatesRequest {
@@ -4380,15 +3340,6 @@ export interface ListCertificatesRequest {
   Limit?: number;
 }
 
-export namespace ListCertificatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCertificatesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCertificatesResult {
   /**
    * <p>Indicates whether another page of certificates is available when the number of available
@@ -4401,15 +3352,6 @@ export interface ListCertificatesResult {
    *       name, certificate state.</p>
    */
   CertificatesInfo?: CertificateInfo[];
-}
-
-export namespace ListCertificatesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCertificatesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIpRoutesRequest {
@@ -4429,15 +3371,6 @@ export interface ListIpRoutesRequest {
    *          is specified by the limitations of the operation.</p>
    */
   Limit?: number;
-}
-
-export namespace ListIpRoutesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIpRoutesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum IpRouteStatusMsg {
@@ -4484,15 +3417,6 @@ export interface IpRouteInfo {
   Description?: string;
 }
 
-export namespace IpRouteInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpRouteInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIpRoutesResult {
   /**
    * <p>A list of <a>IpRoute</a>s.</p>
@@ -4504,15 +3428,6 @@ export interface ListIpRoutesResult {
    *             <i>NextToken</i> parameter in a subsequent call to <a>ListIpRoutes</a> to retrieve the next set of items.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIpRoutesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIpRoutesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLogSubscriptionsRequest {
@@ -4533,15 +3448,6 @@ export interface ListLogSubscriptionsRequest {
    * <p>The maximum number of items returned.</p>
    */
   Limit?: number;
-}
-
-export namespace ListLogSubscriptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLogSubscriptionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4566,15 +3472,6 @@ export interface LogSubscription {
   SubscriptionCreatedDateTime?: Date;
 }
 
-export namespace LogSubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogSubscription): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLogSubscriptionsResult {
   /**
    * <p>A list of active <a>LogSubscription</a> objects for calling the Amazon Web Services account.</p>
@@ -4585,15 +3482,6 @@ export interface ListLogSubscriptionsResult {
    * <p>The token for the next set of items to return.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLogSubscriptionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLogSubscriptionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSchemaExtensionsRequest {
@@ -4613,15 +3501,6 @@ export interface ListSchemaExtensionsRequest {
    * <p>The maximum number of items to return.</p>
    */
   Limit?: number;
-}
-
-export namespace ListSchemaExtensionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSchemaExtensionsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SchemaExtensionStatus {
@@ -4677,15 +3556,6 @@ export interface SchemaExtensionInfo {
   EndDateTime?: Date;
 }
 
-export namespace SchemaExtensionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaExtensionInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSchemaExtensionsResult {
   /**
    * <p>Information about the schema extensions applied to the directory.</p>
@@ -4698,15 +3568,6 @@ export interface ListSchemaExtensionsResult {
    *       of items.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSchemaExtensionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSchemaExtensionsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -4726,15 +3587,6 @@ export interface ListTagsForResourceRequest {
   Limit?: number;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResult {
   /**
    * <p>List of tags returned by the ListTagsForResource operation.</p>
@@ -4745,15 +3597,6 @@ export interface ListTagsForResourceResult {
    * <p>Reserved for future use.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsForResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4808,29 +3651,11 @@ export interface RegisterCertificateRequest {
   ClientCertAuthSettings?: ClientCertAuthSettings;
 }
 
-export namespace RegisterCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterCertificateResult {
   /**
    * <p>The identifier of the certificate.</p>
    */
   CertificateId?: string;
-}
-
-export namespace RegisterCertificateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterCertificateResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4849,28 +3674,10 @@ export interface RegisterEventTopicRequest {
   TopicName: string | undefined;
 }
 
-export namespace RegisterEventTopicRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterEventTopicRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of a RegisterEventTopic request.</p>
  */
 export interface RegisterEventTopicResult {}
-
-export namespace RegisterEventTopicResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterEventTopicResult): any => ({
-    ...obj,
-  });
-}
 
 export interface RejectSharedDirectoryRequest {
   /**
@@ -4880,29 +3687,11 @@ export interface RejectSharedDirectoryRequest {
   SharedDirectoryId: string | undefined;
 }
 
-export namespace RejectSharedDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectSharedDirectoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectSharedDirectoryResult {
   /**
    * <p>Identifier of the shared directory in the directory consumer account.</p>
    */
   SharedDirectoryId?: string;
-}
-
-export namespace RejectSharedDirectoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectSharedDirectoryResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveIpRoutesRequest {
@@ -4918,25 +3707,7 @@ export interface RemoveIpRoutesRequest {
   CidrIps: string[] | undefined;
 }
 
-export namespace RemoveIpRoutesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveIpRoutesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveIpRoutesResult {}
-
-export namespace RemoveIpRoutesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveIpRoutesResult): any => ({
-    ...obj,
-  });
-}
 
 export interface RemoveRegionRequest {
   /**
@@ -4945,25 +3716,7 @@ export interface RemoveRegionRequest {
   DirectoryId: string | undefined;
 }
 
-export namespace RemoveRegionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveRegionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveRegionResult {}
-
-export namespace RemoveRegionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveRegionResult): any => ({
-    ...obj,
-  });
-}
 
 export interface RemoveTagsFromResourceRequest {
   /**
@@ -4977,25 +3730,7 @@ export interface RemoveTagsFromResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace RemoveTagsFromResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveTagsFromResourceResult {}
-
-export namespace RemoveTagsFromResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The new password provided by the user does not meet the password complexity
@@ -5046,26 +3781,7 @@ export interface ResetUserPasswordRequest {
   NewPassword: string | undefined;
 }
 
-export namespace ResetUserPasswordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetUserPasswordRequest): any => ({
-    ...obj,
-    ...(obj.NewPassword && { NewPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface ResetUserPasswordResult {}
-
-export namespace ResetUserPasswordResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetUserPasswordResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The user provided a username that does not exist in your directory.</p>
@@ -5107,28 +3823,10 @@ export interface RestoreFromSnapshotRequest {
   SnapshotId: string | undefined;
 }
 
-export namespace RestoreFromSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreFromSnapshotRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the results of the <a>RestoreFromSnapshot</a> operation.</p>
  */
 export interface RestoreFromSnapshotResult {}
-
-export namespace RestoreFromSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreFromSnapshotResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified shared target is not valid.</p>
@@ -5209,15 +3907,6 @@ export interface ShareTarget {
   Type: TargetType | string | undefined;
 }
 
-export namespace ShareTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareTarget): any => ({
-    ...obj,
-  });
-}
-
 export interface ShareDirectoryRequest {
   /**
    * <p>Identifier of the Managed Microsoft AD directory that you want to share with other Amazon Web Services accounts.</p>
@@ -5245,31 +3934,12 @@ export interface ShareDirectoryRequest {
   ShareMethod: ShareMethod | string | undefined;
 }
 
-export namespace ShareDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareDirectoryRequest): any => ({
-    ...obj,
-    ...(obj.ShareNotes && { ShareNotes: SENSITIVE_STRING }),
-  });
-}
-
 export interface ShareDirectoryResult {
   /**
    * <p>Identifier of the directory that is stored in the directory consumer account that is
    *       shared from the specified directory (<code>DirectoryId</code>).</p>
    */
   SharedDirectoryId?: string;
-}
-
-export namespace ShareDirectoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareDirectoryResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5329,29 +3999,11 @@ export interface StartSchemaExtensionRequest {
   Description: string | undefined;
 }
 
-export namespace StartSchemaExtensionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSchemaExtensionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartSchemaExtensionResult {
   /**
    * <p>The identifier of the schema extension that will be applied.</p>
    */
   SchemaExtensionId?: string;
-}
-
-export namespace StartSchemaExtensionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartSchemaExtensionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5370,15 +4022,6 @@ export interface UnshareTarget {
   Type: TargetType | string | undefined;
 }
 
-export namespace UnshareTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnshareTarget): any => ({
-    ...obj,
-  });
-}
-
 export interface UnshareDirectoryRequest {
   /**
    * <p>The identifier of the Managed Microsoft AD directory that you want to stop
@@ -5393,30 +4036,12 @@ export interface UnshareDirectoryRequest {
   UnshareTarget: UnshareTarget | undefined;
 }
 
-export namespace UnshareDirectoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnshareDirectoryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UnshareDirectoryResult {
   /**
    * <p>Identifier of the directory stored in the directory consumer account that is to be
    *       unshared from the specified directory (<code>DirectoryId</code>).</p>
    */
   SharedDirectoryId?: string;
-}
-
-export namespace UnshareDirectoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnshareDirectoryResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5442,28 +4067,10 @@ export interface UpdateConditionalForwarderRequest {
   DnsIpAddrs: string[] | undefined;
 }
 
-export namespace UpdateConditionalForwarderRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConditionalForwarderRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The result of an UpdateConditionalForwarder request.</p>
  */
 export interface UpdateConditionalForwarderResult {}
-
-export namespace UpdateConditionalForwarderResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConditionalForwarderResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The maximum allowed number of domain controllers per directory was exceeded. The
@@ -5509,25 +4116,7 @@ export interface UpdateNumberOfDomainControllersRequest {
   DesiredNumber: number | undefined;
 }
 
-export namespace UpdateNumberOfDomainControllersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNumberOfDomainControllersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateNumberOfDomainControllersResult {}
-
-export namespace UpdateNumberOfDomainControllersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNumberOfDomainControllersResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the inputs for the <a>UpdateRadius</a> operation.</p>
@@ -5546,29 +4135,10 @@ export interface UpdateRadiusRequest {
   RadiusSettings: RadiusSettings | undefined;
 }
 
-export namespace UpdateRadiusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRadiusRequest): any => ({
-    ...obj,
-    ...(obj.RadiusSettings && { RadiusSettings: RadiusSettings.filterSensitiveLog(obj.RadiusSettings) }),
-  });
-}
-
 /**
  * <p>Contains the results of the <a>UpdateRadius</a> operation.</p>
  */
 export interface UpdateRadiusResult {}
-
-export namespace UpdateRadiusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRadiusResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The specified directory setting is not compatible with other settings.</p>
@@ -5648,15 +4218,6 @@ export interface Setting {
   Value: string | undefined;
 }
 
-export namespace Setting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Setting): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSettingsRequest {
   /**
    * <p>The identifier of the directory for which to update settings.</p>
@@ -5669,29 +4230,11 @@ export interface UpdateSettingsRequest {
   Settings: Setting[] | undefined;
 }
 
-export namespace UpdateSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSettingsResult {
   /**
    * <p>The identifier of the directory.</p>
    */
   DirectoryId?: string;
-}
-
-export namespace UpdateSettingsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSettingsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTrustRequest {
@@ -5706,15 +4249,6 @@ export interface UpdateTrustRequest {
   SelectiveAuth?: SelectiveAuth | string;
 }
 
-export namespace UpdateTrustRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrustRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTrustResult {
   /**
    * <p>The Amazon Web Services request identifier.</p>
@@ -5725,15 +4259,6 @@ export interface UpdateTrustResult {
    * <p>Identifier of the trust relationship.</p>
    */
   TrustId?: string;
-}
-
-export namespace UpdateTrustResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTrustResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5747,15 +4272,6 @@ export interface VerifyTrustRequest {
   TrustId: string | undefined;
 }
 
-export namespace VerifyTrustRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyTrustRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Result of a VerifyTrust request.</p>
  */
@@ -5766,11 +4282,1183 @@ export interface VerifyTrustResult {
   TrustId?: string;
 }
 
-export namespace VerifyTrustResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VerifyTrustResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AcceptSharedDirectoryRequestFilterSensitiveLog = (obj: AcceptSharedDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SharedDirectoryFilterSensitiveLog = (obj: SharedDirectory): any => ({
+  ...obj,
+  ...(obj.ShareNotes && { ShareNotes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AcceptSharedDirectoryResultFilterSensitiveLog = (obj: AcceptSharedDirectoryResult): any => ({
+  ...obj,
+  ...(obj.SharedDirectory && { SharedDirectory: SharedDirectoryFilterSensitiveLog(obj.SharedDirectory) }),
+});
+
+/**
+ * @internal
+ */
+export const IpRouteFilterSensitiveLog = (obj: IpRoute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddIpRoutesRequestFilterSensitiveLog = (obj: AddIpRoutesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddIpRoutesResultFilterSensitiveLog = (obj: AddIpRoutesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectoryVpcSettingsFilterSensitiveLog = (obj: DirectoryVpcSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddRegionRequestFilterSensitiveLog = (obj: AddRegionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddRegionResultFilterSensitiveLog = (obj: AddRegionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsToResourceRequestFilterSensitiveLog = (obj: AddTagsToResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsToResourceResultFilterSensitiveLog = (obj: AddTagsToResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeFilterSensitiveLog = (obj: Attribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelSchemaExtensionRequestFilterSensitiveLog = (obj: CancelSchemaExtensionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelSchemaExtensionResultFilterSensitiveLog = (obj: CancelSchemaExtensionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClientCertAuthSettingsFilterSensitiveLog = (obj: ClientCertAuthSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateInfoFilterSensitiveLog = (obj: CertificateInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClientAuthenticationSettingInfoFilterSensitiveLog = (obj: ClientAuthenticationSettingInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComputerFilterSensitiveLog = (obj: Computer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConditionalForwarderFilterSensitiveLog = (obj: ConditionalForwarder): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectoryConnectSettingsFilterSensitiveLog = (obj: DirectoryConnectSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectDirectoryRequestFilterSensitiveLog = (obj: ConnectDirectoryRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectDirectoryResultFilterSensitiveLog = (obj: ConnectDirectoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAliasRequestFilterSensitiveLog = (obj: CreateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAliasResultFilterSensitiveLog = (obj: CreateAliasResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComputerRequestFilterSensitiveLog = (obj: CreateComputerRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateComputerResultFilterSensitiveLog = (obj: CreateComputerResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConditionalForwarderRequestFilterSensitiveLog = (obj: CreateConditionalForwarderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConditionalForwarderResultFilterSensitiveLog = (obj: CreateConditionalForwarderResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectoryRequestFilterSensitiveLog = (obj: CreateDirectoryRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDirectoryResultFilterSensitiveLog = (obj: CreateDirectoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLogSubscriptionRequestFilterSensitiveLog = (obj: CreateLogSubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLogSubscriptionResultFilterSensitiveLog = (obj: CreateLogSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMicrosoftADRequestFilterSensitiveLog = (obj: CreateMicrosoftADRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMicrosoftADResultFilterSensitiveLog = (obj: CreateMicrosoftADResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotRequestFilterSensitiveLog = (obj: CreateSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSnapshotResultFilterSensitiveLog = (obj: CreateSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTrustRequestFilterSensitiveLog = (obj: CreateTrustRequest): any => ({
+  ...obj,
+  ...(obj.TrustPassword && { TrustPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateTrustResultFilterSensitiveLog = (obj: CreateTrustResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConditionalForwarderRequestFilterSensitiveLog = (obj: DeleteConditionalForwarderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConditionalForwarderResultFilterSensitiveLog = (obj: DeleteConditionalForwarderResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectoryRequestFilterSensitiveLog = (obj: DeleteDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDirectoryResultFilterSensitiveLog = (obj: DeleteDirectoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLogSubscriptionRequestFilterSensitiveLog = (obj: DeleteLogSubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLogSubscriptionResultFilterSensitiveLog = (obj: DeleteLogSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSnapshotRequestFilterSensitiveLog = (obj: DeleteSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSnapshotResultFilterSensitiveLog = (obj: DeleteSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrustRequestFilterSensitiveLog = (obj: DeleteTrustRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTrustResultFilterSensitiveLog = (obj: DeleteTrustResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterCertificateRequestFilterSensitiveLog = (obj: DeregisterCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterCertificateResultFilterSensitiveLog = (obj: DeregisterCertificateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterEventTopicRequestFilterSensitiveLog = (obj: DeregisterEventTopicRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterEventTopicResultFilterSensitiveLog = (obj: DeregisterEventTopicResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCertificateRequestFilterSensitiveLog = (obj: DescribeCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCertificateResultFilterSensitiveLog = (obj: DescribeCertificateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClientAuthenticationSettingsRequestFilterSensitiveLog = (
+  obj: DescribeClientAuthenticationSettingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeClientAuthenticationSettingsResultFilterSensitiveLog = (
+  obj: DescribeClientAuthenticationSettingsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConditionalForwardersRequestFilterSensitiveLog = (
+  obj: DescribeConditionalForwardersRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConditionalForwardersResultFilterSensitiveLog = (
+  obj: DescribeConditionalForwardersResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectoriesRequestFilterSensitiveLog = (obj: DescribeDirectoriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectoryConnectSettingsDescriptionFilterSensitiveLog = (
+  obj: DirectoryConnectSettingsDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RadiusSettingsFilterSensitiveLog = (obj: RadiusSettings): any => ({
+  ...obj,
+  ...(obj.SharedSecret && { SharedSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DirectoryVpcSettingsDescriptionFilterSensitiveLog = (obj: DirectoryVpcSettingsDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OwnerDirectoryDescriptionFilterSensitiveLog = (obj: OwnerDirectoryDescription): any => ({
+  ...obj,
+  ...(obj.RadiusSettings && { RadiusSettings: RadiusSettingsFilterSensitiveLog(obj.RadiusSettings) }),
+});
+
+/**
+ * @internal
+ */
+export const RegionsInfoFilterSensitiveLog = (obj: RegionsInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectoryDescriptionFilterSensitiveLog = (obj: DirectoryDescription): any => ({
+  ...obj,
+  ...(obj.ShareNotes && { ShareNotes: SENSITIVE_STRING }),
+  ...(obj.RadiusSettings && { RadiusSettings: RadiusSettingsFilterSensitiveLog(obj.RadiusSettings) }),
+  ...(obj.OwnerDirectoryDescription && {
+    OwnerDirectoryDescription: OwnerDirectoryDescriptionFilterSensitiveLog(obj.OwnerDirectoryDescription),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeDirectoriesResultFilterSensitiveLog = (obj: DescribeDirectoriesResult): any => ({
+  ...obj,
+  ...(obj.DirectoryDescriptions && {
+    DirectoryDescriptions: obj.DirectoryDescriptions.map((item) => DirectoryDescriptionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainControllersRequestFilterSensitiveLog = (obj: DescribeDomainControllersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainControllerFilterSensitiveLog = (obj: DomainController): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDomainControllersResultFilterSensitiveLog = (obj: DescribeDomainControllersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventTopicsRequestFilterSensitiveLog = (obj: DescribeEventTopicsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventTopicFilterSensitiveLog = (obj: EventTopic): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventTopicsResultFilterSensitiveLog = (obj: DescribeEventTopicsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLDAPSSettingsRequestFilterSensitiveLog = (obj: DescribeLDAPSSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LDAPSSettingInfoFilterSensitiveLog = (obj: LDAPSSettingInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLDAPSSettingsResultFilterSensitiveLog = (obj: DescribeLDAPSSettingsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRegionsRequestFilterSensitiveLog = (obj: DescribeRegionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegionDescriptionFilterSensitiveLog = (obj: RegionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRegionsResultFilterSensitiveLog = (obj: DescribeRegionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSettingsRequestFilterSensitiveLog = (obj: DescribeSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SettingEntryFilterSensitiveLog = (obj: SettingEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSettingsResultFilterSensitiveLog = (obj: DescribeSettingsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSharedDirectoriesRequestFilterSensitiveLog = (obj: DescribeSharedDirectoriesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSharedDirectoriesResultFilterSensitiveLog = (obj: DescribeSharedDirectoriesResult): any => ({
+  ...obj,
+  ...(obj.SharedDirectories && {
+    SharedDirectories: obj.SharedDirectories.map((item) => SharedDirectoryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotsRequestFilterSensitiveLog = (obj: DescribeSnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSnapshotsResultFilterSensitiveLog = (obj: DescribeSnapshotsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrustsRequestFilterSensitiveLog = (obj: DescribeTrustsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrustFilterSensitiveLog = (obj: Trust): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTrustsResultFilterSensitiveLog = (obj: DescribeTrustsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DirectoryLimitsFilterSensitiveLog = (obj: DirectoryLimits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableClientAuthenticationRequestFilterSensitiveLog = (obj: DisableClientAuthenticationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableClientAuthenticationResultFilterSensitiveLog = (obj: DisableClientAuthenticationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableLDAPSRequestFilterSensitiveLog = (obj: DisableLDAPSRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableLDAPSResultFilterSensitiveLog = (obj: DisableLDAPSResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableRadiusRequestFilterSensitiveLog = (obj: DisableRadiusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableRadiusResultFilterSensitiveLog = (obj: DisableRadiusResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableSsoRequestFilterSensitiveLog = (obj: DisableSsoRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DisableSsoResultFilterSensitiveLog = (obj: DisableSsoResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableClientAuthenticationRequestFilterSensitiveLog = (obj: EnableClientAuthenticationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableClientAuthenticationResultFilterSensitiveLog = (obj: EnableClientAuthenticationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableLDAPSRequestFilterSensitiveLog = (obj: EnableLDAPSRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableLDAPSResultFilterSensitiveLog = (obj: EnableLDAPSResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableRadiusRequestFilterSensitiveLog = (obj: EnableRadiusRequest): any => ({
+  ...obj,
+  ...(obj.RadiusSettings && { RadiusSettings: RadiusSettingsFilterSensitiveLog(obj.RadiusSettings) }),
+});
+
+/**
+ * @internal
+ */
+export const EnableRadiusResultFilterSensitiveLog = (obj: EnableRadiusResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableSsoRequestFilterSensitiveLog = (obj: EnableSsoRequest): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EnableSsoResultFilterSensitiveLog = (obj: EnableSsoResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDirectoryLimitsRequestFilterSensitiveLog = (obj: GetDirectoryLimitsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDirectoryLimitsResultFilterSensitiveLog = (obj: GetDirectoryLimitsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnapshotLimitsRequestFilterSensitiveLog = (obj: GetSnapshotLimitsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnapshotLimitsFilterSensitiveLog = (obj: SnapshotLimits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSnapshotLimitsResultFilterSensitiveLog = (obj: GetSnapshotLimitsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCertificatesRequestFilterSensitiveLog = (obj: ListCertificatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCertificatesResultFilterSensitiveLog = (obj: ListCertificatesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIpRoutesRequestFilterSensitiveLog = (obj: ListIpRoutesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpRouteInfoFilterSensitiveLog = (obj: IpRouteInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIpRoutesResultFilterSensitiveLog = (obj: ListIpRoutesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLogSubscriptionsRequestFilterSensitiveLog = (obj: ListLogSubscriptionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogSubscriptionFilterSensitiveLog = (obj: LogSubscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLogSubscriptionsResultFilterSensitiveLog = (obj: ListLogSubscriptionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchemaExtensionsRequestFilterSensitiveLog = (obj: ListSchemaExtensionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaExtensionInfoFilterSensitiveLog = (obj: SchemaExtensionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchemaExtensionsResultFilterSensitiveLog = (obj: ListSchemaExtensionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterCertificateRequestFilterSensitiveLog = (obj: RegisterCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterCertificateResultFilterSensitiveLog = (obj: RegisterCertificateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterEventTopicRequestFilterSensitiveLog = (obj: RegisterEventTopicRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterEventTopicResultFilterSensitiveLog = (obj: RegisterEventTopicResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectSharedDirectoryRequestFilterSensitiveLog = (obj: RejectSharedDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectSharedDirectoryResultFilterSensitiveLog = (obj: RejectSharedDirectoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveIpRoutesRequestFilterSensitiveLog = (obj: RemoveIpRoutesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveIpRoutesResultFilterSensitiveLog = (obj: RemoveIpRoutesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveRegionRequestFilterSensitiveLog = (obj: RemoveRegionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveRegionResultFilterSensitiveLog = (obj: RemoveRegionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromResourceRequestFilterSensitiveLog = (obj: RemoveTagsFromResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromResourceResultFilterSensitiveLog = (obj: RemoveTagsFromResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetUserPasswordRequestFilterSensitiveLog = (obj: ResetUserPasswordRequest): any => ({
+  ...obj,
+  ...(obj.NewPassword && { NewPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResetUserPasswordResultFilterSensitiveLog = (obj: ResetUserPasswordResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreFromSnapshotRequestFilterSensitiveLog = (obj: RestoreFromSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreFromSnapshotResultFilterSensitiveLog = (obj: RestoreFromSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShareTargetFilterSensitiveLog = (obj: ShareTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShareDirectoryRequestFilterSensitiveLog = (obj: ShareDirectoryRequest): any => ({
+  ...obj,
+  ...(obj.ShareNotes && { ShareNotes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ShareDirectoryResultFilterSensitiveLog = (obj: ShareDirectoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSchemaExtensionRequestFilterSensitiveLog = (obj: StartSchemaExtensionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSchemaExtensionResultFilterSensitiveLog = (obj: StartSchemaExtensionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnshareTargetFilterSensitiveLog = (obj: UnshareTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnshareDirectoryRequestFilterSensitiveLog = (obj: UnshareDirectoryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnshareDirectoryResultFilterSensitiveLog = (obj: UnshareDirectoryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConditionalForwarderRequestFilterSensitiveLog = (obj: UpdateConditionalForwarderRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConditionalForwarderResultFilterSensitiveLog = (obj: UpdateConditionalForwarderResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNumberOfDomainControllersRequestFilterSensitiveLog = (
+  obj: UpdateNumberOfDomainControllersRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNumberOfDomainControllersResultFilterSensitiveLog = (
+  obj: UpdateNumberOfDomainControllersResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRadiusRequestFilterSensitiveLog = (obj: UpdateRadiusRequest): any => ({
+  ...obj,
+  ...(obj.RadiusSettings && { RadiusSettings: RadiusSettingsFilterSensitiveLog(obj.RadiusSettings) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateRadiusResultFilterSensitiveLog = (obj: UpdateRadiusResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SettingFilterSensitiveLog = (obj: Setting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSettingsRequestFilterSensitiveLog = (obj: UpdateSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSettingsResultFilterSensitiveLog = (obj: UpdateSettingsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrustRequestFilterSensitiveLog = (obj: UpdateTrustRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTrustResultFilterSensitiveLog = (obj: UpdateTrustResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyTrustRequestFilterSensitiveLog = (obj: VerifyTrustRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifyTrustResultFilterSensitiveLog = (obj: VerifyTrustResult): any => ({
+  ...obj,
+});

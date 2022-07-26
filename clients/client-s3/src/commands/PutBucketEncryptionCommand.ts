@@ -14,7 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketEncryptionRequest } from "../models/models_0";
+import { PutBucketEncryptionRequest, PutBucketEncryptionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketEncryptionCommand,
   serializeAws_restXmlPutBucketEncryptionCommand,
@@ -116,7 +116,7 @@ export class PutBucketEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketEncryptionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBucketEncryptionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

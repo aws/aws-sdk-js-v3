@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NoInputAndOutputInput, NoInputAndOutputOutput } from "../models/models_0";
+import {
+  NoInputAndOutputInput,
+  NoInputAndOutputInputFilterSensitiveLog,
+  NoInputAndOutputOutput,
+  NoInputAndOutputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryNoInputAndOutputCommand,
   serializeAws_queryNoInputAndOutputCommand,
@@ -75,8 +80,8 @@ export class NoInputAndOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NoInputAndOutputInput.filterSensitiveLog,
-      outputFilterSensitiveLog: NoInputAndOutputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: NoInputAndOutputInputFilterSensitiveLog,
+      outputFilterSensitiveLog: NoInputAndOutputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

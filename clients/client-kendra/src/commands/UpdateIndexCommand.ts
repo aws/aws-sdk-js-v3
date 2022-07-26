@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { UpdateIndexRequest } from "../models/models_0";
+import { UpdateIndexRequest, UpdateIndexRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateIndexCommand,
   serializeAws_json1_1UpdateIndexCommand,
@@ -72,7 +72,7 @@ export class UpdateIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIndexRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateIndexRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

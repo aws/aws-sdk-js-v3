@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { DeregisterStreamConsumerInput } from "../models/models_0";
+import { DeregisterStreamConsumerInput, DeregisterStreamConsumerInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterStreamConsumerCommand,
   serializeAws_json1_1DeregisterStreamConsumerCommand,
@@ -79,7 +79,7 @@ export class DeregisterStreamConsumerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterStreamConsumerInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterStreamConsumerInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

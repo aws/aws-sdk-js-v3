@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { SubmitJobRequest, SubmitJobResponse } from "../models/models_0";
+import {
+  SubmitJobRequest,
+  SubmitJobRequestFilterSensitiveLog,
+  SubmitJobResponse,
+  SubmitJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1SubmitJobCommand,
   serializeAws_restJson1SubmitJobCommand,
@@ -84,8 +89,8 @@ export class SubmitJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SubmitJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SubmitJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SubmitJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

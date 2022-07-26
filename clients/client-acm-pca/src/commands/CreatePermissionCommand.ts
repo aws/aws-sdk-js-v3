@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { CreatePermissionRequest } from "../models/models_0";
+import { CreatePermissionRequest, CreatePermissionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePermissionCommand,
   serializeAws_json1_1CreatePermissionCommand,
@@ -98,7 +98,7 @@ export class CreatePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePermissionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePermissionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import { RemoveAvailabilityZonesInput, RemoveAvailabilityZonesOutput } from "../models/models_0";
+import {
+  RemoveAvailabilityZonesInput,
+  RemoveAvailabilityZonesInputFilterSensitiveLog,
+  RemoveAvailabilityZonesOutput,
+  RemoveAvailabilityZonesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand,
   serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand,
@@ -89,8 +94,8 @@ export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveAvailabilityZonesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RemoveAvailabilityZonesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveAvailabilityZonesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: RemoveAvailabilityZonesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

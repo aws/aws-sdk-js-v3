@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/models_1";
+import {
+  SendAutomationSignalRequest,
+  SendAutomationSignalRequestFilterSensitiveLog,
+  SendAutomationSignalResult,
+  SendAutomationSignalResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1SendAutomationSignalCommand,
   serializeAws_json1_1SendAutomationSignalCommand,
@@ -73,8 +78,8 @@ export class SendAutomationSignalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendAutomationSignalRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SendAutomationSignalResult.filterSensitiveLog,
+      inputFilterSensitiveLog: SendAutomationSignalRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SendAutomationSignalResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteQuerySuggestionsBlockListRequest } from "../models/models_0";
+import {
+  DeleteQuerySuggestionsBlockListRequest,
+  DeleteQuerySuggestionsBlockListRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteQuerySuggestionsBlockListCommand,
   serializeAws_json1_1DeleteQuerySuggestionsBlockListCommand,
@@ -78,7 +81,7 @@ export class DeleteQuerySuggestionsBlockListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQuerySuggestionsBlockListRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteQuerySuggestionsBlockListRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

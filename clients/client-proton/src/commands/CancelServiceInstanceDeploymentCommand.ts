@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelServiceInstanceDeploymentInput, CancelServiceInstanceDeploymentOutput } from "../models/models_0";
+import {
+  CancelServiceInstanceDeploymentInput,
+  CancelServiceInstanceDeploymentInputFilterSensitiveLog,
+  CancelServiceInstanceDeploymentOutput,
+  CancelServiceInstanceDeploymentOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CancelServiceInstanceDeploymentCommand,
   serializeAws_json1_0CancelServiceInstanceDeploymentCommand,
@@ -88,8 +93,8 @@ export class CancelServiceInstanceDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelServiceInstanceDeploymentInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelServiceInstanceDeploymentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelServiceInstanceDeploymentInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelServiceInstanceDeploymentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

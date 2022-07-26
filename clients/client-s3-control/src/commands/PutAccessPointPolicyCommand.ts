@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutAccessPointPolicyRequest } from "../models/models_0";
+import { PutAccessPointPolicyRequest, PutAccessPointPolicyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlPutAccessPointPolicyCommand,
   serializeAws_restXmlPutAccessPointPolicyCommand,
@@ -91,7 +91,7 @@ export class PutAccessPointPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccessPointPolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAccessPointPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

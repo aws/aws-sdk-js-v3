@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeFraudsterRequest, DescribeFraudsterResponse } from "../models/models_0";
+import {
+  DescribeFraudsterRequest,
+  DescribeFraudsterRequestFilterSensitiveLog,
+  DescribeFraudsterResponse,
+  DescribeFraudsterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeFraudsterCommand,
   serializeAws_json1_0DescribeFraudsterCommand,
@@ -72,8 +77,8 @@ export class DescribeFraudsterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFraudsterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFraudsterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFraudsterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFraudsterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

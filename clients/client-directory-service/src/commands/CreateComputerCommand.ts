@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { CreateComputerRequest, CreateComputerResult } from "../models/models_0";
+import {
+  CreateComputerRequest,
+  CreateComputerRequestFilterSensitiveLog,
+  CreateComputerResult,
+  CreateComputerResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateComputerCommand,
   serializeAws_json1_1CreateComputerCommand,
@@ -72,8 +77,8 @@ export class CreateComputerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateComputerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateComputerResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateComputerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateComputerResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { ConfirmDeviceRequest, ConfirmDeviceResponse } from "../models/models_0";
+import {
+  ConfirmDeviceRequest,
+  ConfirmDeviceRequestFilterSensitiveLog,
+  ConfirmDeviceResponse,
+  ConfirmDeviceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmDeviceCommand,
   serializeAws_json1_1ConfirmDeviceCommand,
@@ -79,8 +84,8 @@ export class ConfirmDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmDeviceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmDeviceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmDeviceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

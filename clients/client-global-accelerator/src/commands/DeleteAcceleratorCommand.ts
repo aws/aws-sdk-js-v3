@@ -17,7 +17,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { DeleteAcceleratorRequest } from "../models/models_0";
+import { DeleteAcceleratorRequest, DeleteAcceleratorRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAcceleratorCommand,
   serializeAws_json1_1DeleteAcceleratorCommand,
@@ -89,7 +89,7 @@ export class DeleteAcceleratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAcceleratorRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAcceleratorRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

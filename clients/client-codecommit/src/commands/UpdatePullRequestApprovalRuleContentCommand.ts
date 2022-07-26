@@ -15,7 +15,9 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import {
   UpdatePullRequestApprovalRuleContentInput,
+  UpdatePullRequestApprovalRuleContentInputFilterSensitiveLog,
   UpdatePullRequestApprovalRuleContentOutput,
+  UpdatePullRequestApprovalRuleContentOutputFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand,
@@ -78,8 +80,8 @@ export class UpdatePullRequestApprovalRuleContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePullRequestApprovalRuleContentInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePullRequestApprovalRuleContentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePullRequestApprovalRuleContentInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePullRequestApprovalRuleContentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

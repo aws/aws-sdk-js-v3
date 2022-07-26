@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { BatchStopUpdateActionMessage, UpdateActionResultsMessage } from "../models/models_0";
+import {
+  BatchStopUpdateActionMessage,
+  BatchStopUpdateActionMessageFilterSensitiveLog,
+  UpdateActionResultsMessage,
+  UpdateActionResultsMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryBatchStopUpdateActionCommand,
   serializeAws_queryBatchStopUpdateActionCommand,
@@ -72,8 +77,8 @@ export class BatchStopUpdateActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchStopUpdateActionMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateActionResultsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchStopUpdateActionMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateActionResultsMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import { UpdateHostInput, UpdateHostOutput } from "../models/models_0";
+import {
+  UpdateHostInput,
+  UpdateHostInputFilterSensitiveLog,
+  UpdateHostOutput,
+  UpdateHostOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateHostCommand,
   serializeAws_json1_0UpdateHostCommand,
@@ -76,8 +81,8 @@ export class UpdateHostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHostInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHostOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateHostInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateHostOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,9 @@ import {
 
 import {
   StartStudioSSOConfigurationRepairRequest,
+  StartStudioSSOConfigurationRepairRequestFilterSensitiveLog,
   StartStudioSSOConfigurationRepairResponse,
+  StartStudioSSOConfigurationRepairResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
@@ -83,8 +85,8 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartStudioSSOConfigurationRepairRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartStudioSSOConfigurationRepairResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartStudioSSOConfigurationRepairRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartStudioSSOConfigurationRepairResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

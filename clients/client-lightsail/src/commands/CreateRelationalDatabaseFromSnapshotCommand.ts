@@ -15,7 +15,9 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
   CreateRelationalDatabaseFromSnapshotRequest,
+  CreateRelationalDatabaseFromSnapshotRequestFilterSensitiveLog,
   CreateRelationalDatabaseFromSnapshotResult,
+  CreateRelationalDatabaseFromSnapshotResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand,
@@ -83,8 +85,8 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRelationalDatabaseFromSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRelationalDatabaseFromSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRelationalDatabaseFromSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRelationalDatabaseFromSnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

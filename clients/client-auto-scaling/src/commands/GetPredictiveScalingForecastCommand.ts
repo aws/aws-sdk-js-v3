@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { GetPredictiveScalingForecastAnswer, GetPredictiveScalingForecastType } from "../models/models_0";
+import {
+  GetPredictiveScalingForecastAnswer,
+  GetPredictiveScalingForecastAnswerFilterSensitiveLog,
+  GetPredictiveScalingForecastType,
+  GetPredictiveScalingForecastTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetPredictiveScalingForecastCommand,
   serializeAws_queryGetPredictiveScalingForecastCommand,
@@ -82,8 +87,8 @@ export class GetPredictiveScalingForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPredictiveScalingForecastType.filterSensitiveLog,
-      outputFilterSensitiveLog: GetPredictiveScalingForecastAnswer.filterSensitiveLog,
+      inputFilterSensitiveLog: GetPredictiveScalingForecastTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: GetPredictiveScalingForecastAnswerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

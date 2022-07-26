@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { CreateLogSubscriptionRequest, CreateLogSubscriptionResult } from "../models/models_0";
+import {
+  CreateLogSubscriptionRequest,
+  CreateLogSubscriptionRequestFilterSensitiveLog,
+  CreateLogSubscriptionResult,
+  CreateLogSubscriptionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLogSubscriptionCommand,
   serializeAws_json1_1CreateLogSubscriptionCommand,
@@ -73,8 +78,8 @@ export class CreateLogSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLogSubscriptionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateLogSubscriptionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateLogSubscriptionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLogSubscriptionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

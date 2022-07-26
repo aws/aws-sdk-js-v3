@@ -15,7 +15,9 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetEffectiveRecommendationPreferencesRequest,
+  GetEffectiveRecommendationPreferencesRequestFilterSensitiveLog,
   GetEffectiveRecommendationPreferencesResponse,
+  GetEffectiveRecommendationPreferencesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0GetEffectiveRecommendationPreferencesCommand,
@@ -83,8 +85,8 @@ export class GetEffectiveRecommendationPreferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEffectiveRecommendationPreferencesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEffectiveRecommendationPreferencesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEffectiveRecommendationPreferencesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEffectiveRecommendationPreferencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

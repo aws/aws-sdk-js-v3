@@ -15,7 +15,9 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribeRemediationConfigurationsRequest,
+  DescribeRemediationConfigurationsRequestFilterSensitiveLog,
   DescribeRemediationConfigurationsResponse,
+  DescribeRemediationConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeRemediationConfigurationsCommand,
@@ -77,8 +79,8 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRemediationConfigurationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRemediationConfigurationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRemediationConfigurationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRemediationConfigurationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EnableSecurityHubRequest, EnableSecurityHubResponse } from "../models/models_1";
+import {
+  EnableSecurityHubRequest,
+  EnableSecurityHubRequestFilterSensitiveLog,
+  EnableSecurityHubResponse,
+  EnableSecurityHubResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1EnableSecurityHubCommand,
   serializeAws_restJson1EnableSecurityHubCommand,
@@ -91,8 +96,8 @@ export class EnableSecurityHubCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableSecurityHubRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableSecurityHubResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableSecurityHubRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableSecurityHubResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteFaqRequest } from "../models/models_0";
+import { DeleteFaqRequest, DeleteFaqRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1DeleteFaqCommand, serializeAws_json1_1DeleteFaqCommand } from "../protocols/Aws_json1_1";
 
 export interface DeleteFaqCommandInput extends DeleteFaqRequest {}
@@ -69,7 +69,7 @@ export class DeleteFaqCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFaqRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFaqRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

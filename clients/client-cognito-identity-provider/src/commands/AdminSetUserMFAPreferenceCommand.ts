@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse } from "../models/models_0";
+import {
+  AdminSetUserMFAPreferenceRequest,
+  AdminSetUserMFAPreferenceRequestFilterSensitiveLog,
+  AdminSetUserMFAPreferenceResponse,
+  AdminSetUserMFAPreferenceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AdminSetUserMFAPreferenceCommand,
   serializeAws_json1_1AdminSetUserMFAPreferenceCommand,
@@ -82,8 +87,8 @@ export class AdminSetUserMFAPreferenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminSetUserMFAPreferenceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AdminSetUserMFAPreferenceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AdminSetUserMFAPreferenceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AdminSetUserMFAPreferenceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateRuleGroupRequest, CreateRuleGroupResponse } from "../models/models_0";
+import {
+  CreateRuleGroupRequest,
+  CreateRuleGroupRequestFilterSensitiveLog,
+  CreateRuleGroupResponse,
+  CreateRuleGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
   deserializeAws_json1_0CreateRuleGroupCommand,
@@ -75,8 +80,8 @@ export class CreateRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRuleGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRuleGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRuleGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRuleGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

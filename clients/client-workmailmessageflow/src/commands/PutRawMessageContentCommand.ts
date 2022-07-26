@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutRawMessageContentRequest, PutRawMessageContentResponse } from "../models/models_0";
+import {
+  PutRawMessageContentRequest,
+  PutRawMessageContentRequestFilterSensitiveLog,
+  PutRawMessageContentResponse,
+  PutRawMessageContentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutRawMessageContentCommand,
   serializeAws_restJson1PutRawMessageContentCommand,
@@ -89,8 +94,8 @@ export class PutRawMessageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRawMessageContentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutRawMessageContentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRawMessageContentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutRawMessageContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { ListAvailableSolutionStacksResultMessage } from "../models/models_0";
+import {
+  ListAvailableSolutionStacksResultMessage,
+  ListAvailableSolutionStacksResultMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListAvailableSolutionStacksCommand,
   serializeAws_queryListAvailableSolutionStacksCommand,
@@ -76,7 +79,7 @@ export class ListAvailableSolutionStacksCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: ListAvailableSolutionStacksResultMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: ListAvailableSolutionStacksResultMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

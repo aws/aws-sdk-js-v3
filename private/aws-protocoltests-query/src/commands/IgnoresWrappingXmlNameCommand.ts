@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { IgnoresWrappingXmlNameOutput } from "../models/models_0";
+import { IgnoresWrappingXmlNameOutput, IgnoresWrappingXmlNameOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryIgnoresWrappingXmlNameCommand,
   serializeAws_queryIgnoresWrappingXmlNameCommand,
@@ -76,7 +76,7 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: IgnoresWrappingXmlNameOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: IgnoresWrappingXmlNameOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CheckSchemaVersionValidityInput, CheckSchemaVersionValidityResponse } from "../models/models_0";
+import {
+  CheckSchemaVersionValidityInput,
+  CheckSchemaVersionValidityInputFilterSensitiveLog,
+  CheckSchemaVersionValidityResponse,
+  CheckSchemaVersionValidityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CheckSchemaVersionValidityCommand,
   serializeAws_json1_1CheckSchemaVersionValidityCommand,
@@ -72,8 +77,8 @@ export class CheckSchemaVersionValidityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckSchemaVersionValidityInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CheckSchemaVersionValidityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CheckSchemaVersionValidityInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CheckSchemaVersionValidityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

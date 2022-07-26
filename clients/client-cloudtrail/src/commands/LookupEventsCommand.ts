@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { LookupEventsRequest, LookupEventsResponse } from "../models/models_0";
+import {
+  LookupEventsRequest,
+  LookupEventsRequestFilterSensitiveLog,
+  LookupEventsResponse,
+  LookupEventsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1LookupEventsCommand,
   serializeAws_json1_1LookupEventsCommand,
@@ -119,8 +124,8 @@ export class LookupEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LookupEventsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: LookupEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: LookupEventsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: LookupEventsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

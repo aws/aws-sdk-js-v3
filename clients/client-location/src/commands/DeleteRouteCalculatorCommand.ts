@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { DeleteRouteCalculatorRequest, DeleteRouteCalculatorResponse } from "../models/models_0";
+import {
+  DeleteRouteCalculatorRequest,
+  DeleteRouteCalculatorRequestFilterSensitiveLog,
+  DeleteRouteCalculatorResponse,
+  DeleteRouteCalculatorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRouteCalculatorCommand,
   serializeAws_restJson1DeleteRouteCalculatorCommand,
@@ -75,8 +80,8 @@ export class DeleteRouteCalculatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRouteCalculatorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRouteCalculatorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRouteCalculatorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteRouteCalculatorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

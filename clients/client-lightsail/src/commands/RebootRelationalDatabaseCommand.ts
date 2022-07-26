@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { RebootRelationalDatabaseRequest, RebootRelationalDatabaseResult } from "../models/models_1";
+import {
+  RebootRelationalDatabaseRequest,
+  RebootRelationalDatabaseRequestFilterSensitiveLog,
+  RebootRelationalDatabaseResult,
+  RebootRelationalDatabaseResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1RebootRelationalDatabaseCommand,
   serializeAws_json1_1RebootRelationalDatabaseCommand,
@@ -75,8 +80,8 @@ export class RebootRelationalDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootRelationalDatabaseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RebootRelationalDatabaseResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootRelationalDatabaseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RebootRelationalDatabaseResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

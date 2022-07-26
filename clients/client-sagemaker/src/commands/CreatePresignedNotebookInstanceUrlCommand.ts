@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreatePresignedNotebookInstanceUrlInput, CreatePresignedNotebookInstanceUrlOutput } from "../models/models_1";
+import {
+  CreatePresignedNotebookInstanceUrlInput,
+  CreatePresignedNotebookInstanceUrlInputFilterSensitiveLog,
+  CreatePresignedNotebookInstanceUrlOutput,
+  CreatePresignedNotebookInstanceUrlOutputFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand,
   serializeAws_json1_1CreatePresignedNotebookInstanceUrlCommand,
@@ -91,8 +96,8 @@ export class CreatePresignedNotebookInstanceUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePresignedNotebookInstanceUrlInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreatePresignedNotebookInstanceUrlOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePresignedNotebookInstanceUrlInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreatePresignedNotebookInstanceUrlOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

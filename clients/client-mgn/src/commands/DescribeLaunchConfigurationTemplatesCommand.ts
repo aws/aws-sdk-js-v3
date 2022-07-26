@@ -15,7 +15,9 @@ import {
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   DescribeLaunchConfigurationTemplatesRequest,
+  DescribeLaunchConfigurationTemplatesRequestFilterSensitiveLog,
   DescribeLaunchConfigurationTemplatesResponse,
+  DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeLaunchConfigurationTemplatesCommand,
@@ -77,8 +79,8 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLaunchConfigurationTemplatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLaunchConfigurationTemplatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLaunchConfigurationTemplatesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

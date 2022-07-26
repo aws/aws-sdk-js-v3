@@ -44,15 +44,6 @@ export interface Application {
   tags?: Record<string, string>;
 }
 
-export namespace Application {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Application): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary of a Amazon Web Services Service Catalog AppRegistry application.</p>
  */
@@ -88,15 +79,6 @@ export interface ApplicationSummary {
   lastUpdateTime?: Date;
 }
 
-export namespace ApplicationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateAttributeGroupRequest {
   /**
    * <p>The name or ID of the application.</p>
@@ -109,15 +91,6 @@ export interface AssociateAttributeGroupRequest {
   attributeGroup: string | undefined;
 }
 
-export namespace AssociateAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateAttributeGroupResponse {
   /**
    * <p>The Amazon resource name (ARN) of the application that was augmented with attributes.</p>
@@ -128,15 +101,6 @@ export interface AssociateAttributeGroupResponse {
    * <p>The Amazon resource name (ARN) of the attribute group that contains the application's new attributes.</p>
    */
   attributeGroupArn?: string;
-}
-
-export namespace AssociateAttributeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateAttributeGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -256,15 +220,6 @@ export interface AssociateResourceRequest {
   resource: string | undefined;
 }
 
-export namespace AssociateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateResourceResponse {
   /**
    * <p>The Amazon resource name (ARN) of the application that was augmented with attributes.</p>
@@ -275,15 +230,6 @@ export interface AssociateResourceResponse {
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn?: string;
-}
-
-export namespace AssociateResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -326,15 +272,6 @@ export interface AttributeGroup {
   tags?: Record<string, string>;
 }
 
-export namespace AttributeGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The details related to a specific AttributeGroup. </p>
  */
@@ -353,15 +290,6 @@ export interface AttributeGroupDetails {
    * <p>The name of the attribute group. </p>
    */
   name?: string;
-}
-
-export namespace AttributeGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeGroupDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -399,15 +327,6 @@ export interface AttributeGroupSummary {
   lastUpdateTime?: Date;
 }
 
-export namespace AttributeGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeGroupSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApplicationRequest {
   /**
    * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
@@ -433,29 +352,11 @@ export interface CreateApplicationRequest {
   clientToken?: string;
 }
 
-export namespace CreateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApplicationResponse {
   /**
    * <p>Information about the application.</p>
    */
   application?: Application;
-}
-
-export namespace CreateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAttributeGroupRequest {
@@ -488,29 +389,11 @@ export interface CreateAttributeGroupRequest {
   clientToken?: string;
 }
 
-export namespace CreateAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAttributeGroupResponse {
   /**
    * <p>Information about the attribute group.</p>
    */
   attributeGroup?: AttributeGroup;
-}
-
-export namespace CreateAttributeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAttributeGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteApplicationRequest {
@@ -520,29 +403,11 @@ export interface DeleteApplicationRequest {
   application: string | undefined;
 }
 
-export namespace DeleteApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApplicationResponse {
   /**
    * <p>Information about the deleted application.</p>
    */
   application?: ApplicationSummary;
-}
-
-export namespace DeleteApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAttributeGroupRequest {
@@ -552,29 +417,11 @@ export interface DeleteAttributeGroupRequest {
   attributeGroup: string | undefined;
 }
 
-export namespace DeleteAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAttributeGroupResponse {
   /**
    * <p>Information about the deleted attribute group.</p>
    */
   attributeGroup?: AttributeGroupSummary;
-}
-
-export namespace DeleteAttributeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAttributeGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateAttributeGroupRequest {
@@ -589,15 +436,6 @@ export interface DisassociateAttributeGroupRequest {
   attributeGroup: string | undefined;
 }
 
-export namespace DisassociateAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateAttributeGroupResponse {
   /**
    * <p>The Amazon resource name (ARN) that specifies the application.</p>
@@ -608,15 +446,6 @@ export interface DisassociateAttributeGroupResponse {
    * <p>The Amazon resource name (ARN) that specifies the attribute group.</p>
    */
   attributeGroupArn?: string;
-}
-
-export namespace DisassociateAttributeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateAttributeGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateResourceRequest {
@@ -636,15 +465,6 @@ export interface DisassociateResourceRequest {
   resource: string | undefined;
 }
 
-export namespace DisassociateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateResourceResponse {
   /**
    * <p>The Amazon resource name (ARN) that specifies the application.</p>
@@ -657,29 +477,11 @@ export interface DisassociateResourceResponse {
   resourceArn?: string;
 }
 
-export namespace DisassociateResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetApplicationRequest {
   /**
    * <p>The name or ID of the application.</p>
    */
   application: string | undefined;
-}
-
-export namespace GetApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceGroupState {
@@ -723,15 +525,6 @@ export interface ResourceGroup {
   errorMessage?: string;
 }
 
-export namespace ResourceGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The information about the service integration.</p>
  */
@@ -740,15 +533,6 @@ export interface Integrations {
    * <p> The information about the resource group integration.</p>
    */
   resourceGroup?: ResourceGroup;
-}
-
-export namespace Integrations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Integrations): any => ({
-    ...obj,
-  });
 }
 
 export interface GetApplicationResponse {
@@ -798,15 +582,6 @@ export interface GetApplicationResponse {
   integrations?: Integrations;
 }
 
-export namespace GetApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssociatedResourceRequest {
   /**
    * <p>The name or ID of the application.</p>
@@ -824,15 +599,6 @@ export interface GetAssociatedResourceRequest {
   resource: string | undefined;
 }
 
-export namespace GetAssociatedResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssociatedResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service integration information about the resource.</p>
  */
@@ -841,15 +607,6 @@ export interface ResourceIntegrations {
    * <p>The information about the integration of Resource Groups.</p>
    */
   resourceGroup?: ResourceGroup;
-}
-
-export namespace ResourceIntegrations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceIntegrations): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -878,15 +635,6 @@ export interface Resource {
   integrations?: ResourceIntegrations;
 }
 
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAssociatedResourceResponse {
   /**
    * <p>The resource associated with the application.</p>
@@ -894,29 +642,11 @@ export interface GetAssociatedResourceResponse {
   resource?: Resource;
 }
 
-export namespace GetAssociatedResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAssociatedResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAttributeGroupRequest {
   /**
    * <p>The name or ID of the attribute group that holds the attributes to describe the application.</p>
    */
   attributeGroup: string | undefined;
-}
-
-export namespace GetAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAttributeGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAttributeGroupResponse {
@@ -961,15 +691,6 @@ export interface GetAttributeGroupResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetAttributeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAttributeGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationsRequest {
   /**
    * <p>The token to use to get the next page of results after a previous API call. </p>
@@ -982,15 +703,6 @@ export interface ListApplicationsRequest {
   maxResults?: number;
 }
 
-export namespace ListApplicationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListApplicationsResponse {
   /**
    * <p>This list of applications.</p>
@@ -1001,15 +713,6 @@ export interface ListApplicationsResponse {
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListApplicationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssociatedAttributeGroupsRequest {
@@ -1029,15 +732,6 @@ export interface ListAssociatedAttributeGroupsRequest {
   maxResults?: number;
 }
 
-export namespace ListAssociatedAttributeGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedAttributeGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociatedAttributeGroupsResponse {
   /**
    * <p>A list of attribute group IDs.</p>
@@ -1048,15 +742,6 @@ export interface ListAssociatedAttributeGroupsResponse {
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssociatedAttributeGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedAttributeGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAssociatedResourcesRequest {
@@ -1076,15 +761,6 @@ export interface ListAssociatedResourcesRequest {
   maxResults?: number;
 }
 
-export namespace ListAssociatedResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The information about the resource.</p>
  */
@@ -1100,15 +776,6 @@ export interface ResourceInfo {
   arn?: string;
 }
 
-export namespace ResourceInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociatedResourcesResponse {
   /**
    * <p>Information about the resources.</p>
@@ -1119,15 +786,6 @@ export interface ListAssociatedResourcesResponse {
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListAssociatedResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAttributeGroupsRequest {
@@ -1142,15 +800,6 @@ export interface ListAttributeGroupsRequest {
   maxResults?: number;
 }
 
-export namespace ListAttributeGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttributeGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAttributeGroupsResponse {
   /**
    * <p>This list of attribute groups.</p>
@@ -1161,15 +810,6 @@ export interface ListAttributeGroupsResponse {
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListAttributeGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttributeGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAttributeGroupsForApplicationRequest {
@@ -1189,15 +829,6 @@ export interface ListAttributeGroupsForApplicationRequest {
   maxResults?: number;
 }
 
-export namespace ListAttributeGroupsForApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttributeGroupsForApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAttributeGroupsForApplicationResponse {
   /**
    * <p> The details related to a specific AttributeGroup. </p>
@@ -1210,15 +841,6 @@ export interface ListAttributeGroupsForApplicationResponse {
   nextToken?: string;
 }
 
-export namespace ListAttributeGroupsForApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAttributeGroupsForApplicationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
@@ -1226,29 +848,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags on the resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SyncResourceRequest {
@@ -1261,15 +865,6 @@ export interface SyncResourceRequest {
    * <p>An entity you can work with and specify with a name or ID. Examples include an Amazon EC2 instance, an Amazon Web Services CloudFormation stack, or an Amazon S3 bucket.</p>
    */
   resource: string | undefined;
-}
-
-export namespace SyncResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SyncResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SyncAction {
@@ -1294,15 +889,6 @@ export interface SyncResourceResponse {
   actionTaken?: SyncAction | string;
 }
 
-export namespace SyncResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SyncResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
@@ -1315,25 +901,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1347,25 +915,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateApplicationRequest {
   /**
@@ -1387,29 +937,11 @@ export interface UpdateApplicationRequest {
   description?: string;
 }
 
-export namespace UpdateApplicationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateApplicationResponse {
   /**
    * <p>The updated information of the application.</p>
    */
   application?: Application;
-}
-
-export namespace UpdateApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAttributeGroupRequest {
@@ -1437,15 +969,6 @@ export interface UpdateAttributeGroupRequest {
   attributes?: string;
 }
 
-export namespace UpdateAttributeGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAttributeGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAttributeGroupResponse {
   /**
    * <p>The updated information of the attribute group.</p>
@@ -1453,11 +976,388 @@ export interface UpdateAttributeGroupResponse {
   attributeGroup?: AttributeGroup;
 }
 
-export namespace UpdateAttributeGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAttributeGroupResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateAttributeGroupRequestFilterSensitiveLog = (obj: AssociateAttributeGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateAttributeGroupResponseFilterSensitiveLog = (obj: AssociateAttributeGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResourceRequestFilterSensitiveLog = (obj: AssociateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResourceResponseFilterSensitiveLog = (obj: AssociateResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeGroupFilterSensitiveLog = (obj: AttributeGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeGroupDetailsFilterSensitiveLog = (obj: AttributeGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeGroupSummaryFilterSensitiveLog = (obj: AttributeGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationResponseFilterSensitiveLog = (obj: CreateApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAttributeGroupRequestFilterSensitiveLog = (obj: CreateAttributeGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAttributeGroupResponseFilterSensitiveLog = (obj: CreateAttributeGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationResponseFilterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAttributeGroupRequestFilterSensitiveLog = (obj: DeleteAttributeGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAttributeGroupResponseFilterSensitiveLog = (obj: DeleteAttributeGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateAttributeGroupRequestFilterSensitiveLog = (obj: DisassociateAttributeGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateAttributeGroupResponseFilterSensitiveLog = (obj: DisassociateAttributeGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResourceRequestFilterSensitiveLog = (obj: DisassociateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResourceResponseFilterSensitiveLog = (obj: DisassociateResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationRequestFilterSensitiveLog = (obj: GetApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceGroupFilterSensitiveLog = (obj: ResourceGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegrationsFilterSensitiveLog = (obj: Integrations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationResponseFilterSensitiveLog = (obj: GetApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssociatedResourceRequestFilterSensitiveLog = (obj: GetAssociatedResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceIntegrationsFilterSensitiveLog = (obj: ResourceIntegrations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAssociatedResourceResponseFilterSensitiveLog = (obj: GetAssociatedResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAttributeGroupRequestFilterSensitiveLog = (obj: GetAttributeGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAttributeGroupResponseFilterSensitiveLog = (obj: GetAttributeGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedAttributeGroupsRequestFilterSensitiveLog = (
+  obj: ListAssociatedAttributeGroupsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedAttributeGroupsResponseFilterSensitiveLog = (
+  obj: ListAssociatedAttributeGroupsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedResourcesRequestFilterSensitiveLog = (obj: ListAssociatedResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceInfoFilterSensitiveLog = (obj: ResourceInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedResourcesResponseFilterSensitiveLog = (obj: ListAssociatedResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttributeGroupsRequestFilterSensitiveLog = (obj: ListAttributeGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttributeGroupsResponseFilterSensitiveLog = (obj: ListAttributeGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttributeGroupsForApplicationRequestFilterSensitiveLog = (
+  obj: ListAttributeGroupsForApplicationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAttributeGroupsForApplicationResponseFilterSensitiveLog = (
+  obj: ListAttributeGroupsForApplicationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncResourceRequestFilterSensitiveLog = (obj: SyncResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncResourceResponseFilterSensitiveLog = (obj: SyncResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationResponseFilterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAttributeGroupRequestFilterSensitiveLog = (obj: UpdateAttributeGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAttributeGroupResponseFilterSensitiveLog = (obj: UpdateAttributeGroupResponse): any => ({
+  ...obj,
+});

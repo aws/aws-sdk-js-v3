@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { UntagResourceRequest } from "../models/models_0";
+import { UntagResourceRequest, UntagResourceRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,
@@ -115,7 +115,7 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

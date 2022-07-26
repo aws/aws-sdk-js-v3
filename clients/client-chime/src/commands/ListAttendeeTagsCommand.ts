@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { ListAttendeeTagsRequest, ListAttendeeTagsResponse } from "../models/models_1";
+import {
+  ListAttendeeTagsRequest,
+  ListAttendeeTagsRequestFilterSensitiveLog,
+  ListAttendeeTagsResponse,
+  ListAttendeeTagsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListAttendeeTagsCommand,
   serializeAws_restJson1ListAttendeeTagsCommand,
@@ -72,8 +77,8 @@ export class ListAttendeeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttendeeTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAttendeeTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAttendeeTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAttendeeTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

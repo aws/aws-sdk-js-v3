@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_4";
+import {
+  DescribeRegionsRequest,
+  DescribeRegionsRequestFilterSensitiveLog,
+  DescribeRegionsResult,
+  DescribeRegionsResultFilterSensitiveLog,
+} from "../models/models_4";
 import { deserializeAws_ec2DescribeRegionsCommand, serializeAws_ec2DescribeRegionsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeRegionsCommandInput extends DescribeRegionsRequest {}
@@ -72,8 +77,8 @@ export class DescribeRegionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRegionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRegionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeRegionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRegionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

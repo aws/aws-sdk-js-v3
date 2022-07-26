@@ -15,7 +15,9 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   GetFailbackReplicationConfigurationRequest,
+  GetFailbackReplicationConfigurationRequestFilterSensitiveLog,
   GetFailbackReplicationConfigurationResponse,
+  GetFailbackReplicationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFailbackReplicationConfigurationCommand,
@@ -77,8 +79,8 @@ export class GetFailbackReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFailbackReplicationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFailbackReplicationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFailbackReplicationConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetFailbackReplicationConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

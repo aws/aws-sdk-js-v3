@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeClientVpnAuthorizationRulesRequest,
+  DescribeClientVpnAuthorizationRulesRequestFilterSensitiveLog,
   DescribeClientVpnAuthorizationRulesResult,
+  DescribeClientVpnAuthorizationRulesResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand,
@@ -77,8 +79,8 @@ export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClientVpnAuthorizationRulesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClientVpnAuthorizationRulesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClientVpnAuthorizationRulesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeClientVpnAuthorizationRulesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

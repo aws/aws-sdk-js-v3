@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { AddListenerCertificatesInput, AddListenerCertificatesOutput } from "../models/models_0";
+import {
+  AddListenerCertificatesInput,
+  AddListenerCertificatesInputFilterSensitiveLog,
+  AddListenerCertificatesOutput,
+  AddListenerCertificatesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryAddListenerCertificatesCommand,
   serializeAws_queryAddListenerCertificatesCommand,
@@ -83,8 +88,8 @@ export class AddListenerCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddListenerCertificatesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AddListenerCertificatesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AddListenerCertificatesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AddListenerCertificatesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetOrganizationsAccessReportRequest, GetOrganizationsAccessReportResponse } from "../models/models_0";
+import {
+  GetOrganizationsAccessReportRequest,
+  GetOrganizationsAccessReportRequestFilterSensitiveLog,
+  GetOrganizationsAccessReportResponse,
+  GetOrganizationsAccessReportResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetOrganizationsAccessReportCommand,
   serializeAws_queryGetOrganizationsAccessReportCommand,
@@ -92,8 +97,8 @@ export class GetOrganizationsAccessReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOrganizationsAccessReportRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetOrganizationsAccessReportResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOrganizationsAccessReportRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetOrganizationsAccessReportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,9 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   DescribeReplicationConfigurationTemplatesRequest,
+  DescribeReplicationConfigurationTemplatesRequestFilterSensitiveLog,
   DescribeReplicationConfigurationTemplatesResponse,
+  DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeReplicationConfigurationTemplatesCommand,
@@ -81,8 +83,8 @@ export class DescribeReplicationConfigurationTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationConfigurationTemplatesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationConfigurationTemplatesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReplicationConfigurationTemplatesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReplicationConfigurationTemplatesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -45,15 +45,6 @@ export interface WafAction {
   Type: WafActionType | string | undefined;
 }
 
-export namespace WafAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WafAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -72,15 +63,6 @@ export interface ExcludedRule {
    * <p>The unique identifier for the rule to exclude from the rule group.</p>
    */
   RuleId: string | undefined;
-}
-
-export namespace ExcludedRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExcludedRule): any => ({
-    ...obj,
-  });
 }
 
 export enum WafOverrideActionType {
@@ -105,15 +87,6 @@ export interface WafOverrideAction {
    *             <code>COUNT</code> overrides the action specified by the individual rule within a <code>RuleGroup</code> . If set to <code>NONE</code>, the rule's action will take place.</p>
    */
   Type: WafOverrideActionType | string | undefined;
-}
-
-export namespace WafOverrideAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WafOverrideAction): any => ({
-    ...obj,
-  });
 }
 
 export enum WafRuleType {
@@ -241,15 +214,6 @@ export interface ActivatedRule {
   ExcludedRules?: ExcludedRule[];
 }
 
-export namespace ActivatedRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivatedRule): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateWebACLRequest {
   /**
    * <p>A unique identifier (ID) for the web ACL. </p>
@@ -275,25 +239,7 @@ export interface AssociateWebACLRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace AssociateWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateWebACLResponse {}
-
-export namespace AssociateWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateWebACLResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
@@ -475,15 +421,6 @@ export interface CreateByteMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace CreateByteMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateByteMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum MatchFieldType {
   ALL_QUERY_ARGS = "ALL_QUERY_ARGS",
   BODY = "BODY",
@@ -557,15 +494,6 @@ export interface FieldToMatch {
    * 	        <p>If the value of <code>Type</code> is any other value, omit <code>Data</code>.</p>
    */
   Data?: string;
-}
-
-export namespace FieldToMatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldToMatch): any => ({
-    ...obj,
-  });
 }
 
 export enum PositionalConstraint {
@@ -817,15 +745,6 @@ export interface ByteMatchTuple {
   PositionalConstraint: PositionalConstraint | string | undefined;
 }
 
-export namespace ByteMatchTuple {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ByteMatchTuple): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -864,15 +783,6 @@ export interface ByteMatchSet {
   ByteMatchTuples: ByteMatchTuple[] | undefined;
 }
 
-export namespace ByteMatchSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ByteMatchSet): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateByteMatchSetResponse {
   /**
    * <p>A <a>ByteMatchSet</a> that contains no <code>ByteMatchTuple</code> objects.</p>
@@ -884,15 +794,6 @@ export interface CreateByteMatchSetResponse {
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace CreateByteMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateByteMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -964,15 +865,6 @@ export interface CreateGeoMatchSetRequest {
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
   ChangeToken: string | undefined;
-}
-
-export namespace CreateGeoMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGeoMatchSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum GeoMatchConstraintType {
@@ -1254,15 +1146,6 @@ export interface GeoMatchConstraint {
   Value: GeoMatchConstraintValue | string | undefined;
 }
 
-export namespace GeoMatchConstraint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoMatchConstraint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -1294,15 +1177,6 @@ export interface GeoMatchSet {
   GeoMatchConstraints: GeoMatchConstraint[] | undefined;
 }
 
-export namespace GeoMatchSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoMatchSet): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGeoMatchSetResponse {
   /**
    * <p>The <a>GeoMatchSet</a> returned in the <code>CreateGeoMatchSet</code> response. The <code>GeoMatchSet</code> contains no <code>GeoMatchConstraints</code>.</p>
@@ -1316,15 +1190,6 @@ export interface CreateGeoMatchSetResponse {
   ChangeToken?: string;
 }
 
-export namespace CreateGeoMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGeoMatchSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIPSetRequest {
   /**
    * <p>A friendly name or description of the <a>IPSet</a>. You can't change <code>Name</code> after you create the <code>IPSet</code>.</p>
@@ -1335,15 +1200,6 @@ export interface CreateIPSetRequest {
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
   ChangeToken: string | undefined;
-}
-
-export namespace CreateIPSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIPSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum IPSetDescriptorType {
@@ -1395,15 +1251,6 @@ export interface IPSetDescriptor {
   Value: string | undefined;
 }
 
-export namespace IPSetDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSetDescriptor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -1443,15 +1290,6 @@ export interface IPSet {
   IPSetDescriptors: IPSetDescriptor[] | undefined;
 }
 
-export namespace IPSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSet): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIPSetResponse {
   /**
    * <p>The <a>IPSet</a> returned in the <code>CreateIPSet</code> response.</p>
@@ -1463,15 +1301,6 @@ export interface CreateIPSetResponse {
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace CreateIPSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIPSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum RateKey {
@@ -1500,15 +1329,6 @@ export interface Tag {
    * <p></p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRateBasedRuleRequest {
@@ -1554,15 +1374,6 @@ export interface CreateRateBasedRuleRequest {
    * <p></p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateRateBasedRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRateBasedRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PredicateType {
@@ -1611,15 +1422,6 @@ export interface Predicate {
    * 			The ID is returned by the corresponding <code>Create</code> or <code>List</code> command.</p>
    */
   DataId: string | undefined;
-}
-
-export namespace Predicate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Predicate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1696,15 +1498,6 @@ export interface RateBasedRule {
   RateLimit: number | undefined;
 }
 
-export namespace RateBasedRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RateBasedRule): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRateBasedRuleResponse {
   /**
    * <p>The <a>RateBasedRule</a>
@@ -1718,15 +1511,6 @@ export interface CreateRateBasedRuleResponse {
    *          status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace CreateRateBasedRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRateBasedRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1797,15 +1581,6 @@ export interface CreateRegexMatchSetRequest {
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
   ChangeToken: string | undefined;
-}
-
-export namespace CreateRegexMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRegexMatchSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1943,15 +1718,6 @@ export interface RegexMatchTuple {
   RegexPatternSetId: string | undefined;
 }
 
-export namespace RegexMatchTuple {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexMatchTuple): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -2002,15 +1768,6 @@ export interface RegexMatchSet {
   RegexMatchTuples?: RegexMatchTuple[];
 }
 
-export namespace RegexMatchSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexMatchSet): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRegexMatchSetResponse {
   /**
    * <p>A <a>RegexMatchSet</a> that contains no <code>RegexMatchTuple</code> objects.</p>
@@ -2024,15 +1781,6 @@ export interface CreateRegexMatchSetResponse {
   ChangeToken?: string;
 }
 
-export namespace CreateRegexMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRegexMatchSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRegexPatternSetRequest {
   /**
    * <p>A friendly name or description of the <a>RegexPatternSet</a>. You can't change <code>Name</code> after you create a
@@ -2044,15 +1792,6 @@ export interface CreateRegexPatternSetRequest {
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
   ChangeToken: string | undefined;
-}
-
-export namespace CreateRegexPatternSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRegexPatternSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2086,15 +1825,6 @@ export interface RegexPatternSet {
   RegexPatternStrings: string[] | undefined;
 }
 
-export namespace RegexPatternSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexPatternSet): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRegexPatternSetResponse {
   /**
    * <p>A <a>RegexPatternSet</a> that contains no objects.</p>
@@ -2106,15 +1836,6 @@ export interface CreateRegexPatternSetResponse {
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace CreateRegexPatternSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRegexPatternSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRuleRequest {
@@ -2139,15 +1860,6 @@ export interface CreateRuleRequest {
    * <p></p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2202,15 +1914,6 @@ export interface Rule {
   Predicates: Predicate[] | undefined;
 }
 
-export namespace Rule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rule): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRuleResponse {
   /**
    * <p>The <a>Rule</a> returned in the <code>CreateRule</code> response.</p>
@@ -2222,15 +1925,6 @@ export interface CreateRuleResponse {
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace CreateRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRuleGroupRequest {
@@ -2255,15 +1949,6 @@ export interface CreateRuleGroupRequest {
    * <p></p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2311,15 +1996,6 @@ export interface RuleGroup {
   MetricName?: string;
 }
 
-export namespace RuleGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRuleGroupResponse {
   /**
    * <p>An empty  <a>RuleGroup</a>.</p>
@@ -2333,15 +2009,6 @@ export interface CreateRuleGroupResponse {
   ChangeToken?: string;
 }
 
-export namespace CreateRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSizeConstraintSetRequest {
   /**
    * <p>A friendly name or description of the <a>SizeConstraintSet</a>. You can't change <code>Name</code> after you create a
@@ -2353,15 +2020,6 @@ export interface CreateSizeConstraintSetRequest {
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
   ChangeToken: string | undefined;
-}
-
-export namespace CreateSizeConstraintSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSizeConstraintSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ComparisonOperator {
@@ -2528,15 +2186,6 @@ export interface SizeConstraint {
   Size: number | undefined;
 }
 
-export namespace SizeConstraint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SizeConstraint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -2573,15 +2222,6 @@ export interface SizeConstraintSet {
   SizeConstraints: SizeConstraint[] | undefined;
 }
 
-export namespace SizeConstraintSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SizeConstraintSet): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSizeConstraintSetResponse {
   /**
    * <p>A <a>SizeConstraintSet</a> that contains no <code>SizeConstraint</code> objects.</p>
@@ -2593,15 +2233,6 @@ export interface CreateSizeConstraintSetResponse {
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace CreateSizeConstraintSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSizeConstraintSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2618,15 +2249,6 @@ export interface CreateSqlInjectionMatchSetRequest {
    * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
    */
   ChangeToken: string | undefined;
-}
-
-export namespace CreateSqlInjectionMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSqlInjectionMatchSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2744,15 +2366,6 @@ export interface SqlInjectionMatchTuple {
   TextTransformation: TextTransformation | string | undefined;
 }
 
-export namespace SqlInjectionMatchTuple {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlInjectionMatchTuple): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -2790,15 +2403,6 @@ export interface SqlInjectionMatchSet {
   SqlInjectionMatchTuples: SqlInjectionMatchTuple[] | undefined;
 }
 
-export namespace SqlInjectionMatchSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlInjectionMatchSet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to a <code>CreateSqlInjectionMatchSet</code> request.</p>
  */
@@ -2813,15 +2417,6 @@ export interface CreateSqlInjectionMatchSetResponse {
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace CreateSqlInjectionMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSqlInjectionMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateWebACLRequest {
@@ -2852,15 +2447,6 @@ export interface CreateWebACLRequest {
    * <p></p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebACLRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2918,15 +2504,6 @@ export interface WebACL {
   WebACLArn?: string;
 }
 
-export namespace WebACL {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebACL): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWebACLResponse {
   /**
    * <p>The <a>WebACL</a> returned in the <code>CreateWebACL</code> response.</p>
@@ -2938,15 +2515,6 @@ export interface CreateWebACLResponse {
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace CreateWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebACLResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateWebACLMigrationStackRequest {
@@ -2981,29 +2549,11 @@ export interface CreateWebACLMigrationStackRequest {
   IgnoreUnsupportedType: boolean | undefined;
 }
 
-export namespace CreateWebACLMigrationStackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebACLMigrationStackRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWebACLMigrationStackResponse {
   /**
    * <p>The URL of the template created in Amazon S3. </p>
    */
   S3ObjectUrl: string | undefined;
-}
-
-export namespace CreateWebACLMigrationStackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWebACLMigrationStackResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum MigrationErrorType {
@@ -3124,15 +2674,6 @@ export interface CreateXssMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace CreateXssMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateXssMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -3248,15 +2789,6 @@ export interface XssMatchTuple {
   TextTransformation: TextTransformation | string | undefined;
 }
 
-export namespace XssMatchTuple {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XssMatchTuple): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -3294,15 +2826,6 @@ export interface XssMatchSet {
   XssMatchTuples: XssMatchTuple[] | undefined;
 }
 
-export namespace XssMatchSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XssMatchSet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to a <code>CreateXssMatchSet</code> request.</p>
  */
@@ -3319,15 +2842,6 @@ export interface CreateXssMatchSetResponse {
   ChangeToken?: string;
 }
 
-export namespace CreateXssMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateXssMatchSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteByteMatchSetRequest {
   /**
    * <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to delete. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by
@@ -3341,30 +2855,12 @@ export interface DeleteByteMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteByteMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteByteMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteByteMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteByteMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteByteMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteByteMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3441,30 +2937,12 @@ export interface DeleteGeoMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteGeoMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGeoMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGeoMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteGeoMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteGeoMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGeoMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteIPSetRequest {
@@ -3480,30 +2958,12 @@ export interface DeleteIPSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteIPSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIPSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteIPSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteIPSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteIPSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIPSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteLoggingConfigurationRequest {
@@ -3513,25 +2973,7 @@ export interface DeleteLoggingConfigurationRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DeleteLoggingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoggingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLoggingConfigurationResponse {}
-
-export namespace DeleteLoggingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLoggingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeletePermissionPolicyRequest {
   /**
@@ -3541,25 +2983,7 @@ export interface DeletePermissionPolicyRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DeletePermissionPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePermissionPolicyResponse {}
-
-export namespace DeletePermissionPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteRateBasedRuleRequest {
   /**
@@ -3575,15 +2999,6 @@ export interface DeleteRateBasedRuleRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteRateBasedRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRateBasedRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRateBasedRuleResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the
@@ -3591,15 +3006,6 @@ export interface DeleteRateBasedRuleResponse {
    *          status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteRateBasedRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRateBasedRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRegexMatchSetRequest {
@@ -3615,30 +3021,12 @@ export interface DeleteRegexMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteRegexMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRegexMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRegexMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRegexMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteRegexMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRegexMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRegexPatternSetRequest {
@@ -3654,30 +3042,12 @@ export interface DeleteRegexPatternSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteRegexPatternSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRegexPatternSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRegexPatternSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRegexPatternSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteRegexPatternSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRegexPatternSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRuleRequest {
@@ -3693,30 +3063,12 @@ export interface DeleteRuleRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRuleResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRule</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRuleGroupRequest {
@@ -3732,30 +3084,12 @@ export interface DeleteRuleGroupRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRuleGroupResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteRuleGroup</code> request. You can also use this value
    *          to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSizeConstraintSetRequest {
@@ -3771,30 +3105,12 @@ export interface DeleteSizeConstraintSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteSizeConstraintSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSizeConstraintSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSizeConstraintSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteSizeConstraintSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteSizeConstraintSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSizeConstraintSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3813,15 +3129,6 @@ export interface DeleteSqlInjectionMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteSqlInjectionMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSqlInjectionMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to a request to delete a <a>SqlInjectionMatchSet</a> from AWS WAF.</p>
  */
@@ -3831,15 +3138,6 @@ export interface DeleteSqlInjectionMatchSetResponse {
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteSqlInjectionMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSqlInjectionMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteWebACLRequest {
@@ -3855,30 +3153,12 @@ export interface DeleteWebACLRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWebACLResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>DeleteWebACL</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWebACLResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3897,15 +3177,6 @@ export interface DeleteXssMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace DeleteXssMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteXssMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to a request to delete an <a>XssMatchSet</a> from AWS WAF.</p>
  */
@@ -3915,15 +3186,6 @@ export interface DeleteXssMatchSetResponse {
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace DeleteXssMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteXssMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DisassociateWebACLRequest {
@@ -3946,25 +3208,7 @@ export interface DisassociateWebACLRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DisassociateWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateWebACLResponse {}
-
-export namespace DisassociateWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateWebACLResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetByteMatchSetRequest {
   /**
@@ -3972,15 +3216,6 @@ export interface GetByteMatchSetRequest {
    * 			<a>CreateByteMatchSet</a> and by <a>ListByteMatchSets</a>.</p>
    */
   ByteMatchSetId: string | undefined;
-}
-
-export namespace GetByteMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetByteMatchSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetByteMatchSetResponse {
@@ -4010,25 +3245,7 @@ export interface GetByteMatchSetResponse {
   ByteMatchSet?: ByteMatchSet;
 }
 
-export namespace GetByteMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetByteMatchSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetChangeTokenRequest {}
-
-export namespace GetChangeTokenRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChangeTokenRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetChangeTokenResponse {
   /**
@@ -4038,29 +3255,11 @@ export interface GetChangeTokenResponse {
   ChangeToken?: string;
 }
 
-export namespace GetChangeTokenResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChangeTokenResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetChangeTokenStatusRequest {
   /**
    * <p>The change token for which you want to get the status. This change token was previously returned in the <code>GetChangeToken</code> response.</p>
    */
   ChangeToken: string | undefined;
-}
-
-export namespace GetChangeTokenStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChangeTokenStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ChangeTokenStatus {
@@ -4076,30 +3275,12 @@ export interface GetChangeTokenStatusResponse {
   ChangeTokenStatus?: ChangeTokenStatus | string;
 }
 
-export namespace GetChangeTokenStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChangeTokenStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGeoMatchSetRequest {
   /**
    * <p>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to get. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by
    * 			<a>ListGeoMatchSets</a>.</p>
    */
   GeoMatchSetId: string | undefined;
-}
-
-export namespace GetGeoMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGeoMatchSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetGeoMatchSetResponse {
@@ -4109,30 +3290,12 @@ export interface GetGeoMatchSetResponse {
   GeoMatchSet?: GeoMatchSet;
 }
 
-export namespace GetGeoMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGeoMatchSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIPSetRequest {
   /**
    * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to get. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by
    * 			<a>ListIPSets</a>.</p>
    */
   IPSetId: string | undefined;
-}
-
-export namespace GetIPSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIPSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetIPSetResponse {
@@ -4156,29 +3319,11 @@ export interface GetIPSetResponse {
   IPSet?: IPSet;
 }
 
-export namespace GetIPSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIPSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the web ACL for which you want to get the <a>LoggingConfiguration</a>.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace GetLoggingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoggingConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4214,29 +3359,11 @@ export interface LoggingConfiguration {
   RedactedFields?: FieldToMatch[];
 }
 
-export namespace LoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoggingConfigurationResponse {
   /**
    * <p>The <a>LoggingConfiguration</a> for the specified web ACL.</p>
    */
   LoggingConfiguration?: LoggingConfiguration;
-}
-
-export namespace GetLoggingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoggingConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPermissionPolicyRequest {
@@ -4246,29 +3373,11 @@ export interface GetPermissionPolicyRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace GetPermissionPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPermissionPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPermissionPolicyResponse {
   /**
    * <p>The IAM policy attached to the specified RuleGroup.</p>
    */
   Policy?: string;
-}
-
-export namespace GetPermissionPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPermissionPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRateBasedRuleRequest {
@@ -4279,30 +3388,12 @@ export interface GetRateBasedRuleRequest {
   RuleId: string | undefined;
 }
 
-export namespace GetRateBasedRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRateBasedRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRateBasedRuleResponse {
   /**
    * <p>Information about the <a>RateBasedRule</a> that you specified in the
    *             <code>GetRateBasedRule</code> request.</p>
    */
   Rule?: RateBasedRule;
-}
-
-export namespace GetRateBasedRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRateBasedRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRateBasedRuleManagedKeysRequest {
@@ -4318,15 +3409,6 @@ export interface GetRateBasedRuleManagedKeysRequest {
   NextMarker?: string;
 }
 
-export namespace GetRateBasedRuleManagedKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRateBasedRuleManagedKeysRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRateBasedRuleManagedKeysResponse {
   /**
    * <p>An array of IP addresses that currently are blocked by the specified <a>RateBasedRule</a>. </p>
@@ -4339,15 +3421,6 @@ export interface GetRateBasedRuleManagedKeysResponse {
   NextMarker?: string;
 }
 
-export namespace GetRateBasedRuleManagedKeysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRateBasedRuleManagedKeysResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRegexMatchSetRequest {
   /**
    * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to get. <code>RegexMatchSetId</code> is returned by
@@ -4356,29 +3429,11 @@ export interface GetRegexMatchSetRequest {
   RegexMatchSetId: string | undefined;
 }
 
-export namespace GetRegexMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegexMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRegexMatchSetResponse {
   /**
    * <p>Information about the <a>RegexMatchSet</a> that you specified in the <code>GetRegexMatchSet</code> request. For more information, see <a>RegexMatchTuple</a>.</p>
    */
   RegexMatchSet?: RegexMatchSet;
-}
-
-export namespace GetRegexMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegexMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRegexPatternSetRequest {
@@ -4389,29 +3444,11 @@ export interface GetRegexPatternSetRequest {
   RegexPatternSetId: string | undefined;
 }
 
-export namespace GetRegexPatternSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegexPatternSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRegexPatternSetResponse {
   /**
    * <p>Information about the <a>RegexPatternSet</a> that you specified in the <code>GetRegexPatternSet</code> request, including the identifier of the pattern set and the regular expression patterns you want AWS WAF to search for. </p>
    */
   RegexPatternSet?: RegexPatternSet;
-}
-
-export namespace GetRegexPatternSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegexPatternSetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRuleRequest {
@@ -4420,15 +3457,6 @@ export interface GetRuleRequest {
    * 			<a>ListRules</a>.</p>
    */
   RuleId: string | undefined;
-}
-
-export namespace GetRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRuleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRuleResponse {
@@ -4453,15 +3481,6 @@ export interface GetRuleResponse {
   Rule?: Rule;
 }
 
-export namespace GetRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRuleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRuleGroupRequest {
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to get. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by
@@ -4470,29 +3489,11 @@ export interface GetRuleGroupRequest {
   RuleGroupId: string | undefined;
 }
 
-export namespace GetRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRuleGroupResponse {
   /**
    * <p>Information about the <a>RuleGroup</a> that you specified in the <code>GetRuleGroup</code> request. </p>
    */
   RuleGroup?: RuleGroup;
-}
-
-export namespace GetRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4532,15 +3533,6 @@ export interface TimeWindow {
   EndTime: Date | undefined;
 }
 
-export namespace TimeWindow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeWindow): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSampledRequestsRequest {
   /**
    * <p>The <code>WebACLId</code> of the <code>WebACL</code> for which you want <code>GetSampledRequests</code> to return a sample of requests.</p>
@@ -4578,15 +3570,6 @@ export interface GetSampledRequestsRequest {
   MaxItems: number | undefined;
 }
 
-export namespace GetSampledRequestsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSampledRequestsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -4610,15 +3593,6 @@ export interface HTTPHeader {
    * <p>The value of one of the headers in the sampled web request.</p>
    */
   Value?: string;
-}
-
-export namespace HTTPHeader {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HTTPHeader): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4679,15 +3653,6 @@ export interface HTTPRequest {
   Headers?: HTTPHeader[];
 }
 
-export namespace HTTPRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HTTPRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This is <b>AWS WAF Classic</b> documentation. For
@@ -4730,15 +3695,6 @@ export interface SampledHTTPRequest {
   RuleWithinRuleGroup?: string;
 }
 
-export namespace SampledHTTPRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SampledHTTPRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSampledRequestsResponse {
   /**
    * <p>A complex type that contains detailed information about each of the requests in the sample.</p>
@@ -4760,30 +3716,12 @@ export interface GetSampledRequestsResponse {
   TimeWindow?: TimeWindow;
 }
 
-export namespace GetSampledRequestsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSampledRequestsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetSizeConstraintSetRequest {
   /**
    * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to get. <code>SizeConstraintSetId</code> is returned by
    * 			<a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
    */
   SizeConstraintSetId: string | undefined;
-}
-
-export namespace GetSizeConstraintSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSizeConstraintSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSizeConstraintSetResponse {
@@ -4813,15 +3751,6 @@ export interface GetSizeConstraintSetResponse {
   SizeConstraintSet?: SizeConstraintSet;
 }
 
-export namespace GetSizeConstraintSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSizeConstraintSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to get a <a>SqlInjectionMatchSet</a>.</p>
  */
@@ -4831,15 +3760,6 @@ export interface GetSqlInjectionMatchSetRequest {
    * 			is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>
    */
   SqlInjectionMatchSetId: string | undefined;
-}
-
-export namespace GetSqlInjectionMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSqlInjectionMatchSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4871,30 +3791,12 @@ export interface GetSqlInjectionMatchSetResponse {
   SqlInjectionMatchSet?: SqlInjectionMatchSet;
 }
 
-export namespace GetSqlInjectionMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSqlInjectionMatchSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWebACLRequest {
   /**
    * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to get. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by
    * 			<a>ListWebACLs</a>.</p>
    */
   WebACLId: string | undefined;
-}
-
-export namespace GetWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWebACLRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWebACLResponse {
@@ -4929,15 +3831,6 @@ export interface GetWebACLResponse {
   WebACL?: WebACL;
 }
 
-export namespace GetWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWebACLResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWebACLForResourceRequest {
   /**
    * <p>The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either an application load balancer or Amazon API Gateway stage.</p>
@@ -4956,15 +3849,6 @@ export interface GetWebACLForResourceRequest {
    *          </ul>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace GetWebACLForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWebACLForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4994,29 +3878,11 @@ export interface WebACLSummary {
   Name: string | undefined;
 }
 
-export namespace WebACLSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebACLSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWebACLForResourceResponse {
   /**
    * <p>Information about the web ACL that you specified in the <code>GetWebACLForResource</code> request. If there is no associated resource, a null WebACLSummary is returned.</p>
    */
   WebACLSummary?: WebACLSummary;
-}
-
-export namespace GetWebACLForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWebACLForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5028,15 +3894,6 @@ export interface GetXssMatchSetRequest {
    * 			is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>
    */
   XssMatchSetId: string | undefined;
-}
-
-export namespace GetXssMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetXssMatchSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5068,15 +3925,6 @@ export interface GetXssMatchSetResponse {
   XssMatchSet?: XssMatchSet;
 }
 
-export namespace GetXssMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetXssMatchSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListActivatedRulesInRuleGroupRequest {
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> for which you want to get a list of <a>ActivatedRule</a> objects.</p>
@@ -5098,15 +3946,6 @@ export interface ListActivatedRulesInRuleGroupRequest {
   Limit?: number;
 }
 
-export namespace ListActivatedRulesInRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListActivatedRulesInRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListActivatedRulesInRuleGroupResponse {
   /**
    * <p>If you have more <code>ActivatedRules</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>ActivatedRules</code>, submit another <code>ListActivatedRulesInRuleGroup</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>
@@ -5117,15 +3956,6 @@ export interface ListActivatedRulesInRuleGroupResponse {
    * <p>An array of <code>ActivatedRules</code> objects.</p>
    */
   ActivatedRules?: ActivatedRule[];
-}
-
-export namespace ListActivatedRulesInRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListActivatedRulesInRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListByteMatchSetsRequest {
@@ -5143,15 +3973,6 @@ export interface ListByteMatchSetsRequest {
    * 			<code>NextMarker</code> value that you can use to get another batch of <code>ByteMatchSet</code> objects.</p>
    */
   Limit?: number;
-}
-
-export namespace ListByteMatchSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListByteMatchSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5181,15 +4002,6 @@ export interface ByteMatchSetSummary {
   Name: string | undefined;
 }
 
-export namespace ByteMatchSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ByteMatchSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListByteMatchSetsResponse {
   /**
    * <p>If you have more <code>ByteMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -5203,15 +4015,6 @@ export interface ListByteMatchSetsResponse {
    * <p>An array of <a>ByteMatchSetSummary</a> objects.</p>
    */
   ByteMatchSets?: ByteMatchSetSummary[];
-}
-
-export namespace ListByteMatchSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListByteMatchSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGeoMatchSetsRequest {
@@ -5229,15 +4032,6 @@ export interface ListGeoMatchSetsRequest {
    * 			<code>NextMarker</code> value that you can use to get another batch of <code>GeoMatchSet</code> objects.</p>
    */
   Limit?: number;
-}
-
-export namespace ListGeoMatchSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeoMatchSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5263,15 +4057,6 @@ export interface GeoMatchSetSummary {
   Name: string | undefined;
 }
 
-export namespace GeoMatchSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoMatchSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGeoMatchSetsResponse {
   /**
    * <p>If you have more <code>GeoMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -5285,15 +4070,6 @@ export interface ListGeoMatchSetsResponse {
    * <p>An array of <a>GeoMatchSetSummary</a> objects.</p>
    */
   GeoMatchSets?: GeoMatchSetSummary[];
-}
-
-export namespace ListGeoMatchSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGeoMatchSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIPSetsRequest {
@@ -5311,15 +4087,6 @@ export interface ListIPSetsRequest {
    * 			<code>NextMarker</code> value that you can use to get another batch of <code>IPSet</code> objects.</p>
    */
   Limit?: number;
-}
-
-export namespace ListIPSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIPSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5346,15 +4113,6 @@ export interface IPSetSummary {
   Name: string | undefined;
 }
 
-export namespace IPSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIPSetsResponse {
   /**
    * <p>To list more <code>IPSet</code> objects, submit another <code>ListIPSets</code>
@@ -5367,15 +4125,6 @@ export interface ListIPSetsResponse {
    * <p>An array of <a>IPSetSummary</a> objects.</p>
    */
   IPSets?: IPSetSummary[];
-}
-
-export namespace ListIPSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIPSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLoggingConfigurationsRequest {
@@ -5393,15 +4142,6 @@ export interface ListLoggingConfigurationsRequest {
   Limit?: number;
 }
 
-export namespace ListLoggingConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLoggingConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLoggingConfigurationsResponse {
   /**
    * <p>An array of <a>LoggingConfiguration</a> objects.</p>
@@ -5412,15 +4152,6 @@ export interface ListLoggingConfigurationsResponse {
    * <p>If you have more <code>LoggingConfigurations</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>LoggingConfigurations</code>, submit another <code>ListLoggingConfigurations</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>
    */
   NextMarker?: string;
-}
-
-export namespace ListLoggingConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLoggingConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRateBasedRulesRequest {
@@ -5441,15 +4172,6 @@ export interface ListRateBasedRulesRequest {
    *          use to get another batch of <code>Rules</code>.</p>
    */
   Limit?: number;
-}
-
-export namespace ListRateBasedRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRateBasedRulesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5479,15 +4201,6 @@ export interface RuleSummary {
   Name: string | undefined;
 }
 
-export namespace RuleSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRateBasedRulesResponse {
   /**
    * <p>If you have more <code>Rules</code> than the number that you specified for
@@ -5502,15 +4215,6 @@ export interface ListRateBasedRulesResponse {
    * <p>An array of <a>RuleSummary</a> objects.</p>
    */
   Rules?: RuleSummary[];
-}
-
-export namespace ListRateBasedRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRateBasedRulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRegexMatchSetsRequest {
@@ -5528,15 +4232,6 @@ export interface ListRegexMatchSetsRequest {
    * 			<code>NextMarker</code> value that you can use to get another batch of <code>RegexMatchSet</code> objects.</p>
    */
   Limit?: number;
-}
-
-export namespace ListRegexMatchSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRegexMatchSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5566,15 +4261,6 @@ export interface RegexMatchSetSummary {
   Name: string | undefined;
 }
 
-export namespace RegexMatchSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexMatchSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRegexMatchSetsResponse {
   /**
    * <p>If you have more <code>RegexMatchSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -5588,15 +4274,6 @@ export interface ListRegexMatchSetsResponse {
    * <p>An array of <a>RegexMatchSetSummary</a> objects.</p>
    */
   RegexMatchSets?: RegexMatchSetSummary[];
-}
-
-export namespace ListRegexMatchSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRegexMatchSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRegexPatternSetsRequest {
@@ -5614,15 +4291,6 @@ export interface ListRegexPatternSetsRequest {
    * 			<code>NextMarker</code> value that you can use to get another batch of <code>RegexPatternSet</code> objects.</p>
    */
   Limit?: number;
-}
-
-export namespace ListRegexPatternSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRegexPatternSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5652,15 +4320,6 @@ export interface RegexPatternSetSummary {
   Name: string | undefined;
 }
 
-export namespace RegexPatternSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexPatternSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRegexPatternSetsResponse {
   /**
    * <p>If you have more <code>RegexPatternSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -5674,15 +4333,6 @@ export interface ListRegexPatternSetsResponse {
    * <p>An array of <a>RegexPatternSetSummary</a> objects.</p>
    */
   RegexPatternSets?: RegexPatternSetSummary[];
-}
-
-export namespace ListRegexPatternSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRegexPatternSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -5702,29 +4352,11 @@ export interface ListResourcesForWebACLRequest {
   ResourceType?: ResourceType | string;
 }
 
-export namespace ListResourcesForWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesForWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourcesForWebACLResponse {
   /**
    * <p>An array of ARNs (Amazon Resource Names) of the resources associated with the specified web ACL. An array with zero elements is returned if there are no resources associated with the web ACL.</p>
    */
   ResourceArns?: string[];
-}
-
-export namespace ListResourcesForWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesForWebACLResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRuleGroupsRequest {
@@ -5740,15 +4372,6 @@ export interface ListRuleGroupsRequest {
    * <p>Specifies the number of <code>RuleGroups</code> that you want AWS WAF to return for this request. If you have more <code>RuleGroups</code> than the number that you specify for <code>Limit</code>, the response includes a <code>NextMarker</code> value that you can use to get another batch of <code>RuleGroups</code>.</p>
    */
   Limit?: number;
-}
-
-export namespace ListRuleGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleGroupsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5778,15 +4401,6 @@ export interface RuleGroupSummary {
   Name: string | undefined;
 }
 
-export namespace RuleGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRuleGroupsResponse {
   /**
    * <p>If you have more <code>RuleGroups</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>RuleGroups</code>, submit another <code>ListRuleGroups</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>
@@ -5797,15 +4411,6 @@ export interface ListRuleGroupsResponse {
    * <p>An array of <a>RuleGroup</a> objects.</p>
    */
   RuleGroups?: RuleGroupSummary[];
-}
-
-export namespace ListRuleGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRulesRequest {
@@ -5824,15 +4429,6 @@ export interface ListRulesRequest {
   Limit?: number;
 }
 
-export namespace ListRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRulesResponse {
   /**
    * <p>If you have more <code>Rules</code> than the number that you specified for <code>Limit</code> in the request, 			the response includes a <code>NextMarker</code> value. To list more <code>Rules</code>, submit another
@@ -5845,15 +4441,6 @@ export interface ListRulesResponse {
    * <p>An array of <a>RuleSummary</a> objects.</p>
    */
   Rules?: RuleSummary[];
-}
-
-export namespace ListRulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSizeConstraintSetsRequest {
@@ -5870,15 +4457,6 @@ export interface ListSizeConstraintSetsRequest {
    * 			<code>NextMarker</code> value that you can use to get another batch of <code>SizeConstraintSet</code> objects.</p>
    */
   Limit?: number;
-}
-
-export namespace ListSizeConstraintSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSizeConstraintSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5910,15 +4488,6 @@ export interface SizeConstraintSetSummary {
   Name: string | undefined;
 }
 
-export namespace SizeConstraintSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SizeConstraintSetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSizeConstraintSetsResponse {
   /**
    * <p>If you have more <code>SizeConstraintSet</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -5932,15 +4501,6 @@ export interface ListSizeConstraintSetsResponse {
    * <p>An array of <a>SizeConstraintSetSummary</a> objects.</p>
    */
   SizeConstraintSets?: SizeConstraintSetSummary[];
-}
-
-export namespace ListSizeConstraintSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSizeConstraintSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5961,15 +4521,6 @@ export interface ListSqlInjectionMatchSetsRequest {
    * 			<code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
    */
   Limit?: number;
-}
-
-export namespace ListSqlInjectionMatchSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSqlInjectionMatchSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6001,15 +4552,6 @@ export interface SqlInjectionMatchSetSummary {
   Name: string | undefined;
 }
 
-export namespace SqlInjectionMatchSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlInjectionMatchSetSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to a <a>ListSqlInjectionMatchSets</a> request.</p>
  */
@@ -6028,15 +4570,6 @@ export interface ListSqlInjectionMatchSetsResponse {
   SqlInjectionMatchSets?: SqlInjectionMatchSetSummary[];
 }
 
-export namespace ListSqlInjectionMatchSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSqlInjectionMatchSetsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSubscribedRuleGroupsRequest {
   /**
    * <p>If you specify a value for <code>Limit</code> and you have more <code>ByteMatchSets</code>subscribed rule groups than the value of <code>Limit</code>,
@@ -6052,15 +4585,6 @@ export interface ListSubscribedRuleGroupsRequest {
    * 			<code>NextMarker</code> value that you can use to get another batch of objects.</p>
    */
   Limit?: number;
-}
-
-export namespace ListSubscribedRuleGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscribedRuleGroupsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6092,15 +4616,6 @@ export interface SubscribedRuleGroupSummary {
   MetricName: string | undefined;
 }
 
-export namespace SubscribedRuleGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscribedRuleGroupSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSubscribedRuleGroupsResponse {
   /**
    * <p>If you have more objects than the number that you specified for <code>Limit</code> in the request,
@@ -6114,15 +4629,6 @@ export interface ListSubscribedRuleGroupsResponse {
    * <p>An array of <a>RuleGroup</a> objects.</p>
    */
   RuleGroups?: SubscribedRuleGroupSummary[];
-}
-
-export namespace ListSubscribedRuleGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSubscribedRuleGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -6140,15 +4646,6 @@ export interface ListTagsForResourceRequest {
    * <p></p>
    */
   ResourceARN: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6175,15 +4672,6 @@ export interface TagInfoForResource {
   TagList?: Tag[];
 }
 
-export namespace TagInfoForResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagInfoForResource): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p></p>
@@ -6194,15 +4682,6 @@ export interface ListTagsForResourceResponse {
    * <p></p>
    */
   TagInfoForResource?: TagInfoForResource;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWebACLsRequest {
@@ -6222,15 +4701,6 @@ export interface ListWebACLsRequest {
   Limit?: number;
 }
 
-export namespace ListWebACLsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebACLsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWebACLsResponse {
   /**
    * <p>If you have more <code>WebACL</code> objects than the number that you specified for <code>Limit</code> in the request,
@@ -6244,15 +4714,6 @@ export interface ListWebACLsResponse {
    * <p>An array of <a>WebACLSummary</a> objects.</p>
    */
   WebACLs?: WebACLSummary[];
-}
-
-export namespace ListWebACLsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWebACLsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6273,15 +4734,6 @@ export interface ListXssMatchSetsRequest {
    * 			<code>NextMarker</code> value that you can use to get another batch of <code>Rules</code>.</p>
    */
   Limit?: number;
-}
-
-export namespace ListXssMatchSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListXssMatchSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6313,15 +4765,6 @@ export interface XssMatchSetSummary {
   Name: string | undefined;
 }
 
-export namespace XssMatchSetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XssMatchSetSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to a <a>ListXssMatchSets</a> request.</p>
  */
@@ -6340,15 +4783,6 @@ export interface ListXssMatchSetsResponse {
   XssMatchSets?: XssMatchSetSummary[];
 }
 
-export namespace ListXssMatchSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListXssMatchSetsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutLoggingConfigurationRequest {
   /**
    * <p>The Amazon Kinesis Data Firehose that contains the inspected traffic
@@ -6363,29 +4797,11 @@ export interface PutLoggingConfigurationRequest {
   LoggingConfiguration: LoggingConfiguration | undefined;
 }
 
-export namespace PutLoggingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLoggingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutLoggingConfigurationResponse {
   /**
    * <p>The <a>LoggingConfiguration</a> that you submitted in the request.</p>
    */
   LoggingConfiguration?: LoggingConfiguration;
-}
-
-export namespace PutLoggingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLoggingConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6419,25 +4835,7 @@ export interface PutPermissionPolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutPermissionPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPermissionPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPermissionPolicyResponse {}
-
-export namespace PutPermissionPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPermissionPolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The operation failed because the specified policy is not in the proper format. </p>
@@ -6499,25 +4897,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -6531,25 +4911,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export enum ChangeAction {
   DELETE = "DELETE",
@@ -6580,15 +4942,6 @@ export interface ByteMatchSetUpdate {
    * 			exactly match the values in the <code>ByteMatchTuple</code> that you want to delete from the <code>ByteMatchSet</code>.</p>
    */
   ByteMatchTuple: ByteMatchTuple | undefined;
-}
-
-export namespace ByteMatchSetUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ByteMatchSetUpdate): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateByteMatchSetRequest {
@@ -6628,30 +4981,12 @@ export interface UpdateByteMatchSetRequest {
   Updates: ByteMatchSetUpdate[] | undefined;
 }
 
-export namespace UpdateByteMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateByteMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateByteMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateByteMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateByteMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateByteMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6711,15 +5046,6 @@ export interface GeoMatchSetUpdate {
   GeoMatchConstraint: GeoMatchConstraint | undefined;
 }
 
-export namespace GeoMatchSetUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeoMatchSetUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGeoMatchSetRequest {
   /**
    * <p>The <code>GeoMatchSetId</code> of the <a>GeoMatchSet</a> that you want to update. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and by
@@ -6752,30 +5078,12 @@ export interface UpdateGeoMatchSetRequest {
   Updates: GeoMatchSetUpdate[] | undefined;
 }
 
-export namespace UpdateGeoMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGeoMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGeoMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateGeoMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateGeoMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGeoMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6799,15 +5107,6 @@ export interface IPSetUpdate {
    * <p>The IP address type (<code>IPV4</code> or <code>IPV6</code>) and the IP address range (in CIDR notation) that web requests originate from.</p>
    */
   IPSetDescriptor: IPSetDescriptor | undefined;
-}
-
-export namespace IPSetUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSetUpdate): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateIPSetRequest {
@@ -6842,30 +5141,12 @@ export interface UpdateIPSetRequest {
   Updates: IPSetUpdate[] | undefined;
 }
 
-export namespace UpdateIPSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIPSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateIPSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateIPSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateIPSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIPSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6891,15 +5172,6 @@ export interface RuleUpdate {
    * <p>The ID of the <code>Predicate</code> (such as an <code>IPSet</code>) that you want to add to a <code>Rule</code>.</p>
    */
   Predicate: Predicate | undefined;
-}
-
-export namespace RuleUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleUpdate): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRateBasedRuleRequest {
@@ -6929,15 +5201,6 @@ export interface UpdateRateBasedRuleRequest {
   RateLimit: number | undefined;
 }
 
-export namespace UpdateRateBasedRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRateBasedRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRateBasedRuleResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the
@@ -6945,15 +5208,6 @@ export interface UpdateRateBasedRuleResponse {
    *          status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateRateBasedRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRateBasedRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6982,15 +5236,6 @@ export interface RegexMatchSetUpdate {
   RegexMatchTuple: RegexMatchTuple | undefined;
 }
 
-export namespace RegexMatchSetUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexMatchSetUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRegexMatchSetRequest {
   /**
    * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to update. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by
@@ -7010,30 +5255,12 @@ export interface UpdateRegexMatchSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace UpdateRegexMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegexMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRegexMatchSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRegexMatchSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateRegexMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegexMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7060,15 +5287,6 @@ export interface RegexPatternSetUpdate {
   RegexPatternString: string | undefined;
 }
 
-export namespace RegexPatternSetUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegexPatternSetUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRegexPatternSetRequest {
   /**
    * <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to update. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by
@@ -7087,30 +5305,12 @@ export interface UpdateRegexPatternSetRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace UpdateRegexPatternSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegexPatternSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRegexPatternSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRegexPatternSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateRegexPatternSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRegexPatternSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7168,30 +5368,12 @@ export interface UpdateRuleRequest {
   Updates: RuleUpdate[] | undefined;
 }
 
-export namespace UpdateRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRuleResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRule</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7221,15 +5403,6 @@ export interface RuleGroupUpdate {
   ActivatedRule: ActivatedRule | undefined;
 }
 
-export namespace RuleGroupUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupUpdate): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRuleGroupRequest {
   /**
    * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to update. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by
@@ -7252,30 +5425,12 @@ export interface UpdateRuleGroupRequest {
   ChangeToken: string | undefined;
 }
 
-export namespace UpdateRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRuleGroupResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateRuleGroup</code> request. You can also use this value
    *          to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7304,15 +5459,6 @@ export interface SizeConstraintSetUpdate {
    * 			<code>SizeConstraint</code> is considered to match.</p>
    */
   SizeConstraint: SizeConstraint | undefined;
-}
-
-export namespace SizeConstraintSetUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SizeConstraintSetUpdate): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSizeConstraintSetRequest {
@@ -7352,30 +5498,12 @@ export interface UpdateSizeConstraintSetRequest {
   Updates: SizeConstraintSetUpdate[] | undefined;
 }
 
-export namespace UpdateSizeConstraintSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSizeConstraintSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSizeConstraintSetResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateSizeConstraintSet</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateSizeConstraintSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSizeConstraintSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7401,15 +5529,6 @@ export interface SqlInjectionMatchSetUpdate {
    * <p>Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.</p>
    */
   SqlInjectionMatchTuple: SqlInjectionMatchTuple | undefined;
-}
-
-export namespace SqlInjectionMatchSetUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlInjectionMatchSetUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7451,15 +5570,6 @@ export interface UpdateSqlInjectionMatchSetRequest {
   Updates: SqlInjectionMatchSetUpdate[] | undefined;
 }
 
-export namespace UpdateSqlInjectionMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSqlInjectionMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to an <a>UpdateSqlInjectionMatchSets</a> request.</p>
  */
@@ -7469,15 +5579,6 @@ export interface UpdateSqlInjectionMatchSetResponse {
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateSqlInjectionMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSqlInjectionMatchSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7503,15 +5604,6 @@ export interface WebACLUpdate {
    *          (<code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>).</p>
    */
   ActivatedRule: ActivatedRule | undefined;
-}
-
-export namespace WebACLUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebACLUpdate): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateWebACLRequest {
@@ -7563,30 +5655,12 @@ export interface UpdateWebACLRequest {
   DefaultAction?: WafAction;
 }
 
-export namespace UpdateWebACLRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWebACLRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateWebACLResponse {
   /**
    * <p>The <code>ChangeToken</code> that you used to submit the <code>UpdateWebACL</code> request. You can also use this value
    * 			to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>
    */
   ChangeToken?: string;
-}
-
-export namespace UpdateWebACLResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWebACLResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7635,15 +5709,6 @@ export interface XssMatchSetUpdate {
   XssMatchTuple: XssMatchTuple | undefined;
 }
 
-export namespace XssMatchSetUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XssMatchSetUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to update an <a>XssMatchSet</a>.</p>
  */
@@ -7685,15 +5750,6 @@ export interface UpdateXssMatchSetRequest {
   Updates: XssMatchSetUpdate[] | undefined;
 }
 
-export namespace UpdateXssMatchSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateXssMatchSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The response to an <a>UpdateXssMatchSets</a> request.</p>
  */
@@ -7705,11 +5761,1527 @@ export interface UpdateXssMatchSetResponse {
   ChangeToken?: string;
 }
 
-export namespace UpdateXssMatchSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateXssMatchSetResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const WafActionFilterSensitiveLog = (obj: WafAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExcludedRuleFilterSensitiveLog = (obj: ExcludedRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WafOverrideActionFilterSensitiveLog = (obj: WafOverrideAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivatedRuleFilterSensitiveLog = (obj: ActivatedRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWebACLRequestFilterSensitiveLog = (obj: AssociateWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateWebACLResponseFilterSensitiveLog = (obj: AssociateWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateByteMatchSetRequestFilterSensitiveLog = (obj: CreateByteMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldToMatchFilterSensitiveLog = (obj: FieldToMatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ByteMatchTupleFilterSensitiveLog = (obj: ByteMatchTuple): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ByteMatchSetFilterSensitiveLog = (obj: ByteMatchSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateByteMatchSetResponseFilterSensitiveLog = (obj: CreateByteMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGeoMatchSetRequestFilterSensitiveLog = (obj: CreateGeoMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeoMatchConstraintFilterSensitiveLog = (obj: GeoMatchConstraint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeoMatchSetFilterSensitiveLog = (obj: GeoMatchSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGeoMatchSetResponseFilterSensitiveLog = (obj: CreateGeoMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIPSetRequestFilterSensitiveLog = (obj: CreateIPSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetDescriptorFilterSensitiveLog = (obj: IPSetDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetFilterSensitiveLog = (obj: IPSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIPSetResponseFilterSensitiveLog = (obj: CreateIPSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRateBasedRuleRequestFilterSensitiveLog = (obj: CreateRateBasedRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredicateFilterSensitiveLog = (obj: Predicate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RateBasedRuleFilterSensitiveLog = (obj: RateBasedRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRateBasedRuleResponseFilterSensitiveLog = (obj: CreateRateBasedRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRegexMatchSetRequestFilterSensitiveLog = (obj: CreateRegexMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexMatchTupleFilterSensitiveLog = (obj: RegexMatchTuple): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexMatchSetFilterSensitiveLog = (obj: RegexMatchSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRegexMatchSetResponseFilterSensitiveLog = (obj: CreateRegexMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRegexPatternSetRequestFilterSensitiveLog = (obj: CreateRegexPatternSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexPatternSetFilterSensitiveLog = (obj: RegexPatternSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRegexPatternSetResponseFilterSensitiveLog = (obj: CreateRegexPatternSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleRequestFilterSensitiveLog = (obj: CreateRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleFilterSensitiveLog = (obj: Rule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleResponseFilterSensitiveLog = (obj: CreateRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleGroupRequestFilterSensitiveLog = (obj: CreateRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupFilterSensitiveLog = (obj: RuleGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleGroupResponseFilterSensitiveLog = (obj: CreateRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSizeConstraintSetRequestFilterSensitiveLog = (obj: CreateSizeConstraintSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SizeConstraintFilterSensitiveLog = (obj: SizeConstraint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SizeConstraintSetFilterSensitiveLog = (obj: SizeConstraintSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSizeConstraintSetResponseFilterSensitiveLog = (obj: CreateSizeConstraintSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSqlInjectionMatchSetRequestFilterSensitiveLog = (obj: CreateSqlInjectionMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqlInjectionMatchTupleFilterSensitiveLog = (obj: SqlInjectionMatchTuple): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqlInjectionMatchSetFilterSensitiveLog = (obj: SqlInjectionMatchSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSqlInjectionMatchSetResponseFilterSensitiveLog = (obj: CreateSqlInjectionMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebACLRequestFilterSensitiveLog = (obj: CreateWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebACLFilterSensitiveLog = (obj: WebACL): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebACLResponseFilterSensitiveLog = (obj: CreateWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebACLMigrationStackRequestFilterSensitiveLog = (obj: CreateWebACLMigrationStackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWebACLMigrationStackResponseFilterSensitiveLog = (obj: CreateWebACLMigrationStackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateXssMatchSetRequestFilterSensitiveLog = (obj: CreateXssMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const XssMatchTupleFilterSensitiveLog = (obj: XssMatchTuple): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const XssMatchSetFilterSensitiveLog = (obj: XssMatchSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateXssMatchSetResponseFilterSensitiveLog = (obj: CreateXssMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteByteMatchSetRequestFilterSensitiveLog = (obj: DeleteByteMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteByteMatchSetResponseFilterSensitiveLog = (obj: DeleteByteMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGeoMatchSetRequestFilterSensitiveLog = (obj: DeleteGeoMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGeoMatchSetResponseFilterSensitiveLog = (obj: DeleteGeoMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIPSetRequestFilterSensitiveLog = (obj: DeleteIPSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIPSetResponseFilterSensitiveLog = (obj: DeleteIPSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoggingConfigurationRequestFilterSensitiveLog = (obj: DeleteLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoggingConfigurationResponseFilterSensitiveLog = (obj: DeleteLoggingConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePermissionPolicyRequestFilterSensitiveLog = (obj: DeletePermissionPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePermissionPolicyResponseFilterSensitiveLog = (obj: DeletePermissionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRateBasedRuleRequestFilterSensitiveLog = (obj: DeleteRateBasedRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRateBasedRuleResponseFilterSensitiveLog = (obj: DeleteRateBasedRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRegexMatchSetRequestFilterSensitiveLog = (obj: DeleteRegexMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRegexMatchSetResponseFilterSensitiveLog = (obj: DeleteRegexMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRegexPatternSetRequestFilterSensitiveLog = (obj: DeleteRegexPatternSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRegexPatternSetResponseFilterSensitiveLog = (obj: DeleteRegexPatternSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleRequestFilterSensitiveLog = (obj: DeleteRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleResponseFilterSensitiveLog = (obj: DeleteRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleGroupRequestFilterSensitiveLog = (obj: DeleteRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleGroupResponseFilterSensitiveLog = (obj: DeleteRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSizeConstraintSetRequestFilterSensitiveLog = (obj: DeleteSizeConstraintSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSizeConstraintSetResponseFilterSensitiveLog = (obj: DeleteSizeConstraintSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSqlInjectionMatchSetRequestFilterSensitiveLog = (obj: DeleteSqlInjectionMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSqlInjectionMatchSetResponseFilterSensitiveLog = (obj: DeleteSqlInjectionMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWebACLRequestFilterSensitiveLog = (obj: DeleteWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWebACLResponseFilterSensitiveLog = (obj: DeleteWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteXssMatchSetRequestFilterSensitiveLog = (obj: DeleteXssMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteXssMatchSetResponseFilterSensitiveLog = (obj: DeleteXssMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWebACLRequestFilterSensitiveLog = (obj: DisassociateWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateWebACLResponseFilterSensitiveLog = (obj: DisassociateWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetByteMatchSetRequestFilterSensitiveLog = (obj: GetByteMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetByteMatchSetResponseFilterSensitiveLog = (obj: GetByteMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChangeTokenRequestFilterSensitiveLog = (obj: GetChangeTokenRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChangeTokenResponseFilterSensitiveLog = (obj: GetChangeTokenResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChangeTokenStatusRequestFilterSensitiveLog = (obj: GetChangeTokenStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChangeTokenStatusResponseFilterSensitiveLog = (obj: GetChangeTokenStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGeoMatchSetRequestFilterSensitiveLog = (obj: GetGeoMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGeoMatchSetResponseFilterSensitiveLog = (obj: GetGeoMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIPSetRequestFilterSensitiveLog = (obj: GetIPSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIPSetResponseFilterSensitiveLog = (obj: GetIPSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoggingConfigurationRequestFilterSensitiveLog = (obj: GetLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigurationFilterSensitiveLog = (obj: LoggingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoggingConfigurationResponseFilterSensitiveLog = (obj: GetLoggingConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPermissionPolicyRequestFilterSensitiveLog = (obj: GetPermissionPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPermissionPolicyResponseFilterSensitiveLog = (obj: GetPermissionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRateBasedRuleRequestFilterSensitiveLog = (obj: GetRateBasedRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRateBasedRuleResponseFilterSensitiveLog = (obj: GetRateBasedRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRateBasedRuleManagedKeysRequestFilterSensitiveLog = (obj: GetRateBasedRuleManagedKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRateBasedRuleManagedKeysResponseFilterSensitiveLog = (
+  obj: GetRateBasedRuleManagedKeysResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRegexMatchSetRequestFilterSensitiveLog = (obj: GetRegexMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRegexMatchSetResponseFilterSensitiveLog = (obj: GetRegexMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRegexPatternSetRequestFilterSensitiveLog = (obj: GetRegexPatternSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRegexPatternSetResponseFilterSensitiveLog = (obj: GetRegexPatternSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRuleRequestFilterSensitiveLog = (obj: GetRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRuleResponseFilterSensitiveLog = (obj: GetRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRuleGroupRequestFilterSensitiveLog = (obj: GetRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRuleGroupResponseFilterSensitiveLog = (obj: GetRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeWindowFilterSensitiveLog = (obj: TimeWindow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSampledRequestsRequestFilterSensitiveLog = (obj: GetSampledRequestsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HTTPHeaderFilterSensitiveLog = (obj: HTTPHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HTTPRequestFilterSensitiveLog = (obj: HTTPRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SampledHTTPRequestFilterSensitiveLog = (obj: SampledHTTPRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSampledRequestsResponseFilterSensitiveLog = (obj: GetSampledRequestsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSizeConstraintSetRequestFilterSensitiveLog = (obj: GetSizeConstraintSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSizeConstraintSetResponseFilterSensitiveLog = (obj: GetSizeConstraintSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSqlInjectionMatchSetRequestFilterSensitiveLog = (obj: GetSqlInjectionMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSqlInjectionMatchSetResponseFilterSensitiveLog = (obj: GetSqlInjectionMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWebACLRequestFilterSensitiveLog = (obj: GetWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWebACLResponseFilterSensitiveLog = (obj: GetWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWebACLForResourceRequestFilterSensitiveLog = (obj: GetWebACLForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebACLSummaryFilterSensitiveLog = (obj: WebACLSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWebACLForResourceResponseFilterSensitiveLog = (obj: GetWebACLForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetXssMatchSetRequestFilterSensitiveLog = (obj: GetXssMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetXssMatchSetResponseFilterSensitiveLog = (obj: GetXssMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListActivatedRulesInRuleGroupRequestFilterSensitiveLog = (
+  obj: ListActivatedRulesInRuleGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListActivatedRulesInRuleGroupResponseFilterSensitiveLog = (
+  obj: ListActivatedRulesInRuleGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListByteMatchSetsRequestFilterSensitiveLog = (obj: ListByteMatchSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ByteMatchSetSummaryFilterSensitiveLog = (obj: ByteMatchSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListByteMatchSetsResponseFilterSensitiveLog = (obj: ListByteMatchSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGeoMatchSetsRequestFilterSensitiveLog = (obj: ListGeoMatchSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeoMatchSetSummaryFilterSensitiveLog = (obj: GeoMatchSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGeoMatchSetsResponseFilterSensitiveLog = (obj: ListGeoMatchSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIPSetsRequestFilterSensitiveLog = (obj: ListIPSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetSummaryFilterSensitiveLog = (obj: IPSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIPSetsResponseFilterSensitiveLog = (obj: ListIPSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLoggingConfigurationsRequestFilterSensitiveLog = (obj: ListLoggingConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLoggingConfigurationsResponseFilterSensitiveLog = (obj: ListLoggingConfigurationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRateBasedRulesRequestFilterSensitiveLog = (obj: ListRateBasedRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleSummaryFilterSensitiveLog = (obj: RuleSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRateBasedRulesResponseFilterSensitiveLog = (obj: ListRateBasedRulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegexMatchSetsRequestFilterSensitiveLog = (obj: ListRegexMatchSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexMatchSetSummaryFilterSensitiveLog = (obj: RegexMatchSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegexMatchSetsResponseFilterSensitiveLog = (obj: ListRegexMatchSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegexPatternSetsRequestFilterSensitiveLog = (obj: ListRegexPatternSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexPatternSetSummaryFilterSensitiveLog = (obj: RegexPatternSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegexPatternSetsResponseFilterSensitiveLog = (obj: ListRegexPatternSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesForWebACLRequestFilterSensitiveLog = (obj: ListResourcesForWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesForWebACLResponseFilterSensitiveLog = (obj: ListResourcesForWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRuleGroupsRequestFilterSensitiveLog = (obj: ListRuleGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSummaryFilterSensitiveLog = (obj: RuleGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRuleGroupsResponseFilterSensitiveLog = (obj: ListRuleGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesRequestFilterSensitiveLog = (obj: ListRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesResponseFilterSensitiveLog = (obj: ListRulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSizeConstraintSetsRequestFilterSensitiveLog = (obj: ListSizeConstraintSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SizeConstraintSetSummaryFilterSensitiveLog = (obj: SizeConstraintSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSizeConstraintSetsResponseFilterSensitiveLog = (obj: ListSizeConstraintSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSqlInjectionMatchSetsRequestFilterSensitiveLog = (obj: ListSqlInjectionMatchSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqlInjectionMatchSetSummaryFilterSensitiveLog = (obj: SqlInjectionMatchSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSqlInjectionMatchSetsResponseFilterSensitiveLog = (obj: ListSqlInjectionMatchSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubscribedRuleGroupsRequestFilterSensitiveLog = (obj: ListSubscribedRuleGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscribedRuleGroupSummaryFilterSensitiveLog = (obj: SubscribedRuleGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSubscribedRuleGroupsResponseFilterSensitiveLog = (obj: ListSubscribedRuleGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagInfoForResourceFilterSensitiveLog = (obj: TagInfoForResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebACLsRequestFilterSensitiveLog = (obj: ListWebACLsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWebACLsResponseFilterSensitiveLog = (obj: ListWebACLsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListXssMatchSetsRequestFilterSensitiveLog = (obj: ListXssMatchSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const XssMatchSetSummaryFilterSensitiveLog = (obj: XssMatchSetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListXssMatchSetsResponseFilterSensitiveLog = (obj: ListXssMatchSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLoggingConfigurationRequestFilterSensitiveLog = (obj: PutLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLoggingConfigurationResponseFilterSensitiveLog = (obj: PutLoggingConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPermissionPolicyRequestFilterSensitiveLog = (obj: PutPermissionPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPermissionPolicyResponseFilterSensitiveLog = (obj: PutPermissionPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ByteMatchSetUpdateFilterSensitiveLog = (obj: ByteMatchSetUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateByteMatchSetRequestFilterSensitiveLog = (obj: UpdateByteMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateByteMatchSetResponseFilterSensitiveLog = (obj: UpdateByteMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeoMatchSetUpdateFilterSensitiveLog = (obj: GeoMatchSetUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGeoMatchSetRequestFilterSensitiveLog = (obj: UpdateGeoMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGeoMatchSetResponseFilterSensitiveLog = (obj: UpdateGeoMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetUpdateFilterSensitiveLog = (obj: IPSetUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIPSetRequestFilterSensitiveLog = (obj: UpdateIPSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIPSetResponseFilterSensitiveLog = (obj: UpdateIPSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleUpdateFilterSensitiveLog = (obj: RuleUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRateBasedRuleRequestFilterSensitiveLog = (obj: UpdateRateBasedRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRateBasedRuleResponseFilterSensitiveLog = (obj: UpdateRateBasedRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexMatchSetUpdateFilterSensitiveLog = (obj: RegexMatchSetUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRegexMatchSetRequestFilterSensitiveLog = (obj: UpdateRegexMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRegexMatchSetResponseFilterSensitiveLog = (obj: UpdateRegexMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegexPatternSetUpdateFilterSensitiveLog = (obj: RegexPatternSetUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRegexPatternSetRequestFilterSensitiveLog = (obj: UpdateRegexPatternSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRegexPatternSetResponseFilterSensitiveLog = (obj: UpdateRegexPatternSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleRequestFilterSensitiveLog = (obj: UpdateRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleResponseFilterSensitiveLog = (obj: UpdateRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupUpdateFilterSensitiveLog = (obj: RuleGroupUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleGroupRequestFilterSensitiveLog = (obj: UpdateRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleGroupResponseFilterSensitiveLog = (obj: UpdateRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SizeConstraintSetUpdateFilterSensitiveLog = (obj: SizeConstraintSetUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSizeConstraintSetRequestFilterSensitiveLog = (obj: UpdateSizeConstraintSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSizeConstraintSetResponseFilterSensitiveLog = (obj: UpdateSizeConstraintSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SqlInjectionMatchSetUpdateFilterSensitiveLog = (obj: SqlInjectionMatchSetUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSqlInjectionMatchSetRequestFilterSensitiveLog = (obj: UpdateSqlInjectionMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSqlInjectionMatchSetResponseFilterSensitiveLog = (obj: UpdateSqlInjectionMatchSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WebACLUpdateFilterSensitiveLog = (obj: WebACLUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWebACLRequestFilterSensitiveLog = (obj: UpdateWebACLRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWebACLResponseFilterSensitiveLog = (obj: UpdateWebACLResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const XssMatchSetUpdateFilterSensitiveLog = (obj: XssMatchSetUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateXssMatchSetRequestFilterSensitiveLog = (obj: UpdateXssMatchSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateXssMatchSetResponseFilterSensitiveLog = (obj: UpdateXssMatchSetResponse): any => ({
+  ...obj,
+});

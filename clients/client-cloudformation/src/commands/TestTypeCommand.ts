@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { TestTypeInput, TestTypeOutput } from "../models/models_0";
+import {
+  TestTypeInput,
+  TestTypeInputFilterSensitiveLog,
+  TestTypeOutput,
+  TestTypeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryTestTypeCommand, serializeAws_queryTestTypeCommand } from "../protocols/Aws_query";
 
 export interface TestTypeCommandInput extends TestTypeInput {}
@@ -91,8 +96,8 @@ export class TestTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: TestTypeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TestTypeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: TestTypeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

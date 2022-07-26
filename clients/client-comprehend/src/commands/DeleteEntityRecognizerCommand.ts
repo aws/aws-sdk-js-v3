@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { DeleteEntityRecognizerRequest, DeleteEntityRecognizerResponse } from "../models/models_0";
+import {
+  DeleteEntityRecognizerRequest,
+  DeleteEntityRecognizerRequestFilterSensitiveLog,
+  DeleteEntityRecognizerResponse,
+  DeleteEntityRecognizerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEntityRecognizerCommand,
   serializeAws_json1_1DeleteEntityRecognizerCommand,
@@ -78,8 +83,8 @@ export class DeleteEntityRecognizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEntityRecognizerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEntityRecognizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEntityRecognizerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteEntityRecognizerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

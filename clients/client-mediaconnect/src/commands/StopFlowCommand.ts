@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { StopFlowRequest, StopFlowResponse } from "../models/models_0";
+import {
+  StopFlowRequest,
+  StopFlowRequestFilterSensitiveLog,
+  StopFlowResponse,
+  StopFlowResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopFlowCommand,
   serializeAws_restJson1StopFlowCommand,
@@ -72,8 +77,8 @@ export class StopFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopFlowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopFlowResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopFlowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopFlowResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

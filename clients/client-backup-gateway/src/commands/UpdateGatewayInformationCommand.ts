@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { UpdateGatewayInformationInput, UpdateGatewayInformationOutput } from "../models/models_0";
+import {
+  UpdateGatewayInformationInput,
+  UpdateGatewayInformationInputFilterSensitiveLog,
+  UpdateGatewayInformationOutput,
+  UpdateGatewayInformationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateGatewayInformationCommand,
   serializeAws_json1_0UpdateGatewayInformationCommand,
@@ -73,8 +78,8 @@ export class UpdateGatewayInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewayInformationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewayInformationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGatewayInformationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGatewayInformationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

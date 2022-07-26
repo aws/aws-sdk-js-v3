@@ -15,7 +15,9 @@ import {
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   DeleteLaunchConfigurationTemplateRequest,
+  DeleteLaunchConfigurationTemplateRequestFilterSensitiveLog,
   DeleteLaunchConfigurationTemplateResponse,
+  DeleteLaunchConfigurationTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand,
@@ -77,8 +79,8 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchConfigurationTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLaunchConfigurationTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLaunchConfigurationTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteLaunchConfigurationTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

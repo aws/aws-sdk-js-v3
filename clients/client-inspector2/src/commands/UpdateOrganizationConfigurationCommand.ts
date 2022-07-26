@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_0";
+import {
+  UpdateOrganizationConfigurationRequest,
+  UpdateOrganizationConfigurationRequestFilterSensitiveLog,
+  UpdateOrganizationConfigurationResponse,
+  UpdateOrganizationConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateOrganizationConfigurationCommand,
   serializeAws_restJson1UpdateOrganizationConfigurationCommand,
@@ -74,8 +79,8 @@ export class UpdateOrganizationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOrganizationConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOrganizationConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateOrganizationConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateOrganizationConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

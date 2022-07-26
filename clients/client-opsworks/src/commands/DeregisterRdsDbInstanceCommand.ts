@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterRdsDbInstanceRequest } from "../models/models_0";
+import { DeregisterRdsDbInstanceRequest, DeregisterRdsDbInstanceRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DeregisterRdsDbInstanceCommand,
@@ -77,7 +77,7 @@ export class DeregisterRdsDbInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterRdsDbInstanceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterRdsDbInstanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

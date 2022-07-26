@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeBotAliasRequest, DescribeBotAliasResponse } from "../models/models_0";
+import {
+  DescribeBotAliasRequest,
+  DescribeBotAliasRequestFilterSensitiveLog,
+  DescribeBotAliasResponse,
+  DescribeBotAliasResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeBotAliasCommand,
   serializeAws_restJson1DescribeBotAliasCommand,
@@ -72,8 +77,8 @@ export class DescribeBotAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBotAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBotAliasResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBotAliasRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBotAliasResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

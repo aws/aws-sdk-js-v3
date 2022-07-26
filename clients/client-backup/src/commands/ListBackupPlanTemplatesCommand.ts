@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { ListBackupPlanTemplatesInput, ListBackupPlanTemplatesOutput } from "../models/models_0";
+import {
+  ListBackupPlanTemplatesInput,
+  ListBackupPlanTemplatesInputFilterSensitiveLog,
+  ListBackupPlanTemplatesOutput,
+  ListBackupPlanTemplatesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListBackupPlanTemplatesCommand,
   serializeAws_restJson1ListBackupPlanTemplatesCommand,
@@ -73,8 +78,8 @@ export class ListBackupPlanTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackupPlanTemplatesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBackupPlanTemplatesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBackupPlanTemplatesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBackupPlanTemplatesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

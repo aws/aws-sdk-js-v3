@@ -54,15 +54,6 @@ export interface AccountAttribute {
   Value: string | undefined;
 }
 
-export namespace AccountAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountAttribute): any => ({
-    ...obj,
-  });
-}
-
 export enum AccountLimitName {
   CONFIGURATION_SETS = "CONFIGURATION_SETS",
   OPT_OUT_LISTS = "OPT_OUT_LISTS",
@@ -88,15 +79,6 @@ export interface AccountLimit {
    * <p>The Amazon Web Services set limit for that resource type, in US dollars.</p>
    */
   Max: number | undefined;
-}
-
-export namespace AccountLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountLimit): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateOriginationIdentityRequest {
@@ -128,15 +110,6 @@ export interface AssociateOriginationIdentityRequest {
   ClientToken?: string;
 }
 
-export namespace AssociateOriginationIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateOriginationIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateOriginationIdentityResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the pool that is now associated with the origination
@@ -164,15 +137,6 @@ export interface AssociateOriginationIdentityResult {
    *         </p>
    */
   IsoCountryCode?: string;
-}
-
-export namespace AssociateOriginationIdentityResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateOriginationIdentityResult): any => ({
-    ...obj,
-  });
 }
 
 export enum ConflictExceptionReason {
@@ -394,15 +358,6 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_ADD_OPTED_OUT_NUMBER = "CANNOT_ADD_OPTED_OUT_NUMBER",
   CANNOT_PARSE = "CANNOT_PARSE",
@@ -479,15 +434,6 @@ export interface CloudWatchLogsDestination {
   LogGroupArn: string | undefined;
 }
 
-export namespace CloudWatchLogsDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogsDestination): any => ({
-    ...obj,
-  });
-}
-
 export enum ConfigurationSetFilterName {
   DEFAULT_MESSAGE_TYPE = "default-message-type",
   DEFAULT_SENDER_ID = "default-sender-id",
@@ -508,15 +454,6 @@ export interface ConfigurationSetFilter {
    * <p>An array values to filter for.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace ConfigurationSetFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationSetFilter): any => ({
-    ...obj,
-  });
 }
 
 export enum MessageType {
@@ -541,15 +478,6 @@ export interface KinesisFirehoseDestination {
    * <p>The Amazon Resource Name (ARN) of the delivery stream.</p>
    */
   DeliveryStreamArn: string | undefined;
-}
-
-export namespace KinesisFirehoseDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
-    ...obj,
-  });
 }
 
 export enum EventType {
@@ -590,15 +518,6 @@ export interface SnsDestination {
    *             publish events to.</p>
    */
   TopicArn: string | undefined;
-}
-
-export namespace SnsDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnsDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -643,15 +562,6 @@ export interface EventDestination {
   SnsDestination?: SnsDestination;
 }
 
-export namespace EventDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information related to a given configuration set in your Amazon Web Services
  *             account.</p>
@@ -691,15 +601,6 @@ export interface ConfigurationSetInformation {
   CreatedTimestamp: Date | undefined;
 }
 
-export namespace ConfigurationSetInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigurationSetInformation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The list of tags to be added to the specified topic.</p>
  */
@@ -713,15 +614,6 @@ export interface Tag {
    * <p>The string value associated with the key of the tag.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConfigurationSetRequest {
@@ -741,15 +633,6 @@ export interface CreateConfigurationSetRequest {
    *             request to ensure idempotency.</p>
    */
   ClientToken?: string;
-}
-
-export namespace CreateConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateConfigurationSetResult {
@@ -773,15 +656,6 @@ export interface CreateConfigurationSetResult {
    * <p>The time when the configuration set was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    */
   CreatedTimestamp?: Date;
-}
-
-export namespace CreateConfigurationSetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateEventDestinationRequest {
@@ -827,15 +701,6 @@ export interface CreateEventDestinationRequest {
   ClientToken?: string;
 }
 
-export namespace CreateEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEventDestinationResult {
   /**
    * <p>The ARN of the configuration set.</p>
@@ -851,15 +716,6 @@ export interface CreateEventDestinationResult {
    * <p>The details of the destination where events are logged.</p>
    */
   EventDestination?: EventDestination;
-}
-
-export namespace CreateEventDestinationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventDestinationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateOptOutListRequest {
@@ -879,15 +735,6 @@ export interface CreateOptOutListRequest {
    *             request to ensure idempotency.</p>
    */
   ClientToken?: string;
-}
-
-export namespace CreateOptOutListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOptOutListRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateOptOutListResult {
@@ -910,15 +757,6 @@ export interface CreateOptOutListResult {
    * <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    */
   CreatedTimestamp?: Date;
-}
-
-export namespace CreateOptOutListResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateOptOutListResult): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePoolRequest {
@@ -960,15 +798,6 @@ export interface CreatePoolRequest {
    *             request to ensure idempotency.</p>
    */
   ClientToken?: string;
-}
-
-export namespace CreatePoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePoolRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PoolStatus {
@@ -1057,30 +886,12 @@ export interface CreatePoolResult {
   CreatedTimestamp?: Date;
 }
 
-export namespace CreatePoolResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePoolResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConfigurationSetRequest {
   /**
    * <p>The name of the configuration set or the configuration set ARN that you want to
    *             delete. The ConfigurationSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
    */
   ConfigurationSetName: string | undefined;
-}
-
-export namespace DeleteConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteConfigurationSetResult {
@@ -1116,15 +927,6 @@ export interface DeleteConfigurationSetResult {
   CreatedTimestamp?: Date;
 }
 
-export namespace DeleteConfigurationSetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDefaultMessageTypeRequest {
   /**
    * <p>The name of the configuration set or the configuration set Amazon Resource Name (ARN)
@@ -1133,15 +935,6 @@ export interface DeleteDefaultMessageTypeRequest {
    *             action.</p>
    */
   ConfigurationSetName: string | undefined;
-}
-
-export namespace DeleteDefaultMessageTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDefaultMessageTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDefaultMessageTypeResult {
@@ -1161,15 +954,6 @@ export interface DeleteDefaultMessageTypeResult {
   MessageType?: MessageType | string;
 }
 
-export namespace DeleteDefaultMessageTypeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDefaultMessageTypeResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDefaultSenderIdRequest {
   /**
    * <p>The name of the configuration set or the configuration set Amazon Resource Name (ARN)
@@ -1177,15 +961,6 @@ export interface DeleteDefaultSenderIdRequest {
    *             can be found using the <a>DescribeConfigurationSets</a> action.</p>
    */
   ConfigurationSetName: string | undefined;
-}
-
-export namespace DeleteDefaultSenderIdRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDefaultSenderIdRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDefaultSenderIdResult {
@@ -1205,15 +980,6 @@ export interface DeleteDefaultSenderIdResult {
   SenderId?: string;
 }
 
-export namespace DeleteDefaultSenderIdResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDefaultSenderIdResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEventDestinationRequest {
   /**
    * <p>The name of the configuration set or the configuration set's Amazon Resource Name
@@ -1227,15 +993,6 @@ export interface DeleteEventDestinationRequest {
    * <p>The name of the event destination to delete.</p>
    */
   EventDestinationName: string | undefined;
-}
-
-export namespace DeleteEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventDestinationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteEventDestinationResult {
@@ -1255,15 +1012,6 @@ export interface DeleteEventDestinationResult {
   EventDestination?: EventDestination;
 }
 
-export namespace DeleteEventDestinationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventDestinationResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteKeywordRequest {
   /**
    * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, PoolId or
@@ -1277,15 +1025,6 @@ export interface DeleteKeywordRequest {
    * <p>The keyword to delete.</p>
    */
   Keyword: string | undefined;
-}
-
-export namespace DeleteKeywordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKeywordRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum KeywordAction {
@@ -1321,15 +1060,6 @@ export interface DeleteKeywordResult {
   KeywordAction?: KeywordAction | string;
 }
 
-export namespace DeleteKeywordResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKeywordResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteOptedOutNumberRequest {
   /**
    * <p>The OptOutListName or OptOutListArn to remove the phone number from.</p>
@@ -1340,15 +1070,6 @@ export interface DeleteOptedOutNumberRequest {
    * <p>The phone number, in E.164 format, to remove from the OptOutList.</p>
    */
   OptedOutNumber: string | undefined;
-}
-
-export namespace DeleteOptedOutNumberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOptedOutNumberRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteOptedOutNumberResult {
@@ -1379,30 +1100,12 @@ export interface DeleteOptedOutNumberResult {
   EndUserOptedOut?: boolean;
 }
 
-export namespace DeleteOptedOutNumberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOptedOutNumberResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteOptOutListRequest {
   /**
    * <p>The OptOutListName or OptOutListArn of the OptOutList to delete. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and
    *             OptOutListArn.</p>
    */
   OptOutListName: string | undefined;
-}
-
-export namespace DeleteOptOutListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOptOutListRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteOptOutListResult {
@@ -1422,29 +1125,11 @@ export interface DeleteOptOutListResult {
   CreatedTimestamp?: Date;
 }
 
-export namespace DeleteOptOutListResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOptOutListResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePoolRequest {
   /**
    * <p>The PoolId or PoolArn of the pool to delete. You can use <a>DescribePools</a> to find the values for PoolId and PoolArn .</p>
    */
   PoolId: string | undefined;
-}
-
-export namespace DeletePoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePoolRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePoolResult {
@@ -1516,25 +1201,7 @@ export interface DeletePoolResult {
   CreatedTimestamp?: Date;
 }
 
-export namespace DeletePoolResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePoolResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTextMessageSpendLimitOverrideRequest {}
-
-export namespace DeleteTextMessageSpendLimitOverrideRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTextMessageSpendLimitOverrideRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteTextMessageSpendLimitOverrideResult {
   /**
@@ -1543,40 +1210,13 @@ export interface DeleteTextMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
 
-export namespace DeleteTextMessageSpendLimitOverrideResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTextMessageSpendLimitOverrideResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteVoiceMessageSpendLimitOverrideRequest {}
-
-export namespace DeleteVoiceMessageSpendLimitOverrideRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVoiceMessageSpendLimitOverrideRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteVoiceMessageSpendLimitOverrideResult {
   /**
    * <p>The current monthly limit, in US dollars.</p>
    */
   MonthlyLimit?: number;
-}
-
-export namespace DeleteVoiceMessageSpendLimitOverrideResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteVoiceMessageSpendLimitOverrideResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountAttributesRequest {
@@ -1592,15 +1232,6 @@ export interface DescribeAccountAttributesRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeAccountAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountAttributesResult {
   /**
    * <p>An array of AccountAttributes objects.</p>
@@ -1612,15 +1243,6 @@ export interface DescribeAccountAttributesResult {
    *             then there are no more results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAccountAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountLimitsRequest {
@@ -1636,15 +1258,6 @@ export interface DescribeAccountLimitsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeAccountLimitsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountLimitsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAccountLimitsResult {
   /**
    * <p>An array of AccountLimit objects that show the current spend limits.</p>
@@ -1656,15 +1269,6 @@ export interface DescribeAccountLimitsResult {
    *             then there are no more results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeAccountLimitsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAccountLimitsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeConfigurationSetsRequest {
@@ -1691,15 +1295,6 @@ export interface DescribeConfigurationSetsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeConfigurationSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationSetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeConfigurationSetsResult {
   /**
    * <p>An array of ConfigurationSets objects.</p>
@@ -1711,15 +1306,6 @@ export interface DescribeConfigurationSetsResult {
    *             then there are no more results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeConfigurationSetsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeConfigurationSetsResult): any => ({
-    ...obj,
-  });
 }
 
 export enum KeywordFilterName {
@@ -1739,15 +1325,6 @@ export interface KeywordFilter {
    * <p>An array values to filter for.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace KeywordFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeywordFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeKeywordsRequest {
@@ -1781,15 +1358,6 @@ export interface DescribeKeywordsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeKeywordsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeKeywordsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The information for all keywords in a pool.</p>
  */
@@ -1808,15 +1376,6 @@ export interface KeywordInformation {
    * <p>The action to perform for the keyword.</p>
    */
   KeywordAction: KeywordAction | string | undefined;
-}
-
-export namespace KeywordInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeywordInformation): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeKeywordsResult {
@@ -1842,15 +1401,6 @@ export interface DescribeKeywordsResult {
   NextToken?: string;
 }
 
-export namespace DescribeKeywordsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeKeywordsResult): any => ({
-    ...obj,
-  });
-}
-
 export enum OptedOutFilterName {
   END_USER_OPTED_OUT = "end-user-opted-out",
 }
@@ -1868,15 +1418,6 @@ export interface OptedOutFilter {
    * <p>An array of values to filter for.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace OptedOutFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptedOutFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOptedOutNumbersRequest {
@@ -1908,15 +1449,6 @@ export interface DescribeOptedOutNumbersRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeOptedOutNumbersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOptedOutNumbersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The information for an opted out number in an Amazon Web Services account.</p>
  */
@@ -1935,15 +1467,6 @@ export interface OptedOutNumberInformation {
    * <p>This is set to true if it was the end recipient that opted out.</p>
    */
   EndUserOptedOut: boolean | undefined;
-}
-
-export namespace OptedOutNumberInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptedOutNumberInformation): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeOptedOutNumbersResult {
@@ -1970,15 +1493,6 @@ export interface DescribeOptedOutNumbersResult {
   NextToken?: string;
 }
 
-export namespace DescribeOptedOutNumbersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOptedOutNumbersResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOptOutListsRequest {
   /**
    * <p>The OptOutLists to show the details of. This is an array of strings that can be either
@@ -1996,15 +1510,6 @@ export interface DescribeOptOutListsRequest {
    * <p>The maximum number of results to return per each request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribeOptOutListsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOptOutListsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2027,15 +1532,6 @@ export interface OptOutListInformation {
   CreatedTimestamp: Date | undefined;
 }
 
-export namespace OptOutListInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptOutListInformation): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOptOutListsResult {
   /**
    * <p>An array of OptOutListInformation objects that contain the details for the requested
@@ -2048,15 +1544,6 @@ export interface DescribeOptOutListsResult {
    *             then there are no more results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeOptOutListsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOptOutListsResult): any => ({
-    ...obj,
-  });
 }
 
 export enum PhoneNumberFilterName {
@@ -2086,15 +1573,6 @@ export interface PhoneNumberFilter {
   Values: string[] | undefined;
 }
 
-export namespace PhoneNumberFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhoneNumberFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePhoneNumbersRequest {
   /**
    * <p>The unique identifier of phone numbers to find information about. This is an array of
@@ -2117,15 +1595,6 @@ export interface DescribePhoneNumbersRequest {
    * <p>The maximum number of results to return per each request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribePhoneNumbersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePhoneNumbersRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum NumberCapability {
@@ -2243,15 +1712,6 @@ export interface PhoneNumberInformation {
   CreatedTimestamp: Date | undefined;
 }
 
-export namespace PhoneNumberInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhoneNumberInformation): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePhoneNumbersResult {
   /**
    * <p>An array of PhoneNumberInformation objects that contain the details for the requested
@@ -2264,15 +1724,6 @@ export interface DescribePhoneNumbersResult {
    *             then there are no more results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribePhoneNumbersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePhoneNumbersResult): any => ({
-    ...obj,
-  });
 }
 
 export enum PoolFilterName {
@@ -2300,15 +1751,6 @@ export interface PoolFilter {
   Values: string[] | undefined;
 }
 
-export namespace PoolFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PoolFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePoolsRequest {
   /**
    * <p>The unique identifier of pools to find. This is an array of strings that can be either
@@ -2331,15 +1773,6 @@ export interface DescribePoolsRequest {
    * <p>The maximum number of results to return per each request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribePoolsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePoolsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2415,15 +1848,6 @@ export interface PoolInformation {
   CreatedTimestamp: Date | undefined;
 }
 
-export namespace PoolInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PoolInformation): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePoolsResult {
   /**
    * <p>An array of PoolInformation objects that contain the details for the requested pools. </p>
@@ -2435,15 +1859,6 @@ export interface DescribePoolsResult {
    *             then there are no more results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribePoolsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePoolsResult): any => ({
-    ...obj,
-  });
 }
 
 export enum SenderIdFilterName {
@@ -2467,15 +1882,6 @@ export interface SenderIdFilter {
   Values: string[] | undefined;
 }
 
-export namespace SenderIdFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SenderIdFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The alphanumeric sender ID in a specific country that you want to describe. For more
  *             information on sender IDs see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-sender-id.html">Requesting
@@ -2493,15 +1899,6 @@ export interface SenderIdAndCountry {
    *         </p>
    */
   IsoCountryCode: string | undefined;
-}
-
-export namespace SenderIdAndCountry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SenderIdAndCountry): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSenderIdsRequest {
@@ -2525,15 +1922,6 @@ export interface DescribeSenderIdsRequest {
    * <p>The maximum number of results to return per each request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribeSenderIdsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSenderIdsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2569,15 +1957,6 @@ export interface SenderIdInformation {
   MonthlyLeasingPrice: string | undefined;
 }
 
-export namespace SenderIdInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SenderIdInformation): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSenderIdsResult {
   /**
    * <p>An array of SernderIdInformation objects that contain the details for the requested
@@ -2592,15 +1971,6 @@ export interface DescribeSenderIdsResult {
   NextToken?: string;
 }
 
-export namespace DescribeSenderIdsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSenderIdsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSpendLimitsRequest {
   /**
    * <p>The token to be used for the next set of paginated results. You don't need to supply a
@@ -2612,15 +1982,6 @@ export interface DescribeSpendLimitsRequest {
    * <p>The maximum number of results to return per each request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribeSpendLimitsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSpendLimitsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SpendLimitName {
@@ -2662,15 +2023,6 @@ export interface SpendLimit {
   Overridden: boolean | undefined;
 }
 
-export namespace SpendLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SpendLimit): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSpendLimitsResult {
   /**
    * <p>An array of SpendLimit objects that contain the details for the requested spend
@@ -2683,15 +2035,6 @@ export interface DescribeSpendLimitsResult {
    *             then there are no more results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeSpendLimitsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSpendLimitsResult): any => ({
-    ...obj,
-  });
 }
 
 export enum DestinationCountryParameterKey {
@@ -2728,15 +2071,6 @@ export interface DisassociateOriginationIdentityRequest {
   ClientToken?: string;
 }
 
-export namespace DisassociateOriginationIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateOriginationIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateOriginationIdentityResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the pool.</p>
@@ -2765,15 +2099,6 @@ export interface DisassociateOriginationIdentityResult {
   IsoCountryCode?: string;
 }
 
-export namespace DisassociateOriginationIdentityResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateOriginationIdentityResult): any => ({
-    ...obj,
-  });
-}
-
 export enum PoolOriginationIdentitiesFilterName {
   ISO_COUNTRY_CODE = "iso-country-code",
   NUMBER_CAPABILITY = "number-capability",
@@ -2793,15 +2118,6 @@ export interface PoolOriginationIdentitiesFilter {
    * <p>An array values to filter for.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace PoolOriginationIdentitiesFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PoolOriginationIdentitiesFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPoolOriginationIdentitiesRequest {
@@ -2826,15 +2142,6 @@ export interface ListPoolOriginationIdentitiesRequest {
    * <p>The maximum number of results to return per each request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListPoolOriginationIdentitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPoolOriginationIdentitiesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2864,15 +2171,6 @@ export interface OriginationIdentityMetadata {
   NumberCapabilities: (NumberCapability | string)[] | undefined;
 }
 
-export namespace OriginationIdentityMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginationIdentityMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPoolOriginationIdentitiesResult {
   /**
    * <p>The Amazon Resource Name (ARN) for the pool.</p>
@@ -2896,29 +2194,11 @@ export interface ListPoolOriginationIdentitiesResult {
   NextToken?: string;
 }
 
-export namespace ListPoolOriginationIdentitiesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPoolOriginationIdentitiesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to query for.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResult {
@@ -2931,15 +2211,6 @@ export interface ListTagsForResourceResult {
    * <p>An array of key and value pair tags that are associated with the resource.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface PutKeywordRequest {
@@ -2978,15 +2249,6 @@ export interface PutKeywordRequest {
   KeywordAction?: KeywordAction | string;
 }
 
-export namespace PutKeywordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutKeywordRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutKeywordResult {
   /**
    * <p>The PhoneNumberArn or PoolArn that the keyword was associated with.</p>
@@ -3014,15 +2276,6 @@ export interface PutKeywordResult {
   KeywordAction?: KeywordAction | string;
 }
 
-export namespace PutKeywordResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutKeywordResult): any => ({
-    ...obj,
-  });
-}
-
 export interface PutOptedOutNumberRequest {
   /**
    * <p>The OptOutListName or OptOutListArn to add the phone number to.</p>
@@ -3033,15 +2286,6 @@ export interface PutOptedOutNumberRequest {
    * <p>The phone number to add to the OptOutList in E.164 format.</p>
    */
   OptedOutNumber: string | undefined;
-}
-
-export namespace PutOptedOutNumberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutOptedOutNumberRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutOptedOutNumberResult {
@@ -3072,30 +2316,12 @@ export interface PutOptedOutNumberResult {
   EndUserOptedOut?: boolean;
 }
 
-export namespace PutOptedOutNumberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutOptedOutNumberResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ReleasePhoneNumberRequest {
   /**
    * <p>The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use <a>DescribePhoneNumbers</a> to get the values for PhoneNumberId and
    *             PhoneNumberArn.</p>
    */
   PhoneNumberId: string | undefined;
-}
-
-export namespace ReleasePhoneNumberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleasePhoneNumberRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ReleasePhoneNumberResult {
@@ -3176,15 +2402,6 @@ export interface ReleasePhoneNumberResult {
   CreatedTimestamp?: Date;
 }
 
-export namespace ReleasePhoneNumberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleasePhoneNumberResult): any => ({
-    ...obj,
-  });
-}
-
 export enum RequestableNumberType {
   LONG_CODE = "LONG_CODE",
   TEN_DLC = "TEN_DLC",
@@ -3250,15 +2467,6 @@ export interface RequestPhoneNumberRequest {
    *             request to ensure idempotency.</p>
    */
   ClientToken?: string;
-}
-
-export namespace RequestPhoneNumberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestPhoneNumberRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RequestPhoneNumberResult {
@@ -3358,15 +2566,6 @@ export interface RequestPhoneNumberResult {
   CreatedTimestamp?: Date;
 }
 
-export namespace RequestPhoneNumberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestPhoneNumberResult): any => ({
-    ...obj,
-  });
-}
-
 export interface SendTextMessageRequest {
   /**
    * <p>The destination phone number in E.164 format.</p>
@@ -3436,29 +2635,11 @@ export interface SendTextMessageRequest {
   DryRun?: boolean;
 }
 
-export namespace SendTextMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendTextMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendTextMessageResult {
   /**
    * <p>The unique identifier for the message.</p>
    */
   MessageId?: string;
-}
-
-export namespace SendTextMessageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendTextMessageResult): any => ({
-    ...obj,
-  });
 }
 
 export enum VoiceMessageBodyTextType {
@@ -3596,29 +2777,11 @@ export interface SendVoiceMessageRequest {
   DryRun?: boolean;
 }
 
-export namespace SendVoiceMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendVoiceMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendVoiceMessageResult {
   /**
    * <p>The unique identifier for the message.</p>
    */
   MessageId?: string;
-}
-
-export namespace SendVoiceMessageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendVoiceMessageResult): any => ({
-    ...obj,
-  });
 }
 
 export interface SetDefaultMessageTypeRequest {
@@ -3634,15 +2797,6 @@ export interface SetDefaultMessageTypeRequest {
    *             time-sensitive.</p>
    */
   MessageType: MessageType | string | undefined;
-}
-
-export namespace SetDefaultMessageTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetDefaultMessageTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface SetDefaultMessageTypeResult {
@@ -3662,15 +2816,6 @@ export interface SetDefaultMessageTypeResult {
   MessageType?: MessageType | string;
 }
 
-export namespace SetDefaultMessageTypeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetDefaultMessageTypeResult): any => ({
-    ...obj,
-  });
-}
-
 export interface SetDefaultSenderIdRequest {
   /**
    * <p>The configuration set to updated with a new default SenderId. This field can be the
@@ -3686,15 +2831,6 @@ export interface SetDefaultSenderIdRequest {
    *             of a generic sender ID, such as 'NOTICE'.</p>
    */
   SenderId: string | undefined;
-}
-
-export namespace SetDefaultSenderIdRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetDefaultSenderIdRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface SetDefaultSenderIdResult {
@@ -3714,29 +2850,11 @@ export interface SetDefaultSenderIdResult {
   SenderId?: string;
 }
 
-export namespace SetDefaultSenderIdResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetDefaultSenderIdResult): any => ({
-    ...obj,
-  });
-}
-
 export interface SetTextMessageSpendLimitOverrideRequest {
   /**
    * <p>The new monthly limit to enforce on text messages.</p>
    */
   MonthlyLimit: number | undefined;
-}
-
-export namespace SetTextMessageSpendLimitOverrideRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTextMessageSpendLimitOverrideRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface SetTextMessageSpendLimitOverrideResult {
@@ -3746,15 +2864,6 @@ export interface SetTextMessageSpendLimitOverrideResult {
   MonthlyLimit?: number;
 }
 
-export namespace SetTextMessageSpendLimitOverrideResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTextMessageSpendLimitOverrideResult): any => ({
-    ...obj,
-  });
-}
-
 export interface SetVoiceMessageSpendLimitOverrideRequest {
   /**
    * <p>The new monthly limit to enforce on voice messages.</p>
@@ -3762,29 +2871,11 @@ export interface SetVoiceMessageSpendLimitOverrideRequest {
   MonthlyLimit: number | undefined;
 }
 
-export namespace SetVoiceMessageSpendLimitOverrideRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetVoiceMessageSpendLimitOverrideRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SetVoiceMessageSpendLimitOverrideResult {
   /**
    * <p>The current monthly limit to enforce on sending voice messages.</p>
    */
   MonthlyLimit?: number;
-}
-
-export namespace SetVoiceMessageSpendLimitOverrideResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetVoiceMessageSpendLimitOverrideResult): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3799,25 +2890,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResult {}
-
-export namespace TagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3831,25 +2904,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResult {}
-
-export namespace UntagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateEventDestinationRequest {
   /**
@@ -3891,15 +2946,6 @@ export interface UpdateEventDestinationRequest {
   SnsDestination?: SnsDestination;
 }
 
-export namespace UpdateEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEventDestinationResult {
   /**
    * <p>The Amazon Resource Name (ARN) for the ConfigurationSet that was updated.</p>
@@ -3916,15 +2962,6 @@ export interface UpdateEventDestinationResult {
    *         </p>
    */
   EventDestination?: EventDestination;
-}
-
-export namespace UpdateEventDestinationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEventDestinationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePhoneNumberRequest {
@@ -3965,15 +3002,6 @@ export interface UpdatePhoneNumberRequest {
    *         </p>
    */
   DeletionProtectionEnabled?: boolean;
-}
-
-export namespace UpdatePhoneNumberRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePhoneNumberRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePhoneNumberResult {
@@ -4057,15 +3085,6 @@ export interface UpdatePhoneNumberResult {
   CreatedTimestamp?: Date;
 }
 
-export namespace UpdatePhoneNumberResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePhoneNumberResult): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePoolRequest {
   /**
    * <p>The unique identifier of the pool to update. Valid values are either the PoolId or
@@ -4108,15 +3127,6 @@ export interface UpdatePoolRequest {
    * <p>When set to true the pool can't be deleted.</p>
    */
   DeletionProtectionEnabled?: boolean;
-}
-
-export namespace UpdatePoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePoolRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePoolResult {
@@ -4181,11 +3191,805 @@ export interface UpdatePoolResult {
   CreatedTimestamp?: Date;
 }
 
-export namespace UpdatePoolResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePoolResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AccountAttributeFilterSensitiveLog = (obj: AccountAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountLimitFilterSensitiveLog = (obj: AccountLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateOriginationIdentityRequestFilterSensitiveLog = (
+  obj: AssociateOriginationIdentityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateOriginationIdentityResultFilterSensitiveLog = (obj: AssociateOriginationIdentityResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogsDestinationFilterSensitiveLog = (obj: CloudWatchLogsDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationSetFilterFilterSensitiveLog = (obj: ConfigurationSetFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseDestinationFilterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnsDestinationFilterSensitiveLog = (obj: SnsDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDestinationFilterSensitiveLog = (obj: EventDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationSetInformationFilterSensitiveLog = (obj: ConfigurationSetInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetRequestFilterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetResultFilterSensitiveLog = (obj: CreateConfigurationSetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventDestinationRequestFilterSensitiveLog = (obj: CreateEventDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventDestinationResultFilterSensitiveLog = (obj: CreateEventDestinationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOptOutListRequestFilterSensitiveLog = (obj: CreateOptOutListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateOptOutListResultFilterSensitiveLog = (obj: CreateOptOutListResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePoolRequestFilterSensitiveLog = (obj: CreatePoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePoolResultFilterSensitiveLog = (obj: CreatePoolResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetRequestFilterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetResultFilterSensitiveLog = (obj: DeleteConfigurationSetResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDefaultMessageTypeRequestFilterSensitiveLog = (obj: DeleteDefaultMessageTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDefaultMessageTypeResultFilterSensitiveLog = (obj: DeleteDefaultMessageTypeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDefaultSenderIdRequestFilterSensitiveLog = (obj: DeleteDefaultSenderIdRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDefaultSenderIdResultFilterSensitiveLog = (obj: DeleteDefaultSenderIdResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventDestinationRequestFilterSensitiveLog = (obj: DeleteEventDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventDestinationResultFilterSensitiveLog = (obj: DeleteEventDestinationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeywordRequestFilterSensitiveLog = (obj: DeleteKeywordRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeywordResultFilterSensitiveLog = (obj: DeleteKeywordResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOptedOutNumberRequestFilterSensitiveLog = (obj: DeleteOptedOutNumberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOptedOutNumberResultFilterSensitiveLog = (obj: DeleteOptedOutNumberResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOptOutListRequestFilterSensitiveLog = (obj: DeleteOptOutListRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteOptOutListResultFilterSensitiveLog = (obj: DeleteOptOutListResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePoolRequestFilterSensitiveLog = (obj: DeletePoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePoolResultFilterSensitiveLog = (obj: DeletePoolResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTextMessageSpendLimitOverrideRequestFilterSensitiveLog = (
+  obj: DeleteTextMessageSpendLimitOverrideRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTextMessageSpendLimitOverrideResultFilterSensitiveLog = (
+  obj: DeleteTextMessageSpendLimitOverrideResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVoiceMessageSpendLimitOverrideRequestFilterSensitiveLog = (
+  obj: DeleteVoiceMessageSpendLimitOverrideRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteVoiceMessageSpendLimitOverrideResultFilterSensitiveLog = (
+  obj: DeleteVoiceMessageSpendLimitOverrideResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountAttributesRequestFilterSensitiveLog = (obj: DescribeAccountAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountAttributesResultFilterSensitiveLog = (obj: DescribeAccountAttributesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountLimitsRequestFilterSensitiveLog = (obj: DescribeAccountLimitsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAccountLimitsResultFilterSensitiveLog = (obj: DescribeAccountLimitsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationSetsRequestFilterSensitiveLog = (obj: DescribeConfigurationSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeConfigurationSetsResultFilterSensitiveLog = (obj: DescribeConfigurationSetsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeywordFilterFilterSensitiveLog = (obj: KeywordFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeKeywordsRequestFilterSensitiveLog = (obj: DescribeKeywordsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeywordInformationFilterSensitiveLog = (obj: KeywordInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeKeywordsResultFilterSensitiveLog = (obj: DescribeKeywordsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptedOutFilterFilterSensitiveLog = (obj: OptedOutFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOptedOutNumbersRequestFilterSensitiveLog = (obj: DescribeOptedOutNumbersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptedOutNumberInformationFilterSensitiveLog = (obj: OptedOutNumberInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOptedOutNumbersResultFilterSensitiveLog = (obj: DescribeOptedOutNumbersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOptOutListsRequestFilterSensitiveLog = (obj: DescribeOptOutListsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptOutListInformationFilterSensitiveLog = (obj: OptOutListInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOptOutListsResultFilterSensitiveLog = (obj: DescribeOptOutListsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberFilterFilterSensitiveLog = (obj: PhoneNumberFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePhoneNumbersRequestFilterSensitiveLog = (obj: DescribePhoneNumbersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberInformationFilterSensitiveLog = (obj: PhoneNumberInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePhoneNumbersResultFilterSensitiveLog = (obj: DescribePhoneNumbersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PoolFilterFilterSensitiveLog = (obj: PoolFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePoolsRequestFilterSensitiveLog = (obj: DescribePoolsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PoolInformationFilterSensitiveLog = (obj: PoolInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePoolsResultFilterSensitiveLog = (obj: DescribePoolsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SenderIdFilterFilterSensitiveLog = (obj: SenderIdFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SenderIdAndCountryFilterSensitiveLog = (obj: SenderIdAndCountry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSenderIdsRequestFilterSensitiveLog = (obj: DescribeSenderIdsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SenderIdInformationFilterSensitiveLog = (obj: SenderIdInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSenderIdsResultFilterSensitiveLog = (obj: DescribeSenderIdsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSpendLimitsRequestFilterSensitiveLog = (obj: DescribeSpendLimitsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SpendLimitFilterSensitiveLog = (obj: SpendLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSpendLimitsResultFilterSensitiveLog = (obj: DescribeSpendLimitsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateOriginationIdentityRequestFilterSensitiveLog = (
+  obj: DisassociateOriginationIdentityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateOriginationIdentityResultFilterSensitiveLog = (
+  obj: DisassociateOriginationIdentityResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PoolOriginationIdentitiesFilterFilterSensitiveLog = (obj: PoolOriginationIdentitiesFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPoolOriginationIdentitiesRequestFilterSensitiveLog = (
+  obj: ListPoolOriginationIdentitiesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OriginationIdentityMetadataFilterSensitiveLog = (obj: OriginationIdentityMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPoolOriginationIdentitiesResultFilterSensitiveLog = (
+  obj: ListPoolOriginationIdentitiesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutKeywordRequestFilterSensitiveLog = (obj: PutKeywordRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutKeywordResultFilterSensitiveLog = (obj: PutKeywordResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutOptedOutNumberRequestFilterSensitiveLog = (obj: PutOptedOutNumberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutOptedOutNumberResultFilterSensitiveLog = (obj: PutOptedOutNumberResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleasePhoneNumberRequestFilterSensitiveLog = (obj: ReleasePhoneNumberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleasePhoneNumberResultFilterSensitiveLog = (obj: ReleasePhoneNumberResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestPhoneNumberRequestFilterSensitiveLog = (obj: RequestPhoneNumberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RequestPhoneNumberResultFilterSensitiveLog = (obj: RequestPhoneNumberResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendTextMessageRequestFilterSensitiveLog = (obj: SendTextMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendTextMessageResultFilterSensitiveLog = (obj: SendTextMessageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendVoiceMessageRequestFilterSensitiveLog = (obj: SendVoiceMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendVoiceMessageResultFilterSensitiveLog = (obj: SendVoiceMessageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetDefaultMessageTypeRequestFilterSensitiveLog = (obj: SetDefaultMessageTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetDefaultMessageTypeResultFilterSensitiveLog = (obj: SetDefaultMessageTypeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetDefaultSenderIdRequestFilterSensitiveLog = (obj: SetDefaultSenderIdRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetDefaultSenderIdResultFilterSensitiveLog = (obj: SetDefaultSenderIdResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTextMessageSpendLimitOverrideRequestFilterSensitiveLog = (
+  obj: SetTextMessageSpendLimitOverrideRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTextMessageSpendLimitOverrideResultFilterSensitiveLog = (
+  obj: SetTextMessageSpendLimitOverrideResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetVoiceMessageSpendLimitOverrideRequestFilterSensitiveLog = (
+  obj: SetVoiceMessageSpendLimitOverrideRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetVoiceMessageSpendLimitOverrideResultFilterSensitiveLog = (
+  obj: SetVoiceMessageSpendLimitOverrideResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventDestinationRequestFilterSensitiveLog = (obj: UpdateEventDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventDestinationResultFilterSensitiveLog = (obj: UpdateEventDestinationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePhoneNumberRequestFilterSensitiveLog = (obj: UpdatePhoneNumberRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePhoneNumberResultFilterSensitiveLog = (obj: UpdatePhoneNumberResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePoolRequestFilterSensitiveLog = (obj: UpdatePoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePoolResultFilterSensitiveLog = (obj: UpdatePoolResult): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { StartMulticastGroupSessionRequest, StartMulticastGroupSessionResponse } from "../models/models_0";
+import {
+  StartMulticastGroupSessionRequest,
+  StartMulticastGroupSessionRequestFilterSensitiveLog,
+  StartMulticastGroupSessionResponse,
+  StartMulticastGroupSessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartMulticastGroupSessionCommand,
   serializeAws_restJson1StartMulticastGroupSessionCommand,
@@ -72,8 +77,8 @@ export class StartMulticastGroupSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMulticastGroupSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartMulticastGroupSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMulticastGroupSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartMulticastGroupSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import { GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput } from "../models/models_0";
+import {
+  GetDASHStreamingSessionURLInput,
+  GetDASHStreamingSessionURLInputFilterSensitiveLog,
+  GetDASHStreamingSessionURLOutput,
+  GetDASHStreamingSessionURLOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDASHStreamingSessionURLCommand,
   serializeAws_restJson1GetDASHStreamingSessionURLCommand,
@@ -222,8 +227,8 @@ export class GetDASHStreamingSessionURLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDASHStreamingSessionURLInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDASHStreamingSessionURLOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDASHStreamingSessionURLInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDASHStreamingSessionURLOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

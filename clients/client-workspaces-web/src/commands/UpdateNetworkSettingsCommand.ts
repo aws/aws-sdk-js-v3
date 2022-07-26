@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateNetworkSettingsRequest, UpdateNetworkSettingsResponse } from "../models/models_0";
+import {
+  UpdateNetworkSettingsRequest,
+  UpdateNetworkSettingsRequestFilterSensitiveLog,
+  UpdateNetworkSettingsResponse,
+  UpdateNetworkSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateNetworkSettingsCommand,
   serializeAws_restJson1UpdateNetworkSettingsCommand,
@@ -72,8 +77,8 @@ export class UpdateNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNetworkSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNetworkSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNetworkSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNetworkSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

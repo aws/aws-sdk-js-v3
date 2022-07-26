@@ -14,7 +14,9 @@ import {
 
 import {
   AssociateWebsiteCertificateAuthorityRequest,
+  AssociateWebsiteCertificateAuthorityRequestFilterSensitiveLog,
   AssociateWebsiteCertificateAuthorityResponse,
+  AssociateWebsiteCertificateAuthorityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand,
@@ -80,8 +82,8 @@ export class AssociateWebsiteCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateWebsiteCertificateAuthorityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateWebsiteCertificateAuthorityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateWebsiteCertificateAuthorityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateWebsiteCertificateAuthorityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

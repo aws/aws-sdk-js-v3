@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RestoreSnapshotTierRequest, RestoreSnapshotTierResult } from "../models/models_6";
+import {
+  RestoreSnapshotTierRequest,
+  RestoreSnapshotTierRequestFilterSensitiveLog,
+  RestoreSnapshotTierResult,
+  RestoreSnapshotTierResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2RestoreSnapshotTierCommand,
   serializeAws_ec2RestoreSnapshotTierCommand,
@@ -77,8 +82,8 @@ export class RestoreSnapshotTierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreSnapshotTierRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RestoreSnapshotTierResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreSnapshotTierRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RestoreSnapshotTierResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

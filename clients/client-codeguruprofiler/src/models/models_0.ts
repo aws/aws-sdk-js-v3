@@ -37,15 +37,6 @@ export interface Channel {
   eventPublishers: (EventPublisher | string)[] | undefined;
 }
 
-export namespace Channel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Channel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the AddNotificationChannelsRequest.</p>
  */
@@ -61,15 +52,6 @@ export interface AddNotificationChannelsRequest {
   channels: Channel[] | undefined;
 }
 
-export namespace AddNotificationChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddNotificationChannelsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for notifications stored for each profiling group. This includes up to
  *          to two channels and a list of event publishers associated with each channel.</p>
@@ -82,15 +64,6 @@ export interface NotificationConfiguration {
   channels?: Channel[];
 }
 
-export namespace NotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the AddNotificationChannelsResponse.</p>
  */
@@ -99,15 +72,6 @@ export interface AddNotificationChannelsResponse {
    * <p>The new notification configuration for this profiling group.</p>
    */
   notificationConfiguration?: NotificationConfiguration;
-}
-
-export namespace AddNotificationChannelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddNotificationChannelsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -329,15 +293,6 @@ export interface AgentConfiguration {
   agentParameters?: Record<string, string>;
 }
 
-export namespace AgentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *          Specifies whether profiling is enabled or disabled for a profiling group. It
@@ -355,15 +310,6 @@ export interface AgentOrchestrationConfig {
    *       </p>
    */
   profilingEnabled: boolean | undefined;
-}
-
-export namespace AgentOrchestrationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AgentOrchestrationConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum AggregationPeriod {
@@ -431,15 +377,6 @@ export interface AggregatedProfileTime {
   period?: AggregationPeriod | string;
 }
 
-export namespace AggregatedProfileTime {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregatedProfileTime): any => ({
-    ...obj,
-  });
-}
-
 export enum FeedbackType {
   /**
    * Profiler recommendation flagged as not useful.
@@ -461,15 +398,6 @@ export interface UserFeedback {
    *             the user about whether the recommendation is useful or not.</p>
    */
   type: FeedbackType | string | undefined;
-}
-
-export namespace UserFeedback {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserFeedback): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -507,15 +435,6 @@ export interface AnomalyInstance {
    * <p>Feedback type on a specific instance of anomaly submitted by the user.</p>
    */
   userFeedback?: UserFeedback;
-}
-
-export namespace AnomalyInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnomalyInstance): any => ({
-    ...obj,
-  });
 }
 
 export enum MetricType {
@@ -559,15 +478,6 @@ export interface Metric {
   threadStates: string[] | undefined;
 }
 
-export namespace Metric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Metric): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             Details about an anomaly in a specific metric of application profile. The anomaly is detected using
@@ -597,15 +507,6 @@ export interface Anomaly {
   instances: AnomalyInstance[] | undefined;
 }
 
-export namespace Anomaly {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Anomaly): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *          The frame name, metric type, and thread states. These are used
@@ -629,15 +530,6 @@ export interface FrameMetric {
    * <p>List of application runtime thread states used to get the counts for a frame a derive a metric value.</p>
    */
   threadStates: string[] | undefined;
-}
-
-export namespace FrameMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FrameMetric): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -716,15 +608,6 @@ export interface BatchGetFrameMetricDataRequest {
   frameMetrics?: FrameMetric[];
 }
 
-export namespace BatchGetFrameMetricDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetFrameMetricDataRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *          A data type that contains a <code>Timestamp</code> object. This is specified
@@ -741,15 +624,6 @@ export interface TimestampStructure {
    *       </p>
    */
   value: Date | undefined;
-}
-
-export namespace TimestampStructure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimestampStructure): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -771,15 +645,6 @@ export interface FrameMetricDatum {
    *       </p>
    */
   values: number[] | undefined;
-}
-
-export namespace FrameMetricDatum {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FrameMetricDatum): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -853,15 +718,6 @@ export interface BatchGetFrameMetricDataResponse {
   frameMetricData: FrameMetricDatum[] | undefined;
 }
 
-export namespace BatchGetFrameMetricDataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetFrameMetricDataResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the GetFindingsReportAccountSummaryRequest.</p>
  */
@@ -893,15 +749,6 @@ export interface GetFindingsReportAccountSummaryRequest {
    *             analysis data is returned from smaller time windows (for example, one hour).</p>
    */
   dailyReportsOnly?: boolean;
-}
-
-export namespace GetFindingsReportAccountSummaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFindingsReportAccountSummaryRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -945,15 +792,6 @@ export interface FindingsReportSummary {
   totalNumberOfFindings?: number;
 }
 
-export namespace FindingsReportSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FindingsReportSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the GetFindingsReportAccountSummaryResponse.</p>
  */
@@ -976,15 +814,6 @@ export interface GetFindingsReportAccountSummaryResponse {
   nextToken?: string;
 }
 
-export namespace GetFindingsReportAccountSummaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFindingsReportAccountSummaryResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>
@@ -992,15 +821,6 @@ export interface ListTagsForResourceRequest {
    *       </p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -1011,15 +831,6 @@ export interface ListTagsForResourceResponse {
    *       </p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum MetadataField {
@@ -1133,15 +944,6 @@ export interface ConfigureAgentRequest {
   metadata?: Record<string, string>;
 }
 
-export namespace ConfigureAgentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigureAgentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the configureAgentResponse.</p>
  */
@@ -1155,15 +957,6 @@ export interface ConfigureAgentResponse {
    *       </p>
    */
   configuration: AgentConfiguration | undefined;
-}
-
-export namespace ConfigureAgentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConfigureAgentResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ComputePlatform {
@@ -1217,15 +1010,6 @@ export interface CreateProfilingGroupRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateProfilingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProfilingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *          Profiling status includes information about the last time a profile agent pinged back,
@@ -1257,15 +1041,6 @@ export interface ProfilingStatus {
    *          2020-06-01T13:15:02.001Z  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.</p>
    */
   latestAgentOrchestratedAt?: Date;
-}
-
-export namespace ProfilingStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProfilingStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1341,15 +1116,6 @@ export interface ProfilingGroupDescription {
   tags?: Record<string, string>;
 }
 
-export namespace ProfilingGroupDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProfilingGroupDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the createProfilingGroupResponse.</p>
  */
@@ -1363,15 +1129,6 @@ export interface CreateProfilingGroupResponse {
   profilingGroup: ProfilingGroupDescription | undefined;
 }
 
-export namespace CreateProfilingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProfilingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the deleteProfilingGroupRequest.</p>
  */
@@ -1382,28 +1139,10 @@ export interface DeleteProfilingGroupRequest {
   profilingGroupName: string | undefined;
 }
 
-export namespace DeleteProfilingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfilingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the deleteProfilingGroupResponse.</p>
  */
 export interface DeleteProfilingGroupResponse {}
-
-export namespace DeleteProfilingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfilingGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The structure representing the describeProfilingGroupRequest.</p>
@@ -1415,15 +1154,6 @@ export interface DescribeProfilingGroupRequest {
    *       </p>
    */
   profilingGroupName: string | undefined;
-}
-
-export namespace DescribeProfilingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProfilingGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1441,15 +1171,6 @@ export interface DescribeProfilingGroupResponse {
   profilingGroup: ProfilingGroupDescription | undefined;
 }
 
-export namespace DescribeProfilingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProfilingGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the GetNotificationConfigurationRequest.</p>
  */
@@ -1458,15 +1179,6 @@ export interface GetNotificationConfigurationRequest {
    * <p>The name of the profiling group we want to get the notification configuration for.</p>
    */
   profilingGroupName: string | undefined;
-}
-
-export namespace GetNotificationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNotificationConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1479,15 +1191,6 @@ export interface GetNotificationConfigurationResponse {
   notificationConfiguration: NotificationConfiguration | undefined;
 }
 
-export namespace GetNotificationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNotificationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             The structure representing the <code>getPolicyRequest</code>.
@@ -1498,15 +1201,6 @@ export interface GetPolicyRequest {
    * <p>The name of the profiling group.</p>
    */
   profilingGroupName: string | undefined;
-}
-
-export namespace GetPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1522,15 +1216,6 @@ export interface GetPolicyResponse {
    * <p>A unique identifier for the current revision of the returned policy.</p>
    */
   revisionId: string | undefined;
-}
-
-export namespace GetPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1617,15 +1302,6 @@ export interface GetProfileRequest {
   accept?: string;
 }
 
-export namespace GetProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the getProfileResponse.</p>
  */
@@ -1646,15 +1322,6 @@ export interface GetProfileResponse {
    * <p>The content encoding of the profile.</p>
    */
   contentEncoding?: string;
-}
-
-export namespace GetProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1754,15 +1421,6 @@ export interface GetRecommendationsRequest {
   locale?: string;
 }
 
-export namespace GetRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             A set of rules used to make a recommendation during an analysis.
@@ -1815,15 +1473,6 @@ export interface Pattern {
   countersToAggregate?: string[];
 }
 
-export namespace Pattern {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Pattern): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The part of a profile that contains a recommendation found during analysis.</p>
  */
@@ -1842,15 +1491,6 @@ export interface Match {
    * <p>The value in the profile data that exceeded the recommendation threshold.</p>
    */
   thresholdBreachValue?: number;
-}
-
-export namespace Match {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Match): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1894,15 +1534,6 @@ export interface Recommendation {
   endTime: Date | undefined;
 }
 
-export namespace Recommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Recommendation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the GetRecommendationsResponse.</p>
  */
@@ -1941,15 +1572,6 @@ export interface GetRecommendationsResponse {
    *         </p>
    */
   anomalies: Anomaly[] | undefined;
-}
-
-export namespace GetRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2011,15 +1633,6 @@ export interface ListFindingsReportsRequest {
   dailyReportsOnly?: boolean;
 }
 
-export namespace ListFindingsReportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFindingsReportsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the ListFindingsReportsResponse.</p>
  */
@@ -2036,15 +1649,6 @@ export interface ListFindingsReportsResponse {
    *          results to return.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListFindingsReportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFindingsReportsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum OrderBy {
@@ -2134,15 +1738,6 @@ export interface ListProfileTimesRequest {
   nextToken?: string;
 }
 
-export namespace ListProfileTimesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileTimesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *          Contains the start time of a profile.
@@ -2155,15 +1750,6 @@ export interface ProfileTime {
    *          2020-06-01T13:15:02.001Z  represents 1 millisecond past June 1, 2020 1:15:02 PM UTC.</p>
    */
   start?: Date;
-}
-
-export namespace ProfileTime {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProfileTime): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2184,15 +1770,6 @@ export interface ListProfileTimesResponse {
    *          results to return. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListProfileTimesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileTimesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2235,15 +1812,6 @@ export interface ListProfilingGroupsRequest {
   includeDescription?: boolean;
 }
 
-export namespace ListProfilingGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfilingGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the listProfilingGroupsResponse.</p>
  */
@@ -2282,15 +1850,6 @@ export interface ListProfilingGroupsResponse {
    *          results to return. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListProfilingGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfilingGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2343,28 +1902,10 @@ export interface PostAgentProfileRequest {
   contentType: string | undefined;
 }
 
-export namespace PostAgentProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostAgentProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the postAgentProfileResponse.</p>
  */
 export interface PostAgentProfileResponse {}
-
-export namespace PostAgentProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostAgentProfileResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The structure representing the <code>putPermissionRequest</code>.</p>
@@ -2404,15 +1945,6 @@ export interface PutPermissionRequest {
   revisionId?: string;
 }
 
-export namespace PutPermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the <code>putPermissionResponse</code>.</p>
  */
@@ -2433,15 +1965,6 @@ export interface PutPermissionResponse {
   revisionId: string | undefined;
 }
 
-export namespace PutPermissionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPermissionResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the RemoveNotificationChannelRequest.</p>
  */
@@ -2457,15 +1980,6 @@ export interface RemoveNotificationChannelRequest {
   channelId: string | undefined;
 }
 
-export namespace RemoveNotificationChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveNotificationChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the RemoveNotificationChannelResponse.</p>
  */
@@ -2474,15 +1988,6 @@ export interface RemoveNotificationChannelResponse {
    * <p>The new notification configuration for this profiling group.</p>
    */
   notificationConfiguration?: NotificationConfiguration;
-}
-
-export namespace RemoveNotificationChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveNotificationChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2514,15 +2019,6 @@ export interface RemovePermissionRequest {
   revisionId: string | undefined;
 }
 
-export namespace RemovePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemovePermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the <code>removePermissionResponse</code>.</p>
  */
@@ -2541,15 +2037,6 @@ export interface RemovePermissionResponse {
    *                 <code>policy</code> element of the response. </p>
    */
   revisionId: string | undefined;
-}
-
-export namespace RemovePermissionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemovePermissionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2583,28 +2070,10 @@ export interface SubmitFeedbackRequest {
   comment?: string;
 }
 
-export namespace SubmitFeedbackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitFeedbackRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the SubmitFeedbackResponse.</p>
  */
 export interface SubmitFeedbackResponse {}
-
-export namespace SubmitFeedbackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubmitFeedbackResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The structure representing the updateProfilingGroupRequest.</p>
@@ -2623,15 +2092,6 @@ export interface UpdateProfilingGroupRequest {
   agentOrchestrationConfig: AgentOrchestrationConfig | undefined;
 }
 
-export namespace UpdateProfilingGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProfilingGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure representing the updateProfilingGroupResponse.</p>
  */
@@ -2645,15 +2105,6 @@ export interface UpdateProfilingGroupResponse {
    *       </p>
    */
   profilingGroup: ProfilingGroupDescription | undefined;
-}
-
-export namespace UpdateProfilingGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProfilingGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -2672,25 +2123,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2709,22 +2142,467 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
 
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddNotificationChannelsRequestFilterSensitiveLog = (obj: AddNotificationChannelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationConfigurationFilterSensitiveLog = (obj: NotificationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddNotificationChannelsResponseFilterSensitiveLog = (obj: AddNotificationChannelsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentConfigurationFilterSensitiveLog = (obj: AgentConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AgentOrchestrationConfigFilterSensitiveLog = (obj: AgentOrchestrationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregatedProfileTimeFilterSensitiveLog = (obj: AggregatedProfileTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserFeedbackFilterSensitiveLog = (obj: UserFeedback): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyInstanceFilterSensitiveLog = (obj: AnomalyInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricFilterSensitiveLog = (obj: Metric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyFilterSensitiveLog = (obj: Anomaly): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameMetricFilterSensitiveLog = (obj: FrameMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetFrameMetricDataRequestFilterSensitiveLog = (obj: BatchGetFrameMetricDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestampStructureFilterSensitiveLog = (obj: TimestampStructure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FrameMetricDatumFilterSensitiveLog = (obj: FrameMetricDatum): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetFrameMetricDataResponseFilterSensitiveLog = (obj: BatchGetFrameMetricDataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFindingsReportAccountSummaryRequestFilterSensitiveLog = (
+  obj: GetFindingsReportAccountSummaryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FindingsReportSummaryFilterSensitiveLog = (obj: FindingsReportSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFindingsReportAccountSummaryResponseFilterSensitiveLog = (
+  obj: GetFindingsReportAccountSummaryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureAgentRequestFilterSensitiveLog = (obj: ConfigureAgentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigureAgentResponseFilterSensitiveLog = (obj: ConfigureAgentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProfilingGroupRequestFilterSensitiveLog = (obj: CreateProfilingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProfilingStatusFilterSensitiveLog = (obj: ProfilingStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProfilingGroupDescriptionFilterSensitiveLog = (obj: ProfilingGroupDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProfilingGroupResponseFilterSensitiveLog = (obj: CreateProfilingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfilingGroupRequestFilterSensitiveLog = (obj: DeleteProfilingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfilingGroupResponseFilterSensitiveLog = (obj: DeleteProfilingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProfilingGroupRequestFilterSensitiveLog = (obj: DescribeProfilingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProfilingGroupResponseFilterSensitiveLog = (obj: DescribeProfilingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNotificationConfigurationRequestFilterSensitiveLog = (
+  obj: GetNotificationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNotificationConfigurationResponseFilterSensitiveLog = (
+  obj: GetNotificationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProfileRequestFilterSensitiveLog = (obj: GetProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProfileResponseFilterSensitiveLog = (obj: GetProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationsRequestFilterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PatternFilterSensitiveLog = (obj: Pattern): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MatchFilterSensitiveLog = (obj: Match): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecommendationsResponseFilterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingsReportsRequestFilterSensitiveLog = (obj: ListFindingsReportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingsReportsResponseFilterSensitiveLog = (obj: ListFindingsReportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileTimesRequestFilterSensitiveLog = (obj: ListProfileTimesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProfileTimeFilterSensitiveLog = (obj: ProfileTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileTimesResponseFilterSensitiveLog = (obj: ListProfileTimesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfilingGroupsRequestFilterSensitiveLog = (obj: ListProfilingGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfilingGroupsResponseFilterSensitiveLog = (obj: ListProfilingGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostAgentProfileRequestFilterSensitiveLog = (obj: PostAgentProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostAgentProfileResponseFilterSensitiveLog = (obj: PostAgentProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPermissionRequestFilterSensitiveLog = (obj: PutPermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPermissionResponseFilterSensitiveLog = (obj: PutPermissionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveNotificationChannelRequestFilterSensitiveLog = (obj: RemoveNotificationChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveNotificationChannelResponseFilterSensitiveLog = (obj: RemoveNotificationChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemovePermissionRequestFilterSensitiveLog = (obj: RemovePermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemovePermissionResponseFilterSensitiveLog = (obj: RemovePermissionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitFeedbackRequestFilterSensitiveLog = (obj: SubmitFeedbackRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitFeedbackResponseFilterSensitiveLog = (obj: SubmitFeedbackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProfilingGroupRequestFilterSensitiveLog = (obj: UpdateProfilingGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProfilingGroupResponseFilterSensitiveLog = (obj: UpdateProfilingGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});

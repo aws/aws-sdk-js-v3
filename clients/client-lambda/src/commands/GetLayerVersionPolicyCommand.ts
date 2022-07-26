@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { GetLayerVersionPolicyRequest, GetLayerVersionPolicyResponse } from "../models/models_0";
+import {
+  GetLayerVersionPolicyRequest,
+  GetLayerVersionPolicyRequestFilterSensitiveLog,
+  GetLayerVersionPolicyResponse,
+  GetLayerVersionPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetLayerVersionPolicyCommand,
   serializeAws_restJson1GetLayerVersionPolicyCommand,
@@ -73,8 +78,8 @@ export class GetLayerVersionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLayerVersionPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLayerVersionPolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLayerVersionPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetLayerVersionPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

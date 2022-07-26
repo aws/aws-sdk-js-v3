@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SimpleScalarXmlPropertiesOutput } from "../models/models_0";
+import { SimpleScalarXmlPropertiesOutput, SimpleScalarXmlPropertiesOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_querySimpleScalarXmlPropertiesCommand,
   serializeAws_querySimpleScalarXmlPropertiesCommand,
@@ -56,7 +56,7 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: SimpleScalarXmlPropertiesOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: SimpleScalarXmlPropertiesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

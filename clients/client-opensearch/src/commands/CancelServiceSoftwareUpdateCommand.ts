@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelServiceSoftwareUpdateRequest, CancelServiceSoftwareUpdateResponse } from "../models/models_0";
+import {
+  CancelServiceSoftwareUpdateRequest,
+  CancelServiceSoftwareUpdateRequestFilterSensitiveLog,
+  CancelServiceSoftwareUpdateResponse,
+  CancelServiceSoftwareUpdateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1CancelServiceSoftwareUpdateCommand,
@@ -76,8 +81,8 @@ export class CancelServiceSoftwareUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelServiceSoftwareUpdateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelServiceSoftwareUpdateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelServiceSoftwareUpdateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelServiceSoftwareUpdateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

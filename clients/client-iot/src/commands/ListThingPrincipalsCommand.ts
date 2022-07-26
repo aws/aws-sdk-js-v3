@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListThingPrincipalsRequest, ListThingPrincipalsResponse } from "../models/models_2";
+import {
+  ListThingPrincipalsRequest,
+  ListThingPrincipalsRequestFilterSensitiveLog,
+  ListThingPrincipalsResponse,
+  ListThingPrincipalsResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListThingPrincipalsCommand,
   serializeAws_restJson1ListThingPrincipalsCommand,
@@ -75,8 +80,8 @@ export class ListThingPrincipalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListThingPrincipalsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListThingPrincipalsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListThingPrincipalsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListThingPrincipalsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

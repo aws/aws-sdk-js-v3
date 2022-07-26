@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateOriginationIdentityRequest, DisassociateOriginationIdentityResult } from "../models/models_0";
+import {
+  DisassociateOriginationIdentityRequest,
+  DisassociateOriginationIdentityRequestFilterSensitiveLog,
+  DisassociateOriginationIdentityResult,
+  DisassociateOriginationIdentityResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -80,8 +85,8 @@ export class DisassociateOriginationIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateOriginationIdentityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateOriginationIdentityResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateOriginationIdentityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateOriginationIdentityResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

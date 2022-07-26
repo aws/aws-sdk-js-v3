@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { SelectResourceConfigRequest, SelectResourceConfigResponse } from "../models/models_1";
+import {
+  SelectResourceConfigRequest,
+  SelectResourceConfigRequestFilterSensitiveLog,
+  SelectResourceConfigResponse,
+  SelectResourceConfigResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1SelectResourceConfigCommand,
   serializeAws_json1_1SelectResourceConfigCommand,
@@ -76,8 +81,8 @@ export class SelectResourceConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SelectResourceConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SelectResourceConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SelectResourceConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SelectResourceConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

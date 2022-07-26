@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeCacheInput, DescribeCacheOutput } from "../models/models_0";
+import {
+  DescribeCacheInput,
+  DescribeCacheInputFilterSensitiveLog,
+  DescribeCacheOutput,
+  DescribeCacheOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCacheCommand,
   serializeAws_json1_1DescribeCacheCommand,
@@ -76,8 +81,8 @@ export class DescribeCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCacheInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCacheOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCacheInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCacheOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

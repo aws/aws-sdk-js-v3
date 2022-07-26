@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { SimpleInputParamsInput } from "../models/models_0";
+import { SimpleInputParamsInput, SimpleInputParamsInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_ec2SimpleInputParamsCommand,
   serializeAws_ec2SimpleInputParamsCommand,
@@ -72,7 +72,7 @@ export class SimpleInputParamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimpleInputParamsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: SimpleInputParamsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

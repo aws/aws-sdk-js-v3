@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { ExpireSessionRequest, ExpireSessionResult } from "../models/models_0";
+import {
+  ExpireSessionRequest,
+  ExpireSessionRequestFilterSensitiveLog,
+  ExpireSessionResult,
+  ExpireSessionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ExpireSessionCommand,
   serializeAws_json1_1ExpireSessionCommand,
@@ -72,8 +77,8 @@ export class ExpireSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExpireSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExpireSessionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ExpireSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExpireSessionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

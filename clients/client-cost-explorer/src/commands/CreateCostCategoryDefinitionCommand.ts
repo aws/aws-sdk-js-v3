@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { CreateCostCategoryDefinitionRequest, CreateCostCategoryDefinitionResponse } from "../models/models_0";
+import {
+  CreateCostCategoryDefinitionRequest,
+  CreateCostCategoryDefinitionRequestFilterSensitiveLog,
+  CreateCostCategoryDefinitionResponse,
+  CreateCostCategoryDefinitionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCostCategoryDefinitionCommand,
   serializeAws_json1_1CreateCostCategoryDefinitionCommand,
@@ -74,8 +79,8 @@ export class CreateCostCategoryDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCostCategoryDefinitionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateCostCategoryDefinitionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateCostCategoryDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateCostCategoryDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

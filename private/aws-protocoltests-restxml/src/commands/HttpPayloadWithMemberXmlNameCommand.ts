@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpPayloadWithMemberXmlNameInputOutput } from "../models/models_0";
+import {
+  HttpPayloadWithMemberXmlNameInputOutput,
+  HttpPayloadWithMemberXmlNameInputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommand,
   serializeAws_restXmlHttpPayloadWithMemberXmlNameCommand,
@@ -75,8 +78,8 @@ export class HttpPayloadWithMemberXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadWithMemberXmlNameInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadWithMemberXmlNameInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpPayloadWithMemberXmlNameInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: HttpPayloadWithMemberXmlNameInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

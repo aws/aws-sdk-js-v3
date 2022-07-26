@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse } from "../models/models_0";
+import {
+  DeregisterContainerInstanceRequest,
+  DeregisterContainerInstanceRequestFilterSensitiveLog,
+  DeregisterContainerInstanceResponse,
+  DeregisterContainerInstanceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterContainerInstanceCommand,
   serializeAws_json1_1DeregisterContainerInstanceCommand,
@@ -87,8 +92,8 @@ export class DeregisterContainerInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterContainerInstanceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterContainerInstanceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterContainerInstanceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterContainerInstanceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,9 @@ import {
 
 import {
   DescribeInstancePatchStatesForPatchGroupRequest,
+  DescribeInstancePatchStatesForPatchGroupRequestFilterSensitiveLog,
   DescribeInstancePatchStatesForPatchGroupResult,
+  DescribeInstancePatchStatesForPatchGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand,
@@ -82,8 +84,8 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancePatchStatesForPatchGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInstancePatchStatesForPatchGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInstancePatchStatesForPatchGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInstancePatchStatesForPatchGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

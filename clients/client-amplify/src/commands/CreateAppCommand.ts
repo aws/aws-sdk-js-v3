@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { CreateAppRequest, CreateAppResult } from "../models/models_0";
+import {
+  CreateAppRequest,
+  CreateAppRequestFilterSensitiveLog,
+  CreateAppResult,
+  CreateAppResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAppCommand,
   serializeAws_restJson1CreateAppCommand,
@@ -72,8 +77,8 @@ export class CreateAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAppRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAppResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

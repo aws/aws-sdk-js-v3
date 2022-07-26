@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { CreateSecurityConfigurationInput, CreateSecurityConfigurationOutput } from "../models/models_0";
+import {
+  CreateSecurityConfigurationInput,
+  CreateSecurityConfigurationInputFilterSensitiveLog,
+  CreateSecurityConfigurationOutput,
+  CreateSecurityConfigurationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSecurityConfigurationCommand,
   serializeAws_json1_1CreateSecurityConfigurationCommand,
@@ -73,8 +78,8 @@ export class CreateSecurityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSecurityConfigurationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSecurityConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSecurityConfigurationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSecurityConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

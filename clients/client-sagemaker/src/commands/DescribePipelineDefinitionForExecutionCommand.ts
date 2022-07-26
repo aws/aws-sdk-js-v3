@@ -14,7 +14,9 @@ import {
 
 import {
   DescribePipelineDefinitionForExecutionRequest,
+  DescribePipelineDefinitionForExecutionRequestFilterSensitiveLog,
   DescribePipelineDefinitionForExecutionResponse,
+  DescribePipelineDefinitionForExecutionResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribePipelineDefinitionForExecutionCommand,
@@ -78,8 +80,8 @@ export class DescribePipelineDefinitionForExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePipelineDefinitionForExecutionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePipelineDefinitionForExecutionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePipelineDefinitionForExecutionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribePipelineDefinitionForExecutionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

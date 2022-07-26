@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { PutSchemaFromJsonRequest, PutSchemaFromJsonResponse } from "../models/models_0";
+import {
+  PutSchemaFromJsonRequest,
+  PutSchemaFromJsonRequestFilterSensitiveLog,
+  PutSchemaFromJsonResponse,
+  PutSchemaFromJsonResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutSchemaFromJsonCommand,
   serializeAws_restJson1PutSchemaFromJsonCommand,
@@ -72,8 +77,8 @@ export class PutSchemaFromJsonCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSchemaFromJsonRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutSchemaFromJsonResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSchemaFromJsonRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutSchemaFromJsonResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

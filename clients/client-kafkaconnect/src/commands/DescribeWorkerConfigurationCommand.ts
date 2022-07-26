@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import { DescribeWorkerConfigurationRequest, DescribeWorkerConfigurationResponse } from "../models/models_0";
+import {
+  DescribeWorkerConfigurationRequest,
+  DescribeWorkerConfigurationRequestFilterSensitiveLog,
+  DescribeWorkerConfigurationResponse,
+  DescribeWorkerConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeWorkerConfigurationCommand,
   serializeAws_restJson1DescribeWorkerConfigurationCommand,
@@ -74,8 +79,8 @@ export class DescribeWorkerConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkerConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkerConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorkerConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorkerConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

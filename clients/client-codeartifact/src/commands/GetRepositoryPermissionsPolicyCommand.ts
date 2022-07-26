@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { GetRepositoryPermissionsPolicyRequest, GetRepositoryPermissionsPolicyResult } from "../models/models_0";
+import {
+  GetRepositoryPermissionsPolicyRequest,
+  GetRepositoryPermissionsPolicyRequestFilterSensitiveLog,
+  GetRepositoryPermissionsPolicyResult,
+  GetRepositoryPermissionsPolicyResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetRepositoryPermissionsPolicyCommand,
   serializeAws_restJson1GetRepositoryPermissionsPolicyCommand,
@@ -76,8 +81,8 @@ export class GetRepositoryPermissionsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositoryPermissionsPolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositoryPermissionsPolicyResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRepositoryPermissionsPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRepositoryPermissionsPolicyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

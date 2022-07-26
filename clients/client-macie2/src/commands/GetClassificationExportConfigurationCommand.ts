@@ -15,7 +15,9 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   GetClassificationExportConfigurationRequest,
+  GetClassificationExportConfigurationRequestFilterSensitiveLog,
   GetClassificationExportConfigurationResponse,
+  GetClassificationExportConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetClassificationExportConfigurationCommand,
@@ -77,8 +79,8 @@ export class GetClassificationExportConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClassificationExportConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetClassificationExportConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetClassificationExportConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetClassificationExportConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

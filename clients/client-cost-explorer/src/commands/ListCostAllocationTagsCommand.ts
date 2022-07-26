@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { ListCostAllocationTagsRequest, ListCostAllocationTagsResponse } from "../models/models_0";
+import {
+  ListCostAllocationTagsRequest,
+  ListCostAllocationTagsRequestFilterSensitiveLog,
+  ListCostAllocationTagsResponse,
+  ListCostAllocationTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListCostAllocationTagsCommand,
   serializeAws_json1_1ListCostAllocationTagsCommand,
@@ -73,8 +78,8 @@ export class ListCostAllocationTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCostAllocationTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCostAllocationTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCostAllocationTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCostAllocationTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

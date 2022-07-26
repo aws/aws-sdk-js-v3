@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserHierarchyRequest } from "../models/models_1";
+import { UpdateUserHierarchyRequest, UpdateUserHierarchyRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateUserHierarchyCommand,
   serializeAws_restJson1UpdateUserHierarchyCommand,
@@ -72,7 +72,7 @@ export class UpdateUserHierarchyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserHierarchyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateUserHierarchyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

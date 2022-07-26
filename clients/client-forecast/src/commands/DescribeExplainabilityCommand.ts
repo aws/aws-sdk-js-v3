@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DescribeExplainabilityRequest, DescribeExplainabilityResponse } from "../models/models_0";
+import {
+  DescribeExplainabilityRequest,
+  DescribeExplainabilityRequestFilterSensitiveLog,
+  DescribeExplainabilityResponse,
+  DescribeExplainabilityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeExplainabilityCommand,
   serializeAws_json1_1DescribeExplainabilityCommand,
@@ -72,8 +77,8 @@ export class DescribeExplainabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExplainabilityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExplainabilityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeExplainabilityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeExplainabilityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { DeleteFileInput, DeleteFileOutput } from "../models/models_0";
+import {
+  DeleteFileInput,
+  DeleteFileInputFilterSensitiveLog,
+  DeleteFileOutput,
+  DeleteFileOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFileCommand,
   serializeAws_json1_1DeleteFileCommand,
@@ -74,8 +79,8 @@ export class DeleteFileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFileInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFileOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFileInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFileOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { DescribePackageRequest, DescribePackageResult } from "../models/models_0";
+import {
+  DescribePackageRequest,
+  DescribePackageRequestFilterSensitiveLog,
+  DescribePackageResult,
+  DescribePackageResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribePackageCommand,
   serializeAws_restJson1DescribePackageCommand,
@@ -74,8 +79,8 @@ export class DescribePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePackageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePackageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePackageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribePackageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

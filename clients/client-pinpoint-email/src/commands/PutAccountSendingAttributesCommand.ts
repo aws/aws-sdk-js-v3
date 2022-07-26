@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/models_0";
+import {
+  PutAccountSendingAttributesRequest,
+  PutAccountSendingAttributesRequestFilterSensitiveLog,
+  PutAccountSendingAttributesResponse,
+  PutAccountSendingAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
   deserializeAws_restJson1PutAccountSendingAttributesCommand,
@@ -74,8 +79,8 @@ export class PutAccountSendingAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountSendingAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountSendingAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutAccountSendingAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutAccountSendingAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

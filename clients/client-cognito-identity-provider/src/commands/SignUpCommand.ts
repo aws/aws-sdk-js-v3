@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { SignUpRequest, SignUpResponse } from "../models/models_0";
+import {
+  SignUpRequest,
+  SignUpRequestFilterSensitiveLog,
+  SignUpResponse,
+  SignUpResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1SignUpCommand, serializeAws_json1_1SignUpCommand } from "../protocols/Aws_json1_1";
 
 export interface SignUpCommandInput extends SignUpRequest {}
@@ -92,8 +97,8 @@ export class SignUpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SignUpRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SignUpResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SignUpRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SignUpResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

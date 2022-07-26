@@ -51,15 +51,6 @@ export interface AddProfileKeyRequest {
   DomainName: string | undefined;
 }
 
-export namespace AddProfileKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddProfileKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AddProfileKeyResponse {
   /**
    * <p>A searchable identifier of a customer profile.</p>
@@ -70,15 +61,6 @@ export interface AddProfileKeyResponse {
    * <p>A list of key values.</p>
    */
   Values?: string[];
-}
-
-export namespace AddProfileKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddProfileKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -221,15 +203,6 @@ export interface Address {
   PostalCode?: string;
 }
 
-export namespace Address {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Address): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Batch defines the boundaries for ingestion for each step in <code>APPFLOW_INTEGRATION</code> workflow. <code>APPFLOW_INTEGRATION</code> workflow splits ingestion based on these boundaries.</p>
  */
@@ -243,15 +216,6 @@ export interface Batch {
    * <p>End time of batch to split ingestion.</p>
    */
   EndTime: Date | undefined;
-}
-
-export namespace Batch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Batch): any => ({
-    ...obj,
-  });
 }
 
 export enum SourceConnectorType {
@@ -274,15 +238,6 @@ export interface IncrementalPullConfig {
   DatetimeTypeFieldName?: string;
 }
 
-export namespace IncrementalPullConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncrementalPullConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The properties that are applied when Marketo is being used as a source.</p>
  */
@@ -291,15 +246,6 @@ export interface MarketoSourceProperties {
    * <p>The object specified in the Marketo flow source.</p>
    */
   Object: string | undefined;
-}
-
-export namespace MarketoSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MarketoSourceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -315,15 +261,6 @@ export interface S3SourceProperties {
    * <p>The object key for the Amazon S3 bucket in which the source files are stored.</p>
    */
   BucketPrefix?: string;
-}
-
-export namespace S3SourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SourceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -347,15 +284,6 @@ export interface SalesforceSourceProperties {
   IncludeDeletedRecords?: boolean;
 }
 
-export namespace SalesforceSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SalesforceSourceProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The properties that are applied when ServiceNow is being used as a source.</p>
  */
@@ -366,15 +294,6 @@ export interface ServiceNowSourceProperties {
   Object: string | undefined;
 }
 
-export namespace ServiceNowSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNowSourceProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The properties that are applied when using Zendesk as a flow source.</p>
  */
@@ -383,15 +302,6 @@ export interface ZendeskSourceProperties {
    * <p>The object specified in the Zendesk flow source.</p>
    */
   Object: string | undefined;
-}
-
-export namespace ZendeskSourceProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ZendeskSourceProperties): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -425,15 +335,6 @@ export interface SourceConnectorProperties {
   Zendesk?: ZendeskSourceProperties;
 }
 
-export namespace SourceConnectorProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceConnectorProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the configuration of the source connector used in the
  *          flow.</p>
@@ -462,15 +363,6 @@ export interface SourceFlowConfig {
    *          connector.</p>
    */
   SourceConnectorProperties: SourceConnectorProperties | undefined;
-}
-
-export namespace SourceFlowConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceFlowConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum MarketoConnectorOperator {
@@ -610,15 +502,6 @@ export interface ConnectorOperator {
   Zendesk?: ZendeskConnectorOperator | string;
 }
 
-export namespace ConnectorOperator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorOperator): any => ({
-    ...obj,
-  });
-}
-
 export enum OperatorPropertiesKeys {
   CONCAT_FORMAT = "CONCAT_FORMAT",
   DATA_TYPE = "DATA_TYPE",
@@ -679,15 +562,6 @@ export interface Task {
   TaskType: TaskType | string | undefined;
 }
 
-export namespace Task {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Task): any => ({
-    ...obj,
-  });
-}
-
 export enum DataPullMode {
   COMPLETE = "Complete",
   INCREMENTAL = "Incremental",
@@ -739,15 +613,6 @@ export interface ScheduledTriggerProperties {
   FirstExecutionFrom?: Date;
 }
 
-export namespace ScheduledTriggerProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScheduledTriggerProperties): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the configuration details that control the trigger for a flow. Currently,
  *          these settings only apply to the Scheduled trigger type.</p>
@@ -757,15 +622,6 @@ export interface TriggerProperties {
    * <p>Specifies the configuration details of a schedule-triggered flow that you define.</p>
    */
   Scheduled?: ScheduledTriggerProperties;
-}
-
-export namespace TriggerProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerProperties): any => ({
-    ...obj,
-  });
 }
 
 export enum TriggerType {
@@ -789,15 +645,6 @@ export interface TriggerConfig {
    *          Currently, these settings only apply to the Scheduled trigger type.</p>
    */
   TriggerProperties?: TriggerProperties;
-}
-
-export namespace TriggerConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -840,15 +687,6 @@ export interface FlowDefinition {
   TriggerConfig: TriggerConfig | undefined;
 }
 
-export namespace FlowDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FlowDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for workflow of type <code>APPFLOW_INTEGRATION</code>.</p>
  */
@@ -864,15 +702,6 @@ export interface AppflowIntegration {
    * <p>Batches in workflow of type <code>APPFLOW_INTEGRATION</code>.</p>
    */
   Batches?: Batch[];
-}
-
-export namespace AppflowIntegration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppflowIntegration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -895,15 +724,6 @@ export interface AppflowIntegrationWorkflowAttributes {
   RoleArn?: string;
 }
 
-export namespace AppflowIntegrationWorkflowAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppflowIntegrationWorkflowAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Workflow specific execution metrics for <code>APPFLOW_INTEGRATION</code> workflow.</p>
  */
@@ -922,15 +742,6 @@ export interface AppflowIntegrationWorkflowMetrics {
    * <p>Total steps in <code>APPFLOW_INTEGRATION</code> workflow.</p>
    */
   TotalSteps: number | undefined;
-}
-
-export namespace AppflowIntegrationWorkflowMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppflowIntegrationWorkflowMetrics): any => ({
-    ...obj,
-  });
 }
 
 export enum Status {
@@ -988,15 +799,6 @@ export interface AppflowIntegrationWorkflowStep {
   LastUpdatedAt: Date | undefined;
 }
 
-export namespace AppflowIntegrationWorkflowStep {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppflowIntegrationWorkflowStep): any => ({
-    ...obj,
-  });
-}
-
 export enum ConflictResolvingModel {
   RECENCY = "RECENCY",
   SOURCE = "SOURCE",
@@ -1031,15 +833,6 @@ export interface ConflictResolution {
   SourceName?: string;
 }
 
-export namespace ConflictResolution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictResolution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The matching criteria to be used during the auto-merging process. </p>
  */
@@ -1048,15 +841,6 @@ export interface Consolidation {
    * <p>A list of matching criteria.</p>
    */
   MatchingAttributesList: string[][] | undefined;
-}
-
-export namespace Consolidation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Consolidation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1090,15 +874,6 @@ export interface AutoMerging {
   MinAllowedConfidenceScoreForMerging?: number;
 }
 
-export namespace AutoMerging {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoMerging): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information about the S3 bucket where Identity Resolution Jobs write result files.</p>
  */
@@ -1114,15 +889,6 @@ export interface S3ExportingConfig {
   S3KeyName?: string;
 }
 
-export namespace S3ExportingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ExportingConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information about the S3 bucket where Identity Resolution Jobs writes result files. </p>
  *          <note>
@@ -1136,15 +902,6 @@ export interface ExportingConfig {
    * <p>The S3 location where Identity Resolution Jobs write result files.</p>
    */
   S3Exporting?: S3ExportingConfig;
-}
-
-export namespace ExportingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportingConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum JobScheduleDayOfTheWeek {
@@ -1172,15 +929,6 @@ export interface JobSchedule {
   Time: string | undefined;
 }
 
-export namespace JobSchedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobSchedule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The flag that enables the matching process of duplicate profiles.</p>
  */
@@ -1205,15 +953,6 @@ export interface MatchingRequest {
    *          bucket.</p>
    */
   ExportingConfig?: ExportingConfig;
-}
-
-export namespace MatchingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MatchingRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDomainRequest {
@@ -1259,15 +998,6 @@ export interface CreateDomainRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The flag that enables the matching process of duplicate profiles.</p>
  */
@@ -1292,15 +1022,6 @@ export interface MatchingResponse {
    *          bucket.</p>
    */
   ExportingConfig?: ExportingConfig;
-}
-
-export namespace MatchingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MatchingResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDomainResponse {
@@ -1354,15 +1075,6 @@ export interface CreateDomainResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDomainResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration data for integration workflow.</p>
  */
@@ -1371,15 +1083,6 @@ export interface IntegrationConfig {
    * <p>Configuration data for <code>APPFLOW_INTEGRATION</code> workflow type.</p>
    */
   AppflowIntegration?: AppflowIntegration;
-}
-
-export namespace IntegrationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntegrationConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkflowType {
@@ -1418,15 +1121,6 @@ export interface CreateIntegrationWorkflowRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateIntegrationWorkflowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntegrationWorkflowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIntegrationWorkflowResponse {
   /**
    * <p>Unique identifier for the workflow.</p>
@@ -1437,15 +1131,6 @@ export interface CreateIntegrationWorkflowResponse {
    * <p>A message indicating create request was received.</p>
    */
   Message: string | undefined;
-}
-
-export namespace CreateIntegrationWorkflowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntegrationWorkflowResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Gender {
@@ -1575,29 +1260,11 @@ export interface CreateProfileRequest {
   Attributes?: Record<string, string>;
 }
 
-export namespace CreateProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProfileResponse {
   /**
    * <p>The unique identifier of a customer profile.</p>
    */
   ProfileId: string | undefined;
-}
-
-export namespace CreateProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDomainRequest {
@@ -1607,29 +1274,11 @@ export interface DeleteDomainRequest {
   DomainName: string | undefined;
 }
 
-export namespace DeleteDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDomainResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
    */
   Message: string | undefined;
-}
-
-export namespace DeleteDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteIntegrationRequest {
@@ -1644,29 +1293,11 @@ export interface DeleteIntegrationRequest {
   Uri: string | undefined;
 }
 
-export namespace DeleteIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIntegrationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteIntegrationResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
    */
   Message: string | undefined;
-}
-
-export namespace DeleteIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIntegrationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteProfileRequest {
@@ -1681,29 +1312,11 @@ export interface DeleteProfileRequest {
   DomainName: string | undefined;
 }
 
-export namespace DeleteProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProfileResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
    */
   Message?: string;
-}
-
-export namespace DeleteProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfileResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteProfileKeyRequest {
@@ -1728,29 +1341,11 @@ export interface DeleteProfileKeyRequest {
   DomainName: string | undefined;
 }
 
-export namespace DeleteProfileKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfileKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProfileKeyResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
    */
   Message?: string;
-}
-
-export namespace DeleteProfileKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfileKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteProfileObjectRequest {
@@ -1775,29 +1370,11 @@ export interface DeleteProfileObjectRequest {
   DomainName: string | undefined;
 }
 
-export namespace DeleteProfileObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfileObjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProfileObjectResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
    */
   Message?: string;
-}
-
-export namespace DeleteProfileObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfileObjectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteProfileObjectTypeRequest {
@@ -1812,29 +1389,11 @@ export interface DeleteProfileObjectTypeRequest {
   ObjectTypeName: string | undefined;
 }
 
-export namespace DeleteProfileObjectTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfileObjectTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProfileObjectTypeResponse {
   /**
    * <p>A message that indicates the delete request is done.</p>
    */
   Message: string | undefined;
-}
-
-export namespace DeleteProfileObjectTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProfileObjectTypeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteWorkflowRequest {
@@ -1849,25 +1408,7 @@ export interface DeleteWorkflowRequest {
   WorkflowId: string | undefined;
 }
 
-export namespace DeleteWorkflowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkflowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkflowResponse {}
-
-export namespace DeleteWorkflowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkflowResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetAutoMergingPreviewRequest {
   /**
@@ -1889,15 +1430,6 @@ export interface GetAutoMergingPreviewRequest {
    * <p>Minimum confidence score required for profiles within a matching group to be merged during the auto-merge process.</p>
    */
   MinAllowedConfidenceScoreForMerging?: number;
-}
-
-export namespace GetAutoMergingPreviewRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAutoMergingPreviewRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAutoMergingPreviewResponse {
@@ -1923,29 +1455,11 @@ export interface GetAutoMergingPreviewResponse {
   NumberOfProfilesWillBeMerged?: number;
 }
 
-export namespace GetAutoMergingPreviewResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAutoMergingPreviewResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDomainRequest {
   /**
    * <p>The unique name of the domain.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace GetDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1973,15 +1487,6 @@ export interface DomainStats {
    * <p>The total size, in bytes, of all objects in the domain.</p>
    */
   TotalSize?: number;
-}
-
-export namespace DomainStats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainStats): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDomainResponse {
@@ -2040,15 +1545,6 @@ export interface GetDomainResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIdentityResolutionJobRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2059,15 +1555,6 @@ export interface GetIdentityResolutionJobRequest {
    * <p>The unique identifier of the Identity Resolution Job.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace GetIdentityResolutionJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityResolutionJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2085,15 +1572,6 @@ export interface S3ExportingLocation {
   S3KeyName?: string;
 }
 
-export namespace S3ExportingLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ExportingLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The S3 location where Identity Resolution Jobs write result files.</p>
  */
@@ -2102,15 +1580,6 @@ export interface ExportingLocation {
    * <p>Information about the S3 location where Identity Resolution Jobs write result files.</p>
    */
   S3Exporting?: S3ExportingLocation;
-}
-
-export namespace ExportingLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportingLocation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2131,15 +1600,6 @@ export interface JobStats {
    * <p>The number of merges completed.</p>
    */
   NumberOfMergesDone?: number;
-}
-
-export namespace JobStats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobStats): any => ({
-    ...obj,
-  });
 }
 
 export enum IdentityResolutionJobStatus {
@@ -2244,15 +1704,6 @@ export interface GetIdentityResolutionJobResponse {
   JobStats?: JobStats;
 }
 
-export namespace GetIdentityResolutionJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIdentityResolutionJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetIntegrationRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2263,15 +1714,6 @@ export interface GetIntegrationRequest {
    * <p>The URI of the S3 bucket or any other type of data source.</p>
    */
   Uri: string | undefined;
-}
-
-export namespace GetIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetIntegrationResponse {
@@ -2318,15 +1760,6 @@ export interface GetIntegrationResponse {
   WorkflowId?: string;
 }
 
-export namespace GetIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIntegrationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMatchesRequest {
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -2343,15 +1776,6 @@ export interface GetMatchesRequest {
    * <p>The unique name of the domain.</p>
    */
   DomainName: string | undefined;
-}
-
-export namespace GetMatchesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMatchesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2380,15 +1804,6 @@ export interface MatchItem {
   ConfidenceScore?: number;
 }
 
-export namespace MatchItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MatchItem): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMatchesResponse {
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -2411,15 +1826,6 @@ export interface GetMatchesResponse {
   Matches?: MatchItem[];
 }
 
-export namespace GetMatchesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMatchesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProfileObjectTypeRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2430,15 +1836,6 @@ export interface GetProfileObjectTypeRequest {
    * <p>The name of the profile object type.</p>
    */
   ObjectTypeName: string | undefined;
-}
-
-export namespace GetProfileObjectTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProfileObjectTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FieldContentType {
@@ -2469,15 +1866,6 @@ export interface ObjectTypeField {
    * <p>The content type of the field. Used for determining equality when searching.</p>
    */
   ContentType?: FieldContentType | string;
-}
-
-export namespace ObjectTypeField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectTypeField): any => ({
-    ...obj,
-  });
 }
 
 export enum StandardIdentifier {
@@ -2512,15 +1900,6 @@ export interface ObjectTypeKey {
    * <p>The reference for the key name of the fields map.</p>
    */
   FieldNames?: string[];
-}
-
-export namespace ObjectTypeKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectTypeKey): any => ({
-    ...obj,
-  });
 }
 
 export interface GetProfileObjectTypeResponse {
@@ -2591,29 +1970,11 @@ export interface GetProfileObjectTypeResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace GetProfileObjectTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProfileObjectTypeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProfileObjectTypeTemplateRequest {
   /**
    * <p>A unique identifier for the object template.</p>
    */
   TemplateId: string | undefined;
-}
-
-export namespace GetProfileObjectTypeTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProfileObjectTypeTemplateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetProfileObjectTypeTemplateResponse {
@@ -2658,15 +2019,6 @@ export interface GetProfileObjectTypeTemplateResponse {
   Keys?: Record<string, ObjectTypeKey[]>;
 }
 
-export namespace GetProfileObjectTypeTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProfileObjectTypeTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWorkflowRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2679,15 +2031,6 @@ export interface GetWorkflowRequest {
   WorkflowId: string | undefined;
 }
 
-export namespace GetWorkflowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkflowRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Structure to hold workflow attributes.</p>
  */
@@ -2698,15 +2041,6 @@ export interface WorkflowAttributes {
   AppflowIntegration?: AppflowIntegrationWorkflowAttributes;
 }
 
-export namespace WorkflowAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Generic object containing workflow execution metrics.</p>
  */
@@ -2715,15 +2049,6 @@ export interface WorkflowMetrics {
    * <p>Workflow execution metrics for <code>APPFLOW_INTEGRATION</code> workflow.</p>
    */
   AppflowIntegration?: AppflowIntegrationWorkflowMetrics;
-}
-
-export namespace WorkflowMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowMetrics): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWorkflowResponse {
@@ -2768,15 +2093,6 @@ export interface GetWorkflowResponse {
   Metrics?: WorkflowMetrics;
 }
 
-export namespace GetWorkflowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkflowResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWorkflowStepsRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2800,15 +2116,6 @@ export interface GetWorkflowStepsRequest {
   MaxResults?: number;
 }
 
-export namespace GetWorkflowStepsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkflowStepsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>List containing steps in workflow.</p>
  */
@@ -2817,15 +2124,6 @@ export interface WorkflowStepItem {
    * <p>Workflow step information specific to <code>APPFLOW_INTEGRATION</code> workflow.</p>
    */
   AppflowIntegration?: AppflowIntegrationWorkflowStep;
-}
-
-export namespace WorkflowStepItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowStepItem): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWorkflowStepsResponse {
@@ -2850,15 +2148,6 @@ export interface GetWorkflowStepsResponse {
   NextToken?: string;
 }
 
-export namespace GetWorkflowStepsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkflowStepsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountIntegrationsRequest {
   /**
    * <p>The URI of the S3 bucket or any other type of data source.</p>
@@ -2879,15 +2168,6 @@ export interface ListAccountIntegrationsRequest {
    * <p>Boolean to indicate if hidden integration should be returned. Defaults to <code>False</code>.</p>
    */
   IncludeHidden?: boolean;
-}
-
-export namespace ListAccountIntegrationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountIntegrationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2937,15 +2217,6 @@ export interface ListIntegrationItem {
   WorkflowId?: string;
 }
 
-export namespace ListIntegrationItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIntegrationItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountIntegrationsResponse {
   /**
    * <p>The list of ListAccountIntegration instances.</p>
@@ -2958,15 +2229,6 @@ export interface ListAccountIntegrationsResponse {
   NextToken?: string;
 }
 
-export namespace ListAccountIntegrationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccountIntegrationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDomainsRequest {
   /**
    * <p>The pagination token from the previous ListDomain API call.</p>
@@ -2977,15 +2239,6 @@ export interface ListDomainsRequest {
    * <p>The maximum number of objects returned per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDomainsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3013,15 +2266,6 @@ export interface ListDomainItem {
   Tags?: Record<string, string>;
 }
 
-export namespace ListDomainItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDomainsResponse {
   /**
    * <p>The list of ListDomains instances.</p>
@@ -3032,15 +2276,6 @@ export interface ListDomainsResponse {
    * <p>The pagination token from the previous ListDomains API call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDomainsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIdentityResolutionJobsRequest {
@@ -3059,15 +2294,6 @@ export interface ListIdentityResolutionJobsRequest {
    * <p>The maximum number of results to return per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListIdentityResolutionJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityResolutionJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3150,15 +2376,6 @@ export interface IdentityResolutionJob {
   Message?: string;
 }
 
-export namespace IdentityResolutionJob {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityResolutionJob): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIdentityResolutionJobsResponse {
   /**
    * <p>A list of Identity Resolution Jobs.</p>
@@ -3169,15 +2386,6 @@ export interface ListIdentityResolutionJobsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIdentityResolutionJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIdentityResolutionJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIntegrationsRequest {
@@ -3202,15 +2410,6 @@ export interface ListIntegrationsRequest {
   IncludeHidden?: boolean;
 }
 
-export namespace ListIntegrationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIntegrationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIntegrationsResponse {
   /**
    * <p>The list of ListIntegrations instances.</p>
@@ -3221,15 +2420,6 @@ export interface ListIntegrationsResponse {
    * <p>The pagination token from the previous ListIntegrations API call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListIntegrationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIntegrationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3250,15 +2440,6 @@ export interface ObjectFilter {
    * <p>A list of key values.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace ObjectFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectFilter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProfileObjectsRequest {
@@ -3294,15 +2475,6 @@ export interface ListProfileObjectsRequest {
   ObjectFilter?: ObjectFilter;
 }
 
-export namespace ListProfileObjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileObjectsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A ProfileObject in a list of ProfileObjects.</p>
  */
@@ -3324,15 +2496,6 @@ export interface ListProfileObjectsItem {
   Object?: string;
 }
 
-export namespace ListProfileObjectsItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileObjectsItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProfileObjectsResponse {
   /**
    * <p>The list of ListProfileObject instances.</p>
@@ -3343,15 +2506,6 @@ export interface ListProfileObjectsResponse {
    * <p>The pagination token from the previous call to ListProfileObjects.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListProfileObjectsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileObjectsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProfileObjectTypesRequest {
@@ -3369,15 +2523,6 @@ export interface ListProfileObjectTypesRequest {
    * <p>The maximum number of objects returned per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListProfileObjectTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileObjectTypesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3410,15 +2555,6 @@ export interface ListProfileObjectTypeItem {
   Tags?: Record<string, string>;
 }
 
-export namespace ListProfileObjectTypeItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileObjectTypeItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProfileObjectTypesResponse {
   /**
    * <p>The list of ListProfileObjectTypes instances.</p>
@@ -3431,15 +2567,6 @@ export interface ListProfileObjectTypesResponse {
   NextToken?: string;
 }
 
-export namespace ListProfileObjectTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileObjectTypesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProfileObjectTypeTemplatesRequest {
   /**
    * <p>The pagination token from the previous ListObjectTypeTemplates API call.</p>
@@ -3450,15 +2577,6 @@ export interface ListProfileObjectTypeTemplatesRequest {
    * <p>The maximum number of objects returned per page.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListProfileObjectTypeTemplatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileObjectTypeTemplatesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3481,15 +2599,6 @@ export interface ListProfileObjectTypeTemplateItem {
   SourceObject?: string;
 }
 
-export namespace ListProfileObjectTypeTemplateItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileObjectTypeTemplateItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProfileObjectTypeTemplatesResponse {
   /**
    * <p>The list of ListProfileObjectType template instances.</p>
@@ -3502,15 +2611,6 @@ export interface ListProfileObjectTypeTemplatesResponse {
   NextToken?: string;
 }
 
-export namespace ListProfileObjectTypeTemplatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProfileObjectTypeTemplatesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource for which you want to view tags.</p>
@@ -3518,29 +2618,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWorkflowsRequest {
@@ -3581,15 +2663,6 @@ export interface ListWorkflowsRequest {
   MaxResults?: number;
 }
 
-export namespace ListWorkflowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkflowsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A workflow in list of workflows.</p>
  */
@@ -3625,15 +2698,6 @@ export interface ListWorkflowsItem {
   LastUpdatedAt: Date | undefined;
 }
 
-export namespace ListWorkflowsItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkflowsItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListWorkflowsResponse {
   /**
    * <p>List containing workflow details.</p>
@@ -3644,15 +2708,6 @@ export interface ListWorkflowsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListWorkflowsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkflowsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3765,15 +2820,6 @@ export interface FieldSourceProfileIds {
   Attributes?: Record<string, string>;
 }
 
-export namespace FieldSourceProfileIds {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldSourceProfileIds): any => ({
-    ...obj,
-  });
-}
-
 export interface MergeProfilesRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -3798,29 +2844,11 @@ export interface MergeProfilesRequest {
   FieldSourceProfileIds?: FieldSourceProfileIds;
 }
 
-export namespace MergeProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeProfilesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface MergeProfilesResponse {
   /**
    * <p>A message that indicates the merge request is complete.</p>
    */
   Message?: string;
-}
-
-export namespace MergeProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MergeProfilesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutIntegrationRequest {
@@ -3856,15 +2884,6 @@ export interface PutIntegrationRequest {
    * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
    */
   ObjectTypeNames?: Record<string, string>;
-}
-
-export namespace PutIntegrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutIntegrationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutIntegrationResponse {
@@ -3911,15 +2930,6 @@ export interface PutIntegrationResponse {
   WorkflowId?: string;
 }
 
-export namespace PutIntegrationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutIntegrationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface PutProfileObjectRequest {
   /**
    * <p>The name of the profile object type.</p>
@@ -3937,29 +2947,11 @@ export interface PutProfileObjectRequest {
   DomainName: string | undefined;
 }
 
-export namespace PutProfileObjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProfileObjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutProfileObjectResponse {
   /**
    * <p>The unique identifier of the profile object generated by the service.</p>
    */
   ProfileObjectUniqueKey?: string;
-}
-
-export namespace PutProfileObjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProfileObjectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutProfileObjectTypeRequest {
@@ -4028,15 +3020,6 @@ export interface PutProfileObjectTypeRequest {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace PutProfileObjectTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProfileObjectTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutProfileObjectTypeResponse {
@@ -4108,15 +3091,6 @@ export interface PutProfileObjectTypeResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace PutProfileObjectTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutProfileObjectTypeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchProfilesRequest {
   /**
    * <p>The pagination token from the previous SearchProfiles API call.</p>
@@ -4147,15 +3121,6 @@ export interface SearchProfilesRequest {
    * <p>A list of key values.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace SearchProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProfilesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4276,15 +3241,6 @@ export interface Profile {
   Attributes?: Record<string, string>;
 }
 
-export namespace Profile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Profile): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchProfilesResponse {
   /**
    * <p>The list of SearchProfiles instances.</p>
@@ -4295,15 +3251,6 @@ export interface SearchProfilesResponse {
    * <p>The pagination token from the previous SearchProfiles API call.</p>
    */
   NextToken?: string;
-}
-
-export namespace SearchProfilesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchProfilesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4318,25 +3265,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4350,25 +3279,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDomainRequest {
   /**
@@ -4413,15 +3324,6 @@ export interface UpdateDomainRequest {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace UpdateDomainRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDomainResponse {
@@ -4473,15 +3375,6 @@ export interface UpdateDomainResponse {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace UpdateDomainResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4537,15 +3430,6 @@ export interface UpdateAddress {
    * <p>The postal code of a customer address.</p>
    */
   PostalCode?: string;
-}
-
-export namespace UpdateAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAddress): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProfileRequest {
@@ -4668,15 +3552,6 @@ export interface UpdateProfileRequest {
   Attributes?: Record<string, string>;
 }
 
-export namespace UpdateProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProfileRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProfileResponse {
   /**
    * <p>The unique identifier of a customer profile.</p>
@@ -4684,11 +3559,894 @@ export interface UpdateProfileResponse {
   ProfileId: string | undefined;
 }
 
-export namespace UpdateProfileResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProfileResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AddProfileKeyRequestFilterSensitiveLog = (obj: AddProfileKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddProfileKeyResponseFilterSensitiveLog = (obj: AddProfileKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddressFilterSensitiveLog = (obj: Address): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchFilterSensitiveLog = (obj: Batch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncrementalPullConfigFilterSensitiveLog = (obj: IncrementalPullConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MarketoSourcePropertiesFilterSensitiveLog = (obj: MarketoSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SourcePropertiesFilterSensitiveLog = (obj: S3SourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SalesforceSourcePropertiesFilterSensitiveLog = (obj: SalesforceSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceNowSourcePropertiesFilterSensitiveLog = (obj: ServiceNowSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ZendeskSourcePropertiesFilterSensitiveLog = (obj: ZendeskSourceProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConnectorPropertiesFilterSensitiveLog = (obj: SourceConnectorProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceFlowConfigFilterSensitiveLog = (obj: SourceFlowConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectorOperatorFilterSensitiveLog = (obj: ConnectorOperator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskFilterSensitiveLog = (obj: Task): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduledTriggerPropertiesFilterSensitiveLog = (obj: ScheduledTriggerProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TriggerPropertiesFilterSensitiveLog = (obj: TriggerProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TriggerConfigFilterSensitiveLog = (obj: TriggerConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowDefinitionFilterSensitiveLog = (obj: FlowDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppflowIntegrationFilterSensitiveLog = (obj: AppflowIntegration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppflowIntegrationWorkflowAttributesFilterSensitiveLog = (
+  obj: AppflowIntegrationWorkflowAttributes
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppflowIntegrationWorkflowMetricsFilterSensitiveLog = (obj: AppflowIntegrationWorkflowMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppflowIntegrationWorkflowStepFilterSensitiveLog = (obj: AppflowIntegrationWorkflowStep): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConflictResolutionFilterSensitiveLog = (obj: ConflictResolution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConsolidationFilterSensitiveLog = (obj: Consolidation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoMergingFilterSensitiveLog = (obj: AutoMerging): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ExportingConfigFilterSensitiveLog = (obj: S3ExportingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportingConfigFilterSensitiveLog = (obj: ExportingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobScheduleFilterSensitiveLog = (obj: JobSchedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MatchingRequestFilterSensitiveLog = (obj: MatchingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainRequestFilterSensitiveLog = (obj: CreateDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MatchingResponseFilterSensitiveLog = (obj: MatchingResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDomainResponseFilterSensitiveLog = (obj: CreateDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegrationConfigFilterSensitiveLog = (obj: IntegrationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIntegrationWorkflowRequestFilterSensitiveLog = (obj: CreateIntegrationWorkflowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIntegrationWorkflowResponseFilterSensitiveLog = (obj: CreateIntegrationWorkflowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProfileRequestFilterSensitiveLog = (obj: CreateProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProfileResponseFilterSensitiveLog = (obj: CreateProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainRequestFilterSensitiveLog = (obj: DeleteDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDomainResponseFilterSensitiveLog = (obj: DeleteDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIntegrationRequestFilterSensitiveLog = (obj: DeleteIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIntegrationResponseFilterSensitiveLog = (obj: DeleteIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfileRequestFilterSensitiveLog = (obj: DeleteProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfileResponseFilterSensitiveLog = (obj: DeleteProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfileKeyRequestFilterSensitiveLog = (obj: DeleteProfileKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfileKeyResponseFilterSensitiveLog = (obj: DeleteProfileKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfileObjectRequestFilterSensitiveLog = (obj: DeleteProfileObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfileObjectResponseFilterSensitiveLog = (obj: DeleteProfileObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfileObjectTypeRequestFilterSensitiveLog = (obj: DeleteProfileObjectTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProfileObjectTypeResponseFilterSensitiveLog = (obj: DeleteProfileObjectTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkflowRequestFilterSensitiveLog = (obj: DeleteWorkflowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkflowResponseFilterSensitiveLog = (obj: DeleteWorkflowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAutoMergingPreviewRequestFilterSensitiveLog = (obj: GetAutoMergingPreviewRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAutoMergingPreviewResponseFilterSensitiveLog = (obj: GetAutoMergingPreviewResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainRequestFilterSensitiveLog = (obj: GetDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainStatsFilterSensitiveLog = (obj: DomainStats): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainResponseFilterSensitiveLog = (obj: GetDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityResolutionJobRequestFilterSensitiveLog = (obj: GetIdentityResolutionJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ExportingLocationFilterSensitiveLog = (obj: S3ExportingLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportingLocationFilterSensitiveLog = (obj: ExportingLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobStatsFilterSensitiveLog = (obj: JobStats): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIdentityResolutionJobResponseFilterSensitiveLog = (obj: GetIdentityResolutionJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationRequestFilterSensitiveLog = (obj: GetIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetIntegrationResponseFilterSensitiveLog = (obj: GetIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMatchesRequestFilterSensitiveLog = (obj: GetMatchesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MatchItemFilterSensitiveLog = (obj: MatchItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMatchesResponseFilterSensitiveLog = (obj: GetMatchesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProfileObjectTypeRequestFilterSensitiveLog = (obj: GetProfileObjectTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectTypeFieldFilterSensitiveLog = (obj: ObjectTypeField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectTypeKeyFilterSensitiveLog = (obj: ObjectTypeKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProfileObjectTypeResponseFilterSensitiveLog = (obj: GetProfileObjectTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProfileObjectTypeTemplateRequestFilterSensitiveLog = (
+  obj: GetProfileObjectTypeTemplateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProfileObjectTypeTemplateResponseFilterSensitiveLog = (
+  obj: GetProfileObjectTypeTemplateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkflowRequestFilterSensitiveLog = (obj: GetWorkflowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowAttributesFilterSensitiveLog = (obj: WorkflowAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowMetricsFilterSensitiveLog = (obj: WorkflowMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkflowResponseFilterSensitiveLog = (obj: GetWorkflowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkflowStepsRequestFilterSensitiveLog = (obj: GetWorkflowStepsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowStepItemFilterSensitiveLog = (obj: WorkflowStepItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkflowStepsResponseFilterSensitiveLog = (obj: GetWorkflowStepsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountIntegrationsRequestFilterSensitiveLog = (obj: ListAccountIntegrationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIntegrationItemFilterSensitiveLog = (obj: ListIntegrationItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccountIntegrationsResponseFilterSensitiveLog = (obj: ListAccountIntegrationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsRequestFilterSensitiveLog = (obj: ListDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainItemFilterSensitiveLog = (obj: ListDomainItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainsResponseFilterSensitiveLog = (obj: ListDomainsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityResolutionJobsRequestFilterSensitiveLog = (obj: ListIdentityResolutionJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityResolutionJobFilterSensitiveLog = (obj: IdentityResolutionJob): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIdentityResolutionJobsResponseFilterSensitiveLog = (obj: ListIdentityResolutionJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIntegrationsRequestFilterSensitiveLog = (obj: ListIntegrationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIntegrationsResponseFilterSensitiveLog = (obj: ListIntegrationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectFilterFilterSensitiveLog = (obj: ObjectFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectsRequestFilterSensitiveLog = (obj: ListProfileObjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectsItemFilterSensitiveLog = (obj: ListProfileObjectsItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectsResponseFilterSensitiveLog = (obj: ListProfileObjectsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectTypesRequestFilterSensitiveLog = (obj: ListProfileObjectTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectTypeItemFilterSensitiveLog = (obj: ListProfileObjectTypeItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectTypesResponseFilterSensitiveLog = (obj: ListProfileObjectTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectTypeTemplatesRequestFilterSensitiveLog = (
+  obj: ListProfileObjectTypeTemplatesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectTypeTemplateItemFilterSensitiveLog = (obj: ListProfileObjectTypeTemplateItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectTypeTemplatesResponseFilterSensitiveLog = (
+  obj: ListProfileObjectTypeTemplatesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkflowsRequestFilterSensitiveLog = (obj: ListWorkflowsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkflowsItemFilterSensitiveLog = (obj: ListWorkflowsItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkflowsResponseFilterSensitiveLog = (obj: ListWorkflowsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldSourceProfileIdsFilterSensitiveLog = (obj: FieldSourceProfileIds): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeProfilesRequestFilterSensitiveLog = (obj: MergeProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MergeProfilesResponseFilterSensitiveLog = (obj: MergeProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutIntegrationRequestFilterSensitiveLog = (obj: PutIntegrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutIntegrationResponseFilterSensitiveLog = (obj: PutIntegrationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProfileObjectRequestFilterSensitiveLog = (obj: PutProfileObjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProfileObjectResponseFilterSensitiveLog = (obj: PutProfileObjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProfileObjectTypeRequestFilterSensitiveLog = (obj: PutProfileObjectTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutProfileObjectTypeResponseFilterSensitiveLog = (obj: PutProfileObjectTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchProfilesRequestFilterSensitiveLog = (obj: SearchProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProfileFilterSensitiveLog = (obj: Profile): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchProfilesResponseFilterSensitiveLog = (obj: SearchProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainRequestFilterSensitiveLog = (obj: UpdateDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainResponseFilterSensitiveLog = (obj: UpdateDomainResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAddressFilterSensitiveLog = (obj: UpdateAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProfileRequestFilterSensitiveLog = (obj: UpdateProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProfileResponseFilterSensitiveLog = (obj: UpdateProfileResponse): any => ({
+  ...obj,
+});

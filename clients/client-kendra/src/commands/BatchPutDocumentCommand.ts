@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { BatchPutDocumentRequest, BatchPutDocumentResponse } from "../models/models_0";
+import {
+  BatchPutDocumentRequest,
+  BatchPutDocumentRequestFilterSensitiveLog,
+  BatchPutDocumentResponse,
+  BatchPutDocumentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchPutDocumentCommand,
   serializeAws_json1_1BatchPutDocumentCommand,
@@ -83,8 +88,8 @@ export class BatchPutDocumentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutDocumentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutDocumentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchPutDocumentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchPutDocumentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

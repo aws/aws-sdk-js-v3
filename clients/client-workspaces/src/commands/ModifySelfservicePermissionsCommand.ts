@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifySelfservicePermissionsRequest, ModifySelfservicePermissionsResult } from "../models/models_0";
+import {
+  ModifySelfservicePermissionsRequest,
+  ModifySelfservicePermissionsRequestFilterSensitiveLog,
+  ModifySelfservicePermissionsResult,
+  ModifySelfservicePermissionsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ModifySelfservicePermissionsCommand,
   serializeAws_json1_1ModifySelfservicePermissionsCommand,
@@ -75,8 +80,8 @@ export class ModifySelfservicePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySelfservicePermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifySelfservicePermissionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifySelfservicePermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifySelfservicePermissionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

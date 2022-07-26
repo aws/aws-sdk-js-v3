@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetRegexPatternSetRequest, GetRegexPatternSetResponse } from "../models/models_0";
+import {
+  GetRegexPatternSetRequest,
+  GetRegexPatternSetRequestFilterSensitiveLog,
+  GetRegexPatternSetResponse,
+  GetRegexPatternSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetRegexPatternSetCommand,
   serializeAws_json1_1GetRegexPatternSetCommand,
@@ -80,8 +85,8 @@ export class GetRegexPatternSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRegexPatternSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRegexPatternSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRegexPatternSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRegexPatternSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

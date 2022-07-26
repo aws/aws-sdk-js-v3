@@ -45,15 +45,6 @@ export interface DescribeJobExecutionRequest {
   executionNumber?: number;
 }
 
-export namespace DescribeJobExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum JobExecutionStatus {
   CANCELED = "CANCELED",
   FAILED = "FAILED",
@@ -129,29 +120,11 @@ export interface JobExecution {
   jobDocument?: string;
 }
 
-export namespace JobExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobExecution): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobExecutionResponse {
   /**
    * <p>Contains data about a job execution.</p>
    */
   execution?: JobExecution;
-}
-
-export namespace DescribeJobExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobExecutionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -262,15 +235,6 @@ export interface GetPendingJobExecutionsRequest {
   thingName: string | undefined;
 }
 
-export namespace GetPendingJobExecutionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPendingJobExecutionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a subset of information about a job execution.</p>
  */
@@ -307,15 +271,6 @@ export interface JobExecutionSummary {
   executionNumber?: number;
 }
 
-export namespace JobExecutionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobExecutionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPendingJobExecutionsResponse {
   /**
    * <p>A list of JobExecutionSummary objects with status IN_PROGRESS.</p>
@@ -326,15 +281,6 @@ export interface GetPendingJobExecutionsResponse {
    * <p>A list of JobExecutionSummary objects with status QUEUED.</p>
    */
   queuedJobs?: JobExecutionSummary[];
-}
-
-export namespace GetPendingJobExecutionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPendingJobExecutionsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -382,29 +328,11 @@ export interface StartNextPendingJobExecutionRequest {
   stepTimeoutInMinutes?: number;
 }
 
-export namespace StartNextPendingJobExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartNextPendingJobExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartNextPendingJobExecutionResponse {
   /**
    * <p>A JobExecution object.</p>
    */
   execution?: JobExecution;
-}
-
-export namespace StartNextPendingJobExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartNextPendingJobExecutionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateJobExecutionRequest {
@@ -467,15 +395,6 @@ export interface UpdateJobExecutionRequest {
   executionNumber?: number;
 }
 
-export namespace UpdateJobExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains data about the state of a job execution.</p>
  */
@@ -498,15 +417,6 @@ export interface JobExecutionState {
   versionNumber?: number;
 }
 
-export namespace JobExecutionState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobExecutionState): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateJobExecutionResponse {
   /**
    * <p>A JobExecutionState object.</p>
@@ -519,11 +429,83 @@ export interface UpdateJobExecutionResponse {
   jobDocument?: string;
 }
 
-export namespace UpdateJobExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobExecutionResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DescribeJobExecutionRequestFilterSensitiveLog = (obj: DescribeJobExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobExecutionFilterSensitiveLog = (obj: JobExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobExecutionResponseFilterSensitiveLog = (obj: DescribeJobExecutionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPendingJobExecutionsRequestFilterSensitiveLog = (obj: GetPendingJobExecutionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobExecutionSummaryFilterSensitiveLog = (obj: JobExecutionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPendingJobExecutionsResponseFilterSensitiveLog = (obj: GetPendingJobExecutionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartNextPendingJobExecutionRequestFilterSensitiveLog = (
+  obj: StartNextPendingJobExecutionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartNextPendingJobExecutionResponseFilterSensitiveLog = (
+  obj: StartNextPendingJobExecutionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobExecutionRequestFilterSensitiveLog = (obj: UpdateJobExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobExecutionStateFilterSensitiveLog = (obj: JobExecutionState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobExecutionResponseFilterSensitiveLog = (obj: UpdateJobExecutionResponse): any => ({
+  ...obj,
+});

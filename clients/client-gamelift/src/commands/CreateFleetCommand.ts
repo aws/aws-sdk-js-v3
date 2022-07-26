@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { CreateFleetInput, CreateFleetOutput } from "../models/models_0";
+import {
+  CreateFleetInput,
+  CreateFleetInputFilterSensitiveLog,
+  CreateFleetOutput,
+  CreateFleetOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateFleetCommand,
   serializeAws_json1_1CreateFleetCommand,
@@ -126,8 +131,8 @@ export class CreateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFleetInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateFleetOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFleetInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateFleetOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

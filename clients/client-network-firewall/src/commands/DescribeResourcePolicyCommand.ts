@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeResourcePolicyRequest, DescribeResourcePolicyResponse } from "../models/models_0";
+import {
+  DescribeResourcePolicyRequest,
+  DescribeResourcePolicyRequestFilterSensitiveLog,
+  DescribeResourcePolicyResponse,
+  DescribeResourcePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
   deserializeAws_json1_0DescribeResourcePolicyCommand,
@@ -72,8 +77,8 @@ export class DescribeResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResourcePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResourcePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeResourcePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeResourcePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { PublishFunctionRequest, PublishFunctionResult } from "../models/models_1";
+import {
+  PublishFunctionRequest,
+  PublishFunctionRequestFilterSensitiveLog,
+  PublishFunctionResult,
+  PublishFunctionResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restXmlPublishFunctionCommand,
   serializeAws_restXmlPublishFunctionCommand,
@@ -80,8 +85,8 @@ export class PublishFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishFunctionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PublishFunctionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PublishFunctionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PublishFunctionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

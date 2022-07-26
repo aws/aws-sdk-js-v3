@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { UpdateLaunchRequest, UpdateLaunchResponse } from "../models/models_0";
+import {
+  UpdateLaunchRequest,
+  UpdateLaunchRequestFilterSensitiveLog,
+  UpdateLaunchResponse,
+  UpdateLaunchResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateLaunchCommand,
   serializeAws_restJson1UpdateLaunchCommand,
@@ -74,8 +79,8 @@ export class UpdateLaunchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLaunchRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLaunchResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLaunchRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLaunchResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

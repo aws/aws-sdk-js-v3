@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ResolveCaseRequest, ResolveCaseResponse } from "../models/models_0";
+import {
+  ResolveCaseRequest,
+  ResolveCaseRequestFilterSensitiveLog,
+  ResolveCaseResponse,
+  ResolveCaseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ResolveCaseCommand,
   serializeAws_json1_1ResolveCaseCommand,
@@ -87,8 +92,8 @@ export class ResolveCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResolveCaseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResolveCaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ResolveCaseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResolveCaseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

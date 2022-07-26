@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeregisterDelegatedAdministratorRequest } from "../models/models_0";
+import {
+  DeregisterDelegatedAdministratorRequest,
+  DeregisterDelegatedAdministratorRequestFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1DeregisterDelegatedAdministratorCommand,
@@ -85,7 +88,7 @@ export class DeregisterDelegatedAdministratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterDelegatedAdministratorRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterDelegatedAdministratorRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

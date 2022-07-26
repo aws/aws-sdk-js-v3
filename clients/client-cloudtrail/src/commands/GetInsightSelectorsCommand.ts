@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { GetInsightSelectorsRequest, GetInsightSelectorsResponse } from "../models/models_0";
+import {
+  GetInsightSelectorsRequest,
+  GetInsightSelectorsRequestFilterSensitiveLog,
+  GetInsightSelectorsResponse,
+  GetInsightSelectorsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetInsightSelectorsCommand,
   serializeAws_json1_1GetInsightSelectorsCommand,
@@ -78,8 +83,8 @@ export class GetInsightSelectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInsightSelectorsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInsightSelectorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInsightSelectorsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInsightSelectorsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { FailoverGlobalClusterMessage, FailoverGlobalClusterResult } from "../models/models_0";
+import {
+  FailoverGlobalClusterMessage,
+  FailoverGlobalClusterMessageFilterSensitiveLog,
+  FailoverGlobalClusterResult,
+  FailoverGlobalClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryFailoverGlobalClusterCommand,
@@ -86,8 +91,8 @@ export class FailoverGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FailoverGlobalClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: FailoverGlobalClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: FailoverGlobalClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: FailoverGlobalClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -2,6 +2,9 @@ const { readdirSync, lstatSync } = require("fs");
 const Glob = require("glob");
 const { join } = require("path");
 
+/**
+ * @returns {string[]}
+ */
 const getModelFilepaths = (models) => {
   if (typeof models === "string") {
     //`models` is a folder path

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListCidrBlocksRequest, ListCidrBlocksResponse } from "../models/models_0";
+import {
+  ListCidrBlocksRequest,
+  ListCidrBlocksRequestFilterSensitiveLog,
+  ListCidrBlocksResponse,
+  ListCidrBlocksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlListCidrBlocksCommand,
   serializeAws_restXmlListCidrBlocksCommand,
@@ -72,8 +77,8 @@ export class ListCidrBlocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCidrBlocksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCidrBlocksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCidrBlocksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCidrBlocksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAWSDefaultServiceQuotaRequest, GetAWSDefaultServiceQuotaResponse } from "../models/models_0";
+import {
+  GetAWSDefaultServiceQuotaRequest,
+  GetAWSDefaultServiceQuotaRequestFilterSensitiveLog,
+  GetAWSDefaultServiceQuotaResponse,
+  GetAWSDefaultServiceQuotaResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetAWSDefaultServiceQuotaCommand,
   serializeAws_json1_1GetAWSDefaultServiceQuotaCommand,
@@ -73,8 +78,8 @@ export class GetAWSDefaultServiceQuotaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAWSDefaultServiceQuotaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAWSDefaultServiceQuotaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAWSDefaultServiceQuotaRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAWSDefaultServiceQuotaResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

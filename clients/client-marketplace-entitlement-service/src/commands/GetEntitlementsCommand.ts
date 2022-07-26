@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceEntitlementServiceClient";
-import { GetEntitlementsRequest, GetEntitlementsResult } from "../models/models_0";
+import {
+  GetEntitlementsRequest,
+  GetEntitlementsRequestFilterSensitiveLog,
+  GetEntitlementsResult,
+  GetEntitlementsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetEntitlementsCommand,
   serializeAws_json1_1GetEntitlementsCommand,
@@ -77,8 +82,8 @@ export class GetEntitlementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEntitlementsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEntitlementsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEntitlementsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEntitlementsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

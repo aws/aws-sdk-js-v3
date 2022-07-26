@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAttributeValuesRequest, GetAttributeValuesResponse } from "../models/models_0";
+import {
+  GetAttributeValuesRequest,
+  GetAttributeValuesRequestFilterSensitiveLog,
+  GetAttributeValuesResponse,
+  GetAttributeValuesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
 import {
   deserializeAws_json1_1GetAttributeValuesCommand,
@@ -75,8 +80,8 @@ export class GetAttributeValuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAttributeValuesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAttributeValuesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAttributeValuesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAttributeValuesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

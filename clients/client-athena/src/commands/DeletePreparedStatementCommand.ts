@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { DeletePreparedStatementInput, DeletePreparedStatementOutput } from "../models/models_0";
+import {
+  DeletePreparedStatementInput,
+  DeletePreparedStatementInputFilterSensitiveLog,
+  DeletePreparedStatementOutput,
+  DeletePreparedStatementOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePreparedStatementCommand,
   serializeAws_json1_1DeletePreparedStatementCommand,
@@ -73,8 +78,8 @@ export class DeletePreparedStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePreparedStatementInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePreparedStatementOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePreparedStatementInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePreparedStatementOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

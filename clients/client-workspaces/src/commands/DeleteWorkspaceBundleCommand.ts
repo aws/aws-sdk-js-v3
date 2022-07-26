@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteWorkspaceBundleRequest, DeleteWorkspaceBundleResult } from "../models/models_0";
+import {
+  DeleteWorkspaceBundleRequest,
+  DeleteWorkspaceBundleRequestFilterSensitiveLog,
+  DeleteWorkspaceBundleResult,
+  DeleteWorkspaceBundleResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWorkspaceBundleCommand,
   serializeAws_json1_1DeleteWorkspaceBundleCommand,
@@ -74,8 +79,8 @@ export class DeleteWorkspaceBundleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceBundleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkspaceBundleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWorkspaceBundleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWorkspaceBundleResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

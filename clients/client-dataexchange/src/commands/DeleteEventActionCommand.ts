@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { DeleteEventActionRequest } from "../models/models_0";
+import { DeleteEventActionRequest, DeleteEventActionRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEventActionCommand,
   serializeAws_restJson1DeleteEventActionCommand,
@@ -72,7 +72,7 @@ export class DeleteEventActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventActionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteEventActionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

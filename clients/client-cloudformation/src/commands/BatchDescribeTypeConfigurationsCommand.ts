@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { BatchDescribeTypeConfigurationsInput, BatchDescribeTypeConfigurationsOutput } from "../models/models_0";
+import {
+  BatchDescribeTypeConfigurationsInput,
+  BatchDescribeTypeConfigurationsInputFilterSensitiveLog,
+  BatchDescribeTypeConfigurationsOutput,
+  BatchDescribeTypeConfigurationsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryBatchDescribeTypeConfigurationsCommand,
   serializeAws_queryBatchDescribeTypeConfigurationsCommand,
@@ -77,8 +82,8 @@ export class BatchDescribeTypeConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDescribeTypeConfigurationsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDescribeTypeConfigurationsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDescribeTypeConfigurationsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDescribeTypeConfigurationsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

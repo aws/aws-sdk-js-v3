@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
-import { UpdateAppInstanceUserEndpointRequest, UpdateAppInstanceUserEndpointResponse } from "../models/models_0";
+import {
+  UpdateAppInstanceUserEndpointRequest,
+  UpdateAppInstanceUserEndpointRequestFilterSensitiveLog,
+  UpdateAppInstanceUserEndpointResponse,
+  UpdateAppInstanceUserEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAppInstanceUserEndpointCommand,
   serializeAws_restJson1UpdateAppInstanceUserEndpointCommand,
@@ -74,8 +79,8 @@ export class UpdateAppInstanceUserEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAppInstanceUserEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppInstanceUserEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAppInstanceUserEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAppInstanceUserEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

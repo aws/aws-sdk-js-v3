@@ -15,7 +15,9 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import {
   BatchDisassociateApprovalRuleTemplateFromRepositoriesInput,
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesInputFilterSensitiveLog,
   BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
+  BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand,
@@ -81,8 +83,8 @@ export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extend
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateApprovalRuleTemplateFromRepositoriesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDisassociateApprovalRuleTemplateFromRepositoriesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

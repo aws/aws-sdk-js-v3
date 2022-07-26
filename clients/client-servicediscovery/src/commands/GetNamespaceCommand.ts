@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetNamespaceRequest, GetNamespaceResponse } from "../models/models_0";
+import {
+  GetNamespaceRequest,
+  GetNamespaceRequestFilterSensitiveLog,
+  GetNamespaceResponse,
+  GetNamespaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetNamespaceCommand,
   serializeAws_json1_1GetNamespaceCommand,
@@ -72,8 +77,8 @@ export class GetNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNamespaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetNamespaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetNamespaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetNamespaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import { GetMemberRequest, GetMemberResponse } from "../models/models_0";
+import {
+  GetMemberRequest,
+  GetMemberRequestFilterSensitiveLog,
+  GetMemberResponse,
+  GetMemberResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMemberCommand,
   serializeAws_restJson1GetMemberCommand,
@@ -72,8 +77,8 @@ export class GetMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMemberRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMemberResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMemberRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMemberResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

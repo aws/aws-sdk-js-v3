@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { GetResourceCollectionRequest, GetResourceCollectionResponse } from "../models/models_0";
+import {
+  GetResourceCollectionRequest,
+  GetResourceCollectionRequestFilterSensitiveLog,
+  GetResourceCollectionResponse,
+  GetResourceCollectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetResourceCollectionCommand,
   serializeAws_restJson1GetResourceCollectionCommand,
@@ -75,8 +80,8 @@ export class GetResourceCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceCollectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceCollectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResourceCollectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResourceCollectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -63,15 +63,6 @@ export interface PredictiveDialerConfig {
   bandwidthAllocation: number | undefined;
 }
 
-export namespace PredictiveDialerConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictiveDialerConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Progressive Dialer config
  */
@@ -80,15 +71,6 @@ export interface ProgressiveDialerConfig {
    * The bandwidth allocation of a queue resource.
    */
   bandwidthAllocation: number | undefined;
-}
-
-export namespace ProgressiveDialerConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProgressiveDialerConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -136,17 +118,6 @@ export namespace DialerConfig {
     if (value.predictiveDialerConfig !== undefined) return visitor.predictiveDialerConfig(value.predictiveDialerConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DialerConfig): any => {
-    if (obj.progressiveDialerConfig !== undefined)
-      return { progressiveDialerConfig: ProgressiveDialerConfig.filterSensitiveLog(obj.progressiveDialerConfig) };
-    if (obj.predictiveDialerConfig !== undefined)
-      return { predictiveDialerConfig: PredictiveDialerConfig.filterSensitiveLog(obj.predictiveDialerConfig) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -157,15 +128,6 @@ export interface AnswerMachineDetectionConfig {
    * Enable or disable answering machine detection
    */
   enableAnswerMachineDetection: boolean | undefined;
-}
-
-export namespace AnswerMachineDetectionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnswerMachineDetectionConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -191,15 +153,6 @@ export interface OutboundCallConfig {
    * Answering Machine Detection config
    */
   answerMachineDetectionConfig?: AnswerMachineDetectionConfig;
-}
-
-export namespace OutboundCallConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutboundCallConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -232,16 +185,6 @@ export interface CreateCampaignRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateCampaignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCampaignRequest): any => ({
-    ...obj,
-    ...(obj.dialerConfig && { dialerConfig: DialerConfig.filterSensitiveLog(obj.dialerConfig) }),
-  });
-}
-
 /**
  * The response for Create Campaign API
  */
@@ -260,15 +203,6 @@ export interface CreateCampaignResponse {
    * Tag map with key and value.
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateCampaignResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCampaignResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -408,15 +342,6 @@ export interface DeleteCampaignRequest {
   id: string | undefined;
 }
 
-export namespace DeleteCampaignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCampaignRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * DeleteCampaignRequest
  */
@@ -425,15 +350,6 @@ export interface DeleteConnectInstanceConfigRequest {
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
-}
-
-export namespace DeleteConnectInstanceConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConnectInstanceConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -471,15 +387,6 @@ export interface DeleteInstanceOnboardingJobRequest {
   connectInstanceId: string | undefined;
 }
 
-export namespace DeleteInstanceOnboardingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInstanceOnboardingJobRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * DescribeCampaignRequests
  */
@@ -488,15 +395,6 @@ export interface DescribeCampaignRequest {
    * Identifier representing a Campaign
    */
   id: string | undefined;
-}
-
-export namespace DescribeCampaignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCampaignRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -539,16 +437,6 @@ export interface Campaign {
   tags?: Record<string, string>;
 }
 
-export namespace Campaign {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Campaign): any => ({
-    ...obj,
-    ...(obj.dialerConfig && { dialerConfig: DialerConfig.filterSensitiveLog(obj.dialerConfig) }),
-  });
-}
-
 /**
  * DescribeCampaignResponse
  */
@@ -559,16 +447,6 @@ export interface DescribeCampaignResponse {
   campaign?: Campaign;
 }
 
-export namespace DescribeCampaignResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCampaignResponse): any => ({
-    ...obj,
-    ...(obj.campaign && { campaign: Campaign.filterSensitiveLog(obj.campaign) }),
-  });
-}
-
 /**
  * GetCampaignStateRequest
  */
@@ -577,15 +455,6 @@ export interface GetCampaignStateRequest {
    * Identifier representing a Campaign
    */
   id: string | undefined;
-}
-
-export namespace GetCampaignStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCampaignStateRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum CampaignState {
@@ -621,15 +490,6 @@ export interface GetCampaignStateResponse {
   state?: CampaignState | string;
 }
 
-export namespace GetCampaignStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCampaignStateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * GetCampaignStateBatchRequest
  */
@@ -638,15 +498,6 @@ export interface GetCampaignStateBatchRequest {
    * List of CampaignId
    */
   campaignIds: string[] | undefined;
-}
-
-export namespace GetCampaignStateBatchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCampaignStateBatchRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum GetCampaignStateBatchFailureCode {
@@ -675,15 +526,6 @@ export interface FailedCampaignStateResponse {
   failureCode?: GetCampaignStateBatchFailureCode | string;
 }
 
-export namespace FailedCampaignStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedCampaignStateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Successful response of campaign state
  */
@@ -697,15 +539,6 @@ export interface SuccessfulCampaignStateResponse {
    * State of a campaign
    */
   state?: CampaignState | string;
-}
-
-export namespace SuccessfulCampaignStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuccessfulCampaignStateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -723,15 +556,6 @@ export interface GetCampaignStateBatchResponse {
   failedRequests?: FailedCampaignStateResponse[];
 }
 
-export namespace GetCampaignStateBatchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCampaignStateBatchResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * GetConnectInstanceConfigRequest
  */
@@ -740,15 +564,6 @@ export interface GetConnectInstanceConfigRequest {
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
-}
-
-export namespace GetConnectInstanceConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectInstanceConfigRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EncryptionType {
@@ -778,15 +593,6 @@ export interface EncryptionConfig {
   keyArn?: string;
 }
 
-export namespace EncryptionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Instance config object
  */
@@ -810,15 +616,6 @@ export interface InstanceConfig {
   encryptionConfig: EncryptionConfig | undefined;
 }
 
-export namespace InstanceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * GetConnectInstanceConfigResponse
  */
@@ -829,15 +626,6 @@ export interface GetConnectInstanceConfigResponse {
   connectInstanceConfig?: InstanceConfig;
 }
 
-export namespace GetConnectInstanceConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectInstanceConfigResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * GetInstanceOnboardingJobStatusRequest
  */
@@ -846,15 +634,6 @@ export interface GetInstanceOnboardingJobStatusRequest {
    * Amazon Connect Instance Id
    */
   connectInstanceId: string | undefined;
-}
-
-export namespace GetInstanceOnboardingJobStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceOnboardingJobStatusRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceOnboardingJobFailureCode {
@@ -892,15 +671,6 @@ export interface InstanceOnboardingJobStatus {
   failureCode?: InstanceOnboardingJobFailureCode | string;
 }
 
-export namespace InstanceOnboardingJobStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceOnboardingJobStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * GetInstanceOnboardingJobStatusResponse
  */
@@ -909,15 +679,6 @@ export interface GetInstanceOnboardingJobStatusResponse {
    * Instance onboarding job status object
    */
   connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus;
-}
-
-export namespace GetInstanceOnboardingJobStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceOnboardingJobStatusResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceIdFilterOperator {
@@ -942,15 +703,6 @@ export interface InstanceIdFilter {
   operator: InstanceIdFilterOperator | string | undefined;
 }
 
-export namespace InstanceIdFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceIdFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Filter model by type
  */
@@ -959,15 +711,6 @@ export interface CampaignFilters {
    * Connect instance identifier filter
    */
   instanceIdFilter?: InstanceIdFilter;
-}
-
-export namespace CampaignFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CampaignFilters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -988,15 +731,6 @@ export interface ListCampaignsRequest {
    * Filter model by type
    */
   filters?: CampaignFilters;
-}
-
-export namespace ListCampaignsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCampaignsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1024,15 +758,6 @@ export interface CampaignSummary {
   connectInstanceId: string | undefined;
 }
 
-export namespace CampaignSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CampaignSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * ListCampaignsResponse
  */
@@ -1048,15 +773,6 @@ export interface ListCampaignsResponse {
   campaignSummaryList?: CampaignSummary[];
 }
 
-export namespace ListCampaignsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCampaignsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * ListTagsForResource
  */
@@ -1067,15 +783,6 @@ export interface ListTagsForResourceRequest {
   arn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * ListTagsForResponse
  */
@@ -1084,15 +791,6 @@ export interface ListTagsForResourceResponse {
    * Tag map with key and value.
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1136,15 +834,6 @@ export interface PauseCampaignRequest {
   id: string | undefined;
 }
 
-export namespace PauseCampaignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PauseCampaignRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A dial request for a campaign.
  */
@@ -1170,17 +859,6 @@ export interface DialRequest {
   attributes: Record<string, string> | undefined;
 }
 
-export namespace DialRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DialRequest): any => ({
-    ...obj,
-    ...(obj.phoneNumber && { phoneNumber: SENSITIVE_STRING }),
-    ...(obj.attributes && { attributes: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * PutDialRequestBatchRequest
  */
@@ -1194,16 +872,6 @@ export interface PutDialRequestBatchRequest {
    * A list of dial requests.
    */
   dialRequests: DialRequest[] | undefined;
-}
-
-export namespace PutDialRequestBatchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDialRequestBatchRequest): any => ({
-    ...obj,
-    ...(obj.dialRequests && { dialRequests: obj.dialRequests.map((item) => DialRequest.filterSensitiveLog(item)) }),
-  });
 }
 
 export enum FailureCode {
@@ -1241,15 +909,6 @@ export interface FailedRequest {
   failureCode?: FailureCode | string;
 }
 
-export namespace FailedRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailedRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * A successful request identified by the unique client token.
  */
@@ -1263,15 +922,6 @@ export interface SuccessfulRequest {
    * Identifier representing a Dial request
    */
   id?: string;
-}
-
-export namespace SuccessfulRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuccessfulRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1289,15 +939,6 @@ export interface PutDialRequestBatchResponse {
   failedRequests?: FailedRequest[];
 }
 
-export namespace PutDialRequestBatchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDialRequestBatchResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * ResumeCampaignRequest
  */
@@ -1308,15 +949,6 @@ export interface ResumeCampaignRequest {
   id: string | undefined;
 }
 
-export namespace ResumeCampaignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeCampaignRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * StartCampaignRequest
  */
@@ -1325,15 +957,6 @@ export interface StartCampaignRequest {
    * Identifier representing a Campaign
    */
   id: string | undefined;
-}
-
-export namespace StartCampaignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCampaignRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1354,15 +977,6 @@ export interface StartInstanceOnboardingJobRequest {
   encryptionConfig: EncryptionConfig | undefined;
 }
 
-export namespace StartInstanceOnboardingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInstanceOnboardingJobRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * The response for StartInstanceOnboardingJob API.
  */
@@ -1373,15 +987,6 @@ export interface StartInstanceOnboardingJobResponse {
   connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus;
 }
 
-export namespace StartInstanceOnboardingJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInstanceOnboardingJobResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * StopCampaignRequest
  */
@@ -1390,15 +995,6 @@ export interface StopCampaignRequest {
    * Identifier representing a Campaign
    */
   id: string | undefined;
-}
-
-export namespace StopCampaignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopCampaignRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1416,15 +1012,6 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * UntagResourceRequest
  */
@@ -1438,15 +1025,6 @@ export interface UntagResourceRequest {
    * List of tag keys.
    */
   tagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1464,16 +1042,6 @@ export interface UpdateCampaignDialerConfigRequest {
   dialerConfig: DialerConfig | undefined;
 }
 
-export namespace UpdateCampaignDialerConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCampaignDialerConfigRequest): any => ({
-    ...obj,
-    ...(obj.dialerConfig && { dialerConfig: DialerConfig.filterSensitiveLog(obj.dialerConfig) }),
-  });
-}
-
 /**
  * UpdateCampaignNameRequest
  */
@@ -1487,15 +1055,6 @@ export interface UpdateCampaignNameRequest {
    * The name of an Amazon Connect Campaign name.
    */
   name: string | undefined;
-}
-
-export namespace UpdateCampaignNameRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCampaignNameRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1523,11 +1082,362 @@ export interface UpdateCampaignOutboundCallConfigRequest {
   answerMachineDetectionConfig?: AnswerMachineDetectionConfig;
 }
 
-export namespace UpdateCampaignOutboundCallConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCampaignOutboundCallConfigRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const PredictiveDialerConfigFilterSensitiveLog = (obj: PredictiveDialerConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProgressiveDialerConfigFilterSensitiveLog = (obj: ProgressiveDialerConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DialerConfigFilterSensitiveLog = (obj: DialerConfig): any => {
+  if (obj.progressiveDialerConfig !== undefined)
+    return { progressiveDialerConfig: ProgressiveDialerConfigFilterSensitiveLog(obj.progressiveDialerConfig) };
+  if (obj.predictiveDialerConfig !== undefined)
+    return { predictiveDialerConfig: PredictiveDialerConfigFilterSensitiveLog(obj.predictiveDialerConfig) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AnswerMachineDetectionConfigFilterSensitiveLog = (obj: AnswerMachineDetectionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutboundCallConfigFilterSensitiveLog = (obj: OutboundCallConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCampaignRequestFilterSensitiveLog = (obj: CreateCampaignRequest): any => ({
+  ...obj,
+  ...(obj.dialerConfig && { dialerConfig: DialerConfigFilterSensitiveLog(obj.dialerConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCampaignResponseFilterSensitiveLog = (obj: CreateCampaignResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCampaignRequestFilterSensitiveLog = (obj: DeleteCampaignRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConnectInstanceConfigRequestFilterSensitiveLog = (obj: DeleteConnectInstanceConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInstanceOnboardingJobRequestFilterSensitiveLog = (obj: DeleteInstanceOnboardingJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCampaignRequestFilterSensitiveLog = (obj: DescribeCampaignRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CampaignFilterSensitiveLog = (obj: Campaign): any => ({
+  ...obj,
+  ...(obj.dialerConfig && { dialerConfig: DialerConfigFilterSensitiveLog(obj.dialerConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeCampaignResponseFilterSensitiveLog = (obj: DescribeCampaignResponse): any => ({
+  ...obj,
+  ...(obj.campaign && { campaign: CampaignFilterSensitiveLog(obj.campaign) }),
+});
+
+/**
+ * @internal
+ */
+export const GetCampaignStateRequestFilterSensitiveLog = (obj: GetCampaignStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCampaignStateResponseFilterSensitiveLog = (obj: GetCampaignStateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCampaignStateBatchRequestFilterSensitiveLog = (obj: GetCampaignStateBatchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedCampaignStateResponseFilterSensitiveLog = (obj: FailedCampaignStateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuccessfulCampaignStateResponseFilterSensitiveLog = (obj: SuccessfulCampaignStateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCampaignStateBatchResponseFilterSensitiveLog = (obj: GetCampaignStateBatchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectInstanceConfigRequestFilterSensitiveLog = (obj: GetConnectInstanceConfigRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionConfigFilterSensitiveLog = (obj: EncryptionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceConfigFilterSensitiveLog = (obj: InstanceConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectInstanceConfigResponseFilterSensitiveLog = (obj: GetConnectInstanceConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceOnboardingJobStatusRequestFilterSensitiveLog = (
+  obj: GetInstanceOnboardingJobStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceOnboardingJobStatusFilterSensitiveLog = (obj: InstanceOnboardingJobStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceOnboardingJobStatusResponseFilterSensitiveLog = (
+  obj: GetInstanceOnboardingJobStatusResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceIdFilterFilterSensitiveLog = (obj: InstanceIdFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CampaignFiltersFilterSensitiveLog = (obj: CampaignFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCampaignsRequestFilterSensitiveLog = (obj: ListCampaignsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CampaignSummaryFilterSensitiveLog = (obj: CampaignSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCampaignsResponseFilterSensitiveLog = (obj: ListCampaignsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PauseCampaignRequestFilterSensitiveLog = (obj: PauseCampaignRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DialRequestFilterSensitiveLog = (obj: DialRequest): any => ({
+  ...obj,
+  ...(obj.phoneNumber && { phoneNumber: SENSITIVE_STRING }),
+  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutDialRequestBatchRequestFilterSensitiveLog = (obj: PutDialRequestBatchRequest): any => ({
+  ...obj,
+  ...(obj.dialRequests && { dialRequests: obj.dialRequests.map((item) => DialRequestFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const FailedRequestFilterSensitiveLog = (obj: FailedRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuccessfulRequestFilterSensitiveLog = (obj: SuccessfulRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDialRequestBatchResponseFilterSensitiveLog = (obj: PutDialRequestBatchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResumeCampaignRequestFilterSensitiveLog = (obj: ResumeCampaignRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCampaignRequestFilterSensitiveLog = (obj: StartCampaignRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInstanceOnboardingJobRequestFilterSensitiveLog = (obj: StartInstanceOnboardingJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInstanceOnboardingJobResponseFilterSensitiveLog = (obj: StartInstanceOnboardingJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopCampaignRequestFilterSensitiveLog = (obj: StopCampaignRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCampaignDialerConfigRequestFilterSensitiveLog = (obj: UpdateCampaignDialerConfigRequest): any => ({
+  ...obj,
+  ...(obj.dialerConfig && { dialerConfig: DialerConfigFilterSensitiveLog(obj.dialerConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCampaignNameRequestFilterSensitiveLog = (obj: UpdateCampaignNameRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCampaignOutboundCallConfigRequestFilterSensitiveLog = (
+  obj: UpdateCampaignOutboundCallConfigRequest
+): any => ({
+  ...obj,
+});

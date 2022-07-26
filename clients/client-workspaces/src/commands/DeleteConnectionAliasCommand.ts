@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteConnectionAliasRequest, DeleteConnectionAliasResult } from "../models/models_0";
+import {
+  DeleteConnectionAliasRequest,
+  DeleteConnectionAliasRequestFilterSensitiveLog,
+  DeleteConnectionAliasResult,
+  DeleteConnectionAliasResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConnectionAliasCommand,
   serializeAws_json1_1DeleteConnectionAliasCommand,
@@ -87,8 +92,8 @@ export class DeleteConnectionAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectionAliasRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConnectionAliasResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConnectionAliasRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConnectionAliasResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

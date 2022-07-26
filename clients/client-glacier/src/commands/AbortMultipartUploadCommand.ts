@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { AbortMultipartUploadInput } from "../models/models_0";
+import { AbortMultipartUploadInput, AbortMultipartUploadInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1AbortMultipartUploadCommand,
   serializeAws_restJson1AbortMultipartUploadCommand,
@@ -89,7 +89,7 @@ export class AbortMultipartUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AbortMultipartUploadInput.filterSensitiveLog,
+      inputFilterSensitiveLog: AbortMultipartUploadInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

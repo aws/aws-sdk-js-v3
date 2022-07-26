@@ -15,7 +15,9 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   UpdateLicenseManagerReportGeneratorRequest,
+  UpdateLicenseManagerReportGeneratorRequestFilterSensitiveLog,
   UpdateLicenseManagerReportGeneratorResponse,
+  UpdateLicenseManagerReportGeneratorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateLicenseManagerReportGeneratorCommand,
@@ -78,8 +80,8 @@ export class UpdateLicenseManagerReportGeneratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLicenseManagerReportGeneratorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLicenseManagerReportGeneratorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateLicenseManagerReportGeneratorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateLicenseManagerReportGeneratorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

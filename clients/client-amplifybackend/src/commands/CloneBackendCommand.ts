@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import { CloneBackendRequest, CloneBackendResponse } from "../models/models_0";
+import {
+  CloneBackendRequest,
+  CloneBackendRequestFilterSensitiveLog,
+  CloneBackendResponse,
+  CloneBackendResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CloneBackendCommand,
   serializeAws_restJson1CloneBackendCommand,
@@ -72,8 +77,8 @@ export class CloneBackendCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CloneBackendRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CloneBackendResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CloneBackendRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CloneBackendResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeSubnetsRequest, DescribeSubnetsResult } from "../models/models_4";
+import {
+  DescribeSubnetsRequest,
+  DescribeSubnetsRequestFilterSensitiveLog,
+  DescribeSubnetsResult,
+  DescribeSubnetsResultFilterSensitiveLog,
+} from "../models/models_4";
 import { deserializeAws_ec2DescribeSubnetsCommand, serializeAws_ec2DescribeSubnetsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeSubnetsCommandInput extends DescribeSubnetsRequest {}
@@ -71,8 +76,8 @@ export class DescribeSubnetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubnetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSubnetsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSubnetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSubnetsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

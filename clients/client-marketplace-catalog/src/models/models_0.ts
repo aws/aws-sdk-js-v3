@@ -38,15 +38,6 @@ export interface CancelChangeSetRequest {
   ChangeSetId: string | undefined;
 }
 
-export namespace CancelChangeSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelChangeSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelChangeSetResponse {
   /**
    * <p>The unique identifier for the change set referenced in this request.</p>
@@ -57,15 +48,6 @@ export interface CancelChangeSetResponse {
    * <p>The ARN associated with the change set referenced in this request.</p>
    */
   ChangeSetArn?: string;
-}
-
-export namespace CancelChangeSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelChangeSetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -188,15 +170,6 @@ export interface DescribeChangeSetRequest {
   ChangeSetId: string | undefined;
 }
 
-export namespace DescribeChangeSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChangeSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An entity contains data that describes your product, its supported features,
  *             and how it can be used or launched by your customer. </p>
@@ -213,15 +186,6 @@ export interface Entity {
   Identifier?: string;
 }
 
-export namespace Entity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Entity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the error.</p>
  */
@@ -235,15 +199,6 @@ export interface ErrorDetail {
    * <p>The message for the error.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace ErrorDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -276,15 +231,6 @@ export interface ChangeSummary {
    * <p>Optional name for the change.</p>
    */
   ChangeName?: string;
-}
-
-export namespace ChangeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum FailureCode {
@@ -356,15 +302,6 @@ export interface DescribeChangeSetResponse {
   ChangeSet?: ChangeSummary[];
 }
 
-export namespace DescribeChangeSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChangeSetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEntityRequest {
   /**
    * <p>Required. The catalog related to the request. Fixed value:
@@ -377,15 +314,6 @@ export interface DescribeEntityRequest {
    * <p>Required. The unique ID of the entity to describe.</p>
    */
   EntityId: string | undefined;
-}
-
-export namespace DescribeEntityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEntityRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeEntityResponse {
@@ -416,15 +344,6 @@ export interface DescribeEntityResponse {
    * <p>This stringified JSON object includes the details of the entity.</p>
    */
   Details?: string;
-}
-
-export namespace DescribeEntityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEntityResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -509,15 +428,6 @@ export interface Filter {
   ValueList?: string[];
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 export enum SortOrder {
   ASCENDING = "ASCENDING",
   DESCENDING = "DESCENDING",
@@ -543,15 +453,6 @@ export interface Sort {
    *             default value is <code>DESCENDING</code>.</p>
    */
   SortOrder?: SortOrder | string;
-}
-
-export namespace Sort {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Sort): any => ({
-    ...obj,
-  });
 }
 
 export interface ListChangeSetsRequest {
@@ -584,15 +485,6 @@ export interface ListChangeSetsRequest {
    *             results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListChangeSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChangeSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -648,15 +540,6 @@ export interface ChangeSetSummaryListItem {
   FailureCode?: FailureCode | string;
 }
 
-export namespace ChangeSetSummaryListItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeSetSummaryListItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListChangeSetsResponse {
   /**
    * <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>
@@ -667,15 +550,6 @@ export interface ListChangeSetsResponse {
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListChangeSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChangeSetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEntitiesRequest {
@@ -712,15 +586,6 @@ export interface ListEntitiesRequest {
    *             the default value is 20.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListEntitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitiesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -769,15 +634,6 @@ export interface EntitySummary {
   Visibility?: string;
 }
 
-export namespace EntitySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntitySummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEntitiesResponse {
   /**
    * <p> Array of <code>EntitySummary</code> object.</p>
@@ -788,15 +644,6 @@ export interface ListEntitiesResponse {
    * <p>The value of the next token if it exists. Null if there is no more result.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEntitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEntitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -849,15 +696,6 @@ export interface Change {
   ChangeName?: string;
 }
 
-export namespace Change {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Change): any => ({
-    ...obj,
-  });
-}
-
 export interface StartChangeSetRequest {
   /**
    * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
@@ -882,15 +720,6 @@ export interface StartChangeSetRequest {
   ClientRequestToken?: string;
 }
 
-export namespace StartChangeSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChangeSetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartChangeSetResponse {
   /**
    * <p>Unique identifier generated for the request.</p>
@@ -903,11 +732,142 @@ export interface StartChangeSetResponse {
   ChangeSetArn?: string;
 }
 
-export namespace StartChangeSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartChangeSetResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CancelChangeSetRequestFilterSensitiveLog = (obj: CancelChangeSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelChangeSetResponseFilterSensitiveLog = (obj: CancelChangeSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChangeSetRequestFilterSensitiveLog = (obj: DescribeChangeSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntityFilterSensitiveLog = (obj: Entity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorDetailFilterSensitiveLog = (obj: ErrorDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeSummaryFilterSensitiveLog = (obj: ChangeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChangeSetResponseFilterSensitiveLog = (obj: DescribeChangeSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEntityRequestFilterSensitiveLog = (obj: DescribeEntityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEntityResponseFilterSensitiveLog = (obj: DescribeEntityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SortFilterSensitiveLog = (obj: Sort): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChangeSetsRequestFilterSensitiveLog = (obj: ListChangeSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeSetSummaryListItemFilterSensitiveLog = (obj: ChangeSetSummaryListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChangeSetsResponseFilterSensitiveLog = (obj: ListChangeSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntitiesRequestFilterSensitiveLog = (obj: ListEntitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntitySummaryFilterSensitiveLog = (obj: EntitySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEntitiesResponseFilterSensitiveLog = (obj: ListEntitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChangeFilterSensitiveLog = (obj: Change): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChangeSetRequestFilterSensitiveLog = (obj: StartChangeSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartChangeSetResponseFilterSensitiveLog = (obj: StartChangeSetResponse): any => ({
+  ...obj,
+});

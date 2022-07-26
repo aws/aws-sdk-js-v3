@@ -36,15 +36,6 @@ export interface AllowedStatistics {
   Statistics: string[] | undefined;
 }
 
-export namespace AllowedStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllowedStatistics): any => ({
-    ...obj,
-  });
-}
-
 export enum AnalyticsMode {
   DISABLE = "DISABLE",
   ENABLE = "ENABLE",
@@ -62,15 +53,6 @@ export interface BatchDeleteRecipeVersionRequest {
    *                 <code>LATEST_PUBLISHED</code> is not supported.</p>
    */
   RecipeVersions: string[] | undefined;
-}
-
-export namespace BatchDeleteRecipeVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteRecipeVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -94,15 +76,6 @@ export interface RecipeVersionErrorDetail {
   RecipeVersion?: string;
 }
 
-export namespace RecipeVersionErrorDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecipeVersionErrorDetail): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDeleteRecipeVersionResponse {
   /**
    * <p>The name of the recipe that was modified.</p>
@@ -113,15 +86,6 @@ export interface BatchDeleteRecipeVersionResponse {
    * <p>Errors, if any, that occurred while attempting to delete the recipe versions.</p>
    */
   Errors?: RecipeVersionErrorDetail[];
-}
-
-export namespace BatchDeleteRecipeVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDeleteRecipeVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -212,15 +176,6 @@ export interface CsvOptions {
   HeaderRow?: boolean;
 }
 
-export namespace CsvOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CsvOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when
  *             creating a dataset from that file.</p>
@@ -244,15 +199,6 @@ export interface ExcelOptions {
   HeaderRow?: boolean;
 }
 
-export namespace ExcelOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExcelOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the JSON-specific options that define how input is to be interpreted by Glue DataBrew.</p>
  */
@@ -262,15 +208,6 @@ export interface JsonOptions {
    *             characters.</p>
    */
   MultiLine?: boolean;
-}
-
-export namespace JsonOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -294,15 +231,6 @@ export interface FormatOptions {
   Csv?: CsvOptions;
 }
 
-export namespace FormatOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FormatOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
  *             input data, or write output from a job.</p>
@@ -322,15 +250,6 @@ export interface S3Location {
    * <p>The Amazon Web Services account ID of the bucket owner.</p>
    */
   BucketOwner?: string;
-}
-
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -361,15 +280,6 @@ export interface DatabaseInputDefinition {
   QueryString?: string;
 }
 
-export namespace DatabaseInputDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatabaseInputDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents how metadata stored in the Glue Data Catalog is defined in a DataBrew
  *             dataset. </p>
@@ -398,15 +308,6 @@ export interface DataCatalogInputDefinition {
   TempDirectory?: S3Location;
 }
 
-export namespace DataCatalogInputDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataCatalogInputDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains additional resource information needed for specific datasets.</p>
  */
@@ -416,15 +317,6 @@ export interface Metadata {
    *             only supports ARNs from Amazon AppFlow.</p>
    */
   SourceArn?: string;
-}
-
-export namespace Metadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Metadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -451,15 +343,6 @@ export interface Input {
    * <p>Contains additional resource information needed for specific datasets.</p>
    */
   Metadata?: Metadata;
-}
-
-export namespace Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Input): any => ({
-    ...obj,
-  });
 }
 
 export enum Order {
@@ -495,15 +378,6 @@ export interface FilesLimit {
   Order?: Order | string;
 }
 
-export namespace FilesLimit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilesLimit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a structure for defining parameter conditions. Supported conditions are described
  *             here: <a href="https://docs.aws.amazon.com/databrew/latest/dg/datasets.multiple-files.html#conditions.for.dynamic.datasets">Supported
@@ -522,15 +396,6 @@ export interface FilterExpression {
    * <p>The map of substitution variable names to their values used in this filter expression.</p>
    */
   ValuesMap: Record<string, string> | undefined;
-}
-
-export namespace FilterExpression {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterExpression): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -556,15 +421,6 @@ export interface DatetimeOptions {
    * <p>Optional value for a non-US locale code, needed for correct interpretation of some date formats.</p>
    */
   LocaleCode?: string;
-}
-
-export namespace DatetimeOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatetimeOptions): any => ({
-    ...obj,
-  });
 }
 
 export enum ParameterType {
@@ -605,15 +461,6 @@ export interface DatasetParameter {
   Filter?: FilterExpression;
 }
 
-export namespace DatasetParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a set of options that define how DataBrew selects files for a given Amazon S3
  *             path in a dataset.</p>
@@ -634,15 +481,6 @@ export interface PathOptions {
    * <p>A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.</p>
    */
   Parameters?: Record<string, DatasetParameter>;
-}
-
-export namespace PathOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PathOptions): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDatasetRequest {
@@ -680,29 +518,11 @@ export interface CreateDatasetRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDatasetResponse {
   /**
    * <p>The name of the dataset that you created.</p>
    */
   Name: string | undefined;
-}
-
-export namespace CreateDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -742,15 +562,6 @@ export interface ColumnSelector {
   Name?: string;
 }
 
-export namespace ColumnSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnSelector): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Override of a particular evaluation for a profile job. </p>
  */
@@ -764,15 +575,6 @@ export interface StatisticOverride {
    * <p>A map that includes overrides of an evaluation’s parameters.</p>
    */
   Parameters: Record<string, string> | undefined;
-}
-
-export namespace StatisticOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatisticOverride): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -791,15 +593,6 @@ export interface StatisticsConfiguration {
    * <p>List of overrides for evaluations.</p>
    */
   Overrides?: StatisticOverride[];
-}
-
-export namespace StatisticsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatisticsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -821,15 +614,6 @@ export interface ColumnStatisticsConfiguration {
    *         </p>
    */
   Statistics: StatisticsConfiguration | undefined;
-}
-
-export namespace ColumnStatisticsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnStatisticsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -911,15 +695,6 @@ export interface EntityDetectorConfiguration {
   AllowedStatistics?: AllowedStatistics[];
 }
 
-export namespace EntityDetectorConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityDetectorConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration for profile jobs. Configuration can be used to select columns, do evaluations, and override default
  *             parameters of evaluations. When configuration is undefined, the profile job will apply default settings to all
@@ -955,15 +730,6 @@ export interface ProfileConfiguration {
    * <p>Configuration of entity detection for a profile job. When undefined, entity detection is disabled.</p>
    */
   EntityDetectorConfiguration?: EntityDetectorConfiguration;
-}
-
-export namespace ProfileConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProfileConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum EncryptionMode {
@@ -1007,15 +773,6 @@ export interface JobSample {
   Size?: number;
 }
 
-export namespace JobSample {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobSample): any => ({
-    ...obj,
-  });
-}
-
 export enum LogSubscription {
   DISABLE = "DISABLE",
   ENABLE = "ENABLE",
@@ -1043,15 +800,6 @@ export interface ValidationConfiguration {
    *             defined in the selected ruleset.</p>
    */
   ValidationMode?: ValidationMode | string;
-}
-
-export namespace ValidationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProfileJobRequest {
@@ -1148,29 +896,11 @@ export interface CreateProfileJobRequest {
   JobSample?: JobSample;
 }
 
-export namespace CreateProfileJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProfileJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProfileJobResponse {
   /**
    * <p>The name of the job that was created.</p>
    */
   Name: string | undefined;
-}
-
-export namespace CreateProfileJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProfileJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SampleType {
@@ -1193,15 +923,6 @@ export interface Sample {
    * <p>The way in which DataBrew obtains rows from a dataset.</p>
    */
   Type: SampleType | string | undefined;
-}
-
-export namespace Sample {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Sample): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProjectRequest {
@@ -1239,29 +960,11 @@ export interface CreateProjectRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProjectResponse {
   /**
    * <p>The name of the project that you created.</p>
    */
   Name: string | undefined;
-}
-
-export namespace CreateProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProjectResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1302,15 +1005,6 @@ export interface RecipeAction {
   Parameters?: Record<string, string>;
 }
 
-export namespace RecipeAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecipeAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents an individual condition that evaluates to true or false.</p>
  *         <p>Conditions are used with recipe actions. The action is only performed for column values where the
@@ -1338,15 +1032,6 @@ export interface ConditionExpression {
   TargetColumn: string | undefined;
 }
 
-export namespace ConditionExpression {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConditionExpression): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a single step from a DataBrew recipe to be performed.</p>
  */
@@ -1364,15 +1049,6 @@ export interface RecipeStep {
    *         </note>
    */
   ConditionExpressions?: ConditionExpression[];
-}
-
-export namespace RecipeStep {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecipeStep): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRecipeRequest {
@@ -1399,29 +1075,11 @@ export interface CreateRecipeRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateRecipeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRecipeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRecipeResponse {
   /**
    * <p>The name of the recipe that you created.</p>
    */
   Name: string | undefined;
-}
-
-export namespace CreateRecipeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRecipeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1439,15 +1097,6 @@ export interface DatabaseTableOutputOptions {
    * <p>A prefix for the name of a table DataBrew will create in the database.</p>
    */
   TableName: string | undefined;
-}
-
-export namespace DatabaseTableOutputOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatabaseTableOutputOptions): any => ({
-    ...obj,
-  });
 }
 
 export enum DatabaseOutputMode {
@@ -1477,15 +1126,6 @@ export interface DatabaseOutput {
   DatabaseOutputMode?: DatabaseOutputMode | string;
 }
 
-export namespace DatabaseOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatabaseOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents options that specify how and where DataBrew writes the Amazon S3 output
  *             generated by recipe jobs.</p>
@@ -1496,15 +1136,6 @@ export interface S3TableOutputOptions {
    *             from a job.</p>
    */
   Location: S3Location | undefined;
-}
-
-export namespace S3TableOutputOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3TableOutputOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1547,15 +1178,6 @@ export interface DataCatalogOutput {
   Overwrite?: boolean;
 }
 
-export namespace DataCatalogOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataCatalogOutput): any => ({
-    ...obj,
-  });
-}
-
 export enum CompressionFormat {
   BROTLI = "BROTLI",
   BZIP2 = "BZIP2",
@@ -1590,15 +1212,6 @@ export interface CsvOutputOptions {
   Delimiter?: string;
 }
 
-export namespace CsvOutputOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CsvOutputOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a set of options that define the structure of comma-separated (CSV) job output.</p>
  */
@@ -1608,15 +1221,6 @@ export interface OutputFormatOptions {
    *             job output.</p>
    */
   Csv?: CsvOutputOptions;
-}
-
-export namespace OutputFormatOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputFormatOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1662,15 +1266,6 @@ export interface Output {
   MaxOutputFiles?: number;
 }
 
-export namespace Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Output): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the name and version of a DataBrew recipe.</p>
  */
@@ -1684,15 +1279,6 @@ export interface RecipeReference {
    * <p>The identifier for the version for the recipe. </p>
    */
   RecipeVersion?: string;
-}
-
-export namespace RecipeReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecipeReference): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRecipeJobRequest {
@@ -1790,29 +1376,11 @@ export interface CreateRecipeJobRequest {
   Timeout?: number;
 }
 
-export namespace CreateRecipeJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRecipeJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRecipeJobResponse {
   /**
    * <p>The name of the job that you created.</p>
    */
   Name: string | undefined;
-}
-
-export namespace CreateRecipeJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRecipeJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ThresholdType {
@@ -1849,15 +1417,6 @@ export interface Threshold {
    *             used for validation.</p>
    */
   Unit?: ThresholdUnit | string;
-}
-
-export namespace Threshold {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Threshold): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1916,15 +1475,6 @@ export interface Rule {
   ColumnSelectors?: ColumnSelector[];
 }
 
-export namespace Rule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Rule): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRulesetRequest {
   /**
    * <p>The name of the ruleset to be created. Valid characters are alphanumeric
@@ -1955,29 +1505,11 @@ export interface CreateRulesetRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateRulesetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRulesetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRulesetResponse {
   /**
    * <p>The unique name of the created ruleset.</p>
    */
   Name: string | undefined;
-}
-
-export namespace CreateRulesetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRulesetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateScheduleRequest {
@@ -2006,29 +1538,11 @@ export interface CreateScheduleRequest {
   Name: string | undefined;
 }
 
-export namespace CreateScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateScheduleResponse {
   /**
    * <p>The name of the schedule that was created.</p>
    */
   Name: string | undefined;
-}
-
-export namespace CreateScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateScheduleResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDatasetRequest {
@@ -2038,29 +1552,11 @@ export interface DeleteDatasetRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDatasetResponse {
   /**
    * <p>The name of the dataset that you deleted.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteJobRequest {
@@ -2070,29 +1566,11 @@ export interface DeleteJobRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteJobResponse {
   /**
    * <p>The name of the job that you deleted.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteProjectRequest {
@@ -2102,29 +1580,11 @@ export interface DeleteProjectRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteProjectResponse {
   /**
    * <p>The name of the project that you deleted.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteProjectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRecipeVersionRequest {
@@ -2141,15 +1601,6 @@ export interface DeleteRecipeVersionRequest {
   RecipeVersion: string | undefined;
 }
 
-export namespace DeleteRecipeVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRecipeVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRecipeVersionResponse {
   /**
    * <p>The name of the recipe that was deleted.</p>
@@ -2162,29 +1613,11 @@ export interface DeleteRecipeVersionResponse {
   RecipeVersion: string | undefined;
 }
 
-export namespace DeleteRecipeVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRecipeVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRulesetRequest {
   /**
    * <p>The name of the ruleset to be deleted.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteRulesetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRulesetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRulesetResponse {
@@ -2194,29 +1627,11 @@ export interface DeleteRulesetResponse {
   Name: string | undefined;
 }
 
-export namespace DeleteRulesetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRulesetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteScheduleRequest {
   /**
    * <p>The name of the schedule to be deleted.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteScheduleResponse {
@@ -2226,29 +1641,11 @@ export interface DeleteScheduleResponse {
   Name: string | undefined;
 }
 
-export namespace DeleteScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDatasetRequest {
   /**
    * <p>The name of the dataset to be described.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribeDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum Source {
@@ -2324,29 +1721,11 @@ export interface DescribeDatasetResponse {
   ResourceArn?: string;
 }
 
-export namespace DescribeDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobRequest {
   /**
    * <p>The name of the job to be described.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribeJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum JobType {
@@ -2507,15 +1886,6 @@ export interface DescribeJobResponse {
   JobSample?: JobSample;
 }
 
-export namespace DescribeJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJobRunRequest {
   /**
    * <p>The name of the job being processed during this run.</p>
@@ -2526,15 +1896,6 @@ export interface DescribeJobRunRequest {
    * <p>The unique identifier of the job run.</p>
    */
   RunId: string | undefined;
-}
-
-export namespace DescribeJobRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobRunRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum JobRunState {
@@ -2651,29 +2012,11 @@ export interface DescribeJobRunResponse {
   JobSample?: JobSample;
 }
 
-export namespace DescribeJobRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobRunResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProjectRequest {
   /**
    * <p>The name of the project to be described.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribeProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SessionStatus {
@@ -2777,15 +2120,6 @@ export interface DescribeProjectResponse {
   OpenDate?: Date;
 }
 
-export namespace DescribeProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRecipeRequest {
   /**
    * <p>The name of the recipe to be described.</p>
@@ -2797,15 +2131,6 @@ export interface DescribeRecipeRequest {
    *             published version is returned.</p>
    */
   RecipeVersion?: string;
-}
-
-export namespace DescribeRecipeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecipeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRecipeResponse {
@@ -2876,29 +2201,11 @@ export interface DescribeRecipeResponse {
   RecipeVersion?: string;
 }
 
-export namespace DescribeRecipeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRecipeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRulesetRequest {
   /**
    * <p>The name of the ruleset to be described.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribeRulesetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRulesetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRulesetResponse {
@@ -2955,29 +2262,11 @@ export interface DescribeRulesetResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace DescribeRulesetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRulesetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeScheduleRequest {
   /**
    * <p>The name of the schedule to be described.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribeScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeScheduleResponse {
@@ -3029,15 +2318,6 @@ export interface DescribeScheduleResponse {
   Name: string | undefined;
 }
 
-export namespace DescribeScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeScheduleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetsRequest {
   /**
    * <p>The maximum number of results to return in this request. </p>
@@ -3048,15 +2328,6 @@ export interface ListDatasetsRequest {
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDatasetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3131,15 +2402,6 @@ export interface Dataset {
   ResourceArn?: string;
 }
 
-export namespace Dataset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Dataset): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetsResponse {
   /**
    * <p>A list of datasets that are defined.</p>
@@ -3151,15 +2413,6 @@ export interface ListDatasetsResponse {
    *             results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDatasetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListJobRunsRequest {
@@ -3177,15 +2430,6 @@ export interface ListJobRunsRequest {
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListJobRunsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobRunsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3289,15 +2533,6 @@ export interface JobRun {
   ValidationConfigurations?: ValidationConfiguration[];
 }
 
-export namespace JobRun {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobRun): any => ({
-    ...obj,
-  });
-}
-
 export interface ListJobRunsResponse {
   /**
    * <p>A list of job runs that have occurred for the specified job.</p>
@@ -3309,15 +2544,6 @@ export interface ListJobRunsResponse {
    *             results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListJobRunsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobRunsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListJobsRequest {
@@ -3344,15 +2570,6 @@ export interface ListJobsRequest {
    *             are associated with the specified project.</p>
    */
   ProjectName?: string;
-}
-
-export namespace ListJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3511,15 +2728,6 @@ export interface Job {
   ValidationConfigurations?: ValidationConfiguration[];
 }
 
-export namespace Job {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Job): any => ({
-    ...obj,
-  });
-}
-
 export interface ListJobsResponse {
   /**
    * <p>A list of jobs that are defined.</p>
@@ -3533,15 +2741,6 @@ export interface ListJobsResponse {
   NextToken?: string;
 }
 
-export namespace ListJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProjectsRequest {
   /**
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
@@ -3552,15 +2751,6 @@ export interface ListProjectsRequest {
    * <p>The maximum number of results to return in this request. </p>
    */
   MaxResults?: number;
-}
-
-export namespace ListProjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3640,15 +2830,6 @@ export interface Project {
   OpenDate?: Date;
 }
 
-export namespace Project {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Project): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProjectsResponse {
   /**
    * <p>A list of projects that are defined .</p>
@@ -3660,15 +2841,6 @@ export interface ListProjectsResponse {
    *             results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListProjectsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProjectsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRecipesRequest {
@@ -3691,15 +2863,6 @@ export interface ListRecipesRequest {
    *          </p>
    */
   RecipeVersion?: string;
-}
-
-export namespace ListRecipesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecipesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3789,15 +2952,6 @@ export interface Recipe {
   RecipeVersion?: string;
 }
 
-export namespace Recipe {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Recipe): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRecipesResponse {
   /**
    * <p>A list of recipes that are defined.</p>
@@ -3809,15 +2963,6 @@ export interface ListRecipesResponse {
    *             results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRecipesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecipesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRecipeVersionsRequest {
@@ -3837,15 +2982,6 @@ export interface ListRecipeVersionsRequest {
   Name: string | undefined;
 }
 
-export namespace ListRecipeVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecipeVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRecipeVersionsResponse {
   /**
    * <p>A token that you can use in a subsequent call to retrieve the next set of
@@ -3857,15 +2993,6 @@ export interface ListRecipeVersionsResponse {
    * <p>A list of versions for the specified recipe.</p>
    */
   Recipes: Recipe[] | undefined;
-}
-
-export namespace ListRecipeVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecipeVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRulesetsRequest {
@@ -3886,15 +3013,6 @@ export interface ListRulesetsRequest {
    *             the NextToken value from the response object of the previous page call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRulesetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3958,15 +3076,6 @@ export interface RulesetItem {
   TargetArn: string | undefined;
 }
 
-export namespace RulesetItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RulesetItem): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRulesetsResponse {
   /**
    * <p>A list of RulesetItem. RulesetItem contains meta data of a ruleset.</p>
@@ -3978,15 +3087,6 @@ export interface ListRulesetsResponse {
    *             results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListRulesetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRulesetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSchedulesRequest {
@@ -4004,15 +3104,6 @@ export interface ListSchedulesRequest {
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListSchedulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSchedulesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4072,15 +3163,6 @@ export interface Schedule {
   Name: string | undefined;
 }
 
-export namespace Schedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Schedule): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSchedulesResponse {
   /**
    * <p>A list of schedules that are defined.</p>
@@ -4094,15 +3176,6 @@ export interface ListSchedulesResponse {
   NextToken?: string;
 }
 
-export namespace ListSchedulesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSchedulesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the DataBrew resource.
@@ -4111,29 +3184,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A list of tags associated with the DataBrew resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PublishRecipeRequest {
@@ -4148,29 +3203,11 @@ export interface PublishRecipeRequest {
   Name: string | undefined;
 }
 
-export namespace PublishRecipeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishRecipeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PublishRecipeResponse {
   /**
    * <p>The name of the recipe that you published.</p>
    */
   Name: string | undefined;
-}
-
-export namespace PublishRecipeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishRecipeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4211,15 +3248,6 @@ export interface ViewFrame {
   Analytics?: AnalyticsMode | string;
 }
 
-export namespace ViewFrame {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ViewFrame): any => ({
-    ...obj,
-  });
-}
-
 export interface SendProjectSessionActionRequest {
   /**
    * <p>If true, the result of the recipe step will be returned, but not applied.</p>
@@ -4255,16 +3283,6 @@ export interface SendProjectSessionActionRequest {
   ViewFrame?: ViewFrame;
 }
 
-export namespace SendProjectSessionActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendProjectSessionActionRequest): any => ({
-    ...obj,
-    ...(obj.ClientSessionId && { ClientSessionId: SENSITIVE_STRING }),
-  });
-}
-
 export interface SendProjectSessionActionResponse {
   /**
    * <p>A message indicating the result of performing the action.</p>
@@ -4282,15 +3300,6 @@ export interface SendProjectSessionActionResponse {
   ActionId?: number;
 }
 
-export namespace SendProjectSessionActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendProjectSessionActionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartJobRunRequest {
   /**
    * <p>The name of the job to be run.</p>
@@ -4298,29 +3307,11 @@ export interface StartJobRunRequest {
   Name: string | undefined;
 }
 
-export namespace StartJobRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartJobRunRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartJobRunResponse {
   /**
    * <p>A system-generated identifier for this particular job run.</p>
    */
   RunId: string | undefined;
-}
-
-export namespace StartJobRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartJobRunResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StartProjectSessionRequest {
@@ -4336,15 +3327,6 @@ export interface StartProjectSessionRequest {
   AssumeControl?: boolean;
 }
 
-export namespace StartProjectSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartProjectSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartProjectSessionResponse {
   /**
    * <p>The name of the project to be acted upon.</p>
@@ -4355,16 +3337,6 @@ export interface StartProjectSessionResponse {
    * <p>A system-generated identifier for the session.</p>
    */
   ClientSessionId?: string;
-}
-
-export namespace StartProjectSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartProjectSessionResponse): any => ({
-    ...obj,
-    ...(obj.ClientSessionId && { ClientSessionId: SENSITIVE_STRING }),
-  });
 }
 
 export interface StopJobRunRequest {
@@ -4379,29 +3351,11 @@ export interface StopJobRunRequest {
   RunId: string | undefined;
 }
 
-export namespace StopJobRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopJobRunRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopJobRunResponse {
   /**
    * <p>The ID of the job run that you stopped.</p>
    */
   RunId: string | undefined;
-}
-
-export namespace StopJobRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopJobRunResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -4418,25 +3372,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -4451,25 +3387,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDatasetRequest {
   /**
@@ -4500,29 +3418,11 @@ export interface UpdateDatasetRequest {
   PathOptions?: PathOptions;
 }
 
-export namespace UpdateDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDatasetResponse {
   /**
    * <p>The name of the dataset that you updated.</p>
    */
   Name: string | undefined;
-}
-
-export namespace UpdateDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatasetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProfileJobRequest {
@@ -4609,29 +3509,11 @@ export interface UpdateProfileJobRequest {
   JobSample?: JobSample;
 }
 
-export namespace UpdateProfileJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProfileJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProfileJobResponse {
   /**
    * <p>The name of the job that was updated.</p>
    */
   Name: string | undefined;
-}
-
-export namespace UpdateProfileJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProfileJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateProjectRequest {
@@ -4652,15 +3534,6 @@ export interface UpdateProjectRequest {
   Name: string | undefined;
 }
 
-export namespace UpdateProjectRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateProjectResponse {
   /**
    * <p>The date and time that the project was last modified.</p>
@@ -4671,15 +3544,6 @@ export interface UpdateProjectResponse {
    * <p>The name of the project that you updated.</p>
    */
   Name: string | undefined;
-}
-
-export namespace UpdateProjectResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateProjectResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRecipeRequest {
@@ -4700,29 +3564,11 @@ export interface UpdateRecipeRequest {
   Steps?: RecipeStep[];
 }
 
-export namespace UpdateRecipeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecipeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRecipeResponse {
   /**
    * <p>The name of the recipe that was updated.</p>
    */
   Name: string | undefined;
-}
-
-export namespace UpdateRecipeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecipeResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRecipeJobRequest {
@@ -4798,29 +3644,11 @@ export interface UpdateRecipeJobRequest {
   Timeout?: number;
 }
 
-export namespace UpdateRecipeJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecipeJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRecipeJobResponse {
   /**
    * <p>The name of the job that you updated.</p>
    */
   Name: string | undefined;
-}
-
-export namespace UpdateRecipeJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRecipeJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRulesetRequest {
@@ -4841,29 +3669,11 @@ export interface UpdateRulesetRequest {
   Rules: Rule[] | undefined;
 }
 
-export namespace UpdateRulesetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRulesetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRulesetResponse {
   /**
    * <p>The name of the updated ruleset.</p>
    */
   Name: string | undefined;
-}
-
-export namespace UpdateRulesetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRulesetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateScheduleRequest {
@@ -4886,15 +3696,6 @@ export interface UpdateScheduleRequest {
   Name: string | undefined;
 }
 
-export namespace UpdateScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateScheduleResponse {
   /**
    * <p>The name of the schedule that was updated.</p>
@@ -4902,11 +3703,942 @@ export interface UpdateScheduleResponse {
   Name: string | undefined;
 }
 
-export namespace UpdateScheduleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateScheduleResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AllowedStatisticsFilterSensitiveLog = (obj: AllowedStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteRecipeVersionRequestFilterSensitiveLog = (obj: BatchDeleteRecipeVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecipeVersionErrorDetailFilterSensitiveLog = (obj: RecipeVersionErrorDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteRecipeVersionResponseFilterSensitiveLog = (obj: BatchDeleteRecipeVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CsvOptionsFilterSensitiveLog = (obj: CsvOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExcelOptionsFilterSensitiveLog = (obj: ExcelOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JsonOptionsFilterSensitiveLog = (obj: JsonOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FormatOptionsFilterSensitiveLog = (obj: FormatOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseInputDefinitionFilterSensitiveLog = (obj: DatabaseInputDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataCatalogInputDefinitionFilterSensitiveLog = (obj: DataCatalogInputDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataFilterSensitiveLog = (obj: Metadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputFilterSensitiveLog = (obj: Input): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilesLimitFilterSensitiveLog = (obj: FilesLimit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterExpressionFilterSensitiveLog = (obj: FilterExpression): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatetimeOptionsFilterSensitiveLog = (obj: DatetimeOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetParameterFilterSensitiveLog = (obj: DatasetParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PathOptionsFilterSensitiveLog = (obj: PathOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnSelectorFilterSensitiveLog = (obj: ColumnSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatisticOverrideFilterSensitiveLog = (obj: StatisticOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatisticsConfigurationFilterSensitiveLog = (obj: StatisticsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnStatisticsConfigurationFilterSensitiveLog = (obj: ColumnStatisticsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntityDetectorConfigurationFilterSensitiveLog = (obj: EntityDetectorConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProfileConfigurationFilterSensitiveLog = (obj: ProfileConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobSampleFilterSensitiveLog = (obj: JobSample): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationConfigurationFilterSensitiveLog = (obj: ValidationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProfileJobRequestFilterSensitiveLog = (obj: CreateProfileJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProfileJobResponseFilterSensitiveLog = (obj: CreateProfileJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SampleFilterSensitiveLog = (obj: Sample): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectRequestFilterSensitiveLog = (obj: CreateProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProjectResponseFilterSensitiveLog = (obj: CreateProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecipeActionFilterSensitiveLog = (obj: RecipeAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConditionExpressionFilterSensitiveLog = (obj: ConditionExpression): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecipeStepFilterSensitiveLog = (obj: RecipeStep): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRecipeRequestFilterSensitiveLog = (obj: CreateRecipeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRecipeResponseFilterSensitiveLog = (obj: CreateRecipeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseTableOutputOptionsFilterSensitiveLog = (obj: DatabaseTableOutputOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseOutputFilterSensitiveLog = (obj: DatabaseOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3TableOutputOptionsFilterSensitiveLog = (obj: S3TableOutputOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataCatalogOutputFilterSensitiveLog = (obj: DataCatalogOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CsvOutputOptionsFilterSensitiveLog = (obj: CsvOutputOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputFormatOptionsFilterSensitiveLog = (obj: OutputFormatOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputFilterSensitiveLog = (obj: Output): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecipeReferenceFilterSensitiveLog = (obj: RecipeReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRecipeJobRequestFilterSensitiveLog = (obj: CreateRecipeJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRecipeJobResponseFilterSensitiveLog = (obj: CreateRecipeJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThresholdFilterSensitiveLog = (obj: Threshold): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleFilterSensitiveLog = (obj: Rule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRulesetRequestFilterSensitiveLog = (obj: CreateRulesetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRulesetResponseFilterSensitiveLog = (obj: CreateRulesetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScheduleRequestFilterSensitiveLog = (obj: CreateScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateScheduleResponseFilterSensitiveLog = (obj: CreateScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetResponseFilterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobRequestFilterSensitiveLog = (obj: DeleteJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobResponseFilterSensitiveLog = (obj: DeleteJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectRequestFilterSensitiveLog = (obj: DeleteProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteProjectResponseFilterSensitiveLog = (obj: DeleteProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRecipeVersionRequestFilterSensitiveLog = (obj: DeleteRecipeVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRecipeVersionResponseFilterSensitiveLog = (obj: DeleteRecipeVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRulesetRequestFilterSensitiveLog = (obj: DeleteRulesetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRulesetResponseFilterSensitiveLog = (obj: DeleteRulesetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScheduleRequestFilterSensitiveLog = (obj: DeleteScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteScheduleResponseFilterSensitiveLog = (obj: DeleteScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobRequestFilterSensitiveLog = (obj: DescribeJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobResponseFilterSensitiveLog = (obj: DescribeJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobRunRequestFilterSensitiveLog = (obj: DescribeJobRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobRunResponseFilterSensitiveLog = (obj: DescribeJobRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectRequestFilterSensitiveLog = (obj: DescribeProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProjectResponseFilterSensitiveLog = (obj: DescribeProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecipeRequestFilterSensitiveLog = (obj: DescribeRecipeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRecipeResponseFilterSensitiveLog = (obj: DescribeRecipeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRulesetRequestFilterSensitiveLog = (obj: DescribeRulesetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRulesetResponseFilterSensitiveLog = (obj: DescribeRulesetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduleRequestFilterSensitiveLog = (obj: DescribeScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeScheduleResponseFilterSensitiveLog = (obj: DescribeScheduleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetFilterSensitiveLog = (obj: Dataset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobRunsRequestFilterSensitiveLog = (obj: ListJobRunsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobRunFilterSensitiveLog = (obj: JobRun): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobRunsResponseFilterSensitiveLog = (obj: ListJobRunsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobFilterSensitiveLog = (obj: Job): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsResponseFilterSensitiveLog = (obj: ListJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsRequestFilterSensitiveLog = (obj: ListProjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProjectFilterSensitiveLog = (obj: Project): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProjectsResponseFilterSensitiveLog = (obj: ListProjectsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecipesRequestFilterSensitiveLog = (obj: ListRecipesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecipeFilterSensitiveLog = (obj: Recipe): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecipesResponseFilterSensitiveLog = (obj: ListRecipesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecipeVersionsRequestFilterSensitiveLog = (obj: ListRecipeVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecipeVersionsResponseFilterSensitiveLog = (obj: ListRecipeVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesetsRequestFilterSensitiveLog = (obj: ListRulesetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RulesetItemFilterSensitiveLog = (obj: RulesetItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesetsResponseFilterSensitiveLog = (obj: ListRulesetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchedulesRequestFilterSensitiveLog = (obj: ListSchedulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleFilterSensitiveLog = (obj: Schedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSchedulesResponseFilterSensitiveLog = (obj: ListSchedulesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishRecipeRequestFilterSensitiveLog = (obj: PublishRecipeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishRecipeResponseFilterSensitiveLog = (obj: PublishRecipeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ViewFrameFilterSensitiveLog = (obj: ViewFrame): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendProjectSessionActionRequestFilterSensitiveLog = (obj: SendProjectSessionActionRequest): any => ({
+  ...obj,
+  ...(obj.ClientSessionId && { ClientSessionId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SendProjectSessionActionResponseFilterSensitiveLog = (obj: SendProjectSessionActionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartJobRunRequestFilterSensitiveLog = (obj: StartJobRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartJobRunResponseFilterSensitiveLog = (obj: StartJobRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartProjectSessionRequestFilterSensitiveLog = (obj: StartProjectSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartProjectSessionResponseFilterSensitiveLog = (obj: StartProjectSessionResponse): any => ({
+  ...obj,
+  ...(obj.ClientSessionId && { ClientSessionId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StopJobRunRequestFilterSensitiveLog = (obj: StopJobRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopJobRunResponseFilterSensitiveLog = (obj: StopJobRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatasetRequestFilterSensitiveLog = (obj: UpdateDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatasetResponseFilterSensitiveLog = (obj: UpdateDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProfileJobRequestFilterSensitiveLog = (obj: UpdateProfileJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProfileJobResponseFilterSensitiveLog = (obj: UpdateProfileJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectRequestFilterSensitiveLog = (obj: UpdateProjectRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProjectResponseFilterSensitiveLog = (obj: UpdateProjectResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecipeRequestFilterSensitiveLog = (obj: UpdateRecipeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecipeResponseFilterSensitiveLog = (obj: UpdateRecipeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecipeJobRequestFilterSensitiveLog = (obj: UpdateRecipeJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRecipeJobResponseFilterSensitiveLog = (obj: UpdateRecipeJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRulesetRequestFilterSensitiveLog = (obj: UpdateRulesetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRulesetResponseFilterSensitiveLog = (obj: UpdateRulesetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScheduleRequestFilterSensitiveLog = (obj: UpdateScheduleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateScheduleResponseFilterSensitiveLog = (obj: UpdateScheduleResponse): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeletePublicIpv4PoolRequest, DeletePublicIpv4PoolResult } from "../models/models_2";
+import {
+  DeletePublicIpv4PoolRequest,
+  DeletePublicIpv4PoolRequestFilterSensitiveLog,
+  DeletePublicIpv4PoolResult,
+  DeletePublicIpv4PoolResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2DeletePublicIpv4PoolCommand,
   serializeAws_ec2DeletePublicIpv4PoolCommand,
@@ -72,8 +77,8 @@ export class DeletePublicIpv4PoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePublicIpv4PoolRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeletePublicIpv4PoolResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeletePublicIpv4PoolRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeletePublicIpv4PoolResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

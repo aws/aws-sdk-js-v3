@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { CreateConnectorDefinitionVersionRequest, CreateConnectorDefinitionVersionResponse } from "../models/models_0";
+import {
+  CreateConnectorDefinitionVersionRequest,
+  CreateConnectorDefinitionVersionRequestFilterSensitiveLog,
+  CreateConnectorDefinitionVersionResponse,
+  CreateConnectorDefinitionVersionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateConnectorDefinitionVersionCommand,
   serializeAws_restJson1CreateConnectorDefinitionVersionCommand,
@@ -74,8 +79,8 @@ export class CreateConnectorDefinitionVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectorDefinitionVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectorDefinitionVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateConnectorDefinitionVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateConnectorDefinitionVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

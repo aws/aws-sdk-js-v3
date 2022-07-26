@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import { ListRulesPackagesRequest, ListRulesPackagesResponse } from "../models/models_0";
+import {
+  ListRulesPackagesRequest,
+  ListRulesPackagesRequestFilterSensitiveLog,
+  ListRulesPackagesResponse,
+  ListRulesPackagesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListRulesPackagesCommand,
   serializeAws_json1_1ListRulesPackagesCommand,
@@ -72,8 +77,8 @@ export class ListRulesPackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRulesPackagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRulesPackagesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRulesPackagesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListRulesPackagesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

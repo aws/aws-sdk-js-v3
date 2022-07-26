@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeVpcAttributeRequest, DescribeVpcAttributeResult } from "../models/models_4";
+import {
+  DescribeVpcAttributeRequest,
+  DescribeVpcAttributeRequestFilterSensitiveLog,
+  DescribeVpcAttributeResult,
+  DescribeVpcAttributeResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeVpcAttributeCommand,
   serializeAws_ec2DescribeVpcAttributeCommand,
@@ -72,8 +77,8 @@ export class DescribeVpcAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcAttributeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcAttributeResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVpcAttributeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcAttributeResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

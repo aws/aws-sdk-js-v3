@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { DisableDirectoryRequest, DisableDirectoryResponse } from "../models/models_0";
+import {
+  DisableDirectoryRequest,
+  DisableDirectoryRequestFilterSensitiveLog,
+  DisableDirectoryResponse,
+  DisableDirectoryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisableDirectoryCommand,
   serializeAws_restJson1DisableDirectoryCommand,
@@ -73,8 +78,8 @@ export class DisableDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableDirectoryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableDirectoryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableDirectoryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableDirectoryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

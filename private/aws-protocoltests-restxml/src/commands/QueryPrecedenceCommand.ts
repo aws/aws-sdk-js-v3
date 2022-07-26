@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { QueryPrecedenceInput } from "../models/models_0";
+import { QueryPrecedenceInput, QueryPrecedenceInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlQueryPrecedenceCommand,
   serializeAws_restXmlQueryPrecedenceCommand,
@@ -55,7 +55,7 @@ export class QueryPrecedenceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryPrecedenceInput.filterSensitiveLog,
+      inputFilterSensitiveLog: QueryPrecedenceInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

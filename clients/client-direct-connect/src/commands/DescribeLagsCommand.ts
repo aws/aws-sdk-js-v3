@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { DescribeLagsRequest, Lags } from "../models/models_0";
+import {
+  DescribeLagsRequest,
+  DescribeLagsRequestFilterSensitiveLog,
+  Lags,
+  LagsFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLagsCommand,
   serializeAws_json1_1DescribeLagsCommand,
@@ -72,8 +77,8 @@ export class DescribeLagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Lags.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: LagsFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

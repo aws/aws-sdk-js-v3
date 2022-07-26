@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetSessionRequest, GetSessionResponse } from "../models/models_1";
+import {
+  GetSessionRequest,
+  GetSessionRequestFilterSensitiveLog,
+  GetSessionResponse,
+  GetSessionResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetSessionCommand,
   serializeAws_json1_1GetSessionCommand,
@@ -72,8 +77,8 @@ export class GetSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

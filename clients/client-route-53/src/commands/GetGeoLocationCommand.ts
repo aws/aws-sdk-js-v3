@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetGeoLocationRequest, GetGeoLocationResponse } from "../models/models_0";
+import {
+  GetGeoLocationRequest,
+  GetGeoLocationRequestFilterSensitiveLog,
+  GetGeoLocationResponse,
+  GetGeoLocationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetGeoLocationCommand,
   serializeAws_restXmlGetGeoLocationCommand,
@@ -97,8 +102,8 @@ export class GetGeoLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGeoLocationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetGeoLocationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetGeoLocationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetGeoLocationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

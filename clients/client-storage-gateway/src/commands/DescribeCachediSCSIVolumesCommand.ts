@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeCachediSCSIVolumesInput, DescribeCachediSCSIVolumesOutput } from "../models/models_0";
+import {
+  DescribeCachediSCSIVolumesInput,
+  DescribeCachediSCSIVolumesInputFilterSensitiveLog,
+  DescribeCachediSCSIVolumesOutput,
+  DescribeCachediSCSIVolumesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCachediSCSIVolumesCommand,
   serializeAws_json1_1DescribeCachediSCSIVolumesCommand,
@@ -77,8 +82,8 @@ export class DescribeCachediSCSIVolumesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCachediSCSIVolumesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCachediSCSIVolumesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCachediSCSIVolumesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCachediSCSIVolumesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutRecordRequest } from "../models/models_0";
+import { PutRecordRequest, PutRecordRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1PutRecordCommand,
   serializeAws_restJson1PutRecordCommand,
@@ -80,7 +80,7 @@ export class PutRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecordRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRecordRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_6";
+import {
+  TerminateInstancesRequest,
+  TerminateInstancesRequestFilterSensitiveLog,
+  TerminateInstancesResult,
+  TerminateInstancesResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2TerminateInstancesCommand,
   serializeAws_ec2TerminateInstancesCommand,
@@ -136,8 +141,8 @@ export class TerminateInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TerminateInstancesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: TerminateInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TerminateInstancesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

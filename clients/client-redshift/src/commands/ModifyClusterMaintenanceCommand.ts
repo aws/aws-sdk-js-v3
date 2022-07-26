@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyClusterMaintenanceMessage, ModifyClusterMaintenanceResult } from "../models/models_1";
+import {
+  ModifyClusterMaintenanceMessage,
+  ModifyClusterMaintenanceMessageFilterSensitiveLog,
+  ModifyClusterMaintenanceResult,
+  ModifyClusterMaintenanceResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryModifyClusterMaintenanceCommand,
   serializeAws_queryModifyClusterMaintenanceCommand,
@@ -72,8 +77,8 @@ export class ModifyClusterMaintenanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyClusterMaintenanceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyClusterMaintenanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyClusterMaintenanceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyClusterMaintenanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

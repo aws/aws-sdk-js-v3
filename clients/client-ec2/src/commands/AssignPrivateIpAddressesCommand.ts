@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssignPrivateIpAddressesRequest, AssignPrivateIpAddressesResult } from "../models/models_0";
+import {
+  AssignPrivateIpAddressesRequest,
+  AssignPrivateIpAddressesRequestFilterSensitiveLog,
+  AssignPrivateIpAddressesResult,
+  AssignPrivateIpAddressesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2AssignPrivateIpAddressesCommand,
   serializeAws_ec2AssignPrivateIpAddressesCommand,
@@ -87,8 +92,8 @@ export class AssignPrivateIpAddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignPrivateIpAddressesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssignPrivateIpAddressesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssignPrivateIpAddressesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssignPrivateIpAddressesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

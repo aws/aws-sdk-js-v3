@@ -33,15 +33,6 @@ export interface AssociateClientDeviceWithCoreDeviceEntry {
   thingName: string | undefined;
 }
 
-export namespace AssociateClientDeviceWithCoreDeviceEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateClientDeviceWithCoreDeviceEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains an error that occurs from a request to associate a client device with a core
  *       device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html">BatchAssociateClientDeviceWithCoreDevice</a> operation returns a list of these
@@ -64,15 +55,6 @@ export interface AssociateClientDeviceWithCoreDeviceErrorEntry {
   message?: string;
 }
 
-export namespace AssociateClientDeviceWithCoreDeviceErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateClientDeviceWithCoreDeviceErrorEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a client device that is associated to a core device for cloud
  *       discovery.</p>
@@ -89,15 +71,6 @@ export interface AssociatedClientDevice {
   associationTimestamp?: Date;
 }
 
-export namespace AssociatedClientDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatedClientDevice): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateServiceRoleToAccountRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the service role to associate with IoT Greengrass for your
@@ -106,30 +79,12 @@ export interface AssociateServiceRoleToAccountRequest {
   roleArn: string | undefined;
 }
 
-export namespace AssociateServiceRoleToAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateServiceRoleToAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateServiceRoleToAccountResponse {
   /**
    * <p>The time when the service role was associated with IoT Greengrass for your Amazon Web Services account in this
    *       Amazon Web Services Region.</p>
    */
   associatedAt?: string;
-}
-
-export namespace AssociateServiceRoleToAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateServiceRoleToAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -170,15 +125,6 @@ export interface ValidationExceptionField {
    * <p>The message of the exception field.</p>
    */
   message: string | undefined;
-}
-
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
 }
 
 export enum ValidationExceptionReason {
@@ -232,30 +178,12 @@ export interface BatchAssociateClientDeviceWithCoreDeviceRequest {
   coreDeviceThingName: string | undefined;
 }
 
-export namespace BatchAssociateClientDeviceWithCoreDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateClientDeviceWithCoreDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchAssociateClientDeviceWithCoreDeviceResponse {
   /**
    * <p>The list of any errors for the entries in the request. Each error entry contains the name
    *       of the IoT thing that failed to associate.</p>
    */
   errorEntries?: AssociateClientDeviceWithCoreDeviceErrorEntry[];
-}
-
-export namespace BatchAssociateClientDeviceWithCoreDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchAssociateClientDeviceWithCoreDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -338,15 +266,6 @@ export interface DisassociateClientDeviceFromCoreDeviceEntry {
   thingName: string | undefined;
 }
 
-export namespace DisassociateClientDeviceFromCoreDeviceEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateClientDeviceFromCoreDeviceEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDisassociateClientDeviceFromCoreDeviceRequest {
   /**
    * <p>The list of client devices to disassociate.</p>
@@ -357,15 +276,6 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceRequest {
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
    */
   coreDeviceThingName: string | undefined;
-}
-
-export namespace BatchDisassociateClientDeviceFromCoreDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateClientDeviceFromCoreDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -390,30 +300,12 @@ export interface DisassociateClientDeviceFromCoreDeviceErrorEntry {
   message?: string;
 }
 
-export namespace DisassociateClientDeviceFromCoreDeviceErrorEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateClientDeviceFromCoreDeviceErrorEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDisassociateClientDeviceFromCoreDeviceResponse {
   /**
    * <p>The list of any errors for the entries in the request. Each error entry contains the name
    *       of the IoT thing that failed to disassociate.</p>
    */
   errorEntries?: DisassociateClientDeviceFromCoreDeviceErrorEntry[];
-}
-
-export namespace BatchDisassociateClientDeviceFromCoreDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisassociateClientDeviceFromCoreDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelDeploymentRequest {
@@ -423,29 +315,11 @@ export interface CancelDeploymentRequest {
   deploymentId: string | undefined;
 }
 
-export namespace CancelDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelDeploymentResponse {
   /**
    * <p>A message that communicates if the cancel was successful.</p>
    */
   message?: string;
-}
-
-export namespace CancelDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelDeploymentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -546,15 +420,6 @@ export interface CloudComponentStatus {
   vendorGuidanceMessage?: string;
 }
 
-export namespace CloudComponentStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudComponentStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a platform that a component supports.</p>
  */
@@ -574,15 +439,6 @@ export interface ComponentPlatform {
    *         component</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
   attributes?: Record<string, string>;
-}
-
-export namespace ComponentPlatform {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentPlatform): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -620,15 +476,6 @@ export interface ComponentLatestVersion {
   platforms?: ComponentPlatform[];
 }
 
-export namespace ComponentLatestVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentLatestVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a component.</p>
  */
@@ -647,15 +494,6 @@ export interface Component {
    * <p>The latest version of the component and its details.</p>
    */
   latestVersion?: ComponentLatestVersion;
-}
-
-export namespace Component {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Component): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -679,15 +517,6 @@ export interface ComponentCandidate {
    *          <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href="https://semver.org/">Semantic Versioning</a>.</p>
    */
   versionRequirements?: Record<string, string>;
-}
-
-export namespace ComponentCandidate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentCandidate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -716,15 +545,6 @@ export interface ComponentConfigurationUpdate {
    *             Guide</i>.</p>
    */
   reset?: string[];
-}
-
-export namespace ComponentConfigurationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentConfigurationUpdate): any => ({
-    ...obj,
-  });
 }
 
 export enum ComponentDependencyType {
@@ -762,15 +582,6 @@ export interface ComponentDependencyRequirement {
   dependencyType?: ComponentDependencyType | string;
 }
 
-export namespace ComponentDependencyRequirement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentDependencyRequirement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about system resource limits that the IoT Greengrass Core software applies to a
  *       component's processes. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-system-resource-limits">Configure system resource limits for components</a>.</p>
@@ -792,15 +603,6 @@ export interface SystemResourceLimits {
    *       software doesn't limit the component's CPU usage.</p>
    */
   cpus?: number;
-}
-
-export namespace SystemResourceLimits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SystemResourceLimits): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -838,15 +640,6 @@ export interface ComponentRunWith {
   windowsUser?: string;
 }
 
-export namespace ComponentRunWith {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentRunWith): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a component to deploy.</p>
  */
@@ -876,15 +669,6 @@ export interface ComponentDeploymentSpecification {
   runWith?: ComponentRunWith;
 }
 
-export namespace ComponentDeploymentSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentDeploymentSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a component version in a list.</p>
  */
@@ -903,15 +687,6 @@ export interface ComponentVersionListItem {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
    */
   arn?: string;
-}
-
-export namespace ComponentVersionListItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentVersionListItem): any => ({
-    ...obj,
-  });
 }
 
 export enum ComponentVisibilityScope {
@@ -945,15 +720,6 @@ export interface ConnectivityInfo {
    * <p>Additional metadata to provide to client devices that connect to this core device.</p>
    */
   metadata?: string;
-}
-
-export namespace ConnectivityInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectivityInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum CoreDeviceStatus {
@@ -995,15 +761,6 @@ export interface CoreDevice {
   lastStatusUpdateTimestamp?: Date;
 }
 
-export namespace CoreDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CoreDevice): any => ({
-    ...obj,
-  });
-}
-
 export enum LambdaEventSourceType {
   IOT_CORE = "IOT_CORE",
   PUB_SUB = "PUB_SUB",
@@ -1038,15 +795,6 @@ export interface LambdaEventSource {
    *          </ul>
    */
   type: LambdaEventSourceType | string | undefined;
-}
-
-export namespace LambdaEventSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaEventSource): any => ({
-    ...obj,
-  });
 }
 
 export enum LambdaInputPayloadEncodingType {
@@ -1084,15 +832,6 @@ export interface LambdaDeviceMount {
   addGroupOwner?: boolean;
 }
 
-export namespace LambdaDeviceMount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaDeviceMount): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a volume that Linux processes in a container can access. When
  *       you define a volume, the IoT Greengrass Core software mounts the source files to the destination inside the
@@ -1125,15 +864,6 @@ export interface LambdaVolumeMount {
   addGroupOwner?: boolean;
 }
 
-export namespace LambdaVolumeMount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaVolumeMount): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a container in which Lambda functions run on Greengrass core
  *       devices.</p>
@@ -1164,15 +894,6 @@ export interface LambdaContainerParams {
   devices?: LambdaDeviceMount[];
 }
 
-export namespace LambdaContainerParams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaContainerParams): any => ({
-    ...obj,
-  });
-}
-
 export enum LambdaIsolationMode {
   GREENGRASS_CONTAINER = "GreengrassContainer",
   NO_CONTAINER = "NoContainer",
@@ -1195,15 +916,6 @@ export interface LambdaLinuxProcessParams {
    * <p>The parameters for the container in which the Lambda function runs.</p>
    */
   containerParams?: LambdaContainerParams;
-}
-
-export namespace LambdaLinuxProcessParams {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaLinuxProcessParams): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1289,15 +1001,6 @@ export interface LambdaExecutionParameters {
   linuxProcessParams?: LambdaLinuxProcessParams;
 }
 
-export namespace LambdaExecutionParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaExecutionParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about an Lambda function to import to create a component.</p>
  */
@@ -1338,15 +1041,6 @@ export interface LambdaFunctionRecipeSource {
   componentLambdaParameters?: LambdaExecutionParameters;
 }
 
-export namespace LambdaFunctionRecipeSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionRecipeSource): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateComponentVersionRequest {
   /**
    * <p>The recipe to use to create the component. The recipe defines the component's metadata,
@@ -1378,15 +1072,6 @@ export interface CreateComponentVersionRequest {
   clientToken?: string;
 }
 
-export namespace CreateComponentVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateComponentVersionResponse {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
@@ -1413,15 +1098,6 @@ export interface CreateComponentVersionResponse {
    *       is different from the status of the component on a core device.</p>
    */
   status: CloudComponentStatus | undefined;
-}
-
-export namespace CreateComponentVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1535,15 +1211,6 @@ export interface DeploymentComponentUpdatePolicy {
   action?: DeploymentComponentUpdatePolicyAction | string;
 }
 
-export namespace DeploymentComponentUpdatePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentComponentUpdatePolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about how long a component on a core device can validate its
  *       configuration updates before it times out. Components can use the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetovalidateconfigurationupdates">SubscribeToValidateConfigurationUpdates</a> IPC operation to receive notifications when
@@ -1557,15 +1224,6 @@ export interface DeploymentConfigurationValidationPolicy {
    *          </p>
    */
   timeoutInSeconds?: number;
-}
-
-export namespace DeploymentConfigurationValidationPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentConfigurationValidationPolicy): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentFailureHandlingPolicy {
@@ -1597,15 +1255,6 @@ export interface DeploymentPolicies {
    *       how long each component has to validate its configure updates.</p>
    */
   configurationValidationPolicy?: DeploymentConfigurationValidationPolicy;
-}
-
-export namespace DeploymentPolicies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentPolicies): any => ({
-    ...obj,
-  });
 }
 
 export enum IoTJobAbortAction {
@@ -1659,15 +1308,6 @@ export interface IoTJobAbortCriteria {
   minNumberOfExecutedThings: number | undefined;
 }
 
-export namespace IoTJobAbortCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IoTJobAbortCriteria): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a list of criteria that define when and how to cancel a configuration
  *       deployment.</p>
@@ -1677,15 +1317,6 @@ export interface IoTJobAbortConfig {
    * <p>The list of criteria that define when and how to cancel the configuration deployment.</p>
    */
   criteriaList: IoTJobAbortCriteria[] | undefined;
-}
-
-export namespace IoTJobAbortConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IoTJobAbortConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1705,15 +1336,6 @@ export interface IoTJobRateIncreaseCriteria {
    *       increases.</p>
    */
   numberOfSucceededThings?: number;
-}
-
-export namespace IoTJobRateIncreaseCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IoTJobRateIncreaseCriteria): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1740,15 +1362,6 @@ export interface IoTJobExponentialRolloutRate {
   rateIncreaseCriteria: IoTJobRateIncreaseCriteria | undefined;
 }
 
-export namespace IoTJobExponentialRolloutRate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IoTJobExponentialRolloutRate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the rollout configuration for a job. This configuration defines
  *       the rate at which the job deploys a configuration to a fleet of target devices.</p>
@@ -1765,15 +1378,6 @@ export interface IoTJobExecutionsRolloutConfig {
   maximumPerMinute?: number;
 }
 
-export namespace IoTJobExecutionsRolloutConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IoTJobExecutionsRolloutConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the timeout configuration for a job.</p>
  */
@@ -1786,15 +1390,6 @@ export interface IoTJobTimeoutConfig {
    *          <p>The timeout interval must be between 1 minute and 7 days (10080 minutes).</p>
    */
   inProgressTimeoutInMinutes?: number;
-}
-
-export namespace IoTJobTimeoutConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IoTJobTimeoutConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1818,15 +1413,6 @@ export interface DeploymentIoTJobConfiguration {
    *       device has to complete the job.</p>
    */
   timeoutConfig?: IoTJobTimeoutConfig;
-}
-
-export namespace DeploymentIoTJobConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentIoTJobConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDeploymentRequest {
@@ -1875,15 +1461,6 @@ export interface CreateDeploymentRequest {
   clientToken?: string;
 }
 
-export namespace CreateDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDeploymentResponse {
   /**
    * <p>The ID of the deployment.</p>
@@ -1901,29 +1478,11 @@ export interface CreateDeploymentResponse {
   iotJobArn?: string;
 }
 
-export namespace CreateDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteComponentRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
    */
   arn: string | undefined;
-}
-
-export namespace DeleteComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteComponentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCoreDeviceRequest {
@@ -1933,29 +1492,11 @@ export interface DeleteCoreDeviceRequest {
   coreDeviceThingName: string | undefined;
 }
 
-export namespace DeleteCoreDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCoreDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDeploymentRequest {
   /**
    * <p>The ID of the deployment.</p>
    */
   deploymentId: string | undefined;
-}
-
-export namespace DeleteDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeploymentRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentStatus {
@@ -2006,15 +1547,6 @@ export interface Deployment {
   isLatestForTarget?: boolean;
 }
 
-export namespace Deployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Deployment): any => ({
-    ...obj,
-  });
-}
-
 export enum DeploymentHistoryFilter {
   ALL = "ALL",
   LATEST_ONLY = "LATEST_ONLY",
@@ -2025,15 +1557,6 @@ export interface DescribeComponentRequest {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
    */
   arn: string | undefined;
-}
-
-export namespace DescribeComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeComponentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeComponentResponse {
@@ -2086,25 +1609,7 @@ export interface DescribeComponentResponse {
   tags?: Record<string, string>;
 }
 
-export namespace DescribeComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeComponentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateServiceRoleFromAccountRequest {}
-
-export namespace DisassociateServiceRoleFromAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateServiceRoleFromAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateServiceRoleFromAccountResponse {
   /**
@@ -2112,15 +1617,6 @@ export interface DisassociateServiceRoleFromAccountResponse {
    *       Amazon Web Services Region.</p>
    */
   disassociatedAt?: string;
-}
-
-export namespace DisassociateServiceRoleFromAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateServiceRoleFromAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum EffectiveDeploymentExecutionStatus {
@@ -2189,15 +1685,6 @@ export interface EffectiveDeployment {
   modifiedTimestamp: Date | undefined;
 }
 
-export namespace EffectiveDeployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EffectiveDeployment): any => ({
-    ...obj,
-  });
-}
-
 export enum RecipeOutputFormat {
   JSON = "JSON",
   YAML = "YAML",
@@ -2213,15 +1700,6 @@ export interface GetComponentRequest {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
    */
   arn: string | undefined;
-}
-
-export namespace GetComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetComponentResponse {
@@ -2243,15 +1721,6 @@ export interface GetComponentResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetComponentVersionArtifactRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version. Specify the ARN of a public or a Lambda component version.</p>
@@ -2269,15 +1738,6 @@ export interface GetComponentVersionArtifactRequest {
   artifactName: string | undefined;
 }
 
-export namespace GetComponentVersionArtifactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentVersionArtifactRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetComponentVersionArtifactResponse {
   /**
    * <p>The URL of the artifact.</p>
@@ -2285,29 +1745,11 @@ export interface GetComponentVersionArtifactResponse {
   preSignedUrl: string | undefined;
 }
 
-export namespace GetComponentVersionArtifactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentVersionArtifactResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetConnectivityInfoRequest {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
    */
   thingName: string | undefined;
-}
-
-export namespace GetConnectivityInfoRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectivityInfoRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetConnectivityInfoResponse {
@@ -2322,29 +1764,11 @@ export interface GetConnectivityInfoResponse {
   message?: string;
 }
 
-export namespace GetConnectivityInfoResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConnectivityInfoResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCoreDeviceRequest {
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
    */
   coreDeviceThingName: string | undefined;
-}
-
-export namespace GetCoreDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCoreDeviceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCoreDeviceResponse {
@@ -2401,29 +1825,11 @@ export interface GetCoreDeviceResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetCoreDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCoreDeviceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeploymentRequest {
   /**
    * <p>The ID of the deployment.</p>
    */
   deploymentId: string | undefined;
-}
-
-export namespace GetDeploymentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDeploymentResponse {
@@ -2498,25 +1904,7 @@ export interface GetDeploymentResponse {
   tags?: Record<string, string>;
 }
 
-export namespace GetDeploymentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetServiceRoleForAccountRequest {}
-
-export namespace GetServiceRoleForAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceRoleForAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetServiceRoleForAccountResponse {
   /**
@@ -2530,15 +1918,6 @@ export interface GetServiceRoleForAccountResponse {
    *       Amazon Web Services Region.</p>
    */
   roleArn?: string;
-}
-
-export namespace GetServiceRoleForAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetServiceRoleForAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListClientDevicesAssociatedWithCoreDeviceRequest {
@@ -2558,15 +1937,6 @@ export interface ListClientDevicesAssociatedWithCoreDeviceRequest {
   nextToken?: string;
 }
 
-export namespace ListClientDevicesAssociatedWithCoreDeviceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClientDevicesAssociatedWithCoreDeviceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListClientDevicesAssociatedWithCoreDeviceResponse {
   /**
    * <p>A list that describes the client devices that are associated with the core device.</p>
@@ -2577,15 +1947,6 @@ export interface ListClientDevicesAssociatedWithCoreDeviceResponse {
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListClientDevicesAssociatedWithCoreDeviceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListClientDevicesAssociatedWithCoreDeviceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListComponentsRequest {
@@ -2607,15 +1968,6 @@ export interface ListComponentsRequest {
   nextToken?: string;
 }
 
-export namespace ListComponentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComponentsResponse {
   /**
    * <p>A list that summarizes each component.</p>
@@ -2626,15 +1978,6 @@ export interface ListComponentsResponse {
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListComponentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListComponentVersionsRequest {
@@ -2654,15 +1997,6 @@ export interface ListComponentVersionsRequest {
   nextToken?: string;
 }
 
-export namespace ListComponentVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComponentVersionsResponse {
   /**
    * <p>A list of versions that exist for the component.</p>
@@ -2673,15 +2007,6 @@ export interface ListComponentVersionsResponse {
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListComponentVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCoreDevicesRequest {
@@ -2721,15 +2046,6 @@ export interface ListCoreDevicesRequest {
   nextToken?: string;
 }
 
-export namespace ListCoreDevicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCoreDevicesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCoreDevicesResponse {
   /**
    * <p>A list that summarizes each core device.</p>
@@ -2740,15 +2056,6 @@ export interface ListCoreDevicesResponse {
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListCoreDevicesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCoreDevicesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDeploymentsRequest {
@@ -2786,15 +2093,6 @@ export interface ListDeploymentsRequest {
   nextToken?: string;
 }
 
-export namespace ListDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeploymentsResponse {
   /**
    * <p>A list that summarizes each deployment.</p>
@@ -2805,15 +2103,6 @@ export interface ListDeploymentsResponse {
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDeploymentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEffectiveDeploymentsRequest {
@@ -2833,15 +2122,6 @@ export interface ListEffectiveDeploymentsRequest {
   nextToken?: string;
 }
 
-export namespace ListEffectiveDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEffectiveDeploymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEffectiveDeploymentsResponse {
   /**
    * <p>A list that summarizes each deployment on the core device.</p>
@@ -2852,15 +2132,6 @@ export interface ListEffectiveDeploymentsResponse {
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListEffectiveDeploymentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEffectiveDeploymentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInstalledComponentsRequest {
@@ -2878,15 +2149,6 @@ export interface ListInstalledComponentsRequest {
    * <p>The token to be used for the next set of paginated results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListInstalledComponentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstalledComponentsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum InstalledComponentLifecycleState {
@@ -2930,15 +2192,6 @@ export interface InstalledComponent {
   isRoot?: boolean;
 }
 
-export namespace InstalledComponent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstalledComponent): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInstalledComponentsResponse {
   /**
    * <p>A list that summarizes each component on the core device.</p>
@@ -2951,29 +2204,11 @@ export interface ListInstalledComponentsResponse {
   nextToken?: string;
 }
 
-export namespace ListInstalledComponentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInstalledComponentsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource.</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -2983,15 +2218,6 @@ export interface ListTagsForResourceResponse {
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ResolveComponentCandidatesRequest {
@@ -3004,15 +2230,6 @@ export interface ResolveComponentCandidatesRequest {
    * <p>The list of components to resolve.</p>
    */
   componentCandidates?: ComponentCandidate[];
-}
-
-export namespace ResolveComponentCandidatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveComponentCandidatesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3069,30 +2286,12 @@ export interface ResolvedComponentVersion {
   message?: string;
 }
 
-export namespace ResolvedComponentVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolvedComponentVersion): any => ({
-    ...obj,
-  });
-}
-
 export interface ResolveComponentCandidatesResponse {
   /**
    * <p>A list of components that meet the requirements that you specify in the request. This list
    *       includes each component's recipe that you can use to install the component.</p>
    */
   resolvedComponentVersions?: ResolvedComponentVersion[];
-}
-
-export namespace ResolveComponentCandidatesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResolveComponentCandidatesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3109,25 +2308,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3141,25 +2322,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateConnectivityInfoRequest {
   /**
@@ -3171,15 +2334,6 @@ export interface UpdateConnectivityInfoRequest {
    * <p>The connectivity information for the core device.</p>
    */
   connectivityInfo: ConnectivityInfo[] | undefined;
-}
-
-export namespace UpdateConnectivityInfoRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectivityInfoRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateConnectivityInfoResponse {
@@ -3194,11 +2348,699 @@ export interface UpdateConnectivityInfoResponse {
   message?: string;
 }
 
-export namespace UpdateConnectivityInfoResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConnectivityInfoResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AssociateClientDeviceWithCoreDeviceEntryFilterSensitiveLog = (
+  obj: AssociateClientDeviceWithCoreDeviceEntry
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateClientDeviceWithCoreDeviceErrorEntryFilterSensitiveLog = (
+  obj: AssociateClientDeviceWithCoreDeviceErrorEntry
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatedClientDeviceFilterSensitiveLog = (obj: AssociatedClientDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateServiceRoleToAccountRequestFilterSensitiveLog = (
+  obj: AssociateServiceRoleToAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateServiceRoleToAccountResponseFilterSensitiveLog = (
+  obj: AssociateServiceRoleToAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateClientDeviceWithCoreDeviceRequestFilterSensitiveLog = (
+  obj: BatchAssociateClientDeviceWithCoreDeviceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchAssociateClientDeviceWithCoreDeviceResponseFilterSensitiveLog = (
+  obj: BatchAssociateClientDeviceWithCoreDeviceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateClientDeviceFromCoreDeviceEntryFilterSensitiveLog = (
+  obj: DisassociateClientDeviceFromCoreDeviceEntry
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateClientDeviceFromCoreDeviceRequestFilterSensitiveLog = (
+  obj: BatchDisassociateClientDeviceFromCoreDeviceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateClientDeviceFromCoreDeviceErrorEntryFilterSensitiveLog = (
+  obj: DisassociateClientDeviceFromCoreDeviceErrorEntry
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisassociateClientDeviceFromCoreDeviceResponseFilterSensitiveLog = (
+  obj: BatchDisassociateClientDeviceFromCoreDeviceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelDeploymentRequestFilterSensitiveLog = (obj: CancelDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelDeploymentResponseFilterSensitiveLog = (obj: CancelDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudComponentStatusFilterSensitiveLog = (obj: CloudComponentStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentPlatformFilterSensitiveLog = (obj: ComponentPlatform): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentLatestVersionFilterSensitiveLog = (obj: ComponentLatestVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentFilterSensitiveLog = (obj: Component): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentCandidateFilterSensitiveLog = (obj: ComponentCandidate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentConfigurationUpdateFilterSensitiveLog = (obj: ComponentConfigurationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentDependencyRequirementFilterSensitiveLog = (obj: ComponentDependencyRequirement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SystemResourceLimitsFilterSensitiveLog = (obj: SystemResourceLimits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentRunWithFilterSensitiveLog = (obj: ComponentRunWith): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentDeploymentSpecificationFilterSensitiveLog = (obj: ComponentDeploymentSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentVersionListItemFilterSensitiveLog = (obj: ComponentVersionListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectivityInfoFilterSensitiveLog = (obj: ConnectivityInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CoreDeviceFilterSensitiveLog = (obj: CoreDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaEventSourceFilterSensitiveLog = (obj: LambdaEventSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaDeviceMountFilterSensitiveLog = (obj: LambdaDeviceMount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaVolumeMountFilterSensitiveLog = (obj: LambdaVolumeMount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaContainerParamsFilterSensitiveLog = (obj: LambdaContainerParams): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaLinuxProcessParamsFilterSensitiveLog = (obj: LambdaLinuxProcessParams): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaExecutionParametersFilterSensitiveLog = (obj: LambdaExecutionParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionRecipeSourceFilterSensitiveLog = (obj: LambdaFunctionRecipeSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentVersionRequestFilterSensitiveLog = (obj: CreateComponentVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentVersionResponseFilterSensitiveLog = (obj: CreateComponentVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentComponentUpdatePolicyFilterSensitiveLog = (obj: DeploymentComponentUpdatePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentConfigurationValidationPolicyFilterSensitiveLog = (
+  obj: DeploymentConfigurationValidationPolicy
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentPoliciesFilterSensitiveLog = (obj: DeploymentPolicies): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IoTJobAbortCriteriaFilterSensitiveLog = (obj: IoTJobAbortCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IoTJobAbortConfigFilterSensitiveLog = (obj: IoTJobAbortConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IoTJobRateIncreaseCriteriaFilterSensitiveLog = (obj: IoTJobRateIncreaseCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IoTJobExponentialRolloutRateFilterSensitiveLog = (obj: IoTJobExponentialRolloutRate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IoTJobExecutionsRolloutConfigFilterSensitiveLog = (obj: IoTJobExecutionsRolloutConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IoTJobTimeoutConfigFilterSensitiveLog = (obj: IoTJobTimeoutConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentIoTJobConfigurationFilterSensitiveLog = (obj: DeploymentIoTJobConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentRequestFilterSensitiveLog = (obj: CreateDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentResponseFilterSensitiveLog = (obj: CreateDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteComponentRequestFilterSensitiveLog = (obj: DeleteComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCoreDeviceRequestFilterSensitiveLog = (obj: DeleteCoreDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeploymentRequestFilterSensitiveLog = (obj: DeleteDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentFilterSensitiveLog = (obj: Deployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeComponentRequestFilterSensitiveLog = (obj: DescribeComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeComponentResponseFilterSensitiveLog = (obj: DescribeComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateServiceRoleFromAccountRequestFilterSensitiveLog = (
+  obj: DisassociateServiceRoleFromAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateServiceRoleFromAccountResponseFilterSensitiveLog = (
+  obj: DisassociateServiceRoleFromAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EffectiveDeploymentFilterSensitiveLog = (obj: EffectiveDeployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentRequestFilterSensitiveLog = (obj: GetComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentResponseFilterSensitiveLog = (obj: GetComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentVersionArtifactRequestFilterSensitiveLog = (obj: GetComponentVersionArtifactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentVersionArtifactResponseFilterSensitiveLog = (
+  obj: GetComponentVersionArtifactResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectivityInfoRequestFilterSensitiveLog = (obj: GetConnectivityInfoRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConnectivityInfoResponseFilterSensitiveLog = (obj: GetConnectivityInfoResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCoreDeviceRequestFilterSensitiveLog = (obj: GetCoreDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCoreDeviceResponseFilterSensitiveLog = (obj: GetCoreDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentRequestFilterSensitiveLog = (obj: GetDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentResponseFilterSensitiveLog = (obj: GetDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceRoleForAccountRequestFilterSensitiveLog = (obj: GetServiceRoleForAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetServiceRoleForAccountResponseFilterSensitiveLog = (obj: GetServiceRoleForAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClientDevicesAssociatedWithCoreDeviceRequestFilterSensitiveLog = (
+  obj: ListClientDevicesAssociatedWithCoreDeviceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListClientDevicesAssociatedWithCoreDeviceResponseFilterSensitiveLog = (
+  obj: ListClientDevicesAssociatedWithCoreDeviceResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentsRequestFilterSensitiveLog = (obj: ListComponentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentsResponseFilterSensitiveLog = (obj: ListComponentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentVersionsRequestFilterSensitiveLog = (obj: ListComponentVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentVersionsResponseFilterSensitiveLog = (obj: ListComponentVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCoreDevicesRequestFilterSensitiveLog = (obj: ListCoreDevicesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCoreDevicesResponseFilterSensitiveLog = (obj: ListCoreDevicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentsRequestFilterSensitiveLog = (obj: ListDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentsResponseFilterSensitiveLog = (obj: ListDeploymentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEffectiveDeploymentsRequestFilterSensitiveLog = (obj: ListEffectiveDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEffectiveDeploymentsResponseFilterSensitiveLog = (obj: ListEffectiveDeploymentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstalledComponentsRequestFilterSensitiveLog = (obj: ListInstalledComponentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstalledComponentFilterSensitiveLog = (obj: InstalledComponent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstalledComponentsResponseFilterSensitiveLog = (obj: ListInstalledComponentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveComponentCandidatesRequestFilterSensitiveLog = (obj: ResolveComponentCandidatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolvedComponentVersionFilterSensitiveLog = (obj: ResolvedComponentVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResolveComponentCandidatesResponseFilterSensitiveLog = (obj: ResolveComponentCandidatesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectivityInfoRequestFilterSensitiveLog = (obj: UpdateConnectivityInfoRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectivityInfoResponseFilterSensitiveLog = (obj: UpdateConnectivityInfoResponse): any => ({
+  ...obj,
+});

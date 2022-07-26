@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeNFSFileSharesInput, DescribeNFSFileSharesOutput } from "../models/models_0";
+import {
+  DescribeNFSFileSharesInput,
+  DescribeNFSFileSharesInputFilterSensitiveLog,
+  DescribeNFSFileSharesOutput,
+  DescribeNFSFileSharesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeNFSFileSharesCommand,
   serializeAws_json1_1DescribeNFSFileSharesCommand,
@@ -73,8 +78,8 @@ export class DescribeNFSFileSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNFSFileSharesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNFSFileSharesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNFSFileSharesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNFSFileSharesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

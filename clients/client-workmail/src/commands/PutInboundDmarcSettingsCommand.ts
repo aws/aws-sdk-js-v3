@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutInboundDmarcSettingsRequest, PutInboundDmarcSettingsResponse } from "../models/models_0";
+import {
+  PutInboundDmarcSettingsRequest,
+  PutInboundDmarcSettingsRequestFilterSensitiveLog,
+  PutInboundDmarcSettingsResponse,
+  PutInboundDmarcSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutInboundDmarcSettingsCommand,
   serializeAws_json1_1PutInboundDmarcSettingsCommand,
@@ -72,8 +77,8 @@ export class PutInboundDmarcSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutInboundDmarcSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutInboundDmarcSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutInboundDmarcSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutInboundDmarcSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

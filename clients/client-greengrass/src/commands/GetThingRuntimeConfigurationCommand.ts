@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { GetThingRuntimeConfigurationRequest, GetThingRuntimeConfigurationResponse } from "../models/models_0";
+import {
+  GetThingRuntimeConfigurationRequest,
+  GetThingRuntimeConfigurationRequestFilterSensitiveLog,
+  GetThingRuntimeConfigurationResponse,
+  GetThingRuntimeConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetThingRuntimeConfigurationCommand,
   serializeAws_restJson1GetThingRuntimeConfigurationCommand,
@@ -74,8 +79,8 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetThingRuntimeConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetThingRuntimeConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetThingRuntimeConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetThingRuntimeConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

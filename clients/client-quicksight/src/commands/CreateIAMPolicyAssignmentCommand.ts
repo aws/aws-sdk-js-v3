@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateIAMPolicyAssignmentRequest, CreateIAMPolicyAssignmentResponse } from "../models/models_0";
+import {
+  CreateIAMPolicyAssignmentRequest,
+  CreateIAMPolicyAssignmentRequestFilterSensitiveLog,
+  CreateIAMPolicyAssignmentResponse,
+  CreateIAMPolicyAssignmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateIAMPolicyAssignmentCommand,
   serializeAws_restJson1CreateIAMPolicyAssignmentCommand,
@@ -75,8 +80,8 @@ export class CreateIAMPolicyAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateIAMPolicyAssignmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateIAMPolicyAssignmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateIAMPolicyAssignmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateIAMPolicyAssignmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { DeleteDistributionRequest, DeleteDistributionResult } from "../models/models_0";
+import {
+  DeleteDistributionRequest,
+  DeleteDistributionRequestFilterSensitiveLog,
+  DeleteDistributionResult,
+  DeleteDistributionResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDistributionCommand,
   serializeAws_json1_1DeleteDistributionCommand,
@@ -72,8 +77,8 @@ export class DeleteDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDistributionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDistributionResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDistributionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDistributionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

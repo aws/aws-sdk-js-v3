@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetDomainDetailRequest, GetDomainDetailResponse } from "../models/models_0";
+import {
+  GetDomainDetailRequest,
+  GetDomainDetailRequestFilterSensitiveLog,
+  GetDomainDetailResponse,
+  GetDomainDetailResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetDomainDetailCommand,
   serializeAws_json1_1GetDomainDetailCommand,
@@ -73,8 +78,8 @@ export class GetDomainDetailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainDetailRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainDetailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDomainDetailRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDomainDetailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

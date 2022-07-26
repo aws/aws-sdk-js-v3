@@ -19,7 +19,9 @@ import {
 } from "../MigrationHubStrategyClient";
 import {
   StartRecommendationReportGenerationRequest,
+  StartRecommendationReportGenerationRequestFilterSensitiveLog,
   StartRecommendationReportGenerationResponse,
+  StartRecommendationReportGenerationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1StartRecommendationReportGenerationCommand,
@@ -81,8 +83,8 @@ export class StartRecommendationReportGenerationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRecommendationReportGenerationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartRecommendationReportGenerationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartRecommendationReportGenerationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartRecommendationReportGenerationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

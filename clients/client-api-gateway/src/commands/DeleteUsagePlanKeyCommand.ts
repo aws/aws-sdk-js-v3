@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteUsagePlanKeyRequest } from "../models/models_0";
+import { DeleteUsagePlanKeyRequest, DeleteUsagePlanKeyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteUsagePlanKeyCommand,
   serializeAws_restJson1DeleteUsagePlanKeyCommand,
@@ -72,7 +72,7 @@ export class DeleteUsagePlanKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUsagePlanKeyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteUsagePlanKeyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { CreatePrivateVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
+import {
+  CreatePrivateVirtualInterfaceRequest,
+  CreatePrivateVirtualInterfaceRequestFilterSensitiveLog,
+  VirtualInterface,
+  VirtualInterfaceFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand,
   serializeAws_json1_1CreatePrivateVirtualInterfaceCommand,
@@ -82,8 +87,8 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePrivateVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
+      inputFilterSensitiveLog: CreatePrivateVirtualInterfaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: VirtualInterfaceFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

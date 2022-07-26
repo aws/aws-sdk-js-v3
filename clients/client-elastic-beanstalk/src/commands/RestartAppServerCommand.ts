@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { RestartAppServerMessage } from "../models/models_0";
+import { RestartAppServerMessage, RestartAppServerMessageFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryRestartAppServerCommand,
   serializeAws_queryRestartAppServerCommand,
@@ -73,7 +73,7 @@ export class RestartAppServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestartAppServerMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: RestartAppServerMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

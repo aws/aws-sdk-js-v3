@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { DescribeReleaseLabelInput, DescribeReleaseLabelOutput } from "../models/models_0";
+import {
+  DescribeReleaseLabelInput,
+  DescribeReleaseLabelInputFilterSensitiveLog,
+  DescribeReleaseLabelOutput,
+  DescribeReleaseLabelOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeReleaseLabelCommand,
   serializeAws_json1_1DescribeReleaseLabelCommand,
@@ -74,8 +79,8 @@ export class DescribeReleaseLabelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReleaseLabelInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReleaseLabelOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeReleaseLabelInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeReleaseLabelOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

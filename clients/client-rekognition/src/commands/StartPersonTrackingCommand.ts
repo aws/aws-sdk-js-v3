@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartPersonTrackingRequest, StartPersonTrackingResponse } from "../models/models_0";
+import {
+  StartPersonTrackingRequest,
+  StartPersonTrackingRequestFilterSensitiveLog,
+  StartPersonTrackingResponse,
+  StartPersonTrackingResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartPersonTrackingCommand,
   serializeAws_json1_1StartPersonTrackingCommand,
@@ -80,8 +85,8 @@ export class StartPersonTrackingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartPersonTrackingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartPersonTrackingResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartPersonTrackingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartPersonTrackingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

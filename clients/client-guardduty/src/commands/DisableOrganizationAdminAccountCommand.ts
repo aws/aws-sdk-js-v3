@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { DisableOrganizationAdminAccountRequest, DisableOrganizationAdminAccountResponse } from "../models/models_0";
+import {
+  DisableOrganizationAdminAccountRequest,
+  DisableOrganizationAdminAccountRequestFilterSensitiveLog,
+  DisableOrganizationAdminAccountResponse,
+  DisableOrganizationAdminAccountResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisableOrganizationAdminAccountCommand,
   serializeAws_restJson1DisableOrganizationAdminAccountCommand,
@@ -75,8 +80,8 @@ export class DisableOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableOrganizationAdminAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableOrganizationAdminAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableOrganizationAdminAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableOrganizationAdminAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

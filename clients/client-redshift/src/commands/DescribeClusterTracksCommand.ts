@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeClusterTracksMessage, TrackListMessage } from "../models/models_0";
+import {
+  DescribeClusterTracksMessage,
+  DescribeClusterTracksMessageFilterSensitiveLog,
+  TrackListMessage,
+  TrackListMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDescribeClusterTracksCommand,
   serializeAws_queryDescribeClusterTracksCommand,
@@ -72,8 +77,8 @@ export class DescribeClusterTracksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterTracksMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: TrackListMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClusterTracksMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: TrackListMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

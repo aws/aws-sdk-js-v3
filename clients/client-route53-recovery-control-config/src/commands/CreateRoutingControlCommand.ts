@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateRoutingControlRequest, CreateRoutingControlResponse } from "../models/models_0";
+import {
+  CreateRoutingControlRequest,
+  CreateRoutingControlRequestFilterSensitiveLog,
+  CreateRoutingControlResponse,
+  CreateRoutingControlResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRoutingControlCommand,
   serializeAws_restJson1CreateRoutingControlCommand,
@@ -76,8 +81,8 @@ export class CreateRoutingControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRoutingControlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRoutingControlResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRoutingControlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRoutingControlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

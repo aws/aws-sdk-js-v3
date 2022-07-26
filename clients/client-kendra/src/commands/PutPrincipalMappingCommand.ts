@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { PutPrincipalMappingRequest } from "../models/models_0";
+import { PutPrincipalMappingRequest, PutPrincipalMappingRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1PutPrincipalMappingCommand,
   serializeAws_json1_1PutPrincipalMappingCommand,
@@ -90,7 +90,7 @@ export class PutPrincipalMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPrincipalMappingRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutPrincipalMappingRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

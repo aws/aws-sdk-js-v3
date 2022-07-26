@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetResourceShareInvitationsRequest, GetResourceShareInvitationsResponse } from "../models/models_0";
+import {
+  GetResourceShareInvitationsRequest,
+  GetResourceShareInvitationsRequestFilterSensitiveLog,
+  GetResourceShareInvitationsResponse,
+  GetResourceShareInvitationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetResourceShareInvitationsCommand,
   serializeAws_restJson1GetResourceShareInvitationsCommand,
@@ -74,8 +79,8 @@ export class GetResourceShareInvitationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceShareInvitationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceShareInvitationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResourceShareInvitationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResourceShareInvitationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

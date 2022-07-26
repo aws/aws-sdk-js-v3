@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSpeakerRequest } from "../models/models_0";
+import { DeleteSpeakerRequest, DeleteSpeakerRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteSpeakerCommand,
   serializeAws_json1_0DeleteSpeakerCommand,
@@ -72,7 +72,7 @@ export class DeleteSpeakerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSpeakerRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSpeakerRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { ExecuteCommandRequest, ExecuteCommandResponse } from "../models/models_0";
+import {
+  ExecuteCommandRequest,
+  ExecuteCommandRequestFilterSensitiveLog,
+  ExecuteCommandResponse,
+  ExecuteCommandResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ExecuteCommandCommand,
   serializeAws_json1_1ExecuteCommandCommand,
@@ -76,8 +81,8 @@ export class ExecuteCommandCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteCommandRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteCommandResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ExecuteCommandRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ExecuteCommandResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

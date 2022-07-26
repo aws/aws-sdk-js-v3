@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { AddFlowVpcInterfacesRequest, AddFlowVpcInterfacesResponse } from "../models/models_0";
+import {
+  AddFlowVpcInterfacesRequest,
+  AddFlowVpcInterfacesRequestFilterSensitiveLog,
+  AddFlowVpcInterfacesResponse,
+  AddFlowVpcInterfacesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AddFlowVpcInterfacesCommand,
   serializeAws_restJson1AddFlowVpcInterfacesCommand,
@@ -72,8 +77,8 @@ export class AddFlowVpcInterfacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddFlowVpcInterfacesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddFlowVpcInterfacesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddFlowVpcInterfacesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddFlowVpcInterfacesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

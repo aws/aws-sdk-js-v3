@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { TestRoleRequest, TestRoleResponse } from "../models/models_0";
+import {
+  TestRoleRequest,
+  TestRoleRequestFilterSensitiveLog,
+  TestRoleResponse,
+  TestRoleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1TestRoleCommand,
   serializeAws_restJson1TestRoleCommand,
@@ -83,8 +88,8 @@ export class TestRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestRoleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestRoleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestRoleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

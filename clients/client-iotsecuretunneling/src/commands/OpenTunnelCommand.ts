@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
-import { OpenTunnelRequest, OpenTunnelResponse } from "../models/models_0";
+import {
+  OpenTunnelRequest,
+  OpenTunnelRequestFilterSensitiveLog,
+  OpenTunnelResponse,
+  OpenTunnelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1OpenTunnelCommand,
   serializeAws_json1_1OpenTunnelCommand,
@@ -78,8 +83,8 @@ export class OpenTunnelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OpenTunnelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: OpenTunnelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: OpenTunnelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: OpenTunnelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

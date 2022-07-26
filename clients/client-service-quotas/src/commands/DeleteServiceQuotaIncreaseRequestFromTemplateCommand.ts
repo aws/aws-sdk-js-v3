@@ -14,7 +14,9 @@ import {
 
 import {
   DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
+  DeleteServiceQuotaIncreaseRequestFromTemplateRequestFilterSensitiveLog,
   DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
+  DeleteServiceQuotaIncreaseRequestFromTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
@@ -82,8 +84,8 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceQuotaIncreaseRequestFromTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteServiceQuotaIncreaseRequestFromTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteServiceQuotaIncreaseRequestFromTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteServiceQuotaIncreaseRequestFromTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

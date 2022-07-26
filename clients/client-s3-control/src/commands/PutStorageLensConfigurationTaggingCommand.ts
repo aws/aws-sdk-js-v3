@@ -15,7 +15,9 @@ import {
 
 import {
   PutStorageLensConfigurationTaggingRequest,
+  PutStorageLensConfigurationTaggingRequestFilterSensitiveLog,
   PutStorageLensConfigurationTaggingResult,
+  PutStorageLensConfigurationTaggingResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlPutStorageLensConfigurationTaggingCommand,
@@ -87,8 +89,8 @@ export class PutStorageLensConfigurationTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutStorageLensConfigurationTaggingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutStorageLensConfigurationTaggingResult.filterSensitiveLog,
+      inputFilterSensitiveLog: PutStorageLensConfigurationTaggingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutStorageLensConfigurationTaggingResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

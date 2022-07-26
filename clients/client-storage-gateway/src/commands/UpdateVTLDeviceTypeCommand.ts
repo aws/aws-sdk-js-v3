@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateVTLDeviceTypeInput, UpdateVTLDeviceTypeOutput } from "../models/models_0";
+import {
+  UpdateVTLDeviceTypeInput,
+  UpdateVTLDeviceTypeInputFilterSensitiveLog,
+  UpdateVTLDeviceTypeOutput,
+  UpdateVTLDeviceTypeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateVTLDeviceTypeCommand,
   serializeAws_json1_1UpdateVTLDeviceTypeCommand,
@@ -75,8 +80,8 @@ export class UpdateVTLDeviceTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVTLDeviceTypeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVTLDeviceTypeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateVTLDeviceTypeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateVTLDeviceTypeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

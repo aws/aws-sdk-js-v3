@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ListSAMLProviderTagsRequest, ListSAMLProviderTagsResponse } from "../models/models_0";
+import {
+  ListSAMLProviderTagsRequest,
+  ListSAMLProviderTagsRequestFilterSensitiveLog,
+  ListSAMLProviderTagsResponse,
+  ListSAMLProviderTagsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryListSAMLProviderTagsCommand,
   serializeAws_queryListSAMLProviderTagsCommand,
@@ -76,8 +81,8 @@ export class ListSAMLProviderTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSAMLProviderTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSAMLProviderTagsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSAMLProviderTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSAMLProviderTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

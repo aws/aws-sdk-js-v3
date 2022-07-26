@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateRegexMatchSetRequest, UpdateRegexMatchSetResponse } from "../models/models_0";
+import {
+  UpdateRegexMatchSetRequest,
+  UpdateRegexMatchSetRequestFilterSensitiveLog,
+  UpdateRegexMatchSetResponse,
+  UpdateRegexMatchSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRegexMatchSetCommand,
   serializeAws_json1_1UpdateRegexMatchSetCommand,
@@ -114,8 +119,8 @@ export class UpdateRegexMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRegexMatchSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRegexMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRegexMatchSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRegexMatchSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

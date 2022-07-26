@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import { CreateNetworkInput, CreateNetworkOutput } from "../models/models_0";
+import {
+  CreateNetworkInput,
+  CreateNetworkInputFilterSensitiveLog,
+  CreateNetworkOutput,
+  CreateNetworkOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateNetworkCommand,
   serializeAws_restJson1CreateNetworkCommand,
@@ -77,8 +82,8 @@ export class CreateNetworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNetworkInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateNetworkInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateNetworkOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

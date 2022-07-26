@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetPermissionRequest } from "../models/models_0";
+import { SetPermissionRequest, SetPermissionRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1SetPermissionCommand,
@@ -78,7 +78,7 @@ export class SetPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetPermissionRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: SetPermissionRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

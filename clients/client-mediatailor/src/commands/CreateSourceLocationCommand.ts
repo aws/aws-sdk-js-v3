@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import { CreateSourceLocationRequest, CreateSourceLocationResponse } from "../models/models_0";
+import {
+  CreateSourceLocationRequest,
+  CreateSourceLocationRequestFilterSensitiveLog,
+  CreateSourceLocationResponse,
+  CreateSourceLocationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSourceLocationCommand,
   serializeAws_restJson1CreateSourceLocationCommand,
@@ -72,8 +77,8 @@ export class CreateSourceLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSourceLocationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSourceLocationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSourceLocationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSourceLocationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

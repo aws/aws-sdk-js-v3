@@ -48,28 +48,10 @@ export interface LFTagPair {
   TagValues: string[] | undefined;
 }
 
-export namespace LFTagPair {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LFTagPair): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure for the catalog object.</p>
  */
 export interface CatalogResource {}
-
-export namespace CatalogResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CatalogResource): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A structure for the database object.</p>
@@ -84,15 +66,6 @@ export interface DatabaseResource {
    * <p>The name of the database resource. Unique to the Data Catalog.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DatabaseResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatabaseResource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -120,15 +93,6 @@ export interface DataCellsFilterResource {
   Name?: string;
 }
 
-export namespace DataCellsFilterResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataCellsFilterResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure for a data location object where permissions are granted or revoked. </p>
  */
@@ -142,15 +106,6 @@ export interface DataLocationResource {
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the data location resource.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace DataLocationResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataLocationResource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -173,15 +128,6 @@ export interface LFTagKeyResource {
   TagValues: string[] | undefined;
 }
 
-export namespace LFTagKeyResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LFTagKeyResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that allows an admin to grant user permissions on certain conditions. For example, granting a role access to all columns that do not have the LF-tag 'PII' in tables that have the LF-tag 'Prod'.</p>
  */
@@ -195,15 +141,6 @@ export interface LFTag {
    * <p>A list of possible values an attribute can take.</p>
    */
   TagValues: string[] | undefined;
-}
-
-export namespace LFTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LFTag): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceType {
@@ -231,28 +168,10 @@ export interface LFTagPolicyResource {
   Expression: LFTag[] | undefined;
 }
 
-export namespace LFTagPolicyResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LFTagPolicyResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A wildcard object representing every table under a database.</p>
  */
 export interface TableWildcard {}
-
-export namespace TableWildcard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableWildcard): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. </p>
@@ -281,15 +200,6 @@ export interface TableResource {
   TableWildcard?: TableWildcard;
 }
 
-export namespace TableResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A wildcard object, consisting of an optional list of excluded column names or indexes.</p>
  */
@@ -298,15 +208,6 @@ export interface ColumnWildcard {
    * <p>Excludes column names. Any column with this name will be excluded.</p>
    */
   ExcludedColumnNames?: string[];
-}
-
-export namespace ColumnWildcard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnWildcard): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -338,15 +239,6 @@ export interface TableWithColumnsResource {
    * <p>A wildcard specified by a <code>ColumnWildcard</code> object. At least one of <code>ColumnNames</code> or <code>ColumnWildcard</code> is required.</p>
    */
   ColumnWildcard?: ColumnWildcard;
-}
-
-export namespace TableWithColumnsResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableWithColumnsResource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -394,15 +286,6 @@ export interface Resource {
   LFTagPolicy?: LFTagPolicyResource;
 }
 
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
-}
-
 export interface AddLFTagsToResourceRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -420,15 +303,6 @@ export interface AddLFTagsToResourceRequest {
   LFTags: LFTagPair[] | undefined;
 }
 
-export namespace AddLFTagsToResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddLFTagsToResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about an error.</p>
  */
@@ -442,15 +316,6 @@ export interface ErrorDetail {
    * <p>A message describing the error.</p>
    */
   ErrorMessage?: string;
-}
-
-export namespace ErrorDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -468,29 +333,11 @@ export interface LFTagError {
   Error?: ErrorDetail;
 }
 
-export namespace LFTagError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LFTagError): any => ({
-    ...obj,
-  });
-}
-
 export interface AddLFTagsToResourceResponse {
   /**
    * <p>A list of failures to tag the resource.</p>
    */
   Failures?: LFTagError[];
-}
-
-export namespace AddLFTagsToResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddLFTagsToResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -639,28 +486,10 @@ export interface AddObjectInput {
   PartitionValues?: string[];
 }
 
-export namespace AddObjectInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddObjectInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that you pass to indicate you want all rows in a filter. </p>
  */
 export interface AllRowsWildcard {}
-
-export namespace AllRowsWildcard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllRowsWildcard): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A resource to be created or added already exists.</p>
@@ -696,15 +525,6 @@ export interface AuditContext {
   AdditionalAuditContext?: string;
 }
 
-export namespace AuditContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuditContext): any => ({
-    ...obj,
-  });
-}
-
 export enum Permission {
   ALL = "ALL",
   ALTER = "ALTER",
@@ -729,15 +549,6 @@ export interface DataLakePrincipal {
    * <p>An identifier for the Lake Formation principal.</p>
    */
   DataLakePrincipalIdentifier?: string;
-}
-
-export namespace DataLakePrincipal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataLakePrincipal): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -770,15 +581,6 @@ export interface BatchPermissionsRequestEntry {
   PermissionsWithGrantOption?: (Permission | string)[];
 }
 
-export namespace BatchPermissionsRequestEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPermissionsRequestEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGrantPermissionsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -789,15 +591,6 @@ export interface BatchGrantPermissionsRequest {
    * <p>A list of up to 20 entries for resource permissions to be granted by batch operation to the principal.</p>
    */
   Entries: BatchPermissionsRequestEntry[] | undefined;
-}
-
-export namespace BatchGrantPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGrantPermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -815,29 +608,11 @@ export interface BatchPermissionsFailureEntry {
   Error?: ErrorDetail;
 }
 
-export namespace BatchPermissionsFailureEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchPermissionsFailureEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGrantPermissionsResponse {
   /**
    * <p>A list of failures to grant permissions to the resources.</p>
    */
   Failures?: BatchPermissionsFailureEntry[];
-}
-
-export namespace BatchGrantPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGrantPermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchRevokePermissionsRequest {
@@ -852,29 +627,11 @@ export interface BatchRevokePermissionsRequest {
   Entries: BatchPermissionsRequestEntry[] | undefined;
 }
 
-export namespace BatchRevokePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchRevokePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchRevokePermissionsResponse {
   /**
    * <p>A list of failures to revoke permissions to the resources.</p>
    */
   Failures?: BatchPermissionsFailureEntry[];
-}
-
-export namespace BatchRevokePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchRevokePermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelTransactionRequest {
@@ -884,25 +641,7 @@ export interface CancelTransactionRequest {
   TransactionId: string | undefined;
 }
 
-export namespace CancelTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelTransactionResponse {}
-
-export namespace CancelTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelTransactionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains details about an error related to a transaction commit that was in progress.</p>
@@ -959,15 +698,6 @@ export interface CommitTransactionRequest {
   TransactionId: string | undefined;
 }
 
-export namespace CommitTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum TransactionStatus {
   ABORTED = "ABORTED",
   ACTIVE = "ACTIVE",
@@ -980,15 +710,6 @@ export interface CommitTransactionResponse {
    * <p>The status of the transaction.</p>
    */
   TransactionStatus?: TransactionStatus | string;
-}
-
-export namespace CommitTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommitTransactionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1028,15 +749,6 @@ export interface RowFilter {
    * <p>A wildcard for all rows.</p>
    */
   AllRowsWildcard?: AllRowsWildcard;
-}
-
-export namespace RowFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RowFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1082,15 +794,6 @@ export interface DataCellsFilter {
   ColumnWildcard?: ColumnWildcard;
 }
 
-export namespace DataCellsFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataCellsFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDataCellsFilterRequest {
   /**
    * <p>A <code>DataCellsFilter</code> structure containing information about the data cells filter.</p>
@@ -1098,25 +801,7 @@ export interface CreateDataCellsFilterRequest {
   TableData: DataCellsFilter | undefined;
 }
 
-export namespace CreateDataCellsFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataCellsFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDataCellsFilterResponse {}
-
-export namespace CreateDataCellsFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDataCellsFilterResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A resource numerical limit was exceeded.</p>
@@ -1159,25 +844,7 @@ export interface CreateLFTagRequest {
   TagValues: string[] | undefined;
 }
 
-export namespace CreateLFTagRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLFTagRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLFTagResponse {}
-
-export namespace CreateLFTagResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLFTagResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteDataCellsFilterRequest {
   /**
@@ -1201,25 +868,7 @@ export interface DeleteDataCellsFilterRequest {
   Name?: string;
 }
 
-export namespace DeleteDataCellsFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataCellsFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDataCellsFilterResponse {}
-
-export namespace DeleteDataCellsFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDataCellsFilterResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteLFTagRequest {
   /**
@@ -1233,25 +882,7 @@ export interface DeleteLFTagRequest {
   TagKey: string | undefined;
 }
 
-export namespace DeleteLFTagRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLFTagRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLFTagResponse {}
-
-export namespace DeleteLFTagResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLFTagResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An object that defines an Amazon S3 object to be deleted if a transaction cancels, provided that
@@ -1267,15 +898,6 @@ export interface VirtualObject {
    * <p>The ETag of the Amazon S3 object.</p>
    */
   ETag?: string;
-}
-
-export namespace VirtualObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VirtualObject): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteObjectsOnCancelRequest {
@@ -1305,25 +927,7 @@ export interface DeleteObjectsOnCancelRequest {
   Objects: VirtualObject[] | undefined;
 }
 
-export namespace DeleteObjectsOnCancelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectsOnCancelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteObjectsOnCancelResponse {}
-
-export namespace DeleteObjectsOnCancelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectsOnCancelResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
@@ -1356,40 +960,13 @@ export interface DeregisterResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DeregisterResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeregisterResourceResponse {}
-
-export namespace DeregisterResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeResourceRequest {
   /**
    * <p>The resource ARN.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace DescribeResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1412,15 +989,6 @@ export interface ResourceInfo {
   LastModified?: Date;
 }
 
-export namespace ResourceInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInfo): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResourceResponse {
   /**
    * <p>A structure containing information about an Lake Formation resource.</p>
@@ -1428,29 +996,11 @@ export interface DescribeResourceResponse {
   ResourceInfo?: ResourceInfo;
 }
 
-export namespace DescribeResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTransactionRequest {
   /**
    * <p>The transaction for which to return status.</p>
    */
   TransactionId: string | undefined;
-}
-
-export namespace DescribeTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTransactionRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1478,29 +1028,11 @@ export interface TransactionDescription {
   TransactionEndTime?: Date;
 }
 
-export namespace TransactionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransactionDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTransactionResponse {
   /**
    * <p>Returns a <code>TransactionDescription</code> object containing information about the transaction.</p>
    */
   TransactionDescription?: TransactionDescription;
-}
-
-export namespace DescribeTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTransactionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ExtendTransactionRequest {
@@ -1510,40 +1042,13 @@ export interface ExtendTransactionRequest {
   TransactionId?: string;
 }
 
-export namespace ExtendTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtendTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ExtendTransactionResponse {}
-
-export namespace ExtendTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtendTransactionResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetDataLakeSettingsRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
    */
   CatalogId?: string;
-}
-
-export namespace GetDataLakeSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataLakeSettingsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1559,15 +1064,6 @@ export interface PrincipalPermissions {
    * <p>The permissions that are granted to the principal.</p>
    */
   Permissions?: (Permission | string)[];
-}
-
-export namespace PrincipalPermissions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrincipalPermissions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1630,29 +1126,11 @@ export interface DataLakeSettings {
   AuthorizedSessionTagValueList?: string[];
 }
 
-export namespace DataLakeSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataLakeSettings): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDataLakeSettingsResponse {
   /**
    * <p>A structure representing a list of Lake Formation principals designated as data lake administrators.</p>
    */
   DataLakeSettings?: DataLakeSettings;
-}
-
-export namespace GetDataLakeSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDataLakeSettingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEffectivePermissionsForPathRequest {
@@ -1677,15 +1155,6 @@ export interface GetEffectivePermissionsForPathRequest {
   MaxResults?: number;
 }
 
-export namespace GetEffectivePermissionsForPathRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEffectivePermissionsForPathRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure containing the additional details to be returned in the <code>AdditionalDetails</code> attribute of <code>PrincipalResourcePermissions</code>.</p>
  *
@@ -1696,15 +1165,6 @@ export interface DetailsMap {
    * <p>A resource share ARN for a catalog resource shared through RAM.</p>
    */
   ResourceShare?: string[];
-}
-
-export namespace DetailsMap {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DetailsMap): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1737,15 +1197,6 @@ export interface PrincipalResourcePermissions {
   AdditionalDetails?: DetailsMap;
 }
 
-export namespace PrincipalResourcePermissions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrincipalResourcePermissions): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEffectivePermissionsForPathResponse {
   /**
    * <p>A list of the permissions for the specified table or database resource located at the path in Amazon S3.</p>
@@ -1758,15 +1209,6 @@ export interface GetEffectivePermissionsForPathResponse {
   NextToken?: string;
 }
 
-export namespace GetEffectivePermissionsForPathResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEffectivePermissionsForPathResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLFTagRequest {
   /**
    * <p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. </p>
@@ -1777,15 +1219,6 @@ export interface GetLFTagRequest {
    * <p>The key-name for the LF-tag.</p>
    */
   TagKey: string | undefined;
-}
-
-export namespace GetLFTagRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLFTagRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLFTagResponse {
@@ -1805,29 +1238,11 @@ export interface GetLFTagResponse {
   TagValues?: string[];
 }
 
-export namespace GetLFTagResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLFTagResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQueryStateRequest {
   /**
    * <p>The ID of the plan query operation.</p>
    */
   QueryId: string | undefined;
-}
-
-export namespace GetQueryStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryStateRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum QueryStateString {
@@ -1868,15 +1283,6 @@ export interface GetQueryStateResponse {
   State: QueryStateString | string | undefined;
 }
 
-export namespace GetQueryStateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryStateResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about an error where the query request expired.</p>
  */
@@ -1908,15 +1314,6 @@ export interface GetQueryStatisticsRequest {
   QueryId: string | undefined;
 }
 
-export namespace GetQueryStatisticsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryStatisticsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Statistics related to the processing of a query statement.</p>
  */
@@ -1935,15 +1332,6 @@ export interface ExecutionStatistics {
    * <p>The number of work units executed.</p>
    */
   WorkUnitsExecutedCount?: number;
-}
-
-export namespace ExecutionStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionStatistics): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1971,15 +1359,6 @@ export interface PlanningStatistics {
   WorkUnitsGeneratedCount?: number;
 }
 
-export namespace PlanningStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlanningStatistics): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQueryStatisticsResponse {
   /**
    * <p>An <code>ExecutionStatistics</code> structure containing execution statistics.</p>
@@ -1995,15 +1374,6 @@ export interface GetQueryStatisticsResponse {
    * <p>The time that the query was submitted.</p>
    */
   QuerySubmissionTime?: Date;
-}
-
-export namespace GetQueryStatisticsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetQueryStatisticsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2074,15 +1444,6 @@ export interface GetResourceLFTagsRequest {
   ShowAssignedLFTags?: boolean;
 }
 
-export namespace GetResourceLFTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceLFTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure containing the name of a column resource and the LF-tags attached to it.</p>
  */
@@ -2096,15 +1457,6 @@ export interface ColumnLFTag {
    * <p>The LF-tags attached to a column resource.</p>
    */
   LFTags?: LFTagPair[];
-}
-
-export namespace ColumnLFTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnLFTag): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceLFTagsResponse {
@@ -2122,15 +1474,6 @@ export interface GetResourceLFTagsResponse {
    * <p>A list of LF-tags applied to a column resource.</p>
    */
   LFTagsOnColumns?: ColumnLFTag[];
-}
-
-export namespace GetResourceLFTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceLFTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2210,15 +1553,6 @@ export interface GetTableObjectsRequest {
   NextToken?: string;
 }
 
-export namespace GetTableObjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTableObjectsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the details of a governed table.</p>
  */
@@ -2239,15 +1573,6 @@ export interface TableObject {
   Size?: number;
 }
 
-export namespace TableObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableObject): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure containing a list of partition values and table objects.</p>
  */
@@ -2263,15 +1588,6 @@ export interface PartitionObjects {
   Objects?: TableObject[];
 }
 
-export namespace PartitionObjects {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartitionObjects): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTableObjectsResponse {
   /**
    * <p>A list of objects organized by partition keys.</p>
@@ -2284,15 +1600,6 @@ export interface GetTableObjectsResponse {
   NextToken?: string;
 }
 
-export namespace GetTableObjectsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTableObjectsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a list of values defining partitions.</p>
  */
@@ -2301,15 +1608,6 @@ export interface PartitionValueList {
    * <p>The list of partition values.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace PartitionValueList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartitionValueList): any => ({
-    ...obj,
-  });
 }
 
 export enum PermissionType {
@@ -2349,15 +1647,6 @@ export interface GetTemporaryGluePartitionCredentialsRequest {
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
-export namespace GetTemporaryGluePartitionCredentialsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemporaryGluePartitionCredentialsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTemporaryGluePartitionCredentialsResponse {
   /**
    * <p>The access key ID for the temporary credentials.</p>
@@ -2378,15 +1667,6 @@ export interface GetTemporaryGluePartitionCredentialsResponse {
    * <p>The date and time when the temporary credentials expire.</p>
    */
   Expiration?: Date;
-}
-
-export namespace GetTemporaryGluePartitionCredentialsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemporaryGluePartitionCredentialsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2440,15 +1720,6 @@ export interface GetTemporaryGlueTableCredentialsRequest {
   SupportedPermissionTypes: (PermissionType | string)[] | undefined;
 }
 
-export namespace GetTemporaryGlueTableCredentialsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemporaryGlueTableCredentialsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTemporaryGlueTableCredentialsResponse {
   /**
    * <p>The access key ID for the temporary credentials.</p>
@@ -2471,15 +1742,6 @@ export interface GetTemporaryGlueTableCredentialsResponse {
   Expiration?: Date;
 }
 
-export namespace GetTemporaryGlueTableCredentialsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTemporaryGlueTableCredentialsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetWorkUnitResultsRequest {
   /**
    * <p>The ID of the plan query operation for which to get results.</p>
@@ -2497,16 +1759,6 @@ export interface GetWorkUnitResultsRequest {
   WorkUnitToken: string | undefined;
 }
 
-export namespace GetWorkUnitResultsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkUnitResultsRequest): any => ({
-    ...obj,
-    ...(obj.WorkUnitToken && { WorkUnitToken: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A structure for the output.</p>
  */
@@ -2515,15 +1767,6 @@ export interface GetWorkUnitResultsResponse {
    * <p>Rows returned from the <code>GetWorkUnitResults</code> operation as a stream of Apache Arrow v1.0 messages.</p>
    */
   ResultStream?: Readable | ReadableStream | Blob;
-}
-
-export namespace GetWorkUnitResultsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkUnitResultsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetWorkUnitsRequest {
@@ -2541,15 +1784,6 @@ export interface GetWorkUnitsRequest {
    * <p>The ID of the plan query operation.</p>
    */
   QueryId: string | undefined;
-}
-
-export namespace GetWorkUnitsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkUnitsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2572,15 +1806,6 @@ export interface WorkUnitRange {
   WorkUnitToken: string | undefined;
 }
 
-export namespace WorkUnitRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkUnitRange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure for the output.</p>
  */
@@ -2599,15 +1824,6 @@ export interface GetWorkUnitsResponse {
    * <p>A <code>WorkUnitRangeList</code> object that specifies the valid range of work unit IDs for querying the execution service.</p>
    */
   WorkUnitRanges: WorkUnitRange[] | undefined;
-}
-
-export namespace GetWorkUnitsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkUnitsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2662,25 +1878,7 @@ export interface GrantPermissionsRequest {
   PermissionsWithGrantOption?: (Permission | string)[];
 }
 
-export namespace GrantPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrantPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GrantPermissionsResponse {}
-
-export namespace GrantPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrantPermissionsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface ListDataCellsFilterRequest {
   /**
@@ -2699,15 +1897,6 @@ export interface ListDataCellsFilterRequest {
   MaxResults?: number;
 }
 
-export namespace ListDataCellsFilterRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataCellsFilterRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDataCellsFilterResponse {
   /**
    * <p>A list of <code>DataCellFilter</code> structures.</p>
@@ -2718,15 +1907,6 @@ export interface ListDataCellsFilterResponse {
    * <p>A continuation token, if not all requested data cell filters have been returned.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDataCellsFilterResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDataCellsFilterResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceShareType {
@@ -2756,15 +1936,6 @@ export interface ListLFTagsRequest {
   NextToken?: string;
 }
 
-export namespace ListLFTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLFTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLFTagsResponse {
   /**
    * <p>A list of LF-tags that the requested has permission to view.</p>
@@ -2775,15 +1946,6 @@ export interface ListLFTagsResponse {
    * <p>A continuation token, present if the current list segment is not the last.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLFTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLFTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum DataLakeResourceType {
@@ -2835,15 +1997,6 @@ export interface ListPermissionsRequest {
   IncludeRelated?: string;
 }
 
-export namespace ListPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPermissionsResponse {
   /**
    * <p>A list of principals and their permissions on the resource for the specified principal and resource types.</p>
@@ -2854,15 +2007,6 @@ export interface ListPermissionsResponse {
    * <p>A continuation token, if this is not the first call to retrieve this list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ComparisonOperator {
@@ -2905,15 +2049,6 @@ export interface FilterCondition {
   StringValueList?: string[];
 }
 
-export namespace FilterCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilterCondition): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourcesRequest {
   /**
    * <p>Any applicable row-level and/or column-level filtering conditions for the resources.</p>
@@ -2931,15 +2066,6 @@ export interface ListResourcesRequest {
   NextToken?: string;
 }
 
-export namespace ListResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListResourcesResponse {
   /**
    * <p>A summary of the data lake resources.</p>
@@ -2950,15 +2076,6 @@ export interface ListResourcesResponse {
    * <p>A continuation token, if this is not the first call to retrieve these resources.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum OptimizerType {
@@ -2999,15 +2116,6 @@ export interface ListTableStorageOptimizersRequest {
   NextToken?: string;
 }
 
-export namespace ListTableStorageOptimizersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTableStorageOptimizersRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure describing the configuration and details of a storage optimizer.</p>
  */
@@ -3041,15 +2149,6 @@ export interface StorageOptimizer {
   LastRunDetails?: string;
 }
 
-export namespace StorageOptimizer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageOptimizer): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTableStorageOptimizersResponse {
   /**
    * <p>A list of the storage optimizers associated with a table.</p>
@@ -3060,15 +2159,6 @@ export interface ListTableStorageOptimizersResponse {
    * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTableStorageOptimizersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTableStorageOptimizersResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum TransactionStatusFilter {
@@ -3101,15 +2191,6 @@ export interface ListTransactionsRequest {
   NextToken?: string;
 }
 
-export namespace ListTransactionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTransactionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTransactionsResponse {
   /**
    * <p>A list of transactions. The record for each transaction is a <code>TransactionDescription</code> object.</p>
@@ -3120,15 +2201,6 @@ export interface ListTransactionsResponse {
    * <p>A continuation token indicating whether additional data is available.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTransactionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTransactionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutDataLakeSettingsRequest {
@@ -3143,25 +2215,7 @@ export interface PutDataLakeSettingsRequest {
   DataLakeSettings: DataLakeSettings | undefined;
 }
 
-export namespace PutDataLakeSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDataLakeSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutDataLakeSettingsResponse {}
-
-export namespace PutDataLakeSettingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDataLakeSettingsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface RegisterResourceRequest {
   /**
@@ -3182,25 +2236,7 @@ export interface RegisterResourceRequest {
   RoleArn?: string;
 }
 
-export namespace RegisterResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterResourceResponse {}
-
-export namespace RegisterResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface RemoveLFTagsFromResourceRequest {
   /**
@@ -3219,29 +2255,11 @@ export interface RemoveLFTagsFromResourceRequest {
   LFTags: LFTagPair[] | undefined;
 }
 
-export namespace RemoveLFTagsFromResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveLFTagsFromResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveLFTagsFromResourceResponse {
   /**
    * <p>A list of failures to untag a resource.</p>
    */
   Failures?: LFTagError[];
-}
-
-export namespace RemoveLFTagsFromResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveLFTagsFromResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RevokePermissionsRequest {
@@ -3272,25 +2290,7 @@ export interface RevokePermissionsRequest {
   PermissionsWithGrantOption?: (Permission | string)[];
 }
 
-export namespace RevokePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokePermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RevokePermissionsResponse {}
-
-export namespace RevokePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokePermissionsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface SearchDatabasesByLFTagsRequest {
   /**
@@ -3314,15 +2314,6 @@ export interface SearchDatabasesByLFTagsRequest {
   Expression: LFTag[] | undefined;
 }
 
-export namespace SearchDatabasesByLFTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchDatabasesByLFTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure describing a database resource with LF-tags.</p>
  */
@@ -3338,15 +2329,6 @@ export interface TaggedDatabase {
   LFTags?: LFTagPair[];
 }
 
-export namespace TaggedDatabase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaggedDatabase): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchDatabasesByLFTagsResponse {
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
@@ -3357,15 +2339,6 @@ export interface SearchDatabasesByLFTagsResponse {
    * <p>A list of databases that meet the LF-tag conditions.</p>
    */
   DatabaseList?: TaggedDatabase[];
-}
-
-export namespace SearchDatabasesByLFTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchDatabasesByLFTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface SearchTablesByLFTagsRequest {
@@ -3388,15 +2361,6 @@ export interface SearchTablesByLFTagsRequest {
    * <p>A list of conditions (<code>LFTag</code> structures) to search for in table resources.</p>
    */
   Expression: LFTag[] | undefined;
-}
-
-export namespace SearchTablesByLFTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchTablesByLFTagsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3424,15 +2388,6 @@ export interface TaggedTable {
   LFTagsOnColumns?: ColumnLFTag[];
 }
 
-export namespace TaggedTable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaggedTable): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchTablesByLFTagsResponse {
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
@@ -3443,15 +2398,6 @@ export interface SearchTablesByLFTagsResponse {
    * <p>A list of tables that meet the LF-tag conditions.</p>
    */
   TableList?: TaggedTable[];
-}
-
-export namespace SearchTablesByLFTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchTablesByLFTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3484,15 +2430,6 @@ export interface QueryPlanningContext {
   TransactionId?: string;
 }
 
-export namespace QueryPlanningContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryPlanningContext): any => ({
-    ...obj,
-  });
-}
-
 export interface StartQueryPlanningRequest {
   /**
    * <p>A structure containing information about the query plan.</p>
@@ -3505,16 +2442,6 @@ export interface StartQueryPlanningRequest {
   QueryString: string | undefined;
 }
 
-export namespace StartQueryPlanningRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartQueryPlanningRequest): any => ({
-    ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A structure for the output.</p>
  */
@@ -3523,15 +2450,6 @@ export interface StartQueryPlanningResponse {
    * <p>The ID of the plan query operation can be used to fetch the actual work unit descriptors that are produced as the result of the operation. The ID is also used to get the query state and as an input to the <code>Execute</code> operation.</p>
    */
   QueryId: string | undefined;
-}
-
-export namespace StartQueryPlanningResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartQueryPlanningResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum TransactionType {
@@ -3546,29 +2464,11 @@ export interface StartTransactionRequest {
   TransactionType?: TransactionType | string;
 }
 
-export namespace StartTransactionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTransactionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartTransactionResponse {
   /**
    * <p>An opaque identifier for the transaction.</p>
    */
   TransactionId?: string;
-}
-
-export namespace StartTransactionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTransactionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateLFTagRequest {
@@ -3593,25 +2493,7 @@ export interface UpdateLFTagRequest {
   TagValuesToAdd?: string[];
 }
 
-export namespace UpdateLFTagRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLFTagRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLFTagResponse {}
-
-export namespace UpdateLFTagResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLFTagResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateResourceRequest {
   /**
@@ -3625,25 +2507,7 @@ export interface UpdateResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace UpdateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResourceResponse {}
-
-export namespace UpdateResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An object to delete from the governed table.</p>
@@ -3665,15 +2529,6 @@ export interface DeleteObjectInput {
   PartitionValues?: string[];
 }
 
-export namespace DeleteObjectInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteObjectInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines an object to add to or delete from a governed table.</p>
  */
@@ -3687,15 +2542,6 @@ export interface WriteOperation {
    * <p>An object to delete from the governed table.</p>
    */
   DeleteObject?: DeleteObjectInput;
-}
-
-export namespace WriteOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WriteOperation): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateTableObjectsRequest {
@@ -3725,25 +2571,7 @@ export interface UpdateTableObjectsRequest {
   WriteOperations: WriteOperation[] | undefined;
 }
 
-export namespace UpdateTableObjectsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableObjectsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTableObjectsResponse {}
-
-export namespace UpdateTableObjectsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableObjectsResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateTableStorageOptimizerRequest {
   /**
@@ -3767,15 +2595,6 @@ export interface UpdateTableStorageOptimizerRequest {
   StorageOptimizerConfig: Record<string, Record<string, string>> | undefined;
 }
 
-export namespace UpdateTableStorageOptimizerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableStorageOptimizerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTableStorageOptimizerResponse {
   /**
    * <p>A response indicating the success of failure of the operation.</p>
@@ -3783,11 +2602,942 @@ export interface UpdateTableStorageOptimizerResponse {
   Result?: string;
 }
 
-export namespace UpdateTableStorageOptimizerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableStorageOptimizerResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const LFTagPairFilterSensitiveLog = (obj: LFTagPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CatalogResourceFilterSensitiveLog = (obj: CatalogResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatabaseResourceFilterSensitiveLog = (obj: DatabaseResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataCellsFilterResourceFilterSensitiveLog = (obj: DataCellsFilterResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataLocationResourceFilterSensitiveLog = (obj: DataLocationResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LFTagKeyResourceFilterSensitiveLog = (obj: LFTagKeyResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LFTagFilterSensitiveLog = (obj: LFTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LFTagPolicyResourceFilterSensitiveLog = (obj: LFTagPolicyResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableWildcardFilterSensitiveLog = (obj: TableWildcard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableResourceFilterSensitiveLog = (obj: TableResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnWildcardFilterSensitiveLog = (obj: ColumnWildcard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableWithColumnsResourceFilterSensitiveLog = (obj: TableWithColumnsResource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddLFTagsToResourceRequestFilterSensitiveLog = (obj: AddLFTagsToResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorDetailFilterSensitiveLog = (obj: ErrorDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LFTagErrorFilterSensitiveLog = (obj: LFTagError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddLFTagsToResourceResponseFilterSensitiveLog = (obj: AddLFTagsToResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddObjectInputFilterSensitiveLog = (obj: AddObjectInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllRowsWildcardFilterSensitiveLog = (obj: AllRowsWildcard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuditContextFilterSensitiveLog = (obj: AuditContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataLakePrincipalFilterSensitiveLog = (obj: DataLakePrincipal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPermissionsRequestEntryFilterSensitiveLog = (obj: BatchPermissionsRequestEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGrantPermissionsRequestFilterSensitiveLog = (obj: BatchGrantPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchPermissionsFailureEntryFilterSensitiveLog = (obj: BatchPermissionsFailureEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGrantPermissionsResponseFilterSensitiveLog = (obj: BatchGrantPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchRevokePermissionsRequestFilterSensitiveLog = (obj: BatchRevokePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchRevokePermissionsResponseFilterSensitiveLog = (obj: BatchRevokePermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelTransactionRequestFilterSensitiveLog = (obj: CancelTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelTransactionResponseFilterSensitiveLog = (obj: CancelTransactionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommitTransactionRequestFilterSensitiveLog = (obj: CommitTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommitTransactionResponseFilterSensitiveLog = (obj: CommitTransactionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RowFilterFilterSensitiveLog = (obj: RowFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataCellsFilterFilterSensitiveLog = (obj: DataCellsFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataCellsFilterRequestFilterSensitiveLog = (obj: CreateDataCellsFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDataCellsFilterResponseFilterSensitiveLog = (obj: CreateDataCellsFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLFTagRequestFilterSensitiveLog = (obj: CreateLFTagRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLFTagResponseFilterSensitiveLog = (obj: CreateLFTagResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataCellsFilterRequestFilterSensitiveLog = (obj: DeleteDataCellsFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDataCellsFilterResponseFilterSensitiveLog = (obj: DeleteDataCellsFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLFTagRequestFilterSensitiveLog = (obj: DeleteLFTagRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLFTagResponseFilterSensitiveLog = (obj: DeleteLFTagResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VirtualObjectFilterSensitiveLog = (obj: VirtualObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectsOnCancelRequestFilterSensitiveLog = (obj: DeleteObjectsOnCancelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectsOnCancelResponseFilterSensitiveLog = (obj: DeleteObjectsOnCancelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterResourceRequestFilterSensitiveLog = (obj: DeregisterResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterResourceResponseFilterSensitiveLog = (obj: DeregisterResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceRequestFilterSensitiveLog = (obj: DescribeResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceInfoFilterSensitiveLog = (obj: ResourceInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourceResponseFilterSensitiveLog = (obj: DescribeResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTransactionRequestFilterSensitiveLog = (obj: DescribeTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransactionDescriptionFilterSensitiveLog = (obj: TransactionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTransactionResponseFilterSensitiveLog = (obj: DescribeTransactionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtendTransactionRequestFilterSensitiveLog = (obj: ExtendTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtendTransactionResponseFilterSensitiveLog = (obj: ExtendTransactionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataLakeSettingsRequestFilterSensitiveLog = (obj: GetDataLakeSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrincipalPermissionsFilterSensitiveLog = (obj: PrincipalPermissions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataLakeSettingsFilterSensitiveLog = (obj: DataLakeSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDataLakeSettingsResponseFilterSensitiveLog = (obj: GetDataLakeSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEffectivePermissionsForPathRequestFilterSensitiveLog = (
+  obj: GetEffectivePermissionsForPathRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetailsMapFilterSensitiveLog = (obj: DetailsMap): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrincipalResourcePermissionsFilterSensitiveLog = (obj: PrincipalResourcePermissions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEffectivePermissionsForPathResponseFilterSensitiveLog = (
+  obj: GetEffectivePermissionsForPathResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLFTagRequestFilterSensitiveLog = (obj: GetLFTagRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLFTagResponseFilterSensitiveLog = (obj: GetLFTagResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryStateRequestFilterSensitiveLog = (obj: GetQueryStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryStateResponseFilterSensitiveLog = (obj: GetQueryStateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryStatisticsRequestFilterSensitiveLog = (obj: GetQueryStatisticsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionStatisticsFilterSensitiveLog = (obj: ExecutionStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlanningStatisticsFilterSensitiveLog = (obj: PlanningStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetQueryStatisticsResponseFilterSensitiveLog = (obj: GetQueryStatisticsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceLFTagsRequestFilterSensitiveLog = (obj: GetResourceLFTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnLFTagFilterSensitiveLog = (obj: ColumnLFTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceLFTagsResponseFilterSensitiveLog = (obj: GetResourceLFTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTableObjectsRequestFilterSensitiveLog = (obj: GetTableObjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableObjectFilterSensitiveLog = (obj: TableObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartitionObjectsFilterSensitiveLog = (obj: PartitionObjects): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTableObjectsResponseFilterSensitiveLog = (obj: GetTableObjectsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartitionValueListFilterSensitiveLog = (obj: PartitionValueList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemporaryGluePartitionCredentialsRequestFilterSensitiveLog = (
+  obj: GetTemporaryGluePartitionCredentialsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemporaryGluePartitionCredentialsResponseFilterSensitiveLog = (
+  obj: GetTemporaryGluePartitionCredentialsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemporaryGlueTableCredentialsRequestFilterSensitiveLog = (
+  obj: GetTemporaryGlueTableCredentialsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTemporaryGlueTableCredentialsResponseFilterSensitiveLog = (
+  obj: GetTemporaryGlueTableCredentialsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkUnitResultsRequestFilterSensitiveLog = (obj: GetWorkUnitResultsRequest): any => ({
+  ...obj,
+  ...(obj.WorkUnitToken && { WorkUnitToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetWorkUnitResultsResponseFilterSensitiveLog = (obj: GetWorkUnitResultsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkUnitsRequestFilterSensitiveLog = (obj: GetWorkUnitsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkUnitRangeFilterSensitiveLog = (obj: WorkUnitRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkUnitsResponseFilterSensitiveLog = (obj: GetWorkUnitsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantPermissionsRequestFilterSensitiveLog = (obj: GrantPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrantPermissionsResponseFilterSensitiveLog = (obj: GrantPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataCellsFilterRequestFilterSensitiveLog = (obj: ListDataCellsFilterRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDataCellsFilterResponseFilterSensitiveLog = (obj: ListDataCellsFilterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLFTagsRequestFilterSensitiveLog = (obj: ListLFTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLFTagsResponseFilterSensitiveLog = (obj: ListLFTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionsRequestFilterSensitiveLog = (obj: ListPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionsResponseFilterSensitiveLog = (obj: ListPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterConditionFilterSensitiveLog = (obj: FilterCondition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesRequestFilterSensitiveLog = (obj: ListResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourcesResponseFilterSensitiveLog = (obj: ListResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTableStorageOptimizersRequestFilterSensitiveLog = (obj: ListTableStorageOptimizersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageOptimizerFilterSensitiveLog = (obj: StorageOptimizer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTableStorageOptimizersResponseFilterSensitiveLog = (obj: ListTableStorageOptimizersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTransactionsRequestFilterSensitiveLog = (obj: ListTransactionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTransactionsResponseFilterSensitiveLog = (obj: ListTransactionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDataLakeSettingsRequestFilterSensitiveLog = (obj: PutDataLakeSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDataLakeSettingsResponseFilterSensitiveLog = (obj: PutDataLakeSettingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterResourceRequestFilterSensitiveLog = (obj: RegisterResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterResourceResponseFilterSensitiveLog = (obj: RegisterResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveLFTagsFromResourceRequestFilterSensitiveLog = (obj: RemoveLFTagsFromResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveLFTagsFromResourceResponseFilterSensitiveLog = (obj: RemoveLFTagsFromResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokePermissionsRequestFilterSensitiveLog = (obj: RevokePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokePermissionsResponseFilterSensitiveLog = (obj: RevokePermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDatabasesByLFTagsRequestFilterSensitiveLog = (obj: SearchDatabasesByLFTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaggedDatabaseFilterSensitiveLog = (obj: TaggedDatabase): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDatabasesByLFTagsResponseFilterSensitiveLog = (obj: SearchDatabasesByLFTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchTablesByLFTagsRequestFilterSensitiveLog = (obj: SearchTablesByLFTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaggedTableFilterSensitiveLog = (obj: TaggedTable): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchTablesByLFTagsResponseFilterSensitiveLog = (obj: SearchTablesByLFTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryPlanningContextFilterSensitiveLog = (obj: QueryPlanningContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartQueryPlanningRequestFilterSensitiveLog = (obj: StartQueryPlanningRequest): any => ({
+  ...obj,
+  ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartQueryPlanningResponseFilterSensitiveLog = (obj: StartQueryPlanningResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTransactionRequestFilterSensitiveLog = (obj: StartTransactionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartTransactionResponseFilterSensitiveLog = (obj: StartTransactionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLFTagRequestFilterSensitiveLog = (obj: UpdateLFTagRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLFTagResponseFilterSensitiveLog = (obj: UpdateLFTagResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceRequestFilterSensitiveLog = (obj: UpdateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourceResponseFilterSensitiveLog = (obj: UpdateResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteObjectInputFilterSensitiveLog = (obj: DeleteObjectInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WriteOperationFilterSensitiveLog = (obj: WriteOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTableObjectsRequestFilterSensitiveLog = (obj: UpdateTableObjectsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTableObjectsResponseFilterSensitiveLog = (obj: UpdateTableObjectsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTableStorageOptimizerRequestFilterSensitiveLog = (obj: UpdateTableStorageOptimizerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTableStorageOptimizerResponseFilterSensitiveLog = (
+  obj: UpdateTableStorageOptimizerResponse
+): any => ({
+  ...obj,
+});

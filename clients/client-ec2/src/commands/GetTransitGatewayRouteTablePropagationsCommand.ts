@@ -15,7 +15,9 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetTransitGatewayRouteTablePropagationsRequest,
+  GetTransitGatewayRouteTablePropagationsRequestFilterSensitiveLog,
   GetTransitGatewayRouteTablePropagationsResult,
+  GetTransitGatewayRouteTablePropagationsResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand,
@@ -81,8 +83,8 @@ export class GetTransitGatewayRouteTablePropagationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTransitGatewayRouteTablePropagationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTransitGatewayRouteTablePropagationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTransitGatewayRouteTablePropagationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTransitGatewayRouteTablePropagationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

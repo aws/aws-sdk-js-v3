@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { ListTagsForVaultInput, ListTagsForVaultOutput } from "../models/models_0";
+import {
+  ListTagsForVaultInput,
+  ListTagsForVaultInputFilterSensitiveLog,
+  ListTagsForVaultOutput,
+  ListTagsForVaultOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListTagsForVaultCommand,
   serializeAws_restJson1ListTagsForVaultCommand,
@@ -74,8 +79,8 @@ export class ListTagsForVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForVaultInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForVaultOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForVaultInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForVaultOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

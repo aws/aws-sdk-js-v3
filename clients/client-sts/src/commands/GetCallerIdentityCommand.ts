@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetCallerIdentityRequest, GetCallerIdentityResponse } from "../models/models_0";
+import {
+  GetCallerIdentityRequest,
+  GetCallerIdentityRequestFilterSensitiveLog,
+  GetCallerIdentityResponse,
+  GetCallerIdentityResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetCallerIdentityCommand,
   serializeAws_queryGetCallerIdentityCommand,
@@ -83,8 +88,8 @@ export class GetCallerIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCallerIdentityRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetCallerIdentityResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetCallerIdentityRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetCallerIdentityResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

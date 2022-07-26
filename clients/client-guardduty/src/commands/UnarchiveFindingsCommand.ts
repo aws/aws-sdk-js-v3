@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { UnarchiveFindingsRequest, UnarchiveFindingsResponse } from "../models/models_0";
+import {
+  UnarchiveFindingsRequest,
+  UnarchiveFindingsRequestFilterSensitiveLog,
+  UnarchiveFindingsResponse,
+  UnarchiveFindingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UnarchiveFindingsCommand,
   serializeAws_restJson1UnarchiveFindingsCommand,
@@ -72,8 +77,8 @@ export class UnarchiveFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnarchiveFindingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UnarchiveFindingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UnarchiveFindingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UnarchiveFindingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateVolumeRequest, CreateVolumeResponse } from "../models/models_0";
+import {
+  CreateVolumeRequest,
+  CreateVolumeRequestFilterSensitiveLog,
+  CreateVolumeResponse,
+  CreateVolumeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateVolumeCommand,
   serializeAws_json1_1CreateVolumeCommand,
@@ -72,8 +77,8 @@ export class CreateVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVolumeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateVolumeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateVolumeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateVolumeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

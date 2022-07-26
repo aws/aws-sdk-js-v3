@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { ListIndicesRequest, ListIndicesResponse } from "../models/models_0";
+import {
+  ListIndicesRequest,
+  ListIndicesRequestFilterSensitiveLog,
+  ListIndicesResponse,
+  ListIndicesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListIndicesCommand,
   serializeAws_json1_1ListIndicesCommand,
@@ -72,8 +77,8 @@ export class ListIndicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIndicesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListIndicesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListIndicesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListIndicesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteExplainabilityRequest } from "../models/models_0";
+import { DeleteExplainabilityRequest, DeleteExplainabilityRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteExplainabilityCommand,
   serializeAws_json1_1DeleteExplainabilityCommand,
@@ -74,7 +74,7 @@ export class DeleteExplainabilityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExplainabilityRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteExplainabilityRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

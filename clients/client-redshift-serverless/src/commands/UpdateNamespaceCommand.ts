@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateNamespaceRequest, UpdateNamespaceResponse } from "../models/models_0";
+import {
+  UpdateNamespaceRequest,
+  UpdateNamespaceRequestFilterSensitiveLog,
+  UpdateNamespaceResponse,
+  UpdateNamespaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateNamespaceCommand,
   serializeAws_json1_1UpdateNamespaceCommand,
@@ -76,8 +81,8 @@ export class UpdateNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNamespaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNamespaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateNamespaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateNamespaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

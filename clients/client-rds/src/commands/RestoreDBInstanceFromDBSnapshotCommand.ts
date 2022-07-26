@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult } from "../models/models_1";
+import {
+  RestoreDBInstanceFromDBSnapshotMessage,
+  RestoreDBInstanceFromDBSnapshotMessageFilterSensitiveLog,
+  RestoreDBInstanceFromDBSnapshotResult,
+  RestoreDBInstanceFromDBSnapshotResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,
   serializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,
@@ -87,8 +92,8 @@ export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBInstanceFromDBSnapshotMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBInstanceFromDBSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RestoreDBInstanceFromDBSnapshotMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RestoreDBInstanceFromDBSnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

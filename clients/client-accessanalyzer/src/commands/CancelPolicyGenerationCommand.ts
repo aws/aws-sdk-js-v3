@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { CancelPolicyGenerationRequest, CancelPolicyGenerationResponse } from "../models/models_0";
+import {
+  CancelPolicyGenerationRequest,
+  CancelPolicyGenerationRequestFilterSensitiveLog,
+  CancelPolicyGenerationResponse,
+  CancelPolicyGenerationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CancelPolicyGenerationCommand,
   serializeAws_restJson1CancelPolicyGenerationCommand,
@@ -72,8 +77,8 @@ export class CancelPolicyGenerationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelPolicyGenerationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelPolicyGenerationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelPolicyGenerationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelPolicyGenerationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

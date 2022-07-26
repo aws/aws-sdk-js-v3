@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
-import { ListAppInstanceAdminsRequest, ListAppInstanceAdminsResponse } from "../models/models_0";
+import {
+  ListAppInstanceAdminsRequest,
+  ListAppInstanceAdminsRequestFilterSensitiveLog,
+  ListAppInstanceAdminsResponse,
+  ListAppInstanceAdminsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAppInstanceAdminsCommand,
   serializeAws_restJson1ListAppInstanceAdminsCommand,
@@ -72,8 +77,8 @@ export class ListAppInstanceAdminsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppInstanceAdminsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAppInstanceAdminsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAppInstanceAdminsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAppInstanceAdminsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

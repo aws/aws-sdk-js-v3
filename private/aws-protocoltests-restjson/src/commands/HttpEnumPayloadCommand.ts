@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EnumPayloadInput } from "../models/models_0";
+import { EnumPayloadInput, EnumPayloadInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpEnumPayloadCommand,
   serializeAws_restJson1HttpEnumPayloadCommand,
@@ -55,8 +55,8 @@ export class HttpEnumPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnumPayloadInput.filterSensitiveLog,
-      outputFilterSensitiveLog: EnumPayloadInput.filterSensitiveLog,
+      inputFilterSensitiveLog: EnumPayloadInputFilterSensitiveLog,
+      outputFilterSensitiveLog: EnumPayloadInputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

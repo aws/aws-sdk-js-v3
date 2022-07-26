@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetRecommenderConfigurationRequest, GetRecommenderConfigurationResponse } from "../models/models_1";
+import {
+  GetRecommenderConfigurationRequest,
+  GetRecommenderConfigurationRequestFilterSensitiveLog,
+  GetRecommenderConfigurationResponse,
+  GetRecommenderConfigurationResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetRecommenderConfigurationCommand,
@@ -74,8 +79,8 @@ export class GetRecommenderConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommenderConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommenderConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRecommenderConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRecommenderConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

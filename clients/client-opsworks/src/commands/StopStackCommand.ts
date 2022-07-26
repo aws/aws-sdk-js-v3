@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopStackRequest } from "../models/models_0";
+import { StopStackRequest, StopStackRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import { deserializeAws_json1_1StopStackCommand, serializeAws_json1_1StopStackCommand } from "../protocols/Aws_json1_1";
 
@@ -74,7 +74,7 @@ export class StopStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStackRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StopStackRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DisassociateQueueQuickConnectsRequest } from "../models/models_0";
+import {
+  DisassociateQueueQuickConnectsRequest,
+  DisassociateQueueQuickConnectsRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateQueueQuickConnectsCommand,
   serializeAws_restJson1DisassociateQueueQuickConnectsCommand,
@@ -73,7 +76,7 @@ export class DisassociateQueueQuickConnectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateQueueQuickConnectsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateQueueQuickConnectsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

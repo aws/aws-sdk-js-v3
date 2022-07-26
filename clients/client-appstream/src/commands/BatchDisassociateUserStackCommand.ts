@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { BatchDisassociateUserStackRequest, BatchDisassociateUserStackResult } from "../models/models_0";
+import {
+  BatchDisassociateUserStackRequest,
+  BatchDisassociateUserStackRequestFilterSensitiveLog,
+  BatchDisassociateUserStackResult,
+  BatchDisassociateUserStackResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDisassociateUserStackCommand,
   serializeAws_json1_1BatchDisassociateUserStackCommand,
@@ -72,8 +77,8 @@ export class BatchDisassociateUserStackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDisassociateUserStackRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateUserStackResult.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDisassociateUserStackRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDisassociateUserStackResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

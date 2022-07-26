@@ -34,15 +34,6 @@ export interface S3EncryptionConfig {
   KmsKeyArn?: string;
 }
 
-export namespace S3EncryptionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3EncryptionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains the configuration for canary artifacts, including the
  *          encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
@@ -59,15 +50,6 @@ export interface ArtifactConfigInput {
   S3Encryption?: S3EncryptionConfig;
 }
 
-export namespace ArtifactConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArtifactConfigInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains the configuration for canary artifacts, including
  *          the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
@@ -77,15 +59,6 @@ export interface ArtifactConfigOutput {
    * <p>A structure that contains the configuration of encryption settings for canary artifacts that are stored in Amazon S3. </p>
    */
   S3Encryption?: S3EncryptionConfig;
-}
-
-export namespace ArtifactConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArtifactConfigOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateResourceRequest {
@@ -101,25 +74,7 @@ export interface AssociateResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace AssociateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateResourceResponse {}
-
-export namespace AssociateResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A conflicting operation is already in progress.</p>
@@ -268,15 +223,6 @@ export interface BaseScreenshot {
   IgnoreCoordinates?: string[];
 }
 
-export namespace BaseScreenshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BaseScreenshot): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure contains information about the canary's Lambda handler and
  *       where its code is stored by CloudWatch Synthetics.</p>
@@ -291,15 +237,6 @@ export interface CanaryCodeOutput {
    * <p>The entry point to use for the source code when running the canary.</p>
    */
   Handler?: string;
-}
-
-export namespace CanaryCodeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryCodeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -321,15 +258,6 @@ export interface CanaryRunConfigOutput {
    * <p>Displays whether this canary run used active X-Ray tracing. </p>
    */
   ActiveTracing?: boolean;
-}
-
-export namespace CanaryRunConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryRunConfigOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -361,15 +289,6 @@ export interface CanaryScheduleOutput {
    *          <code>Expression</code> value.</p>
    */
   DurationInSeconds?: number;
-}
-
-export namespace CanaryScheduleOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryScheduleOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum CanaryState {
@@ -419,15 +338,6 @@ export interface CanaryStatus {
   StateReasonCode?: CanaryStateReasonCode | string;
 }
 
-export namespace CanaryStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure contains information about when the canary was created and modified.</p>
  */
@@ -453,15 +363,6 @@ export interface CanaryTimeline {
   LastStopped?: Date;
 }
 
-export namespace CanaryTimeline {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryTimeline): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If this canary performs visual monitoring by comparing screenshots, this structure contains the ID of the canary run that is used as the baseline for screenshots, and the coordinates
  *          of any parts of those screenshots that are ignored during visual monitoring comparison.</p>
@@ -478,15 +379,6 @@ export interface VisualReferenceOutput {
    *          that are used for visual monitoring comparisons by this canary.</p>
    */
   BaseCanaryRunId?: string;
-}
-
-export namespace VisualReferenceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VisualReferenceOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -510,15 +402,6 @@ export interface VpcConfigOutput {
    * <p>The IDs of the security groups for this canary.</p>
    */
   SecurityGroupIds?: string[];
-}
-
-export namespace VpcConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfigOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -624,15 +507,6 @@ export interface Canary {
   ArtifactConfig?: ArtifactConfigOutput;
 }
 
-export namespace Canary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Canary): any => ({
-    ...obj,
-  });
-}
-
 export enum CanaryRunState {
   FAILED = "FAILED",
   PASSED = "PASSED",
@@ -666,15 +540,6 @@ export interface CanaryRunStatus {
   StateReasonCode?: CanaryRunStateReasonCode | string;
 }
 
-export namespace CanaryRunStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryRunStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure contains the start and end times of a single canary run.</p>
  */
@@ -688,15 +553,6 @@ export interface CanaryRunTimeline {
    * <p>The end time of the run.</p>
    */
   Completed?: Date;
-}
-
-export namespace CanaryRunTimeline {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryRunTimeline): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -730,15 +586,6 @@ export interface CanaryRun {
   ArtifactS3Location?: string;
 }
 
-export namespace CanaryRun {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryRun): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure contains information about the most recent run of a single canary.</p>
  */
@@ -752,15 +599,6 @@ export interface CanaryLastRun {
    * <p>The results from this canary's most recent run.</p>
    */
   LastRun?: CanaryRun;
-}
-
-export namespace CanaryLastRun {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryLastRun): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -814,15 +652,6 @@ export interface CanaryCodeInput {
   Handler: string | undefined;
 }
 
-export namespace CanaryCodeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryCodeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that contains input information for a canary run.</p>
  */
@@ -869,15 +698,6 @@ export interface CanaryRunConfigInput {
   EnvironmentVariables?: Record<string, string>;
 }
 
-export namespace CanaryRunConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryRunConfigInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure specifies how often a canary is to make runs and the date and time
  *          when it should stop making runs.</p>
@@ -909,15 +729,6 @@ export interface CanaryScheduleInput {
   DurationInSeconds?: number;
 }
 
-export namespace CanaryScheduleInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CanaryScheduleInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If this canary is to test an endpoint in a VPC, this structure contains
  *          information about the subnets and security groups of the VPC endpoint.
@@ -934,15 +745,6 @@ export interface VpcConfigInput {
    * <p>The IDs of the security groups for this canary.</p>
    */
   SecurityGroupIds?: string[];
-}
-
-export namespace VpcConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfigInput): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCanaryRequest {
@@ -1076,29 +878,11 @@ export interface CreateCanaryRequest {
   ArtifactConfig?: ArtifactConfigInput;
 }
 
-export namespace CreateCanaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCanaryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCanaryResponse {
   /**
    * <p>The full details about the canary you have created.</p>
    */
   Canary?: Canary;
-}
-
-export namespace CreateCanaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCanaryResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1140,15 +924,6 @@ export interface CreateGroupRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This structure contains information about one group.</p>
  */
@@ -1184,29 +959,11 @@ export interface Group {
   LastModifiedTime?: Date;
 }
 
-export namespace Group {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Group): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGroupResponse {
   /**
    * <p>A structure that contains information about the group that was just created.</p>
    */
   Group?: Group;
-}
-
-export namespace CreateGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCanaryRequest {
@@ -1223,25 +980,7 @@ export interface DeleteCanaryRequest {
   DeleteLambda?: boolean;
 }
 
-export namespace DeleteCanaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCanaryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCanaryResponse {}
-
-export namespace DeleteCanaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCanaryResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteGroupRequest {
   /**
@@ -1251,25 +990,7 @@ export interface DeleteGroupRequest {
   GroupIdentifier: string | undefined;
 }
 
-export namespace DeleteGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGroupResponse {}
-
-export namespace DeleteGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGroupResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeCanariesRequest {
   /**
@@ -1299,15 +1020,6 @@ export interface DescribeCanariesRequest {
   Names?: string[];
 }
 
-export namespace DescribeCanariesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCanariesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCanariesResponse {
   /**
    * <p>Returns an array. Each item in the array contains the full information about
@@ -1321,15 +1033,6 @@ export interface DescribeCanariesResponse {
    *          set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeCanariesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCanariesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCanariesLastRunRequest {
@@ -1360,15 +1063,6 @@ export interface DescribeCanariesLastRunRequest {
   Names?: string[];
 }
 
-export namespace DescribeCanariesLastRunRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCanariesLastRunRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCanariesLastRunResponse {
   /**
    * <p>An array that contains the information from the most recent run of each
@@ -1384,15 +1078,6 @@ export interface DescribeCanariesLastRunResponse {
   NextToken?: string;
 }
 
-export namespace DescribeCanariesLastRunResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCanariesLastRunResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRuntimeVersionsRequest {
   /**
    * <p>A token that indicates that there is more data
@@ -1406,15 +1091,6 @@ export interface DescribeRuntimeVersionsRequest {
    *          the <code>DescribeRuntimeVersions</code> operation. If you omit this parameter, the default of 100 is used.</p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribeRuntimeVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuntimeVersionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1446,15 +1122,6 @@ export interface RuntimeVersion {
   DeprecationDate?: Date;
 }
 
-export namespace RuntimeVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuntimeVersion): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRuntimeVersionsResponse {
   /**
    * <p>An array of objects that display the details about each Synthetics canary runtime
@@ -1470,15 +1137,6 @@ export interface DescribeRuntimeVersionsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeRuntimeVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuntimeVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateResourceRequest {
   /**
    * <p>Specifies the group. You can specify the group name, the ARN, or the
@@ -1492,25 +1150,7 @@ export interface DisassociateResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DisassociateResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateResourceResponse {}
-
-export namespace DisassociateResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetCanaryRequest {
   /**
@@ -1519,29 +1159,11 @@ export interface GetCanaryRequest {
   Name: string | undefined;
 }
 
-export namespace GetCanaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCanaryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCanaryResponse {
   /**
    * <p>A structure that contains the full information about the canary.</p>
    */
   Canary?: Canary;
-}
-
-export namespace GetCanaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCanaryResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCanaryRunsRequest {
@@ -1564,15 +1186,6 @@ export interface GetCanaryRunsRequest {
   MaxResults?: number;
 }
 
-export namespace GetCanaryRunsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCanaryRunsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCanaryRunsResponse {
   /**
    * <p>An array of structures. Each structure contains the details of one of the
@@ -1589,15 +1202,6 @@ export interface GetCanaryRunsResponse {
   NextToken?: string;
 }
 
-export namespace GetCanaryRunsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCanaryRunsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGroupRequest {
   /**
    * <p>Specifies the group to return information for. You can specify the group name, the ARN, or the
@@ -1606,29 +1210,11 @@ export interface GetGroupRequest {
   GroupIdentifier: string | undefined;
 }
 
-export namespace GetGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetGroupResponse {
   /**
    * <p>A structure that contains information about the group.</p>
    */
   Group?: Group;
-}
-
-export namespace GetGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1649,15 +1235,6 @@ export interface GroupSummary {
    * <p>The ARN of the group.</p>
    */
   Arn?: string;
-}
-
-export namespace GroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1701,15 +1278,6 @@ export interface ListAssociatedGroupsRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListAssociatedGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAssociatedGroupsResponse {
   /**
    * <p>An array of structures that contain information about the groups that this canary is associated with.</p>
@@ -1722,15 +1290,6 @@ export interface ListAssociatedGroupsResponse {
    *          set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAssociatedGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAssociatedGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupResourcesRequest {
@@ -1754,15 +1313,6 @@ export interface ListGroupResourcesRequest {
   GroupIdentifier: string | undefined;
 }
 
-export namespace ListGroupResourcesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupResourcesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupResourcesResponse {
   /**
    * <p>An array of ARNs. These ARNs are for the canaries that are associated with the group.</p>
@@ -1775,15 +1325,6 @@ export interface ListGroupResourcesResponse {
    *          set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGroupResourcesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupResourcesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListGroupsRequest {
@@ -1801,15 +1342,6 @@ export interface ListGroupsRequest {
   MaxResults?: number;
 }
 
-export namespace ListGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListGroupsResponse {
   /**
    * <p>An array of structures that each contain information about one group.</p>
@@ -1822,15 +1354,6 @@ export interface ListGroupsResponse {
    *          set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -1847,29 +1370,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tag keys and values associated with the resource that you specified.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1922,25 +1427,7 @@ export interface StartCanaryRequest {
   Name: string | undefined;
 }
 
-export namespace StartCanaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCanaryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StartCanaryResponse {}
-
-export namespace StartCanaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartCanaryResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface StopCanaryRequest {
   /**
@@ -1950,25 +1437,7 @@ export interface StopCanaryRequest {
   Name: string | undefined;
 }
 
-export namespace StopCanaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopCanaryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopCanaryResponse {}
-
-export namespace StopCanaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopCanaryResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -1989,25 +1458,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2028,25 +1479,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An object that specifies what screenshots to use as a baseline for visual monitoring by this canary. It can
@@ -2072,15 +1505,6 @@ export interface VisualReferenceInput {
    *             CanaryRun</a> from any past run of this canary.</p>
    */
   BaseCanaryRunId: string | undefined;
-}
-
-export namespace VisualReferenceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VisualReferenceInput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCanaryRequest {
@@ -2211,22 +1635,466 @@ export interface UpdateCanaryRequest {
   ArtifactConfig?: ArtifactConfigInput;
 }
 
-export namespace UpdateCanaryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCanaryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCanaryResponse {}
 
-export namespace UpdateCanaryResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCanaryResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const S3EncryptionConfigFilterSensitiveLog = (obj: S3EncryptionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtifactConfigInputFilterSensitiveLog = (obj: ArtifactConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ArtifactConfigOutputFilterSensitiveLog = (obj: ArtifactConfigOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResourceRequestFilterSensitiveLog = (obj: AssociateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateResourceResponseFilterSensitiveLog = (obj: AssociateResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BaseScreenshotFilterSensitiveLog = (obj: BaseScreenshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryCodeOutputFilterSensitiveLog = (obj: CanaryCodeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryRunConfigOutputFilterSensitiveLog = (obj: CanaryRunConfigOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryScheduleOutputFilterSensitiveLog = (obj: CanaryScheduleOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryStatusFilterSensitiveLog = (obj: CanaryStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryTimelineFilterSensitiveLog = (obj: CanaryTimeline): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VisualReferenceOutputFilterSensitiveLog = (obj: VisualReferenceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigOutputFilterSensitiveLog = (obj: VpcConfigOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryFilterSensitiveLog = (obj: Canary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryRunStatusFilterSensitiveLog = (obj: CanaryRunStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryRunTimelineFilterSensitiveLog = (obj: CanaryRunTimeline): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryRunFilterSensitiveLog = (obj: CanaryRun): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryLastRunFilterSensitiveLog = (obj: CanaryLastRun): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryCodeInputFilterSensitiveLog = (obj: CanaryCodeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryRunConfigInputFilterSensitiveLog = (obj: CanaryRunConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CanaryScheduleInputFilterSensitiveLog = (obj: CanaryScheduleInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigInputFilterSensitiveLog = (obj: VpcConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCanaryRequestFilterSensitiveLog = (obj: CreateCanaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCanaryResponseFilterSensitiveLog = (obj: CreateCanaryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupFilterSensitiveLog = (obj: Group): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGroupResponseFilterSensitiveLog = (obj: CreateGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCanaryRequestFilterSensitiveLog = (obj: DeleteCanaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCanaryResponseFilterSensitiveLog = (obj: DeleteCanaryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGroupResponseFilterSensitiveLog = (obj: DeleteGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCanariesRequestFilterSensitiveLog = (obj: DescribeCanariesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCanariesResponseFilterSensitiveLog = (obj: DescribeCanariesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCanariesLastRunRequestFilterSensitiveLog = (obj: DescribeCanariesLastRunRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCanariesLastRunResponseFilterSensitiveLog = (obj: DescribeCanariesLastRunResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuntimeVersionsRequestFilterSensitiveLog = (obj: DescribeRuntimeVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuntimeVersionFilterSensitiveLog = (obj: RuntimeVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuntimeVersionsResponseFilterSensitiveLog = (obj: DescribeRuntimeVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResourceRequestFilterSensitiveLog = (obj: DisassociateResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateResourceResponseFilterSensitiveLog = (obj: DisassociateResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCanaryRequestFilterSensitiveLog = (obj: GetCanaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCanaryResponseFilterSensitiveLog = (obj: GetCanaryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCanaryRunsRequestFilterSensitiveLog = (obj: GetCanaryRunsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCanaryRunsResponseFilterSensitiveLog = (obj: GetCanaryRunsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupRequestFilterSensitiveLog = (obj: GetGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetGroupResponseFilterSensitiveLog = (obj: GetGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GroupSummaryFilterSensitiveLog = (obj: GroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedGroupsRequestFilterSensitiveLog = (obj: ListAssociatedGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAssociatedGroupsResponseFilterSensitiveLog = (obj: ListAssociatedGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupResourcesRequestFilterSensitiveLog = (obj: ListGroupResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupResourcesResponseFilterSensitiveLog = (obj: ListGroupResourcesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsRequestFilterSensitiveLog = (obj: ListGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGroupsResponseFilterSensitiveLog = (obj: ListGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCanaryRequestFilterSensitiveLog = (obj: StartCanaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartCanaryResponseFilterSensitiveLog = (obj: StartCanaryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopCanaryRequestFilterSensitiveLog = (obj: StopCanaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopCanaryResponseFilterSensitiveLog = (obj: StopCanaryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VisualReferenceInputFilterSensitiveLog = (obj: VisualReferenceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCanaryRequestFilterSensitiveLog = (obj: UpdateCanaryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCanaryResponseFilterSensitiveLog = (obj: UpdateCanaryResponse): any => ({
+  ...obj,
+});

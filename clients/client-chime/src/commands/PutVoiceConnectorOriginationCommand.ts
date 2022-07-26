@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { PutVoiceConnectorOriginationRequest, PutVoiceConnectorOriginationResponse } from "../models/models_1";
+import {
+  PutVoiceConnectorOriginationRequest,
+  PutVoiceConnectorOriginationRequestFilterSensitiveLog,
+  PutVoiceConnectorOriginationResponse,
+  PutVoiceConnectorOriginationResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1PutVoiceConnectorOriginationCommand,
   serializeAws_restJson1PutVoiceConnectorOriginationCommand,
@@ -78,8 +83,8 @@ export class PutVoiceConnectorOriginationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutVoiceConnectorOriginationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutVoiceConnectorOriginationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutVoiceConnectorOriginationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutVoiceConnectorOriginationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

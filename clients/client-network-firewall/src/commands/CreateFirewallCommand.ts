@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateFirewallRequest, CreateFirewallResponse } from "../models/models_0";
+import {
+  CreateFirewallRequest,
+  CreateFirewallRequestFilterSensitiveLog,
+  CreateFirewallResponse,
+  CreateFirewallResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
   deserializeAws_json1_0CreateFirewallCommand,
@@ -78,8 +83,8 @@ export class CreateFirewallCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFirewallRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateFirewallResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateFirewallRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateFirewallResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

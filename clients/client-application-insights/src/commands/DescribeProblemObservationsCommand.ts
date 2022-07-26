@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { DescribeProblemObservationsRequest, DescribeProblemObservationsResponse } from "../models/models_0";
+import {
+  DescribeProblemObservationsRequest,
+  DescribeProblemObservationsRequestFilterSensitiveLog,
+  DescribeProblemObservationsResponse,
+  DescribeProblemObservationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeProblemObservationsCommand,
   serializeAws_json1_1DescribeProblemObservationsCommand,
@@ -78,8 +83,8 @@ export class DescribeProblemObservationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProblemObservationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProblemObservationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeProblemObservationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProblemObservationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

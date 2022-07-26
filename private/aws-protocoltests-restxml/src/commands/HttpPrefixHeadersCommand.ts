@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpPrefixHeadersInputOutput } from "../models/models_0";
+import { HttpPrefixHeadersInputOutput, HttpPrefixHeadersInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlHttpPrefixHeadersCommand,
   serializeAws_restXmlHttpPrefixHeadersCommand,
@@ -72,8 +72,8 @@ export class HttpPrefixHeadersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPrefixHeadersInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: HttpPrefixHeadersInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpPrefixHeadersInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: HttpPrefixHeadersInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

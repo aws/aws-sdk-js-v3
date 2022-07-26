@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateRoutingControlStateRequest, UpdateRoutingControlStateResponse } from "../models/models_0";
+import {
+  UpdateRoutingControlStateRequest,
+  UpdateRoutingControlStateRequestFilterSensitiveLog,
+  UpdateRoutingControlStateResponse,
+  UpdateRoutingControlStateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateRoutingControlStateCommand,
   serializeAws_json1_0UpdateRoutingControlStateCommand,
@@ -109,8 +114,8 @@ export class UpdateRoutingControlStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoutingControlStateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoutingControlStateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRoutingControlStateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateRoutingControlStateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

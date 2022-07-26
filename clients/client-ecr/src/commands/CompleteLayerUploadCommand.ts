@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/models_0";
+import {
+  CompleteLayerUploadRequest,
+  CompleteLayerUploadRequestFilterSensitiveLog,
+  CompleteLayerUploadResponse,
+  CompleteLayerUploadResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CompleteLayerUploadCommand,
   serializeAws_json1_1CompleteLayerUploadCommand,
@@ -80,8 +85,8 @@ export class CompleteLayerUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteLayerUploadRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CompleteLayerUploadResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CompleteLayerUploadRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CompleteLayerUploadResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

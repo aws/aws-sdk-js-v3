@@ -7,14 +7,12 @@ export interface GreetingStruct {
   hi?: string;
 }
 
-export namespace GreetingStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GreetingStructFilterSensitiveLog = (obj: GreetingStruct): any => ({
+  ...obj,
+});
 
 export enum FooEnum {
   BAR = "Bar",
@@ -28,14 +26,12 @@ export interface ComplexNestedErrorData {
   Foo?: string;
 }
 
-export namespace ComplexNestedErrorData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ComplexNestedErrorDataFilterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
+  ...obj,
+});
 
 /**
  * This error is thrown when a request is invalid.
@@ -62,38 +58,34 @@ export class ComplexError extends __BaseException {
 
 export interface EmptyInputAndEmptyOutputInput {}
 
-export namespace EmptyInputAndEmptyOutputInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EmptyInputAndEmptyOutputInputFilterSensitiveLog = (obj: EmptyInputAndEmptyOutputInput): any => ({
+  ...obj,
+});
 
 export interface EmptyInputAndEmptyOutputOutput {}
 
-export namespace EmptyInputAndEmptyOutputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EmptyInputAndEmptyOutputOutputFilterSensitiveLog = (obj: EmptyInputAndEmptyOutputOutput): any => ({
+  ...obj,
+});
 
 export interface EndpointWithHostLabelOperationInput {
   label: string | undefined;
 }
 
-export namespace EndpointWithHostLabelOperationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointWithHostLabelOperationInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EndpointWithHostLabelOperationInputFilterSensitiveLog = (
+  obj: EndpointWithHostLabelOperationInput
+): any => ({
+  ...obj,
+});
 
 /**
  * This error has test cases that test some of the dark corners of Amazon service
@@ -119,27 +111,23 @@ export interface GreetingWithErrorsInput {
   greeting?: string;
 }
 
-export namespace GreetingWithErrorsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingWithErrorsInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GreetingWithErrorsInputFilterSensitiveLog = (obj: GreetingWithErrorsInput): any => ({
+  ...obj,
+});
 
 export interface GreetingWithErrorsOutput {
   greeting?: string;
 }
 
-export namespace GreetingWithErrorsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GreetingWithErrorsOutputFilterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
+  ...obj,
+});
 
 /**
  * This error is thrown when an invalid greeting value is provided.
@@ -333,24 +321,22 @@ export namespace MyUnion {
     if (value.structureValue !== undefined) return visitor.structureValue(value.structureValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MyUnion): any => {
-    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-    if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
-    if (obj.numberValue !== undefined) return { numberValue: obj.numberValue };
-    if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
-    if (obj.timestampValue !== undefined) return { timestampValue: obj.timestampValue };
-    if (obj.enumValue !== undefined) return { enumValue: obj.enumValue };
-    if (obj.listValue !== undefined) return { listValue: obj.listValue };
-    if (obj.mapValue !== undefined) return { mapValue: obj.mapValue };
-    if (obj.structureValue !== undefined)
-      return { structureValue: GreetingStruct.filterSensitiveLog(obj.structureValue) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
+/**
+ * @internal
+ */
+export const MyUnionFilterSensitiveLog = (obj: MyUnion): any => {
+  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+  if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
+  if (obj.numberValue !== undefined) return { numberValue: obj.numberValue };
+  if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
+  if (obj.timestampValue !== undefined) return { timestampValue: obj.timestampValue };
+  if (obj.enumValue !== undefined) return { enumValue: obj.enumValue };
+  if (obj.listValue !== undefined) return { listValue: obj.listValue };
+  if (obj.mapValue !== undefined) return { mapValue: obj.mapValue };
+  if (obj.structureValue !== undefined) return { structureValue: GreetingStructFilterSensitiveLog(obj.structureValue) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 export interface JsonUnionsInput {
   /**
@@ -359,15 +345,13 @@ export interface JsonUnionsInput {
   contents?: MyUnion;
 }
 
-export namespace JsonUnionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonUnionsInput): any => ({
-    ...obj,
-    ...(obj.contents && { contents: MyUnion.filterSensitiveLog(obj.contents) }),
-  });
-}
+/**
+ * @internal
+ */
+export const JsonUnionsInputFilterSensitiveLog = (obj: JsonUnionsInput): any => ({
+  ...obj,
+  ...(obj.contents && { contents: MyUnionFilterSensitiveLog(obj.contents) }),
+});
 
 export interface JsonUnionsOutput {
   /**
@@ -376,51 +360,43 @@ export interface JsonUnionsOutput {
   contents?: MyUnion;
 }
 
-export namespace JsonUnionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JsonUnionsOutput): any => ({
-    ...obj,
-    ...(obj.contents && { contents: MyUnion.filterSensitiveLog(obj.contents) }),
-  });
-}
+/**
+ * @internal
+ */
+export const JsonUnionsOutputFilterSensitiveLog = (obj: JsonUnionsOutput): any => ({
+  ...obj,
+  ...(obj.contents && { contents: MyUnionFilterSensitiveLog(obj.contents) }),
+});
 
 export interface NoInputAndOutputOutput {}
 
-export namespace NoInputAndOutputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoInputAndOutputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const NoInputAndOutputOutputFilterSensitiveLog = (obj: NoInputAndOutputOutput): any => ({
+  ...obj,
+});
 
 export interface SimpleScalarPropertiesInput {
   floatValue?: number;
   doubleValue?: number;
 }
 
-export namespace SimpleScalarPropertiesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleScalarPropertiesInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SimpleScalarPropertiesInputFilterSensitiveLog = (obj: SimpleScalarPropertiesInput): any => ({
+  ...obj,
+});
 
 export interface SimpleScalarPropertiesOutput {
   floatValue?: number;
   doubleValue?: number;
 }
 
-export namespace SimpleScalarPropertiesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleScalarPropertiesOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SimpleScalarPropertiesOutputFilterSensitiveLog = (obj: SimpleScalarPropertiesOutput): any => ({
+  ...obj,
+});

@@ -15,7 +15,9 @@ import {
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import {
   DisassociateUserFromPermissionGroupRequest,
+  DisassociateUserFromPermissionGroupRequestFilterSensitiveLog,
   DisassociateUserFromPermissionGroupResponse,
+  DisassociateUserFromPermissionGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateUserFromPermissionGroupCommand,
@@ -77,8 +79,8 @@ export class DisassociateUserFromPermissionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateUserFromPermissionGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateUserFromPermissionGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateUserFromPermissionGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateUserFromPermissionGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

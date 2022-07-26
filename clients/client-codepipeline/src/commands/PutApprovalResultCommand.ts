@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { PutApprovalResultInput, PutApprovalResultOutput } from "../models/models_0";
+import {
+  PutApprovalResultInput,
+  PutApprovalResultInputFilterSensitiveLog,
+  PutApprovalResultOutput,
+  PutApprovalResultOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutApprovalResultCommand,
   serializeAws_json1_1PutApprovalResultCommand,
@@ -73,8 +78,8 @@ export class PutApprovalResultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutApprovalResultInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutApprovalResultOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutApprovalResultInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutApprovalResultOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { IndexDocumentsRequest, IndexDocumentsResponse } from "../models/models_0";
+import {
+  IndexDocumentsRequest,
+  IndexDocumentsRequestFilterSensitiveLog,
+  IndexDocumentsResponse,
+  IndexDocumentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryIndexDocumentsCommand,
   serializeAws_queryIndexDocumentsCommand,
@@ -72,8 +77,8 @@ export class IndexDocumentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IndexDocumentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: IndexDocumentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: IndexDocumentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: IndexDocumentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConfigRuleRequest } from "../models/models_0";
+import { PutConfigRuleRequest, PutConfigRuleRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1PutConfigRuleCommand,
   serializeAws_json1_1PutConfigRuleCommand,
@@ -105,7 +105,7 @@ export class PutConfigRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigRuleRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutConfigRuleRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

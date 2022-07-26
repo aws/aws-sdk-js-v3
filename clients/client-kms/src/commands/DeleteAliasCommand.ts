@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { DeleteAliasRequest } from "../models/models_0";
+import { DeleteAliasRequest, DeleteAliasRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAliasCommand,
   serializeAws_json1_1DeleteAliasCommand,
@@ -119,7 +119,7 @@ export class DeleteAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAliasRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAliasRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

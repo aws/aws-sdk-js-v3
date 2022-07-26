@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { CreateEntityRecognizerRequest, CreateEntityRecognizerResponse } from "../models/models_0";
+import {
+  CreateEntityRecognizerRequest,
+  CreateEntityRecognizerRequestFilterSensitiveLog,
+  CreateEntityRecognizerResponse,
+  CreateEntityRecognizerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEntityRecognizerCommand,
   serializeAws_json1_1CreateEntityRecognizerCommand,
@@ -74,8 +79,8 @@ export class CreateEntityRecognizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEntityRecognizerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateEntityRecognizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEntityRecognizerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateEntityRecognizerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

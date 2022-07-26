@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { DescribeWorkspaceRequest, DescribeWorkspaceResponse } from "../models/models_0";
+import {
+  DescribeWorkspaceRequest,
+  DescribeWorkspaceRequestFilterSensitiveLog,
+  DescribeWorkspaceResponse,
+  DescribeWorkspaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeWorkspaceCommand,
   serializeAws_restJson1DescribeWorkspaceCommand,
@@ -72,8 +77,8 @@ export class DescribeWorkspaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorkspaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorkspaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

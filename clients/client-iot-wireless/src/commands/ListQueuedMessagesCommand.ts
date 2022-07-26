@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import { ListQueuedMessagesRequest, ListQueuedMessagesResponse } from "../models/models_0";
+import {
+  ListQueuedMessagesRequest,
+  ListQueuedMessagesRequestFilterSensitiveLog,
+  ListQueuedMessagesResponse,
+  ListQueuedMessagesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListQueuedMessagesCommand,
   serializeAws_restJson1ListQueuedMessagesCommand,
@@ -72,8 +77,8 @@ export class ListQueuedMessagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueuedMessagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListQueuedMessagesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListQueuedMessagesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListQueuedMessagesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

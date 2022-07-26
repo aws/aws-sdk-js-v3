@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteCustomMetricRequest, DeleteCustomMetricResponse } from "../models/models_0";
+import {
+  DeleteCustomMetricRequest,
+  DeleteCustomMetricRequestFilterSensitiveLog,
+  DeleteCustomMetricResponse,
+  DeleteCustomMetricResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCustomMetricCommand,
   serializeAws_restJson1DeleteCustomMetricCommand,
@@ -83,8 +88,8 @@ export class DeleteCustomMetricCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomMetricRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomMetricResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCustomMetricRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCustomMetricResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/models_0";
+import {
+  StopStackSetOperationInput,
+  StopStackSetOperationInputFilterSensitiveLog,
+  StopStackSetOperationOutput,
+  StopStackSetOperationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryStopStackSetOperationCommand,
   serializeAws_queryStopStackSetOperationCommand,
@@ -74,8 +79,8 @@ export class StopStackSetOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStackSetOperationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StopStackSetOperationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopStackSetOperationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StopStackSetOperationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

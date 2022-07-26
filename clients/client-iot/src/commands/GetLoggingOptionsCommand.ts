@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { GetLoggingOptionsRequest, GetLoggingOptionsResponse } from "../models/models_1";
+import {
+  GetLoggingOptionsRequest,
+  GetLoggingOptionsRequestFilterSensitiveLog,
+  GetLoggingOptionsResponse,
+  GetLoggingOptionsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetLoggingOptionsCommand,
   serializeAws_restJson1GetLoggingOptionsCommand,
@@ -75,8 +80,8 @@ export class GetLoggingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLoggingOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLoggingOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLoggingOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetLoggingOptionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

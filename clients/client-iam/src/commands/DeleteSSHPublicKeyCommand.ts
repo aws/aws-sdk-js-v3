@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteSSHPublicKeyRequest } from "../models/models_0";
+import { DeleteSSHPublicKeyRequest, DeleteSSHPublicKeyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteSSHPublicKeyCommand,
   serializeAws_queryDeleteSSHPublicKeyCommand,
@@ -76,7 +76,7 @@ export class DeleteSSHPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSSHPublicKeyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSSHPublicKeyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

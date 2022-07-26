@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import { GetTokenRequest, GetTokenResponse } from "../models/models_0";
+import {
+  GetTokenRequest,
+  GetTokenRequestFilterSensitiveLog,
+  GetTokenResponse,
+  GetTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetTokenCommand,
   serializeAws_restJson1GetTokenCommand,
@@ -72,8 +77,8 @@ export class GetTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

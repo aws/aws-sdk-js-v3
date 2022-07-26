@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateTagsMessage } from "../models/models_0";
+import { CreateTagsMessage, CreateTagsMessageFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_queryCreateTagsCommand, serializeAws_queryCreateTagsCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -73,7 +73,7 @@ export class CreateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTagsMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTagsMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

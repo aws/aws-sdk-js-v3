@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListHostedZonesByNameRequest, ListHostedZonesByNameResponse } from "../models/models_0";
+import {
+  ListHostedZonesByNameRequest,
+  ListHostedZonesByNameRequestFilterSensitiveLog,
+  ListHostedZonesByNameResponse,
+  ListHostedZonesByNameResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlListHostedZonesByNameCommand,
   serializeAws_restXmlListHostedZonesByNameCommand,
@@ -129,8 +134,8 @@ export class ListHostedZonesByNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHostedZonesByNameRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListHostedZonesByNameResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListHostedZonesByNameRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListHostedZonesByNameResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

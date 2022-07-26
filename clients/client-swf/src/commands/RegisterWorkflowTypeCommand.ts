@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterWorkflowTypeInput } from "../models/models_0";
+import { RegisterWorkflowTypeInput, RegisterWorkflowTypeInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0RegisterWorkflowTypeCommand,
   serializeAws_json1_0RegisterWorkflowTypeCommand,
@@ -119,7 +119,7 @@ export class RegisterWorkflowTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterWorkflowTypeInput.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterWorkflowTypeInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

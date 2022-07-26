@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
-import { DeleteObjectRequest, DeleteObjectResponse } from "../models/models_0";
+import {
+  DeleteObjectRequest,
+  DeleteObjectRequestFilterSensitiveLog,
+  DeleteObjectResponse,
+  DeleteObjectResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteObjectCommand,
   serializeAws_restJson1DeleteObjectCommand,
@@ -72,8 +77,8 @@ export class DeleteObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteObjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteObjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteObjectResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

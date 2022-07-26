@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/models_0";
+import {
+  CreateDBSubnetGroupMessage,
+  CreateDBSubnetGroupMessageFilterSensitiveLog,
+  CreateDBSubnetGroupResult,
+  CreateDBSubnetGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryCreateDBSubnetGroupCommand,
@@ -73,8 +78,8 @@ export class CreateDBSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBSubnetGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBSubnetGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDBSubnetGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDBSubnetGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

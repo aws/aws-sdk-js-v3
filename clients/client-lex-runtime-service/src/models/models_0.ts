@@ -29,15 +29,6 @@ export interface ActiveContextTimeToLive {
   turnsToLive?: number;
 }
 
-export namespace ActiveContextTimeToLive {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveContextTimeToLive): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A context is a variable that contains information about the current
  *       state of the conversation between a user and Amazon Lex. Context can be set
@@ -62,16 +53,6 @@ export interface ActiveContext {
    *       default values for slots in subsequent events.</p>
    */
   parameters: Record<string, string> | undefined;
-}
-
-export namespace ActiveContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActiveContext): any => ({
-    ...obj,
-    ...(obj.parameters && { parameters: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -132,15 +113,6 @@ export interface DeleteSessionRequest {
   userId: string | undefined;
 }
 
-export namespace DeleteSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSessionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSessionResponse {
   /**
    * <p>The name of the bot associated with the session data.</p>
@@ -161,15 +133,6 @@ export interface DeleteSessionResponse {
    * <p>The unique identifier for the session.</p>
    */
   sessionId?: string;
-}
-
-export namespace DeleteSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSessionResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -257,15 +220,6 @@ export interface GetSessionRequest {
    *       returned.</p>
    */
   checkpointLabelFilter?: string;
-}
-
-export namespace GetSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FulfillmentState {
@@ -404,17 +358,6 @@ export interface DialogAction {
   messageFormat?: MessageFormatType | string;
 }
 
-export namespace DialogAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DialogAction): any => ({
-    ...obj,
-    ...(obj.slots && { slots: SENSITIVE_STRING }),
-    ...(obj.message && { message: SENSITIVE_STRING }),
-  });
-}
-
 export enum ConfirmationStatus {
   CONFIRMED = "Confirmed",
   DENIED = "Denied",
@@ -534,16 +477,6 @@ export interface IntentSummary {
   slotToElicit?: string;
 }
 
-export namespace IntentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentSummary): any => ({
-    ...obj,
-    ...(obj.slots && { slots: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetSessionResponse {
   /**
    * <p>An array of information about the intents used in the session. The
@@ -581,21 +514,6 @@ export interface GetSessionResponse {
    *       intent, or to modify the operation of your application.</p>
    */
   activeContexts?: ActiveContext[];
-}
-
-export namespace GetSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSessionResponse): any => ({
-    ...obj,
-    ...(obj.recentIntentSummaryView && {
-      recentIntentSummaryView: obj.recentIntentSummaryView.map((item) => IntentSummary.filterSensitiveLog(item)),
-    }),
-    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
-    ...(obj.dialogAction && { dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction) }),
-    ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -875,18 +793,6 @@ export interface PostContentRequest {
   activeContexts?: __LazyJsonString | string;
 }
 
-export namespace PostContentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostContentRequest): any => ({
-    ...obj,
-    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
-    ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
-    ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
-  });
-}
-
 export enum DialogState {
   CONFIRM_INTENT = "ConfirmIntent",
   ELICIT_INTENT = "ElicitIntent",
@@ -1161,19 +1067,6 @@ export interface PostContentResponse {
   activeContexts?: __LazyJsonString | string;
 }
 
-export namespace PostContentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostContentResponse): any => ({
-    ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING }),
-    ...(obj.encodedMessage && { encodedMessage: SENSITIVE_STRING }),
-    ...(obj.encodedInputTranscript && { encodedInputTranscript: SENSITIVE_STRING }),
-    ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The input speech is too long.</p>
  */
@@ -1290,19 +1183,6 @@ export interface PostTextRequest {
   activeContexts?: ActiveContext[];
 }
 
-export namespace PostTextRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostTextRequest): any => ({
-    ...obj,
-    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
-    ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
-    ...(obj.inputText && { inputText: SENSITIVE_STRING }),
-    ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Provides a score that indicates the confidence that Amazon Lex has that an
  *       intent is the one that satisfies the user's intent.</p>
@@ -1314,15 +1194,6 @@ export interface IntentConfidence {
    *       higher confidence.</p>
    */
   score?: number;
-}
-
-export namespace IntentConfidence {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentConfidence): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1349,16 +1220,6 @@ export interface PredictedIntent {
   slots?: Record<string, string>;
 }
 
-export namespace PredictedIntent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictedIntent): any => ({
-    ...obj,
-    ...(obj.slots && { slots: SENSITIVE_STRING }),
-  });
-}
-
 export enum ContentType {
   GENERIC = "application/vnd.amazonaws.card.generic",
 }
@@ -1379,15 +1240,6 @@ export interface Button {
    *       value sent can be "New York City."</p>
    */
   value: string | undefined;
-}
-
-export namespace Button {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Button): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1421,15 +1273,6 @@ export interface GenericAttachment {
   buttons?: Button[];
 }
 
-export namespace GenericAttachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenericAttachment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If you configure a response card when creating your bots, Amazon Lex
  *       substitutes the session attributes and slot values that are available, and
@@ -1454,15 +1297,6 @@ export interface ResponseCard {
   genericAttachments?: GenericAttachment[];
 }
 
-export namespace ResponseCard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseCard): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The sentiment expressed in an utterance.</p>
  *          <p>When the bot is configured to send utterances to Amazon Comprehend for
@@ -1480,15 +1314,6 @@ export interface SentimentResponse {
    * <p>The likelihood that the sentiment was correctly inferred.</p>
    */
   sentimentScore?: string;
-}
-
-export namespace SentimentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SentimentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PostTextResponse {
@@ -1690,22 +1515,6 @@ export interface PostTextResponse {
   activeContexts?: ActiveContext[];
 }
 
-export namespace PostTextResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostTextResponse): any => ({
-    ...obj,
-    ...(obj.alternativeIntents && {
-      alternativeIntents: obj.alternativeIntents.map((item) => PredictedIntent.filterSensitiveLog(item)),
-    }),
-    ...(obj.slots && { slots: SENSITIVE_STRING }),
-    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
-    ...(obj.message && { message: SENSITIVE_STRING }),
-    ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
-  });
-}
-
 export interface PutSessionRequest {
   /**
    * <p>The name of the bot that contains the session data.</p>
@@ -1829,21 +1638,6 @@ export interface PutSessionRequest {
    *       contexts for the session are cleared.</p>
    */
   activeContexts?: ActiveContext[];
-}
-
-export namespace PutSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSessionRequest): any => ({
-    ...obj,
-    ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
-    ...(obj.dialogAction && { dialogAction: DialogAction.filterSensitiveLog(obj.dialogAction) }),
-    ...(obj.recentIntentSummaryView && {
-      recentIntentSummaryView: obj.recentIntentSummaryView.map((item) => IntentSummary.filterSensitiveLog(item)),
-    }),
-    ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
-  });
 }
 
 export interface PutSessionResponse {
@@ -1989,14 +1783,180 @@ export interface PutSessionResponse {
   activeContexts?: __LazyJsonString | string;
 }
 
-export namespace PutSessionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutSessionResponse): any => ({
-    ...obj,
-    ...(obj.message && { message: SENSITIVE_STRING }),
-    ...(obj.encodedMessage && { encodedMessage: SENSITIVE_STRING }),
-    ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
-  });
-}
+/**
+ * @internal
+ */
+export const ActiveContextTimeToLiveFilterSensitiveLog = (obj: ActiveContextTimeToLive): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActiveContextFilterSensitiveLog = (obj: ActiveContext): any => ({
+  ...obj,
+  ...(obj.parameters && { parameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteSessionRequestFilterSensitiveLog = (obj: DeleteSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSessionResponseFilterSensitiveLog = (obj: DeleteSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSessionRequestFilterSensitiveLog = (obj: GetSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DialogActionFilterSensitiveLog = (obj: DialogAction): any => ({
+  ...obj,
+  ...(obj.slots && { slots: SENSITIVE_STRING }),
+  ...(obj.message && { message: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IntentSummaryFilterSensitiveLog = (obj: IntentSummary): any => ({
+  ...obj,
+  ...(obj.slots && { slots: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetSessionResponseFilterSensitiveLog = (obj: GetSessionResponse): any => ({
+  ...obj,
+  ...(obj.recentIntentSummaryView && {
+    recentIntentSummaryView: obj.recentIntentSummaryView.map((item) => IntentSummaryFilterSensitiveLog(item)),
+  }),
+  ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
+  ...(obj.dialogAction && { dialogAction: DialogActionFilterSensitiveLog(obj.dialogAction) }),
+  ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PostContentRequestFilterSensitiveLog = (obj: PostContentRequest): any => ({
+  ...obj,
+  ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
+  ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
+  ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PostContentResponseFilterSensitiveLog = (obj: PostContentResponse): any => ({
+  ...obj,
+  ...(obj.message && { message: SENSITIVE_STRING }),
+  ...(obj.encodedMessage && { encodedMessage: SENSITIVE_STRING }),
+  ...(obj.encodedInputTranscript && { encodedInputTranscript: SENSITIVE_STRING }),
+  ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PostTextRequestFilterSensitiveLog = (obj: PostTextRequest): any => ({
+  ...obj,
+  ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
+  ...(obj.requestAttributes && { requestAttributes: SENSITIVE_STRING }),
+  ...(obj.inputText && { inputText: SENSITIVE_STRING }),
+  ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IntentConfidenceFilterSensitiveLog = (obj: IntentConfidence): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictedIntentFilterSensitiveLog = (obj: PredictedIntent): any => ({
+  ...obj,
+  ...(obj.slots && { slots: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ButtonFilterSensitiveLog = (obj: Button): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenericAttachmentFilterSensitiveLog = (obj: GenericAttachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseCardFilterSensitiveLog = (obj: ResponseCard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SentimentResponseFilterSensitiveLog = (obj: SentimentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostTextResponseFilterSensitiveLog = (obj: PostTextResponse): any => ({
+  ...obj,
+  ...(obj.alternativeIntents && {
+    alternativeIntents: obj.alternativeIntents.map((item) => PredictedIntentFilterSensitiveLog(item)),
+  }),
+  ...(obj.slots && { slots: SENSITIVE_STRING }),
+  ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
+  ...(obj.message && { message: SENSITIVE_STRING }),
+  ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutSessionRequestFilterSensitiveLog = (obj: PutSessionRequest): any => ({
+  ...obj,
+  ...(obj.sessionAttributes && { sessionAttributes: SENSITIVE_STRING }),
+  ...(obj.dialogAction && { dialogAction: DialogActionFilterSensitiveLog(obj.dialogAction) }),
+  ...(obj.recentIntentSummaryView && {
+    recentIntentSummaryView: obj.recentIntentSummaryView.map((item) => IntentSummaryFilterSensitiveLog(item)),
+  }),
+  ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutSessionResponseFilterSensitiveLog = (obj: PutSessionResponse): any => ({
+  ...obj,
+  ...(obj.message && { message: SENSITIVE_STRING }),
+  ...(obj.encodedMessage && { encodedMessage: SENSITIVE_STRING }),
+  ...(obj.activeContexts && { activeContexts: SENSITIVE_STRING }),
+});

@@ -16,15 +16,6 @@ export interface SystemsManagerAgent {
   uninstallAfterBuild?: boolean;
 }
 
-export namespace SystemsManagerAgent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SystemsManagerAgent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>In addition to your infrastruction configuration, these settings provide an extra layer of
  * 			control over your build instances. For instances where Image Builder installs the Systems Manager agent,
@@ -58,15 +49,6 @@ export interface AdditionalInstanceConfiguration {
   userDataOverride?: string;
 }
 
-export namespace AdditionalInstanceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdditionalInstanceConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum ImageStatus {
   AVAILABLE = "AVAILABLE",
   BUILDING = "BUILDING",
@@ -94,15 +76,6 @@ export interface ImageState {
    * <p>The reason for the image's status.</p>
    */
   reason?: string;
-}
-
-export namespace ImageState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -140,15 +113,6 @@ export interface Ami {
   accountId?: string;
 }
 
-export namespace Ami {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Ami): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the configuration for a launch permission. The launch permission modification
  * 			request is sent to the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html">Amazon EC2 ModifyImageAttribute</a>
@@ -178,15 +142,6 @@ export interface LaunchPermissionConfiguration {
    * 			information about key concepts for Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html">Organizations terminology and concepts</a>.</p>
    */
   organizationalUnitArns?: string[];
-}
-
-export namespace LaunchPermissionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchPermissionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -223,15 +178,6 @@ export interface AmiDistributionConfiguration {
    * 			instances.</p>
    */
   launchPermission?: LaunchPermissionConfiguration;
-}
-
-export namespace AmiDistributionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AmiDistributionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum BuildType {
@@ -273,15 +219,6 @@ export interface CancelImageCreationRequest {
   clientToken?: string;
 }
 
-export namespace CancelImageCreationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelImageCreationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelImageCreationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -297,15 +234,6 @@ export interface CancelImageCreationResponse {
    * <p>The Amazon Resource Name (ARN) of the image whose creation has been cancelled.</p>
    */
   imageBuildVersionArn?: string;
-}
-
-export namespace CancelImageCreationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelImageCreationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -470,15 +398,6 @@ export interface ComponentParameterDetail {
   description?: string;
 }
 
-export namespace ComponentParameterDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentParameterDetail): any => ({
-    ...obj,
-  });
-}
-
 export enum Platform {
   LINUX = "Linux",
   WINDOWS = "Windows",
@@ -502,15 +421,6 @@ export interface ComponentState {
    * <p>Describes how or why the component changed state.</p>
    */
   reason?: string;
-}
-
-export namespace ComponentState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentState): any => ({
-    ...obj,
-  });
 }
 
 export enum ComponentType {
@@ -607,15 +517,6 @@ export interface Component {
   tags?: Record<string, string>;
 }
 
-export namespace Component {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Component): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a key/value pair that sets the named component parameter.</p>
  */
@@ -631,15 +532,6 @@ export interface ComponentParameter {
   value: string[] | undefined;
 }
 
-export namespace ComponentParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Configuration details of the component.</p>
  */
@@ -653,15 +545,6 @@ export interface ComponentConfiguration {
    * <p>A group of parameter settings that are used to configure the component for a specific recipe.</p>
    */
   parameters?: ComponentParameter[];
-}
-
-export namespace ComponentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ComponentFormat {
@@ -734,15 +617,6 @@ export interface ComponentSummary {
    * <p>The tags associated with the component.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ComponentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -831,15 +705,6 @@ export interface ComponentVersion {
   dateCreated?: string;
 }
 
-export namespace ComponentVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComponentVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container encapsulates the runtime environment for an application.</p>
  */
@@ -853,15 +718,6 @@ export interface Container {
    * <p>A list of URIs for containers created in the context Region.</p>
    */
   imageUris?: string[];
-}
-
-export namespace Container {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Container): any => ({
-    ...obj,
-  });
 }
 
 export enum ContainerRepositoryService {
@@ -883,15 +739,6 @@ export interface TargetContainerRepository {
   repositoryName: string | undefined;
 }
 
-export namespace TargetContainerRepository {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetContainerRepository): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container distribution settings for encryption, licensing, and sharing in a specific Region.</p>
  */
@@ -910,15 +757,6 @@ export interface ContainerDistributionConfiguration {
    * <p>The destination repository for the container distribution configuration.</p>
    */
   targetRepository: TargetContainerRepository | undefined;
-}
-
-export namespace ContainerDistributionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerDistributionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ContainerType {
@@ -982,15 +820,6 @@ export interface EbsInstanceBlockDeviceSpecification {
   throughput?: number;
 }
 
-export namespace EbsInstanceBlockDeviceSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EbsInstanceBlockDeviceSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines block device mappings for the instance used to configure your image.</p>
  */
@@ -1016,15 +845,6 @@ export interface InstanceBlockDeviceMapping {
   noDevice?: string;
 }
 
-export namespace InstanceBlockDeviceMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines a custom base AMI and block device mapping configurations of an instance
  * 			used for building and testing container images.</p>
@@ -1040,15 +860,6 @@ export interface InstanceConfiguration {
    * <p>Defines the block devices to attach for building an instance from this Image Builder AMI.</p>
    */
   blockDeviceMappings?: InstanceBlockDeviceMapping[];
-}
-
-export namespace InstanceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1174,15 +985,6 @@ export interface ContainerRecipe {
   targetRepository?: TargetContainerRepository;
 }
 
-export namespace ContainerRecipe {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerRecipe): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A summary of a container recipe</p>
  */
@@ -1226,15 +1028,6 @@ export interface ContainerRecipeSummary {
    * <p>Tags that are attached to the container recipe.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ContainerRecipeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerRecipeSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateComponentRequest {
@@ -1316,15 +1109,6 @@ export interface CreateComponentRequest {
   clientToken?: string;
 }
 
-export namespace CreateComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateComponentResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -1340,15 +1124,6 @@ export interface CreateComponentResponse {
    * <p>The Amazon Resource Name (ARN) of the component that was created by this request.</p>
    */
   componentBuildVersionArn?: string;
-}
-
-export namespace CreateComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateComponentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1503,15 +1278,6 @@ export interface CreateContainerRecipeRequest {
   clientToken?: string;
 }
 
-export namespace CreateContainerRecipeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContainerRecipeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateContainerRecipeResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -1527,15 +1293,6 @@ export interface CreateContainerRecipeResponse {
    * <p>Returns the Amazon Resource Name (ARN) of the container recipe that the request created.</p>
    */
   containerRecipeArn?: string;
-}
-
-export namespace CreateContainerRecipeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateContainerRecipeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1582,15 +1339,6 @@ export interface FastLaunchLaunchTemplateSpecification {
   launchTemplateVersion?: string;
 }
 
-export namespace FastLaunchLaunchTemplateSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FastLaunchLaunchTemplateSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration settings for creating and managing pre-provisioned snapshots
  * 			for a fast-launch enabled Windows AMI.</p>
@@ -1601,15 +1349,6 @@ export interface FastLaunchSnapshotConfiguration {
    * 			Windows AMI.</p>
    */
   targetResourceCount?: number;
-}
-
-export namespace FastLaunchSnapshotConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FastLaunchSnapshotConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1648,15 +1387,6 @@ export interface FastLaunchConfiguration {
   accountId?: string;
 }
 
-export namespace FastLaunchConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FastLaunchConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifies an Amazon EC2 launch template to use for a specific account.</p>
  */
@@ -1675,15 +1405,6 @@ export interface LaunchTemplateConfiguration {
    * <p>Set the specified Amazon EC2 launch template as the default launch template for the specified account.</p>
    */
   setDefaultVersion?: boolean;
-}
-
-export namespace LaunchTemplateConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum DiskImageFormat {
@@ -1737,15 +1458,6 @@ export interface S3ExportConfiguration {
   s3Prefix?: string;
 }
 
-export namespace S3ExportConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ExportConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Defines the settings for a specific Region.</p>
  */
@@ -1790,15 +1502,6 @@ export interface Distribution {
   fastLaunchConfigurations?: FastLaunchConfiguration[];
 }
 
-export namespace Distribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Distribution): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDistributionConfigurationRequest {
   /**
    * <p> The name of the distribution configuration.</p>
@@ -1826,15 +1529,6 @@ export interface CreateDistributionConfigurationRequest {
   clientToken?: string;
 }
 
-export namespace CreateDistributionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDistributionConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDistributionConfigurationResponse {
   /**
    * <p> The request ID that uniquely identifies this request.</p>
@@ -1853,15 +1547,6 @@ export interface CreateDistributionConfigurationResponse {
   distributionConfigurationArn?: string;
 }
 
-export namespace CreateDistributionConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDistributionConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configure image tests for your pipeline build. Tests run after building
  * 			the image, to verify that the AMI or container image is valid before
@@ -1878,15 +1563,6 @@ export interface ImageTestsConfiguration {
    * <p>The maximum time in minutes that tests are permitted to run.</p>
    */
   timeoutMinutes?: number;
-}
-
-export namespace ImageTestsConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageTestsConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateImageRequest {
@@ -1936,15 +1612,6 @@ export interface CreateImageRequest {
   clientToken?: string;
 }
 
-export namespace CreateImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateImageResponse {
   /**
    * <p> The request ID that uniquely identifies this request.</p>
@@ -1960,15 +1627,6 @@ export interface CreateImageResponse {
    * <p> The Amazon Resource Name (ARN) of the image that was created by this request.</p>
    */
   imageBuildVersionArn?: string;
-}
-
-export namespace CreateImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum PipelineExecutionStartCondition {
@@ -2007,15 +1665,6 @@ export interface Schedule {
    * 					Reference</i>.</p>
    */
   pipelineExecutionStartCondition?: PipelineExecutionStartCondition | string;
-}
-
-export namespace Schedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Schedule): any => ({
-    ...obj,
-  });
 }
 
 export enum PipelineStatus {
@@ -2090,15 +1739,6 @@ export interface CreateImagePipelineRequest {
   clientToken?: string;
 }
 
-export namespace CreateImagePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImagePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateImagePipelineResponse {
   /**
    * <p> The request ID that uniquely identifies this request.</p>
@@ -2114,15 +1754,6 @@ export interface CreateImagePipelineResponse {
    * <p> The Amazon Resource Name (ARN) of the image pipeline that was created by this request.</p>
    */
   imagePipelineArn?: string;
-}
-
-export namespace CreateImagePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImagePipelineResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateImageRecipeRequest {
@@ -2194,15 +1825,6 @@ export interface CreateImageRecipeRequest {
   clientToken?: string;
 }
 
-export namespace CreateImageRecipeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageRecipeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateImageRecipeResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2218,15 +1840,6 @@ export interface CreateImageRecipeResponse {
    * <p>The Amazon Resource Name (ARN) of the image recipe that was created by this request.</p>
    */
   imageRecipeArn?: string;
-}
-
-export namespace CreateImageRecipeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageRecipeResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2271,15 +1884,6 @@ export interface InstanceMetadataOptions {
   httpPutResponseHopLimit?: number;
 }
 
-export namespace InstanceMetadataOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceMetadataOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon S3 logging configuration.</p>
  */
@@ -2295,15 +1899,6 @@ export interface S3Logs {
   s3KeyPrefix?: string;
 }
 
-export namespace S3Logs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Logs): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Logging configuration defines where Image Builder uploads your logs.</p>
  */
@@ -2312,15 +1907,6 @@ export interface Logging {
    * <p>The Amazon S3 logging configuration.</p>
    */
   s3Logs?: S3Logs;
-}
-
-export namespace Logging {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Logging): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateInfrastructureConfigurationRequest {
@@ -2406,15 +1992,6 @@ export interface CreateInfrastructureConfigurationRequest {
   clientToken?: string;
 }
 
-export namespace CreateInfrastructureConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInfrastructureConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateInfrastructureConfigurationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2433,29 +2010,11 @@ export interface CreateInfrastructureConfigurationResponse {
   infrastructureConfigurationArn?: string;
 }
 
-export namespace CreateInfrastructureConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInfrastructureConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteComponentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the component build version to delete.</p>
    */
   componentBuildVersionArn: string | undefined;
-}
-
-export namespace DeleteComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteComponentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteComponentResponse {
@@ -2468,15 +2027,6 @@ export interface DeleteComponentResponse {
    * <p>The Amazon Resource Name (ARN) of the component build version that was deleted.</p>
    */
   componentBuildVersionArn?: string;
-}
-
-export namespace DeleteComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteComponentResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2506,15 +2056,6 @@ export interface DeleteContainerRecipeRequest {
   containerRecipeArn: string | undefined;
 }
 
-export namespace DeleteContainerRecipeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContainerRecipeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContainerRecipeResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2527,29 +2068,11 @@ export interface DeleteContainerRecipeResponse {
   containerRecipeArn?: string;
 }
 
-export namespace DeleteContainerRecipeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteContainerRecipeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDistributionConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration to delete.</p>
    */
   distributionConfigurationArn: string | undefined;
-}
-
-export namespace DeleteDistributionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDistributionConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDistributionConfigurationResponse {
@@ -2564,29 +2087,11 @@ export interface DeleteDistributionConfigurationResponse {
   distributionConfigurationArn?: string;
 }
 
-export namespace DeleteDistributionConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDistributionConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteImageRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Image Builder image resource to delete.</p>
    */
   imageBuildVersionArn: string | undefined;
-}
-
-export namespace DeleteImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteImageResponse {
@@ -2601,29 +2106,11 @@ export interface DeleteImageResponse {
   imageBuildVersionArn?: string;
 }
 
-export namespace DeleteImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteImagePipelineRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline to delete.</p>
    */
   imagePipelineArn: string | undefined;
-}
-
-export namespace DeleteImagePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImagePipelineRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteImagePipelineResponse {
@@ -2638,29 +2125,11 @@ export interface DeleteImagePipelineResponse {
   imagePipelineArn?: string;
 }
 
-export namespace DeleteImagePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImagePipelineResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteImageRecipeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe to delete.</p>
    */
   imageRecipeArn: string | undefined;
-}
-
-export namespace DeleteImageRecipeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageRecipeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteImageRecipeResponse {
@@ -2675,29 +2144,11 @@ export interface DeleteImageRecipeResponse {
   imageRecipeArn?: string;
 }
 
-export namespace DeleteImageRecipeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImageRecipeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInfrastructureConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration to delete.</p>
    */
   infrastructureConfigurationArn: string | undefined;
-}
-
-export namespace DeleteInfrastructureConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInfrastructureConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteInfrastructureConfigurationResponse {
@@ -2710,15 +2161,6 @@ export interface DeleteInfrastructureConfigurationResponse {
    * <p>The Amazon Resource Name (ARN) of the infrastructure configuration that was deleted.</p>
    */
   infrastructureConfigurationArn?: string;
-}
-
-export namespace DeleteInfrastructureConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInfrastructureConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2767,15 +2209,6 @@ export interface DistributionConfiguration {
   tags?: Record<string, string>;
 }
 
-export namespace DistributionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DistributionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A high-level overview of a distribution configuration.</p>
  */
@@ -2816,15 +2249,6 @@ export interface DistributionConfigurationSummary {
   regions?: string[];
 }
 
-export namespace DistributionConfigurationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DistributionConfigurationSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A filter name and value pair that is used to return a more specific list of results from a
  * 			list operation. Filters can be used to match a set of resources by specific criteria, such as
@@ -2842,30 +2266,12 @@ export interface Filter {
   values?: string[];
 }
 
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 export interface GetComponentRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the component that you want to retrieve. Regex requires
    * 			"/\d+$" suffix.</p>
    */
   componentBuildVersionArn: string | undefined;
-}
-
-export namespace GetComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetComponentResponse {
@@ -2880,29 +2286,11 @@ export interface GetComponentResponse {
   component?: Component;
 }
 
-export namespace GetComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetComponentPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the component whose policy you want to retrieve.</p>
    */
   componentArn: string | undefined;
-}
-
-export namespace GetComponentPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetComponentPolicyResponse {
@@ -2915,15 +2303,6 @@ export interface GetComponentPolicyResponse {
    * <p>The component policy.</p>
    */
   policy?: string;
-}
-
-export namespace GetComponentPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetComponentPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2952,15 +2331,6 @@ export interface GetContainerRecipeRequest {
   containerRecipeArn: string | undefined;
 }
 
-export namespace GetContainerRecipeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerRecipeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContainerRecipeResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -2973,29 +2343,11 @@ export interface GetContainerRecipeResponse {
   containerRecipe?: ContainerRecipe;
 }
 
-export namespace GetContainerRecipeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerRecipeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetContainerRecipePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the container recipe for the policy being requested.</p>
    */
   containerRecipeArn: string | undefined;
-}
-
-export namespace GetContainerRecipePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerRecipePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContainerRecipePolicyResponse {
@@ -3010,30 +2362,12 @@ export interface GetContainerRecipePolicyResponse {
   policy?: string;
 }
 
-export namespace GetContainerRecipePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetContainerRecipePolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDistributionConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the distribution configuration that you want to
    * 			retrieve.</p>
    */
   distributionConfigurationArn: string | undefined;
-}
-
-export namespace GetDistributionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDistributionConfigurationResponse {
@@ -3048,29 +2382,11 @@ export interface GetDistributionConfigurationResponse {
   distributionConfiguration?: DistributionConfiguration;
 }
 
-export namespace GetDistributionConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImageRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image that you want to retrieve.</p>
    */
   imageBuildVersionArn: string | undefined;
-}
-
-export namespace GetImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImageRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ImageType {
@@ -3155,15 +2471,6 @@ export interface ImageRecipe {
    * 			run when an instance is launched from your AMI.</p>
    */
   additionalInstanceConfiguration?: AdditionalInstanceConfiguration;
-}
-
-export namespace ImageRecipe {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageRecipe): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3257,15 +2564,6 @@ export interface InfrastructureConfiguration {
   tags?: Record<string, string>;
 }
 
-export namespace InfrastructureConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InfrastructureConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resources produced by this image.</p>
  */
@@ -3279,15 +2577,6 @@ export interface OutputResources {
    * <p>Container images that the pipeline has generated and stored in the output repository.</p>
    */
   containers?: Container[];
-}
-
-export namespace OutputResources {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputResources): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3446,15 +2735,6 @@ export interface Image {
   buildType?: BuildType | string;
 }
 
-export namespace Image {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImageResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3467,29 +2747,11 @@ export interface GetImageResponse {
   image?: Image;
 }
 
-export namespace GetImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImagePipelineRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to retrieve.</p>
    */
   imagePipelineArn: string | undefined;
-}
-
-export namespace GetImagePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImagePipelineRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3587,15 +2849,6 @@ export interface ImagePipeline {
   tags?: Record<string, string>;
 }
 
-export namespace ImagePipeline {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImagePipeline): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImagePipelineResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3608,29 +2861,11 @@ export interface GetImagePipelineResponse {
   imagePipeline?: ImagePipeline;
 }
 
-export namespace GetImagePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImagePipelineResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImagePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image whose policy you want to retrieve.</p>
    */
   imageArn: string | undefined;
-}
-
-export namespace GetImagePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImagePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetImagePolicyResponse {
@@ -3645,29 +2880,11 @@ export interface GetImagePolicyResponse {
   policy?: string;
 }
 
-export namespace GetImagePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImagePolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImageRecipeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe that you want to retrieve.</p>
    */
   imageRecipeArn: string | undefined;
-}
-
-export namespace GetImageRecipeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImageRecipeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetImageRecipeResponse {
@@ -3682,29 +2899,11 @@ export interface GetImageRecipeResponse {
   imageRecipe?: ImageRecipe;
 }
 
-export namespace GetImageRecipeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImageRecipeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetImageRecipePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image recipe whose policy you want to retrieve.</p>
    */
   imageRecipeArn: string | undefined;
-}
-
-export namespace GetImageRecipePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImageRecipePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetImageRecipePolicyResponse {
@@ -3719,15 +2918,6 @@ export interface GetImageRecipePolicyResponse {
   policy?: string;
 }
 
-export namespace GetImageRecipePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetImageRecipePolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> GetInfrastructureConfiguration request object.</p>
  */
@@ -3737,15 +2927,6 @@ export interface GetInfrastructureConfigurationRequest {
    * 			retrieve.</p>
    */
   infrastructureConfigurationArn: string | undefined;
-}
-
-export namespace GetInfrastructureConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInfrastructureConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3761,15 +2942,6 @@ export interface GetInfrastructureConfigurationResponse {
    * <p>The infrastructure configuration object.</p>
    */
   infrastructureConfiguration?: InfrastructureConfiguration;
-}
-
-export namespace GetInfrastructureConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInfrastructureConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportComponentRequest {
@@ -3849,15 +3021,6 @@ export interface ImportComponentRequest {
   clientToken?: string;
 }
 
-export namespace ImportComponentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportComponentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportComponentResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3873,15 +3036,6 @@ export interface ImportComponentResponse {
    * <p>The Amazon Resource Name (ARN) of the imported component.</p>
    */
   componentBuildVersionArn?: string;
-}
-
-export namespace ImportComponentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportComponentResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportVmImageRequest {
@@ -3943,15 +3097,6 @@ export interface ImportVmImageRequest {
   clientToken?: string;
 }
 
-export namespace ImportVmImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportVmImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportVmImageResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -3969,15 +3114,6 @@ export interface ImportVmImageResponse {
    * <p>The idempotency token that was used for this request.</p>
    */
   clientToken?: string;
-}
-
-export namespace ImportVmImageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportVmImageResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4017,15 +3153,6 @@ export interface ListComponentBuildVersionsRequest {
   nextToken?: string;
 }
 
-export namespace ListComponentBuildVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentBuildVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComponentBuildVersionsResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4043,15 +3170,6 @@ export interface ListComponentBuildVersionsResponse {
    * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListComponentBuildVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentBuildVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Ownership {
@@ -4123,15 +3241,6 @@ export interface ListComponentsRequest {
   nextToken?: string;
 }
 
-export namespace ListComponentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListComponentsResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4153,15 +3262,6 @@ export interface ListComponentsResponse {
    * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListComponentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListComponentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListContainerRecipesRequest {
@@ -4208,15 +3308,6 @@ export interface ListContainerRecipesRequest {
   nextToken?: string;
 }
 
-export namespace ListContainerRecipesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContainerRecipesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListContainerRecipesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4232,15 +3323,6 @@ export interface ListContainerRecipesResponse {
    * <p>The next token field is used for paginated responses. When this is not empty, there are additional container recipes that the service has not included in this response. Use this token with the next request to retrieve additional list items.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListContainerRecipesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListContainerRecipesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDistributionConfigurationsRequest {
@@ -4261,15 +3343,6 @@ export interface ListDistributionConfigurationsRequest {
   nextToken?: string;
 }
 
-export namespace ListDistributionConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDistributionConfigurationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDistributionConfigurationsResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4287,15 +3360,6 @@ export interface ListDistributionConfigurationsResponse {
    * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDistributionConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDistributionConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListImageBuildVersionsRequest {
@@ -4346,15 +3410,6 @@ export interface ListImageBuildVersionsRequest {
    * 			truncated response.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListImageBuildVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImageBuildVersionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4441,15 +3496,6 @@ export interface ImageSummary {
   buildType?: BuildType | string;
 }
 
-export namespace ImageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListImageBuildVersionsResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4469,15 +3515,6 @@ export interface ListImageBuildVersionsResponse {
   nextToken?: string;
 }
 
-export namespace ListImageBuildVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImageBuildVersionsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListImagePackagesRequest {
   /**
    * <p>Filter results for the ListImagePackages request by the Image Build Version ARN</p>
@@ -4495,15 +3532,6 @@ export interface ListImagePackagesRequest {
   nextToken?: string;
 }
 
-export namespace ListImagePackagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImagePackagesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a package installed on an Image Builder image.</p>
  */
@@ -4517,15 +3545,6 @@ export interface ImagePackage {
    * <p>The version of the package as reported to the operating system package manager.</p>
    */
   packageVersion?: string;
-}
-
-export namespace ImagePackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImagePackage): any => ({
-    ...obj,
-  });
 }
 
 export interface ListImagePackagesResponse {
@@ -4543,15 +3562,6 @@ export interface ListImagePackagesResponse {
    * <p>A token to specify where to start paginating. This is the NextToken from a previously truncated response.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListImagePackagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImagePackagesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListImagePipelineImagesRequest {
@@ -4589,15 +3599,6 @@ export interface ListImagePipelineImagesRequest {
   nextToken?: string;
 }
 
-export namespace ListImagePipelineImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImagePipelineImagesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListImagePipelineImagesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4615,15 +3616,6 @@ export interface ListImagePipelineImagesResponse {
    * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListImagePipelineImagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImagePipelineImagesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListImagePipelinesRequest {
@@ -4676,15 +3668,6 @@ export interface ListImagePipelinesRequest {
   nextToken?: string;
 }
 
-export namespace ListImagePipelinesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImagePipelinesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListImagePipelinesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4702,15 +3685,6 @@ export interface ListImagePipelinesResponse {
    * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListImagePipelinesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImagePipelinesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListImageRecipesRequest {
@@ -4756,15 +3730,6 @@ export interface ListImageRecipesRequest {
   nextToken?: string;
 }
 
-export namespace ListImageRecipesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImageRecipesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A summary of an image recipe.</p>
  */
@@ -4805,15 +3770,6 @@ export interface ImageRecipeSummary {
   tags?: Record<string, string>;
 }
 
-export namespace ImageRecipeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageRecipeSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListImageRecipesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -4831,15 +3787,6 @@ export interface ListImageRecipesResponse {
    * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListImageRecipesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImageRecipesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListImagesRequest {
@@ -4903,15 +3850,6 @@ export interface ListImagesRequest {
    * <p>Includes deprecated images in the response list.</p>
    */
   includeDeprecated?: boolean;
-}
-
-export namespace ListImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImagesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5016,15 +3954,6 @@ export interface ImageVersion {
   buildType?: BuildType | string;
 }
 
-export namespace ImageVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageVersion): any => ({
-    ...obj,
-  });
-}
-
 export interface ListImagesResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -5053,15 +3982,6 @@ export interface ListImagesResponse {
   nextToken?: string;
 }
 
-export namespace ListImagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImagesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInfrastructureConfigurationsRequest {
   /**
    * <p>You can filter on <code>name</code> to streamline results.</p>
@@ -5078,15 +3998,6 @@ export interface ListInfrastructureConfigurationsRequest {
    * 			truncated response.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListInfrastructureConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInfrastructureConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5139,15 +4050,6 @@ export interface InfrastructureConfigurationSummary {
   instanceProfileName?: string;
 }
 
-export namespace InfrastructureConfigurationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InfrastructureConfigurationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInfrastructureConfigurationsResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -5165,15 +4067,6 @@ export interface ListInfrastructureConfigurationsResponse {
    * 			request to retrieve additional objects.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListInfrastructureConfigurationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInfrastructureConfigurationsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5203,29 +4096,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags for the specified resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5259,15 +4134,6 @@ export interface PutComponentPolicyRequest {
   policy: string | undefined;
 }
 
-export namespace PutComponentPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutComponentPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutComponentPolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -5278,15 +4144,6 @@ export interface PutComponentPolicyResponse {
    * <p>The Amazon Resource Name (ARN) of the component that this policy was applied to.</p>
    */
   componentArn?: string;
-}
-
-export namespace PutComponentPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutComponentPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutContainerRecipePolicyRequest {
@@ -5301,15 +4158,6 @@ export interface PutContainerRecipePolicyRequest {
   policy: string | undefined;
 }
 
-export namespace PutContainerRecipePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutContainerRecipePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutContainerRecipePolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -5320,15 +4168,6 @@ export interface PutContainerRecipePolicyResponse {
    * <p>The Amazon Resource Name (ARN) of the container recipe that this policy was applied to.</p>
    */
   containerRecipeArn?: string;
-}
-
-export namespace PutContainerRecipePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutContainerRecipePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutImagePolicyRequest {
@@ -5343,15 +4182,6 @@ export interface PutImagePolicyRequest {
   policy: string | undefined;
 }
 
-export namespace PutImagePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutImagePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutImagePolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -5362,15 +4192,6 @@ export interface PutImagePolicyResponse {
    * <p>The Amazon Resource Name (ARN) of the image that this policy was applied to.</p>
    */
   imageArn?: string;
-}
-
-export namespace PutImagePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutImagePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutImageRecipePolicyRequest {
@@ -5385,15 +4206,6 @@ export interface PutImageRecipePolicyRequest {
   policy: string | undefined;
 }
 
-export namespace PutImageRecipePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutImageRecipePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutImageRecipePolicyResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -5406,15 +4218,6 @@ export interface PutImageRecipePolicyResponse {
   imageRecipeArn?: string;
 }
 
-export namespace PutImageRecipePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutImageRecipePolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartImagePipelineExecutionRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image pipeline that you want to manually invoke.</p>
@@ -5425,15 +4228,6 @@ export interface StartImagePipelineExecutionRequest {
    * <p>The idempotency token used to make this request idempotent.</p>
    */
   clientToken?: string;
-}
-
-export namespace StartImagePipelineExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImagePipelineExecutionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartImagePipelineExecutionResponse {
@@ -5453,15 +4247,6 @@ export interface StartImagePipelineExecutionResponse {
   imageBuildVersionArn?: string;
 }
 
-export namespace StartImagePipelineExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImagePipelineExecutionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
@@ -5474,25 +4259,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -5506,25 +4273,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDistributionConfigurationRequest {
   /**
@@ -5548,15 +4297,6 @@ export interface UpdateDistributionConfigurationRequest {
   clientToken?: string;
 }
 
-export namespace UpdateDistributionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDistributionConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDistributionConfigurationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -5573,15 +4313,6 @@ export interface UpdateDistributionConfigurationResponse {
    * 			request.</p>
    */
   distributionConfigurationArn?: string;
-}
-
-export namespace UpdateDistributionConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDistributionConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateImagePipelineRequest {
@@ -5646,15 +4377,6 @@ export interface UpdateImagePipelineRequest {
   clientToken?: string;
 }
 
-export namespace UpdateImagePipelineRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateImagePipelineRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateImagePipelineResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -5670,15 +4392,6 @@ export interface UpdateImagePipelineResponse {
    * <p>The Amazon Resource Name (ARN) of the image pipeline that was updated by this request.</p>
    */
   imagePipelineArn?: string;
-}
-
-export namespace UpdateImagePipelineResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateImagePipelineResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateInfrastructureConfigurationRequest {
@@ -5779,15 +4492,6 @@ export interface UpdateInfrastructureConfigurationRequest {
   instanceMetadataOptions?: InstanceMetadataOptions;
 }
 
-export namespace UpdateInfrastructureConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInfrastructureConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateInfrastructureConfigurationResponse {
   /**
    * <p>The request ID that uniquely identifies this request.</p>
@@ -5806,11 +4510,1063 @@ export interface UpdateInfrastructureConfigurationResponse {
   infrastructureConfigurationArn?: string;
 }
 
-export namespace UpdateInfrastructureConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInfrastructureConfigurationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SystemsManagerAgentFilterSensitiveLog = (obj: SystemsManagerAgent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdditionalInstanceConfigurationFilterSensitiveLog = (obj: AdditionalInstanceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageStateFilterSensitiveLog = (obj: ImageState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmiFilterSensitiveLog = (obj: Ami): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchPermissionConfigurationFilterSensitiveLog = (obj: LaunchPermissionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmiDistributionConfigurationFilterSensitiveLog = (obj: AmiDistributionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelImageCreationRequestFilterSensitiveLog = (obj: CancelImageCreationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelImageCreationResponseFilterSensitiveLog = (obj: CancelImageCreationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentParameterDetailFilterSensitiveLog = (obj: ComponentParameterDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentStateFilterSensitiveLog = (obj: ComponentState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentFilterSensitiveLog = (obj: Component): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentParameterFilterSensitiveLog = (obj: ComponentParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentConfigurationFilterSensitiveLog = (obj: ComponentConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentSummaryFilterSensitiveLog = (obj: ComponentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentVersionFilterSensitiveLog = (obj: ComponentVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerFilterSensitiveLog = (obj: Container): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetContainerRepositoryFilterSensitiveLog = (obj: TargetContainerRepository): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerDistributionConfigurationFilterSensitiveLog = (obj: ContainerDistributionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EbsInstanceBlockDeviceSpecificationFilterSensitiveLog = (
+  obj: EbsInstanceBlockDeviceSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceBlockDeviceMappingFilterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceConfigurationFilterSensitiveLog = (obj: InstanceConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerRecipeFilterSensitiveLog = (obj: ContainerRecipe): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerRecipeSummaryFilterSensitiveLog = (obj: ContainerRecipeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentRequestFilterSensitiveLog = (obj: CreateComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateComponentResponseFilterSensitiveLog = (obj: CreateComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerRecipeRequestFilterSensitiveLog = (obj: CreateContainerRecipeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContainerRecipeResponseFilterSensitiveLog = (obj: CreateContainerRecipeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FastLaunchLaunchTemplateSpecificationFilterSensitiveLog = (
+  obj: FastLaunchLaunchTemplateSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FastLaunchSnapshotConfigurationFilterSensitiveLog = (obj: FastLaunchSnapshotConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FastLaunchConfigurationFilterSensitiveLog = (obj: FastLaunchConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LaunchTemplateConfigurationFilterSensitiveLog = (obj: LaunchTemplateConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ExportConfigurationFilterSensitiveLog = (obj: S3ExportConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DistributionFilterSensitiveLog = (obj: Distribution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDistributionConfigurationRequestFilterSensitiveLog = (
+  obj: CreateDistributionConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDistributionConfigurationResponseFilterSensitiveLog = (
+  obj: CreateDistributionConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageTestsConfigurationFilterSensitiveLog = (obj: ImageTestsConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImageRequestFilterSensitiveLog = (obj: CreateImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImageResponseFilterSensitiveLog = (obj: CreateImageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleFilterSensitiveLog = (obj: Schedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImagePipelineRequestFilterSensitiveLog = (obj: CreateImagePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImagePipelineResponseFilterSensitiveLog = (obj: CreateImagePipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImageRecipeRequestFilterSensitiveLog = (obj: CreateImageRecipeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateImageRecipeResponseFilterSensitiveLog = (obj: CreateImageRecipeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceMetadataOptionsFilterSensitiveLog = (obj: InstanceMetadataOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LogsFilterSensitiveLog = (obj: S3Logs): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingFilterSensitiveLog = (obj: Logging): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInfrastructureConfigurationRequestFilterSensitiveLog = (
+  obj: CreateInfrastructureConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInfrastructureConfigurationResponseFilterSensitiveLog = (
+  obj: CreateInfrastructureConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteComponentRequestFilterSensitiveLog = (obj: DeleteComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteComponentResponseFilterSensitiveLog = (obj: DeleteComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContainerRecipeRequestFilterSensitiveLog = (obj: DeleteContainerRecipeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContainerRecipeResponseFilterSensitiveLog = (obj: DeleteContainerRecipeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDistributionConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteDistributionConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDistributionConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteDistributionConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImageRequestFilterSensitiveLog = (obj: DeleteImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImageResponseFilterSensitiveLog = (obj: DeleteImageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImagePipelineRequestFilterSensitiveLog = (obj: DeleteImagePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImagePipelineResponseFilterSensitiveLog = (obj: DeleteImagePipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImageRecipeRequestFilterSensitiveLog = (obj: DeleteImageRecipeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImageRecipeResponseFilterSensitiveLog = (obj: DeleteImageRecipeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInfrastructureConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteInfrastructureConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInfrastructureConfigurationResponseFilterSensitiveLog = (
+  obj: DeleteInfrastructureConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DistributionConfigurationFilterSensitiveLog = (obj: DistributionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DistributionConfigurationSummaryFilterSensitiveLog = (obj: DistributionConfigurationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentRequestFilterSensitiveLog = (obj: GetComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentResponseFilterSensitiveLog = (obj: GetComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentPolicyRequestFilterSensitiveLog = (obj: GetComponentPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetComponentPolicyResponseFilterSensitiveLog = (obj: GetComponentPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerRecipeRequestFilterSensitiveLog = (obj: GetContainerRecipeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerRecipeResponseFilterSensitiveLog = (obj: GetContainerRecipeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerRecipePolicyRequestFilterSensitiveLog = (obj: GetContainerRecipePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContainerRecipePolicyResponseFilterSensitiveLog = (obj: GetContainerRecipePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionConfigurationRequestFilterSensitiveLog = (
+  obj: GetDistributionConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionConfigurationResponseFilterSensitiveLog = (
+  obj: GetDistributionConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImageRequestFilterSensitiveLog = (obj: GetImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageRecipeFilterSensitiveLog = (obj: ImageRecipe): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InfrastructureConfigurationFilterSensitiveLog = (obj: InfrastructureConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputResourcesFilterSensitiveLog = (obj: OutputResources): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageFilterSensitiveLog = (obj: Image): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImageResponseFilterSensitiveLog = (obj: GetImageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImagePipelineRequestFilterSensitiveLog = (obj: GetImagePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImagePipelineFilterSensitiveLog = (obj: ImagePipeline): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImagePipelineResponseFilterSensitiveLog = (obj: GetImagePipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImagePolicyRequestFilterSensitiveLog = (obj: GetImagePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImagePolicyResponseFilterSensitiveLog = (obj: GetImagePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImageRecipeRequestFilterSensitiveLog = (obj: GetImageRecipeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImageRecipeResponseFilterSensitiveLog = (obj: GetImageRecipeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImageRecipePolicyRequestFilterSensitiveLog = (obj: GetImageRecipePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetImageRecipePolicyResponseFilterSensitiveLog = (obj: GetImageRecipePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInfrastructureConfigurationRequestFilterSensitiveLog = (
+  obj: GetInfrastructureConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInfrastructureConfigurationResponseFilterSensitiveLog = (
+  obj: GetInfrastructureConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportComponentRequestFilterSensitiveLog = (obj: ImportComponentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportComponentResponseFilterSensitiveLog = (obj: ImportComponentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportVmImageRequestFilterSensitiveLog = (obj: ImportVmImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportVmImageResponseFilterSensitiveLog = (obj: ImportVmImageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentBuildVersionsRequestFilterSensitiveLog = (obj: ListComponentBuildVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentBuildVersionsResponseFilterSensitiveLog = (obj: ListComponentBuildVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentsRequestFilterSensitiveLog = (obj: ListComponentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListComponentsResponseFilterSensitiveLog = (obj: ListComponentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContainerRecipesRequestFilterSensitiveLog = (obj: ListContainerRecipesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContainerRecipesResponseFilterSensitiveLog = (obj: ListContainerRecipesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDistributionConfigurationsRequestFilterSensitiveLog = (
+  obj: ListDistributionConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDistributionConfigurationsResponseFilterSensitiveLog = (
+  obj: ListDistributionConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImageBuildVersionsRequestFilterSensitiveLog = (obj: ListImageBuildVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageSummaryFilterSensitiveLog = (obj: ImageSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImageBuildVersionsResponseFilterSensitiveLog = (obj: ListImageBuildVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImagePackagesRequestFilterSensitiveLog = (obj: ListImagePackagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImagePackageFilterSensitiveLog = (obj: ImagePackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImagePackagesResponseFilterSensitiveLog = (obj: ListImagePackagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImagePipelineImagesRequestFilterSensitiveLog = (obj: ListImagePipelineImagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImagePipelineImagesResponseFilterSensitiveLog = (obj: ListImagePipelineImagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImagePipelinesRequestFilterSensitiveLog = (obj: ListImagePipelinesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImagePipelinesResponseFilterSensitiveLog = (obj: ListImagePipelinesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImageRecipesRequestFilterSensitiveLog = (obj: ListImageRecipesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageRecipeSummaryFilterSensitiveLog = (obj: ImageRecipeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImageRecipesResponseFilterSensitiveLog = (obj: ListImageRecipesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImagesRequestFilterSensitiveLog = (obj: ListImagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageVersionFilterSensitiveLog = (obj: ImageVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImagesResponseFilterSensitiveLog = (obj: ListImagesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInfrastructureConfigurationsRequestFilterSensitiveLog = (
+  obj: ListInfrastructureConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InfrastructureConfigurationSummaryFilterSensitiveLog = (obj: InfrastructureConfigurationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInfrastructureConfigurationsResponseFilterSensitiveLog = (
+  obj: ListInfrastructureConfigurationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutComponentPolicyRequestFilterSensitiveLog = (obj: PutComponentPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutComponentPolicyResponseFilterSensitiveLog = (obj: PutComponentPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutContainerRecipePolicyRequestFilterSensitiveLog = (obj: PutContainerRecipePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutContainerRecipePolicyResponseFilterSensitiveLog = (obj: PutContainerRecipePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutImagePolicyRequestFilterSensitiveLog = (obj: PutImagePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutImagePolicyResponseFilterSensitiveLog = (obj: PutImagePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutImageRecipePolicyRequestFilterSensitiveLog = (obj: PutImageRecipePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutImageRecipePolicyResponseFilterSensitiveLog = (obj: PutImageRecipePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImagePipelineExecutionRequestFilterSensitiveLog = (obj: StartImagePipelineExecutionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImagePipelineExecutionResponseFilterSensitiveLog = (
+  obj: StartImagePipelineExecutionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDistributionConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateDistributionConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDistributionConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateDistributionConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImagePipelineRequestFilterSensitiveLog = (obj: UpdateImagePipelineRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImagePipelineResponseFilterSensitiveLog = (obj: UpdateImagePipelineResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInfrastructureConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateInfrastructureConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInfrastructureConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateInfrastructureConfigurationResponse
+): any => ({
+  ...obj,
+});

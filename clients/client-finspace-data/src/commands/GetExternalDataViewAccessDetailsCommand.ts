@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import { GetExternalDataViewAccessDetailsRequest, GetExternalDataViewAccessDetailsResponse } from "../models/models_0";
+import {
+  GetExternalDataViewAccessDetailsRequest,
+  GetExternalDataViewAccessDetailsRequestFilterSensitiveLog,
+  GetExternalDataViewAccessDetailsResponse,
+  GetExternalDataViewAccessDetailsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetExternalDataViewAccessDetailsCommand,
   serializeAws_restJson1GetExternalDataViewAccessDetailsCommand,
@@ -82,8 +87,8 @@ export class GetExternalDataViewAccessDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExternalDataViewAccessDetailsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetExternalDataViewAccessDetailsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetExternalDataViewAccessDetailsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetExternalDataViewAccessDetailsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

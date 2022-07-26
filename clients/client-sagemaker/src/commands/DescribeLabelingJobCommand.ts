@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeLabelingJobRequest, DescribeLabelingJobResponse } from "../models/models_2";
+import {
+  DescribeLabelingJobRequest,
+  DescribeLabelingJobRequestFilterSensitiveLog,
+  DescribeLabelingJobResponse,
+  DescribeLabelingJobResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeLabelingJobCommand,
   serializeAws_json1_1DescribeLabelingJobCommand,
@@ -72,8 +77,8 @@ export class DescribeLabelingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLabelingJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLabelingJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLabelingJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeLabelingJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import { CancelDeploymentRequest, CancelDeploymentResponse } from "../models/models_0";
+import {
+  CancelDeploymentRequest,
+  CancelDeploymentRequestFilterSensitiveLog,
+  CancelDeploymentResponse,
+  CancelDeploymentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CancelDeploymentCommand,
   serializeAws_restJson1CancelDeploymentCommand,
@@ -74,8 +79,8 @@ export class CancelDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDeploymentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelDeploymentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelDeploymentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelDeploymentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { UpdateOriginEndpointRequest, UpdateOriginEndpointResponse } from "../models/models_0";
+import {
+  UpdateOriginEndpointRequest,
+  UpdateOriginEndpointRequestFilterSensitiveLog,
+  UpdateOriginEndpointResponse,
+  UpdateOriginEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateOriginEndpointCommand,
   serializeAws_restJson1UpdateOriginEndpointCommand,
@@ -72,8 +77,8 @@ export class UpdateOriginEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOriginEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOriginEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateOriginEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateOriginEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StopCrawlerScheduleRequest, StopCrawlerScheduleResponse } from "../models/models_2";
+import {
+  StopCrawlerScheduleRequest,
+  StopCrawlerScheduleRequestFilterSensitiveLog,
+  StopCrawlerScheduleResponse,
+  StopCrawlerScheduleResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1StopCrawlerScheduleCommand,
   serializeAws_json1_1StopCrawlerScheduleCommand,
@@ -74,8 +79,8 @@ export class StopCrawlerScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopCrawlerScheduleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopCrawlerScheduleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopCrawlerScheduleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopCrawlerScheduleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

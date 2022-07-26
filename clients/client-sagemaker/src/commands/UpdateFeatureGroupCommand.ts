@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateFeatureGroupRequest, UpdateFeatureGroupResponse } from "../models/models_3";
+import {
+  UpdateFeatureGroupRequest,
+  UpdateFeatureGroupRequestFilterSensitiveLog,
+  UpdateFeatureGroupResponse,
+  UpdateFeatureGroupResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateFeatureGroupCommand,
   serializeAws_json1_1UpdateFeatureGroupCommand,
@@ -72,8 +77,8 @@ export class UpdateFeatureGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFeatureGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFeatureGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFeatureGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateFeatureGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

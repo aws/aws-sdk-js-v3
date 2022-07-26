@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociatePackageRequest, AssociatePackageResponse } from "../models/models_0";
+import {
+  AssociatePackageRequest,
+  AssociatePackageRequestFilterSensitiveLog,
+  AssociatePackageResponse,
+  AssociatePackageResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1AssociatePackageCommand,
@@ -72,8 +77,8 @@ export class AssociatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociatePackageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePackageResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociatePackageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociatePackageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

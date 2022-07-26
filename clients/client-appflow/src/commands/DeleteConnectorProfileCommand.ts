@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { DeleteConnectorProfileRequest, DeleteConnectorProfileResponse } from "../models/models_0";
+import {
+  DeleteConnectorProfileRequest,
+  DeleteConnectorProfileRequestFilterSensitiveLog,
+  DeleteConnectorProfileResponse,
+  DeleteConnectorProfileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteConnectorProfileCommand,
   serializeAws_restJson1DeleteConnectorProfileCommand,
@@ -72,8 +77,8 @@ export class DeleteConnectorProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectorProfileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConnectorProfileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConnectorProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConnectorProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

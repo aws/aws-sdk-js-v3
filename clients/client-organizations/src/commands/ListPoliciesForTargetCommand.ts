@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListPoliciesForTargetRequest, ListPoliciesForTargetResponse } from "../models/models_0";
+import {
+  ListPoliciesForTargetRequest,
+  ListPoliciesForTargetRequestFilterSensitiveLog,
+  ListPoliciesForTargetResponse,
+  ListPoliciesForTargetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1ListPoliciesForTargetCommand,
@@ -84,8 +89,8 @@ export class ListPoliciesForTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPoliciesForTargetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPoliciesForTargetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPoliciesForTargetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPoliciesForTargetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import { SearchJobsRequest, SearchJobsResponse } from "../models/models_0";
+import {
+  SearchJobsRequest,
+  SearchJobsRequestFilterSensitiveLog,
+  SearchJobsResponse,
+  SearchJobsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1SearchJobsCommand,
   serializeAws_restJson1SearchJobsCommand,
@@ -72,8 +77,8 @@ export class SearchJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchJobsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchJobsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchJobsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

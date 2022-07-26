@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DescribeFaqRequest, DescribeFaqResponse } from "../models/models_0";
+import {
+  DescribeFaqRequest,
+  DescribeFaqRequestFilterSensitiveLog,
+  DescribeFaqResponse,
+  DescribeFaqResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFaqCommand,
   serializeAws_json1_1DescribeFaqCommand,
@@ -72,8 +77,8 @@ export class DescribeFaqCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFaqRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFaqResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFaqRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFaqResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteTagsRequest } from "../models/models_0";
+import { DeleteTagsRequest, DeleteTagsRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTagsCommand,
   serializeAws_restJson1DeleteTagsCommand,
@@ -84,7 +84,7 @@ export class DeleteTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTagsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTagsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

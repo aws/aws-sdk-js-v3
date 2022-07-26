@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import { DescribeBundleRequest, DescribeBundleResult } from "../models/models_0";
+import {
+  DescribeBundleRequest,
+  DescribeBundleRequestFilterSensitiveLog,
+  DescribeBundleResult,
+  DescribeBundleResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeBundleCommand,
   serializeAws_restJson1DescribeBundleCommand,
@@ -74,8 +79,8 @@ export class DescribeBundleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBundleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBundleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBundleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBundleResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

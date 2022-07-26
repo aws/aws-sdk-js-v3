@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import { TagResourceRequest, TagResourceResult } from "../models/models_0";
+import {
+  TagResourceRequest,
+  TagResourceRequestFilterSensitiveLog,
+  TagResourceResult,
+  TagResourceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1TagResourceCommand,
   serializeAws_restJson1TagResourceCommand,
@@ -76,8 +81,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: TagResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TagResourceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

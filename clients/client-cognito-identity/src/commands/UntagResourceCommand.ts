@@ -14,7 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import { UntagResourceInput, UntagResourceResponse } from "../models/models_0";
+import {
+  UntagResourceInput,
+  UntagResourceInputFilterSensitiveLog,
+  UntagResourceResponse,
+  UntagResourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,
@@ -75,8 +80,8 @@ export class UntagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

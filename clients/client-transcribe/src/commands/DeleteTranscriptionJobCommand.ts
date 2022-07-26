@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteTranscriptionJobRequest } from "../models/models_0";
+import { DeleteTranscriptionJobRequest, DeleteTranscriptionJobRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTranscriptionJobCommand,
   serializeAws_json1_1DeleteTranscriptionJobCommand,
@@ -73,7 +73,7 @@ export class DeleteTranscriptionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTranscriptionJobRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteTranscriptionJobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

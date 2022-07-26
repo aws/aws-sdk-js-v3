@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdateSipMediaApplicationCallRequest, UpdateSipMediaApplicationCallResponse } from "../models/models_1";
+import {
+  UpdateSipMediaApplicationCallRequest,
+  UpdateSipMediaApplicationCallRequestFilterSensitiveLog,
+  UpdateSipMediaApplicationCallResponse,
+  UpdateSipMediaApplicationCallResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateSipMediaApplicationCallCommand,
   serializeAws_restJson1UpdateSipMediaApplicationCallCommand,
@@ -74,8 +79,8 @@ export class UpdateSipMediaApplicationCallCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSipMediaApplicationCallRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSipMediaApplicationCallResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSipMediaApplicationCallRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSipMediaApplicationCallResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

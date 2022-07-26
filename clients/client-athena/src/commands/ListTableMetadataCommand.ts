@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { ListTableMetadataInput, ListTableMetadataOutput } from "../models/models_0";
+import {
+  ListTableMetadataInput,
+  ListTableMetadataInputFilterSensitiveLog,
+  ListTableMetadataOutput,
+  ListTableMetadataOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListTableMetadataCommand,
   serializeAws_json1_1ListTableMetadataCommand,
@@ -72,8 +77,8 @@ export class ListTableMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTableMetadataInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTableMetadataOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTableMetadataInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTableMetadataOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

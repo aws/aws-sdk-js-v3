@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { GetKMSEncryptionKeyResult } from "../models/models_0";
+import { GetKMSEncryptionKeyResult, GetKMSEncryptionKeyResultFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1GetKMSEncryptionKeyCommand,
   serializeAws_json1_1GetKMSEncryptionKeyCommand,
@@ -73,7 +73,7 @@ export class GetKMSEncryptionKeyCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetKMSEncryptionKeyResult.filterSensitiveLog,
+      outputFilterSensitiveLog: GetKMSEncryptionKeyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

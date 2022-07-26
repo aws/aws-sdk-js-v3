@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutRumEventsRequest, PutRumEventsResponse } from "../models/models_0";
+import {
+  PutRumEventsRequest,
+  PutRumEventsRequestFilterSensitiveLog,
+  PutRumEventsResponse,
+  PutRumEventsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutRumEventsCommand,
   serializeAws_restJson1PutRumEventsCommand,
@@ -75,8 +80,8 @@ export class PutRumEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRumEventsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutRumEventsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRumEventsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutRumEventsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

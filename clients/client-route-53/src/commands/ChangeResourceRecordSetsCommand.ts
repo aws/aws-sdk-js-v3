@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ChangeResourceRecordSetsRequest, ChangeResourceRecordSetsResponse } from "../models/models_0";
+import {
+  ChangeResourceRecordSetsRequest,
+  ChangeResourceRecordSetsRequestFilterSensitiveLog,
+  ChangeResourceRecordSetsResponse,
+  ChangeResourceRecordSetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlChangeResourceRecordSetsCommand,
   serializeAws_restXmlChangeResourceRecordSetsCommand,
@@ -166,8 +171,8 @@ export class ChangeResourceRecordSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ChangeResourceRecordSetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ChangeResourceRecordSetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ChangeResourceRecordSetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ChangeResourceRecordSetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

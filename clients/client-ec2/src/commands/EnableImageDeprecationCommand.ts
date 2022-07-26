@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { EnableImageDeprecationRequest, EnableImageDeprecationResult } from "../models/models_4";
+import {
+  EnableImageDeprecationRequest,
+  EnableImageDeprecationRequestFilterSensitiveLog,
+  EnableImageDeprecationResult,
+  EnableImageDeprecationResultFilterSensitiveLog,
+} from "../models/models_4";
 import {
   deserializeAws_ec2EnableImageDeprecationCommand,
   serializeAws_ec2EnableImageDeprecationCommand,
@@ -73,8 +78,8 @@ export class EnableImageDeprecationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableImageDeprecationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EnableImageDeprecationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableImageDeprecationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EnableImageDeprecationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

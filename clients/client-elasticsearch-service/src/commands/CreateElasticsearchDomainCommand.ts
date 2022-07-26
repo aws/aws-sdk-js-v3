@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { CreateElasticsearchDomainRequest, CreateElasticsearchDomainResponse } from "../models/models_0";
+import {
+  CreateElasticsearchDomainRequest,
+  CreateElasticsearchDomainRequestFilterSensitiveLog,
+  CreateElasticsearchDomainResponse,
+  CreateElasticsearchDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateElasticsearchDomainCommand,
   serializeAws_restJson1CreateElasticsearchDomainCommand,
@@ -77,8 +82,8 @@ export class CreateElasticsearchDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateElasticsearchDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateElasticsearchDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateElasticsearchDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateElasticsearchDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

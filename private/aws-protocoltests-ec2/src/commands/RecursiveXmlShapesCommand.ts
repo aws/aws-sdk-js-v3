@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { RecursiveXmlShapesOutput } from "../models/models_0";
+import { RecursiveXmlShapesOutput, RecursiveXmlShapesOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_ec2RecursiveXmlShapesCommand,
   serializeAws_ec2RecursiveXmlShapesCommand,
@@ -73,7 +73,7 @@ export class RecursiveXmlShapesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: RecursiveXmlShapesOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: RecursiveXmlShapesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

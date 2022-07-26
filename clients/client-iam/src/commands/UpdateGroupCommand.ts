@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateGroupRequest } from "../models/models_1";
+import { UpdateGroupRequest, UpdateGroupRequestFilterSensitiveLog } from "../models/models_1";
 import { deserializeAws_queryUpdateGroupCommand, serializeAws_queryUpdateGroupCommand } from "../protocols/Aws_query";
 
 export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
@@ -83,7 +83,7 @@ export class UpdateGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

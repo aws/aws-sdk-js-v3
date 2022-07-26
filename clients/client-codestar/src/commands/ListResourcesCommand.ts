@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import { ListResourcesRequest, ListResourcesResult } from "../models/models_0";
+import {
+  ListResourcesRequest,
+  ListResourcesRequestFilterSensitiveLog,
+  ListResourcesResult,
+  ListResourcesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListResourcesCommand,
   serializeAws_json1_1ListResourcesCommand,
@@ -72,8 +77,8 @@ export class ListResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourcesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListResourcesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListResourcesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListResourcesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

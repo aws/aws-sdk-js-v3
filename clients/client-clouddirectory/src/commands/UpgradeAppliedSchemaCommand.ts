@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { UpgradeAppliedSchemaRequest, UpgradeAppliedSchemaResponse } from "../models/models_0";
+import {
+  UpgradeAppliedSchemaRequest,
+  UpgradeAppliedSchemaRequestFilterSensitiveLog,
+  UpgradeAppliedSchemaResponse,
+  UpgradeAppliedSchemaResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpgradeAppliedSchemaCommand,
   serializeAws_restJson1UpgradeAppliedSchemaCommand,
@@ -72,8 +77,8 @@ export class UpgradeAppliedSchemaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpgradeAppliedSchemaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpgradeAppliedSchemaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpgradeAppliedSchemaRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpgradeAppliedSchemaResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

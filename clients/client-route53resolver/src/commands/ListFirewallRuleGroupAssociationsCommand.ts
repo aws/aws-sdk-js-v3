@@ -14,7 +14,9 @@ import {
 
 import {
   ListFirewallRuleGroupAssociationsRequest,
+  ListFirewallRuleGroupAssociationsRequestFilterSensitiveLog,
   ListFirewallRuleGroupAssociationsResponse,
+  ListFirewallRuleGroupAssociationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommand,
@@ -78,8 +80,8 @@ export class ListFirewallRuleGroupAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFirewallRuleGroupAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFirewallRuleGroupAssociationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFirewallRuleGroupAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFirewallRuleGroupAssociationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

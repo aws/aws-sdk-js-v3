@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetBucketRequestPaymentOutput, GetBucketRequestPaymentRequest } from "../models/models_0";
+import {
+  GetBucketRequestPaymentOutput,
+  GetBucketRequestPaymentOutputFilterSensitiveLog,
+  GetBucketRequestPaymentRequest,
+  GetBucketRequestPaymentRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketRequestPaymentCommand,
   serializeAws_restXmlGetBucketRequestPaymentCommand,
@@ -84,8 +89,8 @@ export class GetBucketRequestPaymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketRequestPaymentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketRequestPaymentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBucketRequestPaymentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBucketRequestPaymentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

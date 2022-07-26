@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeCanariesRequest, DescribeCanariesResponse } from "../models/models_0";
+import {
+  DescribeCanariesRequest,
+  DescribeCanariesRequestFilterSensitiveLog,
+  DescribeCanariesResponse,
+  DescribeCanariesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeCanariesCommand,
   serializeAws_restJson1DescribeCanariesCommand,
@@ -81,8 +86,8 @@ export class DescribeCanariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCanariesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCanariesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeCanariesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCanariesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse } from "../models/models_0";
+import {
+  DescribeFeatureTransformationRequest,
+  DescribeFeatureTransformationRequestFilterSensitiveLog,
+  DescribeFeatureTransformationResponse,
+  DescribeFeatureTransformationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1DescribeFeatureTransformationCommand,
@@ -74,8 +79,8 @@ export class DescribeFeatureTransformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFeatureTransformationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFeatureTransformationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeFeatureTransformationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeFeatureTransformationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

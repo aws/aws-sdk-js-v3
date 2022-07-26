@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifySnapshotAttributeRequest } from "../models/models_5";
+import { ModifySnapshotAttributeRequest, ModifySnapshotAttributeRequestFilterSensitiveLog } from "../models/models_5";
 import {
   deserializeAws_ec2ModifySnapshotAttributeCommand,
   serializeAws_ec2ModifySnapshotAttributeCommand,
@@ -79,7 +79,7 @@ export class ModifySnapshotAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySnapshotAttributeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifySnapshotAttributeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

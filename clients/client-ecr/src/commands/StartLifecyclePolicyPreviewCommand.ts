@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { StartLifecyclePolicyPreviewRequest, StartLifecyclePolicyPreviewResponse } from "../models/models_0";
+import {
+  StartLifecyclePolicyPreviewRequest,
+  StartLifecyclePolicyPreviewRequestFilterSensitiveLog,
+  StartLifecyclePolicyPreviewResponse,
+  StartLifecyclePolicyPreviewResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartLifecyclePolicyPreviewCommand,
   serializeAws_json1_1StartLifecyclePolicyPreviewCommand,
@@ -75,8 +80,8 @@ export class StartLifecyclePolicyPreviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartLifecyclePolicyPreviewRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartLifecyclePolicyPreviewResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartLifecyclePolicyPreviewRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartLifecyclePolicyPreviewResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

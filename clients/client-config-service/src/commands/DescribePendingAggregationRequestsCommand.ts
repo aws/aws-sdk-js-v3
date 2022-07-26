@@ -15,7 +15,9 @@ import {
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
   DescribePendingAggregationRequestsRequest,
+  DescribePendingAggregationRequestsRequestFilterSensitiveLog,
   DescribePendingAggregationRequestsResponse,
+  DescribePendingAggregationRequestsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribePendingAggregationRequestsCommand,
@@ -77,8 +79,8 @@ export class DescribePendingAggregationRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePendingAggregationRequestsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribePendingAggregationRequestsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribePendingAggregationRequestsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribePendingAggregationRequestsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

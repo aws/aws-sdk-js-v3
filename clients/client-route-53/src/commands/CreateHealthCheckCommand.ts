@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateHealthCheckRequest, CreateHealthCheckResponse } from "../models/models_0";
+import {
+  CreateHealthCheckRequest,
+  CreateHealthCheckRequestFilterSensitiveLog,
+  CreateHealthCheckResponse,
+  CreateHealthCheckResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlCreateHealthCheckCommand,
   serializeAws_restXmlCreateHealthCheckCommand,
@@ -106,8 +111,8 @@ export class CreateHealthCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHealthCheckRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateHealthCheckResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateHealthCheckRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateHealthCheckResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

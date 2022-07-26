@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateGcmChannelRequest, UpdateGcmChannelResponse } from "../models/models_1";
+import {
+  UpdateGcmChannelRequest,
+  UpdateGcmChannelRequestFilterSensitiveLog,
+  UpdateGcmChannelResponse,
+  UpdateGcmChannelResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdateGcmChannelCommand,
@@ -72,8 +77,8 @@ export class UpdateGcmChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGcmChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGcmChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateGcmChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateGcmChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

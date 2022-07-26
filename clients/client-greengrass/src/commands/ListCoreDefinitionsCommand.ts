@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { ListCoreDefinitionsRequest, ListCoreDefinitionsResponse } from "../models/models_0";
+import {
+  ListCoreDefinitionsRequest,
+  ListCoreDefinitionsRequestFilterSensitiveLog,
+  ListCoreDefinitionsResponse,
+  ListCoreDefinitionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListCoreDefinitionsCommand,
   serializeAws_restJson1ListCoreDefinitionsCommand,
@@ -72,8 +77,8 @@ export class ListCoreDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoreDefinitionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCoreDefinitionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCoreDefinitionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCoreDefinitionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

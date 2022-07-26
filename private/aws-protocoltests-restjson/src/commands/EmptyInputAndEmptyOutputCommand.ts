@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/models_0";
+import {
+  EmptyInputAndEmptyOutputInput,
+  EmptyInputAndEmptyOutputInputFilterSensitiveLog,
+  EmptyInputAndEmptyOutputOutput,
+  EmptyInputAndEmptyOutputOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1EmptyInputAndEmptyOutputCommand,
   serializeAws_restJson1EmptyInputAndEmptyOutputCommand,
@@ -75,8 +80,8 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EmptyInputAndEmptyOutputInput.filterSensitiveLog,
-      outputFilterSensitiveLog: EmptyInputAndEmptyOutputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: EmptyInputAndEmptyOutputInputFilterSensitiveLog,
+      outputFilterSensitiveLog: EmptyInputAndEmptyOutputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,9 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import {
   DisassociateContactFromAddressBookRequest,
+  DisassociateContactFromAddressBookRequestFilterSensitiveLog,
   DisassociateContactFromAddressBookResponse,
+  DisassociateContactFromAddressBookResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateContactFromAddressBookCommand,
@@ -77,8 +79,8 @@ export class DisassociateContactFromAddressBookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateContactFromAddressBookRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateContactFromAddressBookResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateContactFromAddressBookRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateContactFromAddressBookResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

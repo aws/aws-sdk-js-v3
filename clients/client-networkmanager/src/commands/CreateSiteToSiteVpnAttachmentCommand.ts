@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateSiteToSiteVpnAttachmentRequest, CreateSiteToSiteVpnAttachmentResponse } from "../models/models_0";
+import {
+  CreateSiteToSiteVpnAttachmentRequest,
+  CreateSiteToSiteVpnAttachmentRequestFilterSensitiveLog,
+  CreateSiteToSiteVpnAttachmentResponse,
+  CreateSiteToSiteVpnAttachmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1CreateSiteToSiteVpnAttachmentCommand,
@@ -74,8 +79,8 @@ export class CreateSiteToSiteVpnAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSiteToSiteVpnAttachmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSiteToSiteVpnAttachmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSiteToSiteVpnAttachmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSiteToSiteVpnAttachmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
+import {
+  DeleteDBInstanceMessage,
+  DeleteDBInstanceMessageFilterSensitiveLog,
+  DeleteDBInstanceResult,
+  DeleteDBInstanceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBInstanceCommand,
   serializeAws_queryDeleteDBInstanceCommand,
@@ -94,8 +99,8 @@ export class DeleteDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBInstanceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDBInstanceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDBInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

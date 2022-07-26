@@ -13,8 +13,8 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { CreateJobResponse } from "../models/models_0";
-import { CreateJobRequest } from "../models/models_2";
+import { CreateJobResponse, CreateJobResponseFilterSensitiveLog } from "../models/models_0";
+import { CreateJobRequest, CreateJobRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_json1_1CreateJobCommand, serializeAws_json1_1CreateJobCommand } from "../protocols/Aws_json1_1";
 
 export interface CreateJobCommandInput extends CreateJobRequest {}
@@ -70,8 +70,8 @@ export class CreateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

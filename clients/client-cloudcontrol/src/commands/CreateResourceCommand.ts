@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
-import { CreateResourceInput, CreateResourceOutput } from "../models/models_0";
+import {
+  CreateResourceInput,
+  CreateResourceInputFilterSensitiveLog,
+  CreateResourceOutput,
+  CreateResourceOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CreateResourceCommand,
   serializeAws_json1_0CreateResourceCommand,
@@ -76,8 +81,8 @@ export class CreateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateResourceInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateResourceOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

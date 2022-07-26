@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import { StartTableDataImportJobRequest, StartTableDataImportJobResult } from "../models/models_0";
+import {
+  StartTableDataImportJobRequest,
+  StartTableDataImportJobRequestFilterSensitiveLog,
+  StartTableDataImportJobResult,
+  StartTableDataImportJobResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartTableDataImportJobCommand,
   serializeAws_restJson1StartTableDataImportJobCommand,
@@ -76,8 +81,8 @@ export class StartTableDataImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTableDataImportJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartTableDataImportJobResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartTableDataImportJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartTableDataImportJobResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

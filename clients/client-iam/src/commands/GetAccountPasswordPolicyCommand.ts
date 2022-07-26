@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetAccountPasswordPolicyResponse } from "../models/models_0";
+import {
+  GetAccountPasswordPolicyResponse,
+  GetAccountPasswordPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryGetAccountPasswordPolicyCommand,
   serializeAws_queryGetAccountPasswordPolicyCommand,
@@ -76,7 +79,7 @@ export class GetAccountPasswordPolicyCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetAccountPasswordPolicyResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccountPasswordPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

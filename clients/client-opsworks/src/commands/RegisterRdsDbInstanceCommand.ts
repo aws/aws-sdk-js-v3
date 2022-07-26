@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RegisterRdsDbInstanceRequest } from "../models/models_0";
+import { RegisterRdsDbInstanceRequest, RegisterRdsDbInstanceRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1RegisterRdsDbInstanceCommand,
@@ -77,7 +77,7 @@ export class RegisterRdsDbInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterRdsDbInstanceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterRdsDbInstanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

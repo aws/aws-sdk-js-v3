@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { JoinDomainInput, JoinDomainOutput } from "../models/models_0";
+import {
+  JoinDomainInput,
+  JoinDomainInputFilterSensitiveLog,
+  JoinDomainOutput,
+  JoinDomainOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1JoinDomainCommand,
   serializeAws_json1_1JoinDomainCommand,
@@ -73,8 +78,8 @@ export class JoinDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JoinDomainInput.filterSensitiveLog,
-      outputFilterSensitiveLog: JoinDomainOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JoinDomainInputFilterSensitiveLog,
+      outputFilterSensitiveLog: JoinDomainOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

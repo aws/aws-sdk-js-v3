@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient";
-import { MeterUsageRequest, MeterUsageResult } from "../models/models_0";
+import {
+  MeterUsageRequest,
+  MeterUsageRequestFilterSensitiveLog,
+  MeterUsageResult,
+  MeterUsageResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1MeterUsageCommand,
   serializeAws_json1_1MeterUsageCommand,
@@ -86,8 +91,8 @@ export class MeterUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MeterUsageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: MeterUsageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: MeterUsageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: MeterUsageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

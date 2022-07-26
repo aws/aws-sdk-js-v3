@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { PutScheduledUpdateGroupActionType } from "../models/models_0";
+import {
+  PutScheduledUpdateGroupActionType,
+  PutScheduledUpdateGroupActionTypeFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryPutScheduledUpdateGroupActionCommand,
   serializeAws_queryPutScheduledUpdateGroupActionCommand,
@@ -78,7 +81,7 @@ export class PutScheduledUpdateGroupActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutScheduledUpdateGroupActionType.filterSensitiveLog,
+      inputFilterSensitiveLog: PutScheduledUpdateGroupActionTypeFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

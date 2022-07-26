@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartMedicalTranscriptionJobRequest, StartMedicalTranscriptionJobResponse } from "../models/models_0";
+import {
+  StartMedicalTranscriptionJobRequest,
+  StartMedicalTranscriptionJobRequestFilterSensitiveLog,
+  StartMedicalTranscriptionJobResponse,
+  StartMedicalTranscriptionJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartMedicalTranscriptionJobCommand,
   serializeAws_json1_1StartMedicalTranscriptionJobCommand,
@@ -122,8 +127,8 @@ export class StartMedicalTranscriptionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMedicalTranscriptionJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartMedicalTranscriptionJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartMedicalTranscriptionJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartMedicalTranscriptionJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

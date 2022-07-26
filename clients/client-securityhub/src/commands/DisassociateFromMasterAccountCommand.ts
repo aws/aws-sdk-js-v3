@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_1";
+import {
+  DisassociateFromMasterAccountRequest,
+  DisassociateFromMasterAccountRequestFilterSensitiveLog,
+  DisassociateFromMasterAccountResponse,
+  DisassociateFromMasterAccountResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DisassociateFromMasterAccountCommand,
   serializeAws_restJson1DisassociateFromMasterAccountCommand,
@@ -82,8 +87,8 @@ export class DisassociateFromMasterAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFromMasterAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFromMasterAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateFromMasterAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateFromMasterAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

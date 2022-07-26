@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { UnregisterConnectorRequest, UnregisterConnectorResponse } from "../models/models_0";
+import {
+  UnregisterConnectorRequest,
+  UnregisterConnectorRequestFilterSensitiveLog,
+  UnregisterConnectorResponse,
+  UnregisterConnectorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UnregisterConnectorCommand,
   serializeAws_restJson1UnregisterConnectorCommand,
@@ -73,8 +78,8 @@ export class UnregisterConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnregisterConnectorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UnregisterConnectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UnregisterConnectorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UnregisterConnectorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

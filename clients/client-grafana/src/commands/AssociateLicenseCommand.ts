@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import { AssociateLicenseRequest, AssociateLicenseResponse } from "../models/models_0";
+import {
+  AssociateLicenseRequest,
+  AssociateLicenseRequestFilterSensitiveLog,
+  AssociateLicenseResponse,
+  AssociateLicenseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateLicenseCommand,
   serializeAws_restJson1AssociateLicenseCommand,
@@ -74,8 +79,8 @@ export class AssociateLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateLicenseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateLicenseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateLicenseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateLicenseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

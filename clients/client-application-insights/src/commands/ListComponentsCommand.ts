@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import { ListComponentsRequest, ListComponentsResponse } from "../models/models_0";
+import {
+  ListComponentsRequest,
+  ListComponentsRequestFilterSensitiveLog,
+  ListComponentsResponse,
+  ListComponentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListComponentsCommand,
   serializeAws_json1_1ListComponentsCommand,
@@ -76,8 +81,8 @@ export class ListComponentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListComponentsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListComponentsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListComponentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListComponentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

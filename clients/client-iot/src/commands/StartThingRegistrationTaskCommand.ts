@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { StartThingRegistrationTaskRequest, StartThingRegistrationTaskResponse } from "../models/models_2";
+import {
+  StartThingRegistrationTaskRequest,
+  StartThingRegistrationTaskRequestFilterSensitiveLog,
+  StartThingRegistrationTaskResponse,
+  StartThingRegistrationTaskResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1StartThingRegistrationTaskCommand,
   serializeAws_restJson1StartThingRegistrationTaskCommand,
@@ -73,8 +78,8 @@ export class StartThingRegistrationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartThingRegistrationTaskRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartThingRegistrationTaskResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartThingRegistrationTaskRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartThingRegistrationTaskResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

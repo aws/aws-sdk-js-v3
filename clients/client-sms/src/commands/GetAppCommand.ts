@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetAppRequest, GetAppResponse } from "../models/models_0";
+import {
+  GetAppRequest,
+  GetAppRequestFilterSensitiveLog,
+  GetAppResponse,
+  GetAppResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetAppCommand, serializeAws_json1_1GetAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
@@ -65,8 +70,8 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetAppResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetAppRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetAppResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

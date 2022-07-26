@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { DeleteApplicationVersionMessage } from "../models/models_0";
+import { DeleteApplicationVersionMessage, DeleteApplicationVersionMessageFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteApplicationVersionCommand,
   serializeAws_queryDeleteApplicationVersionCommand,
@@ -76,7 +76,7 @@ export class DeleteApplicationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationVersionMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApplicationVersionMessageFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

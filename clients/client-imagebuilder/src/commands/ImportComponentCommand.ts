@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { ImportComponentRequest, ImportComponentResponse } from "../models/models_0";
+import {
+  ImportComponentRequest,
+  ImportComponentRequestFilterSensitiveLog,
+  ImportComponentResponse,
+  ImportComponentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ImportComponentCommand,
   serializeAws_restJson1ImportComponentCommand,
@@ -72,8 +77,8 @@ export class ImportComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportComponentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ImportComponentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ImportComponentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ImportComponentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { DeleteAppRequest, DeleteAppResult } from "../models/models_0";
+import {
+  DeleteAppRequest,
+  DeleteAppRequestFilterSensitiveLog,
+  DeleteAppResult,
+  DeleteAppResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAppCommand,
   serializeAws_restJson1DeleteAppCommand,
@@ -72,8 +77,8 @@ export class DeleteAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAppRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAppResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

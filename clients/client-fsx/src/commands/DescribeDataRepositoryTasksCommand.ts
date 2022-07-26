@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { DescribeDataRepositoryTasksRequest, DescribeDataRepositoryTasksResponse } from "../models/models_0";
+import {
+  DescribeDataRepositoryTasksRequest,
+  DescribeDataRepositoryTasksRequestFilterSensitiveLog,
+  DescribeDataRepositoryTasksResponse,
+  DescribeDataRepositoryTasksResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDataRepositoryTasksCommand,
   serializeAws_json1_1DescribeDataRepositoryTasksCommand,
@@ -84,8 +89,8 @@ export class DescribeDataRepositoryTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataRepositoryTasksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataRepositoryTasksResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDataRepositoryTasksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDataRepositoryTasksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

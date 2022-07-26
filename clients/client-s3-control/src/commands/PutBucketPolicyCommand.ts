@@ -14,7 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketPolicyRequest } from "../models/models_0";
+import { PutBucketPolicyRequest, PutBucketPolicyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketPolicyCommand,
   serializeAws_restXmlPutBucketPolicyCommand,
@@ -117,7 +117,7 @@ export class PutBucketPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketPolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBucketPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

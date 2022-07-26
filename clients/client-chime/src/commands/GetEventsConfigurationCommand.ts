@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetEventsConfigurationRequest, GetEventsConfigurationResponse } from "../models/models_0";
+import {
+  GetEventsConfigurationRequest,
+  GetEventsConfigurationRequestFilterSensitiveLog,
+  GetEventsConfigurationResponse,
+  GetEventsConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetEventsConfigurationCommand,
   serializeAws_restJson1GetEventsConfigurationCommand,
@@ -72,8 +77,8 @@ export class GetEventsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventsConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEventsConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEventsConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEventsConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

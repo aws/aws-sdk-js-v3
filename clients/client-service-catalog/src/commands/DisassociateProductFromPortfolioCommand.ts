@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisassociateProductFromPortfolioInput, DisassociateProductFromPortfolioOutput } from "../models/models_0";
+import {
+  DisassociateProductFromPortfolioInput,
+  DisassociateProductFromPortfolioInputFilterSensitiveLog,
+  DisassociateProductFromPortfolioOutput,
+  DisassociateProductFromPortfolioOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateProductFromPortfolioCommand,
   serializeAws_json1_1DisassociateProductFromPortfolioCommand,
@@ -75,8 +80,8 @@ export class DisassociateProductFromPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateProductFromPortfolioInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateProductFromPortfolioOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateProductFromPortfolioInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateProductFromPortfolioOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

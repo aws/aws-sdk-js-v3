@@ -24,15 +24,6 @@ export interface DescribeStreamInput {
   ExclusiveStartShardId?: string;
 }
 
-export namespace DescribeStreamInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStreamInput): any => ({
-    ...obj,
-  });
-}
-
 export type KeyType = "HASH" | "RANGE";
 
 /**
@@ -80,15 +71,6 @@ export interface KeySchemaElement {
   KeyType: KeyType | string | undefined;
 }
 
-export namespace KeySchemaElement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeySchemaElement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The beginning and ending sequence numbers for the stream records contained within a shard.</p>
  */
@@ -102,15 +84,6 @@ export interface SequenceNumberRange {
    * <p>The last sequence number for the stream records contained within a shard. String contains numeric characters only.</p>
    */
   EndingSequenceNumber?: string;
-}
-
-export namespace SequenceNumberRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SequenceNumberRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -131,15 +104,6 @@ export interface Shard {
    * <p>The shard ID of the current shard's parent.</p>
    */
   ParentShardId?: string;
-}
-
-export namespace Shard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Shard): any => ({
-    ...obj,
-  });
 }
 
 export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
@@ -252,15 +216,6 @@ export interface StreamDescription {
   LastEvaluatedShardId?: string;
 }
 
-export namespace StreamDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DescribeStream</code> operation.</p>
  */
@@ -269,15 +224,6 @@ export interface DescribeStreamOutput {
    * <p>A complete description of the stream, including its creation date and time, the DynamoDB table associated with the stream, the shard IDs within the stream, and the beginning and ending sequence numbers of stream records within the shards.</p>
    */
   StreamDescription?: StreamDescription;
-}
-
-export namespace DescribeStreamOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -356,15 +302,6 @@ export interface GetRecordsInput {
   Limit?: number;
 }
 
-export namespace GetRecordsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecordsInput): any => ({
-    ...obj,
-  });
-}
-
 export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
 
 /**
@@ -381,15 +318,6 @@ export interface Identity {
    * <p>The type of the identity. For Time To Live, the type is "Service".</p>
    */
   Type?: string;
-}
-
-export namespace Identity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Identity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -501,15 +429,6 @@ export interface GetShardIteratorInput {
   SequenceNumber?: string;
 }
 
-export namespace GetShardIteratorInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetShardIteratorInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>GetShardIterator</code> operation.</p>
  */
@@ -518,15 +437,6 @@ export interface GetShardIteratorOutput {
    * <p>The position in the shard from which to start reading stream records sequentially. A shard iterator specifies this position using the sequence number of a stream record in a shard.</p>
    */
   ShardIterator?: string;
-}
-
-export namespace GetShardIteratorOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetShardIteratorOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -549,15 +459,6 @@ export interface ListStreamsInput {
    *     </p>
    */
   ExclusiveStartStreamArn?: string;
-}
-
-export namespace ListStreamsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -595,15 +496,6 @@ export interface _Stream {
   StreamLabel?: string;
 }
 
-export namespace _Stream {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Stream): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>ListStreams</code> operation.</p>
  */
@@ -622,15 +514,6 @@ export interface ListStreamsOutput {
    *       result set is when <code>LastEvaluatedStreamArn</code> is empty.</p>
    */
   LastEvaluatedStreamArn?: string;
-}
-
-export namespace ListStreamsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -896,32 +779,6 @@ export namespace AttributeValue {
     if (value.BOOL !== undefined) return visitor.BOOL(value.BOOL);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeValue): any => {
-    if (obj.S !== undefined) return { S: obj.S };
-    if (obj.N !== undefined) return { N: obj.N };
-    if (obj.B !== undefined) return { B: obj.B };
-    if (obj.SS !== undefined) return { SS: obj.SS };
-    if (obj.NS !== undefined) return { NS: obj.NS };
-    if (obj.BS !== undefined) return { BS: obj.BS };
-    if (obj.M !== undefined)
-      return {
-        M: Object.entries(obj.M).reduce(
-          (acc: any, [key, value]: [string, AttributeValue]) => ({
-            ...acc,
-            [key]: AttributeValue.filterSensitiveLog(value),
-          }),
-          {}
-        ),
-      };
-    if (obj.L !== undefined) return { L: obj.L.map((item) => AttributeValue.filterSensitiveLog(item)) };
-    if (obj.NULL !== undefined) return { NULL: obj.NULL };
-    if (obj.BOOL !== undefined) return { BOOL: obj.BOOL };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -980,42 +837,6 @@ export interface StreamRecord {
    *          </ul>
    */
   StreamViewType?: StreamViewType | string;
-}
-
-export namespace StreamRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamRecord): any => ({
-    ...obj,
-    ...(obj.Keys && {
-      Keys: Object.entries(obj.Keys).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-    ...(obj.NewImage && {
-      NewImage: Object.entries(obj.NewImage).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-    ...(obj.OldImage && {
-      OldImage: Object.entries(obj.OldImage).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
 }
 
 /**
@@ -1085,16 +906,6 @@ export interface _Record {
   userIdentity?: Identity;
 }
 
-export namespace _Record {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj,
-    ...(obj.dynamodb && { dynamodb: StreamRecord.filterSensitiveLog(obj.dynamodb) }),
-  });
-}
-
 /**
  * <p>Represents the output of a <code>GetRecords</code> operation.</p>
  */
@@ -1112,12 +923,169 @@ export interface GetRecordsOutput {
   NextShardIterator?: string;
 }
 
-export namespace GetRecordsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRecordsOutput): any => ({
-    ...obj,
-    ...(obj.Records && { Records: obj.Records.map((item) => _Record.filterSensitiveLog(item)) }),
-  });
-}
+/**
+ * @internal
+ */
+export const DescribeStreamInputFilterSensitiveLog = (obj: DescribeStreamInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeySchemaElementFilterSensitiveLog = (obj: KeySchemaElement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SequenceNumberRangeFilterSensitiveLog = (obj: SequenceNumberRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShardFilterSensitiveLog = (obj: Shard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamDescriptionFilterSensitiveLog = (obj: StreamDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStreamOutputFilterSensitiveLog = (obj: DescribeStreamOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRecordsInputFilterSensitiveLog = (obj: GetRecordsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityFilterSensitiveLog = (obj: Identity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetShardIteratorInputFilterSensitiveLog = (obj: GetShardIteratorInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetShardIteratorOutputFilterSensitiveLog = (obj: GetShardIteratorOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamsInputFilterSensitiveLog = (obj: ListStreamsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _StreamFilterSensitiveLog = (obj: _Stream): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamsOutputFilterSensitiveLog = (obj: ListStreamsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
+  if (obj.S !== undefined) return { S: obj.S };
+  if (obj.N !== undefined) return { N: obj.N };
+  if (obj.B !== undefined) return { B: obj.B };
+  if (obj.SS !== undefined) return { SS: obj.SS };
+  if (obj.NS !== undefined) return { NS: obj.NS };
+  if (obj.BS !== undefined) return { BS: obj.BS };
+  if (obj.M !== undefined)
+    return {
+      M: Object.entries(obj.M).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValueFilterSensitiveLog(value),
+        }),
+        {}
+      ),
+    };
+  if (obj.L !== undefined) return { L: obj.L.map((item) => AttributeValueFilterSensitiveLog(item)) };
+  if (obj.NULL !== undefined) return { NULL: obj.NULL };
+  if (obj.BOOL !== undefined) return { BOOL: obj.BOOL };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const StreamRecordFilterSensitiveLog = (obj: StreamRecord): any => ({
+  ...obj,
+  ...(obj.Keys && {
+    Keys: Object.entries(obj.Keys).reduce(
+      (acc: any, [key, value]: [string, AttributeValue]) => ({
+        ...acc,
+        [key]: AttributeValueFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+  ...(obj.NewImage && {
+    NewImage: Object.entries(obj.NewImage).reduce(
+      (acc: any, [key, value]: [string, AttributeValue]) => ({
+        ...acc,
+        [key]: AttributeValueFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+  ...(obj.OldImage && {
+    OldImage: Object.entries(obj.OldImage).reduce(
+      (acc: any, [key, value]: [string, AttributeValue]) => ({
+        ...acc,
+        [key]: AttributeValueFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
+  ...obj,
+  ...(obj.dynamodb && { dynamodb: StreamRecordFilterSensitiveLog(obj.dynamodb) }),
+});
+
+/**
+ * @internal
+ */
+export const GetRecordsOutputFilterSensitiveLog = (obj: GetRecordsOutput): any => ({
+  ...obj,
+  ...(obj.Records && { Records: obj.Records.map((item) => _RecordFilterSensitiveLog(item)) }),
+});

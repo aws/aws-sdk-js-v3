@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import { AssociateRoleToGroupRequest, AssociateRoleToGroupResponse } from "../models/models_0";
+import {
+  AssociateRoleToGroupRequest,
+  AssociateRoleToGroupRequestFilterSensitiveLog,
+  AssociateRoleToGroupResponse,
+  AssociateRoleToGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateRoleToGroupCommand,
   serializeAws_restJson1AssociateRoleToGroupCommand,
@@ -72,8 +77,8 @@ export class AssociateRoleToGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateRoleToGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateRoleToGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateRoleToGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateRoleToGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

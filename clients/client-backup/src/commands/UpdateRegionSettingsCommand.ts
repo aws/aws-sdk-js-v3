@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { UpdateRegionSettingsInput } from "../models/models_0";
+import { UpdateRegionSettingsInput, UpdateRegionSettingsInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateRegionSettingsCommand,
   serializeAws_restJson1UpdateRegionSettingsCommand,
@@ -77,7 +77,7 @@ export class UpdateRegionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRegionSettingsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateRegionSettingsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

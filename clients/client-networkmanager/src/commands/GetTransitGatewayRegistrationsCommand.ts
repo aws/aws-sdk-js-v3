@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetTransitGatewayRegistrationsRequest, GetTransitGatewayRegistrationsResponse } from "../models/models_0";
+import {
+  GetTransitGatewayRegistrationsRequest,
+  GetTransitGatewayRegistrationsRequestFilterSensitiveLog,
+  GetTransitGatewayRegistrationsResponse,
+  GetTransitGatewayRegistrationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetTransitGatewayRegistrationsCommand,
@@ -75,8 +80,8 @@ export class GetTransitGatewayRegistrationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTransitGatewayRegistrationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetTransitGatewayRegistrationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetTransitGatewayRegistrationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetTransitGatewayRegistrationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

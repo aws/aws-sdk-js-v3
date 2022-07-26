@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { ForgetSmartHomeAppliancesRequest, ForgetSmartHomeAppliancesResponse } from "../models/models_0";
+import {
+  ForgetSmartHomeAppliancesRequest,
+  ForgetSmartHomeAppliancesRequestFilterSensitiveLog,
+  ForgetSmartHomeAppliancesResponse,
+  ForgetSmartHomeAppliancesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ForgetSmartHomeAppliancesCommand,
   serializeAws_json1_1ForgetSmartHomeAppliancesCommand,
@@ -72,8 +77,8 @@ export class ForgetSmartHomeAppliancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ForgetSmartHomeAppliancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ForgetSmartHomeAppliancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ForgetSmartHomeAppliancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ForgetSmartHomeAppliancesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

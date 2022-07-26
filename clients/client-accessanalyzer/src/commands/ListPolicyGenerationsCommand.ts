@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import { ListPolicyGenerationsRequest, ListPolicyGenerationsResponse } from "../models/models_0";
+import {
+  ListPolicyGenerationsRequest,
+  ListPolicyGenerationsRequestFilterSensitiveLog,
+  ListPolicyGenerationsResponse,
+  ListPolicyGenerationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListPolicyGenerationsCommand,
   serializeAws_restJson1ListPolicyGenerationsCommand,
@@ -72,8 +77,8 @@ export class ListPolicyGenerationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPolicyGenerationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPolicyGenerationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPolicyGenerationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPolicyGenerationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

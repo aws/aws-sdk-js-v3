@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteWorkloadInput } from "../models/models_0";
+import { DeleteWorkloadInput, DeleteWorkloadInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWorkloadCommand,
   serializeAws_restJson1DeleteWorkloadCommand,
@@ -72,7 +72,7 @@ export class DeleteWorkloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkloadInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWorkloadInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

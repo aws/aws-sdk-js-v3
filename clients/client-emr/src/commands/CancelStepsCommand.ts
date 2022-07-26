@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { CancelStepsInput, CancelStepsOutput } from "../models/models_0";
+import {
+  CancelStepsInput,
+  CancelStepsInputFilterSensitiveLog,
+  CancelStepsOutput,
+  CancelStepsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CancelStepsCommand,
   serializeAws_json1_1CancelStepsCommand,
@@ -76,8 +81,8 @@ export class CancelStepsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelStepsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CancelStepsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CancelStepsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelStepsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

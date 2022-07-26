@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
+import {
+  DeleteDomainRequest,
+  DeleteDomainRequestFilterSensitiveLog,
+  DeleteDomainResponse,
+  DeleteDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDomainCommand,
   serializeAws_restJson1DeleteDomainCommand,
@@ -73,8 +78,8 @@ export class DeleteDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

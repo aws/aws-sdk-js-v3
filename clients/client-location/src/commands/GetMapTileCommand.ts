@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { GetMapTileRequest, GetMapTileResponse } from "../models/models_0";
+import {
+  GetMapTileRequest,
+  GetMapTileRequestFilterSensitiveLog,
+  GetMapTileResponse,
+  GetMapTileResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMapTileCommand,
   serializeAws_restJson1GetMapTileCommand,
@@ -77,8 +82,8 @@ export class GetMapTileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMapTileRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMapTileResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMapTileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMapTileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

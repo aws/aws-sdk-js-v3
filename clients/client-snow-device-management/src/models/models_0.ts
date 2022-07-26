@@ -37,29 +37,11 @@ export interface CancelTaskInput {
   taskId: string | undefined;
 }
 
-export namespace CancelTaskInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelTaskInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelTaskOutput {
   /**
    * <p>The ID of the task that you are attempting to cancel.</p>
    */
   taskId?: string;
-}
-
-export namespace CancelTaskOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelTaskOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -172,42 +154,15 @@ export interface Capacity {
   available?: number;
 }
 
-export namespace Capacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Capacity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure used to reboot the device.</p>
  */
 export interface Reboot {}
 
-export namespace Reboot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Reboot): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure used to unlock a device.</p>
  */
 export interface Unlock {}
-
-export namespace Unlock {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Unlock): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The command given to the device to execute.</p>
@@ -250,15 +205,6 @@ export namespace Command {
     if (value.reboot !== undefined) return visitor.reboot(value.reboot);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Command): any => {
-    if (obj.unlock !== undefined) return { unlock: Unlock.filterSensitiveLog(obj.unlock) };
-    if (obj.reboot !== undefined) return { reboot: Reboot.filterSensitiveLog(obj.reboot) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -274,15 +220,6 @@ export interface CpuOptions {
    * <p>The number of threads per core in the CPU.</p>
    */
   threadsPerCore?: number;
-}
-
-export namespace CpuOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CpuOptions): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTaskInput {
@@ -313,16 +250,6 @@ export interface CreateTaskInput {
   clientToken?: string;
 }
 
-export namespace CreateTaskInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTaskInput): any => ({
-    ...obj,
-    ...(obj.command && { command: Command.filterSensitiveLog(obj.command) }),
-  });
-}
-
 export interface CreateTaskOutput {
   /**
    * <p>The ID of the task that you created.</p>
@@ -333,15 +260,6 @@ export interface CreateTaskOutput {
    * <p>The Amazon Resource Name (ARN) of the task that you created.</p>
    */
   taskArn?: string;
-}
-
-export namespace CreateTaskOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTaskOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -368,15 +286,6 @@ export interface DescribeDeviceInput {
    * <p>The ID of the device that you are checking the information of.</p>
    */
   managedDeviceId: string | undefined;
-}
-
-export namespace DescribeDeviceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceInput): any => ({
-    ...obj,
-  });
 }
 
 export enum UnlockState {
@@ -440,15 +349,6 @@ export interface PhysicalNetworkInterface {
   macAddress?: string;
 }
 
-export namespace PhysicalNetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PhysicalNetworkInterface): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the software on the device.</p>
  */
@@ -468,15 +368,6 @@ export interface SoftwareInformation {
    *       device.</p>
    */
   installState?: string;
-}
-
-export namespace SoftwareInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SoftwareInformation): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDeviceOutput {
@@ -539,15 +430,6 @@ export interface DescribeDeviceOutput {
   software?: SoftwareInformation;
 }
 
-export namespace DescribeDeviceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDeviceEc2Input {
   /**
    * <p>The ID of the managed device.</p>
@@ -558,15 +440,6 @@ export interface DescribeDeviceEc2Input {
    * <p>A list of instance IDs associated with the managed device.</p>
    */
   instanceIds: string[] | undefined;
-}
-
-export namespace DescribeDeviceEc2Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceEc2Input): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -595,15 +468,6 @@ export interface EbsInstanceBlockDevice {
   volumeId?: string;
 }
 
-export namespace EbsInstanceBlockDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EbsInstanceBlockDevice): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description of a block device mapping.</p>
  */
@@ -620,15 +484,6 @@ export interface InstanceBlockDeviceMapping {
   ebs?: EbsInstanceBlockDevice;
 }
 
-export namespace InstanceBlockDeviceMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the device's security group.</p>
  */
@@ -642,15 +497,6 @@ export interface SecurityGroupIdentifier {
    * <p>The security group name.</p>
    */
   groupName?: string;
-}
-
-export namespace SecurityGroupIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupIdentifier): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceStateName {
@@ -718,15 +564,6 @@ export interface InstanceState {
    *       of the instance.</p>
    */
   name?: InstanceStateName | string;
-}
-
-export namespace InstanceState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -802,15 +639,6 @@ export interface Instance {
   rootDeviceName?: string;
 }
 
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details about the instance.</p>
  */
@@ -826,29 +654,11 @@ export interface InstanceSummary {
   lastUpdatedAt?: Date;
 }
 
-export namespace InstanceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDeviceEc2Output {
   /**
    * <p>A list of structures containing information about each instance. </p>
    */
   instances?: InstanceSummary[];
-}
-
-export namespace DescribeDeviceEc2Output {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDeviceEc2Output): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeExecutionInput {
@@ -861,15 +671,6 @@ export interface DescribeExecutionInput {
    * <p>The ID of the managed device.</p>
    */
   managedDeviceId: string | undefined;
-}
-
-export namespace DescribeExecutionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExecutionInput): any => ({
-    ...obj,
-  });
 }
 
 export enum ExecutionState {
@@ -914,29 +715,11 @@ export interface DescribeExecutionOutput {
   lastUpdatedAt?: Date;
 }
 
-export namespace DescribeExecutionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExecutionOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTaskInput {
   /**
    * <p>The ID of the task to be described.</p>
    */
   taskId: string | undefined;
-}
-
-export namespace DescribeTaskInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTaskInput): any => ({
-    ...obj,
-  });
 }
 
 export enum TaskState {
@@ -993,15 +776,6 @@ export interface DescribeTaskOutput {
   tags?: Record<string, string>;
 }
 
-export namespace DescribeTaskOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTaskOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifying information about the device.</p>
  */
@@ -1028,15 +802,6 @@ export interface DeviceSummary {
   tags?: Record<string, string>;
 }
 
-export namespace DeviceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeviceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExecutionsInput {
   /**
    * <p>The ID of the task.</p>
@@ -1057,15 +822,6 @@ export interface ListExecutionsInput {
    * <p>A pagination token to continue to the next page of tasks.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListExecutionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExecutionsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1093,15 +849,6 @@ export interface ExecutionSummary {
   state?: ExecutionState | string;
 }
 
-export namespace ExecutionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExecutionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExecutionsOutput {
   /**
    * <p>A list of executions. Each execution contains the task ID, the device that the task is
@@ -1113,15 +860,6 @@ export interface ListExecutionsOutput {
    * <p>A pagination token to continue to the next page of executions.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListExecutionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExecutionsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDeviceResourcesInput {
@@ -1146,15 +884,6 @@ export interface ListDeviceResourcesInput {
   nextToken?: string;
 }
 
-export namespace ListDeviceResourcesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceResourcesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A summary of a resource available on the device.</p>
  */
@@ -1175,15 +904,6 @@ export interface ResourceSummary {
   id?: string;
 }
 
-export namespace ResourceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeviceResourcesOutput {
   /**
    * <p>A structure defining the resource's type, Amazon Resource Name (ARN), and ID.</p>
@@ -1194,15 +914,6 @@ export interface ListDeviceResourcesOutput {
    * <p>A pagination token to continue to the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDeviceResourcesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeviceResourcesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDevicesInput {
@@ -1222,15 +933,6 @@ export interface ListDevicesInput {
   nextToken?: string;
 }
 
-export namespace ListDevicesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDevicesOutput {
   /**
    * <p>A list of device structures that contain information about the device.</p>
@@ -1243,15 +945,6 @@ export interface ListDevicesOutput {
   nextToken?: string;
 }
 
-export namespace ListDevicesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDevicesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>
@@ -1259,29 +952,11 @@ export interface ListTagsForResourceInput {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>The list of tags for the device or task.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTasksInput {
@@ -1299,15 +974,6 @@ export interface ListTasksInput {
    * <p>A pagination token to continue to the next page of tasks.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTasksInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTasksInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1336,15 +1002,6 @@ export interface TaskSummary {
   tags?: Record<string, string>;
 }
 
-export namespace TaskSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTasksOutput {
   /**
    * <p>A list of task structures containing details about each task.</p>
@@ -1355,15 +1012,6 @@ export interface ListTasksOutput {
    * <p>A pagination token to continue to the next page of tasks.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListTasksOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTasksOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceInput {
@@ -1379,15 +1027,6 @@ export interface TagResourceInput {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the device or task.</p>
@@ -1401,11 +1040,292 @@ export interface UntagResourceInput {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CancelTaskInputFilterSensitiveLog = (obj: CancelTaskInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelTaskOutputFilterSensitiveLog = (obj: CancelTaskOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityFilterSensitiveLog = (obj: Capacity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootFilterSensitiveLog = (obj: Reboot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnlockFilterSensitiveLog = (obj: Unlock): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommandFilterSensitiveLog = (obj: Command): any => {
+  if (obj.unlock !== undefined) return { unlock: UnlockFilterSensitiveLog(obj.unlock) };
+  if (obj.reboot !== undefined) return { reboot: RebootFilterSensitiveLog(obj.reboot) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CpuOptionsFilterSensitiveLog = (obj: CpuOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTaskInputFilterSensitiveLog = (obj: CreateTaskInput): any => ({
+  ...obj,
+  ...(obj.command && { command: CommandFilterSensitiveLog(obj.command) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateTaskOutputFilterSensitiveLog = (obj: CreateTaskOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceInputFilterSensitiveLog = (obj: DescribeDeviceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PhysicalNetworkInterfaceFilterSensitiveLog = (obj: PhysicalNetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SoftwareInformationFilterSensitiveLog = (obj: SoftwareInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceOutputFilterSensitiveLog = (obj: DescribeDeviceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceEc2InputFilterSensitiveLog = (obj: DescribeDeviceEc2Input): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EbsInstanceBlockDeviceFilterSensitiveLog = (obj: EbsInstanceBlockDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceBlockDeviceMappingFilterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SecurityGroupIdentifierFilterSensitiveLog = (obj: SecurityGroupIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceStateFilterSensitiveLog = (obj: InstanceState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceSummaryFilterSensitiveLog = (obj: InstanceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDeviceEc2OutputFilterSensitiveLog = (obj: DescribeDeviceEc2Output): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExecutionInputFilterSensitiveLog = (obj: DescribeExecutionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExecutionOutputFilterSensitiveLog = (obj: DescribeExecutionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTaskInputFilterSensitiveLog = (obj: DescribeTaskInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTaskOutputFilterSensitiveLog = (obj: DescribeTaskOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceSummaryFilterSensitiveLog = (obj: DeviceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExecutionsInputFilterSensitiveLog = (obj: ListExecutionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecutionSummaryFilterSensitiveLog = (obj: ExecutionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExecutionsOutputFilterSensitiveLog = (obj: ListExecutionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceResourcesInputFilterSensitiveLog = (obj: ListDeviceResourcesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceSummaryFilterSensitiveLog = (obj: ResourceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeviceResourcesOutputFilterSensitiveLog = (obj: ListDeviceResourcesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesInputFilterSensitiveLog = (obj: ListDevicesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDevicesOutputFilterSensitiveLog = (obj: ListDevicesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTasksInputFilterSensitiveLog = (obj: ListTasksInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskSummaryFilterSensitiveLog = (obj: TaskSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTasksOutputFilterSensitiveLog = (obj: ListTasksOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateSubnetCidrReservationRequest, CreateSubnetCidrReservationResult } from "../models/models_1";
+import {
+  CreateSubnetCidrReservationRequest,
+  CreateSubnetCidrReservationRequestFilterSensitiveLog,
+  CreateSubnetCidrReservationResult,
+  CreateSubnetCidrReservationResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateSubnetCidrReservationCommand,
   serializeAws_ec2CreateSubnetCidrReservationCommand,
@@ -72,8 +77,8 @@ export class CreateSubnetCidrReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSubnetCidrReservationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSubnetCidrReservationResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSubnetCidrReservationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSubnetCidrReservationResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

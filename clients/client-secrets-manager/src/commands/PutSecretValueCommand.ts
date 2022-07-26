@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutSecretValueRequest, PutSecretValueResponse } from "../models/models_0";
+import {
+  PutSecretValueRequest,
+  PutSecretValueRequestFilterSensitiveLog,
+  PutSecretValueResponse,
+  PutSecretValueResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutSecretValueCommand,
   serializeAws_json1_1PutSecretValueCommand,
@@ -98,8 +103,8 @@ export class PutSecretValueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSecretValueRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutSecretValueResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSecretValueRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutSecretValueResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

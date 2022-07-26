@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { DeleteConfigurationRequest, DeleteConfigurationResponse } from "../models/models_0";
+import {
+  DeleteConfigurationRequest,
+  DeleteConfigurationRequestFilterSensitiveLog,
+  DeleteConfigurationResponse,
+  DeleteConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteConfigurationCommand,
   serializeAws_restJson1DeleteConfigurationCommand,
@@ -72,8 +77,8 @@ export class DeleteConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

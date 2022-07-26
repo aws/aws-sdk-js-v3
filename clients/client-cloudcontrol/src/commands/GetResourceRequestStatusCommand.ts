@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
-import { GetResourceRequestStatusInput, GetResourceRequestStatusOutput } from "../models/models_0";
+import {
+  GetResourceRequestStatusInput,
+  GetResourceRequestStatusInputFilterSensitiveLog,
+  GetResourceRequestStatusOutput,
+  GetResourceRequestStatusOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0GetResourceRequestStatusCommand,
   serializeAws_json1_0GetResourceRequestStatusCommand,
@@ -74,8 +79,8 @@ export class GetResourceRequestStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceRequestStatusInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceRequestStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetResourceRequestStatusInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResourceRequestStatusOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

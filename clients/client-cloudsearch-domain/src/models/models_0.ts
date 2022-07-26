@@ -311,15 +311,6 @@ export interface SearchRequest {
   stats?: string;
 }
 
-export namespace SearchRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for facet information. </p>
  */
@@ -335,15 +326,6 @@ export interface Bucket {
   count?: number;
 }
 
-export namespace Bucket {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Bucket): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for the calculated facet values and counts.</p>
  */
@@ -352,15 +334,6 @@ export interface BucketInfo {
    * <p>A list of the calculated facet values and counts.</p>
    */
   buckets?: Bucket[];
-}
-
-export namespace BucketInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -388,15 +361,6 @@ export interface Hit {
   highlights?: Record<string, string>;
 }
 
-export namespace Hit {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Hit): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The collection of documents that match the search request.</p>
  */
@@ -420,15 +384,6 @@ export interface Hits {
    * <p>A document that matches the search request.</p>
    */
   hit?: Hit[];
-}
-
-export namespace Hits {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Hits): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -479,15 +434,6 @@ export interface FieldStats {
   stddev?: number;
 }
 
-export namespace FieldStats {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldStats): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the resource id (<code>rid</code>) and the time it took to process the request (<code>timems</code>).</p>
  */
@@ -501,15 +447,6 @@ export interface SearchStatus {
    * <p>The encrypted resource ID for the request.</p>
    */
   rid?: string;
-}
-
-export namespace SearchStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -537,15 +474,6 @@ export interface SearchResponse {
   stats?: Record<string, FieldStats>;
 }
 
-export namespace SearchResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the parameters to the <code>Suggest</code> request.</p>
  */
@@ -566,15 +494,6 @@ export interface SuggestRequest {
   size?: number;
 }
 
-export namespace SuggestRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuggestRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the resource id (<code>rid</code>) and the time it took to process the request (<code>timems</code>).</p>
  */
@@ -588,15 +507,6 @@ export interface SuggestStatus {
    * <p>The encrypted resource ID for the request.</p>
    */
   rid?: string;
-}
-
-export namespace SuggestStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuggestStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -619,15 +529,6 @@ export interface SuggestionMatch {
   id?: string;
 }
 
-export namespace SuggestionMatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuggestionMatch): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Container for the suggestion information returned in a <code>SuggestResponse</code>.</p>
  */
@@ -648,15 +549,6 @@ export interface SuggestModel {
   suggestions?: SuggestionMatch[];
 }
 
-export namespace SuggestModel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuggestModel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the response to a <code>Suggest</code> request.</p>
  */
@@ -670,15 +562,6 @@ export interface SuggestResponse {
    * <p>Container for the matching search suggestion information.</p>
    */
   suggest?: SuggestModel;
-}
-
-export namespace SuggestResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuggestResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -727,15 +610,6 @@ export interface UploadDocumentsRequest {
   contentType: ContentType | string | undefined;
 }
 
-export namespace UploadDocumentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadDocumentsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A warning returned by the document service when an issue is discovered while processing an upload request.</p>
  */
@@ -744,15 +618,6 @@ export interface DocumentServiceWarning {
    * <p>The description for a warning returned by the document service.</p>
    */
   message?: string;
-}
-
-export namespace DocumentServiceWarning {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentServiceWarning): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -780,11 +645,114 @@ export interface UploadDocumentsResponse {
   warnings?: DocumentServiceWarning[];
 }
 
-export namespace UploadDocumentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UploadDocumentsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SearchRequestFilterSensitiveLog = (obj: SearchRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BucketFilterSensitiveLog = (obj: Bucket): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BucketInfoFilterSensitiveLog = (obj: BucketInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HitFilterSensitiveLog = (obj: Hit): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HitsFilterSensitiveLog = (obj: Hits): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldStatsFilterSensitiveLog = (obj: FieldStats): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchStatusFilterSensitiveLog = (obj: SearchStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchResponseFilterSensitiveLog = (obj: SearchResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggestRequestFilterSensitiveLog = (obj: SuggestRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggestStatusFilterSensitiveLog = (obj: SuggestStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggestionMatchFilterSensitiveLog = (obj: SuggestionMatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggestModelFilterSensitiveLog = (obj: SuggestModel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SuggestResponseFilterSensitiveLog = (obj: SuggestResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadDocumentsRequestFilterSensitiveLog = (obj: UploadDocumentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DocumentServiceWarningFilterSensitiveLog = (obj: DocumentServiceWarning): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UploadDocumentsResponseFilterSensitiveLog = (obj: UploadDocumentsResponse): any => ({
+  ...obj,
+});

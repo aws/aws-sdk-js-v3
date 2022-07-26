@@ -61,15 +61,6 @@ export interface CapacitySpecification {
   writeCapacityUnits?: number;
 }
 
-export namespace CapacitySpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacitySpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The read/write throughput capacity mode for a table. The options are:</p>
  *          <p>• <code>throughputMode:PAY_PER_REQUEST</code> and </p>
@@ -107,15 +98,6 @@ export interface CapacitySpecificationSummary {
   lastUpdateToPayPerRequestTimestamp?: Date;
 }
 
-export namespace CapacitySpecificationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacitySpecificationSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum SortOrder {
   ASC = "ASC",
   DESC = "DESC",
@@ -136,15 +118,6 @@ export interface ClusteringKey {
   orderBy: SortOrder | string | undefined;
 }
 
-export namespace ClusteringKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusteringKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The names and data types of regular columns.</p>
  */
@@ -161,15 +134,6 @@ export interface ColumnDefinition {
   type: string | undefined;
 }
 
-export namespace ColumnDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ColumnDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An optional comment that describes the table.</p>
  */
@@ -178,15 +142,6 @@ export interface Comment {
    * <p>An optional description of the table.</p>
    */
   message: string | undefined;
-}
-
-export namespace Comment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Comment): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -231,15 +186,6 @@ export interface Tag {
   value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateKeyspaceRequest {
   /**
    * <p>The name of the keyspace to be created.</p>
@@ -254,29 +200,11 @@ export interface CreateKeyspaceRequest {
   tags?: Tag[];
 }
 
-export namespace CreateKeyspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeyspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateKeyspaceResponse {
   /**
    * <p>The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace CreateKeyspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateKeyspaceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -371,15 +299,6 @@ export interface EncryptionSpecification {
   kmsKeyIdentifier?: string;
 }
 
-export namespace EncryptionSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionSpecification): any => ({
-    ...obj,
-  });
-}
-
 export enum PointInTimeRecoveryStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -401,15 +320,6 @@ export interface PointInTimeRecovery {
   status: PointInTimeRecoveryStatus | string | undefined;
 }
 
-export namespace PointInTimeRecovery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PointInTimeRecovery): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The partition key portion of the primary key is required
  *          and determines how Amazon Keyspaces stores the data.
@@ -422,15 +332,6 @@ export interface PartitionKey {
   name: string | undefined;
 }
 
-export namespace PartitionKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PartitionKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The static columns of the table. Static columns store values that are shared by all rows in the same partition.</p>
  */
@@ -439,15 +340,6 @@ export interface StaticColumn {
    * <p>The name of the static column.</p>
    */
   name: string | undefined;
-}
-
-export namespace StaticColumn {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaticColumn): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -475,15 +367,6 @@ export interface SchemaDefinition {
   staticColumns?: StaticColumn[];
 }
 
-export namespace SchemaDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaDefinition): any => ({
-    ...obj,
-  });
-}
-
 export enum TimeToLiveStatus {
   ENABLED = "ENABLED",
 }
@@ -498,15 +381,6 @@ export interface TimeToLive {
    * <p>Shows how to enable custom Time to Live (TTL) settings for the specified table.</p>
    */
   status: TimeToLiveStatus | string | undefined;
-}
-
-export namespace TimeToLive {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeToLive): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTableRequest {
@@ -627,29 +501,11 @@ export interface CreateTableRequest {
   tags?: Tag[];
 }
 
-export namespace CreateTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTableRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateTableResponse {
   /**
    * <p>The unique identifier of the table in the format of an Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace CreateTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateTableResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -684,25 +540,7 @@ export interface DeleteKeyspaceRequest {
   keyspaceName: string | undefined;
 }
 
-export namespace DeleteKeyspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKeyspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteKeyspaceResponse {}
-
-export namespace DeleteKeyspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteKeyspaceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteTableRequest {
   /**
@@ -716,40 +554,13 @@ export interface DeleteTableRequest {
   tableName: string | undefined;
 }
 
-export namespace DeleteTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTableRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTableResponse {}
-
-export namespace DeleteTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteTableResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface GetKeyspaceRequest {
   /**
    * <p>The name of the keyspace.</p>
    */
   keyspaceName: string | undefined;
-}
-
-export namespace GetKeyspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyspaceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetKeyspaceResponse {
@@ -764,15 +575,6 @@ export interface GetKeyspaceResponse {
   resourceArn: string | undefined;
 }
 
-export namespace GetKeyspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyspaceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetTableRequest {
   /**
    * <p>The name of the keyspace that the table is stored in.</p>
@@ -783,15 +585,6 @@ export interface GetTableRequest {
    * <p>The name of the table.</p>
    */
   tableName: string | undefined;
-}
-
-export namespace GetTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTableRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -807,15 +600,6 @@ export interface PointInTimeRecoverySummary {
    * <p>Specifies the earliest possible restore point of the table in ISO 8601 format.</p>
    */
   earliestRestorableTimestamp?: Date;
-}
-
-export namespace PointInTimeRecoverySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PointInTimeRecoverySummary): any => ({
-    ...obj,
-  });
 }
 
 export enum TableStatus {
@@ -894,15 +678,6 @@ export interface GetTableResponse {
   comment?: Comment;
 }
 
-export namespace GetTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetTableResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListKeyspacesRequest {
   /**
    * <p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>
@@ -915,15 +690,6 @@ export interface ListKeyspacesRequest {
    *          provide the <code>NextToken</code> value as an argument of a subsequent API invocation.</p>
    */
   maxResults?: number;
-}
-
-export namespace ListKeyspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKeyspacesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -941,15 +707,6 @@ export interface KeyspaceSummary {
   resourceArn: string | undefined;
 }
 
-export namespace KeyspaceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyspaceSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListKeyspacesResponse {
   /**
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
@@ -960,15 +717,6 @@ export interface ListKeyspacesResponse {
    * <p>A list of keyspaces.</p>
    */
   keyspaces: KeyspaceSummary[] | undefined;
-}
-
-export namespace ListKeyspacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListKeyspacesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTablesRequest {
@@ -988,15 +736,6 @@ export interface ListTablesRequest {
    * <p>The name of the keyspace.</p>
    */
   keyspaceName: string | undefined;
-}
-
-export namespace ListTablesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTablesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1019,15 +758,6 @@ export interface TableSummary {
   resourceArn: string | undefined;
 }
 
-export namespace TableSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TableSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTablesResponse {
   /**
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
@@ -1038,15 +768,6 @@ export interface ListTablesResponse {
    * <p>A list of tables.</p>
    */
   tables?: TableSummary[];
-}
-
-export namespace ListTablesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTablesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -1068,15 +789,6 @@ export interface ListTagsForResourceRequest {
   maxResults?: number;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>
@@ -1087,15 +799,6 @@ export interface ListTagsForResourceResponse {
    * <p>A list of tags.</p>
    */
   tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreTableRequest {
@@ -1170,29 +873,11 @@ export interface RestoreTableRequest {
   tagsOverride?: Tag[];
 }
 
-export namespace RestoreTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreTableRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreTableResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the restored table.</p>
    */
   restoredTableARN: string | undefined;
-}
-
-export namespace RestoreTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreTableResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1207,25 +892,7 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1239,25 +906,7 @@ export interface UntagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateTableRequest {
   /**
@@ -1337,15 +986,6 @@ export interface UpdateTableRequest {
   defaultTimeToLive?: number;
 }
 
-export namespace UpdateTableRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateTableResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the modified table.</p>
@@ -1353,11 +993,289 @@ export interface UpdateTableResponse {
   resourceArn: string | undefined;
 }
 
-export namespace UpdateTableResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateTableResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CapacitySpecificationFilterSensitiveLog = (obj: CapacitySpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacitySpecificationSummaryFilterSensitiveLog = (obj: CapacitySpecificationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusteringKeyFilterSensitiveLog = (obj: ClusteringKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnDefinitionFilterSensitiveLog = (obj: ColumnDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CommentFilterSensitiveLog = (obj: Comment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyspaceRequestFilterSensitiveLog = (obj: CreateKeyspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateKeyspaceResponseFilterSensitiveLog = (obj: CreateKeyspaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionSpecificationFilterSensitiveLog = (obj: EncryptionSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PointInTimeRecoveryFilterSensitiveLog = (obj: PointInTimeRecovery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PartitionKeyFilterSensitiveLog = (obj: PartitionKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StaticColumnFilterSensitiveLog = (obj: StaticColumn): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaDefinitionFilterSensitiveLog = (obj: SchemaDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeToLiveFilterSensitiveLog = (obj: TimeToLive): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTableRequestFilterSensitiveLog = (obj: CreateTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTableResponseFilterSensitiveLog = (obj: CreateTableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeyspaceRequestFilterSensitiveLog = (obj: DeleteKeyspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteKeyspaceResponseFilterSensitiveLog = (obj: DeleteKeyspaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTableRequestFilterSensitiveLog = (obj: DeleteTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteTableResponseFilterSensitiveLog = (obj: DeleteTableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKeyspaceRequestFilterSensitiveLog = (obj: GetKeyspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKeyspaceResponseFilterSensitiveLog = (obj: GetKeyspaceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTableRequestFilterSensitiveLog = (obj: GetTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PointInTimeRecoverySummaryFilterSensitiveLog = (obj: PointInTimeRecoverySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTableResponseFilterSensitiveLog = (obj: GetTableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKeyspacesRequestFilterSensitiveLog = (obj: ListKeyspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyspaceSummaryFilterSensitiveLog = (obj: KeyspaceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListKeyspacesResponseFilterSensitiveLog = (obj: ListKeyspacesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTablesRequestFilterSensitiveLog = (obj: ListTablesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TableSummaryFilterSensitiveLog = (obj: TableSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTablesResponseFilterSensitiveLog = (obj: ListTablesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreTableRequestFilterSensitiveLog = (obj: RestoreTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreTableResponseFilterSensitiveLog = (obj: RestoreTableResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTableRequestFilterSensitiveLog = (obj: UpdateTableRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTableResponseFilterSensitiveLog = (obj: UpdateTableResponse): any => ({
+  ...obj,
+});

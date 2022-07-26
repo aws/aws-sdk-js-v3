@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { InviteMembersRequest, InviteMembersResponse } from "../models/models_1";
+import {
+  InviteMembersRequest,
+  InviteMembersRequestFilterSensitiveLog,
+  InviteMembersResponse,
+  InviteMembersResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1InviteMembersCommand,
   serializeAws_restJson1InviteMembersCommand,
@@ -78,8 +83,8 @@ export class InviteMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InviteMembersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: InviteMembersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: InviteMembersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: InviteMembersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

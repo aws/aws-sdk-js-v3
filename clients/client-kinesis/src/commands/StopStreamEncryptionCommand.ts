@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { StopStreamEncryptionInput } from "../models/models_0";
+import { StopStreamEncryptionInput, StopStreamEncryptionInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1StopStreamEncryptionCommand,
   serializeAws_json1_1StopStreamEncryptionCommand,
@@ -86,7 +86,7 @@ export class StopStreamEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopStreamEncryptionInput.filterSensitiveLog,
+      inputFilterSensitiveLog: StopStreamEncryptionInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

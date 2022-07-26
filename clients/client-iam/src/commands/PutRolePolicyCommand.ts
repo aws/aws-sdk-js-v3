@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { PutRolePolicyRequest } from "../models/models_0";
+import { PutRolePolicyRequest, PutRolePolicyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryPutRolePolicyCommand,
   serializeAws_queryPutRolePolicyCommand,
@@ -91,7 +91,7 @@ export class PutRolePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRolePolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutRolePolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

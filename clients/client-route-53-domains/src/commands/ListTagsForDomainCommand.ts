@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTagsForDomainRequest, ListTagsForDomainResponse } from "../models/models_0";
+import {
+  ListTagsForDomainRequest,
+  ListTagsForDomainRequestFilterSensitiveLog,
+  ListTagsForDomainResponse,
+  ListTagsForDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListTagsForDomainCommand,
   serializeAws_json1_1ListTagsForDomainCommand,
@@ -73,8 +78,8 @@ export class ListTagsForDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

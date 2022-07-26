@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListFileSharesInput, ListFileSharesOutput } from "../models/models_0";
+import {
+  ListFileSharesInput,
+  ListFileSharesInputFilterSensitiveLog,
+  ListFileSharesOutput,
+  ListFileSharesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListFileSharesCommand,
   serializeAws_json1_1ListFileSharesCommand,
@@ -74,8 +79,8 @@ export class ListFileSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFileSharesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFileSharesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFileSharesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFileSharesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

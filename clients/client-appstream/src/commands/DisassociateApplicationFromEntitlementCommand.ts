@@ -15,7 +15,9 @@ import {
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
 import {
   DisassociateApplicationFromEntitlementRequest,
+  DisassociateApplicationFromEntitlementRequestFilterSensitiveLog,
   DisassociateApplicationFromEntitlementResult,
+  DisassociateApplicationFromEntitlementResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateApplicationFromEntitlementCommand,
@@ -78,8 +80,8 @@ export class DisassociateApplicationFromEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateApplicationFromEntitlementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateApplicationFromEntitlementResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateApplicationFromEntitlementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateApplicationFromEntitlementResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

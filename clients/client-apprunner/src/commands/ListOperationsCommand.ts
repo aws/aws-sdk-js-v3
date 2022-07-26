@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { ListOperationsRequest, ListOperationsResponse } from "../models/models_0";
+import {
+  ListOperationsRequest,
+  ListOperationsRequestFilterSensitiveLog,
+  ListOperationsResponse,
+  ListOperationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0ListOperationsCommand,
   serializeAws_json1_0ListOperationsCommand,
@@ -74,8 +79,8 @@ export class ListOperationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOperationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListOperationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListOperationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListOperationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

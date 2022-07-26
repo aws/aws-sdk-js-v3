@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CopyDBParameterGroupMessage, CopyDBParameterGroupResult } from "../models/models_0";
+import {
+  CopyDBParameterGroupMessage,
+  CopyDBParameterGroupMessageFilterSensitiveLog,
+  CopyDBParameterGroupResult,
+  CopyDBParameterGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryCopyDBParameterGroupCommand,
@@ -72,8 +77,8 @@ export class CopyDBParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBParameterGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBParameterGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyDBParameterGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CopyDBParameterGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

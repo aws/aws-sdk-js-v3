@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StreamingTraitsInputOutput } from "../models/models_0";
+import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1StreamingTraitsCommand,
   serializeAws_restJson1StreamingTraitsCommand,
@@ -84,8 +84,8 @@ export class StreamingTraitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StreamingTraitsInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: StreamingTraitsInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StreamingTraitsInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: StreamingTraitsInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

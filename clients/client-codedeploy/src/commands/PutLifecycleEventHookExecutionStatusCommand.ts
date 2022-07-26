@@ -15,7 +15,9 @@ import {
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
 import {
   PutLifecycleEventHookExecutionStatusInput,
+  PutLifecycleEventHookExecutionStatusInputFilterSensitiveLog,
   PutLifecycleEventHookExecutionStatusOutput,
+  PutLifecycleEventHookExecutionStatusOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand,
@@ -85,8 +87,8 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLifecycleEventHookExecutionStatusInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutLifecycleEventHookExecutionStatusOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutLifecycleEventHookExecutionStatusInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutLifecycleEventHookExecutionStatusOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

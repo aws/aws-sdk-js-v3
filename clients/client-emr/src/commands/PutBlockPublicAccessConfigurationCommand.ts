@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { PutBlockPublicAccessConfigurationInput, PutBlockPublicAccessConfigurationOutput } from "../models/models_0";
+import {
+  PutBlockPublicAccessConfigurationInput,
+  PutBlockPublicAccessConfigurationInputFilterSensitiveLog,
+  PutBlockPublicAccessConfigurationOutput,
+  PutBlockPublicAccessConfigurationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand,
   serializeAws_json1_1PutBlockPublicAccessConfigurationCommand,
@@ -77,8 +82,8 @@ export class PutBlockPublicAccessConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBlockPublicAccessConfigurationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PutBlockPublicAccessConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutBlockPublicAccessConfigurationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PutBlockPublicAccessConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

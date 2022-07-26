@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { DeleteWorkGroupInput, DeleteWorkGroupOutput } from "../models/models_0";
+import {
+  DeleteWorkGroupInput,
+  DeleteWorkGroupInputFilterSensitiveLog,
+  DeleteWorkGroupOutput,
+  DeleteWorkGroupOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWorkGroupCommand,
   serializeAws_json1_1DeleteWorkGroupCommand,
@@ -73,8 +78,8 @@ export class DeleteWorkGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkGroupInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkGroupOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWorkGroupInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWorkGroupOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

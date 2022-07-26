@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { DeleteInstanceOnboardingJobRequest } from "../models/models_0";
+import {
+  DeleteInstanceOnboardingJobRequest,
+  DeleteInstanceOnboardingJobRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteInstanceOnboardingJobCommand,
   serializeAws_restJson1DeleteInstanceOnboardingJobCommand,
@@ -72,7 +75,7 @@ export class DeleteInstanceOnboardingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceOnboardingJobRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInstanceOnboardingJobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

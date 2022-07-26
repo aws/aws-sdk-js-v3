@@ -14,7 +14,9 @@ import {
 
 import {
   CreateAdditionalAssignmentsForHITRequest,
+  CreateAdditionalAssignmentsForHITRequestFilterSensitiveLog,
   CreateAdditionalAssignmentsForHITResponse,
+  CreateAdditionalAssignmentsForHITResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
@@ -99,8 +101,8 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAdditionalAssignmentsForHITRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAdditionalAssignmentsForHITResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAdditionalAssignmentsForHITRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAdditionalAssignmentsForHITResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

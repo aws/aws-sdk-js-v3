@@ -15,7 +15,9 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CreateProvisioningTemplateVersionRequest,
+  CreateProvisioningTemplateVersionRequestFilterSensitiveLog,
   CreateProvisioningTemplateVersionResponse,
+  CreateProvisioningTemplateVersionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProvisioningTemplateVersionCommand,
@@ -78,8 +80,8 @@ export class CreateProvisioningTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProvisioningTemplateVersionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateProvisioningTemplateVersionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProvisioningTemplateVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateProvisioningTemplateVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

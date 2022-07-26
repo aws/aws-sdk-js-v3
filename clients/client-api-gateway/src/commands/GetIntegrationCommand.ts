@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { GetIntegrationRequest, Integration } from "../models/models_0";
+import {
+  GetIntegrationRequest,
+  GetIntegrationRequestFilterSensitiveLog,
+  Integration,
+  IntegrationFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetIntegrationCommand,
   serializeAws_restJson1GetIntegrationCommand,
@@ -72,8 +77,8 @@ export class GetIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIntegrationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Integration.filterSensitiveLog,
+      inputFilterSensitiveLog: GetIntegrationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: IntegrationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

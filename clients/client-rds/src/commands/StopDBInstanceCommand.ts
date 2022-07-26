@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopDBInstanceMessage, StopDBInstanceResult } from "../models/models_1";
+import {
+  StopDBInstanceMessage,
+  StopDBInstanceMessageFilterSensitiveLog,
+  StopDBInstanceResult,
+  StopDBInstanceResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryStopDBInstanceCommand,
   serializeAws_queryStopDBInstanceCommand,
@@ -83,8 +88,8 @@ export class StopDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDBInstanceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: StopDBInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopDBInstanceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: StopDBInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

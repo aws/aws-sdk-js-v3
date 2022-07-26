@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteClientCertificateRequest } from "../models/models_0";
+import { DeleteClientCertificateRequest, DeleteClientCertificateRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteClientCertificateCommand,
   serializeAws_restJson1DeleteClientCertificateCommand,
@@ -72,7 +72,7 @@ export class DeleteClientCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClientCertificateRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteClientCertificateRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

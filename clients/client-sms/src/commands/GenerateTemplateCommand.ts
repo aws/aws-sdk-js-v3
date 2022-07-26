@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GenerateTemplateRequest, GenerateTemplateResponse } from "../models/models_0";
+import {
+  GenerateTemplateRequest,
+  GenerateTemplateRequestFilterSensitiveLog,
+  GenerateTemplateResponse,
+  GenerateTemplateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateTemplateCommand,
   serializeAws_json1_1GenerateTemplateCommand,
@@ -73,8 +78,8 @@ export class GenerateTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GenerateTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GenerateTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GenerateTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

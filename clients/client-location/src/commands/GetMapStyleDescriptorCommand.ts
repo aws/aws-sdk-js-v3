@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { GetMapStyleDescriptorRequest, GetMapStyleDescriptorResponse } from "../models/models_0";
+import {
+  GetMapStyleDescriptorRequest,
+  GetMapStyleDescriptorRequestFilterSensitiveLog,
+  GetMapStyleDescriptorResponse,
+  GetMapStyleDescriptorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMapStyleDescriptorCommand,
   serializeAws_restJson1GetMapStyleDescriptorCommand,
@@ -75,8 +80,8 @@ export class GetMapStyleDescriptorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMapStyleDescriptorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMapStyleDescriptorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMapStyleDescriptorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMapStyleDescriptorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -87,29 +87,11 @@ export interface CreateEndpointRequest {
   CustomerOwnedIpv4Pool?: string;
 }
 
-export namespace CreateEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEndpointResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
    */
   EndpointArn?: string;
-}
-
-export namespace CreateEndpointResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEndpointResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -187,15 +169,6 @@ export interface DeleteEndpointRequest {
   OutpostId: string | undefined;
 }
 
-export namespace DeleteEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container for the network interface.</p>
  */
@@ -204,15 +177,6 @@ export interface NetworkInterface {
    * <p>The ID for the network interface.</p>
    */
   NetworkInterfaceId?: string;
-}
-
-export namespace NetworkInterface {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterface): any => ({
-    ...obj,
-  });
 }
 
 export enum EndpointStatus {
@@ -284,15 +248,6 @@ export interface Endpoint {
   CustomerOwnedIpv4Pool?: string;
 }
 
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEndpointsRequest {
   /**
    * <p>If a previous response from this operation included a <code>NextToken</code> value,
@@ -306,15 +261,6 @@ export interface ListEndpointsRequest {
   MaxResults?: number;
 }
 
-export namespace ListEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEndpointsResult {
   /**
    * <p>The list of endpoints associated with the specified Outpost.</p>
@@ -326,15 +272,6 @@ export interface ListEndpointsResult {
    *             you can include this value in subsequent calls to this operation to retrieve more results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEndpointsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEndpointsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSharedEndpointsRequest {
@@ -355,15 +292,6 @@ export interface ListSharedEndpointsRequest {
   OutpostId: string | undefined;
 }
 
-export namespace ListSharedEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSharedEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSharedEndpointsResult {
   /**
    * <p>The list of endpoints associated with the specified Outpost that have been shared by Amazon Web Services Resource Access Manager (RAM).</p>
@@ -377,11 +305,65 @@ export interface ListSharedEndpointsResult {
   NextToken?: string;
 }
 
-export namespace ListSharedEndpointsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSharedEndpointsResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CreateEndpointRequestFilterSensitiveLog = (obj: CreateEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEndpointResultFilterSensitiveLog = (obj: CreateEndpointResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEndpointRequestFilterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEndpointsRequestFilterSensitiveLog = (obj: ListEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEndpointsResultFilterSensitiveLog = (obj: ListEndpointsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSharedEndpointsRequestFilterSensitiveLog = (obj: ListSharedEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSharedEndpointsResultFilterSensitiveLog = (obj: ListSharedEndpointsResult): any => ({
+  ...obj,
+});

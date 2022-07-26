@@ -15,7 +15,9 @@ import {
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
 import {
   UpdateApprovalRuleTemplateDescriptionInput,
+  UpdateApprovalRuleTemplateDescriptionInputFilterSensitiveLog,
   UpdateApprovalRuleTemplateDescriptionOutput,
+  UpdateApprovalRuleTemplateDescriptionOutputFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionCommand,
@@ -77,8 +79,8 @@ export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApprovalRuleTemplateDescriptionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApprovalRuleTemplateDescriptionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateApprovalRuleTemplateDescriptionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateApprovalRuleTemplateDescriptionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

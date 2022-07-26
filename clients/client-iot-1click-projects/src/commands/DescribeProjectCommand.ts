@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient";
-import { DescribeProjectRequest, DescribeProjectResponse } from "../models/models_0";
+import {
+  DescribeProjectRequest,
+  DescribeProjectRequestFilterSensitiveLog,
+  DescribeProjectResponse,
+  DescribeProjectResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeProjectCommand,
   serializeAws_restJson1DescribeProjectCommand,
@@ -76,8 +81,8 @@ export class DescribeProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProjectRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProjectResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeProjectRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeProjectResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

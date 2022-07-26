@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DescribeAppBlocksRequest, DescribeAppBlocksResult } from "../models/models_0";
+import {
+  DescribeAppBlocksRequest,
+  DescribeAppBlocksRequestFilterSensitiveLog,
+  DescribeAppBlocksResult,
+  DescribeAppBlocksResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAppBlocksCommand,
   serializeAws_json1_1DescribeAppBlocksCommand,
@@ -72,8 +77,8 @@ export class DescribeAppBlocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppBlocksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAppBlocksResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAppBlocksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAppBlocksResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

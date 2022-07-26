@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SendTaskFailureInput, SendTaskFailureOutput } from "../models/models_0";
+import {
+  SendTaskFailureInput,
+  SendTaskFailureInputFilterSensitiveLog,
+  SendTaskFailureOutput,
+  SendTaskFailureOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0SendTaskFailureCommand,
   serializeAws_json1_0SendTaskFailureCommand,
@@ -73,8 +78,8 @@ export class SendTaskFailureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendTaskFailureInput.filterSensitiveLog,
-      outputFilterSensitiveLog: SendTaskFailureOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SendTaskFailureInputFilterSensitiveLog,
+      outputFilterSensitiveLog: SendTaskFailureOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

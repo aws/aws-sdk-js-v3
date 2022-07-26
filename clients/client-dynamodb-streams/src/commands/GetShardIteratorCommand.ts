@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
-import { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
+import {
+  GetShardIteratorInput,
+  GetShardIteratorInputFilterSensitiveLog,
+  GetShardIteratorOutput,
+  GetShardIteratorOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0GetShardIteratorCommand,
   serializeAws_json1_0GetShardIteratorCommand,
@@ -79,8 +84,8 @@ export class GetShardIteratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetShardIteratorInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetShardIteratorOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetShardIteratorInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetShardIteratorOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

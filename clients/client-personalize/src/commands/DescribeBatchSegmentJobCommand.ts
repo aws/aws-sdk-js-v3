@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeBatchSegmentJobRequest, DescribeBatchSegmentJobResponse } from "../models/models_0";
+import {
+  DescribeBatchSegmentJobRequest,
+  DescribeBatchSegmentJobRequestFilterSensitiveLog,
+  DescribeBatchSegmentJobResponse,
+  DescribeBatchSegmentJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1DescribeBatchSegmentJobCommand,
@@ -74,8 +79,8 @@ export class DescribeBatchSegmentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBatchSegmentJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBatchSegmentJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBatchSegmentJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBatchSegmentJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

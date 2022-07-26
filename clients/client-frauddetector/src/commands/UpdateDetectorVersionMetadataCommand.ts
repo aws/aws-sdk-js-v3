@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import { UpdateDetectorVersionMetadataRequest, UpdateDetectorVersionMetadataResult } from "../models/models_0";
+import {
+  UpdateDetectorVersionMetadataRequest,
+  UpdateDetectorVersionMetadataRequestFilterSensitiveLog,
+  UpdateDetectorVersionMetadataResult,
+  UpdateDetectorVersionMetadataResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDetectorVersionMetadataCommand,
   serializeAws_json1_1UpdateDetectorVersionMetadataCommand,
@@ -75,8 +80,8 @@ export class UpdateDetectorVersionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDetectorVersionMetadataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDetectorVersionMetadataResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateDetectorVersionMetadataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateDetectorVersionMetadataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

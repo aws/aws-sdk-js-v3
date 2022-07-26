@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpRequestWithFloatLabelsInput } from "../models/models_0";
+import { HttpRequestWithFloatLabelsInput, HttpRequestWithFloatLabelsInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1HttpRequestWithFloatLabelsCommand,
   serializeAws_restJson1HttpRequestWithFloatLabelsCommand,
@@ -55,7 +55,7 @@ export class HttpRequestWithFloatLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpRequestWithFloatLabelsInput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpRequestWithFloatLabelsInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

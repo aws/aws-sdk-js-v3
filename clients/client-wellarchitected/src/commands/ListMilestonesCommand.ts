@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListMilestonesInput, ListMilestonesOutput } from "../models/models_0";
+import {
+  ListMilestonesInput,
+  ListMilestonesInputFilterSensitiveLog,
+  ListMilestonesOutput,
+  ListMilestonesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListMilestonesCommand,
   serializeAws_restJson1ListMilestonesCommand,
@@ -72,8 +77,8 @@ export class ListMilestonesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMilestonesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMilestonesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMilestonesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListMilestonesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

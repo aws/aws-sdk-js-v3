@@ -14,7 +14,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutObjectLockConfigurationOutput, PutObjectLockConfigurationRequest } from "../models/models_0";
+import {
+  PutObjectLockConfigurationOutput,
+  PutObjectLockConfigurationOutputFilterSensitiveLog,
+  PutObjectLockConfigurationRequest,
+  PutObjectLockConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlPutObjectLockConfigurationCommand,
   serializeAws_restXmlPutObjectLockConfigurationCommand,
@@ -102,8 +107,8 @@ export class PutObjectLockConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutObjectLockConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectLockConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PutObjectLockConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutObjectLockConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { RejectSkillRequest, RejectSkillResponse } from "../models/models_0";
+import {
+  RejectSkillRequest,
+  RejectSkillRequestFilterSensitiveLog,
+  RejectSkillResponse,
+  RejectSkillResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RejectSkillCommand,
   serializeAws_json1_1RejectSkillCommand,
@@ -74,8 +79,8 @@ export class RejectSkillCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectSkillRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RejectSkillResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectSkillRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RejectSkillResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

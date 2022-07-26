@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { ListStreamsInput, ListStreamsOutput } from "../models/models_0";
+import {
+  ListStreamsInput,
+  ListStreamsInputFilterSensitiveLog,
+  ListStreamsOutput,
+  ListStreamsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListStreamsCommand,
   serializeAws_json1_1ListStreamsCommand,
@@ -87,8 +92,8 @@ export class ListStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStreamsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListStreamsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListStreamsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

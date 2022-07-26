@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { Deployment, StopDeploymentRequest } from "../models/models_0";
+import {
+  Deployment,
+  DeploymentFilterSensitiveLog,
+  StopDeploymentRequest,
+  StopDeploymentRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopDeploymentCommand,
   serializeAws_restJson1StopDeploymentCommand,
@@ -74,8 +79,8 @@ export class StopDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDeploymentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: Deployment.filterSensitiveLog,
+      inputFilterSensitiveLog: StopDeploymentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeploymentFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

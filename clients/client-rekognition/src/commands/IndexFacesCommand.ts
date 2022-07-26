@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { IndexFacesRequest, IndexFacesResponse } from "../models/models_0";
+import {
+  IndexFacesRequest,
+  IndexFacesRequestFilterSensitiveLog,
+  IndexFacesResponse,
+  IndexFacesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1IndexFacesCommand,
   serializeAws_json1_1IndexFacesCommand,
@@ -171,8 +176,8 @@ export class IndexFacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IndexFacesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: IndexFacesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: IndexFacesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: IndexFacesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

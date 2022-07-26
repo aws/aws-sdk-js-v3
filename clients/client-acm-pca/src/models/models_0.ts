@@ -20,15 +20,6 @@ export interface CustomAttribute {
   Value: string | undefined;
 }
 
-export namespace CustomAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the certificate subject. The <code>Subject</code> field in
  * 			the certificate identifies the entity that owns or controls the public key in the
@@ -132,15 +123,6 @@ export interface ASN1Subject {
   CustomAttributes?: CustomAttribute[];
 }
 
-export namespace ASN1Subject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ASN1Subject): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an Electronic Data Interchange (EDI) entity as described in as defined in
  * 				<a href="https://datatracker.ietf.org/doc/html/rfc5280">Subject Alternative
@@ -156,15 +138,6 @@ export interface EdiPartyName {
    * <p>Specifies the name assigner.</p>
    */
   NameAssigner?: string;
-}
-
-export namespace EdiPartyName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EdiPartyName): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -183,15 +156,6 @@ export interface OtherName {
    * <p>Specifies an OID value.</p>
    */
   Value: string | undefined;
-}
-
-export namespace OtherName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OtherName): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -246,15 +210,6 @@ export interface GeneralName {
   RegisteredId?: string;
 }
 
-export namespace GeneralName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeneralName): any => ({
-    ...obj,
-  });
-}
-
 export enum AccessMethodType {
   CA_REPOSITORY = "CA_REPOSITORY",
   RESOURCE_PKI_MANIFEST = "RESOURCE_PKI_MANIFEST",
@@ -281,15 +236,6 @@ export interface AccessMethod {
   AccessMethodType?: AccessMethodType | string;
 }
 
-export namespace AccessMethod {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessMethod): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides access information used by the <code>authorityInfoAccess</code> and
  * 				<code>subjectInfoAccess</code> extensions described in <a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280</a>.</p>
@@ -304,15 +250,6 @@ export interface AccessDescription {
    * <p>The location of <code>AccessDescription</code> information.</p>
    */
   AccessLocation: GeneralName | undefined;
-}
-
-export namespace AccessDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -366,15 +303,6 @@ export interface KeyUsage {
   DecipherOnly?: boolean;
 }
 
-export namespace KeyUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyUsage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the certificate extensions to be added to the certificate signing request
  * 			(CSR).</p>
@@ -392,15 +320,6 @@ export interface CsrExtensions {
    * 				Information Access</a> in RFC 5280.</p>
    */
   SubjectInformationAccess?: AccessDescription[];
-}
-
-export namespace CsrExtensions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CsrExtensions): any => ({
-    ...obj,
-  });
 }
 
 export enum KeyAlgorithm {
@@ -452,15 +371,6 @@ export interface CertificateAuthorityConfiguration {
    * 			request (CSR).</p>
    */
   CsrExtensions?: CsrExtensions;
-}
-
-export namespace CertificateAuthorityConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateAuthorityConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum CertificateAuthorityType {
@@ -643,15 +553,6 @@ export interface CrlConfiguration {
   S3ObjectAcl?: S3ObjectAcl | string;
 }
 
-export namespace CrlConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrlConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information to enable and configure Online Certificate Status Protocol (OCSP)
  * 			for validating certificate revocation status.</p>
@@ -675,15 +576,6 @@ export interface OcspConfiguration {
    * 				(OCSP) </a> in the <i>Certificate Manager Private Certificate Authority (PCA) User Guide</i>.</p>
    */
   OcspCustomCname?: string;
-}
-
-export namespace OcspConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OcspConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -712,15 +604,6 @@ export interface RevocationConfiguration {
   OcspConfiguration?: OcspConfiguration;
 }
 
-export namespace RevocationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevocationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Tags are labels that you can use to identify and organize your private CAs. Each tag
  * 			consists of a key and an optional value. You can associate up to 50 tags with a private
@@ -737,15 +620,6 @@ export interface Tag {
    * <p>Value of the tag.</p>
    */
   Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCertificateAuthorityRequest {
@@ -811,15 +685,6 @@ export interface CreateCertificateAuthorityRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCertificateAuthorityResponse {
   /**
    * <p>If successful, the Amazon Resource Name (ARN) of the certificate authority (CA). This
@@ -830,15 +695,6 @@ export interface CreateCertificateAuthorityResponse {
    * 		</p>
    */
   CertificateAuthorityArn?: string;
-}
-
-export namespace CreateCertificateAuthorityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCertificateAuthorityResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -945,15 +801,6 @@ export interface CreateCertificateAuthorityAuditReportRequest {
   AuditReportResponseFormat: AuditReportResponseFormat | string | undefined;
 }
 
-export namespace CreateCertificateAuthorityAuditReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCertificateAuthorityAuditReportRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCertificateAuthorityAuditReportResponse {
   /**
    * <p>An alphanumeric string that contains a report identifier.</p>
@@ -965,15 +812,6 @@ export interface CreateCertificateAuthorityAuditReportResponse {
    * 			your S3 bucket.</p>
    */
   S3Key?: string;
-}
-
-export namespace CreateCertificateAuthorityAuditReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCertificateAuthorityAuditReportResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1109,15 +947,6 @@ export interface CreatePermissionRequest {
   Actions: (ActionType | string)[] | undefined;
 }
 
-export namespace CreatePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The designated permission has already been given to the user.</p>
  */
@@ -1173,15 +1002,6 @@ export interface DeleteCertificateAuthorityRequest {
   PermanentDeletionTimeInDays?: number;
 }
 
-export namespace DeleteCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePermissionRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA that issued the permissions. You
@@ -1206,15 +1026,6 @@ export interface DeletePermissionRequest {
   SourceAccount?: string;
 }
 
-export namespace DeletePermissionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePermissionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePolicyRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of the private CA that will have its policy deleted.
@@ -1223,15 +1034,6 @@ export interface DeletePolicyRequest {
    * 		</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace DeletePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1264,15 +1066,6 @@ export interface DescribeCertificateAuthorityRequest {
    * 		</p>
    */
   CertificateAuthorityArn: string | undefined;
-}
-
-export namespace DescribeCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum FailureReason {
@@ -1385,30 +1178,12 @@ export interface CertificateAuthority {
   KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
 }
 
-export namespace CertificateAuthority {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateAuthority): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCertificateAuthorityResponse {
   /**
    * <p>A <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CertificateAuthority.html">CertificateAuthority</a> structure that contains information about your private
    * 			CA.</p>
    */
   CertificateAuthority?: CertificateAuthority;
-}
-
-export namespace DescribeCertificateAuthorityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificateAuthorityResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCertificateAuthorityAuditReportRequest {
@@ -1425,15 +1200,6 @@ export interface DescribeCertificateAuthorityAuditReportRequest {
    * <p>The report ID returned by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action.</p>
    */
   AuditReportId: string | undefined;
-}
-
-export namespace DescribeCertificateAuthorityAuditReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificateAuthorityAuditReportRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum AuditReportStatus {
@@ -1465,15 +1231,6 @@ export interface DescribeCertificateAuthorityAuditReportResponse {
   CreatedAt?: Date;
 }
 
-export namespace DescribeCertificateAuthorityAuditReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificateAuthorityAuditReportResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCertificateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
@@ -1495,15 +1252,6 @@ export interface GetCertificateRequest {
   CertificateArn: string | undefined;
 }
 
-export namespace GetCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCertificateResponse {
   /**
    * <p>The base64 PEM-encoded certificate specified by the <code>CertificateArn</code>
@@ -1518,15 +1266,6 @@ export interface GetCertificateResponse {
   CertificateChain?: string;
 }
 
-export namespace GetCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCertificateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCertificateAuthorityCertificateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of your private CA. This is of the form:</p>
@@ -1536,15 +1275,6 @@ export interface GetCertificateAuthorityCertificateRequest {
    * 		</p>
    */
   CertificateAuthorityArn: string | undefined;
-}
-
-export namespace GetCertificateAuthorityCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCertificateAuthorityCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetCertificateAuthorityCertificateResponse {
@@ -1562,15 +1292,6 @@ export interface GetCertificateAuthorityCertificateResponse {
   CertificateChain?: string;
 }
 
-export namespace GetCertificateAuthorityCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCertificateAuthorityCertificateResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCertificateAuthorityCsrRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p>
@@ -1582,30 +1303,12 @@ export interface GetCertificateAuthorityCsrRequest {
   CertificateAuthorityArn: string | undefined;
 }
 
-export namespace GetCertificateAuthorityCsrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCertificateAuthorityCsrRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetCertificateAuthorityCsrResponse {
   /**
    * <p>The base64 PEM-encoded certificate signing request (CSR) for your private CA
    * 			certificate.</p>
    */
   Csr?: string;
-}
-
-export namespace GetCertificateAuthorityCsrResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCertificateAuthorityCsrResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPolicyRequest {
@@ -1618,29 +1321,11 @@ export interface GetPolicyRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace GetPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPolicyResponse {
   /**
    * <p>The policy attached to the private CA as a JSON document.</p>
    */
   Policy?: string;
-}
-
-export namespace GetPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1688,15 +1373,6 @@ export interface ImportCertificateAuthorityCertificateRequest {
    * 			root CA, there is no chain.</p>
    */
   CertificateChain?: Uint8Array;
-}
-
-export namespace ImportCertificateAuthorityCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportCertificateAuthorityCertificateRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1753,15 +1429,6 @@ export interface Qualifier {
   CpsUri: string | undefined;
 }
 
-export namespace Qualifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Qualifier): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Modifies the <code>CertPolicyId</code> of a <code>PolicyInformation</code> object with
  * 			a qualifier. ACM Private CA supports the certification practice statement (CPS)
@@ -1780,15 +1447,6 @@ export interface PolicyQualifierInfo {
   Qualifier: Qualifier | undefined;
 }
 
-export namespace PolicyQualifierInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyQualifierInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the X.509 <code>CertificatePolicies</code> extension.</p>
  */
@@ -1805,15 +1463,6 @@ export interface PolicyInformation {
    * 			certification practice statement (CPS) qualifier.</p>
    */
   PolicyQualifiers?: PolicyQualifierInfo[];
-}
-
-export namespace PolicyInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyInformation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1846,15 +1495,6 @@ export interface CustomExtension {
   Critical?: boolean;
 }
 
-export namespace CustomExtension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomExtension): any => ({
-    ...obj,
-  });
-}
-
 export enum ExtendedKeyUsageType {
   CERTIFICATE_TRANSPARENCY = "CERTIFICATE_TRANSPARENCY",
   CLIENT_AUTH = "CLIENT_AUTH",
@@ -1883,15 +1523,6 @@ export interface ExtendedKeyUsage {
    * 			(OID).</p>
    */
   ExtendedKeyUsageObjectIdentifier?: string;
-}
-
-export namespace ExtendedKeyUsage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExtendedKeyUsage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1940,15 +1571,6 @@ export interface Extensions {
   CustomExtensions?: CustomExtension[];
 }
 
-export namespace Extensions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Extensions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains X.509 certificate information to be placed in an issued certificate. An
  * 				<code>APIPassthrough</code> or <code>APICSRPassthrough</code> template variant must
@@ -1971,15 +1593,6 @@ export interface ApiPassthrough {
    * 			distinguished names (RDNs). The RDNs are separated by commas in the certificate.</p>
    */
   Subject?: ASN1Subject;
-}
-
-export namespace ApiPassthrough {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApiPassthrough): any => ({
-    ...obj,
-  });
 }
 
 export enum ValidityPeriodType {
@@ -2056,15 +1669,6 @@ export interface Validity {
    * 			time (<code>ABSOLUTE</code> or <code>END_DATE</code>) is one second.</p>
    */
   Type: ValidityPeriodType | string | undefined;
-}
-
-export namespace Validity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Validity): any => ({
-    ...obj,
-  });
 }
 
 export interface IssueCertificateRequest {
@@ -2179,15 +1783,6 @@ export interface IssueCertificateRequest {
   IdempotencyToken?: string;
 }
 
-export namespace IssueCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IssueCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface IssueCertificateResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the issued certificate and the certificate serial
@@ -2198,15 +1793,6 @@ export interface IssueCertificateResponse {
    * 		       </p>
    */
   CertificateArn?: string;
-}
-
-export namespace IssueCertificateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IssueCertificateResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2277,15 +1863,6 @@ export interface ListCertificateAuthoritiesRequest {
   ResourceOwner?: ResourceOwner | string;
 }
 
-export namespace ListCertificateAuthoritiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCertificateAuthoritiesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCertificateAuthoritiesResponse {
   /**
    * <p>Summary information about each certificate authority you have created.</p>
@@ -2297,15 +1874,6 @@ export interface ListCertificateAuthoritiesResponse {
    * 				<code>NextToken</code> parameter in a subsequent pagination request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCertificateAuthoritiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCertificateAuthoritiesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPermissionsRequest {
@@ -2331,15 +1899,6 @@ export interface ListPermissionsRequest {
    * 			additional items.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2385,15 +1944,6 @@ export interface Permission {
   Policy?: string;
 }
 
-export namespace Permission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Permission): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPermissionsResponse {
   /**
    * <p>Summary information about each permission assigned by the specified private CA,
@@ -2406,15 +1956,6 @@ export interface ListPermissionsResponse {
    * 		</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsRequest {
@@ -2443,15 +1984,6 @@ export interface ListTagsRequest {
   MaxResults?: number;
 }
 
-export namespace ListTagsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsResponse {
   /**
    * <p>The tags associated with your private CA.</p>
@@ -2463,15 +1995,6 @@ export interface ListTagsResponse {
    * 		</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface PutPolicyRequest {
@@ -2492,15 +2015,6 @@ export interface PutPolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreCertificateAuthorityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action. This must be of the form: </p>
@@ -2510,15 +2024,6 @@ export interface RestoreCertificateAuthorityRequest {
    * 		       </p>
    */
   CertificateAuthorityArn: string | undefined;
-}
-
-export namespace RestoreCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2583,15 +2088,6 @@ export interface RevokeCertificateRequest {
   RevocationReason: RevocationReason | string | undefined;
 }
 
-export namespace RevokeCertificateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevokeCertificateRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagCertificateAuthorityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that was returned when you called <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a>. This must be of the form: </p>
@@ -2606,15 +2102,6 @@ export interface TagCertificateAuthorityRequest {
    * <p>List of tags to be associated with the CA.</p>
    */
   Tags: Tag[] | undefined;
-}
-
-export namespace TagCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2653,15 +2140,6 @@ export interface UntagCertificateAuthorityRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace UntagCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCertificateAuthorityRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to be
@@ -2687,11 +2165,433 @@ export interface UpdateCertificateAuthorityRequest {
   Status?: CertificateAuthorityStatus | string;
 }
 
-export namespace UpdateCertificateAuthorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCertificateAuthorityRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CustomAttributeFilterSensitiveLog = (obj: CustomAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ASN1SubjectFilterSensitiveLog = (obj: ASN1Subject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EdiPartyNameFilterSensitiveLog = (obj: EdiPartyName): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OtherNameFilterSensitiveLog = (obj: OtherName): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeneralNameFilterSensitiveLog = (obj: GeneralName): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessMethodFilterSensitiveLog = (obj: AccessMethod): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessDescriptionFilterSensitiveLog = (obj: AccessDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeyUsageFilterSensitiveLog = (obj: KeyUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CsrExtensionsFilterSensitiveLog = (obj: CsrExtensions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateAuthorityConfigurationFilterSensitiveLog = (obj: CertificateAuthorityConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrlConfigurationFilterSensitiveLog = (obj: CrlConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OcspConfigurationFilterSensitiveLog = (obj: OcspConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevocationConfigurationFilterSensitiveLog = (obj: RevocationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCertificateAuthorityRequestFilterSensitiveLog = (obj: CreateCertificateAuthorityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCertificateAuthorityResponseFilterSensitiveLog = (obj: CreateCertificateAuthorityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCertificateAuthorityAuditReportRequestFilterSensitiveLog = (
+  obj: CreateCertificateAuthorityAuditReportRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCertificateAuthorityAuditReportResponseFilterSensitiveLog = (
+  obj: CreateCertificateAuthorityAuditReportResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePermissionRequestFilterSensitiveLog = (obj: CreatePermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCertificateAuthorityRequestFilterSensitiveLog = (obj: DeleteCertificateAuthorityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePermissionRequestFilterSensitiveLog = (obj: DeletePermissionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePolicyRequestFilterSensitiveLog = (obj: DeletePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCertificateAuthorityRequestFilterSensitiveLog = (
+  obj: DescribeCertificateAuthorityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateAuthorityFilterSensitiveLog = (obj: CertificateAuthority): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCertificateAuthorityResponseFilterSensitiveLog = (
+  obj: DescribeCertificateAuthorityResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCertificateAuthorityAuditReportRequestFilterSensitiveLog = (
+  obj: DescribeCertificateAuthorityAuditReportRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCertificateAuthorityAuditReportResponseFilterSensitiveLog = (
+  obj: DescribeCertificateAuthorityAuditReportResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCertificateRequestFilterSensitiveLog = (obj: GetCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCertificateResponseFilterSensitiveLog = (obj: GetCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCertificateAuthorityCertificateRequestFilterSensitiveLog = (
+  obj: GetCertificateAuthorityCertificateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCertificateAuthorityCertificateResponseFilterSensitiveLog = (
+  obj: GetCertificateAuthorityCertificateResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCertificateAuthorityCsrRequestFilterSensitiveLog = (obj: GetCertificateAuthorityCsrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetCertificateAuthorityCsrResponseFilterSensitiveLog = (obj: GetCertificateAuthorityCsrResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportCertificateAuthorityCertificateRequestFilterSensitiveLog = (
+  obj: ImportCertificateAuthorityCertificateRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QualifierFilterSensitiveLog = (obj: Qualifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyQualifierInfoFilterSensitiveLog = (obj: PolicyQualifierInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyInformationFilterSensitiveLog = (obj: PolicyInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomExtensionFilterSensitiveLog = (obj: CustomExtension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtendedKeyUsageFilterSensitiveLog = (obj: ExtendedKeyUsage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExtensionsFilterSensitiveLog = (obj: Extensions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApiPassthroughFilterSensitiveLog = (obj: ApiPassthrough): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidityFilterSensitiveLog = (obj: Validity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IssueCertificateRequestFilterSensitiveLog = (obj: IssueCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IssueCertificateResponseFilterSensitiveLog = (obj: IssueCertificateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCertificateAuthoritiesRequestFilterSensitiveLog = (obj: ListCertificateAuthoritiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCertificateAuthoritiesResponseFilterSensitiveLog = (obj: ListCertificateAuthoritiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionsRequestFilterSensitiveLog = (obj: ListPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PermissionFilterSensitiveLog = (obj: Permission): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionsResponseFilterSensitiveLog = (obj: ListPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsRequestFilterSensitiveLog = (obj: ListTagsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsResponseFilterSensitiveLog = (obj: ListTagsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPolicyRequestFilterSensitiveLog = (obj: PutPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreCertificateAuthorityRequestFilterSensitiveLog = (obj: RestoreCertificateAuthorityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevokeCertificateRequestFilterSensitiveLog = (obj: RevokeCertificateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagCertificateAuthorityRequestFilterSensitiveLog = (obj: TagCertificateAuthorityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagCertificateAuthorityRequestFilterSensitiveLog = (obj: UntagCertificateAuthorityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCertificateAuthorityRequestFilterSensitiveLog = (obj: UpdateCertificateAuthorityRequest): any => ({
+  ...obj,
+});

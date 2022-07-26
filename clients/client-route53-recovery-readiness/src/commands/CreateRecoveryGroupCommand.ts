@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateRecoveryGroupRequest, CreateRecoveryGroupResponse } from "../models/models_0";
+import {
+  CreateRecoveryGroupRequest,
+  CreateRecoveryGroupRequestFilterSensitiveLog,
+  CreateRecoveryGroupResponse,
+  CreateRecoveryGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRecoveryGroupCommand,
   serializeAws_restJson1CreateRecoveryGroupCommand,
@@ -76,8 +81,8 @@ export class CreateRecoveryGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRecoveryGroupRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRecoveryGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRecoveryGroupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRecoveryGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

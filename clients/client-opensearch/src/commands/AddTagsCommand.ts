@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddTagsRequest } from "../models/models_0";
+import { AddTagsRequest, AddTagsRequestFilterSensitiveLog } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1AddTagsCommand,
@@ -76,7 +76,7 @@ export class AddTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

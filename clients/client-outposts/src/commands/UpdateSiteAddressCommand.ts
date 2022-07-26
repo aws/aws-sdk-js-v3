@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateSiteAddressInput, UpdateSiteAddressOutput } from "../models/models_0";
+import {
+  UpdateSiteAddressInput,
+  UpdateSiteAddressInputFilterSensitiveLog,
+  UpdateSiteAddressOutput,
+  UpdateSiteAddressOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1UpdateSiteAddressCommand,
@@ -83,8 +88,8 @@ export class UpdateSiteAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSiteAddressInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSiteAddressOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSiteAddressInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSiteAddressOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

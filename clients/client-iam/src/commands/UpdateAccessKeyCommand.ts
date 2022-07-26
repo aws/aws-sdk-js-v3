@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateAccessKeyRequest } from "../models/models_1";
+import { UpdateAccessKeyRequest, UpdateAccessKeyRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_queryUpdateAccessKeyCommand,
   serializeAws_queryUpdateAccessKeyCommand,
@@ -81,7 +81,7 @@ export class UpdateAccessKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccessKeyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAccessKeyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateDatabaseRequest, CreateDatabaseResponse } from "../models/models_0";
+import {
+  CreateDatabaseRequest,
+  CreateDatabaseRequestFilterSensitiveLog,
+  CreateDatabaseResponse,
+  CreateDatabaseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CreateDatabaseCommand,
   serializeAws_json1_0CreateDatabaseCommand,
@@ -82,8 +87,8 @@ export class CreateDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDatabaseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDatabaseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDatabaseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDatabaseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

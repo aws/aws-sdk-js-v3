@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { UpdateScheduleRequest, UpdateScheduleResponse } from "../models/models_0";
+import {
+  UpdateScheduleRequest,
+  UpdateScheduleRequestFilterSensitiveLog,
+  UpdateScheduleResponse,
+  UpdateScheduleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateScheduleCommand,
   serializeAws_restJson1UpdateScheduleCommand,
@@ -72,8 +77,8 @@ export class UpdateScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateScheduleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateScheduleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateScheduleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateScheduleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

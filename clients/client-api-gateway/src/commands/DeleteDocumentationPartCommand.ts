@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteDocumentationPartRequest } from "../models/models_0";
+import { DeleteDocumentationPartRequest, DeleteDocumentationPartRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDocumentationPartCommand,
   serializeAws_restJson1DeleteDocumentationPartCommand,
@@ -72,7 +72,7 @@ export class DeleteDocumentationPartCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDocumentationPartRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDocumentationPartRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

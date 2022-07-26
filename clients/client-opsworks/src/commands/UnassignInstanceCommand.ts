@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UnassignInstanceRequest } from "../models/models_0";
+import { UnassignInstanceRequest, UnassignInstanceRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1UnassignInstanceCommand,
@@ -80,7 +80,7 @@ export class UnassignInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnassignInstanceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UnassignInstanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

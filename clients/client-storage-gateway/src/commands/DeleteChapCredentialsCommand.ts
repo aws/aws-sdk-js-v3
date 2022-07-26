@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteChapCredentialsInput, DeleteChapCredentialsOutput } from "../models/models_0";
+import {
+  DeleteChapCredentialsInput,
+  DeleteChapCredentialsInputFilterSensitiveLog,
+  DeleteChapCredentialsOutput,
+  DeleteChapCredentialsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteChapCredentialsCommand,
   serializeAws_json1_1DeleteChapCredentialsCommand,
@@ -74,8 +79,8 @@ export class DeleteChapCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChapCredentialsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteChapCredentialsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteChapCredentialsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteChapCredentialsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

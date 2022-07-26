@@ -40,15 +40,6 @@ export interface GetEntitlementsRequest {
   MaxResults?: number;
 }
 
-export namespace GetEntitlementsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEntitlementsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to
  *    for the product.</p>
@@ -132,17 +123,6 @@ export namespace EntitlementValue {
     if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntitlementValue): any => {
-    if (obj.IntegerValue !== undefined) return { IntegerValue: obj.IntegerValue };
-    if (obj.DoubleValue !== undefined) return { DoubleValue: obj.DoubleValue };
-    if (obj.BooleanValue !== undefined) return { BooleanValue: obj.BooleanValue };
-    if (obj.StringValue !== undefined) return { StringValue: obj.StringValue };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -186,16 +166,6 @@ export interface Entitlement {
   ExpirationDate?: Date;
 }
 
-export namespace Entitlement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Entitlement): any => ({
-    ...obj,
-    ...(obj.Value && { Value: EntitlementValue.filterSensitiveLog(obj.Value) }),
-  });
-}
-
 /**
  * <p>The GetEntitlementsRequest contains results from the GetEntitlements operation.</p>
  */
@@ -213,16 +183,6 @@ export interface GetEntitlementsResult {
    *       used.</p>
    */
   NextToken?: string;
-}
-
-export namespace GetEntitlementsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEntitlementsResult): any => ({
-    ...obj,
-    ...(obj.Entitlements && { Entitlements: obj.Entitlements.map((item) => Entitlement.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -282,3 +242,37 @@ export class ThrottlingException extends __BaseException {
     Object.setPrototypeOf(this, ThrottlingException.prototype);
   }
 }
+
+/**
+ * @internal
+ */
+export const GetEntitlementsRequestFilterSensitiveLog = (obj: GetEntitlementsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EntitlementValueFilterSensitiveLog = (obj: EntitlementValue): any => {
+  if (obj.IntegerValue !== undefined) return { IntegerValue: obj.IntegerValue };
+  if (obj.DoubleValue !== undefined) return { DoubleValue: obj.DoubleValue };
+  if (obj.BooleanValue !== undefined) return { BooleanValue: obj.BooleanValue };
+  if (obj.StringValue !== undefined) return { StringValue: obj.StringValue };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const EntitlementFilterSensitiveLog = (obj: Entitlement): any => ({
+  ...obj,
+  ...(obj.Value && { Value: EntitlementValueFilterSensitiveLog(obj.Value) }),
+});
+
+/**
+ * @internal
+ */
+export const GetEntitlementsResultFilterSensitiveLog = (obj: GetEntitlementsResult): any => ({
+  ...obj,
+  ...(obj.Entitlements && { Entitlements: obj.Entitlements.map((item) => EntitlementFilterSensitiveLog(item)) }),
+});

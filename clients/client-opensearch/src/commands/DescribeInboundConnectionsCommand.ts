@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeInboundConnectionsRequest, DescribeInboundConnectionsResponse } from "../models/models_0";
+import {
+  DescribeInboundConnectionsRequest,
+  DescribeInboundConnectionsRequestFilterSensitiveLog,
+  DescribeInboundConnectionsResponse,
+  DescribeInboundConnectionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1DescribeInboundConnectionsCommand,
@@ -72,8 +77,8 @@ export class DescribeInboundConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInboundConnectionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInboundConnectionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeInboundConnectionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeInboundConnectionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { GetMethodResponseRequest, MethodResponse } from "../models/models_0";
+import {
+  GetMethodResponseRequest,
+  GetMethodResponseRequestFilterSensitiveLog,
+  MethodResponse,
+  MethodResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetMethodResponseCommand,
   serializeAws_restJson1GetMethodResponseCommand,
@@ -72,8 +77,8 @@ export class GetMethodResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMethodResponseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: MethodResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMethodResponseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: MethodResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteCanaryRequest, DeleteCanaryResponse } from "../models/models_0";
+import {
+  DeleteCanaryRequest,
+  DeleteCanaryRequestFilterSensitiveLog,
+  DeleteCanaryResponse,
+  DeleteCanaryResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCanaryCommand,
   serializeAws_restJson1DeleteCanaryCommand,
@@ -104,8 +109,8 @@ export class DeleteCanaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCanaryRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCanaryResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteCanaryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteCanaryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

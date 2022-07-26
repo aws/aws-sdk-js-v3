@@ -14,7 +14,9 @@ import {
 
 import {
   UpdateApplicationLayerAutomaticResponseRequest,
+  UpdateApplicationLayerAutomaticResponseRequestFilterSensitiveLog,
   UpdateApplicationLayerAutomaticResponseResponse,
+  UpdateApplicationLayerAutomaticResponseResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateApplicationLayerAutomaticResponseCommand,
@@ -81,8 +83,8 @@ export class UpdateApplicationLayerAutomaticResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApplicationLayerAutomaticResponseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationLayerAutomaticResponseResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateApplicationLayerAutomaticResponseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateApplicationLayerAutomaticResponseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

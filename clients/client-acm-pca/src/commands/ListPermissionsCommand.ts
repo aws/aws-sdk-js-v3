@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
+import {
+  ListPermissionsRequest,
+  ListPermissionsRequestFilterSensitiveLog,
+  ListPermissionsResponse,
+  ListPermissionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListPermissionsCommand,
   serializeAws_json1_1ListPermissionsCommand,
@@ -99,8 +104,8 @@ export class ListPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

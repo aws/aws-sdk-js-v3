@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { PutImageRecipePolicyRequest, PutImageRecipePolicyResponse } from "../models/models_0";
+import {
+  PutImageRecipePolicyRequest,
+  PutImageRecipePolicyRequestFilterSensitiveLog,
+  PutImageRecipePolicyResponse,
+  PutImageRecipePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutImageRecipePolicyCommand,
   serializeAws_restJson1PutImageRecipePolicyCommand,
@@ -74,8 +79,8 @@ export class PutImageRecipePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutImageRecipePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutImageRecipePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutImageRecipePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutImageRecipePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

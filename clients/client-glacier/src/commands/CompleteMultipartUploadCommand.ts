@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { ArchiveCreationOutput, CompleteMultipartUploadInput } from "../models/models_0";
+import {
+  ArchiveCreationOutput,
+  ArchiveCreationOutputFilterSensitiveLog,
+  CompleteMultipartUploadInput,
+  CompleteMultipartUploadInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CompleteMultipartUploadCommand,
   serializeAws_restJson1CompleteMultipartUploadCommand,
@@ -109,8 +114,8 @@ export class CompleteMultipartUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteMultipartUploadInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ArchiveCreationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CompleteMultipartUploadInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ArchiveCreationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

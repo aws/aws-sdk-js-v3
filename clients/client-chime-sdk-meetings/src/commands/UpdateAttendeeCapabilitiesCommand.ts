@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
-import { UpdateAttendeeCapabilitiesRequest, UpdateAttendeeCapabilitiesResponse } from "../models/models_0";
+import {
+  UpdateAttendeeCapabilitiesRequest,
+  UpdateAttendeeCapabilitiesRequestFilterSensitiveLog,
+  UpdateAttendeeCapabilitiesResponse,
+  UpdateAttendeeCapabilitiesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAttendeeCapabilitiesCommand,
   serializeAws_restJson1UpdateAttendeeCapabilitiesCommand,
@@ -93,8 +98,8 @@ export class UpdateAttendeeCapabilitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAttendeeCapabilitiesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAttendeeCapabilitiesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAttendeeCapabilitiesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAttendeeCapabilitiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

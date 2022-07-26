@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListAppsRequest, ListAppsResponse } from "../models/models_0";
+import {
+  ListAppsRequest,
+  ListAppsRequestFilterSensitiveLog,
+  ListAppsResponse,
+  ListAppsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListAppsCommand,
   serializeAws_restJson1ListAppsCommand,
@@ -72,8 +77,8 @@ export class ListAppsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAppsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAppsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAppsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

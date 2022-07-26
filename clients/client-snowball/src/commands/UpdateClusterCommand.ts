@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateClusterRequest, UpdateClusterResult } from "../models/models_0";
+import {
+  UpdateClusterRequest,
+  UpdateClusterRequestFilterSensitiveLog,
+  UpdateClusterResult,
+  UpdateClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateClusterCommand,
   serializeAws_json1_1UpdateClusterCommand,
@@ -75,8 +80,8 @@ export class UpdateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateClusterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DeleteSnapshotRequest, DeleteSnapshotResult } from "../models/models_0";
+import {
+  DeleteSnapshotRequest,
+  DeleteSnapshotRequestFilterSensitiveLog,
+  DeleteSnapshotResult,
+  DeleteSnapshotResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSnapshotCommand,
   serializeAws_json1_1DeleteSnapshotCommand,
@@ -72,8 +77,8 @@ export class DeleteSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSnapshotRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import { ListFeaturesRequest, ListFeaturesResponse } from "../models/models_0";
+import {
+  ListFeaturesRequest,
+  ListFeaturesRequestFilterSensitiveLog,
+  ListFeaturesResponse,
+  ListFeaturesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListFeaturesCommand,
   serializeAws_restJson1ListFeaturesCommand,
@@ -72,8 +77,8 @@ export class ListFeaturesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFeaturesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListFeaturesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListFeaturesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListFeaturesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

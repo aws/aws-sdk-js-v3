@@ -17,7 +17,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { RunFleetAdvisorLsaAnalysisResponse } from "../models/models_0";
+import {
+  RunFleetAdvisorLsaAnalysisResponse,
+  RunFleetAdvisorLsaAnalysisResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand,
   serializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand,
@@ -77,7 +80,7 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: RunFleetAdvisorLsaAnalysisResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: RunFleetAdvisorLsaAnalysisResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

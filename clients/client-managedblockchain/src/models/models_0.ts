@@ -50,15 +50,6 @@ export interface ApprovalThresholdPolicy {
   ThresholdComparator?: ThresholdComparator | string;
 }
 
-export namespace ApprovalThresholdPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalThresholdPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration properties for Hyperledger Fabric for a member in a Managed Blockchain network using the Hyperledger Fabric framework.</p>
  */
@@ -74,16 +65,6 @@ export interface MemberFabricConfiguration {
   AdminPassword: string | undefined;
 }
 
-export namespace MemberFabricConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberFabricConfiguration): any => ({
-    ...obj,
-    ...(obj.AdminPassword && { AdminPassword: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Configuration properties relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
  */
@@ -92,16 +73,6 @@ export interface MemberFrameworkConfiguration {
    * <p>Attributes of Hyperledger Fabric for a member on a Managed Blockchain network that uses Hyperledger Fabric.</p>
    */
   Fabric?: MemberFabricConfiguration;
-}
-
-export namespace MemberFrameworkConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberFrameworkConfiguration): any => ({
-    ...obj,
-    ...(obj.Fabric && { Fabric: MemberFabricConfiguration.filterSensitiveLog(obj.Fabric) }),
-  });
 }
 
 /**
@@ -114,15 +85,6 @@ export interface LogConfiguration {
   Enabled?: boolean;
 }
 
-export namespace LogConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A collection of log configurations.</p>
  */
@@ -131,15 +93,6 @@ export interface LogConfigurations {
    * <p>Parameters for publishing logs to Amazon CloudWatch Logs.</p>
    */
   Cloudwatch?: LogConfiguration;
-}
-
-export namespace LogConfigurations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogConfigurations): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -152,15 +105,6 @@ export interface MemberFabricLogPublishingConfiguration {
   CaLogs?: LogConfigurations;
 }
 
-export namespace MemberFabricLogPublishingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberFabricLogPublishingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network.</p>
  */
@@ -169,15 +113,6 @@ export interface MemberLogPublishingConfiguration {
    * <p>Configuration properties for logging events associated with a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
    */
   Fabric?: MemberFabricLogPublishingConfiguration;
-}
-
-export namespace MemberLogPublishingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberLogPublishingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -231,18 +166,6 @@ export interface MemberConfiguration {
   KmsKeyArn?: string;
 }
 
-export namespace MemberConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberConfiguration): any => ({
-    ...obj,
-    ...(obj.FrameworkConfiguration && {
-      FrameworkConfiguration: MemberFrameworkConfiguration.filterSensitiveLog(obj.FrameworkConfiguration),
-    }),
-  });
-}
-
 export interface CreateMemberInput {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than one time. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an AWS SDK or the AWS CLI.</p>
@@ -265,32 +188,11 @@ export interface CreateMemberInput {
   MemberConfiguration: MemberConfiguration | undefined;
 }
 
-export namespace CreateMemberInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMemberInput): any => ({
-    ...obj,
-    ...(obj.MemberConfiguration && {
-      MemberConfiguration: MemberConfiguration.filterSensitiveLog(obj.MemberConfiguration),
-    }),
-  });
-}
-
 export interface CreateMemberOutput {
   /**
    * <p>The unique identifier of the member.</p>
    */
   MemberId?: string;
-}
-
-export namespace CreateMemberOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMemberOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -487,15 +389,6 @@ export interface NetworkFabricConfiguration {
   Edition: Edition | string | undefined;
 }
 
-export namespace NetworkFabricConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFabricConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *          Configuration properties relevant to the network for the blockchain framework that the network uses.
@@ -510,15 +403,6 @@ export interface NetworkFrameworkConfiguration {
   Fabric?: NetworkFabricConfiguration;
 }
 
-export namespace NetworkFrameworkConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFrameworkConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *          The voting rules for the network to decide if a proposal is accepted
@@ -530,15 +414,6 @@ export interface VotingPolicy {
    * <p>Defines the rules for the network for voting on proposals, such as the percentage of <code>YES</code> votes required for the proposal to be approved and the duration of the proposal. The policy applies to all proposals and is specified when the network is created.</p>
    */
   ApprovalThresholdPolicy?: ApprovalThresholdPolicy;
-}
-
-export namespace VotingPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VotingPolicy): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateNetworkInput {
@@ -594,18 +469,6 @@ export interface CreateNetworkInput {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateNetworkInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNetworkInput): any => ({
-    ...obj,
-    ...(obj.MemberConfiguration && {
-      MemberConfiguration: MemberConfiguration.filterSensitiveLog(obj.MemberConfiguration),
-    }),
-  });
-}
-
 export interface CreateNetworkOutput {
   /**
    * <p>The unique identifier for the network.</p>
@@ -616,15 +479,6 @@ export interface CreateNetworkOutput {
    * <p>The unique identifier for the first member within the network.</p>
    */
   MemberId?: string;
-}
-
-export namespace CreateNetworkOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNetworkOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -642,15 +496,6 @@ export interface NodeFabricLogPublishingConfiguration {
   PeerLogs?: LogConfigurations;
 }
 
-export namespace NodeFabricLogPublishingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeFabricLogPublishingConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration properties for logging events associated with a peer node on a Hyperledger Fabric network on Managed Blockchain.</p>
  */
@@ -659,15 +504,6 @@ export interface NodeLogPublishingConfiguration {
    * <p>Configuration properties for logging events associated with a node that is owned by a member of a Managed Blockchain network using the Hyperledger Fabric framework.</p>
    */
   Fabric?: NodeFabricLogPublishingConfiguration;
-}
-
-export namespace NodeLogPublishingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeLogPublishingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum StateDBType {
@@ -700,15 +536,6 @@ export interface NodeConfiguration {
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
   StateDB?: StateDBType | string;
-}
-
-export namespace NodeConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateNodeInput {
@@ -759,29 +586,11 @@ export interface CreateNodeInput {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateNodeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNodeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateNodeOutput {
   /**
    * <p>The unique identifier of the node.</p>
    */
   NodeId?: string;
-}
-
-export namespace CreateNodeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateNodeOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -795,15 +604,6 @@ export interface InviteAction {
   Principal: string | undefined;
 }
 
-export namespace InviteAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InviteAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An action to remove a member from a Managed Blockchain network as the result of a removal proposal that is <code>APPROVED</code>. The member and all associated resources are deleted from the network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
@@ -813,15 +613,6 @@ export interface RemoveAction {
    * <p>The unique identifier of the member to remove.</p>
    */
   MemberId: string | undefined;
-}
-
-export namespace RemoveAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -844,15 +635,6 @@ export interface ProposalActions {
    *       </p>
    */
   Removals?: RemoveAction[];
-}
-
-export namespace ProposalActions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProposalActions): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProposalInput {
@@ -890,29 +672,11 @@ export interface CreateProposalInput {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateProposalInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProposalInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateProposalOutput {
   /**
    * <p>The unique identifier of the proposal.</p>
    */
   ProposalId?: string;
-}
-
-export namespace CreateProposalOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateProposalOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteMemberInput {
@@ -927,25 +691,7 @@ export interface DeleteMemberInput {
   MemberId: string | undefined;
 }
 
-export namespace DeleteMemberInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMemberInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMemberOutput {}
-
-export namespace DeleteMemberOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMemberOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteNodeInput {
   /**
@@ -983,25 +729,7 @@ export interface DeleteNodeInput {
   NodeId: string | undefined;
 }
 
-export namespace DeleteNodeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNodeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteNodeOutput {}
-
-export namespace DeleteNodeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteNodeOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface GetMemberInput {
   /**
@@ -1013,15 +741,6 @@ export interface GetMemberInput {
    * <p>The unique identifier of the member.</p>
    */
   MemberId: string | undefined;
-}
-
-export namespace GetMemberInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMemberInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1039,15 +758,6 @@ export interface MemberFabricAttributes {
   CaEndpoint?: string;
 }
 
-export namespace MemberFabricAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberFabricAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Attributes relevant to a member for the blockchain framework that the Managed Blockchain network uses.</p>
  */
@@ -1056,15 +766,6 @@ export interface MemberFrameworkAttributes {
    * <p>Attributes of Hyperledger Fabric relevant to a member on a Managed Blockchain network that uses Hyperledger Fabric.</p>
    */
   Fabric?: MemberFabricAttributes;
-}
-
-export namespace MemberFrameworkAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberFrameworkAttributes): any => ({
-    ...obj,
-  });
 }
 
 export enum MemberStatus {
@@ -1171,15 +872,6 @@ export interface Member {
   KmsKeyArn?: string;
 }
 
-export namespace Member {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Member): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMemberOutput {
   /**
    * <p>The properties of a member.</p>
@@ -1187,29 +879,11 @@ export interface GetMemberOutput {
   Member?: Member;
 }
 
-export namespace GetMemberOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMemberOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetNetworkInput {
   /**
    * <p>The unique identifier of the network to get information about.</p>
    */
   NetworkId: string | undefined;
-}
-
-export namespace GetNetworkInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNetworkInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1236,15 +910,6 @@ export interface NetworkEthereumAttributes {
   ChainId?: string;
 }
 
-export namespace NetworkEthereumAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkEthereumAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Attributes of Hyperledger Fabric for a network.</p>
  */
@@ -1260,15 +925,6 @@ export interface NetworkFabricAttributes {
   Edition?: Edition | string;
 }
 
-export namespace NetworkFabricAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFabricAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Attributes relevant to the network for the blockchain framework that the network uses.</p>
  */
@@ -1282,15 +938,6 @@ export interface NetworkFrameworkAttributes {
    * <p>Attributes of an Ethereum network for Managed Blockchain resources participating in an Ethereum network. </p>
    */
   Ethereum?: NetworkEthereumAttributes;
-}
-
-export namespace NetworkFrameworkAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkFrameworkAttributes): any => ({
-    ...obj,
-  });
 }
 
 export enum NetworkStatus {
@@ -1367,29 +1014,11 @@ export interface Network {
   Arn?: string;
 }
 
-export namespace Network {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Network): any => ({
-    ...obj,
-  });
-}
-
 export interface GetNetworkOutput {
   /**
    * <p>An object containing network configuration parameters.</p>
    */
   Network?: Network;
-}
-
-export namespace GetNetworkOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNetworkOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetNodeInput {
@@ -1410,15 +1039,6 @@ export interface GetNodeInput {
   NodeId: string | undefined;
 }
 
-export namespace GetNodeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNodeInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Attributes of an Ethereum node.</p>
  */
@@ -1432,15 +1052,6 @@ export interface NodeEthereumAttributes {
    * <p>The endpoint on which the Ethereum node listens to run Ethereum JSON-RPC methods over WebSockets connections from a client. Use this endpoint in client code for smart contracts when using a WebSockets connection. Connections to this endpoint are authenticated using <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
    */
   WebSocketEndpoint?: string;
-}
-
-export namespace NodeEthereumAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeEthereumAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1458,15 +1069,6 @@ export interface NodeFabricAttributes {
   PeerEventEndpoint?: string;
 }
 
-export namespace NodeFabricAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeFabricAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Attributes relevant to a node on a Managed Blockchain network for the blockchain framework that the network uses.</p>
  */
@@ -1480,15 +1082,6 @@ export interface NodeFrameworkAttributes {
    * <p>Attributes of Ethereum for a node on a Managed Blockchain network that uses Ethereum. </p>
    */
   Ethereum?: NodeEthereumAttributes;
-}
-
-export namespace NodeFrameworkAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeFrameworkAttributes): any => ({
-    ...obj,
-  });
 }
 
 export enum NodeStatus {
@@ -1616,29 +1209,11 @@ export interface Node {
   KmsKeyArn?: string;
 }
 
-export namespace Node {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Node): any => ({
-    ...obj,
-  });
-}
-
 export interface GetNodeOutput {
   /**
    * <p>Properties of the node configuration.</p>
    */
   Node?: Node;
-}
-
-export namespace GetNodeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetNodeOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetProposalInput {
@@ -1651,15 +1226,6 @@ export interface GetProposalInput {
    * <p>The unique identifier of the proposal.</p>
    */
   ProposalId: string | undefined;
-}
-
-export namespace GetProposalInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProposalInput): any => ({
-    ...obj,
-  });
 }
 
 export enum ProposalStatus {
@@ -1779,29 +1345,11 @@ export interface Proposal {
   Arn?: string;
 }
 
-export namespace Proposal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Proposal): any => ({
-    ...obj,
-  });
-}
-
 export interface GetProposalOutput {
   /**
    * <p>Information about a proposal.</p>
    */
   Proposal?: Proposal;
-}
-
-export namespace GetProposalOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetProposalOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1870,15 +1418,6 @@ export interface NetworkSummary {
   Arn?: string;
 }
 
-export namespace NetworkSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum InvitationStatus {
   ACCEPTED = "ACCEPTED",
   ACCEPTING = "ACCEPTING",
@@ -1945,15 +1484,6 @@ export interface Invitation {
   Arn?: string;
 }
 
-export namespace Invitation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Invitation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInvitationsInput {
   /**
    * <p>The maximum number of invitations to return.</p>
@@ -1966,15 +1496,6 @@ export interface ListInvitationsInput {
   NextToken?: string;
 }
 
-export namespace ListInvitationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInvitationsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInvitationsOutput {
   /**
    * <p>The invitations for the network.</p>
@@ -1985,15 +1506,6 @@ export interface ListInvitationsOutput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListInvitationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInvitationsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMembersInput {
@@ -2028,15 +1540,6 @@ export interface ListMembersInput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMembersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMembersInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2113,15 +1616,6 @@ export interface MemberSummary {
   Arn?: string;
 }
 
-export namespace MemberSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MemberSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMembersOutput {
   /**
    * <p>An array of <code>MemberSummary</code> objects. Each object contains details about a network member.</p>
@@ -2132,15 +1626,6 @@ export interface ListMembersOutput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMembersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMembersOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListNetworksInput {
@@ -2171,15 +1656,6 @@ export interface ListNetworksInput {
   NextToken?: string;
 }
 
-export namespace ListNetworksInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNetworksInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNetworksOutput {
   /**
    * <p>An array of <code>NetworkSummary</code> objects that contain configuration properties for each network.</p>
@@ -2190,15 +1666,6 @@ export interface ListNetworksOutput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListNetworksOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNetworksOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListNodesInput {
@@ -2227,15 +1694,6 @@ export interface ListNodesInput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListNodesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNodesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2273,15 +1731,6 @@ export interface NodeSummary {
   Arn?: string;
 }
 
-export namespace NodeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNodesOutput {
   /**
    * <p>An array of <code>NodeSummary</code> objects that contain configuration properties for each node.</p>
@@ -2292,15 +1741,6 @@ export interface ListNodesOutput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListNodesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNodesOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProposalsInput {
@@ -2324,15 +1764,6 @@ export interface ListProposalsInput {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListProposalsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProposalsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2415,15 +1846,6 @@ export interface ProposalSummary {
   Arn?: string;
 }
 
-export namespace ProposalSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProposalSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProposalsOutput {
   /**
    * <p>The summary of each proposal made on the network.</p>
@@ -2434,15 +1856,6 @@ export interface ListProposalsOutput {
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListProposalsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProposalsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListProposalVotesInput {
@@ -2473,15 +1886,6 @@ export interface ListProposalVotesInput {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListProposalVotesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProposalVotesInput): any => ({
-    ...obj,
-  });
 }
 
 export enum VoteValue {
@@ -2518,15 +1922,6 @@ export interface VoteSummary {
   MemberId?: string;
 }
 
-export namespace VoteSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VoteSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListProposalVotesOutput {
   /**
    * <p>
@@ -2543,29 +1938,11 @@ export interface ListProposalVotesOutput {
   NextToken?: string;
 }
 
-export namespace ListProposalVotesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListProposalVotesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For more information about ARNs and their format, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -2575,15 +1952,6 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectInvitationInput {
   /**
    * <p>The unique identifier of the invitation to reject.</p>
@@ -2591,25 +1959,7 @@ export interface RejectInvitationInput {
   InvitationId: string | undefined;
 }
 
-export namespace RejectInvitationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectInvitationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface RejectInvitationOutput {}
-
-export namespace RejectInvitationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RejectInvitationOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -2623,25 +1973,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2655,25 +1987,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateMemberInput {
   /**
@@ -2692,25 +2006,7 @@ export interface UpdateMemberInput {
   LogPublishingConfiguration?: MemberLogPublishingConfiguration;
 }
 
-export namespace UpdateMemberInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMemberInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateMemberOutput {}
-
-export namespace UpdateMemberOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateMemberOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateNodeInput {
   /**
@@ -2735,25 +2031,7 @@ export interface UpdateNodeInput {
   LogPublishingConfiguration?: NodeLogPublishingConfiguration;
 }
 
-export namespace UpdateNodeInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNodeInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateNodeOutput {}
-
-export namespace UpdateNodeOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateNodeOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface VoteOnProposalInput {
   /**
@@ -2784,22 +2062,586 @@ export interface VoteOnProposalInput {
   Vote: VoteValue | string | undefined;
 }
 
-export namespace VoteOnProposalInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VoteOnProposalInput): any => ({
-    ...obj,
-  });
-}
-
 export interface VoteOnProposalOutput {}
 
-export namespace VoteOnProposalOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VoteOnProposalOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ApprovalThresholdPolicyFilterSensitiveLog = (obj: ApprovalThresholdPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberFabricConfigurationFilterSensitiveLog = (obj: MemberFabricConfiguration): any => ({
+  ...obj,
+  ...(obj.AdminPassword && { AdminPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MemberFrameworkConfigurationFilterSensitiveLog = (obj: MemberFrameworkConfiguration): any => ({
+  ...obj,
+  ...(obj.Fabric && { Fabric: MemberFabricConfigurationFilterSensitiveLog(obj.Fabric) }),
+});
+
+/**
+ * @internal
+ */
+export const LogConfigurationFilterSensitiveLog = (obj: LogConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogConfigurationsFilterSensitiveLog = (obj: LogConfigurations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberFabricLogPublishingConfigurationFilterSensitiveLog = (
+  obj: MemberFabricLogPublishingConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberLogPublishingConfigurationFilterSensitiveLog = (obj: MemberLogPublishingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberConfigurationFilterSensitiveLog = (obj: MemberConfiguration): any => ({
+  ...obj,
+  ...(obj.FrameworkConfiguration && {
+    FrameworkConfiguration: MemberFrameworkConfigurationFilterSensitiveLog(obj.FrameworkConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMemberInputFilterSensitiveLog = (obj: CreateMemberInput): any => ({
+  ...obj,
+  ...(obj.MemberConfiguration && {
+    MemberConfiguration: MemberConfigurationFilterSensitiveLog(obj.MemberConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMemberOutputFilterSensitiveLog = (obj: CreateMemberOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFabricConfigurationFilterSensitiveLog = (obj: NetworkFabricConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFrameworkConfigurationFilterSensitiveLog = (obj: NetworkFrameworkConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VotingPolicyFilterSensitiveLog = (obj: VotingPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNetworkInputFilterSensitiveLog = (obj: CreateNetworkInput): any => ({
+  ...obj,
+  ...(obj.MemberConfiguration && {
+    MemberConfiguration: MemberConfigurationFilterSensitiveLog(obj.MemberConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateNetworkOutputFilterSensitiveLog = (obj: CreateNetworkOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeFabricLogPublishingConfigurationFilterSensitiveLog = (
+  obj: NodeFabricLogPublishingConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeLogPublishingConfigurationFilterSensitiveLog = (obj: NodeLogPublishingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeConfigurationFilterSensitiveLog = (obj: NodeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNodeInputFilterSensitiveLog = (obj: CreateNodeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateNodeOutputFilterSensitiveLog = (obj: CreateNodeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InviteActionFilterSensitiveLog = (obj: InviteAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveActionFilterSensitiveLog = (obj: RemoveAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProposalActionsFilterSensitiveLog = (obj: ProposalActions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProposalInputFilterSensitiveLog = (obj: CreateProposalInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateProposalOutputFilterSensitiveLog = (obj: CreateProposalOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMemberInputFilterSensitiveLog = (obj: DeleteMemberInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMemberOutputFilterSensitiveLog = (obj: DeleteMemberOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNodeInputFilterSensitiveLog = (obj: DeleteNodeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteNodeOutputFilterSensitiveLog = (obj: DeleteNodeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMemberInputFilterSensitiveLog = (obj: GetMemberInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberFabricAttributesFilterSensitiveLog = (obj: MemberFabricAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberFrameworkAttributesFilterSensitiveLog = (obj: MemberFrameworkAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberFilterSensitiveLog = (obj: Member): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMemberOutputFilterSensitiveLog = (obj: GetMemberOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNetworkInputFilterSensitiveLog = (obj: GetNetworkInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkEthereumAttributesFilterSensitiveLog = (obj: NetworkEthereumAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFabricAttributesFilterSensitiveLog = (obj: NetworkFabricAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFrameworkAttributesFilterSensitiveLog = (obj: NetworkFrameworkAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFilterSensitiveLog = (obj: Network): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNetworkOutputFilterSensitiveLog = (obj: GetNetworkOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNodeInputFilterSensitiveLog = (obj: GetNodeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeEthereumAttributesFilterSensitiveLog = (obj: NodeEthereumAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeFabricAttributesFilterSensitiveLog = (obj: NodeFabricAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeFrameworkAttributesFilterSensitiveLog = (obj: NodeFrameworkAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeFilterSensitiveLog = (obj: Node): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetNodeOutputFilterSensitiveLog = (obj: GetNodeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProposalInputFilterSensitiveLog = (obj: GetProposalInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProposalFilterSensitiveLog = (obj: Proposal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetProposalOutputFilterSensitiveLog = (obj: GetProposalOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkSummaryFilterSensitiveLog = (obj: NetworkSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvitationFilterSensitiveLog = (obj: Invitation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInvitationsInputFilterSensitiveLog = (obj: ListInvitationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInvitationsOutputFilterSensitiveLog = (obj: ListInvitationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMembersInputFilterSensitiveLog = (obj: ListMembersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberSummaryFilterSensitiveLog = (obj: MemberSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMembersOutputFilterSensitiveLog = (obj: ListMembersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNetworksInputFilterSensitiveLog = (obj: ListNetworksInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNetworksOutputFilterSensitiveLog = (obj: ListNetworksOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNodesInputFilterSensitiveLog = (obj: ListNodesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NodeSummaryFilterSensitiveLog = (obj: NodeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNodesOutputFilterSensitiveLog = (obj: ListNodesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProposalsInputFilterSensitiveLog = (obj: ListProposalsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProposalSummaryFilterSensitiveLog = (obj: ProposalSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProposalsOutputFilterSensitiveLog = (obj: ListProposalsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProposalVotesInputFilterSensitiveLog = (obj: ListProposalVotesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VoteSummaryFilterSensitiveLog = (obj: VoteSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListProposalVotesOutputFilterSensitiveLog = (obj: ListProposalVotesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectInvitationInputFilterSensitiveLog = (obj: RejectInvitationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RejectInvitationOutputFilterSensitiveLog = (obj: RejectInvitationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMemberInputFilterSensitiveLog = (obj: UpdateMemberInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMemberOutputFilterSensitiveLog = (obj: UpdateMemberOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNodeInputFilterSensitiveLog = (obj: UpdateNodeInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateNodeOutputFilterSensitiveLog = (obj: UpdateNodeOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VoteOnProposalInputFilterSensitiveLog = (obj: VoteOnProposalInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VoteOnProposalOutputFilterSensitiveLog = (obj: VoteOnProposalOutput): any => ({
+  ...obj,
+});

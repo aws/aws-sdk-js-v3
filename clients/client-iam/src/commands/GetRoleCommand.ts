@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetRoleRequest, GetRoleResponse } from "../models/models_0";
+import {
+  GetRoleRequest,
+  GetRoleRequestFilterSensitiveLog,
+  GetRoleResponse,
+  GetRoleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryGetRoleCommand, serializeAws_queryGetRoleCommand } from "../protocols/Aws_query";
 
 export interface GetRoleCommandInput extends GetRoleRequest {}
@@ -74,8 +79,8 @@ export class GetRoleCommand extends $Command<GetRoleCommandInput, GetRoleCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetRoleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetRoleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetRoleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

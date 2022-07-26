@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteXssMatchSetRequest, DeleteXssMatchSetResponse } from "../models/models_0";
+import {
+  DeleteXssMatchSetRequest,
+  DeleteXssMatchSetRequestFilterSensitiveLog,
+  DeleteXssMatchSetResponse,
+  DeleteXssMatchSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteXssMatchSetCommand,
   serializeAws_json1_1DeleteXssMatchSetCommand,
@@ -96,8 +101,8 @@ export class DeleteXssMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteXssMatchSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteXssMatchSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteXssMatchSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteXssMatchSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

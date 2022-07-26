@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { DeleteStreamKeyRequest } from "../models/models_0";
+import { DeleteStreamKeyRequest, DeleteStreamKeyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteStreamKeyCommand,
   serializeAws_restJson1DeleteStreamKeyCommand,
@@ -73,7 +73,7 @@ export class DeleteStreamKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamKeyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteStreamKeyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

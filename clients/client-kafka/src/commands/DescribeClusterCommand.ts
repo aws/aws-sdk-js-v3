@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_0";
+import {
+  DescribeClusterRequest,
+  DescribeClusterRequestFilterSensitiveLog,
+  DescribeClusterResponse,
+  DescribeClusterResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeClusterCommand,
   serializeAws_restJson1DescribeClusterCommand,
@@ -72,8 +77,8 @@ export class DescribeClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClusterRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClusterResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClusterRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeClusterResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AttachElasticLoadBalancerRequest } from "../models/models_0";
+import {
+  AttachElasticLoadBalancerRequest,
+  AttachElasticLoadBalancerRequestFilterSensitiveLog,
+} from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1AttachElasticLoadBalancerCommand,
@@ -85,7 +88,7 @@ export class AttachElasticLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachElasticLoadBalancerRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachElasticLoadBalancerRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateAdmChannelRequest, UpdateAdmChannelResponse } from "../models/models_1";
+import {
+  UpdateAdmChannelRequest,
+  UpdateAdmChannelRequestFilterSensitiveLog,
+  UpdateAdmChannelResponse,
+  UpdateAdmChannelResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdateAdmChannelCommand,
@@ -72,8 +77,8 @@ export class UpdateAdmChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAdmChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAdmChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAdmChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAdmChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

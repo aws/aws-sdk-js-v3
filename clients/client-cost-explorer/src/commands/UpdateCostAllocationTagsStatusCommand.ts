@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { UpdateCostAllocationTagsStatusRequest, UpdateCostAllocationTagsStatusResponse } from "../models/models_0";
+import {
+  UpdateCostAllocationTagsStatusRequest,
+  UpdateCostAllocationTagsStatusRequestFilterSensitiveLog,
+  UpdateCostAllocationTagsStatusResponse,
+  UpdateCostAllocationTagsStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateCostAllocationTagsStatusCommand,
   serializeAws_json1_1UpdateCostAllocationTagsStatusCommand,
@@ -77,8 +82,8 @@ export class UpdateCostAllocationTagsStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCostAllocationTagsStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCostAllocationTagsStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCostAllocationTagsStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCostAllocationTagsStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

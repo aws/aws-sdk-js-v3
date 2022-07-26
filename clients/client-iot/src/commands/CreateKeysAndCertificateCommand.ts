@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateKeysAndCertificateRequest, CreateKeysAndCertificateResponse } from "../models/models_0";
+import {
+  CreateKeysAndCertificateRequest,
+  CreateKeysAndCertificateRequestFilterSensitiveLog,
+  CreateKeysAndCertificateResponse,
+  CreateKeysAndCertificateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateKeysAndCertificateCommand,
   serializeAws_restJson1CreateKeysAndCertificateCommand,
@@ -78,8 +83,8 @@ export class CreateKeysAndCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeysAndCertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateKeysAndCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateKeysAndCertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateKeysAndCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

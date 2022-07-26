@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { AssociateRoutingProfileQueuesRequest } from "../models/models_0";
+import {
+  AssociateRoutingProfileQueuesRequest,
+  AssociateRoutingProfileQueuesRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateRoutingProfileQueuesCommand,
   serializeAws_restJson1AssociateRoutingProfileQueuesCommand,
@@ -72,7 +75,7 @@ export class AssociateRoutingProfileQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateRoutingProfileQueuesRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateRoutingProfileQueuesRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

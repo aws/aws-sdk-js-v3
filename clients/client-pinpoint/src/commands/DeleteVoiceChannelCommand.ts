@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteVoiceChannelRequest, DeleteVoiceChannelResponse } from "../models/models_0";
+import {
+  DeleteVoiceChannelRequest,
+  DeleteVoiceChannelRequestFilterSensitiveLog,
+  DeleteVoiceChannelResponse,
+  DeleteVoiceChannelResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1DeleteVoiceChannelCommand,
@@ -72,8 +77,8 @@ export class DeleteVoiceChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVoiceChannelRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVoiceChannelResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVoiceChannelRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVoiceChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

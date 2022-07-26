@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import { AddFlowSourcesRequest, AddFlowSourcesResponse } from "../models/models_0";
+import {
+  AddFlowSourcesRequest,
+  AddFlowSourcesRequestFilterSensitiveLog,
+  AddFlowSourcesResponse,
+  AddFlowSourcesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1AddFlowSourcesCommand,
   serializeAws_restJson1AddFlowSourcesCommand,
@@ -72,8 +77,8 @@ export class AddFlowSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddFlowSourcesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AddFlowSourcesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AddFlowSourcesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AddFlowSourcesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

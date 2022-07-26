@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteDeviceFleetRequest } from "../models/models_1";
+import { DeleteDeviceFleetRequest, DeleteDeviceFleetRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteDeviceFleetCommand,
   serializeAws_json1_1DeleteDeviceFleetCommand,
@@ -72,7 +72,7 @@ export class DeleteDeviceFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDeviceFleetRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDeviceFleetRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

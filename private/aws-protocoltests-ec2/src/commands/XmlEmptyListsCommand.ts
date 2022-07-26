@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlListsOutput } from "../models/models_0";
+import { XmlListsOutput, XmlListsOutputFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_ec2XmlEmptyListsCommand, serializeAws_ec2XmlEmptyListsCommand } from "../protocols/Aws_ec2";
 
 export interface XmlEmptyListsCommandInput {}
@@ -53,7 +53,7 @@ export class XmlEmptyListsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlListsOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: XmlListsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { ListPlaybackKeyPairsRequest, ListPlaybackKeyPairsResponse } from "../models/models_0";
+import {
+  ListPlaybackKeyPairsRequest,
+  ListPlaybackKeyPairsRequestFilterSensitiveLog,
+  ListPlaybackKeyPairsResponse,
+  ListPlaybackKeyPairsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListPlaybackKeyPairsCommand,
   serializeAws_restJson1ListPlaybackKeyPairsCommand,
@@ -73,8 +78,8 @@ export class ListPlaybackKeyPairsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlaybackKeyPairsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPlaybackKeyPairsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPlaybackKeyPairsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPlaybackKeyPairsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

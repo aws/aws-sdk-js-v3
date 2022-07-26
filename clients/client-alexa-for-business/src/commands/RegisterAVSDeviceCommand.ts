@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import { RegisterAVSDeviceRequest, RegisterAVSDeviceResponse } from "../models/models_0";
+import {
+  RegisterAVSDeviceRequest,
+  RegisterAVSDeviceRequestFilterSensitiveLog,
+  RegisterAVSDeviceResponse,
+  RegisterAVSDeviceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterAVSDeviceCommand,
   serializeAws_json1_1RegisterAVSDeviceCommand,
@@ -73,8 +78,8 @@ export class RegisterAVSDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterAVSDeviceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RegisterAVSDeviceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterAVSDeviceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RegisterAVSDeviceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

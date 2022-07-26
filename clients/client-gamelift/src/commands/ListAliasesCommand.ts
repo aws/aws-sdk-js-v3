@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ListAliasesInput, ListAliasesOutput } from "../models/models_0";
+import {
+  ListAliasesInput,
+  ListAliasesInputFilterSensitiveLog,
+  ListAliasesOutput,
+  ListAliasesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListAliasesCommand,
   serializeAws_json1_1ListAliasesCommand,
@@ -89,8 +94,8 @@ export class ListAliasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAliasesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAliasesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAliasesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAliasesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

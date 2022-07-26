@@ -42,15 +42,6 @@ export interface ChoiceContent {
   Url?: string;
 }
 
-export namespace ChoiceContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChoiceContent): any => ({
-    ...obj,
-  });
-}
-
 export enum AdditionalResourceType {
   HELPFUL_RESOURCE = "HELPFUL_RESOURCE",
   IMPROVEMENT_PLAN = "IMPROVEMENT_PLAN",
@@ -69,15 +60,6 @@ export interface AdditionalResources {
    * <p>The URLs for additional resources, either helpful resources or improvement plans. Up to five additional URLs can be specified.</p>
    */
   Content?: ChoiceContent[];
-}
-
-export namespace AdditionalResources {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdditionalResources): any => ({
-    ...obj,
-  });
 }
 
 export enum ChoiceReason {
@@ -119,15 +101,6 @@ export interface ChoiceAnswer {
   Notes?: string;
 }
 
-export namespace ChoiceAnswer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChoiceAnswer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A choice available to answer question.</p>
  */
@@ -162,15 +135,6 @@ export interface Choice {
    *             one of type <code>IMPROVEMENT_PLAN</code>, or both.</p>
    */
   AdditionalResources?: AdditionalResources[];
-}
-
-export namespace Choice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Choice): any => ({
-    ...obj,
-  });
 }
 
 export enum AnswerReason {
@@ -267,15 +231,6 @@ export interface Answer {
   Reason?: AnswerReason | string;
 }
 
-export namespace Answer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Answer): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A choice summary that has been answered on a question in your workload.</p>
  */
@@ -294,15 +249,6 @@ export interface ChoiceAnswerSummary {
    * <p>The reason why a choice is non-applicable to a question in your workload.</p>
    */
   Reason?: ChoiceReason | string;
-}
-
-export namespace ChoiceAnswerSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChoiceAnswerSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -357,15 +303,6 @@ export interface AnswerSummary {
   Reason?: AnswerReason | string;
 }
 
-export namespace AnswerSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnswerSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to associate lens reviews.</p>
  */
@@ -380,15 +317,6 @@ export interface AssociateLensesInput {
    *         <p>Identify a lens using its <a>LensSummary$LensAlias</a>.</p>
    */
   LensAliases: string[] | undefined;
-}
-
-export namespace AssociateLensesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateLensesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -538,15 +466,6 @@ export interface ValidationExceptionField {
   Message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -611,15 +530,6 @@ export interface ChoiceImprovementPlan {
   ImprovementPlanUrl?: string;
 }
 
-export namespace ChoiceImprovementPlan {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChoiceImprovementPlan): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of choices to be updated.</p>
  */
@@ -638,15 +548,6 @@ export interface ChoiceUpdate {
    * <p>The notes associated with a choice.</p>
    */
   Notes?: string;
-}
-
-export namespace ChoiceUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChoiceUpdate): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLensShareInput {
@@ -679,29 +580,11 @@ export interface CreateLensShareInput {
   ClientRequestToken?: string;
 }
 
-export namespace CreateLensShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLensShareInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLensShareOutput {
   /**
    * <p>The ID associated with the workload share.</p>
    */
   ShareId?: string;
-}
-
-export namespace CreateLensShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLensShareOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -787,15 +670,6 @@ export interface CreateLensVersionInput {
   ClientRequestToken?: string;
 }
 
-export namespace CreateLensVersionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLensVersionInput): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLensVersionOutput {
   /**
    * <p>The ARN for the lens.</p>
@@ -806,15 +680,6 @@ export interface CreateLensVersionOutput {
    * <p>The version of the lens.</p>
    */
   LensVersion?: string;
-}
-
-export namespace CreateLensVersionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLensVersionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -847,15 +712,6 @@ export interface CreateMilestoneInput {
   ClientRequestToken?: string;
 }
 
-export namespace CreateMilestoneInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMilestoneInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a create milestone call.</p>
  */
@@ -870,15 +726,6 @@ export interface CreateMilestoneOutput {
    *         <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
-}
-
-export namespace CreateMilestoneOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMilestoneOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkloadEnvironment {
@@ -1118,15 +965,6 @@ export interface CreateWorkloadInput {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateWorkloadInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkloadInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a create workload call.</p>
  */
@@ -1140,15 +978,6 @@ export interface CreateWorkloadOutput {
    * <p>The ARN for the workload.</p>
    */
   WorkloadArn?: string;
-}
-
-export namespace CreateWorkloadOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkloadOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum PermissionType {
@@ -1190,15 +1019,6 @@ export interface CreateWorkloadShareInput {
   ClientRequestToken?: string;
 }
 
-export namespace CreateWorkloadShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkloadShareInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for Create Workload Share</p>
  */
@@ -1212,15 +1032,6 @@ export interface CreateWorkloadShareOutput {
    * <p>The ID associated with the workload share.</p>
    */
   ShareId?: string;
-}
-
-export namespace CreateWorkloadShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkloadShareOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum LensStatusType {
@@ -1259,15 +1070,6 @@ export interface DeleteLensInput {
   LensStatus: LensStatusType | string | undefined;
 }
 
-export namespace DeleteLensInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLensInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLensShareInput {
   /**
    * <p>The ID associated with the workload share.</p>
@@ -1298,15 +1100,6 @@ export interface DeleteLensShareInput {
   ClientRequestToken?: string;
 }
 
-export namespace DeleteLensShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLensShareInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for workload deletion.</p>
  */
@@ -1329,15 +1122,6 @@ export interface DeleteWorkloadInput {
    *         </important>
    */
   ClientRequestToken?: string;
-}
-
-export namespace DeleteWorkloadInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkloadInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1369,15 +1153,6 @@ export interface DeleteWorkloadShareInput {
   ClientRequestToken?: string;
 }
 
-export namespace DeleteWorkloadShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkloadShareInput): any => ({
-    ...obj,
-  });
-}
-
 export enum DifferenceStatus {
   DELETED = "DELETED",
   NEW = "NEW",
@@ -1400,15 +1175,6 @@ export interface DisassociateLensesInput {
   LensAliases: string[] | undefined;
 }
 
-export namespace DisassociateLensesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateLensesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportLensInput {
   /**
    * <p>The alias of the lens.</p>
@@ -1425,29 +1191,11 @@ export interface ExportLensInput {
   LensVersion?: string;
 }
 
-export namespace ExportLensInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportLensInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportLensOutput {
   /**
    * <p>The JSON for the lens.</p>
    */
   LensJSON?: string;
-}
-
-export namespace ExportLensOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportLensOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1478,15 +1226,6 @@ export interface GetAnswerInput {
    *         <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
-}
-
-export namespace GetAnswerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAnswerInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1524,15 +1263,6 @@ export interface GetAnswerOutput {
   Answer?: Answer;
 }
 
-export namespace GetAnswerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAnswerOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLensInput {
   /**
    * <p>The alias of the lens.</p>
@@ -1547,15 +1277,6 @@ export interface GetLensInput {
    * <p>The lens version to be retrieved.</p>
    */
   LensVersion?: string;
-}
-
-export namespace GetLensInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLensInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1598,29 +1319,11 @@ export interface Lens {
   Tags?: Record<string, string>;
 }
 
-export namespace Lens {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Lens): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLensOutput {
   /**
    * <p>A lens return object.</p>
    */
   Lens?: Lens;
-}
-
-export namespace GetLensOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLensOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1646,15 +1349,6 @@ export interface GetLensReviewInput {
    *         <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
-}
-
-export namespace GetLensReviewInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLensReviewInput): any => ({
-    ...obj,
-  });
 }
 
 export enum LensStatus {
@@ -1689,15 +1383,6 @@ export interface PillarReviewSummary {
    * <p>A map from risk names to the count of how questions have that rating.</p>
    */
   RiskCounts?: Record<string, number>;
-}
-
-export namespace PillarReviewSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PillarReviewSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1759,15 +1444,6 @@ export interface LensReview {
   NextToken?: string;
 }
 
-export namespace LensReview {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LensReview): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a get lens review call.</p>
  */
@@ -1787,15 +1463,6 @@ export interface GetLensReviewOutput {
    * <p>A lens review of a question.</p>
    */
   LensReview?: LensReview;
-}
-
-export namespace GetLensReviewOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLensReviewOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1823,15 +1490,6 @@ export interface GetLensReviewReportInput {
   MilestoneNumber?: number;
 }
 
-export namespace GetLensReviewReportInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLensReviewReportInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A report of a lens review.</p>
  */
@@ -1857,15 +1515,6 @@ export interface LensReviewReport {
   Base64String?: string;
 }
 
-export namespace LensReviewReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LensReviewReport): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a get lens review report call.</p>
  */
@@ -1885,15 +1534,6 @@ export interface GetLensReviewReportOutput {
    * <p>A report of a lens review.</p>
    */
   LensReviewReport?: LensReviewReport;
-}
-
-export namespace GetLensReviewReportOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLensReviewReportOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLensVersionDifferenceInput {
@@ -1917,15 +1557,6 @@ export interface GetLensVersionDifferenceInput {
   TargetLensVersion?: string;
 }
 
-export namespace GetLensVersionDifferenceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLensVersionDifferenceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A question difference return object.</p>
  */
@@ -1944,15 +1575,6 @@ export interface QuestionDifference {
    * <p>Indicates the type of change to the question.</p>
    */
   DifferenceStatus?: DifferenceStatus | string;
-}
-
-export namespace QuestionDifference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QuestionDifference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1981,15 +1603,6 @@ export interface PillarDifference {
   QuestionDifferences?: QuestionDifference[];
 }
 
-export namespace PillarDifference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PillarDifference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The differences between the base and latest versions of the lens.</p>
  */
@@ -1998,15 +1611,6 @@ export interface VersionDifferences {
    * <p>The differences between the base and latest versions of the lens.</p>
    */
   PillarDifferences?: PillarDifference[];
-}
-
-export namespace VersionDifferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersionDifferences): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLensVersionDifferenceOutput {
@@ -2045,15 +1649,6 @@ export interface GetLensVersionDifferenceOutput {
   VersionDifferences?: VersionDifferences;
 }
 
-export namespace GetLensVersionDifferenceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLensVersionDifferenceOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to get a milestone.</p>
  */
@@ -2068,15 +1663,6 @@ export interface GetMilestoneInput {
    *         <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber: number | undefined;
-}
-
-export namespace GetMilestoneInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMilestoneInput): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkloadImprovementStatus {
@@ -2354,15 +1940,6 @@ export interface Workload {
   Tags?: Record<string, string>;
 }
 
-export namespace Workload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Workload): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A milestone return object.</p>
  */
@@ -2390,15 +1967,6 @@ export interface Milestone {
   Workload?: Workload;
 }
 
-export namespace Milestone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Milestone): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a get milestone call.</p>
  */
@@ -2414,15 +1982,6 @@ export interface GetMilestoneOutput {
   Milestone?: Milestone;
 }
 
-export namespace GetMilestoneOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMilestoneOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to get a workload.</p>
  */
@@ -2433,15 +1992,6 @@ export interface GetWorkloadInput {
   WorkloadId: string | undefined;
 }
 
-export namespace GetWorkloadInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkloadInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a get workload call.</p>
  */
@@ -2450,15 +2000,6 @@ export interface GetWorkloadOutput {
    * <p>A workload return object.</p>
    */
   Workload?: Workload;
-}
-
-export namespace GetWorkloadOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetWorkloadOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ImportLensInput {
@@ -2496,15 +2037,6 @@ export interface ImportLensInput {
   Tags?: Record<string, string>;
 }
 
-export namespace ImportLensInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportLensInput): any => ({
-    ...obj,
-  });
-}
-
 export enum ImportLensStatus {
   COMPLETE = "COMPLETE",
   ERROR = "ERROR",
@@ -2521,15 +2053,6 @@ export interface ImportLensOutput {
    * <p>The status of the imported lens.</p>
    */
   Status?: ImportLensStatus | string;
-}
-
-export namespace ImportLensOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportLensOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2567,15 +2090,6 @@ export interface ImprovementSummary {
    * <p>The improvement plan details.</p>
    */
   ImprovementPlans?: ChoiceImprovementPlan[];
-}
-
-export namespace ImprovementSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImprovementSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2622,15 +2136,6 @@ export interface LensReviewSummary {
   RiskCounts?: Record<string, number>;
 }
 
-export namespace LensReviewSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LensReviewSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum ShareStatus {
   ACCEPTED = "ACCEPTED",
   ASSOCIATED = "ASSOCIATED",
@@ -2665,15 +2170,6 @@ export interface LensShareSummary {
    * <p>Optional message to compliment the Status field.</p>
    */
   StatusMessage?: string;
-}
-
-export namespace LensShareSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LensShareSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum LensType {
@@ -2741,15 +2237,6 @@ export interface LensSummary {
   LensStatus?: LensStatus | string;
 }
 
-export namespace LensSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LensSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lens upgrade summary return object.</p>
  */
@@ -2789,15 +2276,6 @@ export interface LensUpgradeSummary {
    * <p>The latest version of the lens.</p>
    */
   LatestLensVersion?: string;
-}
-
-export namespace LensUpgradeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LensUpgradeSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2841,15 +2319,6 @@ export interface ListAnswersInput {
   MaxResults?: number;
 }
 
-export namespace ListAnswersInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnswersInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a list answers call.</p>
  */
@@ -2890,15 +2359,6 @@ export interface ListAnswersOutput {
   NextToken?: string;
 }
 
-export namespace ListAnswersOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAnswersOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to list lenses.</p>
  */
@@ -2929,15 +2389,6 @@ export interface ListLensesInput {
   LensName?: string;
 }
 
-export namespace ListLensesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLensesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a list lenses call.</p>
  */
@@ -2951,15 +2402,6 @@ export interface ListLensesOutput {
    * <p>The token to use to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLensesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLensesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3003,15 +2445,6 @@ export interface ListLensReviewImprovementsInput {
   MaxResults?: number;
 }
 
-export namespace ListLensReviewImprovementsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLensReviewImprovementsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a list lens review improvements call.</p>
  */
@@ -3052,15 +2485,6 @@ export interface ListLensReviewImprovementsOutput {
   NextToken?: string;
 }
 
-export namespace ListLensReviewImprovementsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLensReviewImprovementsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input to list lens reviews.</p>
  */
@@ -3087,15 +2511,6 @@ export interface ListLensReviewsInput {
   MaxResults?: number;
 }
 
-export namespace ListLensReviewsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLensReviewsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a list lens reviews call.</p>
  */
@@ -3120,15 +2535,6 @@ export interface ListLensReviewsOutput {
    * <p>The token to use to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLensReviewsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLensReviewsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLensSharesInput {
@@ -3162,15 +2568,6 @@ export interface ListLensSharesInput {
   Status?: ShareStatus | string;
 }
 
-export namespace ListLensSharesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLensSharesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLensSharesOutput {
   /**
    * <p>A list of lens share summaries.</p>
@@ -3181,15 +2578,6 @@ export interface ListLensSharesOutput {
    * <p>The token to use to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLensSharesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLensSharesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3210,15 +2598,6 @@ export interface ListMilestonesInput {
    * <p>The maximum number of results to return for this request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListMilestonesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMilestonesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3268,15 +2647,6 @@ export interface WorkloadSummary {
   ImprovementStatus?: WorkloadImprovementStatus | string;
 }
 
-export namespace WorkloadSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkloadSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A milestone summary return object.</p>
  */
@@ -3304,15 +2674,6 @@ export interface MilestoneSummary {
   WorkloadSummary?: WorkloadSummary;
 }
 
-export namespace MilestoneSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MilestoneSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a list milestones call.</p>
  */
@@ -3333,15 +2694,6 @@ export interface ListMilestonesOutput {
   NextToken?: string;
 }
 
-export namespace ListMilestonesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMilestonesOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNotificationsInput {
   /**
    * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
@@ -3357,15 +2709,6 @@ export interface ListNotificationsInput {
    * <p>The maximum number of results to return for this request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListNotificationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNotificationsInput): any => ({
-    ...obj,
-  });
 }
 
 export enum NotificationType {
@@ -3388,15 +2731,6 @@ export interface NotificationSummary {
   LensUpgradeSummary?: LensUpgradeSummary;
 }
 
-export namespace NotificationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotificationSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListNotificationsOutput {
   /**
    * <p>List of lens notification summaries in a workload.</p>
@@ -3407,15 +2741,6 @@ export interface ListNotificationsOutput {
    * <p>The token to use to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListNotificationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListNotificationsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum ShareResourceType {
@@ -3452,15 +2777,6 @@ export interface ListShareInvitationsInput {
    * <p>The maximum number of results to return for this request.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListShareInvitationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListShareInvitationsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3515,15 +2831,6 @@ export interface ShareInvitationSummary {
   LensArn?: string;
 }
 
-export namespace ShareInvitationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareInvitationSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for List Share Invitations</p>
  */
@@ -3539,15 +2846,6 @@ export interface ListShareInvitationsOutput {
   NextToken?: string;
 }
 
-export namespace ListShareInvitationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListShareInvitationsOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p>The ARN for the workload.</p>
@@ -3555,29 +2853,11 @@ export interface ListTagsForResourceInput {
   WorkloadArn: string | undefined;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p>The tags for the resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3601,15 +2881,6 @@ export interface ListWorkloadsInput {
   MaxResults?: number;
 }
 
-export namespace ListWorkloadsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkloadsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a list workloads call.</p>
  */
@@ -3623,15 +2894,6 @@ export interface ListWorkloadsOutput {
    * <p>The token to use to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListWorkloadsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkloadsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3664,15 +2926,6 @@ export interface ListWorkloadSharesInput {
   Status?: ShareStatus | string;
 }
 
-export namespace ListWorkloadSharesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkloadSharesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A workload share summary return object.</p>
  */
@@ -3703,15 +2956,6 @@ export interface WorkloadShareSummary {
   StatusMessage?: string;
 }
 
-export namespace WorkloadShareSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkloadShareSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for List Workload Share</p>
  */
@@ -3730,15 +2974,6 @@ export interface ListWorkloadSharesOutput {
    * <p>The token to use to retrieve the next set of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListWorkloadSharesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkloadSharesOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum OrganizationSharingStatus {
@@ -3780,15 +3015,6 @@ export interface ShareInvitation {
   LensArn?: string;
 }
 
-export namespace ShareInvitation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareInvitation): any => ({
-    ...obj,
-  });
-}
-
 export enum ShareInvitationAction {
   ACCEPT = "ACCEPT",
   REJECT = "REJECT",
@@ -3806,25 +3032,7 @@ export interface TagResourceInput {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceOutput {}
-
-export namespace TagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceInput {
   /**
@@ -3839,25 +3047,7 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceOutput {}
-
-export namespace UntagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Input to update answer.</p>
@@ -3910,15 +3100,6 @@ export interface UpdateAnswerInput {
   Reason?: AnswerReason | string;
 }
 
-export namespace UpdateAnswerInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnswerInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a update answer call.</p>
  */
@@ -3948,29 +3129,11 @@ export interface UpdateAnswerOutput {
   Answer?: Answer;
 }
 
-export namespace UpdateAnswerOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAnswerOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateGlobalSettingsInput {
   /**
    * <p>The status of organization sharing settings.</p>
    */
   OrganizationSharingStatus?: OrganizationSharingStatus | string;
-}
-
-export namespace UpdateGlobalSettingsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateGlobalSettingsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4002,15 +3165,6 @@ export interface UpdateLensReviewInput {
   PillarNotes?: Record<string, string>;
 }
 
-export namespace UpdateLensReviewInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLensReviewInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of a update lens review call.</p>
  */
@@ -4024,15 +3178,6 @@ export interface UpdateLensReviewOutput {
    * <p>A lens review of a question.</p>
    */
   LensReview?: LensReview;
-}
-
-export namespace UpdateLensReviewOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLensReviewOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4050,29 +3195,11 @@ export interface UpdateShareInvitationInput {
   ShareInvitationAction: ShareInvitationAction | string | undefined;
 }
 
-export namespace UpdateShareInvitationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateShareInvitationInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateShareInvitationOutput {
   /**
    * <p>The updated workload share invitation.</p>
    */
   ShareInvitation?: ShareInvitation;
-}
-
-export namespace UpdateShareInvitationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateShareInvitationOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4302,15 +3429,6 @@ export interface UpdateWorkloadInput {
   ImprovementStatus?: WorkloadImprovementStatus | string;
 }
 
-export namespace UpdateWorkloadInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkloadInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Output of an update workload call.</p>
  */
@@ -4319,15 +3437,6 @@ export interface UpdateWorkloadOutput {
    * <p>A workload return object.</p>
    */
   Workload?: Workload;
-}
-
-export namespace UpdateWorkloadOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkloadOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4348,15 +3457,6 @@ export interface UpdateWorkloadShareInput {
    * <p>Permission granted on a workload share.</p>
    */
   PermissionType: PermissionType | string | undefined;
-}
-
-export namespace UpdateWorkloadShareInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkloadShareInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4401,15 +3501,6 @@ export interface WorkloadShare {
   WorkloadId?: string;
 }
 
-export namespace WorkloadShare {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkloadShare): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Input for Update Workload Share</p>
  */
@@ -4423,15 +3514,6 @@ export interface UpdateWorkloadShareOutput {
    * <p>A workload share return object.</p>
    */
   WorkloadShare?: WorkloadShare;
-}
-
-export namespace UpdateWorkloadShareOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkloadShareOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface UpgradeLensReviewInput {
@@ -4470,11 +3552,723 @@ export interface UpgradeLensReviewInput {
   ClientRequestToken?: string;
 }
 
-export namespace UpgradeLensReviewInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeLensReviewInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ChoiceContentFilterSensitiveLog = (obj: ChoiceContent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdditionalResourcesFilterSensitiveLog = (obj: AdditionalResources): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChoiceAnswerFilterSensitiveLog = (obj: ChoiceAnswer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChoiceFilterSensitiveLog = (obj: Choice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnswerFilterSensitiveLog = (obj: Answer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChoiceAnswerSummaryFilterSensitiveLog = (obj: ChoiceAnswerSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnswerSummaryFilterSensitiveLog = (obj: AnswerSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateLensesInputFilterSensitiveLog = (obj: AssociateLensesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChoiceImprovementPlanFilterSensitiveLog = (obj: ChoiceImprovementPlan): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChoiceUpdateFilterSensitiveLog = (obj: ChoiceUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLensShareInputFilterSensitiveLog = (obj: CreateLensShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLensShareOutputFilterSensitiveLog = (obj: CreateLensShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLensVersionInputFilterSensitiveLog = (obj: CreateLensVersionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLensVersionOutputFilterSensitiveLog = (obj: CreateLensVersionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMilestoneInputFilterSensitiveLog = (obj: CreateMilestoneInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMilestoneOutputFilterSensitiveLog = (obj: CreateMilestoneOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkloadInputFilterSensitiveLog = (obj: CreateWorkloadInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkloadOutputFilterSensitiveLog = (obj: CreateWorkloadOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkloadShareInputFilterSensitiveLog = (obj: CreateWorkloadShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkloadShareOutputFilterSensitiveLog = (obj: CreateWorkloadShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLensInputFilterSensitiveLog = (obj: DeleteLensInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLensShareInputFilterSensitiveLog = (obj: DeleteLensShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkloadInputFilterSensitiveLog = (obj: DeleteWorkloadInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkloadShareInputFilterSensitiveLog = (obj: DeleteWorkloadShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateLensesInputFilterSensitiveLog = (obj: DisassociateLensesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportLensInputFilterSensitiveLog = (obj: ExportLensInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportLensOutputFilterSensitiveLog = (obj: ExportLensOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAnswerInputFilterSensitiveLog = (obj: GetAnswerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAnswerOutputFilterSensitiveLog = (obj: GetAnswerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLensInputFilterSensitiveLog = (obj: GetLensInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LensFilterSensitiveLog = (obj: Lens): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLensOutputFilterSensitiveLog = (obj: GetLensOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLensReviewInputFilterSensitiveLog = (obj: GetLensReviewInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PillarReviewSummaryFilterSensitiveLog = (obj: PillarReviewSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LensReviewFilterSensitiveLog = (obj: LensReview): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLensReviewOutputFilterSensitiveLog = (obj: GetLensReviewOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLensReviewReportInputFilterSensitiveLog = (obj: GetLensReviewReportInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LensReviewReportFilterSensitiveLog = (obj: LensReviewReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLensReviewReportOutputFilterSensitiveLog = (obj: GetLensReviewReportOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLensVersionDifferenceInputFilterSensitiveLog = (obj: GetLensVersionDifferenceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QuestionDifferenceFilterSensitiveLog = (obj: QuestionDifference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PillarDifferenceFilterSensitiveLog = (obj: PillarDifference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersionDifferencesFilterSensitiveLog = (obj: VersionDifferences): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLensVersionDifferenceOutputFilterSensitiveLog = (obj: GetLensVersionDifferenceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMilestoneInputFilterSensitiveLog = (obj: GetMilestoneInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkloadFilterSensitiveLog = (obj: Workload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MilestoneFilterSensitiveLog = (obj: Milestone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMilestoneOutputFilterSensitiveLog = (obj: GetMilestoneOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkloadInputFilterSensitiveLog = (obj: GetWorkloadInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetWorkloadOutputFilterSensitiveLog = (obj: GetWorkloadOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportLensInputFilterSensitiveLog = (obj: ImportLensInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportLensOutputFilterSensitiveLog = (obj: ImportLensOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImprovementSummaryFilterSensitiveLog = (obj: ImprovementSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LensReviewSummaryFilterSensitiveLog = (obj: LensReviewSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LensShareSummaryFilterSensitiveLog = (obj: LensShareSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LensSummaryFilterSensitiveLog = (obj: LensSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LensUpgradeSummaryFilterSensitiveLog = (obj: LensUpgradeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnswersInputFilterSensitiveLog = (obj: ListAnswersInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAnswersOutputFilterSensitiveLog = (obj: ListAnswersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLensesInputFilterSensitiveLog = (obj: ListLensesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLensesOutputFilterSensitiveLog = (obj: ListLensesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLensReviewImprovementsInputFilterSensitiveLog = (obj: ListLensReviewImprovementsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLensReviewImprovementsOutputFilterSensitiveLog = (obj: ListLensReviewImprovementsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLensReviewsInputFilterSensitiveLog = (obj: ListLensReviewsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLensReviewsOutputFilterSensitiveLog = (obj: ListLensReviewsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLensSharesInputFilterSensitiveLog = (obj: ListLensSharesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLensSharesOutputFilterSensitiveLog = (obj: ListLensSharesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMilestonesInputFilterSensitiveLog = (obj: ListMilestonesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkloadSummaryFilterSensitiveLog = (obj: WorkloadSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MilestoneSummaryFilterSensitiveLog = (obj: MilestoneSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMilestonesOutputFilterSensitiveLog = (obj: ListMilestonesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationsInputFilterSensitiveLog = (obj: ListNotificationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NotificationSummaryFilterSensitiveLog = (obj: NotificationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationsOutputFilterSensitiveLog = (obj: ListNotificationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListShareInvitationsInputFilterSensitiveLog = (obj: ListShareInvitationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShareInvitationSummaryFilterSensitiveLog = (obj: ShareInvitationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListShareInvitationsOutputFilterSensitiveLog = (obj: ListShareInvitationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkloadsInputFilterSensitiveLog = (obj: ListWorkloadsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkloadsOutputFilterSensitiveLog = (obj: ListWorkloadsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkloadSharesInputFilterSensitiveLog = (obj: ListWorkloadSharesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkloadShareSummaryFilterSensitiveLog = (obj: WorkloadShareSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWorkloadSharesOutputFilterSensitiveLog = (obj: ListWorkloadSharesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShareInvitationFilterSensitiveLog = (obj: ShareInvitation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnswerInputFilterSensitiveLog = (obj: UpdateAnswerInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAnswerOutputFilterSensitiveLog = (obj: UpdateAnswerOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateGlobalSettingsInputFilterSensitiveLog = (obj: UpdateGlobalSettingsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLensReviewInputFilterSensitiveLog = (obj: UpdateLensReviewInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLensReviewOutputFilterSensitiveLog = (obj: UpdateLensReviewOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateShareInvitationInputFilterSensitiveLog = (obj: UpdateShareInvitationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateShareInvitationOutputFilterSensitiveLog = (obj: UpdateShareInvitationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkloadInputFilterSensitiveLog = (obj: UpdateWorkloadInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkloadOutputFilterSensitiveLog = (obj: UpdateWorkloadOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkloadShareInputFilterSensitiveLog = (obj: UpdateWorkloadShareInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkloadShareFilterSensitiveLog = (obj: WorkloadShare): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkloadShareOutputFilterSensitiveLog = (obj: UpdateWorkloadShareOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradeLensReviewInputFilterSensitiveLog = (obj: UpgradeLensReviewInput): any => ({
+  ...obj,
+});

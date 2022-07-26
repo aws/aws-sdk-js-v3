@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { CreateObservabilityConfigurationRequest, CreateObservabilityConfigurationResponse } from "../models/models_0";
+import {
+  CreateObservabilityConfigurationRequest,
+  CreateObservabilityConfigurationRequestFilterSensitiveLog,
+  CreateObservabilityConfigurationResponse,
+  CreateObservabilityConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0CreateObservabilityConfigurationCommand,
   serializeAws_json1_0CreateObservabilityConfigurationCommand,
@@ -82,8 +87,8 @@ export class CreateObservabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateObservabilityConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateObservabilityConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateObservabilityConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateObservabilityConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

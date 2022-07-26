@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutDeliverabilityDashboardOptionRequest, PutDeliverabilityDashboardOptionResponse } from "../models/models_0";
+import {
+  PutDeliverabilityDashboardOptionRequest,
+  PutDeliverabilityDashboardOptionRequestFilterSensitiveLog,
+  PutDeliverabilityDashboardOptionResponse,
+  PutDeliverabilityDashboardOptionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand,
   serializeAws_restJson1PutDeliverabilityDashboardOptionCommand,
@@ -80,8 +85,8 @@ export class PutDeliverabilityDashboardOptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDeliverabilityDashboardOptionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutDeliverabilityDashboardOptionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutDeliverabilityDashboardOptionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutDeliverabilityDashboardOptionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

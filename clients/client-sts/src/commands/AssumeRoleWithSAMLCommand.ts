@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/models_0";
+import {
+  AssumeRoleWithSAMLRequest,
+  AssumeRoleWithSAMLRequestFilterSensitiveLog,
+  AssumeRoleWithSAMLResponse,
+  AssumeRoleWithSAMLResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryAssumeRoleWithSAMLCommand,
   serializeAws_queryAssumeRoleWithSAMLCommand,
@@ -203,8 +208,8 @@ export class AssumeRoleWithSAMLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeRoleWithSAMLRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssumeRoleWithSAMLResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: AssumeRoleWithSAMLRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssumeRoleWithSAMLResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

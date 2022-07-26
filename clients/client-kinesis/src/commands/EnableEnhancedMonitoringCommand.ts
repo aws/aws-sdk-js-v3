@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { EnableEnhancedMonitoringInput, EnhancedMonitoringOutput } from "../models/models_0";
+import {
+  EnableEnhancedMonitoringInput,
+  EnableEnhancedMonitoringInputFilterSensitiveLog,
+  EnhancedMonitoringOutput,
+  EnhancedMonitoringOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1EnableEnhancedMonitoringCommand,
   serializeAws_json1_1EnableEnhancedMonitoringCommand,
@@ -72,8 +77,8 @@ export class EnableEnhancedMonitoringCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableEnhancedMonitoringInput.filterSensitiveLog,
-      outputFilterSensitiveLog: EnhancedMonitoringOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: EnableEnhancedMonitoringInputFilterSensitiveLog,
+      outputFilterSensitiveLog: EnhancedMonitoringOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

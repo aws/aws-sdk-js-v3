@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import { DescribeMetricSetRequest, DescribeMetricSetResponse } from "../models/models_0";
+import {
+  DescribeMetricSetRequest,
+  DescribeMetricSetRequestFilterSensitiveLog,
+  DescribeMetricSetResponse,
+  DescribeMetricSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeMetricSetCommand,
   serializeAws_restJson1DescribeMetricSetCommand,
@@ -74,8 +79,8 @@ export class DescribeMetricSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMetricSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMetricSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeMetricSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMetricSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

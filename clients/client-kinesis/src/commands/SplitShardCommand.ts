@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { SplitShardInput } from "../models/models_0";
+import { SplitShardInput, SplitShardInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1SplitShardCommand,
   serializeAws_json1_1SplitShardCommand,
@@ -111,7 +111,7 @@ export class SplitShardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SplitShardInput.filterSensitiveLog,
+      inputFilterSensitiveLog: SplitShardInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -19,7 +19,9 @@ import {
 } from "../DatabaseMigrationServiceClient";
 import {
   DeleteReplicationTaskAssessmentRunMessage,
+  DeleteReplicationTaskAssessmentRunMessageFilterSensitiveLog,
   DeleteReplicationTaskAssessmentRunResponse,
+  DeleteReplicationTaskAssessmentRunResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand,
@@ -84,8 +86,8 @@ export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationTaskAssessmentRunMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReplicationTaskAssessmentRunResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteReplicationTaskAssessmentRunMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteReplicationTaskAssessmentRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

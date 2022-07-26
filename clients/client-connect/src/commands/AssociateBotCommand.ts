@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { AssociateBotRequest } from "../models/models_0";
+import { AssociateBotRequest, AssociateBotRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateBotCommand,
   serializeAws_restJson1AssociateBotCommand,
@@ -73,7 +73,7 @@ export class AssociateBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateBotRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateBotRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

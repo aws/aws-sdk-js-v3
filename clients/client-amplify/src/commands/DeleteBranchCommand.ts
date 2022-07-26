@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { DeleteBranchRequest, DeleteBranchResult } from "../models/models_0";
+import {
+  DeleteBranchRequest,
+  DeleteBranchRequestFilterSensitiveLog,
+  DeleteBranchResult,
+  DeleteBranchResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBranchCommand,
   serializeAws_restJson1DeleteBranchCommand,
@@ -72,8 +77,8 @@ export class DeleteBranchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBranchRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBranchResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBranchRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBranchResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

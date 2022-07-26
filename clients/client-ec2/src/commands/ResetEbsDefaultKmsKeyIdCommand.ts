@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ResetEbsDefaultKmsKeyIdRequest, ResetEbsDefaultKmsKeyIdResult } from "../models/models_6";
+import {
+  ResetEbsDefaultKmsKeyIdRequest,
+  ResetEbsDefaultKmsKeyIdRequestFilterSensitiveLog,
+  ResetEbsDefaultKmsKeyIdResult,
+  ResetEbsDefaultKmsKeyIdResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommand,
   serializeAws_ec2ResetEbsDefaultKmsKeyIdCommand,
@@ -77,8 +82,8 @@ export class ResetEbsDefaultKmsKeyIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetEbsDefaultKmsKeyIdRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ResetEbsDefaultKmsKeyIdResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ResetEbsDefaultKmsKeyIdRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ResetEbsDefaultKmsKeyIdResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { DeleteVirtualGatewayInput, DeleteVirtualGatewayOutput } from "../models/models_0";
+import {
+  DeleteVirtualGatewayInput,
+  DeleteVirtualGatewayInputFilterSensitiveLog,
+  DeleteVirtualGatewayOutput,
+  DeleteVirtualGatewayOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVirtualGatewayCommand,
   serializeAws_restJson1DeleteVirtualGatewayCommand,
@@ -73,8 +78,8 @@ export class DeleteVirtualGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVirtualGatewayInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVirtualGatewayOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteVirtualGatewayInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteVirtualGatewayOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

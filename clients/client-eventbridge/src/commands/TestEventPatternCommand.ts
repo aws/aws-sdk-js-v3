@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import { TestEventPatternRequest, TestEventPatternResponse } from "../models/models_0";
+import {
+  TestEventPatternRequest,
+  TestEventPatternRequestFilterSensitiveLog,
+  TestEventPatternResponse,
+  TestEventPatternResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1TestEventPatternCommand,
   serializeAws_json1_1TestEventPatternCommand,
@@ -76,8 +81,8 @@ export class TestEventPatternCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestEventPatternRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: TestEventPatternResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: TestEventPatternRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: TestEventPatternResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

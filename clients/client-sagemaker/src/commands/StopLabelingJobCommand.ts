@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopLabelingJobRequest } from "../models/models_3";
+import { StopLabelingJobRequest, StopLabelingJobRequestFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_json1_1StopLabelingJobCommand,
   serializeAws_json1_1StopLabelingJobCommand,
@@ -73,7 +73,7 @@ export class StopLabelingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopLabelingJobRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: StopLabelingJobRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

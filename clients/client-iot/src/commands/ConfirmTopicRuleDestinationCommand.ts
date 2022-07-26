@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ConfirmTopicRuleDestinationRequest, ConfirmTopicRuleDestinationResponse } from "../models/models_0";
+import {
+  ConfirmTopicRuleDestinationRequest,
+  ConfirmTopicRuleDestinationRequestFilterSensitiveLog,
+  ConfirmTopicRuleDestinationResponse,
+  ConfirmTopicRuleDestinationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ConfirmTopicRuleDestinationCommand,
   serializeAws_restJson1ConfirmTopicRuleDestinationCommand,
@@ -78,8 +83,8 @@ export class ConfirmTopicRuleDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmTopicRuleDestinationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmTopicRuleDestinationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmTopicRuleDestinationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmTopicRuleDestinationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

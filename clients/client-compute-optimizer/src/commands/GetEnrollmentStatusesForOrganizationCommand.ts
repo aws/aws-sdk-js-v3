@@ -15,7 +15,9 @@ import {
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
 import {
   GetEnrollmentStatusesForOrganizationRequest,
+  GetEnrollmentStatusesForOrganizationRequestFilterSensitiveLog,
   GetEnrollmentStatusesForOrganizationResponse,
+  GetEnrollmentStatusesForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand,
@@ -79,8 +81,8 @@ export class GetEnrollmentStatusesForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnrollmentStatusesForOrganizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEnrollmentStatusesForOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEnrollmentStatusesForOrganizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEnrollmentStatusesForOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

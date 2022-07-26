@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { GetAccountSummaryResponse } from "../models/models_0";
+import { GetAccountSummaryResponse, GetAccountSummaryResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryGetAccountSummaryCommand,
   serializeAws_queryGetAccountSummaryCommand,
@@ -76,7 +76,7 @@ export class GetAccountSummaryCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetAccountSummaryResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: GetAccountSummaryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

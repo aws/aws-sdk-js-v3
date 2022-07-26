@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteScalingPolicyInput } from "../models/models_0";
+import { DeleteScalingPolicyInput, DeleteScalingPolicyInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteScalingPolicyCommand,
   serializeAws_json1_1DeleteScalingPolicyCommand,
@@ -90,7 +90,7 @@ export class DeleteScalingPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScalingPolicyInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteScalingPolicyInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

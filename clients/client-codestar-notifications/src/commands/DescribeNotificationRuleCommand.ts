@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import { DescribeNotificationRuleRequest, DescribeNotificationRuleResult } from "../models/models_0";
+import {
+  DescribeNotificationRuleRequest,
+  DescribeNotificationRuleRequestFilterSensitiveLog,
+  DescribeNotificationRuleResult,
+  DescribeNotificationRuleResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeNotificationRuleCommand,
   serializeAws_restJson1DescribeNotificationRuleCommand,
@@ -76,8 +81,8 @@ export class DescribeNotificationRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNotificationRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNotificationRuleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeNotificationRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeNotificationRuleResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

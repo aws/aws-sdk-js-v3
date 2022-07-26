@@ -15,15 +15,6 @@ export interface GetDeploymentsRequest {
   DeviceFleetName: string | undefined;
 }
 
-export namespace GetDeploymentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum ChecksumType {
   Sha1 = "SHA1",
 }
@@ -41,15 +32,6 @@ export interface Checksum {
    * <p>The checksum of the model.</p>
    */
   Sum?: string;
-}
-
-export namespace Checksum {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Checksum): any => ({
-    ...obj,
-  });
 }
 
 export enum ModelState {
@@ -80,15 +62,6 @@ export interface Definition {
    * <p>The desired state of the model.</p>
    */
   State?: ModelState | string;
-}
-
-export namespace Definition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Definition): any => ({
-    ...obj,
-  });
 }
 
 export enum FailureHandlingPolicy {
@@ -125,29 +98,11 @@ export interface EdgeDeployment {
   Definitions?: Definition[];
 }
 
-export namespace EdgeDeployment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EdgeDeployment): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeploymentsResult {
   /**
    * <p>Returns a list of the configurations of the active deployments on the device.</p>
    */
   Deployments?: EdgeDeployment[];
-}
-
-export namespace GetDeploymentsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentsResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -184,15 +139,6 @@ export interface GetDeviceRegistrationRequest {
   DeviceFleetName: string | undefined;
 }
 
-export namespace GetDeviceRegistrationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceRegistrationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeviceRegistrationResult {
   /**
    * <p>Describes if the device is currently registered with SageMaker Edge Manager.</p>
@@ -203,15 +149,6 @@ export interface GetDeviceRegistrationResult {
    * <p>The amount of time, in seconds, that the registration status is stored on the device’s cache before it is refreshed.</p>
    */
   CacheTTL?: string;
-}
-
-export namespace GetDeviceRegistrationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeviceRegistrationResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -237,15 +174,6 @@ export interface EdgeMetric {
    * <p>Timestamp of when the metric was requested.</p>
    */
   Timestamp?: Date;
-}
-
-export namespace EdgeMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EdgeMetric): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentStatus {
@@ -298,15 +226,6 @@ export interface DeploymentModel {
   RollbackFailureReason?: string;
 }
 
-export namespace DeploymentModel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentModel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the result of a deployment on an edge device that is registered with SageMaker Edge Manager.</p>
  */
@@ -342,15 +261,6 @@ export interface DeploymentResult {
   DeploymentModels?: DeploymentModel[];
 }
 
-export namespace DeploymentResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a model deployed on an edge device that is registered with SageMaker Edge Manager.</p>
  */
@@ -379,15 +289,6 @@ export interface Model {
    * <p>Information required for model metrics.</p>
    */
   ModelMetrics?: EdgeMetric[];
-}
-
-export namespace Model {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Model): any => ({
-    ...obj,
-  });
 }
 
 export interface SendHeartbeatRequest {
@@ -422,11 +323,86 @@ export interface SendHeartbeatRequest {
   DeploymentResult?: DeploymentResult;
 }
 
-export namespace SendHeartbeatRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendHeartbeatRequest): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GetDeploymentsRequestFilterSensitiveLog = (obj: GetDeploymentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChecksumFilterSensitiveLog = (obj: Checksum): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefinitionFilterSensitiveLog = (obj: Definition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EdgeDeploymentFilterSensitiveLog = (obj: EdgeDeployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentsResultFilterSensitiveLog = (obj: GetDeploymentsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceRegistrationRequestFilterSensitiveLog = (obj: GetDeviceRegistrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeviceRegistrationResultFilterSensitiveLog = (obj: GetDeviceRegistrationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EdgeMetricFilterSensitiveLog = (obj: EdgeMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentModelFilterSensitiveLog = (obj: DeploymentModel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentResultFilterSensitiveLog = (obj: DeploymentResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModelFilterSensitiveLog = (obj: Model): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendHeartbeatRequestFilterSensitiveLog = (obj: SendHeartbeatRequest): any => ({
+  ...obj,
+});

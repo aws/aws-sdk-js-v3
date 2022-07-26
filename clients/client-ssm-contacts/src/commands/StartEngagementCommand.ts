@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartEngagementRequest, StartEngagementResult } from "../models/models_0";
+import {
+  StartEngagementRequest,
+  StartEngagementRequestFilterSensitiveLog,
+  StartEngagementResult,
+  StartEngagementResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1StartEngagementCommand,
   serializeAws_json1_1StartEngagementCommand,
@@ -73,8 +78,8 @@ export class StartEngagementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartEngagementRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartEngagementResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartEngagementRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartEngagementResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

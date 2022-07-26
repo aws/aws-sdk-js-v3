@@ -13,7 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeactivateKeySigningKeyRequest, DeactivateKeySigningKeyResponse } from "../models/models_0";
+import {
+  DeactivateKeySigningKeyRequest,
+  DeactivateKeySigningKeyRequestFilterSensitiveLog,
+  DeactivateKeySigningKeyResponse,
+  DeactivateKeySigningKeyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlDeactivateKeySigningKeyCommand,
   serializeAws_restXmlDeactivateKeySigningKeyCommand,
@@ -75,8 +80,8 @@ export class DeactivateKeySigningKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateKeySigningKeyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeactivateKeySigningKeyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeactivateKeySigningKeyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeactivateKeySigningKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

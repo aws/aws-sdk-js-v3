@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteLensShareInput } from "../models/models_0";
+import { DeleteLensShareInput, DeleteLensShareInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteLensShareCommand,
   serializeAws_restJson1DeleteLensShareCommand,
@@ -85,7 +85,7 @@ export class DeleteLensShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLensShareInput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteLensShareInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

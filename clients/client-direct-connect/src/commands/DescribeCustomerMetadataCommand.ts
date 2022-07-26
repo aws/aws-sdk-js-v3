@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { DescribeCustomerMetadataResponse } from "../models/models_0";
+import {
+  DescribeCustomerMetadataResponse,
+  DescribeCustomerMetadataResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCustomerMetadataCommand,
   serializeAws_json1_1DescribeCustomerMetadataCommand,
@@ -73,7 +76,7 @@ export class DescribeCustomerMetadataCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeCustomerMetadataResponse.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeCustomerMetadataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

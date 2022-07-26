@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListAccountsForParentRequest, ListAccountsForParentResponse } from "../models/models_0";
+import {
+  ListAccountsForParentRequest,
+  ListAccountsForParentRequestFilterSensitiveLog,
+  ListAccountsForParentResponse,
+  ListAccountsForParentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1ListAccountsForParentCommand,
@@ -86,8 +91,8 @@ export class ListAccountsForParentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountsForParentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountsForParentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAccountsForParentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAccountsForParentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

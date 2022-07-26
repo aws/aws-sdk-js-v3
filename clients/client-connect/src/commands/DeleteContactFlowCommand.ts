@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteContactFlowRequest } from "../models/models_0";
+import { DeleteContactFlowRequest, DeleteContactFlowRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteContactFlowCommand,
   serializeAws_restJson1DeleteContactFlowCommand,
@@ -72,7 +72,7 @@ export class DeleteContactFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContactFlowRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteContactFlowRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

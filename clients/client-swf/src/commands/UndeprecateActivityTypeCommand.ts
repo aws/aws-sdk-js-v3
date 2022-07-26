@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UndeprecateActivityTypeInput } from "../models/models_0";
+import { UndeprecateActivityTypeInput, UndeprecateActivityTypeInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0UndeprecateActivityTypeCommand,
   serializeAws_json1_0UndeprecateActivityTypeCommand,
@@ -113,7 +113,7 @@ export class UndeprecateActivityTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UndeprecateActivityTypeInput.filterSensitiveLog,
+      inputFilterSensitiveLog: UndeprecateActivityTypeInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient";
-import { PutSessionRequest, PutSessionResponse } from "../models/models_0";
+import {
+  PutSessionRequest,
+  PutSessionRequestFilterSensitiveLog,
+  PutSessionResponse,
+  PutSessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutSessionCommand,
   serializeAws_restJson1PutSessionCommand,
@@ -80,8 +85,8 @@ export class PutSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutSessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutSessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

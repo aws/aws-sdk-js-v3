@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { GetDataSourceRequest, GetDataSourceResponse } from "../models/models_0";
+import {
+  GetDataSourceRequest,
+  GetDataSourceRequestFilterSensitiveLog,
+  GetDataSourceResponse,
+  GetDataSourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDataSourceCommand,
   serializeAws_restJson1GetDataSourceCommand,
@@ -72,8 +77,8 @@ export class GetDataSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDataSourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDataSourceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDataSourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDataSourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

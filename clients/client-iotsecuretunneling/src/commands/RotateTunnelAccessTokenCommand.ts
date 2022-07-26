@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient";
-import { RotateTunnelAccessTokenRequest, RotateTunnelAccessTokenResponse } from "../models/models_0";
+import {
+  RotateTunnelAccessTokenRequest,
+  RotateTunnelAccessTokenRequestFilterSensitiveLog,
+  RotateTunnelAccessTokenResponse,
+  RotateTunnelAccessTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RotateTunnelAccessTokenCommand,
   serializeAws_json1_1RotateTunnelAccessTokenCommand,
@@ -84,8 +89,8 @@ export class RotateTunnelAccessTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RotateTunnelAccessTokenRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RotateTunnelAccessTokenResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RotateTunnelAccessTokenRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RotateTunnelAccessTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

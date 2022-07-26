@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DescribeUserStackAssociationsRequest, DescribeUserStackAssociationsResult } from "../models/models_0";
+import {
+  DescribeUserStackAssociationsRequest,
+  DescribeUserStackAssociationsRequestFilterSensitiveLog,
+  DescribeUserStackAssociationsResult,
+  DescribeUserStackAssociationsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeUserStackAssociationsCommand,
   serializeAws_json1_1DescribeUserStackAssociationsCommand,
@@ -82,8 +87,8 @@ export class DescribeUserStackAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserStackAssociationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeUserStackAssociationsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeUserStackAssociationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeUserStackAssociationsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { SearchSystemInstancesRequest, SearchSystemInstancesResponse } from "../models/models_0";
+import {
+  SearchSystemInstancesRequest,
+  SearchSystemInstancesRequestFilterSensitiveLog,
+  SearchSystemInstancesResponse,
+  SearchSystemInstancesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SearchSystemInstancesCommand,
   serializeAws_json1_1SearchSystemInstancesCommand,
@@ -72,8 +77,8 @@ export class SearchSystemInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchSystemInstancesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchSystemInstancesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchSystemInstancesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchSystemInstancesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

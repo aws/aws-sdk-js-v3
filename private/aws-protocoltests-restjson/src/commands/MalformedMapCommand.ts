@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedMapInput } from "../models/models_0";
+import { MalformedMapInput, MalformedMapInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedMapCommand,
   serializeAws_restJson1MalformedMapCommand,
@@ -55,7 +55,7 @@ export class MalformedMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedMapInput.filterSensitiveLog,
+      inputFilterSensitiveLog: MalformedMapInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -16,29 +16,11 @@ export interface CancelJournalKinesisStreamRequest {
   StreamId: string | undefined;
 }
 
-export namespace CancelJournalKinesisStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJournalKinesisStreamRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelJournalKinesisStreamResponse {
   /**
    * <p>The UUID (Base62-encoded text) of the canceled QLDB journal stream.</p>
    */
   StreamId?: string;
-}
-
-export namespace CancelJournalKinesisStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CancelJournalKinesisStreamResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -248,15 +230,6 @@ export interface CreateLedgerRequest {
   KmsKey?: string;
 }
 
-export namespace CreateLedgerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLedgerRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum LedgerState {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -304,15 +277,6 @@ export interface CreateLedgerResponse {
    *          this parameter is undefined, the ledger uses an Amazon Web Services owned KMS key for encryption.</p>
    */
   KmsKeyArn?: string;
-}
-
-export namespace CreateLedgerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLedgerResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -412,15 +376,6 @@ export interface DeleteLedgerRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteLedgerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLedgerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJournalKinesisStreamRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -432,15 +387,6 @@ export interface DescribeJournalKinesisStreamRequest {
    *          describe.</p>
    */
   StreamId: string | undefined;
-}
-
-export namespace DescribeJournalKinesisStreamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJournalKinesisStreamRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ErrorCause {
@@ -468,15 +414,6 @@ export interface KinesisConfiguration {
    *          Guide</i>.</p>
    */
   AggregationEnabled?: boolean;
-}
-
-export namespace KinesisConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum StreamStatus {
@@ -556,30 +493,12 @@ export interface JournalKinesisStreamDescription {
   StreamName: string | undefined;
 }
 
-export namespace JournalKinesisStreamDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JournalKinesisStreamDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJournalKinesisStreamResponse {
   /**
    * <p>Information about the QLDB journal stream returned by a
    *             <code>DescribeJournalS3Export</code> request.</p>
    */
   Stream?: JournalKinesisStreamDescription;
-}
-
-export namespace DescribeJournalKinesisStreamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJournalKinesisStreamResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeJournalS3ExportRequest {
@@ -593,15 +512,6 @@ export interface DescribeJournalS3ExportRequest {
    *          describe.</p>
    */
   ExportId: string | undefined;
-}
-
-export namespace DescribeJournalS3ExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJournalS3ExportRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum OutputFormat {
@@ -639,15 +549,6 @@ export interface S3EncryptionConfiguration {
    *             <code>ObjectEncryptionType</code>.</p>
    */
   KmsKeyArn?: string;
-}
-
-export namespace S3EncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3EncryptionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -695,15 +596,6 @@ export interface S3ExportConfiguration {
    *          bucket.</p>
    */
   EncryptionConfiguration: S3EncryptionConfiguration | undefined;
-}
-
-export namespace S3ExportConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ExportConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum ExportStatus {
@@ -777,15 +669,6 @@ export interface JournalS3ExportDescription {
   OutputFormat?: OutputFormat | string;
 }
 
-export namespace JournalS3ExportDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JournalS3ExportDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeJournalS3ExportResponse {
   /**
    * <p>Information about the journal export job returned by a
@@ -794,29 +677,11 @@ export interface DescribeJournalS3ExportResponse {
   ExportDescription: JournalS3ExportDescription | undefined;
 }
 
-export namespace DescribeJournalS3ExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJournalS3ExportResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLedgerRequest {
   /**
    * <p>The name of the ledger that you want to describe.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DescribeLedgerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLedgerRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EncryptionStatus {
@@ -881,15 +746,6 @@ export interface LedgerEncryptionDescription {
   InaccessibleKmsKeyDateTime?: Date;
 }
 
-export namespace LedgerEncryptionDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LedgerEncryptionDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLedgerResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -931,15 +787,6 @@ export interface DescribeLedgerResponse {
    *          error).</p>
    */
   EncryptionDescription?: LedgerEncryptionDescription;
-}
-
-export namespace DescribeLedgerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLedgerResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ExportJournalToS3Request {
@@ -1001,15 +848,6 @@ export interface ExportJournalToS3Request {
   OutputFormat?: OutputFormat | string;
 }
 
-export namespace ExportJournalToS3Request {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportJournalToS3Request): any => ({
-    ...obj,
-  });
-}
-
 export interface ExportJournalToS3Response {
   /**
    * <p>The UUID (represented in Base62-encoded text) that QLDB assigns to each journal export
@@ -1020,15 +858,6 @@ export interface ExportJournalToS3Response {
   ExportId: string | undefined;
 }
 
-export namespace ExportJournalToS3Response {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportJournalToS3Response): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure that can contain a value in multiple encoding formats.</p>
  */
@@ -1037,16 +866,6 @@ export interface ValueHolder {
    * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
    */
   IonText?: string;
-}
-
-export namespace ValueHolder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValueHolder): any => ({
-    ...obj,
-    ...(obj.IonText && { IonText: SENSITIVE_STRING }),
-  });
 }
 
 export interface GetBlockRequest {
@@ -1071,17 +890,6 @@ export interface GetBlockRequest {
   DigestTipAddress?: ValueHolder;
 }
 
-export namespace GetBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBlockRequest): any => ({
-    ...obj,
-    ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
-    ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetBlockResponse {
   /**
    * <p>The block data object in Amazon Ion format.</p>
@@ -1096,31 +904,11 @@ export interface GetBlockResponse {
   Proof?: ValueHolder;
 }
 
-export namespace GetBlockResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBlockResponse): any => ({
-    ...obj,
-    ...(obj.Block && { Block: SENSITIVE_STRING }),
-    ...(obj.Proof && { Proof: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetDigestRequest {
   /**
    * <p>The name of the ledger.</p>
    */
   Name: string | undefined;
-}
-
-export namespace GetDigestRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDigestRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDigestResponse {
@@ -1136,16 +924,6 @@ export interface GetDigestResponse {
    *          <code>sequenceNo</code>.</p>
    */
   DigestTipAddress: ValueHolder | undefined;
-}
-
-export namespace GetDigestResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDigestResponse): any => ({
-    ...obj,
-    ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
-  });
 }
 
 export interface GetRevisionRequest {
@@ -1175,17 +953,6 @@ export interface GetRevisionRequest {
   DigestTipAddress?: ValueHolder;
 }
 
-export namespace GetRevisionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRevisionRequest): any => ({
-    ...obj,
-    ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
-    ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
-  });
-}
-
 export interface GetRevisionResponse {
   /**
    * <p>The proof object in Amazon Ion format returned by a <code>GetRevision</code> request. A
@@ -1198,17 +965,6 @@ export interface GetRevisionResponse {
    * <p>The document revision data object in Amazon Ion format.</p>
    */
   Revision: ValueHolder | undefined;
-}
-
-export namespace GetRevisionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRevisionResponse): any => ({
-    ...obj,
-    ...(obj.Proof && { Proof: SENSITIVE_STRING }),
-    ...(obj.Revision && { Revision: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListJournalKinesisStreamsForLedgerRequest {
@@ -1231,15 +987,6 @@ export interface ListJournalKinesisStreamsForLedgerRequest {
    *          here.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListJournalKinesisStreamsForLedgerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJournalKinesisStreamsForLedgerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListJournalKinesisStreamsForLedgerResponse {
@@ -1266,15 +1013,6 @@ export interface ListJournalKinesisStreamsForLedgerResponse {
   NextToken?: string;
 }
 
-export namespace ListJournalKinesisStreamsForLedgerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJournalKinesisStreamsForLedgerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListJournalS3ExportsRequest {
   /**
    * <p>The maximum number of results to return in a single <code>ListJournalS3Exports</code>
@@ -1289,15 +1027,6 @@ export interface ListJournalS3ExportsRequest {
    *          here.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListJournalS3ExportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJournalS3ExportsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListJournalS3ExportsResponse {
@@ -1324,15 +1053,6 @@ export interface ListJournalS3ExportsResponse {
   NextToken?: string;
 }
 
-export namespace ListJournalS3ExportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJournalS3ExportsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListJournalS3ExportsForLedgerRequest {
   /**
    * <p>The name of the ledger.</p>
@@ -1353,15 +1073,6 @@ export interface ListJournalS3ExportsForLedgerRequest {
    *          here.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListJournalS3ExportsForLedgerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJournalS3ExportsForLedgerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListJournalS3ExportsForLedgerResponse {
@@ -1388,15 +1099,6 @@ export interface ListJournalS3ExportsForLedgerResponse {
   NextToken?: string;
 }
 
-export namespace ListJournalS3ExportsForLedgerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJournalS3ExportsForLedgerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLedgersRequest {
   /**
    * <p>The maximum number of results to return in a single <code>ListLedgers</code> request.
@@ -1410,15 +1112,6 @@ export interface ListLedgersRequest {
    *             <code>ListLedgers</code> call, then you should use that value as input here.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListLedgersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLedgersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1440,15 +1133,6 @@ export interface LedgerSummary {
    *          is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>
    */
   CreationDateTime?: Date;
-}
-
-export namespace LedgerSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LedgerSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface ListLedgersResponse {
@@ -1475,15 +1159,6 @@ export interface ListLedgersResponse {
   NextToken?: string;
 }
 
-export namespace ListLedgersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListLedgersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) for which to list the tags. For example:</p>
@@ -1494,29 +1169,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags that are currently associated with the specified Amazon QLDB resource.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface StreamJournalToKinesisRequest {
@@ -1577,30 +1234,12 @@ export interface StreamJournalToKinesisRequest {
   StreamName: string | undefined;
 }
 
-export namespace StreamJournalToKinesisRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamJournalToKinesisRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StreamJournalToKinesisResponse {
   /**
    * <p>The UUID (represented in Base62-encoded text) that QLDB assigns to each QLDB journal
    *          stream.</p>
    */
   StreamId?: string;
-}
-
-export namespace StreamJournalToKinesisResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamJournalToKinesisResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1620,25 +1259,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1655,25 +1276,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateLedgerRequest {
   /**
@@ -1744,15 +1347,6 @@ export interface UpdateLedgerRequest {
   KmsKey?: string;
 }
 
-export namespace UpdateLedgerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLedgerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLedgerResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -1789,15 +1383,6 @@ export interface UpdateLedgerResponse {
    *          error).</p>
    */
   EncryptionDescription?: LedgerEncryptionDescription;
-}
-
-export namespace UpdateLedgerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLedgerResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateLedgerPermissionsModeRequest {
@@ -1841,15 +1426,6 @@ export interface UpdateLedgerPermissionsModeRequest {
   PermissionsMode: PermissionsMode | string | undefined;
 }
 
-export namespace UpdateLedgerPermissionsModeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLedgerPermissionsModeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLedgerPermissionsModeResponse {
   /**
    * <p>The name of the ledger.</p>
@@ -1867,11 +1443,355 @@ export interface UpdateLedgerPermissionsModeResponse {
   PermissionsMode?: PermissionsMode | string;
 }
 
-export namespace UpdateLedgerPermissionsModeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLedgerPermissionsModeResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const CancelJournalKinesisStreamRequestFilterSensitiveLog = (obj: CancelJournalKinesisStreamRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CancelJournalKinesisStreamResponseFilterSensitiveLog = (obj: CancelJournalKinesisStreamResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLedgerRequestFilterSensitiveLog = (obj: CreateLedgerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLedgerResponseFilterSensitiveLog = (obj: CreateLedgerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLedgerRequestFilterSensitiveLog = (obj: DeleteLedgerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJournalKinesisStreamRequestFilterSensitiveLog = (
+  obj: DescribeJournalKinesisStreamRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisConfigurationFilterSensitiveLog = (obj: KinesisConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JournalKinesisStreamDescriptionFilterSensitiveLog = (obj: JournalKinesisStreamDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJournalKinesisStreamResponseFilterSensitiveLog = (
+  obj: DescribeJournalKinesisStreamResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJournalS3ExportRequestFilterSensitiveLog = (obj: DescribeJournalS3ExportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3EncryptionConfigurationFilterSensitiveLog = (obj: S3EncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ExportConfigurationFilterSensitiveLog = (obj: S3ExportConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JournalS3ExportDescriptionFilterSensitiveLog = (obj: JournalS3ExportDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJournalS3ExportResponseFilterSensitiveLog = (obj: DescribeJournalS3ExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLedgerRequestFilterSensitiveLog = (obj: DescribeLedgerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LedgerEncryptionDescriptionFilterSensitiveLog = (obj: LedgerEncryptionDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLedgerResponseFilterSensitiveLog = (obj: DescribeLedgerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportJournalToS3RequestFilterSensitiveLog = (obj: ExportJournalToS3Request): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportJournalToS3ResponseFilterSensitiveLog = (obj: ExportJournalToS3Response): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValueHolderFilterSensitiveLog = (obj: ValueHolder): any => ({
+  ...obj,
+  ...(obj.IonText && { IonText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetBlockRequestFilterSensitiveLog = (obj: GetBlockRequest): any => ({
+  ...obj,
+  ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
+  ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetBlockResponseFilterSensitiveLog = (obj: GetBlockResponse): any => ({
+  ...obj,
+  ...(obj.Block && { Block: SENSITIVE_STRING }),
+  ...(obj.Proof && { Proof: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDigestRequestFilterSensitiveLog = (obj: GetDigestRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDigestResponseFilterSensitiveLog = (obj: GetDigestResponse): any => ({
+  ...obj,
+  ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetRevisionRequestFilterSensitiveLog = (obj: GetRevisionRequest): any => ({
+  ...obj,
+  ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
+  ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetRevisionResponseFilterSensitiveLog = (obj: GetRevisionResponse): any => ({
+  ...obj,
+  ...(obj.Proof && { Proof: SENSITIVE_STRING }),
+  ...(obj.Revision && { Revision: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListJournalKinesisStreamsForLedgerRequestFilterSensitiveLog = (
+  obj: ListJournalKinesisStreamsForLedgerRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJournalKinesisStreamsForLedgerResponseFilterSensitiveLog = (
+  obj: ListJournalKinesisStreamsForLedgerResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJournalS3ExportsRequestFilterSensitiveLog = (obj: ListJournalS3ExportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJournalS3ExportsResponseFilterSensitiveLog = (obj: ListJournalS3ExportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJournalS3ExportsForLedgerRequestFilterSensitiveLog = (
+  obj: ListJournalS3ExportsForLedgerRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJournalS3ExportsForLedgerResponseFilterSensitiveLog = (
+  obj: ListJournalS3ExportsForLedgerResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLedgersRequestFilterSensitiveLog = (obj: ListLedgersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LedgerSummaryFilterSensitiveLog = (obj: LedgerSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLedgersResponseFilterSensitiveLog = (obj: ListLedgersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamJournalToKinesisRequestFilterSensitiveLog = (obj: StreamJournalToKinesisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamJournalToKinesisResponseFilterSensitiveLog = (obj: StreamJournalToKinesisResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLedgerRequestFilterSensitiveLog = (obj: UpdateLedgerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLedgerResponseFilterSensitiveLog = (obj: UpdateLedgerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLedgerPermissionsModeRequestFilterSensitiveLog = (obj: UpdateLedgerPermissionsModeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLedgerPermissionsModeResponseFilterSensitiveLog = (
+  obj: UpdateLedgerPermissionsModeResponse
+): any => ({
+  ...obj,
+});

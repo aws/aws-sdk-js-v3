@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DisableDomainAutoRenewRequest, DisableDomainAutoRenewResponse } from "../models/models_0";
+import {
+  DisableDomainAutoRenewRequest,
+  DisableDomainAutoRenewRequestFilterSensitiveLog,
+  DisableDomainAutoRenewResponse,
+  DisableDomainAutoRenewResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DisableDomainAutoRenewCommand,
   serializeAws_json1_1DisableDomainAutoRenewCommand,
@@ -72,8 +77,8 @@ export class DisableDomainAutoRenewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableDomainAutoRenewRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DisableDomainAutoRenewResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DisableDomainAutoRenewRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisableDomainAutoRenewResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

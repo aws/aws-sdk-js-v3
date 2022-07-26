@@ -12,7 +12,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedAcceptWithPayloadOutput } from "../models/models_0";
+import {
+  MalformedAcceptWithPayloadOutput,
+  MalformedAcceptWithPayloadOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedAcceptWithPayloadCommand,
   serializeAws_restJson1MalformedAcceptWithPayloadCommand,
@@ -56,7 +59,7 @@ export class MalformedAcceptWithPayloadCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: MalformedAcceptWithPayloadOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: MalformedAcceptWithPayloadOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

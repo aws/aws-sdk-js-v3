@@ -14,7 +14,9 @@ import {
 
 import {
   ListJournalKinesisStreamsForLedgerRequest,
+  ListJournalKinesisStreamsForLedgerRequestFilterSensitiveLog,
   ListJournalKinesisStreamsForLedgerResponse,
+  ListJournalKinesisStreamsForLedgerResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand,
@@ -85,8 +87,8 @@ export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListJournalKinesisStreamsForLedgerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

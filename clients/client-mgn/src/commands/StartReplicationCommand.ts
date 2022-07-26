@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { SourceServer, StartReplicationRequest } from "../models/models_0";
+import {
+  SourceServer,
+  SourceServerFilterSensitiveLog,
+  StartReplicationRequest,
+  StartReplicationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StartReplicationCommand,
   serializeAws_restJson1StartReplicationCommand,
@@ -72,8 +77,8 @@ export class StartReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SourceServer.filterSensitiveLog,
+      inputFilterSensitiveLog: StartReplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

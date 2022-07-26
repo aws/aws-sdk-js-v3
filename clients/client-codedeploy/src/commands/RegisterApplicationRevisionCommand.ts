@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { RegisterApplicationRevisionInput } from "../models/models_0";
+import {
+  RegisterApplicationRevisionInput,
+  RegisterApplicationRevisionInputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterApplicationRevisionCommand,
   serializeAws_json1_1RegisterApplicationRevisionCommand,
@@ -72,7 +75,7 @@ export class RegisterApplicationRevisionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterApplicationRevisionInput.filterSensitiveLog,
+      inputFilterSensitiveLog: RegisterApplicationRevisionInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

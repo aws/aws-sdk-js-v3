@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchDeleteConnectionRequest, BatchDeleteConnectionResponse } from "../models/models_0";
+import {
+  BatchDeleteConnectionRequest,
+  BatchDeleteConnectionRequestFilterSensitiveLog,
+  BatchDeleteConnectionResponse,
+  BatchDeleteConnectionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeleteConnectionCommand,
   serializeAws_json1_1BatchDeleteConnectionCommand,
@@ -72,8 +77,8 @@ export class BatchDeleteConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDeleteConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteConnectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

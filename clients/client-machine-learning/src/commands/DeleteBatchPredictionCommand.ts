@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { DeleteBatchPredictionInput, DeleteBatchPredictionOutput } from "../models/models_0";
+import {
+  DeleteBatchPredictionInput,
+  DeleteBatchPredictionInputFilterSensitiveLog,
+  DeleteBatchPredictionOutput,
+  DeleteBatchPredictionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBatchPredictionCommand,
   serializeAws_json1_1DeleteBatchPredictionCommand,
@@ -77,8 +82,8 @@ export class DeleteBatchPredictionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBatchPredictionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBatchPredictionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBatchPredictionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBatchPredictionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

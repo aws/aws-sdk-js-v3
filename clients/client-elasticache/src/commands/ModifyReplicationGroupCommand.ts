@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { ModifyReplicationGroupMessage, ModifyReplicationGroupResult } from "../models/models_0";
+import {
+  ModifyReplicationGroupMessage,
+  ModifyReplicationGroupMessageFilterSensitiveLog,
+  ModifyReplicationGroupResult,
+  ModifyReplicationGroupResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryModifyReplicationGroupCommand,
   serializeAws_queryModifyReplicationGroupCommand,
@@ -88,8 +93,8 @@ export class ModifyReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReplicationGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReplicationGroupResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyReplicationGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyReplicationGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

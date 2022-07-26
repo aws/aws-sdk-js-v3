@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { PollForThirdPartyJobsInput, PollForThirdPartyJobsOutput } from "../models/models_0";
+import {
+  PollForThirdPartyJobsInput,
+  PollForThirdPartyJobsInputFilterSensitiveLog,
+  PollForThirdPartyJobsOutput,
+  PollForThirdPartyJobsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PollForThirdPartyJobsCommand,
   serializeAws_json1_1PollForThirdPartyJobsCommand,
@@ -78,8 +83,8 @@ export class PollForThirdPartyJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PollForThirdPartyJobsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PollForThirdPartyJobsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PollForThirdPartyJobsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PollForThirdPartyJobsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

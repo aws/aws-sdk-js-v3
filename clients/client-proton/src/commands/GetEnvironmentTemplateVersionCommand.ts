@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetEnvironmentTemplateVersionInput, GetEnvironmentTemplateVersionOutput } from "../models/models_0";
+import {
+  GetEnvironmentTemplateVersionInput,
+  GetEnvironmentTemplateVersionInputFilterSensitiveLog,
+  GetEnvironmentTemplateVersionOutput,
+  GetEnvironmentTemplateVersionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0GetEnvironmentTemplateVersionCommand,
   serializeAws_json1_0GetEnvironmentTemplateVersionCommand,
@@ -74,8 +79,8 @@ export class GetEnvironmentTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentTemplateVersionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEnvironmentTemplateVersionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEnvironmentTemplateVersionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEnvironmentTemplateVersionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

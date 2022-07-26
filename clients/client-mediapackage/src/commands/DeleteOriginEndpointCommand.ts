@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
-import { DeleteOriginEndpointRequest, DeleteOriginEndpointResponse } from "../models/models_0";
+import {
+  DeleteOriginEndpointRequest,
+  DeleteOriginEndpointRequestFilterSensitiveLog,
+  DeleteOriginEndpointResponse,
+  DeleteOriginEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteOriginEndpointCommand,
   serializeAws_restJson1DeleteOriginEndpointCommand,
@@ -72,8 +77,8 @@ export class DeleteOriginEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOriginEndpointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteOriginEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteOriginEndpointRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteOriginEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

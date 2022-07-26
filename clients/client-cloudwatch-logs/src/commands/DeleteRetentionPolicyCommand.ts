@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteRetentionPolicyRequest } from "../models/models_0";
+import { DeleteRetentionPolicyRequest, DeleteRetentionPolicyRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRetentionPolicyCommand,
   serializeAws_json1_1DeleteRetentionPolicyCommand,
@@ -73,7 +73,7 @@ export class DeleteRetentionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRetentionPolicyRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRetentionPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

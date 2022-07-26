@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import { ListGroundStationsRequest, ListGroundStationsResponse } from "../models/models_0";
+import {
+  ListGroundStationsRequest,
+  ListGroundStationsRequestFilterSensitiveLog,
+  ListGroundStationsResponse,
+  ListGroundStationsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListGroundStationsCommand,
   serializeAws_restJson1ListGroundStationsCommand,
@@ -72,8 +77,8 @@ export class ListGroundStationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroundStationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListGroundStationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListGroundStationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListGroundStationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

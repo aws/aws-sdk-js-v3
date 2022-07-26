@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetVpcAttachmentRequest, GetVpcAttachmentResponse } from "../models/models_0";
+import {
+  GetVpcAttachmentRequest,
+  GetVpcAttachmentRequestFilterSensitiveLog,
+  GetVpcAttachmentResponse,
+  GetVpcAttachmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetVpcAttachmentCommand,
@@ -72,8 +77,8 @@ export class GetVpcAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVpcAttachmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetVpcAttachmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetVpcAttachmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetVpcAttachmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

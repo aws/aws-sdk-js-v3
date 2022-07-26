@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import { UpdateTableStorageOptimizerRequest, UpdateTableStorageOptimizerResponse } from "../models/models_0";
+import {
+  UpdateTableStorageOptimizerRequest,
+  UpdateTableStorageOptimizerRequestFilterSensitiveLog,
+  UpdateTableStorageOptimizerResponse,
+  UpdateTableStorageOptimizerResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateTableStorageOptimizerCommand,
   serializeAws_restJson1UpdateTableStorageOptimizerCommand,
@@ -74,8 +79,8 @@ export class UpdateTableStorageOptimizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTableStorageOptimizerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTableStorageOptimizerResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTableStorageOptimizerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTableStorageOptimizerResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

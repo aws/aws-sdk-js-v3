@@ -14,7 +14,9 @@ import {
 
 import {
   ListServiceInstanceProvisionedResourcesInput,
+  ListServiceInstanceProvisionedResourcesInputFilterSensitiveLog,
   ListServiceInstanceProvisionedResourcesOutput,
+  ListServiceInstanceProvisionedResourcesOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0ListServiceInstanceProvisionedResourcesCommand,
@@ -81,8 +83,8 @@ export class ListServiceInstanceProvisionedResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceInstanceProvisionedResourcesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListServiceInstanceProvisionedResourcesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListServiceInstanceProvisionedResourcesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListServiceInstanceProvisionedResourcesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

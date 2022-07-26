@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import { DescribeSettingsRequest, DescribeSettingsResult } from "../models/models_0";
+import {
+  DescribeSettingsRequest,
+  DescribeSettingsRequestFilterSensitiveLog,
+  DescribeSettingsResult,
+  DescribeSettingsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeSettingsCommand,
   serializeAws_json1_1DescribeSettingsCommand,
@@ -72,8 +77,8 @@ export class DescribeSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSettingsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeSettingsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

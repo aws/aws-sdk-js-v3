@@ -29,15 +29,6 @@ export interface AppInstanceUserMembershipSummary {
   ReadMarkerTimestamp?: Date;
 }
 
-export namespace AppInstanceUserMembershipSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppInstanceUserMembershipSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateChannelFlowRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -53,15 +44,6 @@ export interface AssociateChannelFlowRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
    */
   ChimeBearer: string | undefined;
-}
-
-export namespace AssociateChannelFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateChannelFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ErrorCode {
@@ -282,16 +264,6 @@ export interface Identity {
   Name?: string;
 }
 
-export namespace Identity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Identity): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The membership information, including member ARNs, the channel ARN, and membership
  *          types.</p>
@@ -316,17 +288,6 @@ export interface BatchChannelMemberships {
    * <p>The ARN of the channel to which you're adding users.</p>
    */
   ChannelArn?: string;
-}
-
-export namespace BatchChannelMemberships {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchChannelMemberships): any => ({
-    ...obj,
-    ...(obj.InvitedBy && { InvitedBy: Identity.filterSensitiveLog(obj.InvitedBy) }),
-    ...(obj.Members && { Members: obj.Members.map((item) => Identity.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface BatchCreateChannelMembershipRequest {
@@ -355,15 +316,6 @@ export interface BatchCreateChannelMembershipRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace BatchCreateChannelMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateChannelMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of failed member ARNs, error codes, and error messages.</p>
  */
@@ -384,15 +336,6 @@ export interface BatchCreateChannelMembershipError {
   ErrorMessage?: string;
 }
 
-export namespace BatchCreateChannelMembershipError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateChannelMembershipError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchCreateChannelMembershipResponse {
   /**
    * <p>The list of channel memberships in the response.</p>
@@ -404,18 +347,6 @@ export interface BatchCreateChannelMembershipResponse {
    *          memberships is returned, along with error codes and error messages.</p>
    */
   Errors?: BatchCreateChannelMembershipError[];
-}
-
-export namespace BatchCreateChannelMembershipResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchCreateChannelMembershipResponse): any => ({
-    ...obj,
-    ...(obj.BatchChannelMemberships && {
-      BatchChannelMemberships: BatchChannelMemberships.filterSensitiveLog(obj.BatchChannelMemberships),
-    }),
-  });
 }
 
 export enum ChannelMode {
@@ -483,18 +414,6 @@ export interface Channel {
   ChannelFlowArn?: string;
 }
 
-export namespace Channel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Channel): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-    ...(obj.CreatedBy && { CreatedBy: Identity.filterSensitiveLog(obj.CreatedBy) }),
-  });
-}
-
 /**
  * <p>Summary of details of a channel associated with channel flow.</p>
  */
@@ -525,17 +444,6 @@ export interface ChannelAssociatedWithFlowSummary {
   Metadata?: string;
 }
 
-export namespace ChannelAssociatedWithFlowSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelAssociatedWithFlowSummary): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The details of a channel ban.</p>
  */
@@ -561,17 +469,6 @@ export interface ChannelBan {
   CreatedBy?: Identity;
 }
 
-export namespace ChannelBan {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelBan): any => ({
-    ...obj,
-    ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
-    ...(obj.CreatedBy && { CreatedBy: Identity.filterSensitiveLog(obj.CreatedBy) }),
-  });
-}
-
 /**
  * <p>Summary of the details of a <code>ChannelBan</code>.</p>
  */
@@ -580,16 +477,6 @@ export interface ChannelBanSummary {
    * <p>The member being banned from a channel.</p>
    */
   Member?: Identity;
-}
-
-export namespace ChannelBanSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelBanSummary): any => ({
-    ...obj,
-    ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
-  });
 }
 
 export enum InvocationType {
@@ -611,15 +498,6 @@ export interface LambdaConfiguration {
   InvocationType: InvocationType | string | undefined;
 }
 
-export namespace LambdaConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A processor's metadata.</p>
  */
@@ -628,15 +506,6 @@ export interface ProcessorConfiguration {
    * <p>Indicates that the processor is of type Lambda.</p>
    */
   Lambda: LambdaConfiguration | undefined;
-}
-
-export namespace ProcessorConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessorConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum FallbackAction {
@@ -672,16 +541,6 @@ export interface Processor {
   FallbackAction: FallbackAction | string | undefined;
 }
 
-export namespace Processor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Processor): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The details of a channel flow.</p>
  */
@@ -712,17 +571,6 @@ export interface ChannelFlow {
   LastUpdatedTimestamp?: Date;
 }
 
-export namespace ChannelFlow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelFlow): any => ({
-    ...obj,
-    ...(obj.Processors && { Processors: obj.Processors.map((item) => Processor.filterSensitiveLog(item)) }),
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>A list of message attribute values.</p>
  */
@@ -731,16 +579,6 @@ export interface MessageAttributeValue {
    * <p>The strings in a message attribute value.</p>
    */
   StringValues?: string[];
-}
-
-export namespace MessageAttributeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
-    ...obj,
-    ...(obj.StringValues && { StringValues: SENSITIVE_STRING }),
-  });
 }
 
 export enum PushNotificationType {
@@ -768,17 +606,6 @@ export interface PushNotificationConfiguration {
    *          <code>VOIP</code>: VOIP mobile push notification.</p>
    */
   Type?: PushNotificationType | string;
-}
-
-export namespace PushNotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PushNotificationConfiguration): any => ({
-    ...obj,
-    ...(obj.Title && { Title: SENSITIVE_STRING }),
-    ...(obj.Body && { Body: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -811,29 +638,6 @@ export interface ChannelMessageCallback {
   MessageAttributes?: Record<string, MessageAttributeValue>;
 }
 
-export namespace ChannelMessageCallback {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelMessageCallback): any => ({
-    ...obj,
-    ...(obj.Content && { Content: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-    ...(obj.PushNotification && {
-      PushNotification: PushNotificationConfiguration.filterSensitiveLog(obj.PushNotification),
-    }),
-    ...(obj.MessageAttributes && {
-      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-          ...acc,
-          [key]: MessageAttributeValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
-}
-
 export interface ChannelFlowCallbackRequest {
   /**
    * <p>The identifier passed to the processor by the service when invoked. Use the identifier to call back the service.</p>
@@ -856,16 +660,6 @@ export interface ChannelFlowCallbackRequest {
   ChannelMessage: ChannelMessageCallback | undefined;
 }
 
-export namespace ChannelFlowCallbackRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelFlowCallbackRequest): any => ({
-    ...obj,
-    ...(obj.ChannelMessage && { ChannelMessage: ChannelMessageCallback.filterSensitiveLog(obj.ChannelMessage) }),
-  });
-}
-
 export interface ChannelFlowCallbackResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -876,15 +670,6 @@ export interface ChannelFlowCallbackResponse {
    * <p>The call back ID passed in the request.</p>
    */
   CallbackId?: string;
-}
-
-export namespace ChannelFlowCallbackResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelFlowCallbackResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -905,17 +690,6 @@ export interface ChannelFlowSummary {
    * <p>Information about the processor Lambda functions.</p>
    */
   Processors?: Processor[];
-}
-
-export namespace ChannelFlowSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelFlowSummary): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Processors && { Processors: obj.Processors.map((item) => Processor.filterSensitiveLog(item)) }),
-  });
 }
 
 /**
@@ -953,17 +727,6 @@ export interface ChannelMembership {
   LastUpdatedTimestamp?: Date;
 }
 
-export namespace ChannelMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelMembership): any => ({
-    ...obj,
-    ...(obj.InvitedBy && { InvitedBy: Identity.filterSensitiveLog(obj.InvitedBy) }),
-    ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
-  });
-}
-
 /**
  * <p>Summary of the details of a <code>Channel</code>.</p>
  */
@@ -999,17 +762,6 @@ export interface ChannelSummary {
   LastMessageTimestamp?: Date;
 }
 
-export namespace ChannelSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelSummary): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>Summary of the channel membership details of an <code>AppInstanceUser</code>.</p>
  */
@@ -1023,16 +775,6 @@ export interface ChannelMembershipForAppInstanceUserSummary {
    * <p>Returns the channel membership data for an <code>AppInstance</code>.</p>
    */
   AppInstanceUserMembershipSummary?: AppInstanceUserMembershipSummary;
-}
-
-export namespace ChannelMembershipForAppInstanceUserSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelMembershipForAppInstanceUserSummary): any => ({
-    ...obj,
-    ...(obj.ChannelSummary && { ChannelSummary: ChannelSummary.filterSensitiveLog(obj.ChannelSummary) }),
-  });
 }
 
 /**
@@ -1052,16 +794,6 @@ export interface PushNotificationPreferences {
   FilterRule?: string;
 }
 
-export namespace PushNotificationPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PushNotificationPreferences): any => ({
-    ...obj,
-    ...(obj.FilterRule && { FilterRule: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The channel membership preferences for an <code>AppInstanceUser</code>.</p>
  */
@@ -1072,18 +804,6 @@ export interface ChannelMembershipPreferences {
   PushNotifications?: PushNotificationPreferences;
 }
 
-export namespace ChannelMembershipPreferences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelMembershipPreferences): any => ({
-    ...obj,
-    ...(obj.PushNotifications && {
-      PushNotifications: PushNotificationPreferences.filterSensitiveLog(obj.PushNotifications),
-    }),
-  });
-}
-
 /**
  * <p>Summary of the details of a <code>ChannelMembership</code>.</p>
  */
@@ -1092,16 +812,6 @@ export interface ChannelMembershipSummary {
    * <p>A member's summary data.</p>
    */
   Member?: Identity;
-}
-
-export namespace ChannelMembershipSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelMembershipSummary): any => ({
-    ...obj,
-    ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
-  });
 }
 
 export enum ChannelMessagePersistenceType {
@@ -1129,15 +839,6 @@ export interface ChannelMessageStatusStructure {
    * <p>Contains more details about the messasge status.</p>
    */
   Detail?: string;
-}
-
-export namespace ChannelMessageStatusStructure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelMessageStatusStructure): any => ({
-    ...obj,
-  });
 }
 
 export enum ChannelMessageType {
@@ -1215,27 +916,6 @@ export interface ChannelMessage {
   MessageAttributes?: Record<string, MessageAttributeValue>;
 }
 
-export namespace ChannelMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelMessage): any => ({
-    ...obj,
-    ...(obj.Content && { Content: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-    ...(obj.Sender && { Sender: Identity.filterSensitiveLog(obj.Sender) }),
-    ...(obj.MessageAttributes && {
-      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-          ...acc,
-          [key]: MessageAttributeValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
-}
-
 /**
  * <p>Summary of the messages in a <code>Channel</code>.</p>
  */
@@ -1297,27 +977,6 @@ export interface ChannelMessageSummary {
   MessageAttributes?: Record<string, MessageAttributeValue>;
 }
 
-export namespace ChannelMessageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelMessageSummary): any => ({
-    ...obj,
-    ...(obj.Content && { Content: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-    ...(obj.Sender && { Sender: Identity.filterSensitiveLog(obj.Sender) }),
-    ...(obj.MessageAttributes && {
-      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-          ...acc,
-          [key]: MessageAttributeValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
-}
-
 /**
  * <p>Summary of the details of a moderated channel.</p>
  */
@@ -1326,16 +985,6 @@ export interface ChannelModeratedByAppInstanceUserSummary {
    * <p>Summary of the details of a <code>Channel</code>.</p>
    */
   ChannelSummary?: ChannelSummary;
-}
-
-export namespace ChannelModeratedByAppInstanceUserSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelModeratedByAppInstanceUserSummary): any => ({
-    ...obj,
-    ...(obj.ChannelSummary && { ChannelSummary: ChannelSummary.filterSensitiveLog(obj.ChannelSummary) }),
-  });
 }
 
 /**
@@ -1363,17 +1012,6 @@ export interface ChannelModerator {
   CreatedBy?: Identity;
 }
 
-export namespace ChannelModerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelModerator): any => ({
-    ...obj,
-    ...(obj.Moderator && { Moderator: Identity.filterSensitiveLog(obj.Moderator) }),
-    ...(obj.CreatedBy && { CreatedBy: Identity.filterSensitiveLog(obj.CreatedBy) }),
-  });
-}
-
 /**
  * <p>Summary of the details of a <code>ChannelModerator</code>.</p>
  */
@@ -1382,16 +1020,6 @@ export interface ChannelModeratorSummary {
    * <p>The data for a moderator.</p>
    */
   Moderator?: Identity;
-}
-
-export namespace ChannelModeratorSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChannelModeratorSummary): any => ({
-    ...obj,
-    ...(obj.Moderator && { Moderator: Identity.filterSensitiveLog(obj.Moderator) }),
-  });
 }
 
 /**
@@ -1407,17 +1035,6 @@ export interface Tag {
    * <p>The value in a tag.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-    ...(obj.Key && { Key: SENSITIVE_STRING }),
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
 }
 
 export interface CreateChannelRequest {
@@ -1481,34 +1098,11 @@ export interface CreateChannelRequest {
   ModeratorArns?: string[];
 }
 
-export namespace CreateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelRequest): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-    ...(obj.ChannelId && { ChannelId: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateChannelResponse {
   /**
    * <p>The ARN of the channel.</p>
    */
   ChannelArn?: string;
-}
-
-export namespace CreateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1551,15 +1145,6 @@ export interface CreateChannelBanRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace CreateChannelBanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelBanRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateChannelBanResponse {
   /**
    * <p>The ARN of the response to the ban request.</p>
@@ -1571,16 +1156,6 @@ export interface CreateChannelBanResponse {
    *          response.</p>
    */
   Member?: Identity;
-}
-
-export namespace CreateChannelBanResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelBanResponse): any => ({
-    ...obj,
-    ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
-  });
 }
 
 export interface CreateChannelFlowRequest {
@@ -1610,33 +1185,11 @@ export interface CreateChannelFlowRequest {
   ClientRequestToken: string | undefined;
 }
 
-export namespace CreateChannelFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelFlowRequest): any => ({
-    ...obj,
-    ...(obj.Processors && { Processors: obj.Processors.map((item) => Processor.filterSensitiveLog(item)) }),
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateChannelFlowResponse {
   /**
    * <p>The ARN of the channel flow.</p>
    */
   ChannelFlowArn?: string;
-}
-
-export namespace CreateChannelFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelFlowResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateChannelMembershipRequest {
@@ -1665,15 +1218,6 @@ export interface CreateChannelMembershipRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace CreateChannelMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateChannelMembershipResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -1684,16 +1228,6 @@ export interface CreateChannelMembershipResponse {
    * <p>The ARN and metadata of the member being added.</p>
    */
   Member?: Identity;
-}
-
-export namespace CreateChannelMembershipResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelMembershipResponse): any => ({
-    ...obj,
-    ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
-  });
 }
 
 export interface CreateChannelModeratorRequest {
@@ -1713,15 +1247,6 @@ export interface CreateChannelModeratorRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace CreateChannelModeratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelModeratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateChannelModeratorResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -1734,16 +1259,6 @@ export interface CreateChannelModeratorResponse {
   ChannelModerator?: Identity;
 }
 
-export namespace CreateChannelModeratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateChannelModeratorResponse): any => ({
-    ...obj,
-    ...(obj.ChannelModerator && { ChannelModerator: Identity.filterSensitiveLog(obj.ChannelModerator) }),
-  });
-}
-
 export interface DeleteChannelRequest {
   /**
    * <p>The ARN of the channel being deleted.</p>
@@ -1754,15 +1269,6 @@ export interface DeleteChannelRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
-}
-
-export namespace DeleteChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteChannelBanRequest {
@@ -1782,29 +1288,11 @@ export interface DeleteChannelBanRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace DeleteChannelBanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelBanRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteChannelFlowRequest {
   /**
    * <p>The ARN of the channel flow.</p>
    */
   ChannelFlowArn: string | undefined;
-}
-
-export namespace DeleteChannelFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelFlowRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteChannelMembershipRequest {
@@ -1824,15 +1312,6 @@ export interface DeleteChannelMembershipRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace DeleteChannelMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1848,15 +1327,6 @@ export interface DeleteChannelMessageRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
-}
-
-export namespace DeleteChannelMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelMessageRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteChannelModeratorRequest {
@@ -1876,15 +1346,6 @@ export interface DeleteChannelModeratorRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace DeleteChannelModeratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteChannelModeratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeChannelRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1897,30 +1358,11 @@ export interface DescribeChannelRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace DescribeChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeChannelResponse {
   /**
    * <p>The channel details.</p>
    */
   Channel?: Channel;
-}
-
-export namespace DescribeChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelResponse): any => ({
-    ...obj,
-    ...(obj.Channel && { Channel: Channel.filterSensitiveLog(obj.Channel) }),
-  });
 }
 
 export interface DescribeChannelBanRequest {
@@ -1940,30 +1382,11 @@ export interface DescribeChannelBanRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace DescribeChannelBanRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelBanRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeChannelBanResponse {
   /**
    * <p>The details of the ban.</p>
    */
   ChannelBan?: ChannelBan;
-}
-
-export namespace DescribeChannelBanResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelBanResponse): any => ({
-    ...obj,
-    ...(obj.ChannelBan && { ChannelBan: ChannelBan.filterSensitiveLog(obj.ChannelBan) }),
-  });
 }
 
 export interface DescribeChannelFlowRequest {
@@ -1973,30 +1396,11 @@ export interface DescribeChannelFlowRequest {
   ChannelFlowArn: string | undefined;
 }
 
-export namespace DescribeChannelFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelFlowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeChannelFlowResponse {
   /**
    * <p>The channel flow details.</p>
    */
   ChannelFlow?: ChannelFlow;
-}
-
-export namespace DescribeChannelFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelFlowResponse): any => ({
-    ...obj,
-    ...(obj.ChannelFlow && { ChannelFlow: ChannelFlow.filterSensitiveLog(obj.ChannelFlow) }),
-  });
 }
 
 export interface DescribeChannelMembershipRequest {
@@ -2016,30 +1420,11 @@ export interface DescribeChannelMembershipRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace DescribeChannelMembershipRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelMembershipRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeChannelMembershipResponse {
   /**
    * <p>The details of the membership.</p>
    */
   ChannelMembership?: ChannelMembership;
-}
-
-export namespace DescribeChannelMembershipResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelMembershipResponse): any => ({
-    ...obj,
-    ...(obj.ChannelMembership && { ChannelMembership: ChannelMembership.filterSensitiveLog(obj.ChannelMembership) }),
-  });
 }
 
 export interface DescribeChannelMembershipForAppInstanceUserRequest {
@@ -2059,32 +1444,11 @@ export interface DescribeChannelMembershipForAppInstanceUserRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace DescribeChannelMembershipForAppInstanceUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelMembershipForAppInstanceUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeChannelMembershipForAppInstanceUserResponse {
   /**
    * <p>The channel to which a user belongs.</p>
    */
   ChannelMembership?: ChannelMembershipForAppInstanceUserSummary;
-}
-
-export namespace DescribeChannelMembershipForAppInstanceUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelMembershipForAppInstanceUserResponse): any => ({
-    ...obj,
-    ...(obj.ChannelMembership && {
-      ChannelMembership: ChannelMembershipForAppInstanceUserSummary.filterSensitiveLog(obj.ChannelMembership),
-    }),
-  });
 }
 
 export interface DescribeChannelModeratedByAppInstanceUserRequest {
@@ -2104,30 +1468,11 @@ export interface DescribeChannelModeratedByAppInstanceUserRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace DescribeChannelModeratedByAppInstanceUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelModeratedByAppInstanceUserRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeChannelModeratedByAppInstanceUserResponse {
   /**
    * <p>The moderated channel.</p>
    */
   Channel?: ChannelModeratedByAppInstanceUserSummary;
-}
-
-export namespace DescribeChannelModeratedByAppInstanceUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelModeratedByAppInstanceUserResponse): any => ({
-    ...obj,
-    ...(obj.Channel && { Channel: ChannelModeratedByAppInstanceUserSummary.filterSensitiveLog(obj.Channel) }),
-  });
 }
 
 export interface DescribeChannelModeratorRequest {
@@ -2147,30 +1492,11 @@ export interface DescribeChannelModeratorRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace DescribeChannelModeratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelModeratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeChannelModeratorResponse {
   /**
    * <p>The details of the channel moderator.</p>
    */
   ChannelModerator?: ChannelModerator;
-}
-
-export namespace DescribeChannelModeratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeChannelModeratorResponse): any => ({
-    ...obj,
-    ...(obj.ChannelModerator && { ChannelModerator: ChannelModerator.filterSensitiveLog(obj.ChannelModerator) }),
-  });
 }
 
 export interface DisassociateChannelFlowRequest {
@@ -2190,15 +1516,6 @@ export interface DisassociateChannelFlowRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace DisassociateChannelFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateChannelFlowRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetChannelMembershipPreferencesRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -2214,15 +1531,6 @@ export interface GetChannelMembershipPreferencesRequest {
    * <p>The <code>AppInstanceUserARN</code> of the user making the API call.</p>
    */
   ChimeBearer: string | undefined;
-}
-
-export namespace GetChannelMembershipPreferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelMembershipPreferencesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetChannelMembershipPreferencesResponse {
@@ -2242,17 +1550,6 @@ export interface GetChannelMembershipPreferencesResponse {
   Preferences?: ChannelMembershipPreferences;
 }
 
-export namespace GetChannelMembershipPreferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelMembershipPreferencesResponse): any => ({
-    ...obj,
-    ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
-    ...(obj.Preferences && { Preferences: ChannelMembershipPreferences.filterSensitiveLog(obj.Preferences) }),
-  });
-}
-
 export interface GetChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -2270,30 +1567,11 @@ export interface GetChannelMessageRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace GetChannelMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetChannelMessageResponse {
   /**
    * <p>The details of and content in the message.</p>
    */
   ChannelMessage?: ChannelMessage;
-}
-
-export namespace GetChannelMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelMessageResponse): any => ({
-    ...obj,
-    ...(obj.ChannelMessage && { ChannelMessage: ChannelMessage.filterSensitiveLog(obj.ChannelMessage) }),
-  });
 }
 
 export interface GetChannelMessageStatusRequest {
@@ -2313,15 +1591,6 @@ export interface GetChannelMessageStatusRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace GetChannelMessageStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelMessageStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetChannelMessageStatusResponse {
   /**
    * <p>The message status and details.</p>
@@ -2329,25 +1598,7 @@ export interface GetChannelMessageStatusResponse {
   Status?: ChannelMessageStatusStructure;
 }
 
-export namespace GetChannelMessageStatusResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetChannelMessageStatusResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMessagingSessionEndpointRequest {}
-
-export namespace GetMessagingSessionEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMessagingSessionEndpointRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The websocket endpoint used to connect to Amazon Chime SDK messaging.</p>
@@ -2359,29 +1610,11 @@ export interface MessagingSessionEndpoint {
   Url?: string;
 }
 
-export namespace MessagingSessionEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessagingSessionEndpoint): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMessagingSessionEndpointResponse {
   /**
    * <p>The endpoint returned in the response.</p>
    */
   Endpoint?: MessagingSessionEndpoint;
-}
-
-export namespace GetMessagingSessionEndpointResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMessagingSessionEndpointResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListChannelBansRequest {
@@ -2406,16 +1639,6 @@ export interface ListChannelBansRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace ListChannelBansRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelBansRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListChannelBansResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2431,17 +1654,6 @@ export interface ListChannelBansResponse {
    * <p>The information for each requested ban.</p>
    */
   ChannelBans?: ChannelBanSummary[];
-}
-
-export namespace ListChannelBansResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelBansResponse): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-    ...(obj.ChannelBans && { ChannelBans: obj.ChannelBans.map((item) => ChannelBanSummary.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface ListChannelFlowsRequest {
@@ -2461,16 +1673,6 @@ export interface ListChannelFlowsRequest {
   NextToken?: string;
 }
 
-export namespace ListChannelFlowsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelFlowsRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListChannelFlowsResponse {
   /**
    * <p>The information about each channel flow.</p>
@@ -2481,19 +1683,6 @@ export interface ListChannelFlowsResponse {
    * <p>The token passed by previous API calls until all requested channels are returned.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListChannelFlowsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelFlowsResponse): any => ({
-    ...obj,
-    ...(obj.ChannelFlows && {
-      ChannelFlows: obj.ChannelFlows.map((item) => ChannelFlowSummary.filterSensitiveLog(item)),
-    }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListChannelMembershipsRequest {
@@ -2527,16 +1716,6 @@ export interface ListChannelMembershipsRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace ListChannelMembershipsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelMembershipsRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListChannelMembershipsResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2553,19 +1732,6 @@ export interface ListChannelMembershipsResponse {
    *          returned.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListChannelMembershipsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelMembershipsResponse): any => ({
-    ...obj,
-    ...(obj.ChannelMemberships && {
-      ChannelMemberships: obj.ChannelMemberships.map((item) => ChannelMembershipSummary.filterSensitiveLog(item)),
-    }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListChannelMembershipsForAppInstanceUserRequest {
@@ -2591,16 +1757,6 @@ export interface ListChannelMembershipsForAppInstanceUserRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace ListChannelMembershipsForAppInstanceUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelMembershipsForAppInstanceUserRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListChannelMembershipsForAppInstanceUserResponse {
   /**
    * <p>The information for the requested channel memberships.</p>
@@ -2611,21 +1767,6 @@ export interface ListChannelMembershipsForAppInstanceUserResponse {
    * <p>The token passed by previous API calls until all requested users are returned.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListChannelMembershipsForAppInstanceUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelMembershipsForAppInstanceUserResponse): any => ({
-    ...obj,
-    ...(obj.ChannelMemberships && {
-      ChannelMemberships: obj.ChannelMemberships.map((item) =>
-        ChannelMembershipForAppInstanceUserSummary.filterSensitiveLog(item)
-      ),
-    }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
 }
 
 export enum SortOrder {
@@ -2671,16 +1812,6 @@ export interface ListChannelMessagesRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace ListChannelMessagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelMessagesRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListChannelMessagesResponse {
   /**
    * <p>The ARN of the channel containing the requested messages.</p>
@@ -2696,19 +1827,6 @@ export interface ListChannelMessagesResponse {
    * <p>The information about, and content of, each requested message.</p>
    */
   ChannelMessages?: ChannelMessageSummary[];
-}
-
-export namespace ListChannelMessagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelMessagesResponse): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-    ...(obj.ChannelMessages && {
-      ChannelMessages: obj.ChannelMessages.map((item) => ChannelMessageSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListChannelModeratorsRequest {
@@ -2734,16 +1852,6 @@ export interface ListChannelModeratorsRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace ListChannelModeratorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelModeratorsRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListChannelModeratorsResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -2760,19 +1868,6 @@ export interface ListChannelModeratorsResponse {
    * <p>The information about and names of each moderator.</p>
    */
   ChannelModerators?: ChannelModeratorSummary[];
-}
-
-export namespace ListChannelModeratorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelModeratorsResponse): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-    ...(obj.ChannelModerators && {
-      ChannelModerators: obj.ChannelModerators.map((item) => ChannelModeratorSummary.filterSensitiveLog(item)),
-    }),
-  });
 }
 
 export interface ListChannelsRequest {
@@ -2804,16 +1899,6 @@ export interface ListChannelsRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace ListChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListChannelsResponse {
   /**
    * <p>The information about each channel.</p>
@@ -2825,17 +1910,6 @@ export interface ListChannelsResponse {
    *          reached.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListChannelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsResponse): any => ({
-    ...obj,
-    ...(obj.Channels && { Channels: obj.Channels.map((item) => ChannelSummary.filterSensitiveLog(item)) }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListChannelsAssociatedWithChannelFlowRequest {
@@ -2855,16 +1929,6 @@ export interface ListChannelsAssociatedWithChannelFlowRequest {
   NextToken?: string;
 }
 
-export namespace ListChannelsAssociatedWithChannelFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsAssociatedWithChannelFlowRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListChannelsAssociatedWithChannelFlowResponse {
   /**
    * <p>The information about each channel.</p>
@@ -2875,19 +1939,6 @@ export interface ListChannelsAssociatedWithChannelFlowResponse {
    * <p>The token passed by previous API calls until all requested channels are returned.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListChannelsAssociatedWithChannelFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsAssociatedWithChannelFlowResponse): any => ({
-    ...obj,
-    ...(obj.Channels && {
-      Channels: obj.Channels.map((item) => ChannelAssociatedWithFlowSummary.filterSensitiveLog(item)),
-    }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface ListChannelsModeratedByAppInstanceUserRequest {
@@ -2913,16 +1964,6 @@ export interface ListChannelsModeratedByAppInstanceUserRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace ListChannelsModeratedByAppInstanceUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsModeratedByAppInstanceUserRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListChannelsModeratedByAppInstanceUserResponse {
   /**
    * <p>The moderated channels in the request.</p>
@@ -2936,19 +1977,6 @@ export interface ListChannelsModeratedByAppInstanceUserResponse {
   NextToken?: string;
 }
 
-export namespace ListChannelsModeratedByAppInstanceUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListChannelsModeratedByAppInstanceUserResponse): any => ({
-    ...obj,
-    ...(obj.Channels && {
-      Channels: obj.Channels.map((item) => ChannelModeratedByAppInstanceUserSummary.filterSensitiveLog(item)),
-    }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource.</p>
@@ -2956,30 +1984,11 @@ export interface ListTagsForResourceRequest {
   ResourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tag key-value pairs.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface PutChannelMembershipPreferencesRequest {
@@ -3004,16 +2013,6 @@ export interface PutChannelMembershipPreferencesRequest {
   Preferences: ChannelMembershipPreferences | undefined;
 }
 
-export namespace PutChannelMembershipPreferencesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutChannelMembershipPreferencesRequest): any => ({
-    ...obj,
-    ...(obj.Preferences && { Preferences: ChannelMembershipPreferences.filterSensitiveLog(obj.Preferences) }),
-  });
-}
-
 export interface PutChannelMembershipPreferencesResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -3029,17 +2028,6 @@ export interface PutChannelMembershipPreferencesResponse {
    * <p>The ARN and metadata of the member being added.</p>
    */
   Preferences?: ChannelMembershipPreferences;
-}
-
-export namespace PutChannelMembershipPreferencesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutChannelMembershipPreferencesResponse): any => ({
-    ...obj,
-    ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
-    ...(obj.Preferences && { Preferences: ChannelMembershipPreferences.filterSensitiveLog(obj.Preferences) }),
-  });
 }
 
 export interface RedactChannelMessageRequest {
@@ -3059,15 +2047,6 @@ export interface RedactChannelMessageRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace RedactChannelMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedactChannelMessageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RedactChannelMessageResponse {
   /**
    * <p>The ARN of the channel containing the messages that you want to redact.</p>
@@ -3078,15 +2057,6 @@ export interface RedactChannelMessageResponse {
    * <p>The ID of the message being redacted.</p>
    */
   MessageId?: string;
-}
-
-export namespace RedactChannelMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RedactChannelMessageResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SearchFieldKey {
@@ -3123,15 +2093,6 @@ export interface SearchField {
   Operator: SearchFieldOperator | string | undefined;
 }
 
-export namespace SearchField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchField): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchChannelsRequest {
   /**
    * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
@@ -3154,16 +2115,6 @@ export interface SearchChannelsRequest {
   NextToken?: string;
 }
 
-export namespace SearchChannelsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchChannelsRequest): any => ({
-    ...obj,
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
-}
-
 export interface SearchChannelsResponse {
   /**
    * <p>A list of the channels in the request.</p>
@@ -3174,17 +2125,6 @@ export interface SearchChannelsResponse {
    * <p>The token returned from previous API responses until the number of channels is reached.</p>
    */
   NextToken?: string;
-}
-
-export namespace SearchChannelsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchChannelsResponse): any => ({
-    ...obj,
-    ...(obj.Channels && { Channels: obj.Channels.map((item) => ChannelSummary.filterSensitiveLog(item)) }),
-    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-  });
 }
 
 export interface SendChannelMessageRequest {
@@ -3234,30 +2174,6 @@ export interface SendChannelMessageRequest {
   MessageAttributes?: Record<string, MessageAttributeValue>;
 }
 
-export namespace SendChannelMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendChannelMessageRequest): any => ({
-    ...obj,
-    ...(obj.Content && { Content: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
-    ...(obj.PushNotification && {
-      PushNotification: PushNotificationConfiguration.filterSensitiveLog(obj.PushNotification),
-    }),
-    ...(obj.MessageAttributes && {
-      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
-          ...acc,
-          [key]: MessageAttributeValue.filterSensitiveLog(value),
-        }),
-        {}
-      ),
-    }),
-  });
-}
-
 export interface SendChannelMessageResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -3275,15 +2191,6 @@ export interface SendChannelMessageResponse {
   Status?: ChannelMessageStatusStructure;
 }
 
-export namespace SendChannelMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendChannelMessageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -3296,16 +2203,6 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface UntagResourceRequest {
   /**
    * <p>The resource ARN.</p>
@@ -3316,16 +2213,6 @@ export interface UntagResourceRequest {
    * <p>The tag keys.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdateChannelRequest {
@@ -3355,31 +2242,11 @@ export interface UpdateChannelRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace UpdateChannelRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelRequest): any => ({
-    ...obj,
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateChannelResponse {
   /**
    * <p>The ARN of the channel.</p>
    */
   ChannelArn?: string;
-}
-
-export namespace UpdateChannelResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateChannelFlowRequest {
@@ -3399,31 +2266,11 @@ export interface UpdateChannelFlowRequest {
   Name: string | undefined;
 }
 
-export namespace UpdateChannelFlowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelFlowRequest): any => ({
-    ...obj,
-    ...(obj.Processors && { Processors: obj.Processors.map((item) => Processor.filterSensitiveLog(item)) }),
-    ...(obj.Name && { Name: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateChannelFlowResponse {
   /**
    * <p>The ARN of the channel flow.</p>
    */
   ChannelFlowArn?: string;
-}
-
-export namespace UpdateChannelFlowResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelFlowResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateChannelMessageRequest {
@@ -3453,17 +2300,6 @@ export interface UpdateChannelMessageRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace UpdateChannelMessageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelMessageRequest): any => ({
-    ...obj,
-    ...(obj.Content && { Content: SENSITIVE_STRING }),
-    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateChannelMessageResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -3481,15 +2317,6 @@ export interface UpdateChannelMessageResponse {
   Status?: ChannelMessageStatusStructure;
 }
 
-export namespace UpdateChannelMessageResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelMessageResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateChannelReadMarkerRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -3502,15 +2329,6 @@ export interface UpdateChannelReadMarkerRequest {
   ChimeBearer: string | undefined;
 }
 
-export namespace UpdateChannelReadMarkerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelReadMarkerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateChannelReadMarkerResponse {
   /**
    * <p>The ARN of the channel.</p>
@@ -3518,11 +2336,1003 @@ export interface UpdateChannelReadMarkerResponse {
   ChannelArn?: string;
 }
 
-export namespace UpdateChannelReadMarkerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateChannelReadMarkerResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AppInstanceUserMembershipSummaryFilterSensitiveLog = (obj: AppInstanceUserMembershipSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateChannelFlowRequestFilterSensitiveLog = (obj: AssociateChannelFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityFilterSensitiveLog = (obj: Identity): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchChannelMembershipsFilterSensitiveLog = (obj: BatchChannelMemberships): any => ({
+  ...obj,
+  ...(obj.InvitedBy && { InvitedBy: IdentityFilterSensitiveLog(obj.InvitedBy) }),
+  ...(obj.Members && { Members: obj.Members.map((item) => IdentityFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateChannelMembershipRequestFilterSensitiveLog = (
+  obj: BatchCreateChannelMembershipRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateChannelMembershipErrorFilterSensitiveLog = (obj: BatchCreateChannelMembershipError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateChannelMembershipResponseFilterSensitiveLog = (
+  obj: BatchCreateChannelMembershipResponse
+): any => ({
+  ...obj,
+  ...(obj.BatchChannelMemberships && {
+    BatchChannelMemberships: BatchChannelMembershipsFilterSensitiveLog(obj.BatchChannelMemberships),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelFilterSensitiveLog = (obj: Channel): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  ...(obj.CreatedBy && { CreatedBy: IdentityFilterSensitiveLog(obj.CreatedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelAssociatedWithFlowSummaryFilterSensitiveLog = (obj: ChannelAssociatedWithFlowSummary): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelBanFilterSensitiveLog = (obj: ChannelBan): any => ({
+  ...obj,
+  ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
+  ...(obj.CreatedBy && { CreatedBy: IdentityFilterSensitiveLog(obj.CreatedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelBanSummaryFilterSensitiveLog = (obj: ChannelBanSummary): any => ({
+  ...obj,
+  ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
+});
+
+/**
+ * @internal
+ */
+export const LambdaConfigurationFilterSensitiveLog = (obj: LambdaConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProcessorConfigurationFilterSensitiveLog = (obj: ProcessorConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProcessorFilterSensitiveLog = (obj: Processor): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelFlowFilterSensitiveLog = (obj: ChannelFlow): any => ({
+  ...obj,
+  ...(obj.Processors && { Processors: obj.Processors.map((item) => ProcessorFilterSensitiveLog(item)) }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MessageAttributeValueFilterSensitiveLog = (obj: MessageAttributeValue): any => ({
+  ...obj,
+  ...(obj.StringValues && { StringValues: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PushNotificationConfigurationFilterSensitiveLog = (obj: PushNotificationConfiguration): any => ({
+  ...obj,
+  ...(obj.Title && { Title: SENSITIVE_STRING }),
+  ...(obj.Body && { Body: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelMessageCallbackFilterSensitiveLog = (obj: ChannelMessageCallback): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  ...(obj.PushNotification && {
+    PushNotification: PushNotificationConfigurationFilterSensitiveLog(obj.PushNotification),
+  }),
+  ...(obj.MessageAttributes && {
+    MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+      (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+        ...acc,
+        [key]: MessageAttributeValueFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelFlowCallbackRequestFilterSensitiveLog = (obj: ChannelFlowCallbackRequest): any => ({
+  ...obj,
+  ...(obj.ChannelMessage && { ChannelMessage: ChannelMessageCallbackFilterSensitiveLog(obj.ChannelMessage) }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelFlowCallbackResponseFilterSensitiveLog = (obj: ChannelFlowCallbackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelFlowSummaryFilterSensitiveLog = (obj: ChannelFlowSummary): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Processors && { Processors: obj.Processors.map((item) => ProcessorFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelMembershipFilterSensitiveLog = (obj: ChannelMembership): any => ({
+  ...obj,
+  ...(obj.InvitedBy && { InvitedBy: IdentityFilterSensitiveLog(obj.InvitedBy) }),
+  ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelSummaryFilterSensitiveLog = (obj: ChannelSummary): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelMembershipForAppInstanceUserSummaryFilterSensitiveLog = (
+  obj: ChannelMembershipForAppInstanceUserSummary
+): any => ({
+  ...obj,
+  ...(obj.ChannelSummary && { ChannelSummary: ChannelSummaryFilterSensitiveLog(obj.ChannelSummary) }),
+});
+
+/**
+ * @internal
+ */
+export const PushNotificationPreferencesFilterSensitiveLog = (obj: PushNotificationPreferences): any => ({
+  ...obj,
+  ...(obj.FilterRule && { FilterRule: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelMembershipPreferencesFilterSensitiveLog = (obj: ChannelMembershipPreferences): any => ({
+  ...obj,
+  ...(obj.PushNotifications && {
+    PushNotifications: PushNotificationPreferencesFilterSensitiveLog(obj.PushNotifications),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelMembershipSummaryFilterSensitiveLog = (obj: ChannelMembershipSummary): any => ({
+  ...obj,
+  ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelMessageStatusStructureFilterSensitiveLog = (obj: ChannelMessageStatusStructure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ChannelMessageFilterSensitiveLog = (obj: ChannelMessage): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  ...(obj.Sender && { Sender: IdentityFilterSensitiveLog(obj.Sender) }),
+  ...(obj.MessageAttributes && {
+    MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+      (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+        ...acc,
+        [key]: MessageAttributeValueFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelMessageSummaryFilterSensitiveLog = (obj: ChannelMessageSummary): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  ...(obj.Sender && { Sender: IdentityFilterSensitiveLog(obj.Sender) }),
+  ...(obj.MessageAttributes && {
+    MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+      (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+        ...acc,
+        [key]: MessageAttributeValueFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelModeratedByAppInstanceUserSummaryFilterSensitiveLog = (
+  obj: ChannelModeratedByAppInstanceUserSummary
+): any => ({
+  ...obj,
+  ...(obj.ChannelSummary && { ChannelSummary: ChannelSummaryFilterSensitiveLog(obj.ChannelSummary) }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelModeratorFilterSensitiveLog = (obj: ChannelModerator): any => ({
+  ...obj,
+  ...(obj.Moderator && { Moderator: IdentityFilterSensitiveLog(obj.Moderator) }),
+  ...(obj.CreatedBy && { CreatedBy: IdentityFilterSensitiveLog(obj.CreatedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const ChannelModeratorSummaryFilterSensitiveLog = (obj: ChannelModeratorSummary): any => ({
+  ...obj,
+  ...(obj.Moderator && { Moderator: IdentityFilterSensitiveLog(obj.Moderator) }),
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelRequestFilterSensitiveLog = (obj: CreateChannelRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+  ...(obj.ChannelId && { ChannelId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelResponseFilterSensitiveLog = (obj: CreateChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelBanRequestFilterSensitiveLog = (obj: CreateChannelBanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelBanResponseFilterSensitiveLog = (obj: CreateChannelBanResponse): any => ({
+  ...obj,
+  ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelFlowRequestFilterSensitiveLog = (obj: CreateChannelFlowRequest): any => ({
+  ...obj,
+  ...(obj.Processors && { Processors: obj.Processors.map((item) => ProcessorFilterSensitiveLog(item)) }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelFlowResponseFilterSensitiveLog = (obj: CreateChannelFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelMembershipRequestFilterSensitiveLog = (obj: CreateChannelMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelMembershipResponseFilterSensitiveLog = (obj: CreateChannelMembershipResponse): any => ({
+  ...obj,
+  ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelModeratorRequestFilterSensitiveLog = (obj: CreateChannelModeratorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateChannelModeratorResponseFilterSensitiveLog = (obj: CreateChannelModeratorResponse): any => ({
+  ...obj,
+  ...(obj.ChannelModerator && { ChannelModerator: IdentityFilterSensitiveLog(obj.ChannelModerator) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelRequestFilterSensitiveLog = (obj: DeleteChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelBanRequestFilterSensitiveLog = (obj: DeleteChannelBanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelFlowRequestFilterSensitiveLog = (obj: DeleteChannelFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelMembershipRequestFilterSensitiveLog = (obj: DeleteChannelMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelMessageRequestFilterSensitiveLog = (obj: DeleteChannelMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteChannelModeratorRequestFilterSensitiveLog = (obj: DeleteChannelModeratorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelResponseFilterSensitiveLog = (obj: DescribeChannelResponse): any => ({
+  ...obj,
+  ...(obj.Channel && { Channel: ChannelFilterSensitiveLog(obj.Channel) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelBanRequestFilterSensitiveLog = (obj: DescribeChannelBanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelBanResponseFilterSensitiveLog = (obj: DescribeChannelBanResponse): any => ({
+  ...obj,
+  ...(obj.ChannelBan && { ChannelBan: ChannelBanFilterSensitiveLog(obj.ChannelBan) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelFlowRequestFilterSensitiveLog = (obj: DescribeChannelFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelFlowResponseFilterSensitiveLog = (obj: DescribeChannelFlowResponse): any => ({
+  ...obj,
+  ...(obj.ChannelFlow && { ChannelFlow: ChannelFlowFilterSensitiveLog(obj.ChannelFlow) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelMembershipRequestFilterSensitiveLog = (obj: DescribeChannelMembershipRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelMembershipResponseFilterSensitiveLog = (obj: DescribeChannelMembershipResponse): any => ({
+  ...obj,
+  ...(obj.ChannelMembership && { ChannelMembership: ChannelMembershipFilterSensitiveLog(obj.ChannelMembership) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelMembershipForAppInstanceUserRequestFilterSensitiveLog = (
+  obj: DescribeChannelMembershipForAppInstanceUserRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelMembershipForAppInstanceUserResponseFilterSensitiveLog = (
+  obj: DescribeChannelMembershipForAppInstanceUserResponse
+): any => ({
+  ...obj,
+  ...(obj.ChannelMembership && {
+    ChannelMembership: ChannelMembershipForAppInstanceUserSummaryFilterSensitiveLog(obj.ChannelMembership),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelModeratedByAppInstanceUserRequestFilterSensitiveLog = (
+  obj: DescribeChannelModeratedByAppInstanceUserRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog = (
+  obj: DescribeChannelModeratedByAppInstanceUserResponse
+): any => ({
+  ...obj,
+  ...(obj.Channel && { Channel: ChannelModeratedByAppInstanceUserSummaryFilterSensitiveLog(obj.Channel) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelModeratorRequestFilterSensitiveLog = (obj: DescribeChannelModeratorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeChannelModeratorResponseFilterSensitiveLog = (obj: DescribeChannelModeratorResponse): any => ({
+  ...obj,
+  ...(obj.ChannelModerator && { ChannelModerator: ChannelModeratorFilterSensitiveLog(obj.ChannelModerator) }),
+});
+
+/**
+ * @internal
+ */
+export const DisassociateChannelFlowRequestFilterSensitiveLog = (obj: DisassociateChannelFlowRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelMembershipPreferencesRequestFilterSensitiveLog = (
+  obj: GetChannelMembershipPreferencesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelMembershipPreferencesResponseFilterSensitiveLog = (
+  obj: GetChannelMembershipPreferencesResponse
+): any => ({
+  ...obj,
+  ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
+  ...(obj.Preferences && { Preferences: ChannelMembershipPreferencesFilterSensitiveLog(obj.Preferences) }),
+});
+
+/**
+ * @internal
+ */
+export const GetChannelMessageRequestFilterSensitiveLog = (obj: GetChannelMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelMessageResponseFilterSensitiveLog = (obj: GetChannelMessageResponse): any => ({
+  ...obj,
+  ...(obj.ChannelMessage && { ChannelMessage: ChannelMessageFilterSensitiveLog(obj.ChannelMessage) }),
+});
+
+/**
+ * @internal
+ */
+export const GetChannelMessageStatusRequestFilterSensitiveLog = (obj: GetChannelMessageStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetChannelMessageStatusResponseFilterSensitiveLog = (obj: GetChannelMessageStatusResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMessagingSessionEndpointRequestFilterSensitiveLog = (obj: GetMessagingSessionEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessagingSessionEndpointFilterSensitiveLog = (obj: MessagingSessionEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMessagingSessionEndpointResponseFilterSensitiveLog = (
+  obj: GetMessagingSessionEndpointResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListChannelBansRequestFilterSensitiveLog = (obj: ListChannelBansRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelBansResponseFilterSensitiveLog = (obj: ListChannelBansResponse): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  ...(obj.ChannelBans && { ChannelBans: obj.ChannelBans.map((item) => ChannelBanSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelFlowsRequestFilterSensitiveLog = (obj: ListChannelFlowsRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelFlowsResponseFilterSensitiveLog = (obj: ListChannelFlowsResponse): any => ({
+  ...obj,
+  ...(obj.ChannelFlows && { ChannelFlows: obj.ChannelFlows.map((item) => ChannelFlowSummaryFilterSensitiveLog(item)) }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelMembershipsRequestFilterSensitiveLog = (obj: ListChannelMembershipsRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelMembershipsResponseFilterSensitiveLog = (obj: ListChannelMembershipsResponse): any => ({
+  ...obj,
+  ...(obj.ChannelMemberships && {
+    ChannelMemberships: obj.ChannelMemberships.map((item) => ChannelMembershipSummaryFilterSensitiveLog(item)),
+  }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelMembershipsForAppInstanceUserRequestFilterSensitiveLog = (
+  obj: ListChannelMembershipsForAppInstanceUserRequest
+): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelMembershipsForAppInstanceUserResponseFilterSensitiveLog = (
+  obj: ListChannelMembershipsForAppInstanceUserResponse
+): any => ({
+  ...obj,
+  ...(obj.ChannelMemberships && {
+    ChannelMemberships: obj.ChannelMemberships.map((item) =>
+      ChannelMembershipForAppInstanceUserSummaryFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelMessagesRequestFilterSensitiveLog = (obj: ListChannelMessagesRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelMessagesResponseFilterSensitiveLog = (obj: ListChannelMessagesResponse): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  ...(obj.ChannelMessages && {
+    ChannelMessages: obj.ChannelMessages.map((item) => ChannelMessageSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelModeratorsRequestFilterSensitiveLog = (obj: ListChannelModeratorsRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelModeratorsResponseFilterSensitiveLog = (obj: ListChannelModeratorsResponse): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  ...(obj.ChannelModerators && {
+    ChannelModerators: obj.ChannelModerators.map((item) => ChannelModeratorSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsRequestFilterSensitiveLog = (obj: ListChannelsRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsResponseFilterSensitiveLog = (obj: ListChannelsResponse): any => ({
+  ...obj,
+  ...(obj.Channels && { Channels: obj.Channels.map((item) => ChannelSummaryFilterSensitiveLog(item)) }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsAssociatedWithChannelFlowRequestFilterSensitiveLog = (
+  obj: ListChannelsAssociatedWithChannelFlowRequest
+): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsAssociatedWithChannelFlowResponseFilterSensitiveLog = (
+  obj: ListChannelsAssociatedWithChannelFlowResponse
+): any => ({
+  ...obj,
+  ...(obj.Channels && {
+    Channels: obj.Channels.map((item) => ChannelAssociatedWithFlowSummaryFilterSensitiveLog(item)),
+  }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsModeratedByAppInstanceUserRequestFilterSensitiveLog = (
+  obj: ListChannelsModeratedByAppInstanceUserRequest
+): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListChannelsModeratedByAppInstanceUserResponseFilterSensitiveLog = (
+  obj: ListChannelsModeratedByAppInstanceUserResponse
+): any => ({
+  ...obj,
+  ...(obj.Channels && {
+    Channels: obj.Channels.map((item) => ChannelModeratedByAppInstanceUserSummaryFilterSensitiveLog(item)),
+  }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PutChannelMembershipPreferencesRequestFilterSensitiveLog = (
+  obj: PutChannelMembershipPreferencesRequest
+): any => ({
+  ...obj,
+  ...(obj.Preferences && { Preferences: ChannelMembershipPreferencesFilterSensitiveLog(obj.Preferences) }),
+});
+
+/**
+ * @internal
+ */
+export const PutChannelMembershipPreferencesResponseFilterSensitiveLog = (
+  obj: PutChannelMembershipPreferencesResponse
+): any => ({
+  ...obj,
+  ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
+  ...(obj.Preferences && { Preferences: ChannelMembershipPreferencesFilterSensitiveLog(obj.Preferences) }),
+});
+
+/**
+ * @internal
+ */
+export const RedactChannelMessageRequestFilterSensitiveLog = (obj: RedactChannelMessageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RedactChannelMessageResponseFilterSensitiveLog = (obj: RedactChannelMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchFieldFilterSensitiveLog = (obj: SearchField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchChannelsRequestFilterSensitiveLog = (obj: SearchChannelsRequest): any => ({
+  ...obj,
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchChannelsResponseFilterSensitiveLog = (obj: SearchChannelsResponse): any => ({
+  ...obj,
+  ...(obj.Channels && { Channels: obj.Channels.map((item) => ChannelSummaryFilterSensitiveLog(item)) }),
+  ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SendChannelMessageRequestFilterSensitiveLog = (obj: SendChannelMessageRequest): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+  ...(obj.PushNotification && {
+    PushNotification: PushNotificationConfigurationFilterSensitiveLog(obj.PushNotification),
+  }),
+  ...(obj.MessageAttributes && {
+    MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+      (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+        ...acc,
+        [key]: MessageAttributeValueFilterSensitiveLog(value),
+      }),
+      {}
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SendChannelMessageResponseFilterSensitiveLog = (obj: SendChannelMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelRequestFilterSensitiveLog = (obj: UpdateChannelRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelResponseFilterSensitiveLog = (obj: UpdateChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelFlowRequestFilterSensitiveLog = (obj: UpdateChannelFlowRequest): any => ({
+  ...obj,
+  ...(obj.Processors && { Processors: obj.Processors.map((item) => ProcessorFilterSensitiveLog(item)) }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelFlowResponseFilterSensitiveLog = (obj: UpdateChannelFlowResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelMessageRequestFilterSensitiveLog = (obj: UpdateChannelMessageRequest): any => ({
+  ...obj,
+  ...(obj.Content && { Content: SENSITIVE_STRING }),
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelMessageResponseFilterSensitiveLog = (obj: UpdateChannelMessageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelReadMarkerRequestFilterSensitiveLog = (obj: UpdateChannelReadMarkerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateChannelReadMarkerResponseFilterSensitiveLog = (obj: UpdateChannelReadMarkerResponse): any => ({
+  ...obj,
+});

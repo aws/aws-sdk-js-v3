@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { DeleteRuleRequest } from "../models/models_0";
+import { DeleteRuleRequest, DeleteRuleRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRuleCommand,
   serializeAws_json1_1DeleteRuleCommand,
@@ -85,7 +85,7 @@ export class DeleteRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRuleRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRuleRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

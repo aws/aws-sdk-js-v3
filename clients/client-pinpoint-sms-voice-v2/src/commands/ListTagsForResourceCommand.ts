@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTagsForResourceRequest, ListTagsForResourceResult } from "../models/models_0";
+import {
+  ListTagsForResourceRequest,
+  ListTagsForResourceRequestFilterSensitiveLog,
+  ListTagsForResourceResult,
+  ListTagsForResourceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -76,8 +81,8 @@ export class ListTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForResourceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForResourceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

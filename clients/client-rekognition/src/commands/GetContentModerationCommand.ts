@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetContentModerationRequest, GetContentModerationResponse } from "../models/models_0";
+import {
+  GetContentModerationRequest,
+  GetContentModerationRequestFilterSensitiveLog,
+  GetContentModerationResponse,
+  GetContentModerationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetContentModerationCommand,
   serializeAws_json1_1GetContentModerationCommand,
@@ -101,8 +106,8 @@ export class GetContentModerationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContentModerationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetContentModerationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetContentModerationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetContentModerationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

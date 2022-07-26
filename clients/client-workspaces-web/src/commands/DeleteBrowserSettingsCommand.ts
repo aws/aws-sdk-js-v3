@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBrowserSettingsRequest, DeleteBrowserSettingsResponse } from "../models/models_0";
+import {
+  DeleteBrowserSettingsRequest,
+  DeleteBrowserSettingsRequestFilterSensitiveLog,
+  DeleteBrowserSettingsResponse,
+  DeleteBrowserSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBrowserSettingsCommand,
   serializeAws_restJson1DeleteBrowserSettingsCommand,
@@ -72,8 +77,8 @@ export class DeleteBrowserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBrowserSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBrowserSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBrowserSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBrowserSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

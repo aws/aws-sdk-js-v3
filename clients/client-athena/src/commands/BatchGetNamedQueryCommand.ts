@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { BatchGetNamedQueryInput, BatchGetNamedQueryOutput } from "../models/models_0";
+import {
+  BatchGetNamedQueryInput,
+  BatchGetNamedQueryInputFilterSensitiveLog,
+  BatchGetNamedQueryOutput,
+  BatchGetNamedQueryOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetNamedQueryCommand,
   serializeAws_json1_1BatchGetNamedQueryCommand,
@@ -80,8 +85,8 @@ export class BatchGetNamedQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetNamedQueryInput.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetNamedQueryOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetNamedQueryInputFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetNamedQueryOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

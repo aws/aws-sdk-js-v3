@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { ListPhoneNumbersV2Request, ListPhoneNumbersV2Response } from "../models/models_0";
+import {
+  ListPhoneNumbersV2Request,
+  ListPhoneNumbersV2RequestFilterSensitiveLog,
+  ListPhoneNumbersV2Response,
+  ListPhoneNumbersV2ResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListPhoneNumbersV2Command,
   serializeAws_restJson1ListPhoneNumbersV2Command,
@@ -74,8 +79,8 @@ export class ListPhoneNumbersV2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPhoneNumbersV2Request.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPhoneNumbersV2Response.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPhoneNumbersV2RequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPhoneNumbersV2ResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

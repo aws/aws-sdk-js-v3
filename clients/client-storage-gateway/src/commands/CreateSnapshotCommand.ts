@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateSnapshotInput, CreateSnapshotOutput } from "../models/models_0";
+import {
+  CreateSnapshotInput,
+  CreateSnapshotInputFilterSensitiveLog,
+  CreateSnapshotOutput,
+  CreateSnapshotOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateSnapshotCommand,
   serializeAws_json1_1CreateSnapshotCommand,
@@ -99,8 +104,8 @@ export class CreateSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSnapshotInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSnapshotOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSnapshotInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSnapshotOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

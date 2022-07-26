@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { EventSourceMappingConfiguration, GetEventSourceMappingRequest } from "../models/models_0";
+import {
+  EventSourceMappingConfiguration,
+  EventSourceMappingConfigurationFilterSensitiveLog,
+  GetEventSourceMappingRequest,
+  GetEventSourceMappingRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetEventSourceMappingCommand,
   serializeAws_restJson1GetEventSourceMappingCommand,
@@ -73,8 +78,8 @@ export class GetEventSourceMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventSourceMappingRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: EventSourceMappingConfiguration.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEventSourceMappingRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EventSourceMappingConfigurationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

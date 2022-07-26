@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { ModifyReplicationSubnetGroupMessage, ModifyReplicationSubnetGroupResponse } from "../models/models_0";
+import {
+  ModifyReplicationSubnetGroupMessage,
+  ModifyReplicationSubnetGroupMessageFilterSensitiveLog,
+  ModifyReplicationSubnetGroupResponse,
+  ModifyReplicationSubnetGroupResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyReplicationSubnetGroupCommand,
   serializeAws_json1_1ModifyReplicationSubnetGroupCommand,
@@ -78,8 +83,8 @@ export class ModifyReplicationSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReplicationSubnetGroupMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReplicationSubnetGroupResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyReplicationSubnetGroupMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyReplicationSubnetGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

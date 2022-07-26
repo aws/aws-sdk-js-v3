@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import { ListMapsRequest, ListMapsResponse } from "../models/models_0";
+import {
+  ListMapsRequest,
+  ListMapsRequestFilterSensitiveLog,
+  ListMapsResponse,
+  ListMapsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListMapsCommand,
   serializeAws_restJson1ListMapsCommand,
@@ -72,8 +77,8 @@ export class ListMapsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMapsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListMapsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListMapsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListMapsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

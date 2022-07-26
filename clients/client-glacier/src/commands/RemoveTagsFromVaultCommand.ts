@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { RemoveTagsFromVaultInput } from "../models/models_0";
+import { RemoveTagsFromVaultInput, RemoveTagsFromVaultInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveTagsFromVaultCommand,
   serializeAws_restJson1RemoveTagsFromVaultCommand,
@@ -75,7 +75,7 @@ export class RemoveTagsFromVaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromVaultInput.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTagsFromVaultInputFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

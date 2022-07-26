@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyIpamPoolRequest, ModifyIpamPoolResult } from "../models/models_5";
+import {
+  ModifyIpamPoolRequest,
+  ModifyIpamPoolRequestFilterSensitiveLog,
+  ModifyIpamPoolResult,
+  ModifyIpamPoolResultFilterSensitiveLog,
+} from "../models/models_5";
 import { deserializeAws_ec2ModifyIpamPoolCommand, serializeAws_ec2ModifyIpamPoolCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyIpamPoolCommandInput extends ModifyIpamPoolRequest {}
@@ -71,8 +76,8 @@ export class ModifyIpamPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyIpamPoolRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyIpamPoolResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyIpamPoolRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyIpamPoolResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

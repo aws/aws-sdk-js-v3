@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssociateTrunkInterfaceRequest, AssociateTrunkInterfaceResult } from "../models/models_0";
+import {
+  AssociateTrunkInterfaceRequest,
+  AssociateTrunkInterfaceRequestFilterSensitiveLog,
+  AssociateTrunkInterfaceResult,
+  AssociateTrunkInterfaceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_ec2AssociateTrunkInterfaceCommand,
   serializeAws_ec2AssociateTrunkInterfaceCommand,
@@ -79,8 +84,8 @@ export class AssociateTrunkInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateTrunkInterfaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateTrunkInterfaceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateTrunkInterfaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateTrunkInterfaceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

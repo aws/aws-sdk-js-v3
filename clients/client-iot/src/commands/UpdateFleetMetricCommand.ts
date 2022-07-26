@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateFleetMetricRequest } from "../models/models_2";
+import { UpdateFleetMetricRequest, UpdateFleetMetricRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateFleetMetricCommand,
   serializeAws_restJson1UpdateFleetMetricCommand,
@@ -73,7 +73,7 @@ export class UpdateFleetMetricCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFleetMetricRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateFleetMetricRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

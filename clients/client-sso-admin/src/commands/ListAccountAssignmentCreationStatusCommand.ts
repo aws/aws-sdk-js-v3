@@ -14,7 +14,9 @@ import {
 
 import {
   ListAccountAssignmentCreationStatusRequest,
+  ListAccountAssignmentCreationStatusRequestFilterSensitiveLog,
   ListAccountAssignmentCreationStatusResponse,
+  ListAccountAssignmentCreationStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAccountAssignmentCreationStatusCommand,
@@ -78,8 +80,8 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountAssignmentCreationStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountAssignmentCreationStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAccountAssignmentCreationStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAccountAssignmentCreationStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

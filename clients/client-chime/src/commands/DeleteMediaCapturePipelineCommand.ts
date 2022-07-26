@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteMediaCapturePipelineRequest } from "../models/models_0";
+import {
+  DeleteMediaCapturePipelineRequest,
+  DeleteMediaCapturePipelineRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMediaCapturePipelineCommand,
   serializeAws_restJson1DeleteMediaCapturePipelineCommand,
@@ -72,7 +75,7 @@ export class DeleteMediaCapturePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMediaCapturePipelineRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMediaCapturePipelineRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

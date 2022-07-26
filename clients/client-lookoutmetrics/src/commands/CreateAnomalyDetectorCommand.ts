@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import { CreateAnomalyDetectorRequest, CreateAnomalyDetectorResponse } from "../models/models_0";
+import {
+  CreateAnomalyDetectorRequest,
+  CreateAnomalyDetectorRequestFilterSensitiveLog,
+  CreateAnomalyDetectorResponse,
+  CreateAnomalyDetectorResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAnomalyDetectorCommand,
   serializeAws_restJson1CreateAnomalyDetectorCommand,
@@ -72,8 +77,8 @@ export class CreateAnomalyDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAnomalyDetectorRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateAnomalyDetectorResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateAnomalyDetectorRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateAnomalyDetectorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

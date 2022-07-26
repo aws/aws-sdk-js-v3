@@ -248,15 +248,6 @@ export interface AdditionalDataset {
   Configuration?: Record<string, string[]>;
 }
 
-export namespace AdditionalDataset {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdditionalDataset): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the method used to transform attributes.</p>
  *         <p>The following is an example using the RETAIL domain:</p>
@@ -351,15 +342,6 @@ export interface AttributeConfig {
   Transformations: Record<string, string> | undefined;
 }
 
-export namespace AttributeConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The data configuration for your dataset group and any additional datasets.</p>
  */
@@ -378,15 +360,6 @@ export interface DataConfig {
    * <p>Additional built-in datasets like Holidays and the Weather Index.</p>
    */
   AdditionalDatasets?: AdditionalDataset[];
-}
-
-export namespace DataConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -408,15 +381,6 @@ export interface EncryptionConfig {
   KMSKeyArn: string | undefined;
 }
 
-export namespace EncryptionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration details for the predictor monitor.</p>
  */
@@ -425,15 +389,6 @@ export interface MonitorConfig {
    * <p>The name of the monitor resource.</p>
    */
   MonitorName: string | undefined;
-}
-
-export namespace MonitorConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitorConfig): any => ({
-    ...obj,
-  });
 }
 
 export enum OptimizationMetric {
@@ -495,17 +450,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-    ...(obj.Key && { Key: SENSITIVE_STRING }),
-    ...(obj.Value && { Value: SENSITIVE_STRING }),
-  });
-}
-
 export enum DayOfWeek {
   FRIDAY = "FRIDAY",
   MONDAY = "MONDAY",
@@ -563,15 +507,6 @@ export interface TimeAlignmentBoundary {
    * <p>The hour of day to use for time alignment during aggregation.</p>
    */
   Hour?: number;
-}
-
-export namespace TimeAlignmentBoundary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeAlignmentBoundary): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAutoPredictorRequest {
@@ -705,30 +640,11 @@ export interface CreateAutoPredictorRequest {
   TimeAlignmentBoundary?: TimeAlignmentBoundary;
 }
 
-export namespace CreateAutoPredictorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAutoPredictorRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateAutoPredictorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
    */
   PredictorArn?: string;
-}
-
-export namespace CreateAutoPredictorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAutoPredictorResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -880,15 +796,6 @@ export interface SchemaAttribute {
   AttributeType?: AttributeType | string;
 }
 
-export namespace SchemaAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the fields of a dataset.</p>
  */
@@ -897,15 +804,6 @@ export interface Schema {
    * <p>An array of attributes specifying the name and type of each field in a dataset.</p>
    */
   Attributes?: SchemaAttribute[];
-}
-
-export namespace Schema {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Schema): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDatasetRequest {
@@ -995,30 +893,11 @@ export interface CreateDatasetRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateDatasetResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
   DatasetArn?: string;
-}
-
-export namespace CreateDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDatasetGroupRequest {
@@ -1087,30 +966,11 @@ export interface CreateDatasetGroupRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateDatasetGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetGroupRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateDatasetGroupResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
   DatasetGroupArn?: string;
-}
-
-export namespace CreateDatasetGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1139,15 +999,6 @@ export interface S3Config {
   KMSKeyArn?: string;
 }
 
-export namespace S3Config {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Config): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The source of your data, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast to
  *       access the data and, optionally, an AWS Key Management Service (KMS) key.</p>
@@ -1158,15 +1009,6 @@ export interface DataSource {
    *       credentials to access the data.</p>
    */
   S3Config: S3Config | undefined;
-}
-
-export namespace DataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataSource): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDatasetImportJobRequest {
@@ -1291,30 +1133,11 @@ export interface CreateDatasetImportJobRequest {
   Format?: string;
 }
 
-export namespace CreateDatasetImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetImportJobRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateDatasetImportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
    */
   DatasetImportJobArn?: string;
-}
-
-export namespace CreateDatasetImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDatasetImportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum TimePointGranularity {
@@ -1356,15 +1179,6 @@ export interface ExplainabilityConfig {
    *             parameters within the <a>CreateExplainability</a> operation.</p>
    */
   TimePointGranularity: TimePointGranularity | string | undefined;
-}
-
-export namespace ExplainabilityConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExplainabilityConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateExplainabilityRequest {
@@ -1454,30 +1268,11 @@ export interface CreateExplainabilityRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateExplainabilityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExplainabilityRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateExplainabilityResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
    */
   ExplainabilityArn?: string;
-}
-
-export namespace CreateExplainabilityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExplainabilityResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1490,15 +1285,6 @@ export interface DataDestination {
    *       bucket.</p>
    */
   S3Config: S3Config | undefined;
-}
-
-export namespace DataDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataDestination): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateExplainabilityExportRequest {
@@ -1560,30 +1346,11 @@ export interface CreateExplainabilityExportRequest {
   Format?: string;
 }
 
-export namespace CreateExplainabilityExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExplainabilityExportRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateExplainabilityExportResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the export.</p>
    */
   ExplainabilityExportArn?: string;
-}
-
-export namespace CreateExplainabilityExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExplainabilityExportResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1605,15 +1372,6 @@ export interface TimeSeriesIdentifiers {
    * <p>The format of the data, either CSV or PARQUET.</p>
    */
   Format?: string;
-}
-
-export namespace TimeSeriesIdentifiers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeSeriesIdentifiers): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1642,15 +1400,6 @@ export interface TimeSeriesSelector {
    * <p>Details about the import file that contains the time series for which you want to create forecasts.</p>
    */
   TimeSeriesIdentifiers?: TimeSeriesIdentifiers;
-}
-
-export namespace TimeSeriesSelector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeSeriesSelector): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateForecastRequest {
@@ -1740,30 +1489,11 @@ export interface CreateForecastRequest {
   TimeSeriesSelector?: TimeSeriesSelector;
 }
 
-export namespace CreateForecastRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateForecastRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateForecastResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
    */
   ForecastArn?: string;
-}
-
-export namespace CreateForecastResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateForecastResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateForecastExportJobRequest {
@@ -1832,30 +1562,11 @@ export interface CreateForecastExportJobRequest {
   Format?: string;
 }
 
-export namespace CreateForecastExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateForecastExportJobRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateForecastExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the export job.</p>
    */
   ForecastExportJobArn?: string;
-}
-
-export namespace CreateForecastExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateForecastExportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMonitorRequest {
@@ -1875,30 +1586,11 @@ export interface CreateMonitorRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateMonitorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMonitorRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreateMonitorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
    */
   MonitorArn?: string;
-}
-
-export namespace CreateMonitorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMonitorResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum AutoMLOverrideStrategy {
@@ -1929,15 +1621,6 @@ export interface EvaluationParameters {
    *       TARGET_TIME_SERIES dataset length</p>
    */
   BackTestWindowOffset?: number;
-}
-
-export namespace EvaluationParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluationParameters): any => ({
-    ...obj,
-  });
 }
 
 export enum FeaturizationMethodName {
@@ -2033,15 +1716,6 @@ export interface FeaturizationMethod {
   FeaturizationMethodParameters?: Record<string, string>;
 }
 
-export namespace FeaturizationMethod {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FeaturizationMethod): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
@@ -2089,15 +1763,6 @@ export interface Featurization {
    *       transformation method.</p>
    */
   FeaturizationPipeline?: FeaturizationMethod[];
-}
-
-export namespace Featurization {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Featurization): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2151,15 +1816,6 @@ export interface FeaturizationConfig {
   Featurizations?: Featurization[];
 }
 
-export namespace FeaturizationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FeaturizationConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a categorical hyperparameter and it's range of tunable values.
  *       This object is part of the <a>ParameterRanges</a> object.</p>
@@ -2174,15 +1830,6 @@ export interface CategoricalParameterRange {
    * <p>A list of the tunable categories for the hyperparameter.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace CategoricalParameterRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CategoricalParameterRange): any => ({
-    ...obj,
-  });
 }
 
 export enum ScalingType {
@@ -2246,15 +1893,6 @@ export interface ContinuousParameterRange {
   ScalingType?: ScalingType | string;
 }
 
-export namespace ContinuousParameterRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContinuousParameterRange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an integer hyperparameter and it's range of tunable values.
  *       This object is part of the <a>ParameterRanges</a> object.</p>
@@ -2308,15 +1946,6 @@ export interface IntegerParameterRange {
   ScalingType?: ScalingType | string;
 }
 
-export namespace IntegerParameterRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntegerParameterRange): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the categorical, continuous, and integer hyperparameters, and their ranges of
  *       tunable values. The range of tunable values determines which values that a hyperparameter
@@ -2340,15 +1969,6 @@ export interface ParameterRanges {
   IntegerParameterRanges?: IntegerParameterRange[];
 }
 
-export namespace ParameterRanges {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterRanges): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration information for a hyperparameter tuning job. You specify this object in
  *       the <a>CreatePredictor</a> request.</p>
@@ -2365,15 +1985,6 @@ export interface HyperParameterTuningJobConfig {
    * <p>Specifies the ranges of valid values for the hyperparameters.</p>
    */
   ParameterRanges?: ParameterRanges;
-}
-
-export namespace HyperParameterTuningJobConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HyperParameterTuningJobConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2621,15 +2232,6 @@ export interface SupplementaryFeature {
   Value: string | undefined;
 }
 
-export namespace SupplementaryFeature {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SupplementaryFeature): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <note>
  *             <p>This object belongs to the <a>CreatePredictor</a> operation. If you created
@@ -2650,15 +2252,6 @@ export interface InputDataConfig {
    *       calendar.</p>
    */
   SupplementaryFeatures?: SupplementaryFeature[];
-}
-
-export namespace InputDataConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputDataConfig): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePredictorRequest {
@@ -2858,30 +2451,11 @@ export interface CreatePredictorRequest {
   OptimizationMetric?: OptimizationMetric | string;
 }
 
-export namespace CreatePredictorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePredictorRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreatePredictorResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
    */
   PredictorArn?: string;
-}
-
-export namespace CreatePredictorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePredictorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreatePredictorBacktestExportJobRequest {
@@ -2943,31 +2517,12 @@ export interface CreatePredictorBacktestExportJobRequest {
   Format?: string;
 }
 
-export namespace CreatePredictorBacktestExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePredictorBacktestExportJobRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface CreatePredictorBacktestExportJobResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job that you want to
    *             export.</p>
    */
   PredictorBacktestExportJobArn?: string;
-}
-
-export namespace CreatePredictorBacktestExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePredictorBacktestExportJobResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDatasetRequest {
@@ -2977,29 +2532,11 @@ export interface DeleteDatasetRequest {
   DatasetArn: string | undefined;
 }
 
-export namespace DeleteDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDatasetGroupRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group to delete.</p>
    */
   DatasetGroupArn: string | undefined;
-}
-
-export namespace DeleteDatasetGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDatasetImportJobRequest {
@@ -3009,29 +2546,11 @@ export interface DeleteDatasetImportJobRequest {
   DatasetImportJobArn: string | undefined;
 }
 
-export namespace DeleteDatasetImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDatasetImportJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteExplainabilityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability resource to delete.</p>
    */
   ExplainabilityArn: string | undefined;
-}
-
-export namespace DeleteExplainabilityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExplainabilityRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteExplainabilityExportRequest {
@@ -3041,29 +2560,11 @@ export interface DeleteExplainabilityExportRequest {
   ExplainabilityExportArn: string | undefined;
 }
 
-export namespace DeleteExplainabilityExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExplainabilityExportRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast to delete.</p>
    */
   ForecastArn: string | undefined;
-}
-
-export namespace DeleteForecastRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteForecastRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteForecastExportJobRequest {
@@ -3073,29 +2574,11 @@ export interface DeleteForecastExportJobRequest {
   ForecastExportJobArn: string | undefined;
 }
 
-export namespace DeleteForecastExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteForecastExportJobRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMonitorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to delete.</p>
    */
   MonitorArn: string | undefined;
-}
-
-export namespace DeleteMonitorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMonitorRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePredictorRequest {
@@ -3105,29 +2588,11 @@ export interface DeletePredictorRequest {
   PredictorArn: string | undefined;
 }
 
-export namespace DeletePredictorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePredictorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePredictorBacktestExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job to delete.</p>
    */
   PredictorBacktestExportJobArn: string | undefined;
-}
-
-export namespace DeletePredictorBacktestExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePredictorBacktestExportJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourceTreeRequest {
@@ -3138,29 +2603,11 @@ export interface DeleteResourceTreeRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DeleteResourceTreeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourceTreeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAutoPredictorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
    */
   PredictorArn: string | undefined;
-}
-
-export namespace DescribeAutoPredictorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAutoPredictorRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3200,15 +2647,6 @@ export interface ExplainabilityInfo {
    *          </ul>
    */
   Status?: string;
-}
-
-export namespace ExplainabilityInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExplainabilityInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3253,15 +2691,6 @@ export interface MonitorInfo {
   Status?: string;
 }
 
-export namespace MonitorInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitorInfo): any => ({
-    ...obj,
-  });
-}
-
 export enum State {
   Active = "Active",
   Deleted = "Deleted",
@@ -3281,15 +2710,6 @@ export interface ReferencePredictorSummary {
    * <p>Whether the reference predictor is <code>Active</code> or <code>Deleted</code>.</p>
    */
   State?: State | string;
-}
-
-export namespace ReferencePredictorSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferencePredictorSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAutoPredictorResponse {
@@ -3448,29 +2868,11 @@ export interface DescribeAutoPredictorResponse {
   TimeAlignmentBoundary?: TimeAlignmentBoundary;
 }
 
-export namespace DescribeAutoPredictorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAutoPredictorResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDatasetRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
   DatasetArn: string | undefined;
-}
-
-export namespace DescribeDatasetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDatasetResponse {
@@ -3568,29 +2970,11 @@ export interface DescribeDatasetResponse {
   LastModificationTime?: Date;
 }
 
-export namespace DescribeDatasetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDatasetGroupRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
   DatasetGroupArn: string | undefined;
-}
-
-export namespace DescribeDatasetGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDatasetGroupResponse {
@@ -3664,29 +3048,11 @@ export interface DescribeDatasetGroupResponse {
   LastModificationTime?: Date;
 }
 
-export namespace DescribeDatasetGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDatasetImportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
    */
   DatasetImportJobArn: string | undefined;
-}
-
-export namespace DescribeDatasetImportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetImportJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3761,15 +3127,6 @@ export interface Statistics {
    *       instead of <code>CountNan</code> if the value is greater than 2,147,483,647.</p>
    */
   CountNanLong?: number;
-}
-
-export namespace Statistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Statistics): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDatasetImportJobResponse {
@@ -3920,29 +3277,11 @@ export interface DescribeDatasetImportJobResponse {
   Format?: string;
 }
 
-export namespace DescribeDatasetImportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDatasetImportJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeExplainabilityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explaianability to describe.</p>
    */
   ExplainabilityArn: string | undefined;
-}
-
-export namespace DescribeExplainabilityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExplainabilityRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeExplainabilityResponse {
@@ -4071,29 +3410,11 @@ export interface DescribeExplainabilityResponse {
   LastModificationTime?: Date;
 }
 
-export namespace DescribeExplainabilityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExplainabilityResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeExplainabilityExportRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
    */
   ExplainabilityExportArn: string | undefined;
-}
-
-export namespace DescribeExplainabilityExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExplainabilityExportRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeExplainabilityExportResponse {
@@ -4192,29 +3513,11 @@ export interface DescribeExplainabilityExportResponse {
   Format?: string;
 }
 
-export namespace DescribeExplainabilityExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExplainabilityExportResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeForecastRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
    */
   ForecastArn: string | undefined;
-}
-
-export namespace DescribeForecastRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeForecastRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeForecastResponse {
@@ -4325,29 +3628,11 @@ export interface DescribeForecastResponse {
   TimeSeriesSelector?: TimeSeriesSelector;
 }
 
-export namespace DescribeForecastResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeForecastResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeForecastExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
    */
   ForecastExportJobArn: string | undefined;
-}
-
-export namespace DescribeForecastExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeForecastExportJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeForecastExportJobResponse {
@@ -4448,29 +3733,11 @@ export interface DescribeForecastExportJobResponse {
   Format?: string;
 }
 
-export namespace DescribeForecastExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeForecastExportJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeMonitorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to describe.</p>
    */
   MonitorArn: string | undefined;
-}
-
-export namespace DescribeMonitorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMonitorRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4488,15 +3755,6 @@ export interface BaselineMetric {
   Value?: number;
 }
 
-export namespace BaselineMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BaselineMetric): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metrics you can use as a baseline for comparison purposes. Use these metrics when you interpret monitoring results for an auto predictor.</p>
  */
@@ -4508,15 +3766,6 @@ export interface PredictorBaseline {
   BaselineMetrics?: BaselineMetric[];
 }
 
-export namespace PredictorBaseline {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictorBaseline): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metrics you can use as a baseline for comparison purposes. Use these metrics when you interpret monitoring results for an auto predictor.</p>
  */
@@ -4526,15 +3775,6 @@ export interface Baseline {
    *          use your predictor and the metrics change.</p>
    */
   PredictorBaseline?: PredictorBaseline;
-}
-
-export namespace Baseline {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Baseline): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeMonitorResponse {
@@ -4594,29 +3834,11 @@ export interface DescribeMonitorResponse {
   EstimatedEvaluationTimeRemainingInMinutes?: number;
 }
 
-export namespace DescribeMonitorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMonitorResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePredictorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor that you want information about.</p>
    */
   PredictorArn: string | undefined;
-}
-
-export namespace DescribePredictorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePredictorRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4662,15 +3884,6 @@ export interface TestWindowSummary {
   Message?: string;
 }
 
-export namespace TestWindowSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestWindowSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The algorithm used to perform a backtest and the status of those tests.</p>
  */
@@ -4688,15 +3901,6 @@ export interface PredictorExecution {
   TestWindows?: TestWindowSummary[];
 }
 
-export namespace PredictorExecution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictorExecution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details on the backtests performed to evaluate the accuracy of the predictor. The
  *       tests are returned in descending order of accuracy, with the most accurate backtest appearing
@@ -4709,15 +3913,6 @@ export interface PredictorExecutionDetails {
    *       array.</p>
    */
   PredictorExecutions?: PredictorExecution[];
-}
-
-export namespace PredictorExecutionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictorExecutionDetails): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePredictorResponse {
@@ -4911,29 +4106,11 @@ export interface DescribePredictorResponse {
   OptimizationMetric?: OptimizationMetric | string;
 }
 
-export namespace DescribePredictorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePredictorResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribePredictorBacktestExportJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
    */
   PredictorBacktestExportJobArn: string | undefined;
-}
-
-export namespace DescribePredictorBacktestExportJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePredictorBacktestExportJobRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribePredictorBacktestExportJobResponse {
@@ -5032,29 +4209,11 @@ export interface DescribePredictorBacktestExportJobResponse {
   Format?: string;
 }
 
-export namespace DescribePredictorBacktestExportJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePredictorBacktestExportJobResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccuracyMetricsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor to get metrics for.</p>
    */
   PredictorArn: string | undefined;
-}
-
-export namespace GetAccuracyMetricsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccuracyMetricsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum EvaluationType {
@@ -5093,15 +4252,6 @@ export interface ErrorMetric {
   MAPE?: number;
 }
 
-export namespace ErrorMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorMetric): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The weighted loss value for a quantile. This object is part of the <a>Metrics</a> object.</p>
  */
@@ -5118,15 +4268,6 @@ export interface WeightedQuantileLoss {
    *       weighted (normalized) by dividing by the sum over all quantiles.</p>
    */
   LossValue?: number;
-}
-
-export namespace WeightedQuantileLoss {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WeightedQuantileLoss): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5158,15 +4299,6 @@ export interface Metrics {
    * <p>The average value of all weighted quantile losses.</p>
    */
   AverageWeightedQuantileLoss?: number;
-}
-
-export namespace Metrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Metrics): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5212,15 +4344,6 @@ export interface WindowSummary {
   Metrics?: Metrics;
 }
 
-export namespace WindowSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WindowSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The results of evaluating an algorithm. Returned as part of the <a>GetAccuracyMetrics</a> response.</p>
  */
@@ -5236,15 +4359,6 @@ export interface EvaluationResult {
    *       determines the number of windows in the array.</p>
    */
   TestWindows?: WindowSummary[];
-}
-
-export namespace EvaluationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAccuracyMetricsResponse {
@@ -5274,15 +4388,6 @@ export interface GetAccuracyMetricsResponse {
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
   OptimizationMetric?: OptimizationMetric | string;
-}
-
-export namespace GetAccuracyMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccuracyMetricsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5320,15 +4425,6 @@ export interface ListDatasetGroupsRequest {
   MaxResults?: number;
 }
 
-export namespace ListDatasetGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides a summary of the dataset group properties used in the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html">ListDatasetGroups</a> operation. To
  *       get the complete set of properties, call the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a>
@@ -5358,15 +4454,6 @@ export interface DatasetGroupSummary {
   LastModificationTime?: Date;
 }
 
-export namespace DatasetGroupSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetGroupSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetGroupsResponse {
   /**
    * <p>An array of objects that summarize each dataset group's properties.</p>
@@ -5378,15 +4465,6 @@ export interface ListDatasetGroupsResponse {
    *       results, use the token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDatasetGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum FilterConditionString {
@@ -5417,15 +4495,6 @@ export interface Filter {
    *       <code>IS</code>. To exclude matching objects, specify <code>IS_NOT</code>.</p>
    */
   Condition: FilterConditionString | string | undefined;
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDatasetImportJobsRequest {
@@ -5473,15 +4542,6 @@ export interface ListDatasetImportJobsRequest {
    *          </p>
    */
   Filters?: Filter[];
-}
-
-export namespace ListDatasetImportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetImportJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5576,15 +4636,6 @@ export interface DatasetImportJobSummary {
   LastModificationTime?: Date;
 }
 
-export namespace DatasetImportJobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetImportJobSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetImportJobsResponse {
   /**
    * <p>An array of objects that summarize each dataset import job's properties.</p>
@@ -5596,15 +4647,6 @@ export interface ListDatasetImportJobsResponse {
    *       results, use the token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDatasetImportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetImportJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDatasetsRequest {
@@ -5619,15 +4661,6 @@ export interface ListDatasetsRequest {
    * <p>The number of items to return in the response.</p>
    */
   MaxResults?: number;
-}
-
-export namespace ListDatasetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5671,15 +4704,6 @@ export interface DatasetSummary {
   LastModificationTime?: Date;
 }
 
-export namespace DatasetSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DatasetSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDatasetsResponse {
   /**
    * <p>An array of objects that summarize each dataset's properties.</p>
@@ -5691,15 +4715,6 @@ export interface ListDatasetsResponse {
    *       results, use the token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDatasetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExplainabilitiesRequest {
@@ -5741,15 +4756,6 @@ export interface ListExplainabilitiesRequest {
    *          </ul>
    */
   Filters?: Filter[];
-}
-
-export namespace ListExplainabilitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExplainabilitiesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5850,15 +4856,6 @@ export interface ExplainabilitySummary {
   LastModificationTime?: Date;
 }
 
-export namespace ExplainabilitySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExplainabilitySummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExplainabilitiesResponse {
   /**
    * <p>An array of objects that summarize the properties of each Explainability
@@ -5871,15 +4868,6 @@ export interface ListExplainabilitiesResponse {
    *             use the token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListExplainabilitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExplainabilitiesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExplainabilityExportsRequest {
@@ -5921,15 +4909,6 @@ export interface ListExplainabilityExportsRequest {
    *          </ul>
    */
   Filters?: Filter[];
-}
-
-export namespace ListExplainabilityExportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExplainabilityExportsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6024,15 +5003,6 @@ export interface ExplainabilityExportSummary {
   LastModificationTime?: Date;
 }
 
-export namespace ExplainabilityExportSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExplainabilityExportSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExplainabilityExportsResponse {
   /**
    * <p>An array of objects that summarize the properties of each Explainability
@@ -6045,15 +5015,6 @@ export interface ListExplainabilityExportsResponse {
    *             use the token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListExplainabilityExportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExplainabilityExportsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListForecastExportJobsRequest {
@@ -6103,15 +5064,6 @@ export interface ListForecastExportJobsRequest {
    *          </p>
    */
   Filters?: Filter[];
-}
-
-export namespace ListForecastExportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListForecastExportJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6207,15 +5159,6 @@ export interface ForecastExportJobSummary {
   LastModificationTime?: Date;
 }
 
-export namespace ForecastExportJobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForecastExportJobSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListForecastExportJobsResponse {
   /**
    * <p>An array of objects that summarize each export job's properties.</p>
@@ -6227,15 +5170,6 @@ export interface ListForecastExportJobsResponse {
    *       results, use the token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListForecastExportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListForecastExportJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListForecastsRequest {
@@ -6283,15 +5217,6 @@ export interface ListForecastsRequest {
    *          </p>
    */
   Filters?: Filter[];
-}
-
-export namespace ListForecastsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListForecastsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6398,15 +5323,6 @@ export interface ForecastSummary {
   LastModificationTime?: Date;
 }
 
-export namespace ForecastSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForecastSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListForecastsResponse {
   /**
    * <p>An array of objects that summarize each forecast's properties.</p>
@@ -6418,15 +5334,6 @@ export interface ListForecastsResponse {
    *       of results, use the token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListForecastsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListForecastsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMonitorEvaluationsRequest {
@@ -6479,15 +5386,6 @@ export interface ListMonitorEvaluationsRequest {
   Filters?: Filter[];
 }
 
-export namespace ListMonitorEvaluationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMonitorEvaluationsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An individual metric Forecast calculated when monitoring predictor usage. You can compare the value for this metric to the metric's value in the <a>Baseline</a> to see how your predictor's performance is changing.</p>
  *          <p>For more information about metrics generated by Forecast see <a href="https://docs.aws.amazon.com/forecast/latest/dg/metrics.html">Evaluating Predictor Accuracy</a>
@@ -6503,15 +5401,6 @@ export interface MetricResult {
    * <p>The value for the metric.</p>
    */
   MetricValue?: number;
-}
-
-export namespace MetricResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6534,15 +5423,6 @@ export interface MonitorDataSource {
   PredictorArn?: string;
 }
 
-export namespace MonitorDataSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitorDataSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about a predictor event, such as a retraining.</p>
  */
@@ -6556,15 +5436,6 @@ export interface PredictorEvent {
    * <p>The timestamp for when the event occurred.</p>
    */
   Datetime?: Date;
-}
-
-export namespace PredictorEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictorEvent): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6627,15 +5498,6 @@ export interface PredictorMonitorEvaluation {
   Message?: string;
 }
 
-export namespace PredictorMonitorEvaluation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictorMonitorEvaluation): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMonitorEvaluationsResponse {
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
@@ -6648,15 +5510,6 @@ export interface ListMonitorEvaluationsResponse {
    *          <p>For information about monitoring see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>. For more information about retrieving monitoring results see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>.</p>
    */
   PredictorMonitorEvaluations?: PredictorMonitorEvaluation[];
-}
-
-export namespace ListMonitorEvaluationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMonitorEvaluationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMonitorsRequest {
@@ -6702,15 +5555,6 @@ export interface ListMonitorsRequest {
    *          </p>
    */
   Filters?: Filter[];
-}
-
-export namespace ListMonitorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMonitorsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6797,15 +5641,6 @@ export interface MonitorSummary {
   LastModificationTime?: Date;
 }
 
-export namespace MonitorSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitorSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMonitorsResponse {
   /**
    * <p>An array of objects that summarize each monitor's properties.</p>
@@ -6817,15 +5652,6 @@ export interface ListMonitorsResponse {
    *          results, use the token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMonitorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMonitorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPredictorBacktestExportJobsRequest {
@@ -6869,15 +5695,6 @@ export interface ListPredictorBacktestExportJobsRequest {
    *          </ul>
    */
   Filters?: Filter[];
-}
-
-export namespace ListPredictorBacktestExportJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPredictorBacktestExportJobsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6971,15 +5788,6 @@ export interface PredictorBacktestExportJobSummary {
   LastModificationTime?: Date;
 }
 
-export namespace PredictorBacktestExportJobSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictorBacktestExportJobSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPredictorBacktestExportJobsResponse {
   /**
    * <p>An array of objects that summarize the properties of each predictor backtest export
@@ -6992,15 +5800,6 @@ export interface ListPredictorBacktestExportJobsResponse {
    *             use the token in the next request.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListPredictorBacktestExportJobsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPredictorBacktestExportJobsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListPredictorsRequest {
@@ -7048,15 +5847,6 @@ export interface ListPredictorsRequest {
    *          </p>
    */
   Filters?: Filter[];
-}
-
-export namespace ListPredictorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPredictorsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7164,15 +5954,6 @@ export interface PredictorSummary {
   LastModificationTime?: Date;
 }
 
-export namespace PredictorSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PredictorSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPredictorsResponse {
   /**
    * <p>An array of objects that summarize each predictor's properties.</p>
@@ -7186,30 +5967,12 @@ export interface ListPredictorsResponse {
   NextToken?: string;
 }
 
-export namespace ListPredictorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPredictorsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags.
    *     </p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -7219,30 +5982,11 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface ResumeResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to resume.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ResumeResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResumeResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StopResourceRequest {
@@ -7254,15 +5998,6 @@ export interface StopResourceRequest {
    *             <code>ExplainabilityExportArn</code>. </p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace StopResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -7311,26 +6046,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -7345,26 +6061,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateDatasetGroupRequest {
   /**
@@ -7379,22 +6076,1053 @@ export interface UpdateDatasetGroupRequest {
   DatasetArns: string[] | undefined;
 }
 
-export namespace UpdateDatasetGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatasetGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDatasetGroupResponse {}
 
-export namespace UpdateDatasetGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDatasetGroupResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AdditionalDatasetFilterSensitiveLog = (obj: AdditionalDataset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttributeConfigFilterSensitiveLog = (obj: AttributeConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataConfigFilterSensitiveLog = (obj: DataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionConfigFilterSensitiveLog = (obj: EncryptionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitorConfigFilterSensitiveLog = (obj: MonitorConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+  ...(obj.Key && { Key: SENSITIVE_STRING }),
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TimeAlignmentBoundaryFilterSensitiveLog = (obj: TimeAlignmentBoundary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAutoPredictorRequestFilterSensitiveLog = (obj: CreateAutoPredictorRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAutoPredictorResponseFilterSensitiveLog = (obj: CreateAutoPredictorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaAttributeFilterSensitiveLog = (obj: SchemaAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SchemaFilterSensitiveLog = (obj: Schema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetRequestFilterSensitiveLog = (obj: CreateDatasetRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetResponseFilterSensitiveLog = (obj: CreateDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetGroupRequestFilterSensitiveLog = (obj: CreateDatasetGroupRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetGroupResponseFilterSensitiveLog = (obj: CreateDatasetGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ConfigFilterSensitiveLog = (obj: S3Config): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetImportJobRequestFilterSensitiveLog = (obj: CreateDatasetImportJobRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDatasetImportJobResponseFilterSensitiveLog = (obj: CreateDatasetImportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExplainabilityConfigFilterSensitiveLog = (obj: ExplainabilityConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExplainabilityRequestFilterSensitiveLog = (obj: CreateExplainabilityRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateExplainabilityResponseFilterSensitiveLog = (obj: CreateExplainabilityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataDestinationFilterSensitiveLog = (obj: DataDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExplainabilityExportRequestFilterSensitiveLog = (obj: CreateExplainabilityExportRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateExplainabilityExportResponseFilterSensitiveLog = (obj: CreateExplainabilityExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeSeriesIdentifiersFilterSensitiveLog = (obj: TimeSeriesIdentifiers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeSeriesSelectorFilterSensitiveLog = (obj: TimeSeriesSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateForecastRequestFilterSensitiveLog = (obj: CreateForecastRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateForecastResponseFilterSensitiveLog = (obj: CreateForecastResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateForecastExportJobRequestFilterSensitiveLog = (obj: CreateForecastExportJobRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateForecastExportJobResponseFilterSensitiveLog = (obj: CreateForecastExportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMonitorRequestFilterSensitiveLog = (obj: CreateMonitorRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMonitorResponseFilterSensitiveLog = (obj: CreateMonitorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationParametersFilterSensitiveLog = (obj: EvaluationParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FeaturizationMethodFilterSensitiveLog = (obj: FeaturizationMethod): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FeaturizationFilterSensitiveLog = (obj: Featurization): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FeaturizationConfigFilterSensitiveLog = (obj: FeaturizationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CategoricalParameterRangeFilterSensitiveLog = (obj: CategoricalParameterRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinuousParameterRangeFilterSensitiveLog = (obj: ContinuousParameterRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegerParameterRangeFilterSensitiveLog = (obj: IntegerParameterRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterRangesFilterSensitiveLog = (obj: ParameterRanges): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HyperParameterTuningJobConfigFilterSensitiveLog = (obj: HyperParameterTuningJobConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SupplementaryFeatureFilterSensitiveLog = (obj: SupplementaryFeature): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputDataConfigFilterSensitiveLog = (obj: InputDataConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePredictorRequestFilterSensitiveLog = (obj: CreatePredictorRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePredictorResponseFilterSensitiveLog = (obj: CreatePredictorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePredictorBacktestExportJobRequestFilterSensitiveLog = (
+  obj: CreatePredictorBacktestExportJobRequest
+): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePredictorBacktestExportJobResponseFilterSensitiveLog = (
+  obj: CreatePredictorBacktestExportJobResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetRequestFilterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetGroupRequestFilterSensitiveLog = (obj: DeleteDatasetGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDatasetImportJobRequestFilterSensitiveLog = (obj: DeleteDatasetImportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExplainabilityRequestFilterSensitiveLog = (obj: DeleteExplainabilityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExplainabilityExportRequestFilterSensitiveLog = (obj: DeleteExplainabilityExportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteForecastRequestFilterSensitiveLog = (obj: DeleteForecastRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteForecastExportJobRequestFilterSensitiveLog = (obj: DeleteForecastExportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMonitorRequestFilterSensitiveLog = (obj: DeleteMonitorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePredictorRequestFilterSensitiveLog = (obj: DeletePredictorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePredictorBacktestExportJobRequestFilterSensitiveLog = (
+  obj: DeletePredictorBacktestExportJobRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourceTreeRequestFilterSensitiveLog = (obj: DeleteResourceTreeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAutoPredictorRequestFilterSensitiveLog = (obj: DescribeAutoPredictorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExplainabilityInfoFilterSensitiveLog = (obj: ExplainabilityInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitorInfoFilterSensitiveLog = (obj: MonitorInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReferencePredictorSummaryFilterSensitiveLog = (obj: ReferencePredictorSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAutoPredictorResponseFilterSensitiveLog = (obj: DescribeAutoPredictorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetRequestFilterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetResponseFilterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetGroupRequestFilterSensitiveLog = (obj: DescribeDatasetGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetGroupResponseFilterSensitiveLog = (obj: DescribeDatasetGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetImportJobRequestFilterSensitiveLog = (obj: DescribeDatasetImportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatisticsFilterSensitiveLog = (obj: Statistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDatasetImportJobResponseFilterSensitiveLog = (obj: DescribeDatasetImportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExplainabilityRequestFilterSensitiveLog = (obj: DescribeExplainabilityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExplainabilityResponseFilterSensitiveLog = (obj: DescribeExplainabilityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExplainabilityExportRequestFilterSensitiveLog = (
+  obj: DescribeExplainabilityExportRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExplainabilityExportResponseFilterSensitiveLog = (
+  obj: DescribeExplainabilityExportResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeForecastRequestFilterSensitiveLog = (obj: DescribeForecastRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeForecastResponseFilterSensitiveLog = (obj: DescribeForecastResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeForecastExportJobRequestFilterSensitiveLog = (obj: DescribeForecastExportJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeForecastExportJobResponseFilterSensitiveLog = (obj: DescribeForecastExportJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMonitorRequestFilterSensitiveLog = (obj: DescribeMonitorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BaselineMetricFilterSensitiveLog = (obj: BaselineMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictorBaselineFilterSensitiveLog = (obj: PredictorBaseline): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BaselineFilterSensitiveLog = (obj: Baseline): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMonitorResponseFilterSensitiveLog = (obj: DescribeMonitorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePredictorRequestFilterSensitiveLog = (obj: DescribePredictorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestWindowSummaryFilterSensitiveLog = (obj: TestWindowSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictorExecutionFilterSensitiveLog = (obj: PredictorExecution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictorExecutionDetailsFilterSensitiveLog = (obj: PredictorExecutionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePredictorResponseFilterSensitiveLog = (obj: DescribePredictorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePredictorBacktestExportJobRequestFilterSensitiveLog = (
+  obj: DescribePredictorBacktestExportJobRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePredictorBacktestExportJobResponseFilterSensitiveLog = (
+  obj: DescribePredictorBacktestExportJobResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccuracyMetricsRequestFilterSensitiveLog = (obj: GetAccuracyMetricsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorMetricFilterSensitiveLog = (obj: ErrorMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WeightedQuantileLossFilterSensitiveLog = (obj: WeightedQuantileLoss): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricsFilterSensitiveLog = (obj: Metrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WindowSummaryFilterSensitiveLog = (obj: WindowSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationResultFilterSensitiveLog = (obj: EvaluationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccuracyMetricsResponseFilterSensitiveLog = (obj: GetAccuracyMetricsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetGroupsRequestFilterSensitiveLog = (obj: ListDatasetGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetGroupSummaryFilterSensitiveLog = (obj: DatasetGroupSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetGroupsResponseFilterSensitiveLog = (obj: ListDatasetGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetImportJobsRequestFilterSensitiveLog = (obj: ListDatasetImportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetImportJobSummaryFilterSensitiveLog = (obj: DatasetImportJobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetImportJobsResponseFilterSensitiveLog = (obj: ListDatasetImportJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetsRequestFilterSensitiveLog = (obj: ListDatasetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasetSummaryFilterSensitiveLog = (obj: DatasetSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasetsResponseFilterSensitiveLog = (obj: ListDatasetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExplainabilitiesRequestFilterSensitiveLog = (obj: ListExplainabilitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExplainabilitySummaryFilterSensitiveLog = (obj: ExplainabilitySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExplainabilitiesResponseFilterSensitiveLog = (obj: ListExplainabilitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExplainabilityExportsRequestFilterSensitiveLog = (obj: ListExplainabilityExportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExplainabilityExportSummaryFilterSensitiveLog = (obj: ExplainabilityExportSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExplainabilityExportsResponseFilterSensitiveLog = (obj: ListExplainabilityExportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListForecastExportJobsRequestFilterSensitiveLog = (obj: ListForecastExportJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForecastExportJobSummaryFilterSensitiveLog = (obj: ForecastExportJobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListForecastExportJobsResponseFilterSensitiveLog = (obj: ListForecastExportJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListForecastsRequestFilterSensitiveLog = (obj: ListForecastsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ForecastSummaryFilterSensitiveLog = (obj: ForecastSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListForecastsResponseFilterSensitiveLog = (obj: ListForecastsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMonitorEvaluationsRequestFilterSensitiveLog = (obj: ListMonitorEvaluationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricResultFilterSensitiveLog = (obj: MetricResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitorDataSourceFilterSensitiveLog = (obj: MonitorDataSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictorEventFilterSensitiveLog = (obj: PredictorEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictorMonitorEvaluationFilterSensitiveLog = (obj: PredictorMonitorEvaluation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMonitorEvaluationsResponseFilterSensitiveLog = (obj: ListMonitorEvaluationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMonitorsRequestFilterSensitiveLog = (obj: ListMonitorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitorSummaryFilterSensitiveLog = (obj: MonitorSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMonitorsResponseFilterSensitiveLog = (obj: ListMonitorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPredictorBacktestExportJobsRequestFilterSensitiveLog = (
+  obj: ListPredictorBacktestExportJobsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictorBacktestExportJobSummaryFilterSensitiveLog = (obj: PredictorBacktestExportJobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPredictorBacktestExportJobsResponseFilterSensitiveLog = (
+  obj: ListPredictorBacktestExportJobsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPredictorsRequestFilterSensitiveLog = (obj: ListPredictorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PredictorSummaryFilterSensitiveLog = (obj: PredictorSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPredictorsResponseFilterSensitiveLog = (obj: ListPredictorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ResumeResourceRequestFilterSensitiveLog = (obj: ResumeResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopResourceRequestFilterSensitiveLog = (obj: StopResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+  ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatasetGroupRequestFilterSensitiveLog = (obj: UpdateDatasetGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatasetGroupResponseFilterSensitiveLog = (obj: UpdateDatasetGroupResponse): any => ({
+  ...obj,
+});

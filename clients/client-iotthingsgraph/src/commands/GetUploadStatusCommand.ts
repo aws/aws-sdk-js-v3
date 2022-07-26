@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import { GetUploadStatusRequest, GetUploadStatusResponse } from "../models/models_0";
+import {
+  GetUploadStatusRequest,
+  GetUploadStatusRequestFilterSensitiveLog,
+  GetUploadStatusResponse,
+  GetUploadStatusResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetUploadStatusCommand,
   serializeAws_json1_1GetUploadStatusCommand,
@@ -72,8 +77,8 @@ export class GetUploadStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUploadStatusRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetUploadStatusResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetUploadStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetUploadStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

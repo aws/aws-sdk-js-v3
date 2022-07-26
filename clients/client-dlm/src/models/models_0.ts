@@ -21,15 +21,6 @@ export interface EncryptionConfiguration {
   CmkArn?: string;
 }
 
-export namespace EncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum RetentionIntervalUnitValues {
   DAYS = "DAYS",
   MONTHS = "MONTHS",
@@ -53,15 +44,6 @@ export interface CrossRegionCopyRetainRule {
   IntervalUnit?: RetentionIntervalUnitValues | string;
 }
 
-export namespace CrossRegionCopyRetainRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrossRegionCopyRetainRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a rule for copying shared snapshots across Regions.</p>
  */
@@ -82,15 +64,6 @@ export interface CrossRegionCopyAction {
   RetainRule?: CrossRegionCopyRetainRule;
 }
 
-export namespace CrossRegionCopyAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrossRegionCopyAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an action for an event-based policy.</p>
  */
@@ -104,15 +77,6 @@ export interface Action {
    * <p>The rule for copying shared snapshots across Regions.</p>
    */
   CrossRegionCopy: CrossRegionCopyAction[] | undefined;
-}
-
-export namespace Action {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Action): any => ({
-    ...obj,
-  });
 }
 
 export enum EventTypeValues {
@@ -145,15 +109,6 @@ export interface EventParameters {
   DescriptionRegex: string | undefined;
 }
 
-export namespace EventParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventParameters): any => ({
-    ...obj,
-  });
-}
-
 export enum EventSourceValues {
   MANAGED_CWE = "MANAGED_CWE",
 }
@@ -171,15 +126,6 @@ export interface EventSource {
    * <p>Information about the event.</p>
    */
   Parameters?: EventParameters;
-}
-
-export namespace EventSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -201,15 +147,6 @@ export interface _Parameters {
    * 			default is <code>true</code> (instances are not rebooted).</p>
    */
   NoReboot?: boolean;
-}
-
-export namespace _Parameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Parameters): any => ({
-    ...obj,
-  });
 }
 
 export enum PolicyTypeValues {
@@ -281,15 +218,6 @@ export interface CreateRule {
   CronExpression?: string;
 }
 
-export namespace CreateRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an AMI deprecation rule for cross-Region AMI copies created by a cross-Region copy rule.</p>
  */
@@ -305,15 +233,6 @@ export interface CrossRegionCopyDeprecateRule {
    * <p>The unit of time in which to measure the <b>Interval</b>.</p>
    */
   IntervalUnit?: RetentionIntervalUnitValues | string;
-}
-
-export namespace CrossRegionCopyDeprecateRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrossRegionCopyDeprecateRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -367,15 +286,6 @@ export interface CrossRegionCopyRule {
   DeprecateRule?: CrossRegionCopyDeprecateRule;
 }
 
-export namespace CrossRegionCopyRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrossRegionCopyRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies an AMI deprecation rule for a schedule.</p>
  */
@@ -399,15 +309,6 @@ export interface DeprecateRule {
    * <p>The unit of time in which to measure the <b>Interval</b>.</p>
    */
   IntervalUnit?: RetentionIntervalUnitValues | string;
-}
-
-export namespace DeprecateRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeprecateRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -437,15 +338,6 @@ export interface FastRestoreRule {
   AvailabilityZones: string[] | undefined;
 }
 
-export namespace FastRestoreRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FastRestoreRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the retention rule for a lifecycle policy. You can retain snapshots based on
  * 			either a count or a time interval.</p>
@@ -468,15 +360,6 @@ export interface RetainRule {
   IntervalUnit?: RetentionIntervalUnitValues | string;
 }
 
-export namespace RetainRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetainRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a rule for sharing snapshots across Amazon Web Services accounts.</p>
  */
@@ -497,15 +380,6 @@ export interface ShareRule {
   UnshareIntervalUnit?: RetentionIntervalUnitValues | string;
 }
 
-export namespace ShareRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ShareRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a tag for a resource.</p>
  */
@@ -519,15 +393,6 @@ export interface Tag {
    * <p>The tag value.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -594,15 +459,6 @@ export interface Schedule {
   DeprecateRule?: DeprecateRule;
 }
 
-export namespace Schedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Schedule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the configuration of a lifecycle policy.</p>
  */
@@ -666,15 +522,6 @@ export interface PolicyDetails {
   Actions?: Action[];
 }
 
-export namespace PolicyDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum SettablePolicyStateValues {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -709,29 +556,11 @@ export interface CreateLifecyclePolicyRequest {
   Tags?: Record<string, string>;
 }
 
-export namespace CreateLifecyclePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLifecyclePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateLifecyclePolicyResponse {
   /**
    * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId?: string;
-}
-
-export namespace CreateLifecyclePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLifecyclePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -827,25 +656,7 @@ export interface DeleteLifecyclePolicyRequest {
   PolicyId: string | undefined;
 }
 
-export namespace DeleteLifecyclePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteLifecyclePolicyResponse {}
-
-export namespace DeleteLifecyclePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteLifecyclePolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A requested resource was not found.</p>
@@ -917,15 +728,6 @@ export interface GetLifecyclePoliciesRequest {
   TagsToAdd?: string[];
 }
 
-export namespace GetLifecyclePoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLifecyclePoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a lifecycle policy.</p>
  */
@@ -958,15 +760,6 @@ export interface LifecyclePolicySummary {
   PolicyType?: PolicyTypeValues | string;
 }
 
-export namespace LifecyclePolicySummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecyclePolicySummary): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLifecyclePoliciesResponse {
   /**
    * <p>Summary information about the lifecycle policies.</p>
@@ -974,29 +767,11 @@ export interface GetLifecyclePoliciesResponse {
   Policies?: LifecyclePolicySummary[];
 }
 
-export namespace GetLifecyclePoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLifecyclePoliciesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLifecyclePolicyRequest {
   /**
    * <p>The identifier of the lifecycle policy.</p>
    */
   PolicyId: string | undefined;
-}
-
-export namespace GetLifecyclePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLifecyclePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1055,29 +830,11 @@ export interface LifecyclePolicy {
   PolicyArn?: string;
 }
 
-export namespace LifecyclePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecyclePolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLifecyclePolicyResponse {
   /**
    * <p>Detailed information about the lifecycle policy.</p>
    */
   Policy?: LifecyclePolicy;
-}
-
-export namespace GetLifecyclePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLifecyclePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -1087,29 +844,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Information about the tags.</p>
    */
   Tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1124,25 +863,7 @@ export interface TagResourceRequest {
   Tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1156,25 +877,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateLifecyclePolicyRequest {
   /**
@@ -1205,22 +908,249 @@ export interface UpdateLifecyclePolicyRequest {
   PolicyDetails?: PolicyDetails;
 }
 
-export namespace UpdateLifecyclePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLifecyclePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLifecyclePolicyResponse {}
 
-export namespace UpdateLifecyclePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLifecyclePolicyResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrossRegionCopyRetainRuleFilterSensitiveLog = (obj: CrossRegionCopyRetainRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrossRegionCopyActionFilterSensitiveLog = (obj: CrossRegionCopyAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventParametersFilterSensitiveLog = (obj: EventParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventSourceFilterSensitiveLog = (obj: EventSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _ParametersFilterSensitiveLog = (obj: _Parameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleFilterSensitiveLog = (obj: CreateRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrossRegionCopyDeprecateRuleFilterSensitiveLog = (obj: CrossRegionCopyDeprecateRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CrossRegionCopyRuleFilterSensitiveLog = (obj: CrossRegionCopyRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeprecateRuleFilterSensitiveLog = (obj: DeprecateRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FastRestoreRuleFilterSensitiveLog = (obj: FastRestoreRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetainRuleFilterSensitiveLog = (obj: RetainRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ShareRuleFilterSensitiveLog = (obj: ShareRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScheduleFilterSensitiveLog = (obj: Schedule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyDetailsFilterSensitiveLog = (obj: PolicyDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLifecyclePolicyRequestFilterSensitiveLog = (obj: CreateLifecyclePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateLifecyclePolicyResponseFilterSensitiveLog = (obj: CreateLifecyclePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLifecyclePolicyRequestFilterSensitiveLog = (obj: DeleteLifecyclePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLifecyclePolicyResponseFilterSensitiveLog = (obj: DeleteLifecyclePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLifecyclePoliciesRequestFilterSensitiveLog = (obj: GetLifecyclePoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecyclePolicySummaryFilterSensitiveLog = (obj: LifecyclePolicySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLifecyclePoliciesResponseFilterSensitiveLog = (obj: GetLifecyclePoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLifecyclePolicyRequestFilterSensitiveLog = (obj: GetLifecyclePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecyclePolicyFilterSensitiveLog = (obj: LifecyclePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLifecyclePolicyResponseFilterSensitiveLog = (obj: GetLifecyclePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLifecyclePolicyRequestFilterSensitiveLog = (obj: UpdateLifecyclePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLifecyclePolicyResponseFilterSensitiveLog = (obj: UpdateLifecyclePolicyResponse): any => ({
+  ...obj,
+});

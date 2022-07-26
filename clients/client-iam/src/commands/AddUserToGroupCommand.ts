@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { AddUserToGroupRequest } from "../models/models_0";
+import { AddUserToGroupRequest, AddUserToGroupRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryAddUserToGroupCommand,
   serializeAws_queryAddUserToGroupCommand,
@@ -72,7 +72,7 @@ export class AddUserToGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddUserToGroupRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AddUserToGroupRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

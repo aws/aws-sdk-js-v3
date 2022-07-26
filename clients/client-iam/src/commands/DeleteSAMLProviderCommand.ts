@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteSAMLProviderRequest } from "../models/models_0";
+import { DeleteSAMLProviderRequest, DeleteSAMLProviderRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDeleteSAMLProviderCommand,
   serializeAws_queryDeleteSAMLProviderCommand,
@@ -78,7 +78,7 @@ export class DeleteSAMLProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSAMLProviderRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSAMLProviderRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

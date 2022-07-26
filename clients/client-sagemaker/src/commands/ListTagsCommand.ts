@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListTagsInput, ListTagsOutput } from "../models/models_3";
+import {
+  ListTagsInput,
+  ListTagsInputFilterSensitiveLog,
+  ListTagsOutput,
+  ListTagsOutputFilterSensitiveLog,
+} from "../models/models_3";
 import { deserializeAws_json1_1ListTagsCommand, serializeAws_json1_1ListTagsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -69,8 +74,8 @@ export class ListTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

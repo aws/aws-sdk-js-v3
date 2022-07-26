@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { AllocateStaticIpRequest, AllocateStaticIpResult } from "../models/models_0";
+import {
+  AllocateStaticIpRequest,
+  AllocateStaticIpRequestFilterSensitiveLog,
+  AllocateStaticIpResult,
+  AllocateStaticIpResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AllocateStaticIpCommand,
   serializeAws_json1_1AllocateStaticIpCommand,
@@ -72,8 +77,8 @@ export class AllocateStaticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AllocateStaticIpRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AllocateStaticIpResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AllocateStaticIpRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AllocateStaticIpResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

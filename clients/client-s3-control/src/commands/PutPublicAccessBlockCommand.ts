@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutPublicAccessBlockRequest } from "../models/models_0";
+import { PutPublicAccessBlockRequest, PutPublicAccessBlockRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restXmlPutPublicAccessBlockCommand,
   serializeAws_restXmlPutPublicAccessBlockCommand,
@@ -90,7 +90,7 @@ export class PutPublicAccessBlockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPublicAccessBlockRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutPublicAccessBlockRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

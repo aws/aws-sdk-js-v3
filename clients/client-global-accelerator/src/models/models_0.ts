@@ -22,15 +22,6 @@ export interface IpSet {
   IpAddresses?: string[];
 }
 
-export namespace IpSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpSet): any => ({
-    ...obj,
-  });
-}
-
 export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
 
 /**
@@ -92,15 +83,6 @@ export interface Accelerator {
   LastModifiedTime?: Date;
 }
 
-export namespace Accelerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Accelerator): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Attributes of an accelerator.</p>
  */
@@ -128,15 +110,6 @@ export interface AcceleratorAttributes {
    * 		       <p>s3-bucket_name//AWSLogs/aws_account_id</p>
    */
   FlowLogsS3Prefix?: string;
-}
-
-export namespace AcceleratorAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceleratorAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -213,15 +186,6 @@ export interface CustomRoutingEndpointConfiguration {
   EndpointId?: string;
 }
 
-export namespace CustomRoutingEndpointConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingEndpointConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface AddCustomRoutingEndpointsRequest {
   /**
    * <p>The list of endpoint objects to add to a custom routing accelerator.</p>
@@ -232,15 +196,6 @@ export interface AddCustomRoutingEndpointsRequest {
    * <p>The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint.</p>
    */
   EndpointGroupArn: string | undefined;
-}
-
-export namespace AddCustomRoutingEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddCustomRoutingEndpointsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -255,15 +210,6 @@ export interface CustomRoutingEndpointDescription {
   EndpointId?: string;
 }
 
-export namespace CustomRoutingEndpointDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingEndpointDescription): any => ({
-    ...obj,
-  });
-}
-
 export interface AddCustomRoutingEndpointsResponse {
   /**
    * <p>The endpoint objects added to the custom routing accelerator.</p>
@@ -274,15 +220,6 @@ export interface AddCustomRoutingEndpointsResponse {
    * <p>The Amazon Resource Name (ARN) of the endpoint group for the custom routing endpoint.</p>
    */
   EndpointGroupArn?: string;
-}
-
-export namespace AddCustomRoutingEndpointsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddCustomRoutingEndpointsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -419,15 +356,6 @@ export interface AdvertiseByoipCidrRequest {
   Cidr: string | undefined;
 }
 
-export namespace AdvertiseByoipCidrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvertiseByoipCidrRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type that contains a <code>Message</code> and a <code>Timestamp</code> value for changes
  * 			that you make in the status an IP address range that you bring to AWS Global Accelerator through bring your own IP
@@ -445,15 +373,6 @@ export interface ByoipCidrEvent {
    * 			bring your own IP address (BYOIP).</p>
    */
   Timestamp?: Date;
-}
-
-export namespace ByoipCidrEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ByoipCidrEvent): any => ({
-    ...obj,
-  });
 }
 
 export enum ByoipCidrState {
@@ -560,29 +479,11 @@ export interface ByoipCidr {
   Events?: ByoipCidrEvent[];
 }
 
-export namespace ByoipCidr {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ByoipCidr): any => ({
-    ...obj,
-  });
-}
-
 export interface AdvertiseByoipCidrResponse {
   /**
    * <p>Information about the address range.</p>
    */
   ByoipCidr?: ByoipCidr;
-}
-
-export namespace AdvertiseByoipCidrResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvertiseByoipCidrResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -666,15 +567,6 @@ export interface AllowCustomRoutingTrafficRequest {
   AllowAllTrafficToEndpoint?: boolean;
 }
 
-export namespace AllowCustomRoutingTrafficRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllowCustomRoutingTrafficRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The listener that you specified has an endpoint group associated with it. You must remove all dependent resources
  * 			from a listener before you can delete it.</p>
@@ -737,15 +629,6 @@ export interface CidrAuthorizationContext {
   Signature: string | undefined;
 }
 
-export namespace CidrAuthorizationContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CidrAuthorizationContext): any => ({
-    ...obj,
-  });
-}
-
 export type ClientAffinity = "NONE" | "SOURCE_IP";
 
 /**
@@ -761,15 +644,6 @@ export interface Tag {
    * <p>A string that contains a <code>Tag</code> value.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAcceleratorRequest {
@@ -818,29 +692,11 @@ export interface CreateAcceleratorRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAcceleratorResponse {
   /**
    * <p>The accelerator that is created by specifying a listener and the supported IP address types.</p>
    */
   Accelerator?: Accelerator;
-}
-
-export namespace CreateAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAcceleratorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCustomRoutingAcceleratorRequest {
@@ -887,15 +743,6 @@ export interface CreateCustomRoutingAcceleratorRequest {
    * 		in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace CreateCustomRoutingAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingAcceleratorRequest): any => ({
-    ...obj,
-  });
 }
 
 export type CustomRoutingAcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
@@ -957,29 +804,11 @@ export interface CustomRoutingAccelerator {
   LastModifiedTime?: Date;
 }
 
-export namespace CustomRoutingAccelerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingAccelerator): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCustomRoutingAcceleratorResponse {
   /**
    * <p>The accelerator that is created.</p>
    */
   Accelerator?: CustomRoutingAccelerator;
-}
-
-export namespace CreateCustomRoutingAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingAcceleratorResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum CustomRoutingProtocol {
@@ -1008,15 +837,6 @@ export interface CustomRoutingDestinationConfiguration {
   Protocols: (CustomRoutingProtocol | string)[] | undefined;
 }
 
-export namespace CustomRoutingDestinationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingDestinationConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCustomRoutingEndpointGroupRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener for a custom routing endpoint.</p>
@@ -1040,15 +860,6 @@ export interface CreateCustomRoutingEndpointGroupRequest {
    * 		uniqueness—of the request.</p>
    */
   IdempotencyToken?: string;
-}
-
-export namespace CreateCustomRoutingEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingEndpointGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum Protocol {
@@ -1075,15 +886,6 @@ export interface CustomRoutingDestinationDescription {
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
   Protocols?: (Protocol | string)[];
-}
-
-export namespace CustomRoutingDestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingDestinationDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1114,29 +916,11 @@ export interface CustomRoutingEndpointGroup {
   EndpointDescriptions?: CustomRoutingEndpointDescription[];
 }
 
-export namespace CustomRoutingEndpointGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingEndpointGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCustomRoutingEndpointGroupResponse {
   /**
    * <p>The information about the endpoint group created for a custom routing accelerator.</p>
    */
   EndpointGroup?: CustomRoutingEndpointGroup;
-}
-
-export namespace CreateCustomRoutingEndpointGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingEndpointGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1217,15 +1001,6 @@ export interface PortRange {
   ToPort?: number;
 }
 
-export namespace PortRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortRange): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCustomRoutingListenerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the accelerator for a custom routing listener.</p>
@@ -1246,15 +1021,6 @@ export interface CreateCustomRoutingListenerRequest {
   IdempotencyToken?: string;
 }
 
-export namespace CreateCustomRoutingListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingListenerRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type for a listener for a custom routing accelerator.</p>
  */
@@ -1272,29 +1038,11 @@ export interface CustomRoutingListener {
   PortRanges?: PortRange[];
 }
 
-export namespace CustomRoutingListener {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingListener): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateCustomRoutingListenerResponse {
   /**
    * <p>The listener that you've created for a custom routing accelerator.</p>
    */
   Listener?: CustomRoutingListener;
-}
-
-export namespace CreateCustomRoutingListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateCustomRoutingListenerResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1330,15 +1078,6 @@ export interface EndpointConfiguration {
   ClientIPPreservationEnabled?: boolean;
 }
 
-export namespace EndpointConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export enum HealthCheckProtocol {
   HTTP = "HTTP",
   HTTPS = "HTTPS",
@@ -1365,15 +1104,6 @@ export interface PortOverride {
    * 			such as the Application Load Balancer or Amazon EC2 instance.</p>
    */
   EndpointPort?: number;
-}
-
-export namespace PortOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortOverride): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateEndpointGroupRequest {
@@ -1449,15 +1179,6 @@ export interface CreateEndpointGroupRequest {
   PortOverrides?: PortOverride[];
 }
 
-export namespace CreateEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export type HealthState = "HEALTHY" | "INITIAL" | "UNHEALTHY";
 
 /**
@@ -1501,15 +1222,6 @@ export interface EndpointDescription {
    * 			Viewing Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
    */
   ClientIPPreservationEnabled?: boolean;
-}
-
-export namespace EndpointDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1581,29 +1293,11 @@ export interface EndpointGroup {
   PortOverrides?: PortOverride[];
 }
 
-export namespace EndpointGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEndpointGroupResponse {
   /**
    * <p>The information about the endpoint group that was created.</p>
    */
   EndpointGroup?: EndpointGroup;
-}
-
-export namespace CreateEndpointGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEndpointGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateListenerRequest {
@@ -1645,15 +1339,6 @@ export interface CreateListenerRequest {
   IdempotencyToken?: string;
 }
 
-export namespace CreateListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateListenerRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A complex type for a listener.</p>
  */
@@ -1690,29 +1375,11 @@ export interface Listener {
   ClientAffinity?: ClientAffinity | string;
 }
 
-export namespace Listener {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Listener): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateListenerResponse {
   /**
    * <p>The listener that you've created.</p>
    */
   Listener?: Listener;
-}
-
-export namespace CreateListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateListenerResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1744,15 +1411,6 @@ export interface CustomRoutingAcceleratorAttributes {
   FlowLogsS3Prefix?: string;
 }
 
-export namespace CustomRoutingAcceleratorAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomRoutingAcceleratorAttributes): any => ({
-    ...obj,
-  });
-}
-
 export enum CustomRoutingDestinationTrafficState {
   ALLOW = "ALLOW",
   DENY = "DENY",
@@ -1765,29 +1423,11 @@ export interface DeleteAcceleratorRequest {
   AcceleratorArn: string | undefined;
 }
 
-export namespace DeleteAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCustomRoutingAcceleratorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator to delete.</p>
    */
   AcceleratorArn: string | undefined;
-}
-
-export namespace DeleteCustomRoutingAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomRoutingAcceleratorRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCustomRoutingEndpointGroupRequest {
@@ -1797,29 +1437,11 @@ export interface DeleteCustomRoutingEndpointGroupRequest {
   EndpointGroupArn: string | undefined;
 }
 
-export namespace DeleteCustomRoutingEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomRoutingEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCustomRoutingListenerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener to delete.</p>
    */
   ListenerArn: string | undefined;
-}
-
-export namespace DeleteCustomRoutingListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomRoutingListenerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteEndpointGroupRequest {
@@ -1829,29 +1451,11 @@ export interface DeleteEndpointGroupRequest {
   EndpointGroupArn: string | undefined;
 }
 
-export namespace DeleteEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteListenerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    */
   ListenerArn: string | undefined;
-}
-
-export namespace DeleteListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteListenerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DenyCustomRoutingTrafficRequest {
@@ -1891,30 +1495,12 @@ export interface DenyCustomRoutingTrafficRequest {
   DenyAllTrafficToEndpoint?: boolean;
 }
 
-export namespace DenyCustomRoutingTrafficRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DenyCustomRoutingTrafficRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeprovisionByoipCidrRequest {
   /**
    * <p>The address range, in CIDR notation. The prefix must be the same prefix that you specified
    * 			when you provisioned the address range.</p>
    */
   Cidr: string | undefined;
-}
-
-export namespace DeprovisionByoipCidrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeprovisionByoipCidrRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeprovisionByoipCidrResponse {
@@ -1924,29 +1510,11 @@ export interface DeprovisionByoipCidrResponse {
   ByoipCidr?: ByoipCidr;
 }
 
-export namespace DeprovisionByoipCidrResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeprovisionByoipCidrResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAcceleratorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>
    */
   AcceleratorArn: string | undefined;
-}
-
-export namespace DescribeAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAcceleratorResponse {
@@ -1956,29 +1524,11 @@ export interface DescribeAcceleratorResponse {
   Accelerator?: Accelerator;
 }
 
-export namespace DescribeAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAcceleratorAttributesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the accelerator with the attributes that you want to describe.</p>
    */
   AcceleratorArn: string | undefined;
-}
-
-export namespace DescribeAcceleratorAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorAttributesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAcceleratorAttributesResponse {
@@ -1988,29 +1538,11 @@ export interface DescribeAcceleratorAttributesResponse {
   AcceleratorAttributes?: AcceleratorAttributes;
 }
 
-export namespace DescribeAcceleratorAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeAcceleratorAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCustomRoutingAcceleratorRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the accelerator to describe.</p>
    */
   AcceleratorArn: string | undefined;
-}
-
-export namespace DescribeCustomRoutingAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCustomRoutingAcceleratorResponse {
@@ -2020,29 +1552,11 @@ export interface DescribeCustomRoutingAcceleratorResponse {
   Accelerator?: CustomRoutingAccelerator;
 }
 
-export namespace DescribeCustomRoutingAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCustomRoutingAcceleratorAttributesRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom routing accelerator to describe the attributes for.</p>
    */
   AcceleratorArn: string | undefined;
-}
-
-export namespace DescribeCustomRoutingAcceleratorAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorAttributesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCustomRoutingAcceleratorAttributesResponse {
@@ -2052,29 +1566,11 @@ export interface DescribeCustomRoutingAcceleratorAttributesResponse {
   AcceleratorAttributes?: CustomRoutingAcceleratorAttributes;
 }
 
-export namespace DescribeCustomRoutingAcceleratorAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingAcceleratorAttributesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCustomRoutingEndpointGroupRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>
    */
   EndpointGroupArn: string | undefined;
-}
-
-export namespace DescribeCustomRoutingEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingEndpointGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCustomRoutingEndpointGroupResponse {
@@ -2084,29 +1580,11 @@ export interface DescribeCustomRoutingEndpointGroupResponse {
   EndpointGroup?: CustomRoutingEndpointGroup;
 }
 
-export namespace DescribeCustomRoutingEndpointGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingEndpointGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCustomRoutingListenerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener to describe.</p>
    */
   ListenerArn: string | undefined;
-}
-
-export namespace DescribeCustomRoutingListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingListenerRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCustomRoutingListenerResponse {
@@ -2116,29 +1594,11 @@ export interface DescribeCustomRoutingListenerResponse {
   Listener?: CustomRoutingListener;
 }
 
-export namespace DescribeCustomRoutingListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomRoutingListenerResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEndpointGroupRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the endpoint group to describe.</p>
    */
   EndpointGroupArn: string | undefined;
-}
-
-export namespace DescribeEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointGroupRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeEndpointGroupResponse {
@@ -2148,15 +1608,6 @@ export interface DescribeEndpointGroupResponse {
   EndpointGroup?: EndpointGroup;
 }
 
-export namespace DescribeEndpointGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEndpointGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeListenerRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener to describe.</p>
@@ -2164,29 +1615,11 @@ export interface DescribeListenerRequest {
   ListenerArn: string | undefined;
 }
 
-export namespace DescribeListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeListenerResponse {
   /**
    * <p>The description of a listener.</p>
    */
   Listener?: Listener;
-}
-
-export namespace DescribeListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeListenerResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2202,15 +1635,6 @@ export interface SocketAddress {
    * <p>The port for the socket address.</p>
    */
   Port?: number;
-}
-
-export namespace SocketAddress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SocketAddress): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2259,15 +1683,6 @@ export interface DestinationPortMapping {
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
   DestinationTrafficState?: CustomRoutingDestinationTrafficState | string;
-}
-
-export namespace DestinationPortMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationPortMapping): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2324,15 +1739,6 @@ export interface ListAcceleratorsRequest {
   NextToken?: string;
 }
 
-export namespace ListAcceleratorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAcceleratorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAcceleratorsResponse {
   /**
    * <p>The list of accelerators for a customer account.</p>
@@ -2343,15 +1749,6 @@ export interface ListAcceleratorsResponse {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAcceleratorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAcceleratorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListByoipCidrsRequest {
@@ -2367,15 +1764,6 @@ export interface ListByoipCidrsRequest {
   NextToken?: string;
 }
 
-export namespace ListByoipCidrsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListByoipCidrsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListByoipCidrsResponse {
   /**
    * <p>Information about your address ranges.</p>
@@ -2386,15 +1774,6 @@ export interface ListByoipCidrsResponse {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListByoipCidrsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListByoipCidrsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCustomRoutingAcceleratorsRequest {
@@ -2409,15 +1788,6 @@ export interface ListCustomRoutingAcceleratorsRequest {
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingAcceleratorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingAcceleratorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCustomRoutingAcceleratorsResponse {
   /**
    * <p>The list of custom routing accelerators for a customer account.</p>
@@ -2428,15 +1798,6 @@ export interface ListCustomRoutingAcceleratorsResponse {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCustomRoutingAcceleratorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingAcceleratorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCustomRoutingEndpointGroupsRequest {
@@ -2456,15 +1817,6 @@ export interface ListCustomRoutingEndpointGroupsRequest {
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingEndpointGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingEndpointGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCustomRoutingEndpointGroupsResponse {
   /**
    * <p>The list of the endpoint groups associated with a listener for a custom routing accelerator.</p>
@@ -2475,15 +1827,6 @@ export interface ListCustomRoutingEndpointGroupsResponse {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCustomRoutingEndpointGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingEndpointGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCustomRoutingListenersRequest {
@@ -2503,15 +1846,6 @@ export interface ListCustomRoutingListenersRequest {
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingListenersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingListenersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCustomRoutingListenersResponse {
   /**
    * <p>The list of listeners for a custom routing accelerator.</p>
@@ -2522,15 +1856,6 @@ export interface ListCustomRoutingListenersResponse {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCustomRoutingListenersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingListenersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCustomRoutingPortMappingsRequest {
@@ -2553,15 +1878,6 @@ export interface ListCustomRoutingPortMappingsRequest {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCustomRoutingPortMappingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2603,15 +1919,6 @@ export interface PortMapping {
   DestinationTrafficState?: CustomRoutingDestinationTrafficState | string;
 }
 
-export namespace PortMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortMapping): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCustomRoutingPortMappingsResponse {
   /**
    * <p>The port mappings for a custom routing accelerator.</p>
@@ -2622,15 +1929,6 @@ export interface ListCustomRoutingPortMappingsResponse {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCustomRoutingPortMappingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListCustomRoutingPortMappingsByDestinationRequest {
@@ -2656,15 +1954,6 @@ export interface ListCustomRoutingPortMappingsByDestinationRequest {
   NextToken?: string;
 }
 
-export namespace ListCustomRoutingPortMappingsByDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsByDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListCustomRoutingPortMappingsByDestinationResponse {
   /**
    * <p>The port mappings for the endpoint IP address that you specified in the request.</p>
@@ -2675,15 +1964,6 @@ export interface ListCustomRoutingPortMappingsByDestinationResponse {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListCustomRoutingPortMappingsByDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListCustomRoutingPortMappingsByDestinationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEndpointGroupsRequest {
@@ -2703,15 +1983,6 @@ export interface ListEndpointGroupsRequest {
   NextToken?: string;
 }
 
-export namespace ListEndpointGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEndpointGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEndpointGroupsResponse {
   /**
    * <p>The list of the endpoint groups associated with a listener.</p>
@@ -2722,15 +1993,6 @@ export interface ListEndpointGroupsResponse {
    * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEndpointGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEndpointGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListListenersRequest {
@@ -2750,15 +2012,6 @@ export interface ListListenersRequest {
   NextToken?: string;
 }
 
-export namespace ListListenersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListListenersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListListenersResponse {
   /**
    * <p>The list of listeners for an accelerator.</p>
@@ -2771,15 +2024,6 @@ export interface ListListenersResponse {
   NextToken?: string;
 }
 
-export namespace ListListenersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListListenersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the accelerator to list tags for. An ARN uniquely identifies an accelerator.</p>
@@ -2787,29 +2031,11 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>Root level tag for the Tags parameters.</p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ProvisionByoipCidrRequest {
@@ -2828,29 +2054,11 @@ export interface ProvisionByoipCidrRequest {
   CidrAuthorizationContext: CidrAuthorizationContext | undefined;
 }
 
-export namespace ProvisionByoipCidrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionByoipCidrRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ProvisionByoipCidrResponse {
   /**
    * <p>Information about the address range.</p>
    */
   ByoipCidr?: ByoipCidr;
-}
-
-export namespace ProvisionByoipCidrResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionByoipCidrResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveCustomRoutingEndpointsRequest {
@@ -2866,15 +2074,6 @@ export interface RemoveCustomRoutingEndpointsRequest {
   EndpointGroupArn: string | undefined;
 }
 
-export namespace RemoveCustomRoutingEndpointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveCustomRoutingEndpointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the Global Accelerator resource to add tags to. An ARN uniquely identifies a resource.</p>
@@ -2887,25 +2086,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -2919,25 +2100,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateAcceleratorRequest {
   /**
@@ -2963,29 +2126,11 @@ export interface UpdateAcceleratorRequest {
   Enabled?: boolean;
 }
 
-export namespace UpdateAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAcceleratorResponse {
   /**
    * <p>Information about the updated accelerator.</p>
    */
   Accelerator?: Accelerator;
-}
-
-export namespace UpdateAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAcceleratorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateAcceleratorAttributesRequest {
@@ -3019,29 +2164,11 @@ export interface UpdateAcceleratorAttributesRequest {
   FlowLogsS3Prefix?: string;
 }
 
-export namespace UpdateAcceleratorAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAcceleratorAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateAcceleratorAttributesResponse {
   /**
    * <p>Updated attributes for the accelerator.</p>
    */
   AcceleratorAttributes?: AcceleratorAttributes;
-}
-
-export namespace UpdateAcceleratorAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAcceleratorAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCustomRoutingAcceleratorRequest {
@@ -3068,29 +2195,11 @@ export interface UpdateCustomRoutingAcceleratorRequest {
   Enabled?: boolean;
 }
 
-export namespace UpdateCustomRoutingAcceleratorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCustomRoutingAcceleratorResponse {
   /**
    * <p>Information about the updated custom routing accelerator.</p>
    */
   Accelerator?: CustomRoutingAccelerator;
-}
-
-export namespace UpdateCustomRoutingAcceleratorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCustomRoutingAcceleratorAttributesRequest {
@@ -3124,29 +2233,11 @@ export interface UpdateCustomRoutingAcceleratorAttributesRequest {
   FlowLogsS3Prefix?: string;
 }
 
-export namespace UpdateCustomRoutingAcceleratorAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCustomRoutingAcceleratorAttributesResponse {
   /**
    * <p>Updated custom routing accelerator.</p>
    */
   AcceleratorAttributes?: CustomRoutingAcceleratorAttributes;
-}
-
-export namespace UpdateCustomRoutingAcceleratorAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingAcceleratorAttributesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCustomRoutingListenerRequest {
@@ -3164,29 +2255,11 @@ export interface UpdateCustomRoutingListenerRequest {
   PortRanges: PortRange[] | undefined;
 }
 
-export namespace UpdateCustomRoutingListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingListenerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateCustomRoutingListenerResponse {
   /**
    * <p>Information for the updated listener for a custom routing accelerator.</p>
    */
   Listener?: CustomRoutingListener;
-}
-
-export namespace UpdateCustomRoutingListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateCustomRoutingListenerResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateEndpointGroupRequest {
@@ -3250,29 +2323,11 @@ export interface UpdateEndpointGroupRequest {
   PortOverrides?: PortOverride[];
 }
 
-export namespace UpdateEndpointGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateEndpointGroupResponse {
   /**
    * <p>The information about the endpoint group that was updated.</p>
    */
   EndpointGroup?: EndpointGroup;
-}
-
-export namespace UpdateEndpointGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateEndpointGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateListenerRequest {
@@ -3308,29 +2363,11 @@ export interface UpdateListenerRequest {
   ClientAffinity?: ClientAffinity | string;
 }
 
-export namespace UpdateListenerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateListenerRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateListenerResponse {
   /**
    * <p>Information for the updated listener.</p>
    */
   Listener?: Listener;
-}
-
-export namespace UpdateListenerResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateListenerResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface WithdrawByoipCidrRequest {
@@ -3340,15 +2377,6 @@ export interface WithdrawByoipCidrRequest {
   Cidr: string | undefined;
 }
 
-export namespace WithdrawByoipCidrRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface WithdrawByoipCidrResponse {
   /**
    * <p>Information about the address pool.</p>
@@ -3356,11 +2384,833 @@ export interface WithdrawByoipCidrResponse {
   ByoipCidr?: ByoipCidr;
 }
 
-export namespace WithdrawByoipCidrResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WithdrawByoipCidrResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const IpSetFilterSensitiveLog = (obj: IpSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceleratorFilterSensitiveLog = (obj: Accelerator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AcceleratorAttributesFilterSensitiveLog = (obj: AcceleratorAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomRoutingEndpointConfigurationFilterSensitiveLog = (obj: CustomRoutingEndpointConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddCustomRoutingEndpointsRequestFilterSensitiveLog = (obj: AddCustomRoutingEndpointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomRoutingEndpointDescriptionFilterSensitiveLog = (obj: CustomRoutingEndpointDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddCustomRoutingEndpointsResponseFilterSensitiveLog = (obj: AddCustomRoutingEndpointsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdvertiseByoipCidrRequestFilterSensitiveLog = (obj: AdvertiseByoipCidrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ByoipCidrEventFilterSensitiveLog = (obj: ByoipCidrEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ByoipCidrFilterSensitiveLog = (obj: ByoipCidr): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdvertiseByoipCidrResponseFilterSensitiveLog = (obj: AdvertiseByoipCidrResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AllowCustomRoutingTrafficRequestFilterSensitiveLog = (obj: AllowCustomRoutingTrafficRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CidrAuthorizationContextFilterSensitiveLog = (obj: CidrAuthorizationContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAcceleratorRequestFilterSensitiveLog = (obj: CreateAcceleratorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAcceleratorResponseFilterSensitiveLog = (obj: CreateAcceleratorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomRoutingAcceleratorRequestFilterSensitiveLog = (
+  obj: CreateCustomRoutingAcceleratorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomRoutingAcceleratorFilterSensitiveLog = (obj: CustomRoutingAccelerator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomRoutingAcceleratorResponseFilterSensitiveLog = (
+  obj: CreateCustomRoutingAcceleratorResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomRoutingDestinationConfigurationFilterSensitiveLog = (
+  obj: CustomRoutingDestinationConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomRoutingEndpointGroupRequestFilterSensitiveLog = (
+  obj: CreateCustomRoutingEndpointGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomRoutingDestinationDescriptionFilterSensitiveLog = (
+  obj: CustomRoutingDestinationDescription
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomRoutingEndpointGroupFilterSensitiveLog = (obj: CustomRoutingEndpointGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomRoutingEndpointGroupResponseFilterSensitiveLog = (
+  obj: CreateCustomRoutingEndpointGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortRangeFilterSensitiveLog = (obj: PortRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomRoutingListenerRequestFilterSensitiveLog = (obj: CreateCustomRoutingListenerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomRoutingListenerFilterSensitiveLog = (obj: CustomRoutingListener): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCustomRoutingListenerResponseFilterSensitiveLog = (
+  obj: CreateCustomRoutingListenerResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointConfigurationFilterSensitiveLog = (obj: EndpointConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortOverrideFilterSensitiveLog = (obj: PortOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEndpointGroupRequestFilterSensitiveLog = (obj: CreateEndpointGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointDescriptionFilterSensitiveLog = (obj: EndpointDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointGroupFilterSensitiveLog = (obj: EndpointGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEndpointGroupResponseFilterSensitiveLog = (obj: CreateEndpointGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateListenerRequestFilterSensitiveLog = (obj: CreateListenerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListenerFilterSensitiveLog = (obj: Listener): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateListenerResponseFilterSensitiveLog = (obj: CreateListenerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomRoutingAcceleratorAttributesFilterSensitiveLog = (obj: CustomRoutingAcceleratorAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAcceleratorRequestFilterSensitiveLog = (obj: DeleteAcceleratorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomRoutingAcceleratorRequestFilterSensitiveLog = (
+  obj: DeleteCustomRoutingAcceleratorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomRoutingEndpointGroupRequestFilterSensitiveLog = (
+  obj: DeleteCustomRoutingEndpointGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomRoutingListenerRequestFilterSensitiveLog = (obj: DeleteCustomRoutingListenerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEndpointGroupRequestFilterSensitiveLog = (obj: DeleteEndpointGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteListenerRequestFilterSensitiveLog = (obj: DeleteListenerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DenyCustomRoutingTrafficRequestFilterSensitiveLog = (obj: DenyCustomRoutingTrafficRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeprovisionByoipCidrRequestFilterSensitiveLog = (obj: DeprovisionByoipCidrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeprovisionByoipCidrResponseFilterSensitiveLog = (obj: DeprovisionByoipCidrResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAcceleratorRequestFilterSensitiveLog = (obj: DescribeAcceleratorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAcceleratorResponseFilterSensitiveLog = (obj: DescribeAcceleratorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAcceleratorAttributesRequestFilterSensitiveLog = (
+  obj: DescribeAcceleratorAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAcceleratorAttributesResponseFilterSensitiveLog = (
+  obj: DescribeAcceleratorAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomRoutingAcceleratorRequestFilterSensitiveLog = (
+  obj: DescribeCustomRoutingAcceleratorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomRoutingAcceleratorResponseFilterSensitiveLog = (
+  obj: DescribeCustomRoutingAcceleratorResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomRoutingAcceleratorAttributesRequestFilterSensitiveLog = (
+  obj: DescribeCustomRoutingAcceleratorAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomRoutingAcceleratorAttributesResponseFilterSensitiveLog = (
+  obj: DescribeCustomRoutingAcceleratorAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomRoutingEndpointGroupRequestFilterSensitiveLog = (
+  obj: DescribeCustomRoutingEndpointGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomRoutingEndpointGroupResponseFilterSensitiveLog = (
+  obj: DescribeCustomRoutingEndpointGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomRoutingListenerRequestFilterSensitiveLog = (
+  obj: DescribeCustomRoutingListenerRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomRoutingListenerResponseFilterSensitiveLog = (
+  obj: DescribeCustomRoutingListenerResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointGroupRequestFilterSensitiveLog = (obj: DescribeEndpointGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEndpointGroupResponseFilterSensitiveLog = (obj: DescribeEndpointGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeListenerRequestFilterSensitiveLog = (obj: DescribeListenerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeListenerResponseFilterSensitiveLog = (obj: DescribeListenerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SocketAddressFilterSensitiveLog = (obj: SocketAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationPortMappingFilterSensitiveLog = (obj: DestinationPortMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAcceleratorsRequestFilterSensitiveLog = (obj: ListAcceleratorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAcceleratorsResponseFilterSensitiveLog = (obj: ListAcceleratorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListByoipCidrsRequestFilterSensitiveLog = (obj: ListByoipCidrsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListByoipCidrsResponseFilterSensitiveLog = (obj: ListByoipCidrsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomRoutingAcceleratorsRequestFilterSensitiveLog = (
+  obj: ListCustomRoutingAcceleratorsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomRoutingAcceleratorsResponseFilterSensitiveLog = (
+  obj: ListCustomRoutingAcceleratorsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomRoutingEndpointGroupsRequestFilterSensitiveLog = (
+  obj: ListCustomRoutingEndpointGroupsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomRoutingEndpointGroupsResponseFilterSensitiveLog = (
+  obj: ListCustomRoutingEndpointGroupsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomRoutingListenersRequestFilterSensitiveLog = (obj: ListCustomRoutingListenersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomRoutingListenersResponseFilterSensitiveLog = (obj: ListCustomRoutingListenersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomRoutingPortMappingsRequestFilterSensitiveLog = (
+  obj: ListCustomRoutingPortMappingsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortMappingFilterSensitiveLog = (obj: PortMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomRoutingPortMappingsResponseFilterSensitiveLog = (
+  obj: ListCustomRoutingPortMappingsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomRoutingPortMappingsByDestinationRequestFilterSensitiveLog = (
+  obj: ListCustomRoutingPortMappingsByDestinationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCustomRoutingPortMappingsByDestinationResponseFilterSensitiveLog = (
+  obj: ListCustomRoutingPortMappingsByDestinationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEndpointGroupsRequestFilterSensitiveLog = (obj: ListEndpointGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEndpointGroupsResponseFilterSensitiveLog = (obj: ListEndpointGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListListenersRequestFilterSensitiveLog = (obj: ListListenersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListListenersResponseFilterSensitiveLog = (obj: ListListenersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionByoipCidrRequestFilterSensitiveLog = (obj: ProvisionByoipCidrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProvisionByoipCidrResponseFilterSensitiveLog = (obj: ProvisionByoipCidrResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveCustomRoutingEndpointsRequestFilterSensitiveLog = (
+  obj: RemoveCustomRoutingEndpointsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAcceleratorRequestFilterSensitiveLog = (obj: UpdateAcceleratorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAcceleratorResponseFilterSensitiveLog = (obj: UpdateAcceleratorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAcceleratorAttributesRequestFilterSensitiveLog = (obj: UpdateAcceleratorAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAcceleratorAttributesResponseFilterSensitiveLog = (
+  obj: UpdateAcceleratorAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomRoutingAcceleratorRequestFilterSensitiveLog = (
+  obj: UpdateCustomRoutingAcceleratorRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomRoutingAcceleratorResponseFilterSensitiveLog = (
+  obj: UpdateCustomRoutingAcceleratorResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomRoutingAcceleratorAttributesRequestFilterSensitiveLog = (
+  obj: UpdateCustomRoutingAcceleratorAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomRoutingAcceleratorAttributesResponseFilterSensitiveLog = (
+  obj: UpdateCustomRoutingAcceleratorAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomRoutingListenerRequestFilterSensitiveLog = (obj: UpdateCustomRoutingListenerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateCustomRoutingListenerResponseFilterSensitiveLog = (
+  obj: UpdateCustomRoutingListenerResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointGroupRequestFilterSensitiveLog = (obj: UpdateEndpointGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEndpointGroupResponseFilterSensitiveLog = (obj: UpdateEndpointGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateListenerRequestFilterSensitiveLog = (obj: UpdateListenerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateListenerResponseFilterSensitiveLog = (obj: UpdateListenerResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WithdrawByoipCidrRequestFilterSensitiveLog = (obj: WithdrawByoipCidrRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WithdrawByoipCidrResponseFilterSensitiveLog = (obj: WithdrawByoipCidrResponse): any => ({
+  ...obj,
+});

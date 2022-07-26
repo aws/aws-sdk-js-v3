@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { ConfirmTransitVirtualInterfaceRequest, ConfirmTransitVirtualInterfaceResponse } from "../models/models_0";
+import {
+  ConfirmTransitVirtualInterfaceRequest,
+  ConfirmTransitVirtualInterfaceRequestFilterSensitiveLog,
+  ConfirmTransitVirtualInterfaceResponse,
+  ConfirmTransitVirtualInterfaceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand,
   serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand,
@@ -76,8 +81,8 @@ export class ConfirmTransitVirtualInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmTransitVirtualInterfaceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmTransitVirtualInterfaceResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ConfirmTransitVirtualInterfaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ConfirmTransitVirtualInterfaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

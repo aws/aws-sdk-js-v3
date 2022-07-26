@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssignInstanceRequest } from "../models/models_0";
+import { AssignInstanceRequest, AssignInstanceRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1AssignInstanceCommand,
@@ -89,7 +89,7 @@ export class AssignInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignInstanceRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AssignInstanceRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

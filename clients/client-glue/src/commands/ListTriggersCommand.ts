@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { ListTriggersRequest, ListTriggersResponse } from "../models/models_1";
+import {
+  ListTriggersRequest,
+  ListTriggersRequestFilterSensitiveLog,
+  ListTriggersResponse,
+  ListTriggersResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1ListTriggersCommand,
   serializeAws_json1_1ListTriggersCommand,
@@ -76,8 +81,8 @@ export class ListTriggersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTriggersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListTriggersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListTriggersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTriggersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

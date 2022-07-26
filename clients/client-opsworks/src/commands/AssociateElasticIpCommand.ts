@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AssociateElasticIpRequest } from "../models/models_0";
+import { AssociateElasticIpRequest, AssociateElasticIpRequestFilterSensitiveLog } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1AssociateElasticIpCommand,
@@ -80,7 +80,7 @@ export class AssociateElasticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateElasticIpRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateElasticIpRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

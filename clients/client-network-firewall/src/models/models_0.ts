@@ -20,15 +20,6 @@ export interface Dimension {
   Value: string | undefined;
 }
 
-export namespace Dimension {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Dimension): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the
  *          matching packet. This setting defines a CloudWatch dimension value to be published.</p>
@@ -38,15 +29,6 @@ export interface PublishMetricAction {
    * <p></p>
    */
   Dimensions: Dimension[] | undefined;
-}
-
-export namespace PublishMetricAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublishMetricAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -62,15 +44,6 @@ export interface ActionDefinition {
    *          publishes metrics for the packet and forwards it. </p>
    */
   PublishMetricAction?: PublishMetricAction;
-}
-
-export namespace ActionDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionDefinition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -93,15 +66,6 @@ export interface Address {
    *          Inter-Domain Routing</a>.</p>
    */
   AddressDefinition: string | undefined;
-}
-
-export namespace Address {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Address): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateFirewallPolicyRequest {
@@ -130,15 +94,6 @@ export interface AssociateFirewallPolicyRequest {
   FirewallPolicyArn: string | undefined;
 }
 
-export namespace AssociateFirewallPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateFirewallPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateFirewallPolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -161,15 +116,6 @@ export interface AssociateFirewallPolicyResponse {
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken?: string;
-}
-
-export namespace AssociateFirewallPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateFirewallPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -326,15 +272,6 @@ export interface SubnetMapping {
   SubnetId: string | undefined;
 }
 
-export namespace SubnetMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetMapping): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateSubnetsRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -361,15 +298,6 @@ export interface AssociateSubnetsRequest {
   SubnetMappings: SubnetMapping[] | undefined;
 }
 
-export namespace AssociateSubnetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSubnetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface AssociateSubnetsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -392,15 +320,6 @@ export interface AssociateSubnetsResponse {
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken?: string;
-}
-
-export namespace AssociateSubnetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateSubnetsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -461,15 +380,6 @@ export interface Attachment {
   Status?: AttachmentStatus | string;
 }
 
-export namespace Attachment {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Attachment): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>General information about the IP set.</p>
  */
@@ -478,15 +388,6 @@ export interface IPSetMetadata {
    * <p>Describes the total number of CIDR blocks currently in use by the IP set references in a firewall. To determine how many CIDR blocks are available for you to use in a firewall, you can call <code>AvailableCIDRCount</code>.</p>
    */
   ResolvedCIDRCount?: number;
-}
-
-export namespace IPSetMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSetMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -509,15 +410,6 @@ export interface CIDRSummary {
   IPSetReferences?: Record<string, IPSetMetadata>;
 }
 
-export namespace CIDRSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CIDRSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The capacity usage summary of the resources used by the <a>ReferenceSets</a> in a firewall.</p>
  */
@@ -526,15 +418,6 @@ export interface CapacityUsageSummary {
    * <p>Describes the capacity usage of the CIDR blocks used by the IP set references in a firewall.</p>
    */
   CIDRs?: CIDRSummary;
-}
-
-export namespace CapacityUsageSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CapacityUsageSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum ConfigurationSyncState {
@@ -563,15 +446,6 @@ export interface EncryptionConfiguration {
   Type: EncryptionType | string | undefined;
 }
 
-export namespace EncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key:value pair associated with an Amazon Web Services resource. The key:value pair can be anything you
  *          define. Typically, the tag key represents a category (such as "environment") and the tag
@@ -591,15 +465,6 @@ export interface Tag {
    *          case-sensitive.</p>
    */
   Value: string | undefined;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateFirewallRequest {
@@ -662,15 +527,6 @@ export interface CreateFirewallRequest {
    * <p>A complex type that contains settings for encryption of your firewall resources.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
-}
-
-export namespace CreateFirewallRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFirewallRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -751,15 +607,6 @@ export interface Firewall {
   EncryptionConfiguration?: EncryptionConfiguration;
 }
 
-export namespace Firewall {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Firewall): any => ({
-    ...obj,
-  });
-}
-
 export enum FirewallStatusValue {
   DELETING = "DELETING",
   PROVISIONING = "PROVISIONING",
@@ -788,15 +635,6 @@ export interface PerObjectStatus {
    * <p>The current version of the object that is either in sync or pending synchronization. </p>
    */
   UpdateToken?: string;
-}
-
-export namespace PerObjectStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PerObjectStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -832,15 +670,6 @@ export interface SyncState {
    *          rules in the endpoint, so it can properly filter network traffic. This is part of the <a>FirewallStatus</a>.</p>
    */
   Config?: Record<string, PerObjectStatus>;
-}
-
-export namespace SyncState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SyncState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -886,15 +715,6 @@ export interface FirewallStatus {
   CapacityUsageSummary?: CapacityUsageSummary;
 }
 
-export namespace FirewallStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFirewallResponse {
   /**
    * <p>The configuration settings for the firewall. These settings include the firewall policy and the subnets in your VPC to use for the firewall endpoints. </p>
@@ -905,15 +725,6 @@ export interface CreateFirewallResponse {
    * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
    */
   FirewallStatus?: FirewallStatus;
-}
-
-export namespace CreateFirewallResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFirewallResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -956,15 +767,6 @@ export interface StatefulEngineOptions {
   RuleOrder?: RuleOrder | string;
 }
 
-export namespace StatefulEngineOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatefulEngineOptions): any => ({
-    ...obj,
-  });
-}
-
 export enum OverrideAction {
   DROP_TO_ALERT = "DROP_TO_ALERT",
 }
@@ -978,15 +780,6 @@ export interface StatefulRuleGroupOverride {
    *       managed rule groups.</p>
    */
   Action?: OverrideAction | string;
-}
-
-export namespace StatefulRuleGroupOverride {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatefulRuleGroupOverride): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1016,15 +809,6 @@ export interface StatefulRuleGroupReference {
    * <p>The action that allows the policy owner to override the behavior of the rule group within a policy.</p>
    */
   Override?: StatefulRuleGroupOverride;
-}
-
-export namespace StatefulRuleGroupReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatefulRuleGroupReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1062,15 +846,6 @@ export interface CustomAction {
   ActionDefinition: ActionDefinition | undefined;
 }
 
-export namespace CustomAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifier for a single stateless rule group, used in a firewall policy to refer to the
  *          rule group. </p>
@@ -1088,15 +863,6 @@ export interface StatelessRuleGroupReference {
    *          that the priority settings are unique within each policy.</p>
    */
   Priority: number | undefined;
-}
-
-export namespace StatelessRuleGroupReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatelessRuleGroupReference): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1184,15 +950,6 @@ export interface FirewallPolicy {
   StatefulEngineOptions?: StatefulEngineOptions;
 }
 
-export namespace FirewallPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFirewallPolicyRequest {
   /**
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
@@ -1228,15 +985,6 @@ export interface CreateFirewallPolicyRequest {
    * <p>A complex type that contains settings for encryption of your firewall policy resources.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
-}
-
-export namespace CreateFirewallPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFirewallPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceStatus {
@@ -1311,15 +1059,6 @@ export interface FirewallPolicyResponse {
   LastModifiedTime?: Date;
 }
 
-export namespace FirewallPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFirewallPolicyResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
@@ -1331,15 +1070,6 @@ export interface CreateFirewallPolicyResponse {
    * <p>The high-level properties of a firewall policy. This, along with the <a>FirewallPolicy</a>, define the policy. You can retrieve all objects for a firewall policy by calling <a>DescribeFirewallPolicy</a>. </p>
    */
   FirewallPolicyResponse: FirewallPolicyResponse | undefined;
-}
-
-export namespace CreateFirewallPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFirewallPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1355,15 +1085,6 @@ export interface IPSetReference {
   ReferenceArn?: string;
 }
 
-export namespace IPSetReference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSetReference): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a set of IP set references.</p>
  */
@@ -1372,15 +1093,6 @@ export interface ReferenceSets {
    * <p>The list of IP set references.</p>
    */
   IPSetReferences?: Record<string, IPSetReference>;
-}
-
-export namespace ReferenceSets {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReferenceSets): any => ({
-    ...obj,
-  });
 }
 
 export enum GeneratedRulesType {
@@ -1421,15 +1133,6 @@ export interface RulesSourceList {
    * <p>Whether you want to allow or deny access to the domains in your target list.</p>
    */
   GeneratedRulesType: GeneratedRulesType | string | undefined;
-}
-
-export namespace RulesSourceList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RulesSourceList): any => ({
-    ...obj,
-  });
 }
 
 export enum StatefulAction {
@@ -1537,15 +1240,6 @@ export interface Header {
   DestinationPort: string | undefined;
 }
 
-export namespace Header {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Header): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Additional settings for a stateful rule. This is part of the <a>StatefulRule</a> configuration.</p>
  */
@@ -1559,15 +1253,6 @@ export interface RuleOption {
    * <p></p>
    */
   Settings?: string[];
-}
-
-export namespace RuleOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleOption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1619,15 +1304,6 @@ export interface StatefulRule {
   RuleOptions: RuleOption[] | undefined;
 }
 
-export namespace StatefulRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatefulRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A single port range specification. This is used for source and destination port ranges
  *          in the stateless rule <a>MatchAttributes</a>, <code>SourcePorts</code>, and
@@ -1645,15 +1321,6 @@ export interface PortRange {
    *             <code>FromPort</code> specification. </p>
    */
   ToPort: number | undefined;
-}
-
-export namespace PortRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortRange): any => ({
-    ...obj,
-  });
 }
 
 export enum TCPFlag {
@@ -1689,15 +1356,6 @@ export interface TCPFlagField {
    * <p>The set of flags to consider in the inspection. To inspect all flags in the valid values list, leave this with no setting.</p>
    */
   Masks?: (TCPFlag | string)[];
-}
-
-export namespace TCPFlagField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TCPFlagField): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1743,15 +1401,6 @@ export interface MatchAttributes {
    *          settings. This setting is only used for protocol 6 (TCP).</p>
    */
   TCPFlags?: TCPFlagField[];
-}
-
-export namespace MatchAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MatchAttributes): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1807,15 +1456,6 @@ export interface RuleDefinition {
   Actions: string[] | undefined;
 }
 
-export namespace RuleDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A single stateless rule. This is used in <a>StatelessRulesAndCustomActions</a>.</p>
  */
@@ -1843,15 +1483,6 @@ export interface StatelessRule {
   Priority: number | undefined;
 }
 
-export namespace StatelessRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatelessRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Stateless inspection criteria. Each stateless rule group uses exactly one of these data
  *          types to define its stateless rules. </p>
@@ -1870,15 +1501,6 @@ export interface StatelessRulesAndCustomActions {
    *             <code>Actions</code> specification.</p>
    */
   CustomActions?: CustomAction[];
-}
-
-export namespace StatelessRulesAndCustomActions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatelessRulesAndCustomActions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1916,15 +1538,6 @@ export interface RulesSource {
   StatelessRulesAndCustomActions?: StatelessRulesAndCustomActions;
 }
 
-export namespace RulesSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RulesSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of IP addresses and address ranges, in CIDR notation. This is part of a <a>RuleVariables</a>. </p>
  */
@@ -1937,15 +1550,6 @@ export interface IPSet {
   Definition: string[] | undefined;
 }
 
-export namespace IPSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IPSet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A set of port ranges for use in the rules in a rule group. </p>
  */
@@ -1955,15 +1559,6 @@ export interface PortSet {
    *       </p>
    */
   Definition?: string[];
-}
-
-export namespace PortSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortSet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1982,15 +1577,6 @@ export interface RuleVariables {
   PortSets?: Record<string, PortSet>;
 }
 
-export namespace RuleVariables {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleVariables): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.</p>
  */
@@ -2003,15 +1589,6 @@ export interface StatefulRuleOptions {
    *       </p>
    */
   RuleOrder?: RuleOrder | string;
-}
-
-export namespace StatefulRuleOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatefulRuleOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2046,15 +1623,6 @@ export interface RuleGroup {
   StatefulRuleOptions?: StatefulRuleOptions;
 }
 
-export namespace RuleGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>High-level information about the managed rule group that your own rule group is copied from. You can use the the metadata to track version updates made to the originating rule group. You can retrieve all objects for a rule group by calling <a href="https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html">DescribeRuleGroup</a>.</p>
  */
@@ -2068,15 +1636,6 @@ export interface SourceMetadata {
    * <p>The update token of the Amazon Web Services managed rule group that your own rule group is copied from. To determine the update token for the managed rule group, call <a href="https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html#networkfirewall-DescribeRuleGroup-response-UpdateToken">DescribeRuleGroup</a>.</p>
    */
   SourceUpdateToken?: string;
-}
-
-export namespace SourceMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceMetadata): any => ({
-    ...obj,
-  });
 }
 
 export enum RuleGroupType {
@@ -2191,15 +1750,6 @@ export interface CreateRuleGroupRequest {
   SourceMetadata?: SourceMetadata;
 }
 
-export namespace CreateRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
  */
@@ -2288,15 +1838,6 @@ export interface RuleGroupResponse {
   LastModifiedTime?: Date;
 }
 
-export namespace RuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateRuleGroupResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
@@ -2308,15 +1849,6 @@ export interface CreateRuleGroupResponse {
    * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
    */
   RuleGroupResponse: RuleGroupResponse | undefined;
-}
-
-export namespace CreateRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFirewallRequest {
@@ -2333,15 +1865,6 @@ export interface DeleteFirewallRequest {
   FirewallArn?: string;
 }
 
-export namespace DeleteFirewallRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFirewallResponse {
   /**
    * <p>The firewall defines the configuration settings for an Network Firewall firewall. These settings include the firewall policy, the subnets in your VPC to use for the firewall endpoints, and any tags that are attached to the firewall Amazon Web Services resource. </p>
@@ -2355,15 +1878,6 @@ export interface DeleteFirewallResponse {
    * <p>Detailed information about the current status of a <a>Firewall</a>. You can retrieve this for a firewall by calling <a>DescribeFirewall</a> and providing the firewall name and ARN.</p>
    */
   FirewallStatus?: FirewallStatus;
-}
-
-export namespace DeleteFirewallResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2401,30 +1915,12 @@ export interface DeleteFirewallPolicyRequest {
   FirewallPolicyArn?: string;
 }
 
-export namespace DeleteFirewallPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFirewallPolicyResponse {
   /**
    * <p>The object containing the definition of the <a>FirewallPolicyResponse</a>
    *          that you asked to delete. </p>
    */
   FirewallPolicyResponse: FirewallPolicyResponse | undefined;
-}
-
-export namespace DeleteFirewallPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFirewallPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourcePolicyRequest {
@@ -2434,25 +1930,7 @@ export interface DeleteResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DeleteResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyResponse {}
-
-export namespace DeleteResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The policy statement failed validation.</p>
@@ -2498,29 +1976,11 @@ export interface DeleteRuleGroupRequest {
   Type?: RuleGroupType | string;
 }
 
-export namespace DeleteRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRuleGroupResponse {
   /**
    * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
    */
   RuleGroupResponse: RuleGroupResponse | undefined;
-}
-
-export namespace DeleteRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFirewallRequest {
@@ -2535,15 +1995,6 @@ export interface DescribeFirewallRequest {
    *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
-}
-
-export namespace DescribeFirewallRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFirewallRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFirewallResponse {
@@ -2565,15 +2016,6 @@ export interface DescribeFirewallResponse {
   FirewallStatus?: FirewallStatus;
 }
 
-export namespace DescribeFirewallResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFirewallResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeFirewallPolicyRequest {
   /**
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
@@ -2586,15 +2028,6 @@ export interface DescribeFirewallPolicyRequest {
    *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyArn?: string;
-}
-
-export namespace DescribeFirewallPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFirewallPolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFirewallPolicyResponse {
@@ -2615,15 +2048,6 @@ export interface DescribeFirewallPolicyResponse {
   FirewallPolicy?: FirewallPolicy;
 }
 
-export namespace DescribeFirewallPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFirewallPolicyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -2636,15 +2060,6 @@ export interface DescribeLoggingConfigurationRequest {
    *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
-}
-
-export namespace DescribeLoggingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoggingConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum LogDestinationType {
@@ -2715,15 +2130,6 @@ export interface LogDestinationConfig {
   LogDestination: Record<string, string> | undefined;
 }
 
-export namespace LogDestinationConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogDestinationConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines how Network Firewall performs logging for a <a>Firewall</a>. </p>
  */
@@ -2733,15 +2139,6 @@ export interface LoggingConfiguration {
    *          logs for stateful rule groups. </p>
    */
   LogDestinationConfigs: LogDestinationConfig[] | undefined;
-}
-
-export namespace LoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeLoggingConfigurationResponse {
@@ -2756,15 +2153,6 @@ export interface DescribeLoggingConfigurationResponse {
   LoggingConfiguration?: LoggingConfiguration;
 }
 
-export namespace DescribeLoggingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeLoggingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the rule group or firewall policy whose resource policy you want to retrieve. </p>
@@ -2772,29 +2160,11 @@ export interface DescribeResourcePolicyRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace DescribeResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResourcePolicyResponse {
   /**
    * <p>The IAM policy for the resource. </p>
    */
   Policy?: string;
-}
-
-export namespace DescribeResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRuleGroupRequest {
@@ -2820,15 +2190,6 @@ export interface DescribeRuleGroupRequest {
   Type?: RuleGroupType | string;
 }
 
-export namespace DescribeRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRuleGroupResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
@@ -2852,15 +2213,6 @@ export interface DescribeRuleGroupResponse {
   RuleGroupResponse: RuleGroupResponse | undefined;
 }
 
-export namespace DescribeRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuleGroupResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeRuleGroupMetadataRequest {
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
@@ -2882,15 +2234,6 @@ export interface DescribeRuleGroupMetadataRequest {
    *          </note>
    */
   Type?: RuleGroupType | string;
-}
-
-export namespace DescribeRuleGroupMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuleGroupMetadataRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeRuleGroupMetadataResponse {
@@ -2941,15 +2284,6 @@ export interface DescribeRuleGroupMetadataResponse {
   LastModifiedTime?: Date;
 }
 
-export namespace DescribeRuleGroupMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeRuleGroupMetadataResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateSubnetsRequest {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -2976,15 +2310,6 @@ export interface DisassociateSubnetsRequest {
   SubnetIds: string[] | undefined;
 }
 
-export namespace DisassociateSubnetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateSubnetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateSubnetsResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -3009,15 +2334,6 @@ export interface DisassociateSubnetsResponse {
   UpdateToken?: string;
 }
 
-export namespace DisassociateSubnetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateSubnetsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>High-level information about a firewall, returned by operations like create and
  *          describe. You can use the information provided in the metadata to retrieve and manage a
@@ -3033,15 +2349,6 @@ export interface FirewallMetadata {
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
    */
   FirewallArn?: string;
-}
-
-export namespace FirewallMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallMetadata): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3061,15 +2368,6 @@ export interface FirewallPolicyMetadata {
   Arn?: string;
 }
 
-export namespace FirewallPolicyMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FirewallPolicyMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFirewallPoliciesRequest {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -3086,15 +2384,6 @@ export interface ListFirewallPoliciesRequest {
   MaxResults?: number;
 }
 
-export namespace ListFirewallPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallPoliciesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFirewallPoliciesResponse {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -3108,15 +2397,6 @@ export interface ListFirewallPoliciesResponse {
    *          the number of firewall policies that you have, this might not be the full list. </p>
    */
   FirewallPolicies?: FirewallPolicyMetadata[];
-}
-
-export namespace ListFirewallPoliciesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallPoliciesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFirewallsRequest {
@@ -3141,15 +2421,6 @@ export interface ListFirewallsRequest {
   MaxResults?: number;
 }
 
-export namespace ListFirewallsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFirewallsResponse {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -3164,15 +2435,6 @@ export interface ListFirewallsResponse {
    *          list. </p>
    */
   Firewalls?: FirewallMetadata[];
-}
-
-export namespace ListFirewallsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFirewallsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceManagedType {
@@ -3218,15 +2480,6 @@ export interface ListRuleGroupsRequest {
   Type?: RuleGroupType | string;
 }
 
-export namespace ListRuleGroupsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleGroupsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>High-level information about a rule group, returned by <a>ListRuleGroups</a>.
  *          You can use the information provided in the metadata to retrieve and manage a
@@ -3244,15 +2497,6 @@ export interface RuleGroupMetadata {
   Arn?: string;
 }
 
-export namespace RuleGroupMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupMetadata): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRuleGroupsResponse {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -3266,15 +2510,6 @@ export interface ListRuleGroupsResponse {
    *          results and the number of rule groups, this might not be the full list. </p>
    */
   RuleGroups?: RuleGroupMetadata[];
-}
-
-export namespace ListRuleGroupsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRuleGroupsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -3298,15 +2533,6 @@ export interface ListTagsForResourceRequest {
   ResourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>When you request a list of objects with a <code>MaxResults</code> setting, if the number of objects that are still available
@@ -3319,15 +2545,6 @@ export interface ListTagsForResourceResponse {
    * <p>The tags that are associated with the resource. </p>
    */
   Tags?: Tag[];
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3392,25 +2609,7 @@ export interface PutResourcePolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutResourcePolicyResponse {}
-
-export namespace PutResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface TagResourceRequest {
   /**
@@ -3424,25 +2623,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3456,25 +2637,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Unable to change the resource because your account doesn't own it. </p>
@@ -3525,15 +2688,6 @@ export interface UpdateFirewallDeleteProtectionRequest {
   DeleteProtection: boolean | undefined;
 }
 
-export namespace UpdateFirewallDeleteProtectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallDeleteProtectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFirewallDeleteProtectionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -3558,15 +2712,6 @@ export interface UpdateFirewallDeleteProtectionResponse {
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken?: string;
-}
-
-export namespace UpdateFirewallDeleteProtectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallDeleteProtectionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFirewallDescriptionRequest {
@@ -3596,15 +2741,6 @@ export interface UpdateFirewallDescriptionRequest {
   Description?: string;
 }
 
-export namespace UpdateFirewallDescriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallDescriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFirewallDescriptionResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -3627,15 +2763,6 @@ export interface UpdateFirewallDescriptionResponse {
    *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
    */
   UpdateToken?: string;
-}
-
-export namespace UpdateFirewallDescriptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallDescriptionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFirewallEncryptionConfigurationRequest {
@@ -3662,15 +2789,6 @@ export interface UpdateFirewallEncryptionConfigurationRequest {
   EncryptionConfiguration?: EncryptionConfiguration;
 }
 
-export namespace UpdateFirewallEncryptionConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallEncryptionConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFirewallEncryptionConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -3693,15 +2811,6 @@ export interface UpdateFirewallEncryptionConfigurationResponse {
    * <p>A complex type that contains optional Amazon Web Services Key Management Service (KMS) encryption settings for your Network Firewall resources. Your data is encrypted by default with an Amazon Web Services owned key that Amazon Web Services owns and manages for you. You can use either the Amazon Web Services owned key, or provide your own customer managed key. To learn more about KMS encryption of your Network Firewall resources, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-encryption-at-rest.html">Encryption at rest with Amazon Web Services Key Managment Service</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
-}
-
-export namespace UpdateFirewallEncryptionConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallEncryptionConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFirewallPolicyRequest {
@@ -3749,15 +2858,6 @@ export interface UpdateFirewallPolicyRequest {
   EncryptionConfiguration?: EncryptionConfiguration;
 }
 
-export namespace UpdateFirewallPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFirewallPolicyResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the firewall policy. The token marks the state of the policy resource at the time of the request. </p>
@@ -3769,15 +2869,6 @@ export interface UpdateFirewallPolicyResponse {
    * <p>The high-level properties of a firewall policy. This, along with the <a>FirewallPolicy</a>, define the policy. You can retrieve all objects for a firewall policy by calling <a>DescribeFirewallPolicy</a>. </p>
    */
   FirewallPolicyResponse: FirewallPolicyResponse | undefined;
-}
-
-export namespace UpdateFirewallPolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallPolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateFirewallPolicyChangeProtectionRequest {
@@ -3808,15 +2899,6 @@ export interface UpdateFirewallPolicyChangeProtectionRequest {
   FirewallPolicyChangeProtection: boolean | undefined;
 }
 
-export namespace UpdateFirewallPolicyChangeProtectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallPolicyChangeProtectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateFirewallPolicyChangeProtectionResponse {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -3843,15 +2925,6 @@ export interface UpdateFirewallPolicyChangeProtectionResponse {
   FirewallPolicyChangeProtection?: boolean;
 }
 
-export namespace UpdateFirewallPolicyChangeProtectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateFirewallPolicyChangeProtectionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -3872,15 +2945,6 @@ export interface UpdateLoggingConfigurationRequest {
   LoggingConfiguration?: LoggingConfiguration;
 }
 
-export namespace UpdateLoggingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLoggingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLoggingConfigurationResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
@@ -3896,15 +2960,6 @@ export interface UpdateLoggingConfigurationResponse {
    * <p>Defines how Network Firewall performs logging for a <a>Firewall</a>. </p>
    */
   LoggingConfiguration?: LoggingConfiguration;
-}
-
-export namespace UpdateLoggingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLoggingConfigurationResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRuleGroupRequest {
@@ -3980,15 +3035,6 @@ export interface UpdateRuleGroupRequest {
   SourceMetadata?: SourceMetadata;
 }
 
-export namespace UpdateRuleGroupRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuleGroupRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRuleGroupResponse {
   /**
    * <p>A token used for optimistic locking. Network Firewall returns a token to your requests that access the rule group. The token marks the state of the rule group resource at the time of the request. </p>
@@ -4000,15 +3046,6 @@ export interface UpdateRuleGroupResponse {
    * <p>The high-level properties of a rule group. This, along with the <a>RuleGroup</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
    */
   RuleGroupResponse: RuleGroupResponse | undefined;
-}
-
-export namespace UpdateRuleGroupResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRuleGroupResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSubnetChangeProtectionRequest {
@@ -4039,15 +3076,6 @@ export interface UpdateSubnetChangeProtectionRequest {
   SubnetChangeProtection: boolean | undefined;
 }
 
-export namespace UpdateSubnetChangeProtectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSubnetChangeProtectionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSubnetChangeProtectionResponse {
   /**
    * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
@@ -4074,11 +3102,785 @@ export interface UpdateSubnetChangeProtectionResponse {
   SubnetChangeProtection?: boolean;
 }
 
-export namespace UpdateSubnetChangeProtectionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSubnetChangeProtectionResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DimensionFilterSensitiveLog = (obj: Dimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublishMetricActionFilterSensitiveLog = (obj: PublishMetricAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActionDefinitionFilterSensitiveLog = (obj: ActionDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddressFilterSensitiveLog = (obj: Address): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateFirewallPolicyRequestFilterSensitiveLog = (obj: AssociateFirewallPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateFirewallPolicyResponseFilterSensitiveLog = (obj: AssociateFirewallPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubnetMappingFilterSensitiveLog = (obj: SubnetMapping): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSubnetsRequestFilterSensitiveLog = (obj: AssociateSubnetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSubnetsResponseFilterSensitiveLog = (obj: AssociateSubnetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachmentFilterSensitiveLog = (obj: Attachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetMetadataFilterSensitiveLog = (obj: IPSetMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CIDRSummaryFilterSensitiveLog = (obj: CIDRSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CapacityUsageSummaryFilterSensitiveLog = (obj: CapacityUsageSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFirewallRequestFilterSensitiveLog = (obj: CreateFirewallRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallFilterSensitiveLog = (obj: Firewall): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PerObjectStatusFilterSensitiveLog = (obj: PerObjectStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncStateFilterSensitiveLog = (obj: SyncState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallStatusFilterSensitiveLog = (obj: FirewallStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFirewallResponseFilterSensitiveLog = (obj: CreateFirewallResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatefulEngineOptionsFilterSensitiveLog = (obj: StatefulEngineOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatefulRuleGroupOverrideFilterSensitiveLog = (obj: StatefulRuleGroupOverride): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatefulRuleGroupReferenceFilterSensitiveLog = (obj: StatefulRuleGroupReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomActionFilterSensitiveLog = (obj: CustomAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatelessRuleGroupReferenceFilterSensitiveLog = (obj: StatelessRuleGroupReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyFilterSensitiveLog = (obj: FirewallPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFirewallPolicyRequestFilterSensitiveLog = (obj: CreateFirewallPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyResponseFilterSensitiveLog = (obj: FirewallPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFirewallPolicyResponseFilterSensitiveLog = (obj: CreateFirewallPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetReferenceFilterSensitiveLog = (obj: IPSetReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReferenceSetsFilterSensitiveLog = (obj: ReferenceSets): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RulesSourceListFilterSensitiveLog = (obj: RulesSourceList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HeaderFilterSensitiveLog = (obj: Header): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleOptionFilterSensitiveLog = (obj: RuleOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatefulRuleFilterSensitiveLog = (obj: StatefulRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortRangeFilterSensitiveLog = (obj: PortRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TCPFlagFieldFilterSensitiveLog = (obj: TCPFlagField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MatchAttributesFilterSensitiveLog = (obj: MatchAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleDefinitionFilterSensitiveLog = (obj: RuleDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatelessRuleFilterSensitiveLog = (obj: StatelessRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatelessRulesAndCustomActionsFilterSensitiveLog = (obj: StatelessRulesAndCustomActions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RulesSourceFilterSensitiveLog = (obj: RulesSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPSetFilterSensitiveLog = (obj: IPSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortSetFilterSensitiveLog = (obj: PortSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleVariablesFilterSensitiveLog = (obj: RuleVariables): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatefulRuleOptionsFilterSensitiveLog = (obj: StatefulRuleOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupFilterSensitiveLog = (obj: RuleGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceMetadataFilterSensitiveLog = (obj: SourceMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleGroupRequestFilterSensitiveLog = (obj: CreateRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupResponseFilterSensitiveLog = (obj: RuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleGroupResponseFilterSensitiveLog = (obj: CreateRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallRequestFilterSensitiveLog = (obj: DeleteFirewallRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallResponseFilterSensitiveLog = (obj: DeleteFirewallResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallPolicyRequestFilterSensitiveLog = (obj: DeleteFirewallPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFirewallPolicyResponseFilterSensitiveLog = (obj: DeleteFirewallPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleGroupRequestFilterSensitiveLog = (obj: DeleteRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteRuleGroupResponseFilterSensitiveLog = (obj: DeleteRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFirewallRequestFilterSensitiveLog = (obj: DescribeFirewallRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFirewallResponseFilterSensitiveLog = (obj: DescribeFirewallResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFirewallPolicyRequestFilterSensitiveLog = (obj: DescribeFirewallPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeFirewallPolicyResponseFilterSensitiveLog = (obj: DescribeFirewallPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoggingConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeLoggingConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogDestinationConfigFilterSensitiveLog = (obj: LogDestinationConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigurationFilterSensitiveLog = (obj: LoggingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeLoggingConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeLoggingConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourcePolicyRequestFilterSensitiveLog = (obj: DescribeResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourcePolicyResponseFilterSensitiveLog = (obj: DescribeResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuleGroupRequestFilterSensitiveLog = (obj: DescribeRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuleGroupResponseFilterSensitiveLog = (obj: DescribeRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuleGroupMetadataRequestFilterSensitiveLog = (obj: DescribeRuleGroupMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeRuleGroupMetadataResponseFilterSensitiveLog = (obj: DescribeRuleGroupMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSubnetsRequestFilterSensitiveLog = (obj: DisassociateSubnetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSubnetsResponseFilterSensitiveLog = (obj: DisassociateSubnetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallMetadataFilterSensitiveLog = (obj: FirewallMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyMetadataFilterSensitiveLog = (obj: FirewallPolicyMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallPoliciesRequestFilterSensitiveLog = (obj: ListFirewallPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallPoliciesResponseFilterSensitiveLog = (obj: ListFirewallPoliciesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallsRequestFilterSensitiveLog = (obj: ListFirewallsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFirewallsResponseFilterSensitiveLog = (obj: ListFirewallsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRuleGroupsRequestFilterSensitiveLog = (obj: ListRuleGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupMetadataFilterSensitiveLog = (obj: RuleGroupMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRuleGroupsResponseFilterSensitiveLog = (obj: ListRuleGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallDeleteProtectionRequestFilterSensitiveLog = (
+  obj: UpdateFirewallDeleteProtectionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallDeleteProtectionResponseFilterSensitiveLog = (
+  obj: UpdateFirewallDeleteProtectionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallDescriptionRequestFilterSensitiveLog = (obj: UpdateFirewallDescriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallDescriptionResponseFilterSensitiveLog = (obj: UpdateFirewallDescriptionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallEncryptionConfigurationRequestFilterSensitiveLog = (
+  obj: UpdateFirewallEncryptionConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallEncryptionConfigurationResponseFilterSensitiveLog = (
+  obj: UpdateFirewallEncryptionConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallPolicyRequestFilterSensitiveLog = (obj: UpdateFirewallPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallPolicyResponseFilterSensitiveLog = (obj: UpdateFirewallPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallPolicyChangeProtectionRequestFilterSensitiveLog = (
+  obj: UpdateFirewallPolicyChangeProtectionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFirewallPolicyChangeProtectionResponseFilterSensitiveLog = (
+  obj: UpdateFirewallPolicyChangeProtectionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoggingConfigurationRequestFilterSensitiveLog = (obj: UpdateLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoggingConfigurationResponseFilterSensitiveLog = (obj: UpdateLoggingConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleGroupRequestFilterSensitiveLog = (obj: UpdateRuleGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleGroupResponseFilterSensitiveLog = (obj: UpdateRuleGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSubnetChangeProtectionRequestFilterSensitiveLog = (
+  obj: UpdateSubnetChangeProtectionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSubnetChangeProtectionResponseFilterSensitiveLog = (
+  obj: UpdateSubnetChangeProtectionResponse
+): any => ({
+  ...obj,
+});

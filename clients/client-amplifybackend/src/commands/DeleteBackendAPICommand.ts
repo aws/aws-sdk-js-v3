@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
-import { DeleteBackendAPIRequest, DeleteBackendAPIResponse } from "../models/models_0";
+import {
+  DeleteBackendAPIRequest,
+  DeleteBackendAPIRequestFilterSensitiveLog,
+  DeleteBackendAPIResponse,
+  DeleteBackendAPIResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBackendAPICommand,
   serializeAws_restJson1DeleteBackendAPICommand,
@@ -72,8 +77,8 @@ export class DeleteBackendAPICommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBackendAPIRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBackendAPIResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBackendAPIRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBackendAPIResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

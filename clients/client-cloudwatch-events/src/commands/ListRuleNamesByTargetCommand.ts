@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse } from "../models/models_0";
+import {
+  ListRuleNamesByTargetRequest,
+  ListRuleNamesByTargetRequestFilterSensitiveLog,
+  ListRuleNamesByTargetResponse,
+  ListRuleNamesByTargetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListRuleNamesByTargetCommand,
   serializeAws_json1_1ListRuleNamesByTargetCommand,
@@ -73,8 +78,8 @@ export class ListRuleNamesByTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRuleNamesByTargetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRuleNamesByTargetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRuleNamesByTargetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListRuleNamesByTargetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartSyncExecutionInput, StartSyncExecutionOutput } from "../models/models_0";
+import {
+  StartSyncExecutionInput,
+  StartSyncExecutionInputFilterSensitiveLog,
+  StartSyncExecutionOutput,
+  StartSyncExecutionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_0StartSyncExecutionCommand,
   serializeAws_json1_0StartSyncExecutionCommand,
@@ -72,8 +77,8 @@ export class StartSyncExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSyncExecutionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: StartSyncExecutionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: StartSyncExecutionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: StartSyncExecutionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

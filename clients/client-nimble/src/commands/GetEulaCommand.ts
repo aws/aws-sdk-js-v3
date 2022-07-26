@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetEulaRequest, GetEulaResponse } from "../models/models_0";
+import {
+  GetEulaRequest,
+  GetEulaRequestFilterSensitiveLog,
+  GetEulaResponse,
+  GetEulaResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1GetEulaCommand,
@@ -68,8 +73,8 @@ export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEulaRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEulaResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEulaRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEulaResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

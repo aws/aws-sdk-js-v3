@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { DescribeImagesRequest, DescribeImagesResult } from "../models/models_0";
+import {
+  DescribeImagesRequest,
+  DescribeImagesRequestFilterSensitiveLog,
+  DescribeImagesResult,
+  DescribeImagesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeImagesCommand,
   serializeAws_json1_1DescribeImagesCommand,
@@ -72,8 +77,8 @@ export class DescribeImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImagesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImagesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeImagesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeImagesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

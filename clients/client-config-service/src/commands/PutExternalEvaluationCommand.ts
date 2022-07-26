@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutExternalEvaluationRequest, PutExternalEvaluationResponse } from "../models/models_0";
+import {
+  PutExternalEvaluationRequest,
+  PutExternalEvaluationRequestFilterSensitiveLog,
+  PutExternalEvaluationResponse,
+  PutExternalEvaluationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutExternalEvaluationCommand,
   serializeAws_json1_1PutExternalEvaluationCommand,
@@ -73,8 +78,8 @@ export class PutExternalEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutExternalEvaluationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutExternalEvaluationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutExternalEvaluationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutExternalEvaluationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

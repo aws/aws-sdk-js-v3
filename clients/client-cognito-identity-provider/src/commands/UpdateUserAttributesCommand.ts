@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { UpdateUserAttributesRequest, UpdateUserAttributesResponse } from "../models/models_1";
+import {
+  UpdateUserAttributesRequest,
+  UpdateUserAttributesRequestFilterSensitiveLog,
+  UpdateUserAttributesResponse,
+  UpdateUserAttributesResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateUserAttributesCommand,
   serializeAws_json1_1UpdateUserAttributesCommand,
@@ -94,8 +99,8 @@ export class UpdateUserAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateUserAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateUserAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

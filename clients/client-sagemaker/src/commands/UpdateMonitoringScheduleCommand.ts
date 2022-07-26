@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateMonitoringScheduleRequest, UpdateMonitoringScheduleResponse } from "../models/models_3";
+import {
+  UpdateMonitoringScheduleRequest,
+  UpdateMonitoringScheduleRequestFilterSensitiveLog,
+  UpdateMonitoringScheduleResponse,
+  UpdateMonitoringScheduleResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateMonitoringScheduleCommand,
   serializeAws_json1_1UpdateMonitoringScheduleCommand,
@@ -72,8 +77,8 @@ export class UpdateMonitoringScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMonitoringScheduleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMonitoringScheduleResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateMonitoringScheduleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateMonitoringScheduleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

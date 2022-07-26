@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { AddTagsToResourceMessage, TagListMessage } from "../models/models_0";
+import {
+  AddTagsToResourceMessage,
+  AddTagsToResourceMessageFilterSensitiveLog,
+  TagListMessage,
+  TagListMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryAddTagsToResourceCommand,
   serializeAws_queryAddTagsToResourceCommand,
@@ -83,8 +88,8 @@ export class AddTagsToResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsToResourceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: TagListMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsToResourceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: TagListMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

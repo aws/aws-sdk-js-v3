@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DisassociateRouteTableRequest } from "../models/models_4";
+import { DisassociateRouteTableRequest, DisassociateRouteTableRequestFilterSensitiveLog } from "../models/models_4";
 import {
   deserializeAws_ec2DisassociateRouteTableCommand,
   serializeAws_ec2DisassociateRouteTableCommand,
@@ -76,7 +76,7 @@ export class DisassociateRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateRouteTableRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateRouteTableRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

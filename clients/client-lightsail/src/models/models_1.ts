@@ -49,15 +49,6 @@ export interface GetExportSnapshotRecordsRequest {
   pageToken?: string;
 }
 
-export namespace GetExportSnapshotRecordsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportSnapshotRecordsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetExportSnapshotRecordsResult {
   /**
    * <p>A list of objects describing the export snapshot records.</p>
@@ -73,29 +64,11 @@ export interface GetExportSnapshotRecordsResult {
   nextPageToken?: string;
 }
 
-export namespace GetExportSnapshotRecordsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetExportSnapshotRecordsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstanceRequest {
   /**
    * <p>The name of the instance.</p>
    */
   instanceName: string | undefined;
-}
-
-export namespace GetInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -118,15 +91,6 @@ export interface InstanceHardware {
   ramSizeInGb?: number;
 }
 
-export namespace InstanceHardware {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceHardware): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the monthly data transfer in and out of your virtual private server (or
  *         <i>instance</i>).</p>
@@ -136,15 +100,6 @@ export interface MonthlyTransfer {
    * <p>The amount allocated per month (in GB).</p>
    */
   gbPerMonthAllocated?: number;
-}
-
-export namespace MonthlyTransfer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonthlyTransfer): any => ({
-    ...obj,
-  });
 }
 
 export enum PortAccessType {
@@ -299,15 +254,6 @@ export interface InstancePortInfo {
   cidrListAliases?: string[];
 }
 
-export namespace InstancePortInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstancePortInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes monthly data transfer rates and port information for an instance.</p>
  */
@@ -323,15 +269,6 @@ export interface InstanceNetworking {
   ports?: InstancePortInfo[];
 }
 
-export namespace InstanceNetworking {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNetworking): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the virtual private server (or <i>instance</i>) status.</p>
  */
@@ -345,15 +282,6 @@ export interface InstanceState {
    * <p>The state of the instance (e.g., <code>running</code> or <code>pending</code>).</p>
    */
   name?: string;
-}
-
-export namespace InstanceState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceState): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -476,29 +404,11 @@ export interface Instance {
   sshKeyName?: string;
 }
 
-export namespace Instance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Instance): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstanceResult {
   /**
    * <p>An array of key-value pairs containing information about the specified instance.</p>
    */
   instance?: Instance;
-}
-
-export namespace GetInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceResult): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceAccessProtocol {
@@ -516,15 +426,6 @@ export interface GetInstanceAccessDetailsRequest {
    * <p>The protocol to use to connect to your instance. Defaults to <code>ssh</code>.</p>
    */
   protocol?: InstanceAccessProtocol | string;
-}
-
-export namespace GetInstanceAccessDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceAccessDetailsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -600,15 +501,6 @@ export interface HostKeyAttributes {
   notValidAfter?: Date;
 }
 
-export namespace HostKeyAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostKeyAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The password data for the Windows Server-based instance, including the ciphertext and the
  *       key pair name.</p>
@@ -638,15 +530,6 @@ export interface PasswordData {
    *       your password with the public key part of this key pair.</p>
    */
   keyPairName?: string;
-}
-
-export namespace PasswordData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PasswordData): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -720,30 +603,12 @@ export interface InstanceAccessDetails {
   hostKeys?: HostKeyAttributes[];
 }
 
-export namespace InstanceAccessDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceAccessDetails): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstanceAccessDetailsResult {
   /**
    * <p>An array of key-value pairs containing information about a get instance access
    *       request.</p>
    */
   accessDetails?: InstanceAccessDetails;
-}
-
-export namespace GetInstanceAccessDetailsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceAccessDetailsResult): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceMetricName {
@@ -951,15 +816,6 @@ export interface GetInstanceMetricDataRequest {
   statistics: (MetricStatistic | string)[] | undefined;
 }
 
-export namespace GetInstanceMetricDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceMetricDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstanceMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
@@ -972,29 +828,11 @@ export interface GetInstanceMetricDataResult {
   metricData?: MetricDatapoint[];
 }
 
-export namespace GetInstanceMetricDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceMetricDataResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstancePortStatesRequest {
   /**
    * <p>The name of the instance for which to return firewall port states.</p>
    */
   instanceName: string | undefined;
-}
-
-export namespace GetInstancePortStatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstancePortStatesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum PortState {
@@ -1134,30 +972,12 @@ export interface InstancePortState {
   cidrListAliases?: string[];
 }
 
-export namespace InstancePortState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstancePortState): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstancePortStatesResult {
   /**
    * <p>An array of objects that describe the firewall port states for the specified
    *       instance.</p>
    */
   portStates?: InstancePortState[];
-}
-
-export namespace GetInstancePortStatesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstancePortStatesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetInstancesRequest {
@@ -1168,15 +988,6 @@ export interface GetInstancesRequest {
    *       token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstancesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetInstancesResult {
@@ -1194,29 +1005,11 @@ export interface GetInstancesResult {
   nextPageToken?: string;
 }
 
-export namespace GetInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstancesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstanceSnapshotRequest {
   /**
    * <p>The name of the snapshot for which you are requesting information.</p>
    */
   instanceSnapshotName: string | undefined;
-}
-
-export namespace GetInstanceSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceSnapshotRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceSnapshotState {
@@ -1322,30 +1115,12 @@ export interface InstanceSnapshot {
   sizeInGb?: number;
 }
 
-export namespace InstanceSnapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceSnapshot): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstanceSnapshotResult {
   /**
    * <p>An array of key-value pairs containing information about the results of your get instance
    *       snapshot request.</p>
    */
   instanceSnapshot?: InstanceSnapshot;
-}
-
-export namespace GetInstanceSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetInstanceSnapshotsRequest {
@@ -1356,15 +1131,6 @@ export interface GetInstanceSnapshotsRequest {
    *       page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetInstanceSnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceSnapshotsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetInstanceSnapshotsResult {
@@ -1383,29 +1149,11 @@ export interface GetInstanceSnapshotsResult {
   nextPageToken?: string;
 }
 
-export namespace GetInstanceSnapshotsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceSnapshotsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInstanceStateRequest {
   /**
    * <p>The name of the instance to get state information about.</p>
    */
   instanceName: string | undefined;
-}
-
-export namespace GetInstanceStateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceStateRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetInstanceStateResult {
@@ -1415,15 +1163,6 @@ export interface GetInstanceStateResult {
   state?: InstanceState;
 }
 
-export namespace GetInstanceStateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceStateResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetKeyPairRequest {
   /**
    * <p>The name of the key pair for which you are requesting information.</p>
@@ -1431,29 +1170,11 @@ export interface GetKeyPairRequest {
   keyPairName: string | undefined;
 }
 
-export namespace GetKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyPairRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetKeyPairResult {
   /**
    * <p>An array of key-value pairs containing information about the key pair.</p>
    */
   keyPair?: KeyPair;
-}
-
-export namespace GetKeyPairResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyPairResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetKeyPairsRequest {
@@ -1472,15 +1193,6 @@ export interface GetKeyPairsRequest {
   includeDefaultKeyPair?: boolean;
 }
 
-export namespace GetKeyPairsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyPairsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetKeyPairsResult {
   /**
    * <p>An array of key-value pairs containing information about the key pairs.</p>
@@ -1496,29 +1208,11 @@ export interface GetKeyPairsResult {
   nextPageToken?: string;
 }
 
-export namespace GetKeyPairsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetKeyPairsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoadBalancerRequest {
   /**
    * <p>The name of the load balancer.</p>
    */
   loadBalancerName: string | undefined;
-}
-
-export namespace GetLoadBalancerRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoadBalancerRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum LoadBalancerAttributeName {
@@ -1693,15 +1387,6 @@ export interface InstanceHealthSummary {
   instanceHealthReason?: InstanceHealthReason | string;
 }
 
-export namespace InstanceHealthSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceHealthSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum LoadBalancerProtocol {
   HTTP = "HTTP",
   HTTP_HTTPS = "HTTP_HTTPS",
@@ -1729,15 +1414,6 @@ export interface LoadBalancerTlsCertificateSummary {
    *       balancer.</p>
    */
   isAttached?: boolean;
-}
-
-export namespace LoadBalancerTlsCertificateSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerTlsCertificateSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1857,29 +1533,11 @@ export interface LoadBalancer {
   tlsPolicyName?: string;
 }
 
-export namespace LoadBalancer {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancer): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoadBalancerResult {
   /**
    * <p>An object containing information about your load balancer.</p>
    */
   loadBalancer?: LoadBalancer;
-}
-
-export namespace GetLoadBalancerResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoadBalancerResult): any => ({
-    ...obj,
-  });
 }
 
 export enum LoadBalancerMetricName {
@@ -2134,15 +1792,6 @@ export interface GetLoadBalancerMetricDataRequest {
   statistics: (MetricStatistic | string)[] | undefined;
 }
 
-export namespace GetLoadBalancerMetricDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoadBalancerMetricDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoadBalancerMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
@@ -2155,15 +1804,6 @@ export interface GetLoadBalancerMetricDataResult {
   metricData?: MetricDatapoint[];
 }
 
-export namespace GetLoadBalancerMetricDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoadBalancerMetricDataResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoadBalancersRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -2172,15 +1812,6 @@ export interface GetLoadBalancersRequest {
    *       page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetLoadBalancersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoadBalancersRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLoadBalancersResult {
@@ -2198,29 +1829,11 @@ export interface GetLoadBalancersResult {
   nextPageToken?: string;
 }
 
-export namespace GetLoadBalancersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoadBalancersResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoadBalancerTlsCertificatesRequest {
   /**
    * <p>The name of the load balancer you associated with your SSL/TLS certificate.</p>
    */
   loadBalancerName: string | undefined;
-}
-
-export namespace GetLoadBalancerTlsCertificatesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoadBalancerTlsCertificatesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum LoadBalancerTlsCertificateDomainStatus {
@@ -2261,15 +1874,6 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
   domainName?: string;
 }
 
-export namespace LoadBalancerTlsCertificateDomainValidationRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerTlsCertificateDomainValidationRecord): any => ({
-    ...obj,
-  });
-}
-
 export enum LoadBalancerTlsCertificateFailureReason {
   AdditionalVerificationRequired = "ADDITIONAL_VERIFICATION_REQUIRED",
   DomainNotAllowed = "DOMAIN_NOT_ALLOWED",
@@ -2292,15 +1896,6 @@ export interface LoadBalancerTlsCertificateDomainValidationOption {
    * <p>The status of the domain validation. Valid values are listed below.</p>
    */
   validationStatus?: LoadBalancerTlsCertificateDomainStatus | string;
-}
-
-export namespace LoadBalancerTlsCertificateDomainValidationOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerTlsCertificateDomainValidationOption): any => ({
-    ...obj,
-  });
 }
 
 export enum LoadBalancerTlsCertificateRenewalStatus {
@@ -2403,15 +1998,6 @@ export interface LoadBalancerTlsCertificateRenewalSummary {
    *       occurs as a result of the RequestCertificate request.</p>
    */
   domainValidationOptions?: LoadBalancerTlsCertificateDomainValidationOption[];
-}
-
-export namespace LoadBalancerTlsCertificateRenewalSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerTlsCertificateRenewalSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum LoadBalancerTlsCertificateRevocationReason {
@@ -2711,30 +2297,12 @@ export interface LoadBalancerTlsCertificate {
   subjectAlternativeNames?: string[];
 }
 
-export namespace LoadBalancerTlsCertificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerTlsCertificate): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoadBalancerTlsCertificatesResult {
   /**
    * <p>An array of LoadBalancerTlsCertificate objects describing your SSL/TLS
    *       certificates.</p>
    */
   tlsCertificates?: LoadBalancerTlsCertificate[];
-}
-
-export namespace GetLoadBalancerTlsCertificatesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoadBalancerTlsCertificatesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetLoadBalancerTlsPoliciesRequest {
@@ -2746,15 +2314,6 @@ export interface GetLoadBalancerTlsPoliciesRequest {
    *       as the page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetLoadBalancerTlsPoliciesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoadBalancerTlsPoliciesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2793,15 +2352,6 @@ export interface LoadBalancerTlsPolicy {
   ciphers?: string[];
 }
 
-export namespace LoadBalancerTlsPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerTlsPolicy): any => ({
-    ...obj,
-  });
-}
-
 export interface GetLoadBalancerTlsPoliciesResult {
   /**
    * <p>An array of objects that describe the TLS security policies that are available.</p>
@@ -2819,29 +2369,11 @@ export interface GetLoadBalancerTlsPoliciesResult {
   nextPageToken?: string;
 }
 
-export namespace GetLoadBalancerTlsPoliciesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetLoadBalancerTlsPoliciesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOperationRequest {
   /**
    * <p>A GUID used to identify the operation.</p>
    */
   operationId: string | undefined;
-}
-
-export namespace GetOperationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOperationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetOperationResult {
@@ -2852,15 +2384,6 @@ export interface GetOperationResult {
   operation?: Operation;
 }
 
-export namespace GetOperationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOperationResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOperationsRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -2869,15 +2392,6 @@ export interface GetOperationsRequest {
    *       page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetOperationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOperationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetOperationsResult {
@@ -2896,15 +2410,6 @@ export interface GetOperationsResult {
   nextPageToken?: string;
 }
 
-export namespace GetOperationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOperationsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetOperationsForResourceRequest {
   /**
    * <p>The name of the resource for which you are requesting information.</p>
@@ -2918,15 +2423,6 @@ export interface GetOperationsForResourceRequest {
    *       the page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetOperationsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOperationsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetOperationsForResourceResult {
@@ -2957,15 +2453,6 @@ export interface GetOperationsForResourceResult {
   nextPageToken?: string;
 }
 
-export namespace GetOperationsForResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOperationsForResourceResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRegionsRequest {
   /**
    * <p>A Boolean value indicating whether to also include Availability Zones in your get regions
@@ -2979,15 +2466,6 @@ export interface GetRegionsRequest {
    *         <code>us-east-2a</code>).</p>
    */
   includeRelationalDatabaseAvailabilityZones?: boolean;
-}
-
-export namespace GetRegionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3028,15 +2506,6 @@ export interface Region {
   relationalDatabaseAvailabilityZones?: AvailabilityZone[];
 }
 
-export namespace Region {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Region): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRegionsResult {
   /**
    * <p>An array of key-value pairs containing information about your get regions request.</p>
@@ -3044,29 +2513,11 @@ export interface GetRegionsResult {
   regions?: Region[];
 }
 
-export namespace GetRegionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRegionsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseRequest {
   /**
    * <p>The name of the database that you are looking up.</p>
    */
   relationalDatabaseName: string | undefined;
-}
-
-export namespace GetRelationalDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3089,15 +2540,6 @@ export interface RelationalDatabaseHardware {
   ramSizeInGb?: number;
 }
 
-export namespace RelationalDatabaseHardware {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalDatabaseHardware): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an endpoint for a database.</p>
  */
@@ -3111,15 +2553,6 @@ export interface RelationalDatabaseEndpoint {
    * <p>Specifies the DNS address of the database.</p>
    */
   address?: string;
-}
-
-export namespace RelationalDatabaseEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalDatabaseEndpoint): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3142,15 +2575,6 @@ export interface PendingMaintenanceAction {
   currentApplyDate?: Date;
 }
 
-export namespace PendingMaintenanceAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a pending database value modification.</p>
  */
@@ -3169,15 +2593,6 @@ export interface PendingModifiedRelationalDatabaseValues {
    * <p>A Boolean value indicating whether automated backup retention is enabled.</p>
    */
   backupRetentionEnabled?: boolean;
-}
-
-export namespace PendingModifiedRelationalDatabaseValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingModifiedRelationalDatabaseValues): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3329,29 +2744,11 @@ export interface RelationalDatabase {
   caCertificateIdentifier?: string;
 }
 
-export namespace RelationalDatabase {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalDatabase): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseResult {
   /**
    * <p>An object describing the specified database.</p>
    */
   relationalDatabase?: RelationalDatabase;
-}
-
-export namespace GetRelationalDatabaseResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRelationalDatabaseBlueprintsRequest {
@@ -3362,15 +2759,6 @@ export interface GetRelationalDatabaseBlueprintsRequest {
    *       can specify as the page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetRelationalDatabaseBlueprintsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseBlueprintsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum RelationalDatabaseEngine {
@@ -3415,15 +2803,6 @@ export interface RelationalDatabaseBlueprint {
   isEngineDefault?: boolean;
 }
 
-export namespace RelationalDatabaseBlueprint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalDatabaseBlueprint): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseBlueprintsResult {
   /**
    * <p>An object describing the result of your get relational database blueprints request.</p>
@@ -3440,15 +2819,6 @@ export interface GetRelationalDatabaseBlueprintsResult {
   nextPageToken?: string;
 }
 
-export namespace GetRelationalDatabaseBlueprintsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseBlueprintsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseBundlesRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -3463,15 +2833,6 @@ export interface GetRelationalDatabaseBundlesRequest {
    *       response of your request.</p>
    */
   includeInactive?: boolean;
-}
-
-export namespace GetRelationalDatabaseBundlesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseBundlesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3525,15 +2886,6 @@ export interface RelationalDatabaseBundle {
   isActive?: boolean;
 }
 
-export namespace RelationalDatabaseBundle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalDatabaseBundle): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseBundlesResult {
   /**
    * <p>An object describing the result of your get relational database bundles request.</p>
@@ -3547,15 +2899,6 @@ export interface GetRelationalDatabaseBundlesResult {
    *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
-}
-
-export namespace GetRelationalDatabaseBundlesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseBundlesResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRelationalDatabaseEventsRequest {
@@ -3580,15 +2923,6 @@ export interface GetRelationalDatabaseEventsRequest {
    *       as the page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetRelationalDatabaseEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseEventsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3616,15 +2950,6 @@ export interface RelationalDatabaseEvent {
   eventCategories?: string[];
 }
 
-export namespace RelationalDatabaseEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalDatabaseEvent): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseEventsResult {
   /**
    * <p>An object describing the result of your get relational database events request.</p>
@@ -3638,15 +2963,6 @@ export interface GetRelationalDatabaseEventsResult {
    *       request and specify the next page token using the <code>pageToken</code> parameter.</p>
    */
   nextPageToken?: string;
-}
-
-export namespace GetRelationalDatabaseEventsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseEventsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRelationalDatabaseLogEventsRequest {
@@ -3715,15 +3031,6 @@ export interface GetRelationalDatabaseLogEventsRequest {
   pageToken?: string;
 }
 
-export namespace GetRelationalDatabaseLogEventsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseLogEventsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a database log event.</p>
  */
@@ -3737,15 +3044,6 @@ export interface LogEvent {
    * <p>The message of the database log event.</p>
    */
   message?: string;
-}
-
-export namespace LogEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LogEvent): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRelationalDatabaseLogEventsResult {
@@ -3767,29 +3065,11 @@ export interface GetRelationalDatabaseLogEventsResult {
   nextForwardToken?: string;
 }
 
-export namespace GetRelationalDatabaseLogEventsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseLogEventsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseLogStreamsRequest {
   /**
    * <p>The name of your database for which to get log streams.</p>
    */
   relationalDatabaseName: string | undefined;
-}
-
-export namespace GetRelationalDatabaseLogStreamsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseLogStreamsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRelationalDatabaseLogStreamsResult {
@@ -3798,15 +3078,6 @@ export interface GetRelationalDatabaseLogStreamsResult {
    *       request.</p>
    */
   logStreams?: string[];
-}
-
-export namespace GetRelationalDatabaseLogStreamsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseLogStreamsResult): any => ({
-    ...obj,
-  });
 }
 
 export enum RelationalDatabasePasswordVersion {
@@ -3834,15 +3105,6 @@ export interface GetRelationalDatabaseMasterUserPasswordRequest {
   passwordVersion?: RelationalDatabasePasswordVersion | string;
 }
 
-export namespace GetRelationalDatabaseMasterUserPasswordRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseMasterUserPasswordRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseMasterUserPasswordResult {
   /**
    * <p>The master user password for the <code>password version</code> specified.</p>
@@ -3853,16 +3115,6 @@ export interface GetRelationalDatabaseMasterUserPasswordResult {
    * <p>The timestamp when the specified version of the master user password was created.</p>
    */
   createdAt?: Date;
-}
-
-export namespace GetRelationalDatabaseMasterUserPasswordResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseMasterUserPasswordResult): any => ({
-    ...obj,
-    ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
-  });
 }
 
 export enum RelationalDatabaseMetricName {
@@ -4045,15 +3297,6 @@ export interface GetRelationalDatabaseMetricDataRequest {
   statistics: (MetricStatistic | string)[] | undefined;
 }
 
-export namespace GetRelationalDatabaseMetricDataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseMetricDataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseMetricDataResult {
   /**
    * <p>The name of the metric returned.</p>
@@ -4064,15 +3307,6 @@ export interface GetRelationalDatabaseMetricDataResult {
    * <p>An array of objects that describe the metric data returned.</p>
    */
   metricData?: MetricDatapoint[];
-}
-
-export namespace GetRelationalDatabaseMetricDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseMetricDataResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRelationalDatabaseParametersRequest {
@@ -4088,15 +3322,6 @@ export interface GetRelationalDatabaseParametersRequest {
    *       can specify as the page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetRelationalDatabaseParametersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseParametersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4145,15 +3370,6 @@ export interface RelationalDatabaseParameter {
   parameterValue?: string;
 }
 
-export namespace RelationalDatabaseParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalDatabaseParameter): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseParametersResult {
   /**
    * <p>An object describing the result of your get relational database parameters request.</p>
@@ -4170,15 +3386,6 @@ export interface GetRelationalDatabaseParametersResult {
   nextPageToken?: string;
 }
 
-export namespace GetRelationalDatabaseParametersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseParametersResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabasesRequest {
   /**
    * <p>The token to advance to the next page of results from your request.</p>
@@ -4187,15 +3394,6 @@ export interface GetRelationalDatabasesRequest {
    *       the page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetRelationalDatabasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabasesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRelationalDatabasesResult {
@@ -4213,29 +3411,11 @@ export interface GetRelationalDatabasesResult {
   nextPageToken?: string;
 }
 
-export namespace GetRelationalDatabasesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabasesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseSnapshotRequest {
   /**
    * <p>The name of the database snapshot for which to get information.</p>
    */
   relationalDatabaseSnapshotName: string | undefined;
-}
-
-export namespace GetRelationalDatabaseSnapshotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseSnapshotRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4325,29 +3505,11 @@ export interface RelationalDatabaseSnapshot {
   fromRelationalDatabaseBlueprintId?: string;
 }
 
-export namespace RelationalDatabaseSnapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelationalDatabaseSnapshot): any => ({
-    ...obj,
-  });
-}
-
 export interface GetRelationalDatabaseSnapshotResult {
   /**
    * <p>An object describing the specified database snapshot.</p>
    */
   relationalDatabaseSnapshot?: RelationalDatabaseSnapshot;
-}
-
-export namespace GetRelationalDatabaseSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRelationalDatabaseSnapshotsRequest {
@@ -4358,15 +3520,6 @@ export interface GetRelationalDatabaseSnapshotsRequest {
    *       can specify as the page token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetRelationalDatabaseSnapshotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseSnapshotsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRelationalDatabaseSnapshotsResult {
@@ -4385,29 +3538,11 @@ export interface GetRelationalDatabaseSnapshotsResult {
   nextPageToken?: string;
 }
 
-export namespace GetRelationalDatabaseSnapshotsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetRelationalDatabaseSnapshotsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStaticIpRequest {
   /**
    * <p>The name of the static IP in Lightsail.</p>
    */
   staticIpName: string | undefined;
-}
-
-export namespace GetStaticIpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStaticIpRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4464,29 +3599,11 @@ export interface StaticIp {
   isAttached?: boolean;
 }
 
-export namespace StaticIp {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaticIp): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStaticIpResult {
   /**
    * <p>An array of key-value pairs containing information about the requested static IP.</p>
    */
   staticIp?: StaticIp;
-}
-
-export namespace GetStaticIpResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStaticIpResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetStaticIpsRequest {
@@ -4497,15 +3614,6 @@ export interface GetStaticIpsRequest {
    *       token in a subsequent request.</p>
    */
   pageToken?: string;
-}
-
-export namespace GetStaticIpsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStaticIpsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetStaticIpsResult {
@@ -4524,15 +3632,6 @@ export interface GetStaticIpsResult {
   nextPageToken?: string;
 }
 
-export namespace GetStaticIpsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStaticIpsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportKeyPairRequest {
   /**
    * <p>The name of the key pair for which you want to import the public key.</p>
@@ -4545,15 +3644,6 @@ export interface ImportKeyPairRequest {
   publicKeyBase64: string | undefined;
 }
 
-export namespace ImportKeyPairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportKeyPairRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ImportKeyPairResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4562,25 +3652,7 @@ export interface ImportKeyPairResult {
   operation?: Operation;
 }
 
-export namespace ImportKeyPairResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportKeyPairResult): any => ({
-    ...obj,
-  });
-}
-
 export interface IsVpcPeeredRequest {}
-
-export namespace IsVpcPeeredRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IsVpcPeeredRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface IsVpcPeeredResult {
   /**
@@ -4588,15 +3660,6 @@ export interface IsVpcPeeredResult {
    *       <code>false</code>.</p>
    */
   isPeered?: boolean;
-}
-
-export namespace IsVpcPeeredResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IsVpcPeeredResult): any => ({
-    ...obj,
-  });
 }
 
 export interface OpenInstancePublicPortsRequest {
@@ -4611,15 +3674,6 @@ export interface OpenInstancePublicPortsRequest {
   instanceName: string | undefined;
 }
 
-export namespace OpenInstancePublicPortsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenInstancePublicPortsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface OpenInstancePublicPortsResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4628,25 +3682,7 @@ export interface OpenInstancePublicPortsResult {
   operation?: Operation;
 }
 
-export namespace OpenInstancePublicPortsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpenInstancePublicPortsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface PeerVpcRequest {}
-
-export namespace PeerVpcRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PeerVpcRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface PeerVpcResult {
   /**
@@ -4654,15 +3690,6 @@ export interface PeerVpcResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace PeerVpcResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PeerVpcResult): any => ({
-    ...obj,
-  });
 }
 
 export interface PutAlarmRequest {
@@ -4836,30 +3863,12 @@ export interface PutAlarmRequest {
   notificationEnabled?: boolean;
 }
 
-export namespace PutAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAlarmRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAlarmResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace PutAlarmResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAlarmResult): any => ({
-    ...obj,
-  });
 }
 
 export interface PutInstancePublicPortsRequest {
@@ -4874,15 +3883,6 @@ export interface PutInstancePublicPortsRequest {
   instanceName: string | undefined;
 }
 
-export namespace PutInstancePublicPortsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInstancePublicPortsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutInstancePublicPortsResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -4891,29 +3891,11 @@ export interface PutInstancePublicPortsResult {
   operation?: Operation;
 }
 
-export namespace PutInstancePublicPortsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutInstancePublicPortsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootInstanceRequest {
   /**
    * <p>The name of the instance to reboot.</p>
    */
   instanceName: string | undefined;
-}
-
-export namespace RebootInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RebootInstanceResult {
@@ -4924,29 +3906,11 @@ export interface RebootInstanceResult {
   operations?: Operation[];
 }
 
-export namespace RebootInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootInstanceResult): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootRelationalDatabaseRequest {
   /**
    * <p>The name of your database to reboot.</p>
    */
   relationalDatabaseName: string | undefined;
-}
-
-export namespace RebootRelationalDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootRelationalDatabaseRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface RebootRelationalDatabaseResult {
@@ -4955,15 +3919,6 @@ export interface RebootRelationalDatabaseResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace RebootRelationalDatabaseResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootRelationalDatabaseResult): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterContainerImageRequest {
@@ -5007,15 +3962,6 @@ export interface RegisterContainerImageRequest {
   digest: string | undefined;
 }
 
-export namespace RegisterContainerImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterContainerImageRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface RegisterContainerImageResult {
   /**
    * <p>An object that describes a container image that is registered to a Lightsail container
@@ -5024,29 +3970,11 @@ export interface RegisterContainerImageResult {
   containerImage?: ContainerImage;
 }
 
-export namespace RegisterContainerImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterContainerImageResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ReleaseStaticIpRequest {
   /**
    * <p>The name of the static IP to delete.</p>
    */
   staticIpName: string | undefined;
-}
-
-export namespace ReleaseStaticIpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseStaticIpRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ReleaseStaticIpResult {
@@ -5057,15 +3985,6 @@ export interface ReleaseStaticIpResult {
   operations?: Operation[];
 }
 
-export namespace ReleaseStaticIpResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReleaseStaticIpResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ResetDistributionCacheRequest {
   /**
    * <p>The name of the distribution for which to reset cache.</p>
@@ -5073,15 +3992,6 @@ export interface ResetDistributionCacheRequest {
    *       can specify.</p>
    */
   distributionName?: string;
-}
-
-export namespace ResetDistributionCacheRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetDistributionCacheRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ResetDistributionCacheResult {
@@ -5103,15 +4013,6 @@ export interface ResetDistributionCacheResult {
   operation?: Operation;
 }
 
-export namespace ResetDistributionCacheResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetDistributionCacheResult): any => ({
-    ...obj,
-  });
-}
-
 export interface SendContactMethodVerificationRequest {
   /**
    * <p>The protocol to verify, such as <code>Email</code> or <code>SMS</code> (text
@@ -5120,30 +4021,12 @@ export interface SendContactMethodVerificationRequest {
   protocol: ContactMethodVerificationProtocol | string | undefined;
 }
 
-export namespace SendContactMethodVerificationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendContactMethodVerificationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SendContactMethodVerificationResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace SendContactMethodVerificationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendContactMethodVerificationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface SetIpAddressTypeRequest {
@@ -5173,30 +4056,12 @@ export interface SetIpAddressTypeRequest {
   ipAddressType: IpAddressType | string | undefined;
 }
 
-export namespace SetIpAddressTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIpAddressTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SetIpAddressTypeResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace SetIpAddressTypeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetIpAddressTypeResult): any => ({
-    ...obj,
-  });
 }
 
 export enum ResourceBucketAccess {
@@ -5236,15 +4101,6 @@ export interface SetResourceAccessForBucketRequest {
   access: ResourceBucketAccess | string | undefined;
 }
 
-export namespace SetResourceAccessForBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetResourceAccessForBucketRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SetResourceAccessForBucketResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5253,29 +4109,11 @@ export interface SetResourceAccessForBucketResult {
   operations?: Operation[];
 }
 
-export namespace SetResourceAccessForBucketResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetResourceAccessForBucketResult): any => ({
-    ...obj,
-  });
-}
-
 export interface StartInstanceRequest {
   /**
    * <p>The name of the instance (a virtual private server) to start.</p>
    */
   instanceName: string | undefined;
-}
-
-export namespace StartInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInstanceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartInstanceResult {
@@ -5286,29 +4124,11 @@ export interface StartInstanceResult {
   operations?: Operation[];
 }
 
-export namespace StartInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartInstanceResult): any => ({
-    ...obj,
-  });
-}
-
 export interface StartRelationalDatabaseRequest {
   /**
    * <p>The name of your database to start.</p>
    */
   relationalDatabaseName: string | undefined;
-}
-
-export namespace StartRelationalDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRelationalDatabaseRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface StartRelationalDatabaseResult {
@@ -5317,15 +4137,6 @@ export interface StartRelationalDatabaseResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace StartRelationalDatabaseResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartRelationalDatabaseResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StopInstanceRequest {
@@ -5346,30 +4157,12 @@ export interface StopInstanceRequest {
   force?: boolean;
 }
 
-export namespace StopInstanceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopInstanceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopInstanceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace StopInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopInstanceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StopRelationalDatabaseRequest {
@@ -5384,30 +4177,12 @@ export interface StopRelationalDatabaseRequest {
   relationalDatabaseSnapshotName?: string;
 }
 
-export namespace StopRelationalDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopRelationalDatabaseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface StopRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace StopRelationalDatabaseResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopRelationalDatabaseResult): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -5427,30 +4202,12 @@ export interface TagResourceRequest {
   tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace TagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface TestAlarmRequest {
@@ -5482,15 +4239,6 @@ export interface TestAlarmRequest {
   state: AlarmState | string | undefined;
 }
 
-export namespace TestAlarmRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestAlarmRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TestAlarmResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -5499,25 +4247,7 @@ export interface TestAlarmResult {
   operations?: Operation[];
 }
 
-export namespace TestAlarmResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestAlarmResult): any => ({
-    ...obj,
-  });
-}
-
 export interface UnpeerVpcRequest {}
-
-export namespace UnpeerVpcRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnpeerVpcRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface UnpeerVpcResult {
   /**
@@ -5525,15 +4255,6 @@ export interface UnpeerVpcResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace UnpeerVpcResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnpeerVpcResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {
@@ -5553,30 +4274,12 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace UntagResourceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBucketRequest {
@@ -5622,15 +4325,6 @@ export interface UpdateBucketRequest {
   accessLogConfig?: BucketAccessLogConfig;
 }
 
-export namespace UpdateBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBucketRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBucketResult {
   /**
    * <p>An object that describes the bucket that is updated.</p>
@@ -5642,15 +4336,6 @@ export interface UpdateBucketResult {
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace UpdateBucketResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBucketResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBucketBundleRequest {
@@ -5668,30 +4353,12 @@ export interface UpdateBucketBundleRequest {
   bundleId: string | undefined;
 }
 
-export namespace UpdateBucketBundleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBucketBundleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBucketBundleResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace UpdateBucketBundleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBucketBundleResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateContainerServiceRequest {
@@ -5762,29 +4429,11 @@ export interface UpdateContainerServiceRequest {
   privateRegistryAccess?: PrivateRegistryAccessRequest;
 }
 
-export namespace UpdateContainerServiceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContainerServiceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateContainerServiceResult {
   /**
    * <p>An object that describes a container service.</p>
    */
   containerService?: ContainerService;
-}
-
-export namespace UpdateContainerServiceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateContainerServiceResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDistributionRequest {
@@ -5828,30 +4477,12 @@ export interface UpdateDistributionRequest {
   isEnabled?: boolean;
 }
 
-export namespace UpdateDistributionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDistributionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDistributionResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace UpdateDistributionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDistributionResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDistributionBundleRequest {
@@ -5870,30 +4501,12 @@ export interface UpdateDistributionBundleRequest {
   bundleId?: string;
 }
 
-export namespace UpdateDistributionBundleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDistributionBundleRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDistributionBundleResult {
   /**
    * <p>An object that describes the result of the action, such as the status of the request, the
    *       timestamp of the request, and the resources affected by the request.</p>
    */
   operation?: Operation;
-}
-
-export namespace UpdateDistributionBundleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDistributionBundleResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateDomainEntryRequest {
@@ -5908,30 +4521,12 @@ export interface UpdateDomainEntryRequest {
   domainEntry: DomainEntry | undefined;
 }
 
-export namespace UpdateDomainEntryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainEntryRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateDomainEntryResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace UpdateDomainEntryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDomainEntryResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateLoadBalancerAttributeRequest {
@@ -5986,30 +4581,12 @@ export interface UpdateLoadBalancerAttributeRequest {
   attributeValue: string | undefined;
 }
 
-export namespace UpdateLoadBalancerAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLoadBalancerAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateLoadBalancerAttributeResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace UpdateLoadBalancerAttributeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateLoadBalancerAttributeResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRelationalDatabaseRequest {
@@ -6127,31 +4704,12 @@ export interface UpdateRelationalDatabaseRequest {
   caCertificateIdentifier?: string;
 }
 
-export namespace UpdateRelationalDatabaseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRelationalDatabaseRequest): any => ({
-    ...obj,
-    ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateRelationalDatabaseResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
    *       request, the timestamp of the request, and the resources affected by the request.</p>
    */
   operations?: Operation[];
-}
-
-export namespace UpdateRelationalDatabaseResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRelationalDatabaseResult): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRelationalDatabaseParametersRequest {
@@ -6166,15 +4724,6 @@ export interface UpdateRelationalDatabaseParametersRequest {
   parameters: RelationalDatabaseParameter[] | undefined;
 }
 
-export namespace UpdateRelationalDatabaseParametersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRelationalDatabaseParametersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateRelationalDatabaseParametersResult {
   /**
    * <p>An array of objects that describe the result of the action, such as the status of the
@@ -6183,11 +4732,1192 @@ export interface UpdateRelationalDatabaseParametersResult {
   operations?: Operation[];
 }
 
-export namespace UpdateRelationalDatabaseParametersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateRelationalDatabaseParametersResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GetExportSnapshotRecordsRequestFilterSensitiveLog = (obj: GetExportSnapshotRecordsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetExportSnapshotRecordsResultFilterSensitiveLog = (obj: GetExportSnapshotRecordsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceRequestFilterSensitiveLog = (obj: GetInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceHardwareFilterSensitiveLog = (obj: InstanceHardware): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonthlyTransferFilterSensitiveLog = (obj: MonthlyTransfer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstancePortInfoFilterSensitiveLog = (obj: InstancePortInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceNetworkingFilterSensitiveLog = (obj: InstanceNetworking): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceStateFilterSensitiveLog = (obj: InstanceState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceResultFilterSensitiveLog = (obj: GetInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceAccessDetailsRequestFilterSensitiveLog = (obj: GetInstanceAccessDetailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HostKeyAttributesFilterSensitiveLog = (obj: HostKeyAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PasswordDataFilterSensitiveLog = (obj: PasswordData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceAccessDetailsFilterSensitiveLog = (obj: InstanceAccessDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceAccessDetailsResultFilterSensitiveLog = (obj: GetInstanceAccessDetailsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceMetricDataRequestFilterSensitiveLog = (obj: GetInstanceMetricDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceMetricDataResultFilterSensitiveLog = (obj: GetInstanceMetricDataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstancePortStatesRequestFilterSensitiveLog = (obj: GetInstancePortStatesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstancePortStateFilterSensitiveLog = (obj: InstancePortState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstancePortStatesResultFilterSensitiveLog = (obj: GetInstancePortStatesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstancesRequestFilterSensitiveLog = (obj: GetInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstancesResultFilterSensitiveLog = (obj: GetInstancesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceSnapshotRequestFilterSensitiveLog = (obj: GetInstanceSnapshotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceSnapshotFilterSensitiveLog = (obj: InstanceSnapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceSnapshotResultFilterSensitiveLog = (obj: GetInstanceSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceSnapshotsRequestFilterSensitiveLog = (obj: GetInstanceSnapshotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceSnapshotsResultFilterSensitiveLog = (obj: GetInstanceSnapshotsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceStateRequestFilterSensitiveLog = (obj: GetInstanceStateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInstanceStateResultFilterSensitiveLog = (obj: GetInstanceStateResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKeyPairRequestFilterSensitiveLog = (obj: GetKeyPairRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKeyPairResultFilterSensitiveLog = (obj: GetKeyPairResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKeyPairsRequestFilterSensitiveLog = (obj: GetKeyPairsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetKeyPairsResultFilterSensitiveLog = (obj: GetKeyPairsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoadBalancerRequestFilterSensitiveLog = (obj: GetLoadBalancerRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceHealthSummaryFilterSensitiveLog = (obj: InstanceHealthSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerTlsCertificateSummaryFilterSensitiveLog = (obj: LoadBalancerTlsCertificateSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerFilterSensitiveLog = (obj: LoadBalancer): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoadBalancerResultFilterSensitiveLog = (obj: GetLoadBalancerResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoadBalancerMetricDataRequestFilterSensitiveLog = (obj: GetLoadBalancerMetricDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoadBalancerMetricDataResultFilterSensitiveLog = (obj: GetLoadBalancerMetricDataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoadBalancersRequestFilterSensitiveLog = (obj: GetLoadBalancersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoadBalancersResultFilterSensitiveLog = (obj: GetLoadBalancersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoadBalancerTlsCertificatesRequestFilterSensitiveLog = (
+  obj: GetLoadBalancerTlsCertificatesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerTlsCertificateDomainValidationRecordFilterSensitiveLog = (
+  obj: LoadBalancerTlsCertificateDomainValidationRecord
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerTlsCertificateDomainValidationOptionFilterSensitiveLog = (
+  obj: LoadBalancerTlsCertificateDomainValidationOption
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerTlsCertificateRenewalSummaryFilterSensitiveLog = (
+  obj: LoadBalancerTlsCertificateRenewalSummary
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerTlsCertificateFilterSensitiveLog = (obj: LoadBalancerTlsCertificate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoadBalancerTlsCertificatesResultFilterSensitiveLog = (
+  obj: GetLoadBalancerTlsCertificatesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoadBalancerTlsPoliciesRequestFilterSensitiveLog = (obj: GetLoadBalancerTlsPoliciesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerTlsPolicyFilterSensitiveLog = (obj: LoadBalancerTlsPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoadBalancerTlsPoliciesResultFilterSensitiveLog = (obj: GetLoadBalancerTlsPoliciesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOperationRequestFilterSensitiveLog = (obj: GetOperationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOperationResultFilterSensitiveLog = (obj: GetOperationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOperationsRequestFilterSensitiveLog = (obj: GetOperationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOperationsResultFilterSensitiveLog = (obj: GetOperationsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOperationsForResourceRequestFilterSensitiveLog = (obj: GetOperationsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOperationsForResourceResultFilterSensitiveLog = (obj: GetOperationsForResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRegionsRequestFilterSensitiveLog = (obj: GetRegionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegionFilterSensitiveLog = (obj: Region): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRegionsResultFilterSensitiveLog = (obj: GetRegionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseRequestFilterSensitiveLog = (obj: GetRelationalDatabaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationalDatabaseHardwareFilterSensitiveLog = (obj: RelationalDatabaseHardware): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationalDatabaseEndpointFilterSensitiveLog = (obj: RelationalDatabaseEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingMaintenanceActionFilterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingModifiedRelationalDatabaseValuesFilterSensitiveLog = (
+  obj: PendingModifiedRelationalDatabaseValues
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationalDatabaseFilterSensitiveLog = (obj: RelationalDatabase): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseResultFilterSensitiveLog = (obj: GetRelationalDatabaseResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseBlueprintsRequestFilterSensitiveLog = (
+  obj: GetRelationalDatabaseBlueprintsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationalDatabaseBlueprintFilterSensitiveLog = (obj: RelationalDatabaseBlueprint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseBlueprintsResultFilterSensitiveLog = (
+  obj: GetRelationalDatabaseBlueprintsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseBundlesRequestFilterSensitiveLog = (
+  obj: GetRelationalDatabaseBundlesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationalDatabaseBundleFilterSensitiveLog = (obj: RelationalDatabaseBundle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseBundlesResultFilterSensitiveLog = (obj: GetRelationalDatabaseBundlesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseEventsRequestFilterSensitiveLog = (obj: GetRelationalDatabaseEventsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationalDatabaseEventFilterSensitiveLog = (obj: RelationalDatabaseEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseEventsResultFilterSensitiveLog = (obj: GetRelationalDatabaseEventsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseLogEventsRequestFilterSensitiveLog = (
+  obj: GetRelationalDatabaseLogEventsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogEventFilterSensitiveLog = (obj: LogEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseLogEventsResultFilterSensitiveLog = (
+  obj: GetRelationalDatabaseLogEventsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseLogStreamsRequestFilterSensitiveLog = (
+  obj: GetRelationalDatabaseLogStreamsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseLogStreamsResultFilterSensitiveLog = (
+  obj: GetRelationalDatabaseLogStreamsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseMasterUserPasswordRequestFilterSensitiveLog = (
+  obj: GetRelationalDatabaseMasterUserPasswordRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseMasterUserPasswordResultFilterSensitiveLog = (
+  obj: GetRelationalDatabaseMasterUserPasswordResult
+): any => ({
+  ...obj,
+  ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseMetricDataRequestFilterSensitiveLog = (
+  obj: GetRelationalDatabaseMetricDataRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseMetricDataResultFilterSensitiveLog = (
+  obj: GetRelationalDatabaseMetricDataResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseParametersRequestFilterSensitiveLog = (
+  obj: GetRelationalDatabaseParametersRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationalDatabaseParameterFilterSensitiveLog = (obj: RelationalDatabaseParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseParametersResultFilterSensitiveLog = (
+  obj: GetRelationalDatabaseParametersResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabasesRequestFilterSensitiveLog = (obj: GetRelationalDatabasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabasesResultFilterSensitiveLog = (obj: GetRelationalDatabasesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseSnapshotRequestFilterSensitiveLog = (
+  obj: GetRelationalDatabaseSnapshotRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelationalDatabaseSnapshotFilterSensitiveLog = (obj: RelationalDatabaseSnapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseSnapshotResultFilterSensitiveLog = (
+  obj: GetRelationalDatabaseSnapshotResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseSnapshotsRequestFilterSensitiveLog = (
+  obj: GetRelationalDatabaseSnapshotsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetRelationalDatabaseSnapshotsResultFilterSensitiveLog = (
+  obj: GetRelationalDatabaseSnapshotsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStaticIpRequestFilterSensitiveLog = (obj: GetStaticIpRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StaticIpFilterSensitiveLog = (obj: StaticIp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStaticIpResultFilterSensitiveLog = (obj: GetStaticIpResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStaticIpsRequestFilterSensitiveLog = (obj: GetStaticIpsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStaticIpsResultFilterSensitiveLog = (obj: GetStaticIpsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportKeyPairRequestFilterSensitiveLog = (obj: ImportKeyPairRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportKeyPairResultFilterSensitiveLog = (obj: ImportKeyPairResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IsVpcPeeredRequestFilterSensitiveLog = (obj: IsVpcPeeredRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IsVpcPeeredResultFilterSensitiveLog = (obj: IsVpcPeeredResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenInstancePublicPortsRequestFilterSensitiveLog = (obj: OpenInstancePublicPortsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OpenInstancePublicPortsResultFilterSensitiveLog = (obj: OpenInstancePublicPortsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PeerVpcRequestFilterSensitiveLog = (obj: PeerVpcRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PeerVpcResultFilterSensitiveLog = (obj: PeerVpcResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAlarmRequestFilterSensitiveLog = (obj: PutAlarmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAlarmResultFilterSensitiveLog = (obj: PutAlarmResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInstancePublicPortsRequestFilterSensitiveLog = (obj: PutInstancePublicPortsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutInstancePublicPortsResultFilterSensitiveLog = (obj: PutInstancePublicPortsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootInstanceRequestFilterSensitiveLog = (obj: RebootInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootInstanceResultFilterSensitiveLog = (obj: RebootInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootRelationalDatabaseRequestFilterSensitiveLog = (obj: RebootRelationalDatabaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootRelationalDatabaseResultFilterSensitiveLog = (obj: RebootRelationalDatabaseResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterContainerImageRequestFilterSensitiveLog = (obj: RegisterContainerImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterContainerImageResultFilterSensitiveLog = (obj: RegisterContainerImageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseStaticIpRequestFilterSensitiveLog = (obj: ReleaseStaticIpRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReleaseStaticIpResultFilterSensitiveLog = (obj: ReleaseStaticIpResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetDistributionCacheRequestFilterSensitiveLog = (obj: ResetDistributionCacheRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetDistributionCacheResultFilterSensitiveLog = (obj: ResetDistributionCacheResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendContactMethodVerificationRequestFilterSensitiveLog = (
+  obj: SendContactMethodVerificationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendContactMethodVerificationResultFilterSensitiveLog = (
+  obj: SendContactMethodVerificationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIpAddressTypeRequestFilterSensitiveLog = (obj: SetIpAddressTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetIpAddressTypeResultFilterSensitiveLog = (obj: SetIpAddressTypeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetResourceAccessForBucketRequestFilterSensitiveLog = (obj: SetResourceAccessForBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetResourceAccessForBucketResultFilterSensitiveLog = (obj: SetResourceAccessForBucketResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInstanceRequestFilterSensitiveLog = (obj: StartInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartInstanceResultFilterSensitiveLog = (obj: StartInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRelationalDatabaseRequestFilterSensitiveLog = (obj: StartRelationalDatabaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartRelationalDatabaseResultFilterSensitiveLog = (obj: StartRelationalDatabaseResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopInstanceRequestFilterSensitiveLog = (obj: StopInstanceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopInstanceResultFilterSensitiveLog = (obj: StopInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopRelationalDatabaseRequestFilterSensitiveLog = (obj: StopRelationalDatabaseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopRelationalDatabaseResultFilterSensitiveLog = (obj: StopRelationalDatabaseResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestAlarmRequestFilterSensitiveLog = (obj: TestAlarmRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestAlarmResultFilterSensitiveLog = (obj: TestAlarmResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnpeerVpcRequestFilterSensitiveLog = (obj: UnpeerVpcRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnpeerVpcResultFilterSensitiveLog = (obj: UnpeerVpcResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBucketRequestFilterSensitiveLog = (obj: UpdateBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBucketResultFilterSensitiveLog = (obj: UpdateBucketResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBucketBundleRequestFilterSensitiveLog = (obj: UpdateBucketBundleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBucketBundleResultFilterSensitiveLog = (obj: UpdateBucketBundleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContainerServiceRequestFilterSensitiveLog = (obj: UpdateContainerServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContainerServiceResultFilterSensitiveLog = (obj: UpdateContainerServiceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDistributionRequestFilterSensitiveLog = (obj: UpdateDistributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDistributionResultFilterSensitiveLog = (obj: UpdateDistributionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDistributionBundleRequestFilterSensitiveLog = (obj: UpdateDistributionBundleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDistributionBundleResultFilterSensitiveLog = (obj: UpdateDistributionBundleResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainEntryRequestFilterSensitiveLog = (obj: UpdateDomainEntryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDomainEntryResultFilterSensitiveLog = (obj: UpdateDomainEntryResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoadBalancerAttributeRequestFilterSensitiveLog = (obj: UpdateLoadBalancerAttributeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoadBalancerAttributeResultFilterSensitiveLog = (obj: UpdateLoadBalancerAttributeResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRelationalDatabaseRequestFilterSensitiveLog = (obj: UpdateRelationalDatabaseRequest): any => ({
+  ...obj,
+  ...(obj.masterUserPassword && { masterUserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateRelationalDatabaseResultFilterSensitiveLog = (obj: UpdateRelationalDatabaseResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRelationalDatabaseParametersRequestFilterSensitiveLog = (
+  obj: UpdateRelationalDatabaseParametersRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRelationalDatabaseParametersResultFilterSensitiveLog = (
+  obj: UpdateRelationalDatabaseParametersResult
+): any => ({
+  ...obj,
+});

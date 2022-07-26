@@ -5,51 +5,43 @@ import { EC2ProtocolServiceException as __BaseException } from "./EC2ProtocolSer
 
 export interface EmptyInputAndEmptyOutputInput {}
 
-export namespace EmptyInputAndEmptyOutputInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EmptyInputAndEmptyOutputInputFilterSensitiveLog = (obj: EmptyInputAndEmptyOutputInput): any => ({
+  ...obj,
+});
 
 export interface EmptyInputAndEmptyOutputOutput {}
 
-export namespace EmptyInputAndEmptyOutputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const EmptyInputAndEmptyOutputOutputFilterSensitiveLog = (obj: EmptyInputAndEmptyOutputOutput): any => ({
+  ...obj,
+});
 
 export interface HostLabelInput {
   label: string | undefined;
 }
 
-export namespace HostLabelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostLabelInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const HostLabelInputFilterSensitiveLog = (obj: HostLabelInput): any => ({
+  ...obj,
+});
 
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
 
-export namespace ComplexNestedErrorData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ComplexNestedErrorDataFilterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
+  ...obj,
+});
 
 /**
  * This error is thrown when a request is invalid.
@@ -78,14 +70,12 @@ export interface GreetingWithErrorsOutput {
   greeting?: string;
 }
 
-export namespace GreetingWithErrorsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GreetingWithErrorsOutputFilterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
+  ...obj,
+});
 
 /**
  * This error is thrown when an invalid greeting value is provided.
@@ -112,64 +102,54 @@ export interface IgnoresWrappingXmlNameOutput {
   foo?: string;
 }
 
-export namespace IgnoresWrappingXmlNameOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IgnoresWrappingXmlNameOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const IgnoresWrappingXmlNameOutputFilterSensitiveLog = (obj: IgnoresWrappingXmlNameOutput): any => ({
+  ...obj,
+});
 
 export interface NoInputAndOutputOutput {}
 
-export namespace NoInputAndOutputOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoInputAndOutputOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const NoInputAndOutputOutputFilterSensitiveLog = (obj: NoInputAndOutputOutput): any => ({
+  ...obj,
+});
 
 export interface QueryIdempotencyTokenAutoFillInput {
   token?: string;
 }
 
-export namespace QueryIdempotencyTokenAutoFillInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryIdempotencyTokenAutoFillInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const QueryIdempotencyTokenAutoFillInputFilterSensitiveLog = (obj: QueryIdempotencyTokenAutoFillInput): any => ({
+  ...obj,
+});
 
 export interface GreetingStruct {
   hi?: string;
 }
 
-export namespace GreetingStruct {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const GreetingStructFilterSensitiveLog = (obj: GreetingStruct): any => ({
+  ...obj,
+});
 
 export interface NestedStructWithList {
   ListArg?: string[];
 }
 
-export namespace NestedStructWithList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NestedStructWithList): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const NestedStructWithListFilterSensitiveLog = (obj: NestedStructWithList): any => ({
+  ...obj,
+});
 
 export interface QueryListsInput {
   ListArg?: string[];
@@ -179,14 +159,12 @@ export interface QueryListsInput {
   NestedWithList?: NestedStructWithList;
 }
 
-export namespace QueryListsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryListsInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const QueryListsInputFilterSensitiveLog = (obj: QueryListsInput): any => ({
+  ...obj,
+});
 
 export interface QueryTimestampsInput {
   normalFormat?: Date;
@@ -194,14 +172,12 @@ export interface QueryTimestampsInput {
   epochTarget?: Date;
 }
 
-export namespace QueryTimestampsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryTimestampsInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const QueryTimestampsInputFilterSensitiveLog = (obj: QueryTimestampsInput): any => ({
+  ...obj,
+});
 
 export enum FooEnum {
   BAR = "Bar",
@@ -225,14 +201,12 @@ export interface SimpleInputParamsInput {
   UsesXmlName?: string;
 }
 
-export namespace SimpleInputParamsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleInputParamsInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SimpleInputParamsInputFilterSensitiveLog = (obj: SimpleInputParamsInput): any => ({
+  ...obj,
+});
 
 export interface SimpleScalarXmlPropertiesOutput {
   stringValue?: string;
@@ -247,41 +221,35 @@ export interface SimpleScalarXmlPropertiesOutput {
   doubleValue?: number;
 }
 
-export namespace SimpleScalarXmlPropertiesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SimpleScalarXmlPropertiesOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const SimpleScalarXmlPropertiesOutputFilterSensitiveLog = (obj: SimpleScalarXmlPropertiesOutput): any => ({
+  ...obj,
+});
 
 export interface XmlBlobsOutput {
   data?: Uint8Array;
 }
 
-export namespace XmlBlobsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XmlBlobsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const XmlBlobsOutputFilterSensitiveLog = (obj: XmlBlobsOutput): any => ({
+  ...obj,
+});
 
 export interface StructureListMember {
   a?: string;
   b?: string;
 }
 
-export namespace StructureListMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StructureListMember): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const StructureListMemberFilterSensitiveLog = (obj: StructureListMember): any => ({
+  ...obj,
+});
 
 export interface XmlListsOutput {
   stringList?: string[];
@@ -303,14 +271,12 @@ export interface XmlListsOutput {
   structureList?: StructureListMember[];
 }
 
-export namespace XmlListsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XmlListsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const XmlListsOutputFilterSensitiveLog = (obj: XmlListsOutput): any => ({
+  ...obj,
+});
 
 export interface XmlEnumsOutput {
   fooEnum1?: FooEnum | string;
@@ -321,41 +287,35 @@ export interface XmlEnumsOutput {
   fooEnumMap?: Record<string, FooEnum | string>;
 }
 
-export namespace XmlEnumsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XmlEnumsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const XmlEnumsOutputFilterSensitiveLog = (obj: XmlEnumsOutput): any => ({
+  ...obj,
+});
 
 export interface XmlNamespaceNested {
   foo?: string;
   values?: string[];
 }
 
-export namespace XmlNamespaceNested {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XmlNamespaceNested): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const XmlNamespaceNestedFilterSensitiveLog = (obj: XmlNamespaceNested): any => ({
+  ...obj,
+});
 
 export interface XmlNamespacesOutput {
   nested?: XmlNamespaceNested;
 }
 
-export namespace XmlNamespacesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XmlNamespacesOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const XmlNamespacesOutputFilterSensitiveLog = (obj: XmlNamespacesOutput): any => ({
+  ...obj,
+});
 
 export interface XmlTimestampsOutput {
   normal?: Date;
@@ -364,14 +324,12 @@ export interface XmlTimestampsOutput {
   httpDate?: Date;
 }
 
-export namespace XmlTimestampsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: XmlTimestampsOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const XmlTimestampsOutputFilterSensitiveLog = (obj: XmlTimestampsOutput): any => ({
+  ...obj,
+});
 
 export interface StructArg {
   StringArg?: string;
@@ -379,65 +337,55 @@ export interface StructArg {
   RecursiveArg?: StructArg;
 }
 
-export namespace StructArg {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StructArg): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const StructArgFilterSensitiveLog = (obj: StructArg): any => ({
+  ...obj,
+});
 
 export interface NestedStructuresInput {
   Nested?: StructArg;
 }
 
-export namespace NestedStructuresInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NestedStructuresInput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const NestedStructuresInputFilterSensitiveLog = (obj: NestedStructuresInput): any => ({
+  ...obj,
+});
 
 export interface RecursiveXmlShapesOutputNested1 {
   foo?: string;
   nested?: RecursiveXmlShapesOutputNested2;
 }
 
-export namespace RecursiveXmlShapesOutputNested1 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecursiveXmlShapesOutputNested1): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RecursiveXmlShapesOutputNested1FilterSensitiveLog = (obj: RecursiveXmlShapesOutputNested1): any => ({
+  ...obj,
+});
 
 export interface RecursiveXmlShapesOutputNested2 {
   bar?: string;
   recursiveMember?: RecursiveXmlShapesOutputNested1;
 }
 
-export namespace RecursiveXmlShapesOutputNested2 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecursiveXmlShapesOutputNested2): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RecursiveXmlShapesOutputNested2FilterSensitiveLog = (obj: RecursiveXmlShapesOutputNested2): any => ({
+  ...obj,
+});
 
 export interface RecursiveXmlShapesOutput {
   nested?: RecursiveXmlShapesOutputNested1;
 }
 
-export namespace RecursiveXmlShapesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecursiveXmlShapesOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RecursiveXmlShapesOutputFilterSensitiveLog = (obj: RecursiveXmlShapesOutput): any => ({
+  ...obj,
+});

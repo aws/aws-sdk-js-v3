@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import { ListCustomLineItemsInput, ListCustomLineItemsOutput } from "../models/models_0";
+import {
+  ListCustomLineItemsInput,
+  ListCustomLineItemsInputFilterSensitiveLog,
+  ListCustomLineItemsOutput,
+  ListCustomLineItemsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListCustomLineItemsCommand,
   serializeAws_restJson1ListCustomLineItemsCommand,
@@ -74,8 +79,8 @@ export class ListCustomLineItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomLineItemsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomLineItemsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCustomLineItemsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCustomLineItemsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

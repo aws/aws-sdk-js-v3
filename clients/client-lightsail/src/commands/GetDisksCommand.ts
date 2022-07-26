@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetDisksRequest, GetDisksResult } from "../models/models_0";
+import {
+  GetDisksRequest,
+  GetDisksRequestFilterSensitiveLog,
+  GetDisksResult,
+  GetDisksResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1GetDisksCommand, serializeAws_json1_1GetDisksCommand } from "../protocols/Aws_json1_1";
 
 export interface GetDisksCommandInput extends GetDisksRequest {}
@@ -69,8 +74,8 @@ export class GetDisksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDisksRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDisksResult.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDisksRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDisksResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

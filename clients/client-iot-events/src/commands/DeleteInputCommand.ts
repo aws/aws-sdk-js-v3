@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import { DeleteInputRequest, DeleteInputResponse } from "../models/models_0";
+import {
+  DeleteInputRequest,
+  DeleteInputRequestFilterSensitiveLog,
+  DeleteInputResponse,
+  DeleteInputResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteInputCommand,
   serializeAws_restJson1DeleteInputCommand,
@@ -72,8 +77,8 @@ export class DeleteInputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInputRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInputResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInputRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInputResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

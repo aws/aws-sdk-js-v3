@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import { GetLinkAttributesRequest, GetLinkAttributesResponse } from "../models/models_0";
+import {
+  GetLinkAttributesRequest,
+  GetLinkAttributesRequestFilterSensitiveLog,
+  GetLinkAttributesResponse,
+  GetLinkAttributesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetLinkAttributesCommand,
   serializeAws_restJson1GetLinkAttributesCommand,
@@ -72,8 +77,8 @@ export class GetLinkAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLinkAttributesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetLinkAttributesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetLinkAttributesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetLinkAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

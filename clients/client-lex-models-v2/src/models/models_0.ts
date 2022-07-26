@@ -17,15 +17,6 @@ export interface AdvancedRecognitionSetting {
   audioRecognitionStrategy?: AudioRecognitionStrategy | string;
 }
 
-export namespace AdvancedRecognitionSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AdvancedRecognitionSetting): any => ({
-    ...obj,
-  });
-}
-
 export enum AggregatedUtterancesFilterName {
   Utterance = "Utterance",
 }
@@ -60,15 +51,6 @@ export interface AggregatedUtterancesFilter {
   operator: AggregatedUtterancesFilterOperator | string | undefined;
 }
 
-export namespace AggregatedUtterancesFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregatedUtterancesFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum AggregatedUtterancesSortAttribute {
   HitCount = "HitCount",
   MissedCount = "MissedCount",
@@ -93,15 +75,6 @@ export interface AggregatedUtterancesSortBy {
    *          descending order.</p>
    */
   order: SortOrder | string | undefined;
-}
-
-export namespace AggregatedUtterancesSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregatedUtterancesSortBy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -154,15 +127,6 @@ export interface AggregatedUtterancesSummary {
   containsDataFromDeletedResources?: boolean;
 }
 
-export namespace AggregatedUtterancesSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AggregatedUtterancesSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The object containing information that associates the recommended
  *          intent/slot type with a conversation.</p>
@@ -174,15 +138,6 @@ export interface AssociatedTranscript {
    *             format</a>.</p>
    */
   transcript?: string;
-}
-
-export namespace AssociatedTranscript {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatedTranscript): any => ({
-    ...obj,
-  });
 }
 
 export enum AssociatedTranscriptFilterName {
@@ -204,15 +159,6 @@ export interface AssociatedTranscriptFilter {
    * <p>The values to use to filter the transcript.</p>
    */
   values: string[] | undefined;
-}
-
-export namespace AssociatedTranscriptFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatedTranscriptFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -237,15 +183,6 @@ export interface S3BucketLogDestination {
   logPrefix: string | undefined;
 }
 
-export namespace S3BucketLogDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3BucketLogDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The location of audio log files collected when conversation logging
  *          is enabled for a bot.</p>
@@ -257,15 +194,6 @@ export interface AudioLogDestination {
    *          bucket.</p>
    */
   s3Bucket: S3BucketLogDestination | undefined;
-}
-
-export namespace AudioLogDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioLogDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -284,15 +212,6 @@ export interface AudioLogSetting {
    *          is enabled for a bot.</p>
    */
   destination: AudioLogDestination | undefined;
-}
-
-export namespace AudioLogSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AudioLogSetting): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -316,15 +235,6 @@ export interface BotAliasHistoryEvent {
   endDate?: Date;
 }
 
-export namespace BotAliasHistoryEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotAliasHistoryEvent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a Lambda function that verifies requests to a bot or
  *          fulfills the user's request to a bot.</p>
@@ -342,15 +252,6 @@ export interface LambdaCodeHook {
   codeHookInterfaceVersion: string | undefined;
 }
 
-export namespace LambdaCodeHook {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaCodeHook): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about code hooks that Amazon Lex calls during a
  *          conversation.</p>
@@ -361,15 +262,6 @@ export interface CodeHookSpecification {
    *          fulfills the user's request to a bot.</p>
    */
   lambdaCodeHook: LambdaCodeHook | undefined;
-}
-
-export namespace CodeHookSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeHookSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -388,15 +280,6 @@ export interface BotAliasLocaleSettings {
    *          locale.</p>
    */
   codeHookSpecification?: CodeHookSpecification;
-}
-
-export namespace BotAliasLocaleSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotAliasLocaleSettings): any => ({
-    ...obj,
-  });
 }
 
 export enum BotAliasStatus {
@@ -450,15 +333,6 @@ export interface BotAliasSummary {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace BotAliasSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotAliasSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the identity of a the bot that was exported.</p>
  */
@@ -473,15 +347,6 @@ export interface BotExportSpecification {
    *             <code>DRAFT</code> or the version number.</p>
    */
   botVersion: string | undefined;
-}
-
-export namespace BotExportSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotExportSpecification): any => ({
-    ...obj,
-  });
 }
 
 export enum BotFilterName {
@@ -516,15 +381,6 @@ export interface BotFilter {
    *          the specified value.</p>
    */
   operator: BotFilterOperator | string | undefined;
-}
-
-export namespace BotFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -563,15 +419,6 @@ export interface DataPrivacy {
    *             FAQ</a>.</p>
    */
   childDirected: boolean | undefined;
-}
-
-export namespace DataPrivacy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataPrivacy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -625,15 +472,6 @@ export interface BotImportSpecification {
   testBotAliasTags?: Record<string, string>;
 }
 
-export namespace BotImportSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotImportSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides the bot locale parameters required for exporting a bot
  *          locale.</p>
@@ -654,15 +492,6 @@ export interface BotLocaleExportSpecification {
    *          match one of the locales in the bot.</p>
    */
   localeId: string | undefined;
-}
-
-export namespace BotLocaleExportSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleExportSpecification): any => ({
-    ...obj,
-  });
 }
 
 export enum BotLocaleFilterName {
@@ -699,15 +528,6 @@ export interface BotLocaleFilter {
   operator: BotLocaleFilterOperator | string | undefined;
 }
 
-export namespace BotLocaleFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an event that occurred affecting the bot
  *          locale.</p>
@@ -722,15 +542,6 @@ export interface BotLocaleHistoryEvent {
    * <p>A timestamp of the date and time that the event occurred.</p>
    */
   eventDate: Date | undefined;
-}
-
-export namespace BotLocaleHistoryEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleHistoryEvent): any => ({
-    ...obj,
-  });
 }
 
 export enum VoiceEngine {
@@ -758,15 +569,6 @@ export interface VoiceSettings {
    *          <code>standard</code>.</p>
    */
   engine?: VoiceEngine | string;
-}
-
-export namespace VoiceSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VoiceSettings): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -838,15 +640,6 @@ export interface BotLocaleImportSpecification {
   voiceSettings?: VoiceSettings;
 }
 
-export namespace BotLocaleImportSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleImportSpecification): any => ({
-    ...obj,
-  });
-}
-
 export enum BotLocaleSortAttribute {
   BotLocaleName = "BotLocaleName",
 }
@@ -865,15 +658,6 @@ export interface BotLocaleSortBy {
    *          order.</p>
    */
   order: SortOrder | string | undefined;
-}
-
-export namespace BotLocaleSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleSortBy): any => ({
-    ...obj,
-  });
 }
 
 export enum BotLocaleStatus {
@@ -926,15 +710,6 @@ export interface BotLocaleSummary {
   lastBuildSubmittedDateTime?: Date;
 }
 
-export namespace BotLocaleSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotLocaleSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The object that contains the statistical summary of recommended
  *          intents associated with the bot recommendation.</p>
@@ -947,15 +722,6 @@ export interface IntentStatistics {
   discoveredIntentCount?: number;
 }
 
-export namespace IntentStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentStatistics): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The object that contains the statistical summary of the recommended
  *          slot type associated with the bot recommendation.</p>
@@ -966,15 +732,6 @@ export interface SlotTypeStatistics {
    *          recommendation.</p>
    */
   discoveredSlotTypeCount?: number;
-}
-
-export namespace SlotTypeStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotTypeStatistics): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -992,15 +749,6 @@ export interface BotRecommendationResultStatistics {
    *          recommendation results.</p>
    */
   slotTypes?: SlotTypeStatistics;
-}
-
-export namespace BotRecommendationResultStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotRecommendationResultStatistics): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1023,15 +771,6 @@ export interface BotRecommendationResults {
    * <p>The statistical summary of the bot recommendation results.</p>
    */
   statistics?: BotRecommendationResultStatistics;
-}
-
-export namespace BotRecommendationResults {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotRecommendationResults): any => ({
-    ...obj,
-  });
 }
 
 export enum BotRecommendationStatus {
@@ -1074,15 +813,6 @@ export interface BotRecommendationSummary {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace BotRecommendationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotRecommendationSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum BotSortAttribute {
   BotName = "BotName",
 }
@@ -1101,15 +831,6 @@ export interface BotSortBy {
    *          descending.</p>
    */
   order: SortOrder | string | undefined;
-}
-
-export namespace BotSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotSortBy): any => ({
-    ...obj,
-  });
 }
 
 export enum BotStatus {
@@ -1159,15 +880,6 @@ export interface BotSummary {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace BotSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The version of a bot used for a bot locale.</p>
  */
@@ -1176,15 +888,6 @@ export interface BotVersionLocaleDetails {
    * <p>The version of a bot used for a bot locale.</p>
    */
   sourceBotVersion: string | undefined;
-}
-
-export namespace BotVersionLocaleDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotVersionLocaleDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum BotVersionSortAttribute {
@@ -1205,15 +908,6 @@ export interface BotVersionSortBy {
    *          order.</p>
    */
   order: SortOrder | string | undefined;
-}
-
-export namespace BotVersionSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotVersionSortBy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1249,15 +943,6 @@ export interface BotVersionSummary {
   creationDateTime?: Date;
 }
 
-export namespace BotVersionSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BotVersionSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface BuildBotLocaleRequest {
   /**
    * <p>The identifier of the bot to build. The identifier is returned in
@@ -1278,15 +963,6 @@ export interface BuildBotLocaleRequest {
    *          locale. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
-}
-
-export namespace BuildBotLocaleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildBotLocaleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface BuildBotLocaleResponse {
@@ -1321,15 +997,6 @@ export interface BuildBotLocaleResponse {
    *          for this locale.</p>
    */
   lastBuildSubmittedDateTime?: Date;
-}
-
-export namespace BuildBotLocaleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuildBotLocaleResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1475,15 +1142,6 @@ export interface BuiltInIntentSortBy {
   order: SortOrder | string | undefined;
 }
 
-export namespace BuiltInIntentSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuiltInIntentSortBy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides summary information about a built-in intent for the <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBuiltInIntents.html"> ListBuiltInIntents </a> operation.</p>
  */
@@ -1498,15 +1156,6 @@ export interface BuiltInIntentSummary {
    * <p>The description of the intent.</p>
    */
   description?: string;
-}
-
-export namespace BuiltInIntentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuiltInIntentSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum BuiltInSlotTypeSortAttribute {
@@ -1530,15 +1179,6 @@ export interface BuiltInSlotTypeSortBy {
   order: SortOrder | string | undefined;
 }
 
-export namespace BuiltInSlotTypeSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuiltInSlotTypeSortBy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides summary information about a built-in slot type for the
  *             <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_ListBuiltInSlotTypes.html"> ListBuiltInSlotTypes </a>
@@ -1555,15 +1195,6 @@ export interface BuiltInSlotTypeSummary {
    * <p>The description of the built-in slot type.</p>
    */
   description?: string;
-}
-
-export namespace BuiltInSlotTypeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BuiltInSlotTypeSummary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1584,15 +1215,6 @@ export interface Button {
   value: string | undefined;
 }
 
-export namespace Button {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Button): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon CloudWatch Logs log group where the text and metadata logs are
  *          delivered. The log group must exist before you enable logging.</p>
@@ -1611,15 +1233,6 @@ export interface CloudWatchLogGroupLogDestination {
   logPrefix: string | undefined;
 }
 
-export namespace CloudWatchLogGroupLogDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogGroupLogDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the Amazon CloudWatch Logs destination log group for
  *          conversation text logs.</p>
@@ -1630,15 +1243,6 @@ export interface TextLogDestination {
    *          delivered.</p>
    */
   cloudWatch: CloudWatchLogGroupLogDestination | undefined;
-}
-
-export namespace TextLogDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextLogDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1658,15 +1262,6 @@ export interface TextLogSetting {
   destination: TextLogDestination | undefined;
 }
 
-export namespace TextLogSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextLogSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configures conversation logging that saves audio, text, and metadata
  *          for the conversations with your users.</p>
@@ -1681,15 +1276,6 @@ export interface ConversationLogSettings {
    * <p>The Amazon S3 settings for logging audio to an S3 bucket.</p>
    */
   audioLogSettings?: AudioLogSetting[];
-}
-
-export namespace ConversationLogSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConversationLogSettings): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBotRequest {
@@ -1743,15 +1329,6 @@ export interface CreateBotRequest {
    *             <code>TagResource</code> operation.</p>
    */
   testBotAliasTags?: Record<string, string>;
-}
-
-export namespace CreateBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBotResponse {
@@ -1811,15 +1388,6 @@ export interface CreateBotResponse {
   testBotAliasTags?: Record<string, string>;
 }
 
-export namespace CreateBotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
  *          user utterances.</p>
@@ -1830,15 +1398,6 @@ export interface SentimentAnalysisSettings {
    *          utterances.</p>
    */
   detectSentiment: boolean | undefined;
-}
-
-export namespace SentimentAnalysisSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SentimentAnalysisSettings): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBotAliasRequest {
@@ -1893,15 +1452,6 @@ export interface CreateBotAliasRequest {
    *             <code>TagResource</code> operation.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace CreateBotAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotAliasRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBotAliasResponse {
@@ -1967,15 +1517,6 @@ export interface CreateBotAliasResponse {
   tags?: Record<string, string>;
 }
 
-export namespace CreateBotAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotAliasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBotLocaleRequest {
   /**
    * <p>The identifier of the bot to create the locale for.</p>
@@ -2036,15 +1577,6 @@ export interface CreateBotLocaleRequest {
    *          user.</p>
    */
   voiceSettings?: VoiceSettings;
-}
-
-export namespace CreateBotLocaleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotLocaleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBotLocaleResponse {
@@ -2108,15 +1640,6 @@ export interface CreateBotLocaleResponse {
   creationDateTime?: Date;
 }
 
-export namespace CreateBotLocaleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotLocaleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBotVersionRequest {
   /**
    * <p>The identifier of the bot to create the version for.</p>
@@ -2136,15 +1659,6 @@ export interface CreateBotVersionRequest {
    *          data is copied from the source version to the new version.</p>
    */
   botVersionLocaleSpecification: Record<string, BotVersionLocaleDetails> | undefined;
-}
-
-export namespace CreateBotVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBotVersionResponse {
@@ -2183,15 +1697,6 @@ export interface CreateBotVersionResponse {
   creationDateTime?: Date;
 }
 
-export namespace CreateBotVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBotVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum ImportExportFileFormat {
   LexJson = "LexJson",
   TSV = "TSV",
@@ -2217,15 +1722,6 @@ export interface CustomVocabularyExportSpecification {
   localeId: string | undefined;
 }
 
-export namespace CustomVocabularyExportSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomVocabularyExportSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the bot or bot locale that you want to
  *          export. You can specify the <code>botExportSpecification</code> or the
@@ -2248,15 +1744,6 @@ export interface ExportResourceSpecification {
   customVocabularyExportSpecification?: CustomVocabularyExportSpecification;
 }
 
-export namespace ExportResourceSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportResourceSpecification): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateExportRequest {
   /**
    * <p>Specifies the type of resource to export, either a bot or a bot
@@ -2275,16 +1762,6 @@ export interface CreateExportRequest {
    *          transit between Amazon Lex and your local computer.</p>
    */
   filePassword?: string;
-}
-
-export namespace CreateExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExportRequest): any => ({
-    ...obj,
-    ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-  });
 }
 
 export enum ExportStatus {
@@ -2326,15 +1803,6 @@ export interface CreateExportResponse {
   creationDateTime?: Date;
 }
 
-export namespace CreateExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateExportResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You asked to describe a resource that doesn't exist. Check the
  *          resource that you are requesting and try again.</p>
@@ -2367,15 +1835,6 @@ export interface DialogCodeHookSettings {
   enabled: boolean | undefined;
 }
 
-export namespace DialogCodeHookSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DialogCodeHookSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A custom response string that Amazon Lex sends to your application. You
  *          define the content and structure the string.</p>
@@ -2385,15 +1844,6 @@ export interface CustomPayload {
    * <p>The string that is sent to your application.</p>
    */
   value: string | undefined;
-}
-
-export namespace CustomPayload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomPayload): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2431,15 +1881,6 @@ export interface ImageResponseCard {
   buttons?: Button[];
 }
 
-export namespace ImageResponseCard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageResponseCard): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines an ASCII text message to send to the user.</p>
  */
@@ -2450,15 +1891,6 @@ export interface PlainTextMessage {
   value: string | undefined;
 }
 
-export namespace PlainTextMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlainTextMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines a Speech Synthesis Markup Language (SSML) prompt.</p>
  */
@@ -2467,15 +1899,6 @@ export interface SSMLMessage {
    * <p>The SSML text that defines the prompt.</p>
    */
   value: string | undefined;
-}
-
-export namespace SSMLMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSMLMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2505,15 +1928,6 @@ export interface Message {
   imageResponseCard?: ImageResponseCard;
 }
 
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides one or more messages that Amazon Lex should send to the
  *          user.</p>
@@ -2530,15 +1944,6 @@ export interface MessageGroup {
    *          the user.</p>
    */
   variations?: Message[];
-}
-
-export namespace MessageGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2566,15 +1971,6 @@ export interface FulfillmentStartResponseSpecification {
   allowInterrupt?: boolean;
 }
 
-export namespace FulfillmentStartResponseSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FulfillmentStartResponseSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides settings for a message that is sent periodically to the
  *          user while a fulfillment Lambda function is running.</p>
@@ -2599,15 +1995,6 @@ export interface FulfillmentUpdateResponseSpecification {
    *          is playing.</p>
    */
   allowInterrupt?: boolean;
-}
-
-export namespace FulfillmentUpdateResponseSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FulfillmentUpdateResponseSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2643,15 +2030,6 @@ export interface FulfillmentUpdatesSpecification {
   timeoutInSeconds?: number;
 }
 
-export namespace FulfillmentUpdatesSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FulfillmentUpdatesSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies a list of message groups that Amazon Lex uses to respond the
  *          user input.</p>
@@ -2668,15 +2046,6 @@ export interface ResponseSpecification {
    *          Amazon Lex.</p>
    */
   allowInterrupt?: boolean;
-}
-
-export namespace ResponseSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2702,15 +2071,6 @@ export interface PostFulfillmentStatusSpecification {
    *          user input.</p>
    */
   timeoutResponse?: ResponseSpecification;
-}
-
-export namespace PostFulfillmentStatusSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PostFulfillmentStatusSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2739,15 +2099,6 @@ export interface FulfillmentCodeHookSettings {
   fulfillmentUpdatesSpecification?: FulfillmentUpdatesSpecification;
 }
 
-export namespace FulfillmentCodeHookSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FulfillmentCodeHookSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The name of a context that must be active for an intent to be
  *          selected by Amazon Lex.</p>
@@ -2757,15 +2108,6 @@ export interface InputContext {
    * <p>The name of the context.</p>
    */
   name: string | undefined;
-}
-
-export namespace InputContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputContext): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2786,15 +2128,6 @@ export interface IntentClosingSetting {
    *          true.</p>
    */
   active?: boolean;
-}
-
-export namespace IntentClosingSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentClosingSetting): any => ({
-    ...obj,
-  });
 }
 
 export enum MessageSelectionStrategy {
@@ -2831,15 +2164,6 @@ export interface PromptSpecification {
   messageSelectionStrategy?: MessageSelectionStrategy | string;
 }
 
-export namespace PromptSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PromptSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides a prompt for making sure that the user is ready for the
  *          intent to be fulfilled.</p>
@@ -2873,15 +2197,6 @@ export interface IntentConfirmationSetting {
   active?: boolean;
 }
 
-export namespace IntentConfirmationSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentConfirmationSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides configuration information for the AMAZON.KendraSearchIntent
  *          intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra
@@ -2911,15 +2226,6 @@ export interface KendraConfiguration {
   queryFilterString?: string;
 }
 
-export namespace KendraConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KendraConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a session context that is activated when an intent is
  *          fulfilled.</p>
@@ -2945,15 +2251,6 @@ export interface OutputContext {
   turnsToLive: number | undefined;
 }
 
-export namespace OutputContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputContext): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A sample utterance that invokes an intent or respond to a slot
  *          elicitation prompt.</p>
@@ -2964,15 +2261,6 @@ export interface SampleUtterance {
    *          model to recognize intents.</p>
    */
   utterance: string | undefined;
-}
-
-export namespace SampleUtterance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SampleUtterance): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateIntentRequest {
@@ -3100,15 +2388,6 @@ export interface CreateIntentRequest {
   localeId: string | undefined;
 }
 
-export namespace CreateIntentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateIntentResponse {
   /**
    * <p>A unique identifier for the intent.</p>
@@ -3193,15 +2472,6 @@ export interface CreateIntentResponse {
   creationDateTime?: Date;
 }
 
-export namespace CreateIntentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateIntentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -3221,15 +2491,6 @@ export interface CreateResourcePolicyRequest {
   policy: string | undefined;
 }
 
-export namespace CreateResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourcePolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -3244,15 +2505,6 @@ export interface CreateResourcePolicyResponse {
    *          resource, or update a resource.</p>
    */
   revisionId?: string;
-}
-
-export namespace CreateResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum Effect {
@@ -3276,15 +2528,6 @@ export interface Principal {
    * <p>The Amazon Resource Name (ARN) of the principal.</p>
    */
   arn?: string;
-}
-
-export namespace Principal {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Principal): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateResourcePolicyStatementRequest {
@@ -3342,15 +2585,6 @@ export interface CreateResourcePolicyStatementRequest {
   expectedRevisionId?: string;
 }
 
-export namespace CreateResourcePolicyStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourcePolicyStatementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateResourcePolicyStatementResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -3365,15 +2599,6 @@ export interface CreateResourcePolicyStatementResponse {
    *          resource, or update a resource.</p>
    */
   revisionId?: string;
-}
-
-export namespace CreateResourcePolicyStatementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateResourcePolicyStatementResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3394,15 +2619,6 @@ export interface MultipleValuesSetting {
   allowMultipleValues?: boolean;
 }
 
-export namespace MultipleValuesSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultipleValuesSetting): any => ({
-    ...obj,
-  });
-}
-
 export enum ObfuscationSettingType {
   DefaultObfuscation = "DefaultObfuscation",
   None = "None",
@@ -3420,15 +2636,6 @@ export interface ObfuscationSetting {
   obfuscationSettingType: ObfuscationSettingType | string | undefined;
 }
 
-export namespace ObfuscationSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObfuscationSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the default value to use when a user doesn't provide a
  *          value for a slot.</p>
@@ -3441,15 +2648,6 @@ export interface SlotDefaultValue {
   defaultValue: string | undefined;
 }
 
-export namespace SlotDefaultValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotDefaultValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines a list of values that Amazon Lex should use as the default value
  *          for a slot.</p>
@@ -3460,15 +2658,6 @@ export interface SlotDefaultValueSpecification {
    *          the order that they are presented in the list.</p>
    */
   defaultValueList: SlotDefaultValue[] | undefined;
-}
-
-export namespace SlotDefaultValueSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotDefaultValueSpecification): any => ({
-    ...obj,
-  });
 }
 
 export enum SlotConstraint {
@@ -3506,15 +2695,6 @@ export interface StillWaitingResponseSpecification {
   allowInterrupt?: boolean;
 }
 
-export namespace StillWaitingResponseSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StillWaitingResponseSpecification): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the prompts that Amazon Lex uses while a bot is waiting for
  *          customer input. </p>
@@ -3545,15 +2725,6 @@ export interface WaitAndContinueSpecification {
    *          true.</p>
    */
   active?: boolean;
-}
-
-export namespace WaitAndContinueSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WaitAndContinueSpecification): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3592,15 +2763,6 @@ export interface SlotValueElicitationSetting {
    *          customer input. </p>
    */
   waitAndContinueSpecification?: WaitAndContinueSpecification;
-}
-
-export namespace SlotValueElicitationSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotValueElicitationSetting): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSlotRequest {
@@ -3673,15 +2835,6 @@ export interface CreateSlotRequest {
   multipleValuesSetting?: MultipleValuesSetting;
 }
 
-export namespace CreateSlotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSlotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSlotResponse {
   /**
    * <p>The unique identifier associated with the slot. Use this to identify
@@ -3748,15 +2901,6 @@ export interface CreateSlotResponse {
   multipleValuesSetting?: MultipleValuesSetting;
 }
 
-export namespace CreateSlotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSlotResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the Amazon S3 bucket name and location for the grammar
  *          that is the source for the slot type.</p>
@@ -3779,15 +2923,6 @@ export interface GrammarSlotTypeSource {
   kmsKeyArn?: string;
 }
 
-export namespace GrammarSlotTypeSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrammarSlotTypeSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Settings requried for a slot type based on a grammar that you
  *          provide.</p>
@@ -3797,15 +2932,6 @@ export interface GrammarSlotTypeSetting {
    * <p>The source of the grammar used to create the slot type.</p>
    */
   source?: GrammarSlotTypeSource;
-}
-
-export namespace GrammarSlotTypeSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GrammarSlotTypeSetting): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3820,15 +2946,6 @@ export interface ExternalSourceSetting {
   grammarSlotTypeSetting?: GrammarSlotTypeSetting;
 }
 
-export namespace ExternalSourceSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExternalSourceSetting): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines one of the values for a slot type.</p>
  */
@@ -3837,15 +2954,6 @@ export interface SampleValue {
    * <p>The value that can be used for a slot type.</p>
    */
   value: string | undefined;
-}
-
-export namespace SampleValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SampleValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3863,15 +2971,6 @@ export interface SlotTypeValue {
    * <p>Additional values related to the slot type entry.</p>
    */
   synonyms?: SampleValue[];
-}
-
-export namespace SlotTypeValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotTypeValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3907,15 +3006,6 @@ export interface SlotValueRegexFilter {
    *          </ul>
    */
   pattern: string | undefined;
-}
-
-export namespace SlotValueRegexFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotValueRegexFilter): any => ({
-    ...obj,
-  });
 }
 
 export enum SlotValueResolutionStrategy {
@@ -3959,15 +3049,6 @@ export interface SlotValueSelectionSetting {
    *          values.</p>
    */
   advancedRecognitionSetting?: AdvancedRecognitionSetting;
-}
-
-export namespace SlotValueSelectionSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotValueSelectionSetting): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateSlotTypeRequest {
@@ -4047,15 +3128,6 @@ export interface CreateSlotTypeRequest {
   externalSourceSetting?: ExternalSourceSetting;
 }
 
-export namespace CreateSlotTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSlotTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateSlotTypeResponse {
   /**
    * <p>The unique identifier assigned to the slot type. Use this to
@@ -4119,25 +3191,7 @@ export interface CreateSlotTypeResponse {
   externalSourceSetting?: ExternalSourceSetting;
 }
 
-export namespace CreateSlotTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateSlotTypeResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUploadUrlRequest {}
-
-export namespace CreateUploadUrlRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUploadUrlRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateUploadUrlResponse {
   /**
@@ -4151,15 +3205,6 @@ export interface CreateUploadUrlResponse {
    *          the definition of your bot or bot locale.</p>
    */
   uploadUrl?: string;
-}
-
-export namespace CreateUploadUrlResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateUploadUrlResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4181,15 +3226,6 @@ export interface CustomVocabularyImportSpecification {
    *       be <code>en_GB</code>.</p>
    */
   localeId: string | undefined;
-}
-
-export namespace CustomVocabularyImportSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomVocabularyImportSpecification): any => ({
-    ...obj,
-  });
 }
 
 export enum CustomVocabularyStatus {
@@ -4218,15 +3254,6 @@ export interface DateRangeFilter {
   endDateTime: Date | undefined;
 }
 
-export namespace DateRangeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateRangeFilter): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBotRequest {
   /**
    * <p>The identifier of the bot to delete. </p>
@@ -4241,15 +3268,6 @@ export interface DeleteBotRequest {
   skipResourceInUseCheck?: boolean;
 }
 
-export namespace DeleteBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBotResponse {
   /**
    * <p>The unique identifier of the bot that Amazon Lex is deleting.</p>
@@ -4261,15 +3279,6 @@ export interface DeleteBotResponse {
    *          while the bot and its associated resources are being deleted.</p>
    */
   botStatus?: BotStatus | string;
-}
-
-export namespace DeleteBotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBotAliasRequest {
@@ -4289,15 +3298,6 @@ export interface DeleteBotAliasRequest {
    *          resource is using the alias before it is deleted.</p>
    */
   skipResourceInUseCheck?: boolean;
-}
-
-export namespace DeleteBotAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotAliasRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBotAliasResponse {
@@ -4321,15 +3321,6 @@ export interface DeleteBotAliasResponse {
   botAliasStatus?: BotAliasStatus | string;
 }
 
-export namespace DeleteBotAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotAliasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBotLocaleRequest {
   /**
    * <p>The unique identifier of the bot that contains the locale.</p>
@@ -4347,15 +3338,6 @@ export interface DeleteBotLocaleRequest {
    *          see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
-}
-
-export namespace DeleteBotLocaleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotLocaleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBotLocaleResponse {
@@ -4382,15 +3364,6 @@ export interface DeleteBotLocaleResponse {
   botLocaleStatus?: BotLocaleStatus | string;
 }
 
-export namespace DeleteBotLocaleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotLocaleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBotVersionRequest {
   /**
    * <p>The identifier of the bot that contains the version.</p>
@@ -4413,15 +3386,6 @@ export interface DeleteBotVersionRequest {
   skipResourceInUseCheck?: boolean;
 }
 
-export namespace DeleteBotVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotVersionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBotVersionResponse {
   /**
    * <p>The identifier of the bot that is being deleted.</p>
@@ -4437,15 +3401,6 @@ export interface DeleteBotVersionResponse {
    * <p>The current status of the bot. </p>
    */
   botStatus?: BotStatus | string;
-}
-
-export namespace DeleteBotVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBotVersionResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCustomVocabularyRequest {
@@ -4466,15 +3421,6 @@ export interface DeleteCustomVocabularyRequest {
    *       custom vocabulary to remove.</p>
    */
   localeId: string | undefined;
-}
-
-export namespace DeleteCustomVocabularyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomVocabularyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteCustomVocabularyResponse {
@@ -4502,29 +3448,11 @@ export interface DeleteCustomVocabularyResponse {
   customVocabularyStatus?: CustomVocabularyStatus | string;
 }
 
-export namespace DeleteCustomVocabularyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCustomVocabularyResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteExportRequest {
   /**
    * <p>The unique identifier of the export to delete.</p>
    */
   exportId: string | undefined;
-}
-
-export namespace DeleteExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExportRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteExportResponse {
@@ -4542,29 +3470,11 @@ export interface DeleteExportResponse {
   exportStatus?: ExportStatus | string;
 }
 
-export namespace DeleteExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteExportResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteImportRequest {
   /**
    * <p>The unique identifier of the import to delete.</p>
    */
   importId: string | undefined;
-}
-
-export namespace DeleteImportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImportRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum ImportStatus {
@@ -4586,15 +3496,6 @@ export interface DeleteImportResponse {
    *          fail.</p>
    */
   importStatus?: ImportStatus | string;
-}
-
-export namespace DeleteImportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteImportResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteIntentRequest {
@@ -4621,15 +3522,6 @@ export interface DeleteIntentRequest {
   localeId: string | undefined;
 }
 
-export namespace DeleteIntentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteIntentRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that has the
@@ -4646,15 +3538,6 @@ export interface DeleteResourcePolicyRequest {
   expectedRevisionId?: string;
 }
 
-export namespace DeleteResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -4669,15 +3552,6 @@ export interface DeleteResourcePolicyResponse {
    *          resource, or update a resource.</p>
    */
   revisionId?: string;
-}
-
-export namespace DeleteResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourcePolicyStatementRequest {
@@ -4702,15 +3576,6 @@ export interface DeleteResourcePolicyStatementRequest {
   expectedRevisionId?: string;
 }
 
-export namespace DeleteResourcePolicyStatementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyStatementRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcePolicyStatementResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -4725,15 +3590,6 @@ export interface DeleteResourcePolicyStatementResponse {
    *          resource, or update a resource.</p>
    */
   revisionId?: string;
-}
-
-export namespace DeleteResourcePolicyStatementResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcePolicyStatementResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSlotRequest {
@@ -4763,15 +3619,6 @@ export interface DeleteSlotRequest {
    * <p>The identifier of the intent associated with the slot.</p>
    */
   intentId: string | undefined;
-}
-
-export namespace DeleteSlotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSlotRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteSlotTypeRequest {
@@ -4807,15 +3654,6 @@ export interface DeleteSlotTypeRequest {
   skipResourceInUseCheck?: boolean;
 }
 
-export namespace DeleteSlotTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSlotTypeRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUtterancesRequest {
   /**
    * <p>The unique identifier of the bot that contains the
@@ -4838,40 +3676,13 @@ export interface DeleteUtterancesRequest {
   sessionId?: string;
 }
 
-export namespace DeleteUtterancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUtterancesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUtterancesResponse {}
-
-export namespace DeleteUtterancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteUtterancesResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeBotRequest {
   /**
    * <p>The unique identifier of the bot to describe.</p>
    */
   botId: string | undefined;
-}
-
-export namespace DescribeBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBotResponse {
@@ -4927,15 +3738,6 @@ export interface DescribeBotResponse {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace DescribeBotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBotAliasRequest {
   /**
    * <p>The identifier of the bot alias to describe.</p>
@@ -4947,15 +3749,6 @@ export interface DescribeBotAliasRequest {
    *          describe.</p>
    */
   botId: string | undefined;
-}
-
-export namespace DescribeBotAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotAliasRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBotAliasResponse {
@@ -5026,15 +3819,6 @@ export interface DescribeBotAliasResponse {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace DescribeBotAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotAliasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBotLocaleRequest {
   /**
    * <p>The identifier of the bot associated with the locale.</p>
@@ -5052,15 +3836,6 @@ export interface DescribeBotLocaleRequest {
    *          match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>. </p>
    */
   localeId: string | undefined;
-}
-
-export namespace DescribeBotLocaleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotLocaleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBotLocaleResponse {
@@ -5156,15 +3931,6 @@ export interface DescribeBotLocaleResponse {
   recommendedActions?: string[];
 }
 
-export namespace DescribeBotLocaleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotLocaleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeBotRecommendationRequest {
   /**
    * <p>The unique identifier of the bot associated with the bot
@@ -5191,15 +3957,6 @@ export interface DescribeBotRecommendationRequest {
   botRecommendationId: string | undefined;
 }
 
-export namespace DescribeBotRecommendationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotRecommendationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The object representing the passwords that were used to encrypt the
  *          data related to the bot recommendation, as well as the KMS key ARN used
@@ -5224,17 +3981,6 @@ export interface EncryptionSetting {
   associatedTranscriptsPassword?: string;
 }
 
-export namespace EncryptionSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionSetting): any => ({
-    ...obj,
-    ...(obj.botLocaleExportPassword && { botLocaleExportPassword: SENSITIVE_STRING }),
-    ...(obj.associatedTranscriptsPassword && { associatedTranscriptsPassword: SENSITIVE_STRING }),
-  });
-}
-
 /**
  * <p>The object that contains a path format that will be applied when
  *          Amazon Lex reads the transcript file in the bucket you provide. Specify this
@@ -5250,15 +3996,6 @@ export interface PathFormat {
   objectPrefixes?: string[];
 }
 
-export namespace PathFormat {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PathFormat): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The object that contains transcript filter details that are
  *          associated with a bot recommendation.</p>
@@ -5272,15 +4009,6 @@ export interface LexTranscriptFilter {
   dateRangeFilter?: DateRangeFilter;
 }
 
-export namespace LexTranscriptFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LexTranscriptFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The object representing the filter that Amazon Lex will use to select the
  *          appropriate transcript.</p>
@@ -5292,15 +4020,6 @@ export interface TranscriptFilter {
    *          format.</p>
    */
   lexTranscriptFilter?: LexTranscriptFilter;
-}
-
-export namespace TranscriptFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranscriptFilter): any => ({
-    ...obj,
-  });
 }
 
 export enum TranscriptFormat {
@@ -5348,15 +4067,6 @@ export interface S3BucketTranscriptSource {
   kmsKeyArn?: string;
 }
 
-export namespace S3BucketTranscriptSource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3BucketTranscriptSource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates the setting of the location where the transcript is
  *          stored.</p>
@@ -5367,15 +4077,6 @@ export interface TranscriptSourceSetting {
    *          stored.</p>
    */
   s3BucketTranscriptSource?: S3BucketTranscriptSource;
-}
-
-export namespace TranscriptSourceSetting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TranscriptSourceSetting): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBotRecommendationResponse {
@@ -5446,16 +4147,6 @@ export interface DescribeBotRecommendationResponse {
   botRecommendationResults?: BotRecommendationResults;
 }
 
-export namespace DescribeBotRecommendationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotRecommendationResponse): any => ({
-    ...obj,
-    ...(obj.encryptionSetting && { encryptionSetting: EncryptionSetting.filterSensitiveLog(obj.encryptionSetting) }),
-  });
-}
-
 export interface DescribeBotVersionRequest {
   /**
    * <p>The identifier of the bot containing the version to return metadata
@@ -5467,15 +4158,6 @@ export interface DescribeBotVersionRequest {
    * <p>The version of the bot to return metadata for.</p>
    */
   botVersion: string | undefined;
-}
-
-export namespace DescribeBotVersionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotVersionRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBotVersionResponse {
@@ -5535,15 +4217,6 @@ export interface DescribeBotVersionResponse {
   creationDateTime?: Date;
 }
 
-export namespace DescribeBotVersionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeBotVersionResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCustomVocabularyMetadataRequest {
   /**
    * <p>The unique identifier of the bot that contains the custom vocabulary.</p>
@@ -5560,15 +4233,6 @@ export interface DescribeCustomVocabularyMetadataRequest {
    *       The locale must be <code>en_GB</code>.</p>
    */
   localeId: string | undefined;
-}
-
-export namespace DescribeCustomVocabularyMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomVocabularyMetadataRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCustomVocabularyMetadataResponse {
@@ -5604,29 +4268,11 @@ export interface DescribeCustomVocabularyMetadataResponse {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace DescribeCustomVocabularyMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCustomVocabularyMetadataResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeExportRequest {
   /**
    * <p>The unique identifier of the export to describe.</p>
    */
   exportId: string | undefined;
-}
-
-export namespace DescribeExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeExportResponse {
@@ -5677,29 +4323,11 @@ export interface DescribeExportResponse {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace DescribeExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeExportResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeImportRequest {
   /**
    * <p>The unique identifier of the import to describe.</p>
    */
   importId: string | undefined;
-}
-
-export namespace DescribeImportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum MergeStrategy {
@@ -5728,15 +4356,6 @@ export interface ImportResourceSpecification {
    * <p>Provides the parameters required for importing a custom vocabulary.</p>
    */
   customVocabularyImportSpecification?: CustomVocabularyImportSpecification;
-}
-
-export namespace ImportResourceSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportResourceSpecification): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeImportResponse {
@@ -5794,15 +4413,6 @@ export interface DescribeImportResponse {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace DescribeImportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeIntentRequest {
   /**
    * <p>The identifier of the intent to describe.</p>
@@ -5827,15 +4437,6 @@ export interface DescribeIntentRequest {
   localeId: string | undefined;
 }
 
-export namespace DescribeIntentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIntentRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Sets the priority that Amazon Lex should use when eliciting slot values
  *          from a user.</p>
@@ -5850,15 +4451,6 @@ export interface SlotPriority {
    * <p>The unique identifier of the slot.</p>
    */
   slotId: string | undefined;
-}
-
-export namespace SlotPriority {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotPriority): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeIntentResponse {
@@ -5963,30 +4555,12 @@ export interface DescribeIntentResponse {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace DescribeIntentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIntentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
    *          resource policy is attached to.</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace DescribeResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourcePolicyRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeResourcePolicyResponse {
@@ -6010,15 +4584,6 @@ export interface DescribeResourcePolicyResponse {
    *          resource, or update a resource.</p>
    */
   revisionId?: string;
-}
-
-export namespace DescribeResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSlotRequest {
@@ -6048,15 +4613,6 @@ export interface DescribeSlotRequest {
    * <p>The identifier of the intent that contains the slot.</p>
    */
   intentId: string | undefined;
-}
-
-export namespace DescribeSlotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSlotRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSlotResponse {
@@ -6133,15 +4689,6 @@ export interface DescribeSlotResponse {
   multipleValuesSetting?: MultipleValuesSetting;
 }
 
-export namespace DescribeSlotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSlotResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeSlotTypeRequest {
   /**
    * <p>The identifier of the slot type.</p>
@@ -6164,15 +4711,6 @@ export interface DescribeSlotTypeRequest {
    *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
-}
-
-export namespace DescribeSlotTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSlotTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeSlotTypeResponse {
@@ -6242,15 +4780,6 @@ export interface DescribeSlotTypeResponse {
   externalSourceSetting?: ExternalSourceSetting;
 }
 
-export namespace DescribeSlotTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSlotTypeResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum ExportFilterName {
   ExportResourceType = "ExportResourceType",
 }
@@ -6286,15 +4815,6 @@ export interface ExportFilter {
   operator: ExportFilterOperator | string | undefined;
 }
 
-export namespace ExportFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum ExportSortAttribute {
   LastUpdatedDateTime = "LastUpdatedDateTime",
 }
@@ -6312,15 +4832,6 @@ export interface ExportSortBy {
    * <p>The order to sort the list.</p>
    */
   order: SortOrder | string | undefined;
-}
-
-export namespace ExportSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSortBy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6360,15 +4871,6 @@ export interface ExportSummary {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace ExportSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum ImportFilterName {
   ImportResourceType = "ImportResourceType",
 }
@@ -6404,15 +4906,6 @@ export interface ImportFilter {
   operator: ImportFilterOperator | string | undefined;
 }
 
-export namespace ImportFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum ImportResourceType {
   Bot = "Bot",
   BotLocale = "BotLocale",
@@ -6436,15 +4929,6 @@ export interface ImportSortBy {
    * <p>The order to sort the list.</p>
    */
   order: SortOrder | string | undefined;
-}
-
-export namespace ImportSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportSortBy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6496,15 +4980,6 @@ export interface ImportSummary {
   importedResourceType?: ImportResourceType | string;
 }
 
-export namespace ImportSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportSummary): any => ({
-    ...obj,
-  });
-}
-
 export enum IntentFilterName {
   IntentName = "IntentName",
 }
@@ -6539,15 +5014,6 @@ export interface IntentFilter {
   operator: IntentFilterOperator | string | undefined;
 }
 
-export namespace IntentFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum IntentSortAttribute {
   IntentName = "IntentName",
   LastUpdatedDateTime = "LastUpdatedDateTime",
@@ -6567,15 +5033,6 @@ export interface IntentSortBy {
    *          descending.</p>
    */
   order: SortOrder | string | undefined;
-}
-
-export namespace IntentSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentSortBy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6623,15 +5080,6 @@ export interface IntentSummary {
    *          updated.</p>
    */
   lastUpdatedDateTime?: Date;
-}
-
-export namespace IntentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IntentSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum TimeDimension {
@@ -6701,15 +5149,6 @@ export interface RelativeAggregationDuration {
   timeValue: number | undefined;
 }
 
-export namespace RelativeAggregationDuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelativeAggregationDuration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides parameters for setting the time window and duration for
  *          aggregating utterance data.</p>
@@ -6719,15 +5158,6 @@ export interface UtteranceAggregationDuration {
    * <p>The desired time window for aggregating utterances. </p>
    */
   relativeAggregationDuration: RelativeAggregationDuration | undefined;
-}
-
-export namespace UtteranceAggregationDuration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UtteranceAggregationDuration): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAggregatedUtterancesRequest {
@@ -6793,15 +5223,6 @@ export interface ListAggregatedUtterancesRequest {
    *          return the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListAggregatedUtterancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAggregatedUtterancesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAggregatedUtterancesResponse {
@@ -6887,15 +5308,6 @@ export interface ListAggregatedUtterancesResponse {
   nextToken?: string;
 }
 
-export namespace ListAggregatedUtterancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAggregatedUtterancesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBotAliasesRequest {
   /**
    * <p>The identifier of the bot to list aliases for.</p>
@@ -6917,15 +5329,6 @@ export interface ListBotAliasesRequest {
    *          results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListBotAliasesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotAliasesRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBotAliasesResponse {
@@ -6951,15 +5354,6 @@ export interface ListBotAliasesResponse {
    * <p>The identifier of the bot associated with the aliases.</p>
    */
   botId?: string;
-}
-
-export namespace ListBotAliasesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotAliasesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBotLocalesRequest {
@@ -7003,15 +5397,6 @@ export interface ListBotLocalesRequest {
   nextToken?: string;
 }
 
-export namespace ListBotLocalesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotLocalesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBotLocalesResponse {
   /**
    * <p>The identifier of the bot to list locales for.</p>
@@ -7040,15 +5425,6 @@ export interface ListBotLocalesResponse {
    *          get the next page of results.</p>
    */
   botLocaleSummaries?: BotLocaleSummary[];
-}
-
-export namespace ListBotLocalesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotLocalesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBotRecommendationsRequest {
@@ -7084,15 +5460,6 @@ export interface ListBotRecommendationsRequest {
    *          return the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListBotRecommendationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotRecommendationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBotRecommendationsResponse {
@@ -7133,15 +5500,6 @@ export interface ListBotRecommendationsResponse {
   nextToken?: string;
 }
 
-export namespace ListBotRecommendationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotRecommendationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBotsRequest {
   /**
    * <p>Specifies sorting parameters for the list of bots. You can specify
@@ -7177,15 +5535,6 @@ export interface ListBotsRequest {
   nextToken?: string;
 }
 
-export namespace ListBotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBotsResponse {
   /**
    * <p>Summary information for the bots that meet the filter criteria
@@ -7204,15 +5553,6 @@ export interface ListBotsResponse {
    *          operation request to get the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListBotsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBotVersionsRequest {
@@ -7245,15 +5585,6 @@ export interface ListBotVersionsRequest {
   nextToken?: string;
 }
 
-export namespace ListBotVersionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotVersionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBotVersionsResponse {
   /**
    * <p>The identifier of the bot to list versions for.</p>
@@ -7277,15 +5608,6 @@ export interface ListBotVersionsResponse {
    *          operation request to get the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListBotVersionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBotVersionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBuiltInIntentsRequest {
@@ -7320,15 +5642,6 @@ export interface ListBuiltInIntentsRequest {
   nextToken?: string;
 }
 
-export namespace ListBuiltInIntentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuiltInIntentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBuiltInIntentsResponse {
   /**
    * <p>Summary information for the built-in intents that meet the filter
@@ -7352,15 +5665,6 @@ export interface ListBuiltInIntentsResponse {
    * <p>The language and locale of the intents in the list.</p>
    */
   localeId?: string;
-}
-
-export namespace ListBuiltInIntentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuiltInIntentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListBuiltInSlotTypesRequest {
@@ -7396,15 +5700,6 @@ export interface ListBuiltInSlotTypesRequest {
   nextToken?: string;
 }
 
-export namespace ListBuiltInSlotTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuiltInSlotTypesRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListBuiltInSlotTypesResponse {
   /**
    * <p>Summary information for the built-in slot types that meet the filter
@@ -7429,15 +5724,6 @@ export interface ListBuiltInSlotTypesResponse {
    * <p>The language and locale of the slot types in the list.</p>
    */
   localeId?: string;
-}
-
-export namespace ListBuiltInSlotTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListBuiltInSlotTypesResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListExportsRequest {
@@ -7492,15 +5778,6 @@ export interface ListExportsRequest {
   localeId?: string;
 }
 
-export namespace ListExportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExportsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListExportsResponse {
   /**
    * <p>The unique identifier assigned to the bot by Amazon Lex.</p>
@@ -7534,15 +5811,6 @@ export interface ListExportsResponse {
    * <p>The locale specified in the request.</p>
    */
   localeId?: string;
-}
-
-export namespace ListExportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListExportsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListImportsRequest {
@@ -7597,15 +5865,6 @@ export interface ListImportsRequest {
   localeId?: string;
 }
 
-export namespace ListImportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImportsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListImportsResponse {
   /**
    * <p>The unique identifier assigned by Amazon Lex to the bot.</p>
@@ -7640,15 +5899,6 @@ export interface ListImportsResponse {
    * <p>The locale specified in the request.</p>
    */
   localeId?: string;
-}
-
-export namespace ListImportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListImportsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListIntentsRequest {
@@ -7704,15 +5954,6 @@ export interface ListIntentsRequest {
   nextToken?: string;
 }
 
-export namespace ListIntentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIntentsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListIntentsResponse {
   /**
    * <p>The identifier of the bot that contains the intent.</p>
@@ -7746,15 +5987,6 @@ export interface ListIntentsResponse {
    *          operation request to get the next page of results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListIntentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListIntentsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRecommendedIntentsRequest {
@@ -7797,15 +6029,6 @@ export interface ListRecommendedIntentsRequest {
   maxResults?: number;
 }
 
-export namespace ListRecommendedIntentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecommendedIntentsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains a summary of a recommended intent.</p>
  */
@@ -7827,15 +6050,6 @@ export interface RecommendedIntentSummary {
    *          associated with a bot recommendation.</p>
    */
   sampleUtterancesCount?: number;
-}
-
-export namespace RecommendedIntentSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecommendedIntentSummary): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRecommendedIntentsResponse {
@@ -7882,15 +6096,6 @@ export interface ListRecommendedIntentsResponse {
   nextToken?: string;
 }
 
-export namespace ListRecommendedIntentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRecommendedIntentsResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum SlotFilterName {
   SlotName = "SlotName",
 }
@@ -7925,15 +6130,6 @@ export interface SlotFilter {
   operator: SlotFilterOperator | string | undefined;
 }
 
-export namespace SlotFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum SlotSortAttribute {
   LastUpdatedDateTime = "LastUpdatedDateTime",
   SlotName = "SlotName",
@@ -7953,15 +6149,6 @@ export interface SlotSortBy {
    *          descending.</p>
    */
   order: SortOrder | string | undefined;
-}
-
-export namespace SlotSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotSortBy): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSlotsRequest {
@@ -8019,15 +6206,6 @@ export interface ListSlotsRequest {
   nextToken?: string;
 }
 
-export namespace ListSlotsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSlotsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Summary information about a slot, a value that the bot elicits from
  *          the user.</p>
@@ -8073,15 +6251,6 @@ export interface SlotSummary {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace SlotSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSlotsResponse {
   /**
    * <p>The identifier of the bot that contains the slots.</p>
@@ -8122,15 +6291,6 @@ export interface ListSlotsResponse {
   nextToken?: string;
 }
 
-export namespace ListSlotsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSlotsResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum SlotTypeFilterName {
   ExternalSourceType = "ExternalSourceType",
   SlotTypeName = "SlotTypeName",
@@ -8166,15 +6326,6 @@ export interface SlotTypeFilter {
   operator: SlotTypeFilterOperator | string | undefined;
 }
 
-export namespace SlotTypeFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotTypeFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum SlotTypeSortAttribute {
   LastUpdatedDateTime = "LastUpdatedDateTime",
   SlotTypeName = "SlotTypeName",
@@ -8194,15 +6345,6 @@ export interface SlotTypeSortBy {
    *          descending.</p>
    */
   order: SortOrder | string | undefined;
-}
-
-export namespace SlotTypeSortBy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotTypeSortBy): any => ({
-    ...obj,
-  });
 }
 
 export interface ListSlotTypesRequest {
@@ -8254,15 +6396,6 @@ export interface ListSlotTypesRequest {
    *          results.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListSlotTypesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSlotTypesRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SlotTypeCategory {
@@ -8327,15 +6460,6 @@ export interface SlotTypeSummary {
   slotTypeCategory?: SlotTypeCategory | string;
 }
 
-export namespace SlotTypeSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SlotTypeSummary): any => ({
-    ...obj,
-  });
-}
-
 export interface ListSlotTypesResponse {
   /**
    * <p>The identifier of the bot that contains the slot types.</p>
@@ -8371,15 +6495,6 @@ export interface ListSlotTypesResponse {
   nextToken?: string;
 }
 
-export namespace ListSlotTypesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListSlotTypesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get a list of tags
@@ -8388,29 +6503,11 @@ export interface ListTagsForResourceRequest {
   resourceARN: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The tags associated with a resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum SearchOrder {
@@ -8472,15 +6569,6 @@ export interface SearchAssociatedTranscriptsRequest {
   nextIndex?: number;
 }
 
-export namespace SearchAssociatedTranscriptsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchAssociatedTranscriptsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface SearchAssociatedTranscriptsResponse {
   /**
    * <p>The unique identifier of the bot associated with the transcripts
@@ -8529,15 +6617,6 @@ export interface SearchAssociatedTranscriptsResponse {
   totalResults?: number;
 }
 
-export namespace SearchAssociatedTranscriptsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SearchAssociatedTranscriptsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface StartBotRecommendationRequest {
   /**
    * <p>The unique identifier of the bot containing the bot
@@ -8570,16 +6649,6 @@ export interface StartBotRecommendationRequest {
    *          key ARN used to encrypt the associated metadata.</p>
    */
   encryptionSetting?: EncryptionSetting;
-}
-
-export namespace StartBotRecommendationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBotRecommendationRequest): any => ({
-    ...obj,
-    ...(obj.encryptionSetting && { encryptionSetting: EncryptionSetting.filterSensitiveLog(obj.encryptionSetting) }),
-  });
 }
 
 export interface StartBotRecommendationResponse {
@@ -8635,16 +6704,6 @@ export interface StartBotRecommendationResponse {
   encryptionSetting?: EncryptionSetting;
 }
 
-export namespace StartBotRecommendationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartBotRecommendationResponse): any => ({
-    ...obj,
-    ...(obj.encryptionSetting && { encryptionSetting: EncryptionSetting.filterSensitiveLog(obj.encryptionSetting) }),
-  });
-}
-
 export interface StartImportRequest {
   /**
    * <p>The unique identifier for the import. It is included in the response
@@ -8672,16 +6731,6 @@ export interface StartImportRequest {
    *          protect it during transit between your site and Amazon Lex.</p>
    */
   filePassword?: string;
-}
-
-export namespace StartImportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImportRequest): any => ({
-    ...obj,
-    ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-  });
 }
 
 export interface StartImportResponse {
@@ -8716,15 +6765,6 @@ export interface StartImportResponse {
   creationDateTime?: Date;
 }
 
-export namespace StartImportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartImportResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot, bot alias, or bot channel
@@ -8739,25 +6779,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -8773,25 +6795,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateBotRequest {
   /**
@@ -8833,15 +6837,6 @@ export interface UpdateBotRequest {
    *          seconds.</p>
    */
   idleSessionTTLInSeconds: number | undefined;
-}
-
-export namespace UpdateBotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBotResponse {
@@ -8897,15 +6892,6 @@ export interface UpdateBotResponse {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace UpdateBotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBotAliasRequest {
   /**
    * <p>The unique identifier of the bot alias.</p>
@@ -8949,15 +6935,6 @@ export interface UpdateBotAliasRequest {
    * <p>The identifier of the bot with the updated alias.</p>
    */
   botId: string | undefined;
-}
-
-export namespace UpdateBotAliasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotAliasRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBotAliasResponse {
@@ -9022,15 +6999,6 @@ export interface UpdateBotAliasResponse {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace UpdateBotAliasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotAliasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBotLocaleRequest {
   /**
    * <p>The unique identifier of the bot that contains the locale.</p>
@@ -9067,15 +7035,6 @@ export interface UpdateBotLocaleRequest {
    *          user.</p>
    */
   voiceSettings?: VoiceSettings;
-}
-
-export namespace UpdateBotLocaleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotLocaleRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateBotLocaleResponse {
@@ -9149,15 +7108,6 @@ export interface UpdateBotLocaleResponse {
   recommendedActions?: string[];
 }
 
-export namespace UpdateBotLocaleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotLocaleResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateBotRecommendationRequest {
   /**
    * <p>The unique identifier of the bot containing the bot recommendation
@@ -9191,16 +7141,6 @@ export interface UpdateBotRecommendationRequest {
    *          key ARN used to encrypt the associated metadata.</p>
    */
   encryptionSetting: EncryptionSetting | undefined;
-}
-
-export namespace UpdateBotRecommendationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotRecommendationRequest): any => ({
-    ...obj,
-    ...(obj.encryptionSetting && { encryptionSetting: EncryptionSetting.filterSensitiveLog(obj.encryptionSetting) }),
-  });
 }
 
 export interface UpdateBotRecommendationResponse {
@@ -9263,16 +7203,6 @@ export interface UpdateBotRecommendationResponse {
   encryptionSetting?: EncryptionSetting;
 }
 
-export namespace UpdateBotRecommendationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateBotRecommendationResponse): any => ({
-    ...obj,
-    ...(obj.encryptionSetting && { encryptionSetting: EncryptionSetting.filterSensitiveLog(obj.encryptionSetting) }),
-  });
-}
-
 export interface UpdateExportRequest {
   /**
    * <p>The unique identifier Amazon Lex assigned to the export.</p>
@@ -9283,16 +7213,6 @@ export interface UpdateExportRequest {
    * <p>The new password to use to encrypt the export zip archive.</p>
    */
   filePassword?: string;
-}
-
-export namespace UpdateExportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExportRequest): any => ({
-    ...obj,
-    ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-  });
 }
 
 export interface UpdateExportResponse {
@@ -9329,15 +7249,6 @@ export interface UpdateExportResponse {
    * <p>The date and time that the export was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
-}
-
-export namespace UpdateExportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateExportResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateIntentRequest {
@@ -9431,15 +7342,6 @@ export interface UpdateIntentRequest {
    *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
    */
   localeId: string | undefined;
-}
-
-export namespace UpdateIntentRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIntentRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateIntentResponse {
@@ -9544,15 +7446,6 @@ export interface UpdateIntentResponse {
   lastUpdatedDateTime?: Date;
 }
 
-export namespace UpdateIntentResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateIntentResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResourcePolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -9581,15 +7474,6 @@ export interface UpdateResourcePolicyRequest {
   expectedRevisionId?: string;
 }
 
-export namespace UpdateResourcePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourcePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateResourcePolicyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the bot or bot alias that the
@@ -9604,15 +7488,6 @@ export interface UpdateResourcePolicyResponse {
    *          resource, or update a resource.</p>
    */
   revisionId?: string;
-}
-
-export namespace UpdateResourcePolicyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateResourcePolicyResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSlotRequest {
@@ -9681,15 +7556,6 @@ export interface UpdateSlotRequest {
    *          value is <code>false</code>.</p>
    */
   multipleValuesSetting?: MultipleValuesSetting;
-}
-
-export namespace UpdateSlotRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSlotRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSlotResponse {
@@ -9765,15 +7631,6 @@ export interface UpdateSlotResponse {
   multipleValuesSetting?: MultipleValuesSetting;
 }
 
-export namespace UpdateSlotResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSlotResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateSlotTypeRequest {
   /**
    * <p>The unique identifier of the slot type to update.</p>
@@ -9831,15 +7688,6 @@ export interface UpdateSlotTypeRequest {
    *          definition.</p>
    */
   externalSourceSetting?: ExternalSourceSetting;
-}
-
-export namespace UpdateSlotTypeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSlotTypeRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateSlotTypeResponse {
@@ -9910,11 +7758,1707 @@ export interface UpdateSlotTypeResponse {
   externalSourceSetting?: ExternalSourceSetting;
 }
 
-export namespace UpdateSlotTypeResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateSlotTypeResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AdvancedRecognitionSettingFilterSensitiveLog = (obj: AdvancedRecognitionSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregatedUtterancesFilterFilterSensitiveLog = (obj: AggregatedUtterancesFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregatedUtterancesSortByFilterSensitiveLog = (obj: AggregatedUtterancesSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AggregatedUtterancesSummaryFilterSensitiveLog = (obj: AggregatedUtterancesSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatedTranscriptFilterSensitiveLog = (obj: AssociatedTranscript): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociatedTranscriptFilterFilterSensitiveLog = (obj: AssociatedTranscriptFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3BucketLogDestinationFilterSensitiveLog = (obj: S3BucketLogDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioLogDestinationFilterSensitiveLog = (obj: AudioLogDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioLogSettingFilterSensitiveLog = (obj: AudioLogSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotAliasHistoryEventFilterSensitiveLog = (obj: BotAliasHistoryEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaCodeHookFilterSensitiveLog = (obj: LambdaCodeHook): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeHookSpecificationFilterSensitiveLog = (obj: CodeHookSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotAliasLocaleSettingsFilterSensitiveLog = (obj: BotAliasLocaleSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotAliasSummaryFilterSensitiveLog = (obj: BotAliasSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotExportSpecificationFilterSensitiveLog = (obj: BotExportSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotFilterFilterSensitiveLog = (obj: BotFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataPrivacyFilterSensitiveLog = (obj: DataPrivacy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotImportSpecificationFilterSensitiveLog = (obj: BotImportSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotLocaleExportSpecificationFilterSensitiveLog = (obj: BotLocaleExportSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotLocaleFilterFilterSensitiveLog = (obj: BotLocaleFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotLocaleHistoryEventFilterSensitiveLog = (obj: BotLocaleHistoryEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VoiceSettingsFilterSensitiveLog = (obj: VoiceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotLocaleImportSpecificationFilterSensitiveLog = (obj: BotLocaleImportSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotLocaleSortByFilterSensitiveLog = (obj: BotLocaleSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotLocaleSummaryFilterSensitiveLog = (obj: BotLocaleSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntentStatisticsFilterSensitiveLog = (obj: IntentStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotTypeStatisticsFilterSensitiveLog = (obj: SlotTypeStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotRecommendationResultStatisticsFilterSensitiveLog = (obj: BotRecommendationResultStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotRecommendationResultsFilterSensitiveLog = (obj: BotRecommendationResults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotRecommendationSummaryFilterSensitiveLog = (obj: BotRecommendationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotSortByFilterSensitiveLog = (obj: BotSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotSummaryFilterSensitiveLog = (obj: BotSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotVersionLocaleDetailsFilterSensitiveLog = (obj: BotVersionLocaleDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotVersionSortByFilterSensitiveLog = (obj: BotVersionSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BotVersionSummaryFilterSensitiveLog = (obj: BotVersionSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildBotLocaleRequestFilterSensitiveLog = (obj: BuildBotLocaleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuildBotLocaleResponseFilterSensitiveLog = (obj: BuildBotLocaleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuiltInIntentSortByFilterSensitiveLog = (obj: BuiltInIntentSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuiltInIntentSummaryFilterSensitiveLog = (obj: BuiltInIntentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuiltInSlotTypeSortByFilterSensitiveLog = (obj: BuiltInSlotTypeSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BuiltInSlotTypeSummaryFilterSensitiveLog = (obj: BuiltInSlotTypeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ButtonFilterSensitiveLog = (obj: Button): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchLogGroupLogDestinationFilterSensitiveLog = (obj: CloudWatchLogGroupLogDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextLogDestinationFilterSensitiveLog = (obj: TextLogDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextLogSettingFilterSensitiveLog = (obj: TextLogSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConversationLogSettingsFilterSensitiveLog = (obj: ConversationLogSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBotRequestFilterSensitiveLog = (obj: CreateBotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBotResponseFilterSensitiveLog = (obj: CreateBotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SentimentAnalysisSettingsFilterSensitiveLog = (obj: SentimentAnalysisSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBotAliasRequestFilterSensitiveLog = (obj: CreateBotAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBotAliasResponseFilterSensitiveLog = (obj: CreateBotAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBotLocaleRequestFilterSensitiveLog = (obj: CreateBotLocaleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBotLocaleResponseFilterSensitiveLog = (obj: CreateBotLocaleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBotVersionRequestFilterSensitiveLog = (obj: CreateBotVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBotVersionResponseFilterSensitiveLog = (obj: CreateBotVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomVocabularyExportSpecificationFilterSensitiveLog = (
+  obj: CustomVocabularyExportSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportResourceSpecificationFilterSensitiveLog = (obj: ExportResourceSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateExportRequestFilterSensitiveLog = (obj: CreateExportRequest): any => ({
+  ...obj,
+  ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateExportResponseFilterSensitiveLog = (obj: CreateExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DialogCodeHookSettingsFilterSensitiveLog = (obj: DialogCodeHookSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomPayloadFilterSensitiveLog = (obj: CustomPayload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImageResponseCardFilterSensitiveLog = (obj: ImageResponseCard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlainTextMessageFilterSensitiveLog = (obj: PlainTextMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSMLMessageFilterSensitiveLog = (obj: SSMLMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageGroupFilterSensitiveLog = (obj: MessageGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FulfillmentStartResponseSpecificationFilterSensitiveLog = (
+  obj: FulfillmentStartResponseSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FulfillmentUpdateResponseSpecificationFilterSensitiveLog = (
+  obj: FulfillmentUpdateResponseSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FulfillmentUpdatesSpecificationFilterSensitiveLog = (obj: FulfillmentUpdatesSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseSpecificationFilterSensitiveLog = (obj: ResponseSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PostFulfillmentStatusSpecificationFilterSensitiveLog = (obj: PostFulfillmentStatusSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FulfillmentCodeHookSettingsFilterSensitiveLog = (obj: FulfillmentCodeHookSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputContextFilterSensitiveLog = (obj: InputContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntentClosingSettingFilterSensitiveLog = (obj: IntentClosingSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PromptSpecificationFilterSensitiveLog = (obj: PromptSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntentConfirmationSettingFilterSensitiveLog = (obj: IntentConfirmationSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KendraConfigurationFilterSensitiveLog = (obj: KendraConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OutputContextFilterSensitiveLog = (obj: OutputContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SampleUtteranceFilterSensitiveLog = (obj: SampleUtterance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIntentRequestFilterSensitiveLog = (obj: CreateIntentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateIntentResponseFilterSensitiveLog = (obj: CreateIntentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourcePolicyRequestFilterSensitiveLog = (obj: CreateResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourcePolicyResponseFilterSensitiveLog = (obj: CreateResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrincipalFilterSensitiveLog = (obj: Principal): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourcePolicyStatementRequestFilterSensitiveLog = (
+  obj: CreateResourcePolicyStatementRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateResourcePolicyStatementResponseFilterSensitiveLog = (
+  obj: CreateResourcePolicyStatementResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultipleValuesSettingFilterSensitiveLog = (obj: MultipleValuesSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObfuscationSettingFilterSensitiveLog = (obj: ObfuscationSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotDefaultValueFilterSensitiveLog = (obj: SlotDefaultValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotDefaultValueSpecificationFilterSensitiveLog = (obj: SlotDefaultValueSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StillWaitingResponseSpecificationFilterSensitiveLog = (obj: StillWaitingResponseSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WaitAndContinueSpecificationFilterSensitiveLog = (obj: WaitAndContinueSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotValueElicitationSettingFilterSensitiveLog = (obj: SlotValueElicitationSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSlotRequestFilterSensitiveLog = (obj: CreateSlotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSlotResponseFilterSensitiveLog = (obj: CreateSlotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrammarSlotTypeSourceFilterSensitiveLog = (obj: GrammarSlotTypeSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GrammarSlotTypeSettingFilterSensitiveLog = (obj: GrammarSlotTypeSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExternalSourceSettingFilterSensitiveLog = (obj: ExternalSourceSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SampleValueFilterSensitiveLog = (obj: SampleValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotTypeValueFilterSensitiveLog = (obj: SlotTypeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotValueRegexFilterFilterSensitiveLog = (obj: SlotValueRegexFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotValueSelectionSettingFilterSensitiveLog = (obj: SlotValueSelectionSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSlotTypeRequestFilterSensitiveLog = (obj: CreateSlotTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSlotTypeResponseFilterSensitiveLog = (obj: CreateSlotTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUploadUrlRequestFilterSensitiveLog = (obj: CreateUploadUrlRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateUploadUrlResponseFilterSensitiveLog = (obj: CreateUploadUrlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomVocabularyImportSpecificationFilterSensitiveLog = (
+  obj: CustomVocabularyImportSpecification
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateRangeFilterFilterSensitiveLog = (obj: DateRangeFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBotRequestFilterSensitiveLog = (obj: DeleteBotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBotResponseFilterSensitiveLog = (obj: DeleteBotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBotAliasRequestFilterSensitiveLog = (obj: DeleteBotAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBotAliasResponseFilterSensitiveLog = (obj: DeleteBotAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBotLocaleRequestFilterSensitiveLog = (obj: DeleteBotLocaleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBotLocaleResponseFilterSensitiveLog = (obj: DeleteBotLocaleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBotVersionRequestFilterSensitiveLog = (obj: DeleteBotVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBotVersionResponseFilterSensitiveLog = (obj: DeleteBotVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomVocabularyRequestFilterSensitiveLog = (obj: DeleteCustomVocabularyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCustomVocabularyResponseFilterSensitiveLog = (obj: DeleteCustomVocabularyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExportRequestFilterSensitiveLog = (obj: DeleteExportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteExportResponseFilterSensitiveLog = (obj: DeleteExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImportRequestFilterSensitiveLog = (obj: DeleteImportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteImportResponseFilterSensitiveLog = (obj: DeleteImportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteIntentRequestFilterSensitiveLog = (obj: DeleteIntentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyStatementRequestFilterSensitiveLog = (
+  obj: DeleteResourcePolicyStatementRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcePolicyStatementResponseFilterSensitiveLog = (
+  obj: DeleteResourcePolicyStatementResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSlotRequestFilterSensitiveLog = (obj: DeleteSlotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSlotTypeRequestFilterSensitiveLog = (obj: DeleteSlotTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUtterancesRequestFilterSensitiveLog = (obj: DeleteUtterancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteUtterancesResponseFilterSensitiveLog = (obj: DeleteUtterancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBotRequestFilterSensitiveLog = (obj: DescribeBotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBotResponseFilterSensitiveLog = (obj: DescribeBotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBotAliasRequestFilterSensitiveLog = (obj: DescribeBotAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBotAliasResponseFilterSensitiveLog = (obj: DescribeBotAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBotLocaleRequestFilterSensitiveLog = (obj: DescribeBotLocaleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBotLocaleResponseFilterSensitiveLog = (obj: DescribeBotLocaleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBotRecommendationRequestFilterSensitiveLog = (obj: DescribeBotRecommendationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionSettingFilterSensitiveLog = (obj: EncryptionSetting): any => ({
+  ...obj,
+  ...(obj.botLocaleExportPassword && { botLocaleExportPassword: SENSITIVE_STRING }),
+  ...(obj.associatedTranscriptsPassword && { associatedTranscriptsPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PathFormatFilterSensitiveLog = (obj: PathFormat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LexTranscriptFilterFilterSensitiveLog = (obj: LexTranscriptFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranscriptFilterFilterSensitiveLog = (obj: TranscriptFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3BucketTranscriptSourceFilterSensitiveLog = (obj: S3BucketTranscriptSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TranscriptSourceSettingFilterSensitiveLog = (obj: TranscriptSourceSetting): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBotRecommendationResponseFilterSensitiveLog = (obj: DescribeBotRecommendationResponse): any => ({
+  ...obj,
+  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeBotVersionRequestFilterSensitiveLog = (obj: DescribeBotVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBotVersionResponseFilterSensitiveLog = (obj: DescribeBotVersionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomVocabularyMetadataRequestFilterSensitiveLog = (
+  obj: DescribeCustomVocabularyMetadataRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCustomVocabularyMetadataResponseFilterSensitiveLog = (
+  obj: DescribeCustomVocabularyMetadataResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExportRequestFilterSensitiveLog = (obj: DescribeExportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeExportResponseFilterSensitiveLog = (obj: DescribeExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImportRequestFilterSensitiveLog = (obj: DescribeImportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportResourceSpecificationFilterSensitiveLog = (obj: ImportResourceSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeImportResponseFilterSensitiveLog = (obj: DescribeImportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIntentRequestFilterSensitiveLog = (obj: DescribeIntentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotPriorityFilterSensitiveLog = (obj: SlotPriority): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeIntentResponseFilterSensitiveLog = (obj: DescribeIntentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourcePolicyRequestFilterSensitiveLog = (obj: DescribeResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourcePolicyResponseFilterSensitiveLog = (obj: DescribeResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSlotRequestFilterSensitiveLog = (obj: DescribeSlotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSlotResponseFilterSensitiveLog = (obj: DescribeSlotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSlotTypeRequestFilterSensitiveLog = (obj: DescribeSlotTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeSlotTypeResponseFilterSensitiveLog = (obj: DescribeSlotTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportFilterFilterSensitiveLog = (obj: ExportFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportSortByFilterSensitiveLog = (obj: ExportSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportSummaryFilterSensitiveLog = (obj: ExportSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportFilterFilterSensitiveLog = (obj: ImportFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportSortByFilterSensitiveLog = (obj: ImportSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportSummaryFilterSensitiveLog = (obj: ImportSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntentFilterFilterSensitiveLog = (obj: IntentFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntentSortByFilterSensitiveLog = (obj: IntentSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntentSummaryFilterSensitiveLog = (obj: IntentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelativeAggregationDurationFilterSensitiveLog = (obj: RelativeAggregationDuration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UtteranceAggregationDurationFilterSensitiveLog = (obj: UtteranceAggregationDuration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAggregatedUtterancesRequestFilterSensitiveLog = (obj: ListAggregatedUtterancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAggregatedUtterancesResponseFilterSensitiveLog = (obj: ListAggregatedUtterancesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotAliasesRequestFilterSensitiveLog = (obj: ListBotAliasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotAliasesResponseFilterSensitiveLog = (obj: ListBotAliasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotLocalesRequestFilterSensitiveLog = (obj: ListBotLocalesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotLocalesResponseFilterSensitiveLog = (obj: ListBotLocalesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotRecommendationsRequestFilterSensitiveLog = (obj: ListBotRecommendationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotRecommendationsResponseFilterSensitiveLog = (obj: ListBotRecommendationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotsRequestFilterSensitiveLog = (obj: ListBotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotsResponseFilterSensitiveLog = (obj: ListBotsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotVersionsRequestFilterSensitiveLog = (obj: ListBotVersionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBotVersionsResponseFilterSensitiveLog = (obj: ListBotVersionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuiltInIntentsRequestFilterSensitiveLog = (obj: ListBuiltInIntentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuiltInIntentsResponseFilterSensitiveLog = (obj: ListBuiltInIntentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuiltInSlotTypesRequestFilterSensitiveLog = (obj: ListBuiltInSlotTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListBuiltInSlotTypesResponseFilterSensitiveLog = (obj: ListBuiltInSlotTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExportsRequestFilterSensitiveLog = (obj: ListExportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExportsResponseFilterSensitiveLog = (obj: ListExportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsRequestFilterSensitiveLog = (obj: ListImportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsResponseFilterSensitiveLog = (obj: ListImportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIntentsRequestFilterSensitiveLog = (obj: ListIntentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIntentsResponseFilterSensitiveLog = (obj: ListIntentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecommendedIntentsRequestFilterSensitiveLog = (obj: ListRecommendedIntentsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendedIntentSummaryFilterSensitiveLog = (obj: RecommendedIntentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRecommendedIntentsResponseFilterSensitiveLog = (obj: ListRecommendedIntentsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotFilterFilterSensitiveLog = (obj: SlotFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotSortByFilterSensitiveLog = (obj: SlotSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSlotsRequestFilterSensitiveLog = (obj: ListSlotsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotSummaryFilterSensitiveLog = (obj: SlotSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSlotsResponseFilterSensitiveLog = (obj: ListSlotsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotTypeFilterFilterSensitiveLog = (obj: SlotTypeFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotTypeSortByFilterSensitiveLog = (obj: SlotTypeSortBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSlotTypesRequestFilterSensitiveLog = (obj: ListSlotTypesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SlotTypeSummaryFilterSensitiveLog = (obj: SlotTypeSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSlotTypesResponseFilterSensitiveLog = (obj: ListSlotTypesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchAssociatedTranscriptsRequestFilterSensitiveLog = (obj: SearchAssociatedTranscriptsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchAssociatedTranscriptsResponseFilterSensitiveLog = (
+  obj: SearchAssociatedTranscriptsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBotRecommendationRequestFilterSensitiveLog = (obj: StartBotRecommendationRequest): any => ({
+  ...obj,
+  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
+});
+
+/**
+ * @internal
+ */
+export const StartBotRecommendationResponseFilterSensitiveLog = (obj: StartBotRecommendationResponse): any => ({
+  ...obj,
+  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
+});
+
+/**
+ * @internal
+ */
+export const StartImportRequestFilterSensitiveLog = (obj: StartImportRequest): any => ({
+  ...obj,
+  ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StartImportResponseFilterSensitiveLog = (obj: StartImportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotRequestFilterSensitiveLog = (obj: UpdateBotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotResponseFilterSensitiveLog = (obj: UpdateBotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotAliasRequestFilterSensitiveLog = (obj: UpdateBotAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotAliasResponseFilterSensitiveLog = (obj: UpdateBotAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotLocaleRequestFilterSensitiveLog = (obj: UpdateBotLocaleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotLocaleResponseFilterSensitiveLog = (obj: UpdateBotLocaleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotRecommendationRequestFilterSensitiveLog = (obj: UpdateBotRecommendationRequest): any => ({
+  ...obj,
+  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateBotRecommendationResponseFilterSensitiveLog = (obj: UpdateBotRecommendationResponse): any => ({
+  ...obj,
+  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateExportRequestFilterSensitiveLog = (obj: UpdateExportRequest): any => ({
+  ...obj,
+  ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateExportResponseFilterSensitiveLog = (obj: UpdateExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIntentRequestFilterSensitiveLog = (obj: UpdateIntentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIntentResponseFilterSensitiveLog = (obj: UpdateIntentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourcePolicyRequestFilterSensitiveLog = (obj: UpdateResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourcePolicyResponseFilterSensitiveLog = (obj: UpdateResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSlotRequestFilterSensitiveLog = (obj: UpdateSlotRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSlotResponseFilterSensitiveLog = (obj: UpdateSlotResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSlotTypeRequestFilterSensitiveLog = (obj: UpdateSlotTypeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateSlotTypeResponseFilterSensitiveLog = (obj: UpdateSlotTypeResponse): any => ({
+  ...obj,
+});

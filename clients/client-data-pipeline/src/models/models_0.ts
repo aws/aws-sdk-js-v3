@@ -18,15 +18,6 @@ export interface ParameterValue {
   stringValue: string | undefined;
 }
 
-export namespace ParameterValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterValue): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for ActivatePipeline.</p>
  */
@@ -47,28 +38,10 @@ export interface ActivatePipelineInput {
   startTimestamp?: Date;
 }
 
-export namespace ActivatePipelineInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivatePipelineInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of ActivatePipeline.</p>
  */
 export interface ActivatePipelineOutput {}
-
-export namespace ActivatePipelineOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivatePipelineOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An internal service error occurred.</p>
@@ -164,15 +137,6 @@ export interface Tag {
   value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for AddTags.</p>
  */
@@ -188,28 +152,10 @@ export interface AddTagsInput {
   tags: Tag[] | undefined;
 }
 
-export namespace AddTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of AddTags.</p>
  */
 export interface AddTagsOutput {}
-
-export namespace AddTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the parameters for CreatePipeline.</p>
@@ -246,15 +192,6 @@ export interface CreatePipelineInput {
   tags?: Tag[];
 }
 
-export namespace CreatePipelineInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePipelineInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of CreatePipeline.</p>
  */
@@ -263,15 +200,6 @@ export interface CreatePipelineOutput {
    * <p>The ID that AWS Data Pipeline assigns the newly created pipeline. For example, <code>df-06372391ZG65EXAMPLE</code>.</p>
    */
   pipelineId: string | undefined;
-}
-
-export namespace CreatePipelineOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatePipelineOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -292,28 +220,10 @@ export interface DeactivatePipelineInput {
   cancelActive?: boolean;
 }
 
-export namespace DeactivatePipelineInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivatePipelineInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of DeactivatePipeline.</p>
  */
 export interface DeactivatePipelineOutput {}
-
-export namespace DeactivatePipelineOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeactivatePipelineOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the parameters for DeletePipeline.</p>
@@ -323,15 +233,6 @@ export interface DeletePipelineInput {
    * <p>The ID of the pipeline.</p>
    */
   pipelineId: string | undefined;
-}
-
-export namespace DeletePipelineInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePipelineInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -361,15 +262,6 @@ export interface DescribeObjectsInput {
   marker?: string;
 }
 
-export namespace DescribeObjectsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeObjectsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (<code>StringValue</code>) or a reference to another object (<code>RefValue</code>) but not as both.</p>
  */
@@ -390,15 +282,6 @@ export interface Field {
   refValue?: string;
 }
 
-export namespace Field {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Field): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a pipeline object. This can be a logical, physical, or physical attempt pipeline object. The complete set of components of a pipeline defines the pipeline.</p>
  */
@@ -417,15 +300,6 @@ export interface PipelineObject {
    * <p>Key-value pairs that define the properties of the object.</p>
    */
   fields: Field[] | undefined;
-}
-
-export namespace PipelineObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineObject): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -449,15 +323,6 @@ export interface DescribeObjectsOutput {
   hasMoreResults?: boolean;
 }
 
-export namespace DescribeObjectsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeObjectsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for DescribePipelines.</p>
  */
@@ -467,15 +332,6 @@ export interface DescribePipelinesInput {
    *             To obtain pipeline IDs, call <a>ListPipelines</a>.</p>
    */
   pipelineIds: string[] | undefined;
-}
-
-export namespace DescribePipelinesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePipelinesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -509,15 +365,6 @@ export interface PipelineDescription {
   tags?: Tag[];
 }
 
-export namespace PipelineDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of DescribePipelines.</p>
  */
@@ -526,15 +373,6 @@ export interface DescribePipelinesOutput {
    * <p>An array of descriptions for the specified pipelines.</p>
    */
   pipelineDescriptionList: PipelineDescription[] | undefined;
-}
-
-export namespace DescribePipelinesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePipelinesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -557,15 +395,6 @@ export interface EvaluateExpressionInput {
   expression: string | undefined;
 }
 
-export namespace EvaluateExpressionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluateExpressionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of EvaluateExpression.</p>
  */
@@ -574,15 +403,6 @@ export interface EvaluateExpressionOutput {
    * <p>The evaluated expression.</p>
    */
   evaluatedExpression: string | undefined;
-}
-
-export namespace EvaluateExpressionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EvaluateExpressionOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -621,15 +441,6 @@ export interface GetPipelineDefinitionInput {
   version?: string;
 }
 
-export namespace GetPipelineDefinitionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPipelineDefinitionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The attributes allowed or specified with a parameter object.</p>
  */
@@ -645,15 +456,6 @@ export interface ParameterAttribute {
   stringValue: string | undefined;
 }
 
-export namespace ParameterAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about a parameter object.</p>
  */
@@ -667,15 +469,6 @@ export interface ParameterObject {
    * <p>The attributes of the parameter object.</p>
    */
   attributes: ParameterAttribute[] | undefined;
-}
-
-export namespace ParameterObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterObject): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -698,15 +491,6 @@ export interface GetPipelineDefinitionOutput {
   parameterValues?: ParameterValue[];
 }
 
-export namespace GetPipelineDefinitionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPipelineDefinitionOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for ListPipelines.</p>
  */
@@ -717,15 +501,6 @@ export interface ListPipelinesInput {
    *            the marker value from the previous call to retrieve the next set of results.</p>
    */
   marker?: string;
-}
-
-export namespace ListPipelinesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPipelinesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -741,15 +516,6 @@ export interface PipelineIdName {
    * <p>The name of the pipeline.</p>
    */
   name?: string;
-}
-
-export namespace PipelineIdName {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineIdName): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -774,15 +540,6 @@ export interface ListPipelinesOutput {
   hasMoreResults?: boolean;
 }
 
-export namespace ListPipelinesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPipelinesOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p><p>Identity information for the EC2 instance that is hosting the task runner. You can get this value by calling a metadata URI from the EC2 instance.
  *             For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i>
@@ -798,15 +555,6 @@ export interface InstanceIdentity {
    * <p>A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.</p>
    */
   signature?: string;
-}
-
-export namespace InstanceIdentity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceIdentity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -829,15 +577,6 @@ export interface PollForTaskInput {
    * <p>Identity information for the EC2 instance that is hosting the task runner. You can get this value from the instance using <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in this value proves that your task runner is running on an EC2 instance, and ensures the proper AWS Data Pipeline service charges are applied to your pipeline.</p>
    */
   instanceIdentity?: InstanceIdentity;
-}
-
-export namespace PollForTaskInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PollForTaskInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -865,15 +604,6 @@ export interface TaskObject {
   objects?: Record<string, PipelineObject>;
 }
 
-export namespace TaskObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskObject): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of PollForTask.</p>
  */
@@ -884,15 +614,6 @@ export interface PollForTaskOutput {
    *             and <a>SetTaskStatus</a>.</p>
    */
   taskObject?: TaskObject;
-}
-
-export namespace PollForTaskOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PollForTaskOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -920,15 +641,6 @@ export interface PutPipelineDefinitionInput {
   parameterValues?: ParameterValue[];
 }
 
-export namespace PutPipelineDefinitionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPipelineDefinitionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines a validation error. Validation errors prevent pipeline activation. The set of validation errors that can be returned are defined by AWS Data Pipeline.</p>
  */
@@ -944,15 +656,6 @@ export interface ValidationError {
   errors?: string[];
 }
 
-export namespace ValidationError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.</p>
  */
@@ -966,15 +669,6 @@ export interface ValidationWarning {
    * <p>A description of the validation warning.</p>
    */
   warnings?: string[];
-}
-
-export namespace ValidationWarning {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationWarning): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -996,15 +690,6 @@ export interface PutPipelineDefinitionOutput {
    *             activated until you correct the pipeline and call <code>PutPipelineDefinition</code> to commit the corrected pipeline.</p>
    */
   errored: boolean | undefined;
-}
-
-export namespace PutPipelineDefinitionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPipelineDefinitionOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum OperatorType {
@@ -1058,15 +743,6 @@ export interface Operator {
   values?: string[];
 }
 
-export namespace Operator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Operator): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A comparision that is used to determine whether a query should return this object.</p>
  */
@@ -1082,15 +758,6 @@ export interface Selector {
   operator?: Operator;
 }
 
-export namespace Selector {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Selector): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the query to run against an object.</p>
  */
@@ -1099,15 +766,6 @@ export interface Query {
    * <p>List of selectors that define the query. An object must satisfy all of the selectors to match the query.</p>
    */
   selectors?: Selector[];
-}
-
-export namespace Query {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Query): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1145,15 +803,6 @@ export interface QueryObjectsInput {
   limit?: number;
 }
 
-export namespace QueryObjectsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryObjectsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of QueryObjects.</p>
  */
@@ -1175,15 +824,6 @@ export interface QueryObjectsOutput {
   hasMoreResults?: boolean;
 }
 
-export namespace QueryObjectsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryObjectsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the parameters for RemoveTags.</p>
  */
@@ -1199,28 +839,10 @@ export interface RemoveTagsInput {
   tagKeys: string[] | undefined;
 }
 
-export namespace RemoveTagsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of RemoveTags.</p>
  */
 export interface RemoveTagsOutput {}
-
-export namespace RemoveTagsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the parameters for ReportTaskProgress.</p>
@@ -1237,15 +859,6 @@ export interface ReportTaskProgressInput {
   fields?: Field[];
 }
 
-export namespace ReportTaskProgressInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportTaskProgressInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of ReportTaskProgress.</p>
  */
@@ -1254,15 +867,6 @@ export interface ReportTaskProgressOutput {
    * <p>If true, the calling task runner should cancel processing of the task. The task runner does not need to call <a>SetTaskStatus</a> for canceled tasks.</p>
    */
   canceled: boolean | undefined;
-}
-
-export namespace ReportTaskProgressOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportTaskProgressOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1289,15 +893,6 @@ export interface ReportTaskRunnerHeartbeatInput {
   hostname?: string;
 }
 
-export namespace ReportTaskRunnerHeartbeatInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportTaskRunnerHeartbeatInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of ReportTaskRunnerHeartbeat.</p>
  */
@@ -1306,15 +901,6 @@ export interface ReportTaskRunnerHeartbeatOutput {
    * <p>Indicates whether the calling task runner should terminate.</p>
    */
   terminate: boolean | undefined;
-}
-
-export namespace ReportTaskRunnerHeartbeatOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReportTaskRunnerHeartbeatOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1336,15 +922,6 @@ export interface SetStatusInput {
    *             For instances, use <code>TRY_CANCEL</code>, <code>RERUN</code>, or <code>MARK_FINISHED</code>.</p>
    */
   status: string | undefined;
-}
-
-export namespace SetStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetStatusInput): any => ({
-    ...obj,
-  });
 }
 
 export enum TaskStatus {
@@ -1386,28 +963,10 @@ export interface SetTaskStatusInput {
   errorStackTrace?: string;
 }
 
-export namespace SetTaskStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTaskStatusInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of SetTaskStatus.</p>
  */
 export interface SetTaskStatusOutput {}
-
-export namespace SetTaskStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SetTaskStatusOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the parameters for ValidatePipelineDefinition.</p>
@@ -1434,15 +993,6 @@ export interface ValidatePipelineDefinitionInput {
   parameterValues?: ParameterValue[];
 }
 
-export namespace ValidatePipelineDefinitionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidatePipelineDefinitionInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the output of ValidatePipelineDefinition.</p>
  */
@@ -1463,11 +1013,359 @@ export interface ValidatePipelineDefinitionOutput {
   errored: boolean | undefined;
 }
 
-export namespace ValidatePipelineDefinitionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidatePipelineDefinitionOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const ParameterValueFilterSensitiveLog = (obj: ParameterValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivatePipelineInputFilterSensitiveLog = (obj: ActivatePipelineInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivatePipelineOutputFilterSensitiveLog = (obj: ActivatePipelineOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsInputFilterSensitiveLog = (obj: AddTagsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsOutputFilterSensitiveLog = (obj: AddTagsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePipelineInputFilterSensitiveLog = (obj: CreatePipelineInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreatePipelineOutputFilterSensitiveLog = (obj: CreatePipelineOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivatePipelineInputFilterSensitiveLog = (obj: DeactivatePipelineInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeactivatePipelineOutputFilterSensitiveLog = (obj: DeactivatePipelineOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePipelineInputFilterSensitiveLog = (obj: DeletePipelineInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeObjectsInputFilterSensitiveLog = (obj: DescribeObjectsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FieldFilterSensitiveLog = (obj: Field): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineObjectFilterSensitiveLog = (obj: PipelineObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeObjectsOutputFilterSensitiveLog = (obj: DescribeObjectsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePipelinesInputFilterSensitiveLog = (obj: DescribePipelinesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineDescriptionFilterSensitiveLog = (obj: PipelineDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePipelinesOutputFilterSensitiveLog = (obj: DescribePipelinesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluateExpressionInputFilterSensitiveLog = (obj: EvaluateExpressionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluateExpressionOutputFilterSensitiveLog = (obj: EvaluateExpressionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPipelineDefinitionInputFilterSensitiveLog = (obj: GetPipelineDefinitionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterAttributeFilterSensitiveLog = (obj: ParameterAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterObjectFilterSensitiveLog = (obj: ParameterObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPipelineDefinitionOutputFilterSensitiveLog = (obj: GetPipelineDefinitionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPipelinesInputFilterSensitiveLog = (obj: ListPipelinesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineIdNameFilterSensitiveLog = (obj: PipelineIdName): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPipelinesOutputFilterSensitiveLog = (obj: ListPipelinesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceIdentityFilterSensitiveLog = (obj: InstanceIdentity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PollForTaskInputFilterSensitiveLog = (obj: PollForTaskInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaskObjectFilterSensitiveLog = (obj: TaskObject): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PollForTaskOutputFilterSensitiveLog = (obj: PollForTaskOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPipelineDefinitionInputFilterSensitiveLog = (obj: PutPipelineDefinitionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationErrorFilterSensitiveLog = (obj: ValidationError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationWarningFilterSensitiveLog = (obj: ValidationWarning): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPipelineDefinitionOutputFilterSensitiveLog = (obj: PutPipelineDefinitionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperatorFilterSensitiveLog = (obj: Operator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectorFilterSensitiveLog = (obj: Selector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryFilterSensitiveLog = (obj: Query): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryObjectsInputFilterSensitiveLog = (obj: QueryObjectsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const QueryObjectsOutputFilterSensitiveLog = (obj: QueryObjectsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsInputFilterSensitiveLog = (obj: RemoveTagsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsOutputFilterSensitiveLog = (obj: RemoveTagsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportTaskProgressInputFilterSensitiveLog = (obj: ReportTaskProgressInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportTaskProgressOutputFilterSensitiveLog = (obj: ReportTaskProgressOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportTaskRunnerHeartbeatInputFilterSensitiveLog = (obj: ReportTaskRunnerHeartbeatInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReportTaskRunnerHeartbeatOutputFilterSensitiveLog = (obj: ReportTaskRunnerHeartbeatOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetStatusInputFilterSensitiveLog = (obj: SetStatusInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTaskStatusInputFilterSensitiveLog = (obj: SetTaskStatusInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SetTaskStatusOutputFilterSensitiveLog = (obj: SetTaskStatusOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidatePipelineDefinitionInputFilterSensitiveLog = (obj: ValidatePipelineDefinitionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidatePipelineDefinitionOutputFilterSensitiveLog = (obj: ValidatePipelineDefinitionOutput): any => ({
+  ...obj,
+});

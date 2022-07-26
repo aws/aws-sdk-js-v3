@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreateTagsRequest } from "../models/models_1";
+import { CreateTagsRequest, CreateTagsRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1CreateTagsCommand,
   serializeAws_restJson1CreateTagsCommand,
@@ -72,7 +72,7 @@ export class CreateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTagsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateTagsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { ListSharedReportGroupsInput, ListSharedReportGroupsOutput } from "../models/models_0";
+import {
+  ListSharedReportGroupsInput,
+  ListSharedReportGroupsInputFilterSensitiveLog,
+  ListSharedReportGroupsOutput,
+  ListSharedReportGroupsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListSharedReportGroupsCommand,
   serializeAws_json1_1ListSharedReportGroupsCommand,
@@ -73,8 +78,8 @@ export class ListSharedReportGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSharedReportGroupsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListSharedReportGroupsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListSharedReportGroupsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSharedReportGroupsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

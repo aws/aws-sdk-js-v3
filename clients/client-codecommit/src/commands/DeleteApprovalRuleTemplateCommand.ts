@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { DeleteApprovalRuleTemplateInput, DeleteApprovalRuleTemplateOutput } from "../models/models_0";
+import {
+  DeleteApprovalRuleTemplateInput,
+  DeleteApprovalRuleTemplateInputFilterSensitiveLog,
+  DeleteApprovalRuleTemplateOutput,
+  DeleteApprovalRuleTemplateOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApprovalRuleTemplateCommand,
   serializeAws_json1_1DeleteApprovalRuleTemplateCommand,
@@ -72,8 +77,8 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApprovalRuleTemplateInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApprovalRuleTemplateOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteApprovalRuleTemplateInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteApprovalRuleTemplateOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

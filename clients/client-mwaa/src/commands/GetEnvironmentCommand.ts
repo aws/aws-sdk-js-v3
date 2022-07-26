@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetEnvironmentInput, GetEnvironmentOutput } from "../models/models_0";
+import {
+  GetEnvironmentInput,
+  GetEnvironmentInputFilterSensitiveLog,
+  GetEnvironmentOutput,
+  GetEnvironmentOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import {
   deserializeAws_restJson1GetEnvironmentCommand,
@@ -72,8 +77,8 @@ export class GetEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetEnvironmentOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetEnvironmentInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetEnvironmentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

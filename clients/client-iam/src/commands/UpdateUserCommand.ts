@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateUserRequest } from "../models/models_1";
+import { UpdateUserRequest, UpdateUserRequestFilterSensitiveLog } from "../models/models_1";
 import { deserializeAws_queryUpdateUserCommand, serializeAws_queryUpdateUserCommand } from "../protocols/Aws_query";
 
 export interface UpdateUserCommandInput extends UpdateUserRequest {}
@@ -81,7 +81,7 @@ export class UpdateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateUserRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

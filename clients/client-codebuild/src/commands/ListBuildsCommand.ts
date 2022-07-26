@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { ListBuildsInput, ListBuildsOutput } from "../models/models_0";
+import {
+  ListBuildsInput,
+  ListBuildsInputFilterSensitiveLog,
+  ListBuildsOutput,
+  ListBuildsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListBuildsCommand,
   serializeAws_json1_1ListBuildsCommand,
@@ -72,8 +77,8 @@ export class ListBuildsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBuildsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListBuildsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListBuildsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListBuildsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

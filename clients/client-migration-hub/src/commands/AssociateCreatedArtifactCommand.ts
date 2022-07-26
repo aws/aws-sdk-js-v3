@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import { AssociateCreatedArtifactRequest, AssociateCreatedArtifactResult } from "../models/models_0";
+import {
+  AssociateCreatedArtifactRequest,
+  AssociateCreatedArtifactRequestFilterSensitiveLog,
+  AssociateCreatedArtifactResult,
+  AssociateCreatedArtifactResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateCreatedArtifactCommand,
   serializeAws_json1_1AssociateCreatedArtifactCommand,
@@ -89,8 +94,8 @@ export class AssociateCreatedArtifactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateCreatedArtifactRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateCreatedArtifactResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateCreatedArtifactRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateCreatedArtifactResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

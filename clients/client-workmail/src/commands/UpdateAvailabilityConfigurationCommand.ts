@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateAvailabilityConfigurationRequest, UpdateAvailabilityConfigurationResponse } from "../models/models_0";
+import {
+  UpdateAvailabilityConfigurationRequest,
+  UpdateAvailabilityConfigurationRequestFilterSensitiveLog,
+  UpdateAvailabilityConfigurationResponse,
+  UpdateAvailabilityConfigurationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAvailabilityConfigurationCommand,
   serializeAws_json1_1UpdateAvailabilityConfigurationCommand,
@@ -75,8 +80,8 @@ export class UpdateAvailabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAvailabilityConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAvailabilityConfigurationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAvailabilityConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAvailabilityConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

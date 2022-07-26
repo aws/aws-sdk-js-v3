@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { GetDashboardInput, GetDashboardOutput } from "../models/models_0";
+import {
+  GetDashboardInput,
+  GetDashboardInputFilterSensitiveLog,
+  GetDashboardOutput,
+  GetDashboardOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_queryGetDashboardCommand, serializeAws_queryGetDashboardCommand } from "../protocols/Aws_query";
 
 export interface GetDashboardCommandInput extends GetDashboardInput {}
@@ -72,8 +77,8 @@ export class GetDashboardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDashboardInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetDashboardOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDashboardInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDashboardOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

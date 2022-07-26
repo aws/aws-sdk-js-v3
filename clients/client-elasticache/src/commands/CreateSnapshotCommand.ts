@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { CreateSnapshotMessage, CreateSnapshotResult } from "../models/models_0";
+import {
+  CreateSnapshotMessage,
+  CreateSnapshotMessageFilterSensitiveLog,
+  CreateSnapshotResult,
+  CreateSnapshotResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateSnapshotCommand,
   serializeAws_queryCreateSnapshotCommand,
@@ -77,8 +82,8 @@ export class CreateSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSnapshotMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateSnapshotMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateSnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

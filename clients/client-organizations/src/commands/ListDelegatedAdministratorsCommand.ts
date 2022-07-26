@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListDelegatedAdministratorsRequest, ListDelegatedAdministratorsResponse } from "../models/models_0";
+import {
+  ListDelegatedAdministratorsRequest,
+  ListDelegatedAdministratorsRequestFilterSensitiveLog,
+  ListDelegatedAdministratorsResponse,
+  ListDelegatedAdministratorsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1ListDelegatedAdministratorsCommand,
@@ -77,8 +82,8 @@ export class ListDelegatedAdministratorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDelegatedAdministratorsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListDelegatedAdministratorsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListDelegatedAdministratorsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDelegatedAdministratorsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

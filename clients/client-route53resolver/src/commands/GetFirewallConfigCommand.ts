@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetFirewallConfigRequest, GetFirewallConfigResponse } from "../models/models_0";
+import {
+  GetFirewallConfigRequest,
+  GetFirewallConfigRequestFilterSensitiveLog,
+  GetFirewallConfigResponse,
+  GetFirewallConfigResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetFirewallConfigCommand,
   serializeAws_json1_1GetFirewallConfigCommand,
@@ -73,8 +78,8 @@ export class GetFirewallConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFirewallConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetFirewallConfigResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetFirewallConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetFirewallConfigResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

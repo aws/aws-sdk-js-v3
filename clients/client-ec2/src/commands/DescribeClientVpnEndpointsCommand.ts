@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeClientVpnEndpointsRequest, DescribeClientVpnEndpointsResult } from "../models/models_3";
+import {
+  DescribeClientVpnEndpointsRequest,
+  DescribeClientVpnEndpointsRequestFilterSensitiveLog,
+  DescribeClientVpnEndpointsResult,
+  DescribeClientVpnEndpointsResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeClientVpnEndpointsCommand,
   serializeAws_ec2DescribeClientVpnEndpointsCommand,
@@ -72,8 +77,8 @@ export class DescribeClientVpnEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClientVpnEndpointsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClientVpnEndpointsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeClientVpnEndpointsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeClientVpnEndpointsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

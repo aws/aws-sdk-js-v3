@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { GetBlockPublicAccessConfigurationInput, GetBlockPublicAccessConfigurationOutput } from "../models/models_0";
+import {
+  GetBlockPublicAccessConfigurationInput,
+  GetBlockPublicAccessConfigurationInputFilterSensitiveLog,
+  GetBlockPublicAccessConfigurationOutput,
+  GetBlockPublicAccessConfigurationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand,
   serializeAws_json1_1GetBlockPublicAccessConfigurationCommand,
@@ -76,8 +81,8 @@ export class GetBlockPublicAccessConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBlockPublicAccessConfigurationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBlockPublicAccessConfigurationOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBlockPublicAccessConfigurationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBlockPublicAccessConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

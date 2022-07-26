@@ -38,15 +38,6 @@ export interface AddSourceIdentifierToSubscriptionMessage {
   SourceIdentifier: string | undefined;
 }
 
-export namespace AddSourceIdentifierToSubscriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddSourceIdentifierToSubscriptionMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about an event to which you have subscribed.</p>
  */
@@ -112,29 +103,11 @@ export interface EventSubscription {
   EventSubscriptionArn?: string;
 }
 
-export namespace EventSubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSubscription): any => ({
-    ...obj,
-  });
-}
-
 export interface AddSourceIdentifierToSubscriptionResult {
   /**
    * <p>Detailed information about an event to which you have subscribed.</p>
    */
   EventSubscription?: EventSubscription;
-}
-
-export namespace AddSourceIdentifierToSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddSourceIdentifierToSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -190,15 +163,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input to <a>AddTagsToResource</a>.
  *         </p>
@@ -214,15 +178,6 @@ export interface AddTagsToResourceMessage {
    * <p>The tags to be assigned to the Amazon DocumentDB resource.</p>
    */
   Tags: Tag[] | undefined;
-}
-
-export namespace AddTagsToResourceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -330,15 +285,6 @@ export interface ApplyPendingMaintenanceActionMessage {
   OptInType: string | undefined;
 }
 
-export namespace ApplyPendingMaintenanceActionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplyPendingMaintenanceActionMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about a pending maintenance action for a resource.</p>
  */
@@ -380,15 +326,6 @@ export interface PendingMaintenanceAction {
   Description?: string;
 }
 
-export namespace PendingMaintenanceAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>ApplyPendingMaintenanceAction</a>.
  *         </p>
@@ -407,30 +344,12 @@ export interface ResourcePendingMaintenanceActions {
   PendingMaintenanceActionDetails?: PendingMaintenanceAction[];
 }
 
-export namespace ResourcePendingMaintenanceActions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourcePendingMaintenanceActions): any => ({
-    ...obj,
-  });
-}
-
 export interface ApplyPendingMaintenanceActionResult {
   /**
    * <p>Represents the output of <a>ApplyPendingMaintenanceAction</a>.
    *         </p>
    */
   ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions;
-}
-
-export namespace ApplyPendingMaintenanceActionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplyPendingMaintenanceActionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -548,15 +467,6 @@ export interface CopyDBClusterParameterGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CopyDBClusterParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBClusterParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about a cluster parameter group. </p>
  */
@@ -584,29 +494,11 @@ export interface DBClusterParameterGroup {
   DBClusterParameterGroupArn?: string;
 }
 
-export namespace DBClusterParameterGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterParameterGroup): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyDBClusterParameterGroupResult {
   /**
    * <p>Detailed information about a cluster parameter group. </p>
    */
   DBClusterParameterGroup?: DBClusterParameterGroup;
-}
-
-export namespace CopyDBClusterParameterGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBClusterParameterGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -788,15 +680,6 @@ export interface CopyDBClusterSnapshotMessage {
   Tags?: Tag[];
 }
 
-export namespace CopyDBClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBClusterSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about a cluster snapshot. </p>
  */
@@ -893,29 +776,11 @@ export interface DBClusterSnapshot {
   SourceDBClusterSnapshotArn?: string;
 }
 
-export namespace DBClusterSnapshot {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshot): any => ({
-    ...obj,
-  });
-}
-
 export interface CopyDBClusterSnapshotResult {
   /**
    * <p>Detailed information about a cluster snapshot. </p>
    */
   DBClusterSnapshot?: DBClusterSnapshot;
-}
-
-export namespace CopyDBClusterSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyDBClusterSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1217,15 +1082,6 @@ export interface CreateDBClusterMessage {
   GlobalClusterIdentifier?: string;
 }
 
-export namespace CreateDBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes an Identity and Access Management (IAM) role that is associated with a
  *             cluster.</p>
@@ -1257,15 +1113,6 @@ export interface DBClusterRole {
   Status?: string;
 }
 
-export namespace DBClusterRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterRole): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about an instance that is part of a cluster.</p>
  */
@@ -1294,15 +1141,6 @@ export interface DBClusterMember {
   PromotionTier?: number;
 }
 
-export namespace DBClusterMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterMember): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used as a response element for queries on virtual private cloud (VPC) security group
  *             membership.</p>
@@ -1317,15 +1155,6 @@ export interface VpcSecurityGroupMembership {
    * <p>The status of the VPC security group.</p>
    */
   Status?: string;
-}
-
-export namespace VpcSecurityGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1508,29 +1337,11 @@ export interface DBCluster {
   DeletionProtection?: boolean;
 }
 
-export namespace DBCluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBCluster): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
-}
-
-export namespace CreateDBClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1801,29 +1612,11 @@ export interface CreateDBClusterParameterGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateDBClusterParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterParameterGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBClusterParameterGroupResult {
   /**
    * <p>Detailed information about a cluster parameter group. </p>
    */
   DBClusterParameterGroup?: DBClusterParameterGroup;
-}
-
-export namespace CreateDBClusterParameterGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterParameterGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1872,29 +1665,11 @@ export interface CreateDBClusterSnapshotMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateDBClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBClusterSnapshotResult {
   /**
    * <p>Detailed information about a cluster snapshot. </p>
    */
   DBClusterSnapshot?: DBClusterSnapshot;
-}
-
-export namespace CreateDBClusterSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBClusterSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2024,15 +1799,6 @@ export interface CreateDBInstanceMessage {
   PerformanceInsightsKMSKeyId?: string;
 }
 
-export namespace CreateDBInstanceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBInstanceMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an Availability Zone.</p>
  */
@@ -2041,15 +1807,6 @@ export interface AvailabilityZone {
    * <p>The name of the Availability Zone.</p>
    */
   Name?: string;
-}
-
-export namespace AvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityZone): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2070,15 +1827,6 @@ export interface Subnet {
    * <p>Specifies the status of the subnet.</p>
    */
   SubnetStatus?: string;
-}
-
-export namespace Subnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Subnet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2116,15 +1864,6 @@ export interface DBSubnetGroup {
   DBSubnetGroupArn?: string;
 }
 
-export namespace DBSubnetGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Network information for accessing a cluster or instance. Client programs must
  *             specify a valid endpoint to access these Amazon DocumentDB resources.</p>
@@ -2146,15 +1885,6 @@ export interface Endpoint {
   HostedZoneId?: string;
 }
 
-export namespace Endpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Endpoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of the log types whose configuration is still pending. These log types are in
  *             the process of being activated or deactivated.</p>
@@ -2171,15 +1901,6 @@ export interface PendingCloudwatchLogsExports {
    *             types are exported to Amazon CloudWatch Logs.</p>
    */
   LogTypesToDisable?: string[];
-}
-
-export namespace PendingCloudwatchLogsExports {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingCloudwatchLogsExports): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2268,15 +1989,6 @@ export interface PendingModifiedValues {
   PendingCloudwatchLogsExports?: PendingCloudwatchLogsExports;
 }
 
-export namespace PendingModifiedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingModifiedValues): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides a list of status information for an instance.</p>
  */
@@ -2304,15 +2016,6 @@ export interface DBInstanceStatusInfo {
    *             an error state, this value is blank.</p>
    */
   Message?: string;
-}
-
-export namespace DBInstanceStatusInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceStatusInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2466,29 +2169,11 @@ export interface DBInstance {
   EnabledCloudwatchLogsExports?: string[];
 }
 
-export namespace DBInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstance): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBInstanceResult {
   /**
    * <p>Detailed information about an instance. </p>
    */
   DBInstance?: DBInstance;
-}
-
-export namespace CreateDBInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBInstanceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2617,29 +2302,11 @@ export interface CreateDBSubnetGroupMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateDBSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBSubnetGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateDBSubnetGroupResult {
   /**
    * <p>Detailed information about a subnet group. </p>
    */
   DBSubnetGroup?: DBSubnetGroup;
-}
-
-export namespace CreateDBSubnetGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDBSubnetGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2769,29 +2436,11 @@ export interface CreateEventSubscriptionMessage {
   Tags?: Tag[];
 }
 
-export namespace CreateEventSubscriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateEventSubscriptionResult {
   /**
    * <p>Detailed information about an event to which you have subscribed.</p>
    */
   EventSubscription?: EventSubscription;
-}
-
-export namespace CreateEventSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEventSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2948,15 +2597,6 @@ export interface CreateGlobalClusterMessage {
   StorageEncrypted?: boolean;
 }
 
-export namespace CreateGlobalClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGlobalClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A data structure with information about any primary and secondary clusters associated with an Amazon DocumentDB global clusters. </p>
  */
@@ -2975,15 +2615,6 @@ export interface GlobalClusterMember {
    * <p> Specifies whether the Amazon DocumentDB cluster is the primary cluster (that is, has read-write capability) for the Amazon DocumentDB global cluster with which it is associated. </p>
    */
   IsWriter?: boolean;
-}
-
-export namespace GlobalClusterMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalClusterMember): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3041,29 +2672,11 @@ export interface GlobalCluster {
   GlobalClusterMembers?: GlobalClusterMember[];
 }
 
-export namespace GlobalCluster {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalCluster): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateGlobalClusterResult {
   /**
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
    */
   GlobalCluster?: GlobalCluster;
-}
-
-export namespace CreateGlobalClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateGlobalClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3150,29 +2763,11 @@ export interface DeleteDBClusterMessage {
   FinalDBSnapshotIdentifier?: string;
 }
 
-export namespace DeleteDBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
-}
-
-export namespace DeleteDBClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3195,15 +2790,6 @@ export interface DeleteDBClusterParameterGroupMessage {
    *          </ul>
    */
   DBClusterParameterGroupName: string | undefined;
-}
-
-export namespace DeleteDBClusterParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterParameterGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3236,29 +2822,11 @@ export interface DeleteDBClusterSnapshotMessage {
   DBClusterSnapshotIdentifier: string | undefined;
 }
 
-export namespace DeleteDBClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBClusterSnapshotResult {
   /**
    * <p>Detailed information about a cluster snapshot. </p>
    */
   DBClusterSnapshot?: DBClusterSnapshot;
-}
-
-export namespace DeleteDBClusterSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBClusterSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3298,29 +2866,11 @@ export interface DeleteDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 }
 
-export namespace DeleteDBInstanceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBInstanceMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBInstanceResult {
   /**
    * <p>Detailed information about an instance. </p>
    */
   DBInstance?: DBInstance;
-}
-
-export namespace DeleteDBInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBInstanceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3338,15 +2888,6 @@ export interface DeleteDBSubnetGroupMessage {
    *         </p>
    */
   DBSubnetGroupName: string | undefined;
-}
-
-export namespace DeleteDBSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDBSubnetGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3378,29 +2919,11 @@ export interface DeleteEventSubscriptionMessage {
   SubscriptionName: string | undefined;
 }
 
-export namespace DeleteEventSubscriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteEventSubscriptionResult {
   /**
    * <p>Detailed information about an event to which you have subscribed.</p>
    */
   EventSubscription?: EventSubscription;
-}
-
-export namespace DeleteEventSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEventSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3433,29 +2956,11 @@ export interface DeleteGlobalClusterMessage {
   GlobalClusterIdentifier: string | undefined;
 }
 
-export namespace DeleteGlobalClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGlobalClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteGlobalClusterResult {
   /**
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
    */
   GlobalCluster?: GlobalCluster;
-}
-
-export namespace DeleteGlobalClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGlobalClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3503,15 +3008,6 @@ export interface Certificate {
   CertificateArn?: string;
 }
 
-export namespace Certificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Certificate): any => ({
-    ...obj,
-  });
-}
-
 export interface CertificateMessage {
   /**
    * <p>A list of certificates for this Amazon Web Services account.</p>
@@ -3522,15 +3018,6 @@ export interface CertificateMessage {
    * <p>An optional pagination token provided if the number of records retrieved is greater than <code>MaxRecords</code>. If this parameter is specified, the marker specifies the next record in the list. Including the value of <code>Marker</code> in the next call to <code>DescribeCertificates</code> results in the next page of certificates.</p>
    */
   Marker?: string;
-}
-
-export namespace CertificateMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3568,15 +3055,6 @@ export interface Filter {
    * <p>One or more filter values. Filter values are case sensitive.</p>
    */
   Values: string[] | undefined;
-}
-
-export namespace Filter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeCertificatesMessage {
@@ -3617,15 +3095,6 @@ export interface DescribeCertificatesMessage {
   Marker?: string;
 }
 
-export namespace DescribeCertificatesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeCertificatesMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DBClusterParameterGroups</a>.</p>
  */
@@ -3641,15 +3110,6 @@ export interface DBClusterParameterGroupsMessage {
    * <p>A list of cluster parameter groups.</p>
    */
   DBClusterParameterGroups?: DBClusterParameterGroup[];
-}
-
-export namespace DBClusterParameterGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterParameterGroupsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3688,15 +3148,6 @@ export interface DescribeDBClusterParameterGroupsMessage {
    *          <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeDBClusterParameterGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterParameterGroupsMessage): any => ({
-    ...obj,
-  });
 }
 
 export type ApplyMethod = "immediate" | "pending-reboot";
@@ -3758,15 +3209,6 @@ export interface Parameter {
   ApplyMethod?: ApplyMethod | string;
 }
 
-export namespace Parameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Parameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DBClusterParameterGroup</a>.</p>
  */
@@ -3782,15 +3224,6 @@ export interface DBClusterParameterGroupDetails {
    *          <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DBClusterParameterGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterParameterGroupDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3836,15 +3269,6 @@ export interface DescribeDBClusterParametersMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBClusterParametersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterParametersMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DescribeDBClusters</a>.</p>
  */
@@ -3860,15 +3284,6 @@ export interface DBClusterMessage {
    * <p>A list of clusters.</p>
    */
   DBClusters?: DBCluster[];
-}
-
-export namespace DBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3915,15 +3330,6 @@ export interface DescribeDBClustersMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBClustersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClustersMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input to <a>DescribeDBClusterSnapshotAttributes</a>.</p>
  */
@@ -3932,15 +3338,6 @@ export interface DescribeDBClusterSnapshotAttributesMessage {
    * <p>The identifier for the cluster snapshot to describe the attributes for.</p>
    */
   DBClusterSnapshotIdentifier: string | undefined;
-}
-
-export namespace DescribeDBClusterSnapshotAttributesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotAttributesMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3961,15 +3358,6 @@ export interface DBClusterSnapshotAttribute {
   AttributeValues?: string[];
 }
 
-export namespace DBClusterSnapshotAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshotAttribute): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about the attributes that are associated with a cluster
  *             snapshot.</p>
@@ -3986,30 +3374,12 @@ export interface DBClusterSnapshotAttributesResult {
   DBClusterSnapshotAttributes?: DBClusterSnapshotAttribute[];
 }
 
-export namespace DBClusterSnapshotAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshotAttributesResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDBClusterSnapshotAttributesResult {
   /**
    * <p>Detailed information about the attributes that are associated with a cluster
    *             snapshot.</p>
    */
   DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
-}
-
-export namespace DescribeDBClusterSnapshotAttributesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotAttributesResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4027,15 +3397,6 @@ export interface DBClusterSnapshotMessage {
    * <p>Provides a list of cluster snapshots.</p>
    */
   DBClusterSnapshots?: DBClusterSnapshot[];
-}
-
-export namespace DBClusterSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshotMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4127,15 +3488,6 @@ export interface DescribeDBClusterSnapshotsMessage {
   IncludePublic?: boolean;
 }
 
-export namespace DescribeDBClusterSnapshotsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBClusterSnapshotsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The version of the database engine that an instance can be upgraded to.</p>
  */
@@ -4165,15 +3517,6 @@ export interface UpgradeTarget {
    *             version.</p>
    */
   IsMajorVersionUpgrade?: boolean;
-}
-
-export namespace UpgradeTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeTarget): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4223,15 +3566,6 @@ export interface DBEngineVersion {
   SupportsLogExportsToCloudwatchLogs?: boolean;
 }
 
-export namespace DBEngineVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBEngineVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DescribeDBEngineVersions</a>.</p>
  */
@@ -4247,15 +3581,6 @@ export interface DBEngineVersionMessage {
    * <p>Detailed information about one or more engine versions.</p>
    */
   DBEngineVersions?: DBEngineVersion[];
-}
-
-export namespace DBEngineVersionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBEngineVersionMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4324,15 +3649,6 @@ export interface DescribeDBEngineVersionsMessage {
   ListSupportedTimezones?: boolean;
 }
 
-export namespace DescribeDBEngineVersionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBEngineVersionsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DescribeDBInstances</a>.</p>
  */
@@ -4348,15 +3664,6 @@ export interface DBInstanceMessage {
    * <p>Detailed information about one or more instances. </p>
    */
   DBInstances?: DBInstance[];
-}
-
-export namespace DBInstanceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4408,15 +3715,6 @@ export interface DescribeDBInstancesMessage {
   Marker?: string;
 }
 
-export namespace DescribeDBInstancesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBInstancesMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DescribeDBSubnetGroups</a>.</p>
  */
@@ -4432,15 +3730,6 @@ export interface DBSubnetGroupMessage {
    * <p>Detailed information about one or more subnet groups.</p>
    */
   DBSubnetGroups?: DBSubnetGroup[];
-}
-
-export namespace DBSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4472,15 +3761,6 @@ export interface DescribeDBSubnetGroupsMessage {
    *          <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace DescribeDBSubnetGroupsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBSubnetGroupsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4515,15 +3795,6 @@ export interface DescribeEngineDefaultClusterParametersMessage {
   Marker?: string;
 }
 
-export namespace DescribeEngineDefaultClusterParametersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEngineDefaultClusterParametersMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the result of a successful invocation of the
  *                 <code>DescribeEngineDefaultClusterParameters</code> operation. </p>
@@ -4547,30 +3818,12 @@ export interface EngineDefaults {
   Parameters?: Parameter[];
 }
 
-export namespace EngineDefaults {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EngineDefaults): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEngineDefaultClusterParametersResult {
   /**
    * <p>Contains the result of a successful invocation of the
    *                 <code>DescribeEngineDefaultClusterParameters</code> operation. </p>
    */
   EngineDefaults?: EngineDefaults;
-}
-
-export namespace DescribeEngineDefaultClusterParametersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEngineDefaultClusterParametersResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4590,15 +3843,6 @@ export interface DescribeEventCategoriesMessage {
   Filters?: Filter[];
 }
 
-export namespace DescribeEventCategoriesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventCategoriesMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An event source type, accompanied by one or more event category names.</p>
  */
@@ -4614,15 +3858,6 @@ export interface EventCategoriesMap {
   EventCategories?: string[];
 }
 
-export namespace EventCategoriesMap {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventCategoriesMap): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DescribeEventCategories</a>.</p>
  */
@@ -4631,15 +3866,6 @@ export interface EventCategoriesMessage {
    * <p>A list of event category maps.</p>
    */
   EventCategoriesMapList?: EventCategoriesMap[];
-}
-
-export namespace EventCategoriesMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventCategoriesMessage): any => ({
-    ...obj,
-  });
 }
 
 export type SourceType =
@@ -4736,15 +3962,6 @@ export interface DescribeEventsMessage {
   Marker?: string;
 }
 
-export namespace DescribeEventsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Detailed information about an event.</p>
  */
@@ -4780,15 +3997,6 @@ export interface Event {
   SourceArn?: string;
 }
 
-export namespace Event {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Event): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DescribeEvents</a>.</p>
  */
@@ -4804,15 +4012,6 @@ export interface EventsMessage {
    * <p>Detailed information about one or more events. </p>
    */
   Events?: Event[];
-}
-
-export namespace EventsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4847,15 +4046,6 @@ export interface DescribeEventSubscriptionsMessage {
   Marker?: string;
 }
 
-export namespace DescribeEventSubscriptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeEventSubscriptionsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DescribeEventSubscriptions</a>.</p>
  */
@@ -4871,15 +4061,6 @@ export interface EventSubscriptionsMessage {
    * <p>A list of event subscriptions.</p>
    */
   EventSubscriptionsList?: EventSubscription[];
-}
-
-export namespace EventSubscriptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSubscriptionsMessage): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeGlobalClustersMessage {
@@ -4905,15 +4086,6 @@ export interface DescribeGlobalClustersMessage {
   Marker?: string;
 }
 
-export namespace DescribeGlobalClustersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeGlobalClustersMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface GlobalClustersMessage {
   /**
    * <p></p>
@@ -4924,15 +4096,6 @@ export interface GlobalClustersMessage {
    * <p></p>
    */
   GlobalClusters?: GlobalCluster[];
-}
-
-export namespace GlobalClustersMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalClustersMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4990,15 +4153,6 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
   Marker?: string;
 }
 
-export namespace DescribeOrderableDBInstanceOptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrderableDBInstanceOptionsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The options that are available for an instance.</p>
  */
@@ -5034,15 +4188,6 @@ export interface OrderableDBInstanceOption {
   Vpc?: boolean;
 }
 
-export namespace OrderableDBInstanceOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrderableDBInstanceOption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DescribeOrderableDBInstanceOptions</a>.</p>
  */
@@ -5058,15 +4203,6 @@ export interface OrderableDBInstanceOptionsMessage {
    *          <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace OrderableDBInstanceOptionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrderableDBInstanceOptionsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5116,15 +4252,6 @@ export interface DescribePendingMaintenanceActionsMessage {
   MaxRecords?: number;
 }
 
-export namespace DescribePendingMaintenanceActionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribePendingMaintenanceActionsMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>DescribePendingMaintenanceActions</a>.</p>
  */
@@ -5140,15 +4267,6 @@ export interface PendingMaintenanceActionsMessage {
    *          <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-}
-
-export namespace PendingMaintenanceActionsMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PendingMaintenanceActionsMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5174,29 +4292,11 @@ export interface FailoverDBClusterMessage {
   TargetDBInstanceIdentifier?: string;
 }
 
-export namespace FailoverDBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailoverDBClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface FailoverDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
-}
-
-export namespace FailoverDBClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FailoverDBClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5215,15 +4315,6 @@ export interface ListTagsForResourceMessage {
   Filters?: Filter[];
 }
 
-export namespace ListTagsForResourceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of <a>ListTagsForResource</a>.</p>
  */
@@ -5232,15 +4323,6 @@ export interface TagListMessage {
    * <p>A list of one or more tags.</p>
    */
   TagList?: Tag[];
-}
-
-export namespace TagListMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagListMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5279,15 +4361,6 @@ export interface CloudwatchLogsExportConfiguration {
    * <p>The list of log types to disable.</p>
    */
   DisableLogTypes?: string[];
-}
-
-export namespace CloudwatchLogsExportConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudwatchLogsExportConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5439,29 +4512,11 @@ export interface ModifyDBClusterMessage {
   DeletionProtection?: boolean;
 }
 
-export namespace ModifyDBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDBClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
-}
-
-export namespace ModifyDBClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDBClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5489,15 +4544,6 @@ export interface DBClusterParameterGroupNameMessage {
   DBClusterParameterGroupName?: string;
 }
 
-export namespace DBClusterParameterGroupNameMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterParameterGroupNameMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input to <a>ModifyDBClusterParameterGroup</a>.</p>
  */
@@ -5511,15 +4557,6 @@ export interface ModifyDBClusterParameterGroupMessage {
    * <p>A list of parameters in the cluster parameter group to modify.</p>
    */
   Parameters: Parameter[] | undefined;
-}
-
-export namespace ModifyDBClusterParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDBClusterParameterGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5551,30 +4588,12 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
   ValuesToRemove?: string[];
 }
 
-export namespace ModifyDBClusterSnapshotAttributeMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDBClusterSnapshotAttributeMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyDBClusterSnapshotAttributeResult {
   /**
    * <p>Detailed information about the attributes that are associated with a cluster
    *             snapshot.</p>
    */
   DBClusterSnapshotAttributesResult?: DBClusterSnapshotAttributesResult;
-}
-
-export namespace ModifyDBClusterSnapshotAttributeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDBClusterSnapshotAttributeResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5731,29 +4750,11 @@ export interface ModifyDBInstanceMessage {
   PerformanceInsightsKMSKeyId?: string;
 }
 
-export namespace ModifyDBInstanceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDBInstanceMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyDBInstanceResult {
   /**
    * <p>Detailed information about an instance. </p>
    */
   DBInstance?: DBInstance;
-}
-
-export namespace ModifyDBInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDBInstanceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5779,29 +4780,11 @@ export interface ModifyDBSubnetGroupMessage {
   SubnetIds: string[] | undefined;
 }
 
-export namespace ModifyDBSubnetGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDBSubnetGroupMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyDBSubnetGroupResult {
   /**
    * <p>Detailed information about a subnet group. </p>
    */
   DBSubnetGroup?: DBSubnetGroup;
-}
-
-export namespace ModifyDBSubnetGroupResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyDBSubnetGroupResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5857,29 +4840,11 @@ export interface ModifyEventSubscriptionMessage {
   Enabled?: boolean;
 }
 
-export namespace ModifyEventSubscriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyEventSubscriptionResult {
   /**
    * <p>Detailed information about an event to which you have subscribed.</p>
    */
   EventSubscription?: EventSubscription;
-}
-
-export namespace ModifyEventSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5917,29 +4882,11 @@ export interface ModifyGlobalClusterMessage {
   DeletionProtection?: boolean;
 }
 
-export namespace ModifyGlobalClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyGlobalClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyGlobalClusterResult {
   /**
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
    */
   GlobalCluster?: GlobalCluster;
-}
-
-export namespace ModifyGlobalClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyGlobalClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5965,29 +4912,11 @@ export interface RebootDBInstanceMessage {
   ForceFailover?: boolean;
 }
 
-export namespace RebootDBInstanceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootDBInstanceMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RebootDBInstanceResult {
   /**
    * <p>Detailed information about an instance. </p>
    */
   DBInstance?: DBInstance;
-}
-
-export namespace RebootDBInstanceResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RebootDBInstanceResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6005,29 +4934,11 @@ export interface RemoveFromGlobalClusterMessage {
   DbClusterIdentifier: string | undefined;
 }
 
-export namespace RemoveFromGlobalClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFromGlobalClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveFromGlobalClusterResult {
   /**
    * <p>A data type representing an Amazon DocumentDB global cluster.</p>
    */
   GlobalCluster?: GlobalCluster;
-}
-
-export namespace RemoveFromGlobalClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveFromGlobalClusterResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6047,29 +4958,11 @@ export interface RemoveSourceIdentifierFromSubscriptionMessage {
   SourceIdentifier: string | undefined;
 }
 
-export namespace RemoveSourceIdentifierFromSubscriptionMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveSourceIdentifierFromSubscriptionMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveSourceIdentifierFromSubscriptionResult {
   /**
    * <p>Detailed information about an event to which you have subscribed.</p>
    */
   EventSubscription?: EventSubscription;
-}
-
-export namespace RemoveSourceIdentifierFromSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveSourceIdentifierFromSubscriptionResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6086,15 +4979,6 @@ export interface RemoveTagsFromResourceMessage {
    * <p>The tag key (name) of the tag to be removed.</p>
    */
   TagKeys: string[] | undefined;
-}
-
-export namespace RemoveTagsFromResourceMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromResourceMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6120,15 +5004,6 @@ export interface ResetDBClusterParameterGroupMessage {
    *             set to <code>true</code>.</p>
    */
   Parameters?: Parameter[];
-}
-
-export namespace ResetDBClusterParameterGroupMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetDBClusterParameterGroupMessage): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6300,29 +5175,11 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DeletionProtection?: boolean;
 }
 
-export namespace RestoreDBClusterFromSnapshotMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreDBClusterFromSnapshotMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreDBClusterFromSnapshotResult {
   /**
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
-}
-
-export namespace RestoreDBClusterFromSnapshotResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreDBClusterFromSnapshotResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6466,29 +5323,11 @@ export interface RestoreDBClusterToPointInTimeMessage {
   DeletionProtection?: boolean;
 }
 
-export namespace RestoreDBClusterToPointInTimeMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreDBClusterToPointInTimeMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreDBClusterToPointInTimeResult {
   /**
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
-}
-
-export namespace RestoreDBClusterToPointInTimeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RestoreDBClusterToPointInTimeResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StartDBClusterMessage {
@@ -6500,29 +5339,11 @@ export interface StartDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 }
 
-export namespace StartDBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDBClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface StartDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
    */
   DBCluster?: DBCluster;
-}
-
-export namespace StartDBClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartDBClusterResult): any => ({
-    ...obj,
-  });
 }
 
 export interface StopDBClusterMessage {
@@ -6534,15 +5355,6 @@ export interface StopDBClusterMessage {
   DBClusterIdentifier: string | undefined;
 }
 
-export namespace StopDBClusterMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDBClusterMessage): any => ({
-    ...obj,
-  });
-}
-
 export interface StopDBClusterResult {
   /**
    * <p>Detailed information about a cluster. </p>
@@ -6550,11 +5362,979 @@ export interface StopDBClusterResult {
   DBCluster?: DBCluster;
 }
 
-export namespace StopDBClusterResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDBClusterResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AddSourceIdentifierToSubscriptionMessageFilterSensitiveLog = (
+  obj: AddSourceIdentifierToSubscriptionMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventSubscriptionFilterSensitiveLog = (obj: EventSubscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddSourceIdentifierToSubscriptionResultFilterSensitiveLog = (
+  obj: AddSourceIdentifierToSubscriptionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsToResourceMessageFilterSensitiveLog = (obj: AddTagsToResourceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplyPendingMaintenanceActionMessageFilterSensitiveLog = (
+  obj: ApplyPendingMaintenanceActionMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingMaintenanceActionFilterSensitiveLog = (obj: PendingMaintenanceAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourcePendingMaintenanceActionsFilterSensitiveLog = (obj: ResourcePendingMaintenanceActions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplyPendingMaintenanceActionResultFilterSensitiveLog = (
+  obj: ApplyPendingMaintenanceActionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBClusterParameterGroupMessageFilterSensitiveLog = (obj: CopyDBClusterParameterGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterParameterGroupFilterSensitiveLog = (obj: DBClusterParameterGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBClusterParameterGroupResultFilterSensitiveLog = (obj: CopyDBClusterParameterGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBClusterSnapshotMessageFilterSensitiveLog = (obj: CopyDBClusterSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterSnapshotFilterSensitiveLog = (obj: DBClusterSnapshot): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CopyDBClusterSnapshotResultFilterSensitiveLog = (obj: CopyDBClusterSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterMessageFilterSensitiveLog = (obj: CreateDBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterRoleFilterSensitiveLog = (obj: DBClusterRole): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterMemberFilterSensitiveLog = (obj: DBClusterMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcSecurityGroupMembershipFilterSensitiveLog = (obj: VpcSecurityGroupMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterFilterSensitiveLog = (obj: DBCluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterResultFilterSensitiveLog = (obj: CreateDBClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterParameterGroupMessageFilterSensitiveLog = (
+  obj: CreateDBClusterParameterGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterParameterGroupResultFilterSensitiveLog = (
+  obj: CreateDBClusterParameterGroupResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterSnapshotMessageFilterSensitiveLog = (obj: CreateDBClusterSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBClusterSnapshotResultFilterSensitiveLog = (obj: CreateDBClusterSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBInstanceMessageFilterSensitiveLog = (obj: CreateDBInstanceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBSubnetGroupFilterSensitiveLog = (obj: DBSubnetGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingCloudwatchLogsExportsFilterSensitiveLog = (obj: PendingCloudwatchLogsExports): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingModifiedValuesFilterSensitiveLog = (obj: PendingModifiedValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBInstanceStatusInfoFilterSensitiveLog = (obj: DBInstanceStatusInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBInstanceFilterSensitiveLog = (obj: DBInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBInstanceResultFilterSensitiveLog = (obj: CreateDBInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBSubnetGroupMessageFilterSensitiveLog = (obj: CreateDBSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDBSubnetGroupResultFilterSensitiveLog = (obj: CreateDBSubnetGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventSubscriptionMessageFilterSensitiveLog = (obj: CreateEventSubscriptionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEventSubscriptionResultFilterSensitiveLog = (obj: CreateEventSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGlobalClusterMessageFilterSensitiveLog = (obj: CreateGlobalClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalClusterMemberFilterSensitiveLog = (obj: GlobalClusterMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalClusterFilterSensitiveLog = (obj: GlobalCluster): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateGlobalClusterResultFilterSensitiveLog = (obj: CreateGlobalClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterMessageFilterSensitiveLog = (obj: DeleteDBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterResultFilterSensitiveLog = (obj: DeleteDBClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterParameterGroupMessageFilterSensitiveLog = (
+  obj: DeleteDBClusterParameterGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterSnapshotMessageFilterSensitiveLog = (obj: DeleteDBClusterSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBClusterSnapshotResultFilterSensitiveLog = (obj: DeleteDBClusterSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBInstanceMessageFilterSensitiveLog = (obj: DeleteDBInstanceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBInstanceResultFilterSensitiveLog = (obj: DeleteDBInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDBSubnetGroupMessageFilterSensitiveLog = (obj: DeleteDBSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventSubscriptionMessageFilterSensitiveLog = (obj: DeleteEventSubscriptionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEventSubscriptionResultFilterSensitiveLog = (obj: DeleteEventSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGlobalClusterMessageFilterSensitiveLog = (obj: DeleteGlobalClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGlobalClusterResultFilterSensitiveLog = (obj: DeleteGlobalClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateMessageFilterSensitiveLog = (obj: CertificateMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeCertificatesMessageFilterSensitiveLog = (obj: DescribeCertificatesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterParameterGroupsMessageFilterSensitiveLog = (obj: DBClusterParameterGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterParameterGroupsMessageFilterSensitiveLog = (
+  obj: DescribeDBClusterParameterGroupsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ParameterFilterSensitiveLog = (obj: Parameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterParameterGroupDetailsFilterSensitiveLog = (obj: DBClusterParameterGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterParametersMessageFilterSensitiveLog = (obj: DescribeDBClusterParametersMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterMessageFilterSensitiveLog = (obj: DBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClustersMessageFilterSensitiveLog = (obj: DescribeDBClustersMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterSnapshotAttributesMessageFilterSensitiveLog = (
+  obj: DescribeDBClusterSnapshotAttributesMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterSnapshotAttributeFilterSensitiveLog = (obj: DBClusterSnapshotAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterSnapshotAttributesResultFilterSensitiveLog = (obj: DBClusterSnapshotAttributesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterSnapshotAttributesResultFilterSensitiveLog = (
+  obj: DescribeDBClusterSnapshotAttributesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterSnapshotMessageFilterSensitiveLog = (obj: DBClusterSnapshotMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBClusterSnapshotsMessageFilterSensitiveLog = (obj: DescribeDBClusterSnapshotsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpgradeTargetFilterSensitiveLog = (obj: UpgradeTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBEngineVersionFilterSensitiveLog = (obj: DBEngineVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBEngineVersionMessageFilterSensitiveLog = (obj: DBEngineVersionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBEngineVersionsMessageFilterSensitiveLog = (obj: DescribeDBEngineVersionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBInstanceMessageFilterSensitiveLog = (obj: DBInstanceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBInstancesMessageFilterSensitiveLog = (obj: DescribeDBInstancesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBSubnetGroupMessageFilterSensitiveLog = (obj: DBSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBSubnetGroupsMessageFilterSensitiveLog = (obj: DescribeDBSubnetGroupsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEngineDefaultClusterParametersMessageFilterSensitiveLog = (
+  obj: DescribeEngineDefaultClusterParametersMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EngineDefaultsFilterSensitiveLog = (obj: EngineDefaults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEngineDefaultClusterParametersResultFilterSensitiveLog = (
+  obj: DescribeEngineDefaultClusterParametersResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventCategoriesMessageFilterSensitiveLog = (obj: DescribeEventCategoriesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventCategoriesMapFilterSensitiveLog = (obj: EventCategoriesMap): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventCategoriesMessageFilterSensitiveLog = (obj: EventCategoriesMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventsMessageFilterSensitiveLog = (obj: DescribeEventsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventFilterSensitiveLog = (obj: Event): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventsMessageFilterSensitiveLog = (obj: EventsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEventSubscriptionsMessageFilterSensitiveLog = (obj: DescribeEventSubscriptionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventSubscriptionsMessageFilterSensitiveLog = (obj: EventSubscriptionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeGlobalClustersMessageFilterSensitiveLog = (obj: DescribeGlobalClustersMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GlobalClustersMessageFilterSensitiveLog = (obj: GlobalClustersMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrderableDBInstanceOptionsMessageFilterSensitiveLog = (
+  obj: DescribeOrderableDBInstanceOptionsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrderableDBInstanceOptionFilterSensitiveLog = (obj: OrderableDBInstanceOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrderableDBInstanceOptionsMessageFilterSensitiveLog = (obj: OrderableDBInstanceOptionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribePendingMaintenanceActionsMessageFilterSensitiveLog = (
+  obj: DescribePendingMaintenanceActionsMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingMaintenanceActionsMessageFilterSensitiveLog = (obj: PendingMaintenanceActionsMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailoverDBClusterMessageFilterSensitiveLog = (obj: FailoverDBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailoverDBClusterResultFilterSensitiveLog = (obj: FailoverDBClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceMessageFilterSensitiveLog = (obj: ListTagsForResourceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagListMessageFilterSensitiveLog = (obj: TagListMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudwatchLogsExportConfigurationFilterSensitiveLog = (obj: CloudwatchLogsExportConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDBClusterMessageFilterSensitiveLog = (obj: ModifyDBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDBClusterResultFilterSensitiveLog = (obj: ModifyDBClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBClusterParameterGroupNameMessageFilterSensitiveLog = (obj: DBClusterParameterGroupNameMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDBClusterParameterGroupMessageFilterSensitiveLog = (
+  obj: ModifyDBClusterParameterGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDBClusterSnapshotAttributeMessageFilterSensitiveLog = (
+  obj: ModifyDBClusterSnapshotAttributeMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDBClusterSnapshotAttributeResultFilterSensitiveLog = (
+  obj: ModifyDBClusterSnapshotAttributeResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDBInstanceMessageFilterSensitiveLog = (obj: ModifyDBInstanceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDBInstanceResultFilterSensitiveLog = (obj: ModifyDBInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDBSubnetGroupMessageFilterSensitiveLog = (obj: ModifyDBSubnetGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyDBSubnetGroupResultFilterSensitiveLog = (obj: ModifyDBSubnetGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyEventSubscriptionMessageFilterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyEventSubscriptionResultFilterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyGlobalClusterMessageFilterSensitiveLog = (obj: ModifyGlobalClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyGlobalClusterResultFilterSensitiveLog = (obj: ModifyGlobalClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootDBInstanceMessageFilterSensitiveLog = (obj: RebootDBInstanceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RebootDBInstanceResultFilterSensitiveLog = (obj: RebootDBInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFromGlobalClusterMessageFilterSensitiveLog = (obj: RemoveFromGlobalClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveFromGlobalClusterResultFilterSensitiveLog = (obj: RemoveFromGlobalClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog = (
+  obj: RemoveSourceIdentifierFromSubscriptionMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog = (
+  obj: RemoveSourceIdentifierFromSubscriptionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromResourceMessageFilterSensitiveLog = (obj: RemoveTagsFromResourceMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResetDBClusterParameterGroupMessageFilterSensitiveLog = (
+  obj: ResetDBClusterParameterGroupMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreDBClusterFromSnapshotMessageFilterSensitiveLog = (
+  obj: RestoreDBClusterFromSnapshotMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreDBClusterFromSnapshotResultFilterSensitiveLog = (obj: RestoreDBClusterFromSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreDBClusterToPointInTimeMessageFilterSensitiveLog = (
+  obj: RestoreDBClusterToPointInTimeMessage
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreDBClusterToPointInTimeResultFilterSensitiveLog = (
+  obj: RestoreDBClusterToPointInTimeResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDBClusterMessageFilterSensitiveLog = (obj: StartDBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartDBClusterResultFilterSensitiveLog = (obj: StartDBClusterResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDBClusterMessageFilterSensitiveLog = (obj: StopDBClusterMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDBClusterResultFilterSensitiveLog = (obj: StopDBClusterResult): any => ({
+  ...obj,
+});

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetWorldTemplateBodyRequest, GetWorldTemplateBodyResponse } from "../models/models_0";
+import {
+  GetWorldTemplateBodyRequest,
+  GetWorldTemplateBodyRequestFilterSensitiveLog,
+  GetWorldTemplateBodyResponse,
+  GetWorldTemplateBodyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetWorldTemplateBodyCommand,
   serializeAws_restJson1GetWorldTemplateBodyCommand,
@@ -72,8 +77,8 @@ export class GetWorldTemplateBodyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorldTemplateBodyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetWorldTemplateBodyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetWorldTemplateBodyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetWorldTemplateBodyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_0";
+import {
+  GetInvitationsCountRequest,
+  GetInvitationsCountRequestFilterSensitiveLog,
+  GetInvitationsCountResponse,
+  GetInvitationsCountResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetInvitationsCountCommand,
   serializeAws_restJson1GetInvitationsCountCommand,
@@ -72,8 +77,8 @@ export class GetInvitationsCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInvitationsCountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInvitationsCountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInvitationsCountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInvitationsCountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,9 @@ import {
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
   DescribeEventDetailsForOrganizationRequest,
+  DescribeEventDetailsForOrganizationRequestFilterSensitiveLog,
   DescribeEventDetailsForOrganizationResponse,
+  DescribeEventDetailsForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand,
@@ -109,8 +111,8 @@ export class DescribeEventDetailsForOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventDetailsForOrganizationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventDetailsForOrganizationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEventDetailsForOrganizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventDetailsForOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

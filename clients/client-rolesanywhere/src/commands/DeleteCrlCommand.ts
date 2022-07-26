@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
+import {
+  CrlDetailResponse,
+  CrlDetailResponseFilterSensitiveLog,
+  ScalarCrlRequest,
+  ScalarCrlRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCrlCommand,
   serializeAws_restJson1DeleteCrlCommand,
@@ -76,8 +81,8 @@ export class DeleteCrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScalarCrlRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CrlDetailResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ScalarCrlRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CrlDetailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

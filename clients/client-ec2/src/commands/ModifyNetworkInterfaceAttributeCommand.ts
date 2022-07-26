@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyNetworkInterfaceAttributeRequest } from "../models/models_5";
+import {
+  ModifyNetworkInterfaceAttributeRequest,
+  ModifyNetworkInterfaceAttributeRequestFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand,
   serializeAws_ec2ModifyNetworkInterfaceAttributeCommand,
@@ -74,7 +77,7 @@ export class ModifyNetworkInterfaceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyNetworkInterfaceAttributeRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyNetworkInterfaceAttributeRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

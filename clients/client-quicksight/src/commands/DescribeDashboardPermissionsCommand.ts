@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeDashboardPermissionsRequest, DescribeDashboardPermissionsResponse } from "../models/models_0";
+import {
+  DescribeDashboardPermissionsRequest,
+  DescribeDashboardPermissionsRequestFilterSensitiveLog,
+  DescribeDashboardPermissionsResponse,
+  DescribeDashboardPermissionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeDashboardPermissionsCommand,
   serializeAws_restJson1DescribeDashboardPermissionsCommand,
@@ -74,8 +79,8 @@ export class DescribeDashboardPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDashboardPermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDashboardPermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDashboardPermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDashboardPermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

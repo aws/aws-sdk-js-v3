@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RetrieveTapeRecoveryPointInput, RetrieveTapeRecoveryPointOutput } from "../models/models_0";
+import {
+  RetrieveTapeRecoveryPointInput,
+  RetrieveTapeRecoveryPointInputFilterSensitiveLog,
+  RetrieveTapeRecoveryPointOutput,
+  RetrieveTapeRecoveryPointOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1RetrieveTapeRecoveryPointCommand,
   serializeAws_json1_1RetrieveTapeRecoveryPointCommand,
@@ -83,8 +88,8 @@ export class RetrieveTapeRecoveryPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetrieveTapeRecoveryPointInput.filterSensitiveLog,
-      outputFilterSensitiveLog: RetrieveTapeRecoveryPointOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: RetrieveTapeRecoveryPointInputFilterSensitiveLog,
+      outputFilterSensitiveLog: RetrieveTapeRecoveryPointOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

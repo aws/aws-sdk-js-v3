@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConformancePackRequest, PutConformancePackResponse } from "../models/models_0";
+import {
+  PutConformancePackRequest,
+  PutConformancePackRequestFilterSensitiveLog,
+  PutConformancePackResponse,
+  PutConformancePackResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutConformancePackCommand,
   serializeAws_json1_1PutConformancePackCommand,
@@ -82,8 +87,8 @@ export class PutConformancePackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConformancePackRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutConformancePackResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutConformancePackRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutConformancePackResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

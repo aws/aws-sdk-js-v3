@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { DescribeAccountAttributesResult } from "../models/models_0";
+import { DescribeAccountAttributesResult, DescribeAccountAttributesResultFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryDescribeAccountAttributesCommand,
   serializeAws_queryDescribeAccountAttributesCommand,
@@ -75,7 +75,7 @@ export class DescribeAccountAttributesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeAccountAttributesResult.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAccountAttributesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

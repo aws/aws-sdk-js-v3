@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { AttachInstancesToLoadBalancerRequest, AttachInstancesToLoadBalancerResult } from "../models/models_0";
+import {
+  AttachInstancesToLoadBalancerRequest,
+  AttachInstancesToLoadBalancerRequestFilterSensitiveLog,
+  AttachInstancesToLoadBalancerResult,
+  AttachInstancesToLoadBalancerResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AttachInstancesToLoadBalancerCommand,
   serializeAws_json1_1AttachInstancesToLoadBalancerCommand,
@@ -79,8 +84,8 @@ export class AttachInstancesToLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachInstancesToLoadBalancerRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AttachInstancesToLoadBalancerResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AttachInstancesToLoadBalancerRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AttachInstancesToLoadBalancerResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

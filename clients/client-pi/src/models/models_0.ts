@@ -18,15 +18,6 @@ export interface DataPoint {
   Value: number | undefined;
 }
 
-export namespace DataPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataPoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A logical grouping of Performance Insights metrics for a related subject area. For example, the
  *         <code>db.sql</code> dimension group consists of the following dimensions:</p>
@@ -299,15 +290,6 @@ export interface DimensionGroup {
   Limit?: number;
 }
 
-export namespace DimensionGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionGroup): any => ({
-    ...obj,
-  });
-}
-
 export enum ServiceType {
   DOCDB = "DOCDB",
   RDS = "RDS",
@@ -462,15 +444,6 @@ export interface DescribeDimensionKeysRequest {
   NextToken?: string;
 }
 
-export namespace DescribeDimensionKeysRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDimensionKeysRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that includes the requested dimension key values and aggregated metric values
  *           within a dimension group.</p>
@@ -497,15 +470,6 @@ export interface DimensionKeyDescription {
   Partitions?: number[];
 }
 
-export namespace DimensionKeyDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionKeyDescription): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If <code>PartitionBy</code> was specified in a <code>DescribeDimensionKeys</code>
  *       request, the dimensions are returned in an array. Each element in the array specifies one
@@ -516,15 +480,6 @@ export interface ResponsePartitionKey {
    * <p>A dimension map that contains the dimensions for this partition.</p>
    */
   Dimensions: Record<string, string> | undefined;
-}
-
-export namespace ResponsePartitionKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponsePartitionKey): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDimensionKeysResponse {
@@ -556,15 +511,6 @@ export interface DescribeDimensionKeysResponse {
    *             previous request. To get the remaining records, specify <code>NextToken</code> in a separate request with this value. </p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeDimensionKeysResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDimensionKeysResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -646,15 +592,6 @@ export interface DimensionDetail {
   Identifier?: string;
 }
 
-export namespace DimensionDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about dimensions within a dimension group.</p>
  */
@@ -668,15 +605,6 @@ export interface DimensionGroupDetail {
    * <p>The dimensions within a dimension group.</p>
    */
   Dimensions?: DimensionDetail[];
-}
-
-export namespace DimensionGroupDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionGroupDetail): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -735,15 +663,6 @@ export interface DimensionKeyDetail {
   Status?: DetailStatus | string;
 }
 
-export namespace DimensionKeyDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DimensionKeyDetail): any => ({
-    ...obj,
-  });
-}
-
 export enum FeatureStatus {
   DISABLED = "DISABLED",
   DISABLED_PENDING_REBOOT = "DISABLED_PENDING_REBOOT",
@@ -788,15 +707,6 @@ export interface FeatureMetadata {
    *          </ul>
    */
   Status?: FeatureStatus | string;
-}
-
-export namespace FeatureMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FeatureMetadata): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDimensionKeyDetailsRequest {
@@ -864,29 +774,11 @@ export interface GetDimensionKeyDetailsRequest {
   RequestedDimensions?: string[];
 }
 
-export namespace GetDimensionKeyDetailsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDimensionKeyDetailsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDimensionKeyDetailsResponse {
   /**
    * <p>The details for the requested dimensions.</p>
    */
   Dimensions?: DimensionKeyDetail[];
-}
-
-export namespace GetDimensionKeyDetailsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDimensionKeyDetailsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceMetadataRequest {
@@ -904,15 +796,6 @@ export interface GetResourceMetadataRequest {
   Identifier: string | undefined;
 }
 
-export namespace GetResourceMetadataRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceMetadataRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetResourceMetadataResponse {
   /**
    * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region.
@@ -928,15 +811,6 @@ export interface GetResourceMetadataResponse {
    *             turned on or off on a specific DB instance.</p>
    */
   Features?: Record<string, FeatureMetadata>;
-}
-
-export namespace GetResourceMetadataResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceMetadataResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -991,15 +865,6 @@ export interface MetricQuery {
    *          </ul>
    */
   Filter?: Record<string, string>;
-}
-
-export namespace MetricQuery {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricQuery): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceMetricsRequest {
@@ -1096,15 +961,6 @@ export interface GetResourceMetricsRequest {
   NextToken?: string;
 }
 
-export namespace GetResourceMetricsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceMetricsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object describing a Performance Insights metric and one or more dimensions for that metric.</p>
  */
@@ -1141,15 +997,6 @@ export interface ResponseResourceMetricKey {
   Dimensions?: Record<string, string>;
 }
 
-export namespace ResponseResourceMetricKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseResourceMetricKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A time-ordered series of data points, corresponding to a dimension of a Performance Insights
  *       metric.</p>
@@ -1164,15 +1011,6 @@ export interface MetricKeyDataPoints {
    * <p>An array of timestamp-value pairs, representing measurements over a period of time.</p>
    */
   DataPoints?: DataPoint[];
-}
-
-export namespace MetricKeyDataPoints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricKeyDataPoints): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceMetricsResponse {
@@ -1209,15 +1047,6 @@ export interface GetResourceMetricsResponse {
   NextToken?: string;
 }
 
-export namespace GetResourceMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetResourceMetricsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAvailableResourceDimensionsRequest {
   /**
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
@@ -1251,15 +1080,6 @@ export interface ListAvailableResourceDimensionsRequest {
   NextToken?: string;
 }
 
-export namespace ListAvailableResourceDimensionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableResourceDimensionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The available dimension information for a metric type.</p>
  */
@@ -1275,15 +1095,6 @@ export interface MetricDimensionGroups {
   Groups?: DimensionGroupDetail[];
 }
 
-export namespace MetricDimensionGroups {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricDimensionGroups): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAvailableResourceDimensionsResponse {
   /**
    * <p>The dimension information returned for requested metric types.</p>
@@ -1295,15 +1106,6 @@ export interface ListAvailableResourceDimensionsResponse {
    *             the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAvailableResourceDimensionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableResourceDimensionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAvailableResourceMetricsRequest {
@@ -1356,15 +1158,6 @@ export interface ListAvailableResourceMetricsRequest {
   MaxResults?: number;
 }
 
-export namespace ListAvailableResourceMetricsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableResourceMetricsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains the full name, description, and unit of a metric.
  *       </p>
@@ -1386,15 +1179,6 @@ export interface ResponseResourceMetric {
   Unit?: string;
 }
 
-export namespace ResponseResourceMetric {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseResourceMetric): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAvailableResourceMetricsResponse {
   /**
    * <p>An array of metrics available to query. Each array element contains the full name,
@@ -1410,11 +1194,185 @@ export interface ListAvailableResourceMetricsResponse {
   NextToken?: string;
 }
 
-export namespace ListAvailableResourceMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAvailableResourceMetricsResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DataPointFilterSensitiveLog = (obj: DataPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionGroupFilterSensitiveLog = (obj: DimensionGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDimensionKeysRequestFilterSensitiveLog = (obj: DescribeDimensionKeysRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionKeyDescriptionFilterSensitiveLog = (obj: DimensionKeyDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponsePartitionKeyFilterSensitiveLog = (obj: ResponsePartitionKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDimensionKeysResponseFilterSensitiveLog = (obj: DescribeDimensionKeysResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionDetailFilterSensitiveLog = (obj: DimensionDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionGroupDetailFilterSensitiveLog = (obj: DimensionGroupDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionKeyDetailFilterSensitiveLog = (obj: DimensionKeyDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FeatureMetadataFilterSensitiveLog = (obj: FeatureMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDimensionKeyDetailsRequestFilterSensitiveLog = (obj: GetDimensionKeyDetailsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDimensionKeyDetailsResponseFilterSensitiveLog = (obj: GetDimensionKeyDetailsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceMetadataRequestFilterSensitiveLog = (obj: GetResourceMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceMetadataResponseFilterSensitiveLog = (obj: GetResourceMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricQueryFilterSensitiveLog = (obj: MetricQuery): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceMetricsRequestFilterSensitiveLog = (obj: GetResourceMetricsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseResourceMetricKeyFilterSensitiveLog = (obj: ResponseResourceMetricKey): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricKeyDataPointsFilterSensitiveLog = (obj: MetricKeyDataPoints): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceMetricsResponseFilterSensitiveLog = (obj: GetResourceMetricsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableResourceDimensionsRequestFilterSensitiveLog = (
+  obj: ListAvailableResourceDimensionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricDimensionGroupsFilterSensitiveLog = (obj: MetricDimensionGroups): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableResourceDimensionsResponseFilterSensitiveLog = (
+  obj: ListAvailableResourceDimensionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableResourceMetricsRequestFilterSensitiveLog = (
+  obj: ListAvailableResourceMetricsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResponseResourceMetricFilterSensitiveLog = (obj: ResponseResourceMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAvailableResourceMetricsResponseFilterSensitiveLog = (
+  obj: ListAvailableResourceMetricsResponse
+): any => ({
+  ...obj,
+});

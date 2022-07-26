@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeMovingAddressesRequest, DescribeMovingAddressesResult } from "../models/models_3";
+import {
+  DescribeMovingAddressesRequest,
+  DescribeMovingAddressesRequestFilterSensitiveLog,
+  DescribeMovingAddressesResult,
+  DescribeMovingAddressesResultFilterSensitiveLog,
+} from "../models/models_3";
 import {
   deserializeAws_ec2DescribeMovingAddressesCommand,
   serializeAws_ec2DescribeMovingAddressesCommand,
@@ -72,8 +77,8 @@ export class DescribeMovingAddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMovingAddressesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMovingAddressesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeMovingAddressesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeMovingAddressesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

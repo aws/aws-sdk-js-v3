@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { DescribeAgentRequest, DescribeAgentResponse } from "../models/models_0";
+import {
+  DescribeAgentRequest,
+  DescribeAgentRequestFilterSensitiveLog,
+  DescribeAgentResponse,
+  DescribeAgentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeAgentCommand,
   serializeAws_json1_1DescribeAgentCommand,
@@ -74,8 +79,8 @@ export class DescribeAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAgentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAgentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAgentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAgentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

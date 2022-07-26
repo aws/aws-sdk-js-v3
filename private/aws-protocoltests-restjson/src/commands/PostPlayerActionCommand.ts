@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PostPlayerActionInput, PostPlayerActionOutput } from "../models/models_0";
+import {
+  PostPlayerActionInput,
+  PostPlayerActionInputFilterSensitiveLog,
+  PostPlayerActionOutput,
+  PostPlayerActionOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PostPlayerActionCommand,
   serializeAws_restJson1PostPlayerActionCommand,
@@ -72,8 +77,8 @@ export class PostPlayerActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PostPlayerActionInput.filterSensitiveLog,
-      outputFilterSensitiveLog: PostPlayerActionOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: PostPlayerActionInputFilterSensitiveLog,
+      outputFilterSensitiveLog: PostPlayerActionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

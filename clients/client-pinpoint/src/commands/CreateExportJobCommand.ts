@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateExportJobRequest, CreateExportJobResponse } from "../models/models_0";
+import {
+  CreateExportJobRequest,
+  CreateExportJobRequestFilterSensitiveLog,
+  CreateExportJobResponse,
+  CreateExportJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1CreateExportJobCommand,
@@ -72,8 +77,8 @@ export class CreateExportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateExportJobRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateExportJobResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateExportJobRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateExportJobResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

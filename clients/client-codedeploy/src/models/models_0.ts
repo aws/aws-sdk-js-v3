@@ -18,15 +18,6 @@ export interface Tag {
   Value?: string;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of, and adds tags to, an on-premises instance operation.</p>
  */
@@ -42,15 +33,6 @@ export interface AddTagsToOnPremisesInstancesInput {
    * <p>The names of the on-premises instances to which to add tags.</p>
    */
   instanceNames: string[] | undefined;
-}
-
-export namespace AddTagsToOnPremisesInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AddTagsToOnPremisesInstancesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -198,15 +180,6 @@ export interface Alarm {
   name?: string;
 }
 
-export namespace Alarm {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Alarm): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about alarms associated with the deployment group.</p>
  */
@@ -239,15 +212,6 @@ export interface AlarmConfiguration {
    *             added to a deployment group.</p>
    */
   alarms?: Alarm[];
-}
-
-export namespace AlarmConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -351,15 +315,6 @@ export interface ApplicationInfo {
   computePlatform?: ComputePlatform | string;
 }
 
-export namespace ApplicationInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>More applications were attempted to be created than are allowed.</p>
  */
@@ -430,15 +385,6 @@ export interface AppSpecContent {
   sha256?: string;
 }
 
-export namespace AppSpecContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AppSpecContent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The specified ARN is not supported. For example, it might be an ARN for a resource
  *             that is not expected. </p>
@@ -482,15 +428,6 @@ export interface AutoRollbackConfiguration {
   events?: (AutoRollbackEvent | string)[];
 }
 
-export namespace AutoRollbackConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoRollbackConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an Auto Scaling group.</p>
  */
@@ -504,15 +441,6 @@ export interface AutoScalingGroup {
    * <p>An Auto Scaling lifecycle event hook name.</p>
    */
   hook?: string;
-}
-
-export namespace AutoScalingGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutoScalingGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -531,15 +459,6 @@ export interface GitHubLocation {
    *             application revision.</p>
    */
   commitId?: string;
-}
-
-export namespace GitHubLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GitHubLocation): any => ({
-    ...obj,
-  });
 }
 
 export enum RevisionLocationType {
@@ -608,15 +527,6 @@ export interface S3Location {
   eTag?: string;
 }
 
-export namespace S3Location {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Location): any => ({
-    ...obj,
-  });
-}
-
 /**
  * @deprecated
  *
@@ -635,15 +545,6 @@ export interface RawString {
    * <p>The SHA256 hash value of the revision content.</p>
    */
   sha256?: string;
-}
-
-export namespace RawString {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RawString): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -698,15 +599,6 @@ export interface RevisionLocation {
   appSpecContent?: AppSpecContent;
 }
 
-export namespace RevisionLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevisionLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>BatchGetApplicationRevisions</code> operation.</p>
  */
@@ -723,15 +615,6 @@ export interface BatchGetApplicationRevisionsInput {
    *                 <code>RevisionLocation</code> objects you can specify is 25.</p>
    */
   revisions: RevisionLocation[] | undefined;
-}
-
-export namespace BatchGetApplicationRevisionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetApplicationRevisionsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -764,15 +647,6 @@ export interface GenericRevisionInfo {
   registerTime?: Date;
 }
 
-export namespace GenericRevisionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GenericRevisionInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an application revision.</p>
  */
@@ -787,15 +661,6 @@ export interface RevisionInfo {
    *             deployment groups.</p>
    */
   genericRevisionInfo?: GenericRevisionInfo;
-}
-
-export namespace RevisionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevisionInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -816,15 +681,6 @@ export interface BatchGetApplicationRevisionsOutput {
    * <p>Additional information about the revisions, including the type and location.</p>
    */
   revisions?: RevisionInfo[];
-}
-
-export namespace BatchGetApplicationRevisionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetApplicationRevisionsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -914,15 +770,6 @@ export interface BatchGetApplicationsInput {
   applicationNames: string[] | undefined;
 }
 
-export namespace BatchGetApplicationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetApplicationsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>BatchGetApplications</code> operation.</p>
  */
@@ -931,15 +778,6 @@ export interface BatchGetApplicationsOutput {
    * <p>Information about the applications.</p>
    */
   applicationsInfo?: ApplicationInfo[];
-}
-
-export namespace BatchGetApplicationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetApplicationsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -956,15 +794,6 @@ export interface BatchGetDeploymentGroupsInput {
    * <p>The names of the deployment groups.</p>
    */
   deploymentGroupNames: string[] | undefined;
-}
-
-export namespace BatchGetDeploymentGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDeploymentGroupsInput): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentReadyAction {
@@ -1004,15 +833,6 @@ export interface DeploymentReadyOption {
   waitTimeInMinutes?: number;
 }
 
-export namespace DeploymentReadyOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentReadyOption): any => ({
-    ...obj,
-  });
-}
-
 export enum GreenFleetProvisioningAction {
   COPY_AUTO_SCALING_GROUP = "COPY_AUTO_SCALING_GROUP",
   DISCOVER_EXISTING = "DISCOVER_EXISTING",
@@ -1039,15 +859,6 @@ export interface GreenFleetProvisioningOption {
    *          </ul>
    */
   action?: GreenFleetProvisioningAction | string;
-}
-
-export namespace GreenFleetProvisioningOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GreenFleetProvisioningOption): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceAction {
@@ -1093,15 +904,6 @@ export interface BlueInstanceTerminationOption {
   terminationWaitTimeInMinutes?: number;
 }
 
-export namespace BlueInstanceTerminationOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlueInstanceTerminationOption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about blue/green deployment options for a deployment group.</p>
  */
@@ -1123,15 +925,6 @@ export interface BlueGreenDeploymentConfiguration {
    *             blue/green deployment.</p>
    */
   greenFleetProvisioningOption?: GreenFleetProvisioningOption;
-}
-
-export namespace BlueGreenDeploymentConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlueGreenDeploymentConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentOption {
@@ -1158,15 +951,6 @@ export interface DeploymentStyle {
    * <p>Indicates whether to route deployment traffic behind a load balancer.</p>
    */
   deploymentOption?: DeploymentOption | string;
-}
-
-export namespace DeploymentStyle {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentStyle): any => ({
-    ...obj,
-  });
 }
 
 export enum EC2TagFilterType {
@@ -1209,15 +993,6 @@ export interface EC2TagFilter {
   Type?: EC2TagFilterType | string;
 }
 
-export namespace EC2TagFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2TagFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about groups of EC2 instance tags.</p>
  */
@@ -1228,15 +1003,6 @@ export interface EC2TagSet {
    *             list.</p>
    */
   ec2TagSetList?: EC2TagFilter[][];
-}
-
-export namespace EC2TagSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2TagSet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1253,15 +1019,6 @@ export interface ECSService {
    * <p> The name of the cluster that the Amazon ECS service is associated with. </p>
    */
   clusterName?: string;
-}
-
-export namespace ECSService {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ECSService): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentStatus {
@@ -1303,15 +1060,6 @@ export interface LastDeploymentInfo {
   createTime?: Date;
 }
 
-export namespace LastDeploymentInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LastDeploymentInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a load balancer in Elastic Load Balancing to use in a deployment.
  *             Instances are registered directly with a load balancer, and traffic is routed to the
@@ -1326,15 +1074,6 @@ export interface ELBInfo {
    *             the deployment is complete.</p>
    */
   name?: string;
-}
-
-export namespace ELBInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ELBInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1353,15 +1092,6 @@ export interface TargetGroupInfo {
   name?: string;
 }
 
-export namespace TargetGroupInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroupInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about a listener. The listener contains the path used to route traffic
  *             that is received from the load balancer to a target group. </p>
@@ -1373,15 +1103,6 @@ export interface TrafficRoute {
    *             size of one. </p>
    */
   listenerArns?: string[];
-}
-
-export namespace TrafficRoute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrafficRoute): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1408,15 +1129,6 @@ export interface TargetGroupPairInfo {
    *         </p>
    */
   testTrafficRoute?: TrafficRoute;
-}
-
-export namespace TargetGroupPairInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroupPairInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1449,15 +1161,6 @@ export interface LoadBalancerInfo {
    *                 <code>TargeGroupPairInfo</code> objects with a maximum size of one. </p>
    */
   targetGroupPairInfoList?: TargetGroupPairInfo[];
-}
-
-export namespace LoadBalancerInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerInfo): any => ({
-    ...obj,
-  });
 }
 
 export enum TagFilterType {
@@ -1497,15 +1200,6 @@ export interface TagFilter {
   Type?: TagFilterType | string;
 }
 
-export namespace TagFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about groups of on-premises instance tags.</p>
  */
@@ -1516,15 +1210,6 @@ export interface OnPremisesTagSet {
    *             in the list.</p>
    */
   onPremisesTagSetList?: TagFilter[][];
-}
-
-export namespace OnPremisesTagSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OnPremisesTagSet): any => ({
-    ...obj,
-  });
 }
 
 export enum OutdatedInstancesStrategy {
@@ -1564,15 +1249,6 @@ export interface TriggerConfig {
    * <p>The event type or types for which notifications are triggered.</p>
    */
   triggerEvents?: (TriggerEventType | string)[];
-}
-
-export namespace TriggerConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1714,15 +1390,6 @@ export interface DeploymentGroupInfo {
   ecsServices?: ECSService[];
 }
 
-export namespace DeploymentGroupInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentGroupInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>BatchGetDeploymentGroups</code> operation.</p>
  */
@@ -1736,15 +1403,6 @@ export interface BatchGetDeploymentGroupsOutput {
    * <p>Information about errors that might have occurred during the API call.</p>
    */
   errorMessage?: string;
-}
-
-export namespace BatchGetDeploymentGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDeploymentGroupsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1820,15 +1478,6 @@ export interface BatchGetDeploymentInstancesInput {
   instanceIds: string[] | undefined;
 }
 
-export namespace BatchGetDeploymentInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDeploymentInstancesInput): any => ({
-    ...obj,
-  });
-}
-
 export enum _InstanceType {
   BLUE = "Blue",
   GREEN = "Green",
@@ -1892,15 +1541,6 @@ export interface Diagnostics {
   logTail?: string;
 }
 
-export namespace Diagnostics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Diagnostics): any => ({
-    ...obj,
-  });
-}
-
 export enum LifecycleEventStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
@@ -1960,15 +1600,6 @@ export interface LifecycleEvent {
    *          </ul>
    */
   status?: LifecycleEventStatus | string;
-}
-
-export namespace LifecycleEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleEvent): any => ({
-    ...obj,
-  });
 }
 
 export enum InstanceStatus {
@@ -2058,15 +1689,6 @@ export interface InstanceSummary {
   instanceType?: _InstanceType | string;
 }
 
-export namespace InstanceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>BatchGetDeploymentInstances</code> operation.</p>
  */
@@ -2080,15 +1702,6 @@ export interface BatchGetDeploymentInstancesOutput {
    * <p>Information about errors that might have occurred during the API call.</p>
    */
   errorMessage?: string;
-}
-
-export namespace BatchGetDeploymentInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDeploymentInstancesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2200,15 +1813,6 @@ export interface BatchGetDeploymentsInput {
   deploymentIds: string[] | undefined;
 }
 
-export namespace BatchGetDeploymentsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDeploymentsInput): any => ({
-    ...obj,
-  });
-}
-
 export enum DeploymentCreator {
   Autoscaling = "autoscaling",
   CloudFormation = "CloudFormation",
@@ -2254,15 +1858,6 @@ export interface DeploymentOverview {
    *             blue/green deployment.</p>
    */
   Ready?: number;
-}
-
-export namespace DeploymentOverview {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentOverview): any => ({
-    ...obj,
-  });
 }
 
 export enum ErrorCode {
@@ -2372,15 +1967,6 @@ export interface ErrorInformation {
   message?: string;
 }
 
-export namespace ErrorInformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorInformation): any => ({
-    ...obj,
-  });
-}
-
 export enum FileExistsBehavior {
   DISALLOW = "DISALLOW",
   OVERWRITE = "OVERWRITE",
@@ -2403,15 +1989,6 @@ export interface RelatedDeployments {
   autoUpdateOutdatedInstancesDeploymentIds?: string[];
 }
 
-export namespace RelatedDeployments {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelatedDeployments): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a deployment rollback.</p>
  */
@@ -2432,15 +2009,6 @@ export interface RollbackInfo {
    *             the deployment can't be rolled back, is in progress, failed, or succeeded). </p>
    */
   rollbackMessage?: string;
-}
-
-export namespace RollbackInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RollbackInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2467,15 +2035,6 @@ export interface TargetInstances {
    *             deployment. Cannot be used in the same call as <code>tagFilters</code>.</p>
    */
   ec2TagSet?: EC2TagSet;
-}
-
-export namespace TargetInstances {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetInstances): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2708,15 +2267,6 @@ export interface DeploymentInfo {
   relatedDeployments?: RelatedDeployments;
 }
 
-export namespace DeploymentInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Represents the output of a <code>BatchGetDeployments</code> operation. </p>
  */
@@ -2725,15 +2275,6 @@ export interface BatchGetDeploymentsOutput {
    * <p> Information about the deployments. </p>
    */
   deploymentsInfo?: DeploymentInfo[];
-}
-
-export namespace BatchGetDeploymentsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDeploymentsOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchGetDeploymentTargetsInput {
@@ -2771,15 +2312,6 @@ export interface BatchGetDeploymentTargetsInput {
    *          </ul>
    */
   targetIds?: string[];
-}
-
-export namespace BatchGetDeploymentTargetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDeploymentTargetsInput): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetStatus {
@@ -2837,15 +2369,6 @@ export interface CloudFormationTarget {
    *             blue/green deployment receives.</p>
    */
   targetVersionWeight?: number;
-}
-
-export namespace CloudFormationTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFormationTarget): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentTargetType {
@@ -2938,15 +2461,6 @@ export interface ECSTaskSet {
   taskSetLabel?: TargetLabel | string;
 }
 
-export namespace ECSTaskSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ECSTaskSet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about the target of an Amazon ECS deployment. </p>
  */
@@ -2987,15 +2501,6 @@ export interface ECSTarget {
    * <p> The <code>ECSTaskSet</code> objects associated with the ECS target. </p>
    */
   taskSetsInfo?: ECSTaskSet[];
-}
-
-export namespace ECSTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ECSTarget): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3041,15 +2546,6 @@ export interface InstanceTarget {
   instanceLabel?: TargetLabel | string;
 }
 
-export namespace InstanceTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about a Lambda function specified in a deployment. </p>
  */
@@ -3081,15 +2577,6 @@ export interface LambdaFunctionInfo {
    *             receives. </p>
    */
   targetVersionWeight?: number;
-}
-
-export namespace LambdaFunctionInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaFunctionInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3136,15 +2623,6 @@ export interface LambdaTarget {
   lambdaFunctionInfo?: LambdaFunctionInfo;
 }
 
-export namespace LambdaTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Information about the deployment target. </p>
  */
@@ -3181,15 +2659,6 @@ export interface DeploymentTarget {
   cloudFormationTarget?: CloudFormationTarget;
 }
 
-export namespace DeploymentTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentTarget): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchGetDeploymentTargetsOutput {
   /**
    * <p> A list of target objects for a deployment. Each target object contains details about
@@ -3219,15 +2688,6 @@ export interface BatchGetDeploymentTargetsOutput {
    *          </ul>
    */
   deploymentTargets?: DeploymentTarget[];
-}
-
-export namespace BatchGetDeploymentTargetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetDeploymentTargetsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3359,15 +2819,6 @@ export interface BatchGetOnPremisesInstancesInput {
   instanceNames: string[] | undefined;
 }
 
-export namespace BatchGetOnPremisesInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetOnPremisesInstancesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an on-premises instance.</p>
  */
@@ -3409,15 +2860,6 @@ export interface InstanceInfo {
   tags?: Tag[];
 }
 
-export namespace InstanceInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>BatchGetOnPremisesInstances</code> operation.</p>
  */
@@ -3426,15 +2868,6 @@ export interface BatchGetOnPremisesInstancesOutput {
    * <p>Information about the on-premises instances.</p>
    */
   instanceInfos?: InstanceInfo[];
-}
-
-export namespace BatchGetOnPremisesInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchGetOnPremisesInstancesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3475,15 +2908,6 @@ export interface ContinueDeploymentInput {
    *         </p>
    */
   deploymentWaitType?: DeploymentWaitType | string;
-}
-
-export namespace ContinueDeploymentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContinueDeploymentInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3605,15 +3029,6 @@ export interface CreateApplicationInput {
   tags?: Tag[];
 }
 
-export namespace CreateApplicationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>CreateApplication</code> operation.</p>
  */
@@ -3622,15 +3037,6 @@ export interface CreateApplicationOutput {
    * <p>A unique application ID.</p>
    */
   applicationId?: string;
-}
-
-export namespace CreateApplicationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateApplicationOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3756,15 +3162,6 @@ export interface CreateDeploymentInput {
   fileExistsBehavior?: FileExistsBehavior | string;
 }
 
-export namespace CreateDeploymentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Represents the output of a <code>CreateDeployment</code> operation. </p>
  */
@@ -3773,15 +3170,6 @@ export interface CreateDeploymentOutput {
    * <p> The unique ID of a deployment. </p>
    */
   deploymentId?: string;
-}
-
-export namespace CreateDeploymentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4165,15 +3553,6 @@ export interface MinimumHealthyHosts {
   value?: number;
 }
 
-export namespace MinimumHealthyHosts {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MinimumHealthyHosts): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A configuration that shifts traffic from one version of a Lambda function or ECS task
  *             set to another in two increments. The original and target Lambda function versions or
@@ -4191,15 +3570,6 @@ export interface TimeBasedCanary {
    *                 <code>TimeBasedCanary</code> deployment.</p>
    */
   canaryInterval?: number;
-}
-
-export namespace TimeBasedCanary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeBasedCanary): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4220,15 +3590,6 @@ export interface TimeBasedLinear {
    *                 <code>TimeBasedLinear</code> deployment.</p>
    */
   linearInterval?: number;
-}
-
-export namespace TimeBasedLinear {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeBasedLinear): any => ({
-    ...obj,
-  });
 }
 
 export enum TrafficRoutingType {
@@ -4263,15 +3624,6 @@ export interface TrafficRoutingConfig {
    *             specified in the deployment's AppSpec file.</p>
    */
   timeBasedLinear?: TimeBasedLinear;
-}
-
-export namespace TrafficRoutingConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrafficRoutingConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4318,15 +3670,6 @@ export interface CreateDeploymentConfigInput {
   computePlatform?: ComputePlatform | string;
 }
 
-export namespace CreateDeploymentConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentConfigInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>CreateDeploymentConfig</code> operation.</p>
  */
@@ -4335,15 +3678,6 @@ export interface CreateDeploymentConfigOutput {
    * <p>A unique deployment configuration ID.</p>
    */
   deploymentConfigId?: string;
-}
-
-export namespace CreateDeploymentConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentConfigOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4555,15 +3889,6 @@ export interface CreateDeploymentGroupInput {
   tags?: Tag[];
 }
 
-export namespace CreateDeploymentGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentGroupInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>CreateDeploymentGroup</code> operation.</p>
  */
@@ -4572,15 +3897,6 @@ export interface CreateDeploymentGroupOutput {
    * <p>A unique deployment group ID.</p>
    */
   deploymentGroupId?: string;
-}
-
-export namespace CreateDeploymentGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeploymentGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4943,15 +4259,6 @@ export interface DeleteApplicationInput {
   applicationName: string | undefined;
 }
 
-export namespace DeleteApplicationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteApplicationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>DeleteDeploymentConfig</code> operation.</p>
  */
@@ -4961,15 +4268,6 @@ export interface DeleteDeploymentConfigInput {
    *             account.</p>
    */
   deploymentConfigName: string | undefined;
-}
-
-export namespace DeleteDeploymentConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeploymentConfigInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5026,15 +4324,6 @@ export interface DeleteDeploymentGroupInput {
   deploymentGroupName: string | undefined;
 }
 
-export namespace DeleteDeploymentGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeploymentGroupInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DeleteDeploymentGroup</code> operation.</p>
  */
@@ -5049,15 +4338,6 @@ export interface DeleteDeploymentGroupOutput {
   hooksNotCleanedUp?: AutoScalingGroup[];
 }
 
-export namespace DeleteDeploymentGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDeploymentGroupOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>DeleteGitHubAccount</code> operation.</p>
  */
@@ -5068,15 +4348,6 @@ export interface DeleteGitHubAccountTokenInput {
   tokenName?: string;
 }
 
-export namespace DeleteGitHubAccountTokenInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGitHubAccountTokenInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>DeleteGitHubAccountToken</code> operation.</p>
  */
@@ -5085,15 +4356,6 @@ export interface DeleteGitHubAccountTokenOutput {
    * <p>The name of the GitHub account connection that was deleted.</p>
    */
   tokenName?: string;
-}
-
-export namespace DeleteGitHubAccountTokenOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteGitHubAccountTokenOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5199,25 +4461,7 @@ export interface DeleteResourcesByExternalIdInput {
   externalId?: string;
 }
 
-export namespace DeleteResourcesByExternalIdInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcesByExternalIdInput): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourcesByExternalIdOutput {}
-
-export namespace DeleteResourcesByExternalIdOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteResourcesByExternalIdOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the input of a <code>DeregisterOnPremisesInstance</code> operation.</p>
@@ -5227,15 +4471,6 @@ export interface DeregisterOnPremisesInstanceInput {
    * <p>The name of the on-premises instance to deregister.</p>
    */
   instanceName: string | undefined;
-}
-
-export namespace DeregisterOnPremisesInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeregisterOnPremisesInstanceInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5249,15 +4484,6 @@ export interface GetApplicationInput {
   applicationName: string | undefined;
 }
 
-export namespace GetApplicationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>GetApplication</code> operation.</p>
  */
@@ -5266,15 +4492,6 @@ export interface GetApplicationOutput {
    * <p>Information about the application.</p>
    */
   application?: ApplicationInfo;
-}
-
-export namespace GetApplicationOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5290,15 +4507,6 @@ export interface GetApplicationRevisionInput {
    * <p>Information about the application revision to get, including type and location.</p>
    */
   revision: RevisionLocation | undefined;
-}
-
-export namespace GetApplicationRevisionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationRevisionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5321,15 +4529,6 @@ export interface GetApplicationRevisionOutput {
   revisionInfo?: GenericRevisionInfo;
 }
 
-export namespace GetApplicationRevisionOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetApplicationRevisionOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>GetDeployment</code> operation.</p>
  */
@@ -5338,15 +4537,6 @@ export interface GetDeploymentInput {
    * <p> The unique ID of a deployment associated with the IAM user or AWS account. </p>
    */
   deploymentId: string | undefined;
-}
-
-export namespace GetDeploymentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5359,15 +4549,6 @@ export interface GetDeploymentOutput {
   deploymentInfo?: DeploymentInfo;
 }
 
-export namespace GetDeploymentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>GetDeploymentConfig</code> operation.</p>
  */
@@ -5377,15 +4558,6 @@ export interface GetDeploymentConfigInput {
    *             account.</p>
    */
   deploymentConfigName: string | undefined;
-}
-
-export namespace GetDeploymentConfigInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentConfigInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5425,15 +4597,6 @@ export interface DeploymentConfigInfo {
   trafficRoutingConfig?: TrafficRoutingConfig;
 }
 
-export namespace DeploymentConfigInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentConfigInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>GetDeploymentConfig</code> operation.</p>
  */
@@ -5442,15 +4605,6 @@ export interface GetDeploymentConfigOutput {
    * <p>Information about the deployment configuration.</p>
    */
   deploymentConfigInfo?: DeploymentConfigInfo;
-}
-
-export namespace GetDeploymentConfigOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentConfigOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5469,15 +4623,6 @@ export interface GetDeploymentGroupInput {
   deploymentGroupName: string | undefined;
 }
 
-export namespace GetDeploymentGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentGroupInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>GetDeploymentGroup</code> operation.</p>
  */
@@ -5486,15 +4631,6 @@ export interface GetDeploymentGroupOutput {
    * <p>Information about the deployment group.</p>
    */
   deploymentGroupInfo?: DeploymentGroupInfo;
-}
-
-export namespace GetDeploymentGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentGroupOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5512,15 +4648,6 @@ export interface GetDeploymentInstanceInput {
   instanceId: string | undefined;
 }
 
-export namespace GetDeploymentInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentInstanceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Represents the output of a <code>GetDeploymentInstance</code> operation. </p>
  */
@@ -5531,15 +4658,6 @@ export interface GetDeploymentInstanceOutput {
    * <p> Information about the instance. </p>
    */
   instanceSummary?: InstanceSummary;
-}
-
-export namespace GetDeploymentInstanceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentInstanceOutput): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDeploymentTargetInput {
@@ -5554,15 +4672,6 @@ export interface GetDeploymentTargetInput {
   targetId?: string;
 }
 
-export namespace GetDeploymentTargetInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentTargetInput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetDeploymentTargetOutput {
   /**
    * <p> A deployment target that contains information about a deployment such as its status,
@@ -5572,15 +4681,6 @@ export interface GetDeploymentTargetOutput {
    *             <code>ecsTarget</code>). </p>
    */
   deploymentTarget?: DeploymentTarget;
-}
-
-export namespace GetDeploymentTargetOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeploymentTargetOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5593,15 +4693,6 @@ export interface GetOnPremisesInstanceInput {
   instanceName: string | undefined;
 }
 
-export namespace GetOnPremisesInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOnPremisesInstanceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> Represents the output of a <code>GetOnPremisesInstance</code> operation. </p>
  */
@@ -5610,15 +4701,6 @@ export interface GetOnPremisesInstanceOutput {
    * <p> Information about the on-premises instance. </p>
    */
   instanceInfo?: InstanceInfo;
-}
-
-export namespace GetOnPremisesInstanceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetOnPremisesInstanceOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5839,15 +4921,6 @@ export interface ListApplicationRevisionsInput {
   nextToken?: string;
 }
 
-export namespace ListApplicationRevisionsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationRevisionsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>ListApplicationRevisions</code> operation.</p>
  */
@@ -5865,15 +4938,6 @@ export interface ListApplicationRevisionsOutput {
   nextToken?: string;
 }
 
-export namespace ListApplicationRevisionsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationRevisionsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>ListApplications</code> operation.</p>
  */
@@ -5883,15 +4947,6 @@ export interface ListApplicationsInput {
    *             return the next set of applications in the list.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListApplicationsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5911,15 +4966,6 @@ export interface ListApplicationsOutput {
   nextToken?: string;
 }
 
-export namespace ListApplicationsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListApplicationsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>ListDeploymentConfigs</code> operation.</p>
  */
@@ -5929,15 +4975,6 @@ export interface ListDeploymentConfigsInput {
    *             can be used to return the next set of deployment configurations in the list. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListDeploymentConfigsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentConfigsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5958,15 +4995,6 @@ export interface ListDeploymentConfigsOutput {
   nextToken?: string;
 }
 
-export namespace ListDeploymentConfigsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentConfigsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>ListDeploymentGroups</code> operation.</p>
  */
@@ -5982,15 +5010,6 @@ export interface ListDeploymentGroupsInput {
    *             to return the next set of deployment groups in the list.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDeploymentGroupsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentGroupsInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6013,15 +5032,6 @@ export interface ListDeploymentGroupsOutput {
    *             groups in the list.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDeploymentGroupsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentGroupsOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6160,15 +5170,6 @@ export interface ListDeploymentInstancesInput {
   instanceTypeFilter?: (_InstanceType | string)[];
 }
 
-export namespace ListDeploymentInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentInstancesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>ListDeploymentInstances</code> operation.</p>
  */
@@ -6184,15 +5185,6 @@ export interface ListDeploymentInstancesOutput {
    *             deployment instances in the list.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDeploymentInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentInstancesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6252,15 +5244,6 @@ export interface TimeRange {
    *         </note>
    */
   end?: Date;
-}
-
-export namespace TimeRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TimeRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6341,15 +5324,6 @@ export interface ListDeploymentsInput {
   nextToken?: string;
 }
 
-export namespace ListDeploymentsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentsInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a <code>ListDeployments</code> operation.</p>
  */
@@ -6365,15 +5339,6 @@ export interface ListDeploymentsOutput {
    *             the list.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListDeploymentsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentsOutput): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetFilterName {
@@ -6413,15 +5378,6 @@ export interface ListDeploymentTargetsInput {
   targetFilters?: Record<string, string[]>;
 }
 
-export namespace ListDeploymentTargetsInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentTargetsInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListDeploymentTargetsOutput {
   /**
    * <p> The unique IDs of deployment targets. </p>
@@ -6436,15 +5392,6 @@ export interface ListDeploymentTargetsOutput {
   nextToken?: string;
 }
 
-export namespace ListDeploymentTargetsOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeploymentTargetsOutput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>ListGitHubAccountTokenNames</code> operation.</p>
  */
@@ -6454,15 +5401,6 @@ export interface ListGitHubAccountTokenNamesInput {
    *             call. It can be used to return the next set of names in the list. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListGitHubAccountTokenNamesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGitHubAccountTokenNamesInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6480,15 +5418,6 @@ export interface ListGitHubAccountTokenNamesOutput {
    *             set of names in the list. </p>
    */
   nextToken?: string;
-}
-
-export namespace ListGitHubAccountTokenNamesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListGitHubAccountTokenNamesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6568,15 +5497,6 @@ export interface ListOnPremisesInstancesInput {
   nextToken?: string;
 }
 
-export namespace ListOnPremisesInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOnPremisesInstancesInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of the list on-premises instances operation.</p>
  */
@@ -6592,15 +5512,6 @@ export interface ListOnPremisesInstancesOutput {
    *             on-premises instances in the list.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListOnPremisesInstancesOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOnPremisesInstancesOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6637,15 +5548,6 @@ export interface ListTagsForResourceInput {
   NextToken?: string;
 }
 
-export namespace ListTagsForResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceOutput {
   /**
    * <p> A list of tags returned by <code>ListTagsForResource</code>. The tags are associated
@@ -6659,15 +5561,6 @@ export interface ListTagsForResourceOutput {
    *             application revisions in the list.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListTagsForResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6772,30 +5665,12 @@ export interface PutLifecycleEventHookExecutionStatusInput {
   status?: LifecycleEventStatus | string;
 }
 
-export namespace PutLifecycleEventHookExecutionStatusInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLifecycleEventHookExecutionStatusInput): any => ({
-    ...obj,
-  });
-}
-
 export interface PutLifecycleEventHookExecutionStatusOutput {
   /**
    * <p>The execution ID of the lifecycle event hook. A hook is specified in the
    *                 <code>hooks</code> section of the deployment's AppSpec file.</p>
    */
   lifecycleEventHookExecutionId?: string;
-}
-
-export namespace PutLifecycleEventHookExecutionStatusOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutLifecycleEventHookExecutionStatusOutput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6818,15 +5693,6 @@ export interface RegisterApplicationRevisionInput {
    *             location.</p>
    */
   revision: RevisionLocation | undefined;
-}
-
-export namespace RegisterApplicationRevisionInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterApplicationRevisionInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7004,15 +5870,6 @@ export interface RegisterOnPremisesInstanceInput {
   iamUserArn?: string;
 }
 
-export namespace RegisterOnPremisesInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegisterOnPremisesInstanceInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>RemoveTagsFromOnPremisesInstances</code>
  *             operation.</p>
@@ -7029,30 +5886,12 @@ export interface RemoveTagsFromOnPremisesInstancesInput {
   instanceNames: string[] | undefined;
 }
 
-export namespace RemoveTagsFromOnPremisesInstancesInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemoveTagsFromOnPremisesInstancesInput): any => ({
-    ...obj,
-  });
-}
-
 export interface SkipWaitTimeForInstanceTerminationInput {
   /**
    * <p> The unique ID of a blue/green deployment for which you want to skip the instance
    *             termination wait time. </p>
    */
   deploymentId?: string;
-}
-
-export namespace SkipWaitTimeForInstanceTerminationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SkipWaitTimeForInstanceTerminationInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7069,15 +5908,6 @@ export interface StopDeploymentInput {
    *             should be rolled back to the previous version of the application revision. </p>
    */
   autoRollbackEnabled?: boolean;
-}
-
-export namespace StopDeploymentInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDeploymentInput): any => ({
-    ...obj,
-  });
 }
 
 export enum StopStatus {
@@ -7108,15 +5938,6 @@ export interface StopDeploymentOutput {
   statusMessage?: string;
 }
 
-export namespace StopDeploymentOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopDeploymentOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceInput {
   /**
    * <p> The ARN of a resource, such as a CodeDeploy application or deployment group. </p>
@@ -7130,25 +5951,7 @@ export interface TagResourceInput {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceOutput {}
-
-export namespace TagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceInput {
   /**
@@ -7165,25 +5968,7 @@ export interface UntagResourceInput {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceOutput {}
-
-export namespace UntagResourceOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Represents the input of an <code>UpdateApplication</code> operation.</p>
@@ -7198,15 +5983,6 @@ export interface UpdateApplicationInput {
    * <p>The new name to give the application.</p>
    */
   newApplicationName?: string;
-}
-
-export namespace UpdateApplicationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateApplicationInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7328,15 +6104,6 @@ export interface UpdateDeploymentGroupInput {
   onPremisesTagSet?: OnPremisesTagSet;
 }
 
-export namespace UpdateDeploymentGroupInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeploymentGroupInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of an <code>UpdateDeploymentGroup</code> operation.</p>
  */
@@ -7351,11 +6118,976 @@ export interface UpdateDeploymentGroupOutput {
   hooksNotCleanedUp?: AutoScalingGroup[];
 }
 
-export namespace UpdateDeploymentGroupOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateDeploymentGroupOutput): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddTagsToOnPremisesInstancesInputFilterSensitiveLog = (obj: AddTagsToOnPremisesInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmFilterSensitiveLog = (obj: Alarm): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AlarmConfigurationFilterSensitiveLog = (obj: AlarmConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationInfoFilterSensitiveLog = (obj: ApplicationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppSpecContentFilterSensitiveLog = (obj: AppSpecContent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoRollbackConfigurationFilterSensitiveLog = (obj: AutoRollbackConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AutoScalingGroupFilterSensitiveLog = (obj: AutoScalingGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GitHubLocationFilterSensitiveLog = (obj: GitHubLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3LocationFilterSensitiveLog = (obj: S3Location): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RawStringFilterSensitiveLog = (obj: RawString): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevisionLocationFilterSensitiveLog = (obj: RevisionLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetApplicationRevisionsInputFilterSensitiveLog = (obj: BatchGetApplicationRevisionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenericRevisionInfoFilterSensitiveLog = (obj: GenericRevisionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RevisionInfoFilterSensitiveLog = (obj: RevisionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetApplicationRevisionsOutputFilterSensitiveLog = (obj: BatchGetApplicationRevisionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetApplicationsInputFilterSensitiveLog = (obj: BatchGetApplicationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetApplicationsOutputFilterSensitiveLog = (obj: BatchGetApplicationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDeploymentGroupsInputFilterSensitiveLog = (obj: BatchGetDeploymentGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentReadyOptionFilterSensitiveLog = (obj: DeploymentReadyOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GreenFleetProvisioningOptionFilterSensitiveLog = (obj: GreenFleetProvisioningOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlueInstanceTerminationOptionFilterSensitiveLog = (obj: BlueInstanceTerminationOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlueGreenDeploymentConfigurationFilterSensitiveLog = (obj: BlueGreenDeploymentConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentStyleFilterSensitiveLog = (obj: DeploymentStyle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2TagFilterFilterSensitiveLog = (obj: EC2TagFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EC2TagSetFilterSensitiveLog = (obj: EC2TagSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ECSServiceFilterSensitiveLog = (obj: ECSService): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LastDeploymentInfoFilterSensitiveLog = (obj: LastDeploymentInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ELBInfoFilterSensitiveLog = (obj: ELBInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetGroupInfoFilterSensitiveLog = (obj: TargetGroupInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrafficRouteFilterSensitiveLog = (obj: TrafficRoute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetGroupPairInfoFilterSensitiveLog = (obj: TargetGroupPairInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerInfoFilterSensitiveLog = (obj: LoadBalancerInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterFilterSensitiveLog = (obj: TagFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OnPremisesTagSetFilterSensitiveLog = (obj: OnPremisesTagSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TriggerConfigFilterSensitiveLog = (obj: TriggerConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentGroupInfoFilterSensitiveLog = (obj: DeploymentGroupInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDeploymentGroupsOutputFilterSensitiveLog = (obj: BatchGetDeploymentGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDeploymentInstancesInputFilterSensitiveLog = (obj: BatchGetDeploymentInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DiagnosticsFilterSensitiveLog = (obj: Diagnostics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleEventFilterSensitiveLog = (obj: LifecycleEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceSummaryFilterSensitiveLog = (obj: InstanceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDeploymentInstancesOutputFilterSensitiveLog = (obj: BatchGetDeploymentInstancesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDeploymentsInputFilterSensitiveLog = (obj: BatchGetDeploymentsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentOverviewFilterSensitiveLog = (obj: DeploymentOverview): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorInformationFilterSensitiveLog = (obj: ErrorInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelatedDeploymentsFilterSensitiveLog = (obj: RelatedDeployments): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RollbackInfoFilterSensitiveLog = (obj: RollbackInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetInstancesFilterSensitiveLog = (obj: TargetInstances): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentInfoFilterSensitiveLog = (obj: DeploymentInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDeploymentsOutputFilterSensitiveLog = (obj: BatchGetDeploymentsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDeploymentTargetsInputFilterSensitiveLog = (obj: BatchGetDeploymentTargetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFormationTargetFilterSensitiveLog = (obj: CloudFormationTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ECSTaskSetFilterSensitiveLog = (obj: ECSTaskSet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ECSTargetFilterSensitiveLog = (obj: ECSTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceTargetFilterSensitiveLog = (obj: InstanceTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionInfoFilterSensitiveLog = (obj: LambdaFunctionInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaTargetFilterSensitiveLog = (obj: LambdaTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentTargetFilterSensitiveLog = (obj: DeploymentTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetDeploymentTargetsOutputFilterSensitiveLog = (obj: BatchGetDeploymentTargetsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetOnPremisesInstancesInputFilterSensitiveLog = (obj: BatchGetOnPremisesInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceInfoFilterSensitiveLog = (obj: InstanceInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetOnPremisesInstancesOutputFilterSensitiveLog = (obj: BatchGetOnPremisesInstancesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinueDeploymentInputFilterSensitiveLog = (obj: ContinueDeploymentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationInputFilterSensitiveLog = (obj: CreateApplicationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationOutputFilterSensitiveLog = (obj: CreateApplicationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentInputFilterSensitiveLog = (obj: CreateDeploymentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentOutputFilterSensitiveLog = (obj: CreateDeploymentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MinimumHealthyHostsFilterSensitiveLog = (obj: MinimumHealthyHosts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeBasedCanaryFilterSensitiveLog = (obj: TimeBasedCanary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeBasedLinearFilterSensitiveLog = (obj: TimeBasedLinear): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrafficRoutingConfigFilterSensitiveLog = (obj: TrafficRoutingConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentConfigInputFilterSensitiveLog = (obj: CreateDeploymentConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentConfigOutputFilterSensitiveLog = (obj: CreateDeploymentConfigOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentGroupInputFilterSensitiveLog = (obj: CreateDeploymentGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeploymentGroupOutputFilterSensitiveLog = (obj: CreateDeploymentGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationInputFilterSensitiveLog = (obj: DeleteApplicationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeploymentConfigInputFilterSensitiveLog = (obj: DeleteDeploymentConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeploymentGroupInputFilterSensitiveLog = (obj: DeleteDeploymentGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDeploymentGroupOutputFilterSensitiveLog = (obj: DeleteDeploymentGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGitHubAccountTokenInputFilterSensitiveLog = (obj: DeleteGitHubAccountTokenInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteGitHubAccountTokenOutputFilterSensitiveLog = (obj: DeleteGitHubAccountTokenOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcesByExternalIdInputFilterSensitiveLog = (obj: DeleteResourcesByExternalIdInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteResourcesByExternalIdOutputFilterSensitiveLog = (obj: DeleteResourcesByExternalIdOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeregisterOnPremisesInstanceInputFilterSensitiveLog = (obj: DeregisterOnPremisesInstanceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationInputFilterSensitiveLog = (obj: GetApplicationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationOutputFilterSensitiveLog = (obj: GetApplicationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationRevisionInputFilterSensitiveLog = (obj: GetApplicationRevisionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetApplicationRevisionOutputFilterSensitiveLog = (obj: GetApplicationRevisionOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentInputFilterSensitiveLog = (obj: GetDeploymentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentOutputFilterSensitiveLog = (obj: GetDeploymentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentConfigInputFilterSensitiveLog = (obj: GetDeploymentConfigInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentConfigInfoFilterSensitiveLog = (obj: DeploymentConfigInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentConfigOutputFilterSensitiveLog = (obj: GetDeploymentConfigOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentGroupInputFilterSensitiveLog = (obj: GetDeploymentGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentGroupOutputFilterSensitiveLog = (obj: GetDeploymentGroupOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentInstanceInputFilterSensitiveLog = (obj: GetDeploymentInstanceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentInstanceOutputFilterSensitiveLog = (obj: GetDeploymentInstanceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentTargetInputFilterSensitiveLog = (obj: GetDeploymentTargetInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeploymentTargetOutputFilterSensitiveLog = (obj: GetDeploymentTargetOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOnPremisesInstanceInputFilterSensitiveLog = (obj: GetOnPremisesInstanceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetOnPremisesInstanceOutputFilterSensitiveLog = (obj: GetOnPremisesInstanceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationRevisionsInputFilterSensitiveLog = (obj: ListApplicationRevisionsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationRevisionsOutputFilterSensitiveLog = (obj: ListApplicationRevisionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsInputFilterSensitiveLog = (obj: ListApplicationsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsOutputFilterSensitiveLog = (obj: ListApplicationsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentConfigsInputFilterSensitiveLog = (obj: ListDeploymentConfigsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentConfigsOutputFilterSensitiveLog = (obj: ListDeploymentConfigsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentGroupsInputFilterSensitiveLog = (obj: ListDeploymentGroupsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentGroupsOutputFilterSensitiveLog = (obj: ListDeploymentGroupsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentInstancesInputFilterSensitiveLog = (obj: ListDeploymentInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentInstancesOutputFilterSensitiveLog = (obj: ListDeploymentInstancesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentsInputFilterSensitiveLog = (obj: ListDeploymentsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentsOutputFilterSensitiveLog = (obj: ListDeploymentsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentTargetsInputFilterSensitiveLog = (obj: ListDeploymentTargetsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeploymentTargetsOutputFilterSensitiveLog = (obj: ListDeploymentTargetsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGitHubAccountTokenNamesInputFilterSensitiveLog = (obj: ListGitHubAccountTokenNamesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListGitHubAccountTokenNamesOutputFilterSensitiveLog = (obj: ListGitHubAccountTokenNamesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOnPremisesInstancesInputFilterSensitiveLog = (obj: ListOnPremisesInstancesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOnPremisesInstancesOutputFilterSensitiveLog = (obj: ListOnPremisesInstancesOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLifecycleEventHookExecutionStatusInputFilterSensitiveLog = (
+  obj: PutLifecycleEventHookExecutionStatusInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutLifecycleEventHookExecutionStatusOutputFilterSensitiveLog = (
+  obj: PutLifecycleEventHookExecutionStatusOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterApplicationRevisionInputFilterSensitiveLog = (obj: RegisterApplicationRevisionInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterOnPremisesInstanceInputFilterSensitiveLog = (obj: RegisterOnPremisesInstanceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTagsFromOnPremisesInstancesInputFilterSensitiveLog = (
+  obj: RemoveTagsFromOnPremisesInstancesInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SkipWaitTimeForInstanceTerminationInputFilterSensitiveLog = (
+  obj: SkipWaitTimeForInstanceTerminationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDeploymentInputFilterSensitiveLog = (obj: StopDeploymentInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopDeploymentOutputFilterSensitiveLog = (obj: StopDeploymentOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationInputFilterSensitiveLog = (obj: UpdateApplicationInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeploymentGroupInputFilterSensitiveLog = (obj: UpdateDeploymentGroupInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDeploymentGroupOutputFilterSensitiveLog = (obj: UpdateDeploymentGroupOutput): any => ({
+  ...obj,
+});

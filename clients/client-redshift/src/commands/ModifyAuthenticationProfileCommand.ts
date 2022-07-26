@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyAuthenticationProfileMessage, ModifyAuthenticationProfileResult } from "../models/models_1";
+import {
+  ModifyAuthenticationProfileMessage,
+  ModifyAuthenticationProfileMessageFilterSensitiveLog,
+  ModifyAuthenticationProfileResult,
+  ModifyAuthenticationProfileResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryModifyAuthenticationProfileCommand,
   serializeAws_queryModifyAuthenticationProfileCommand,
@@ -72,8 +77,8 @@ export class ModifyAuthenticationProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyAuthenticationProfileMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyAuthenticationProfileResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyAuthenticationProfileMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyAuthenticationProfileResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

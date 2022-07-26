@@ -88,15 +88,6 @@ export interface CreateWorkspaceApiKeyRequest {
   workspaceId: string | undefined;
 }
 
-export namespace CreateWorkspaceApiKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceApiKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateWorkspaceApiKeyResponse {
   /**
    * <p>The name of the key that was created.</p>
@@ -113,16 +104,6 @@ export interface CreateWorkspaceApiKeyResponse {
    * <p>The ID of the workspace that the key is valid for.</p>
    */
   workspaceId: string | undefined;
-}
-
-export namespace CreateWorkspaceApiKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceApiKeyResponse): any => ({
-    ...obj,
-    ...(obj.key && { key: SENSITIVE_STRING }),
-  });
 }
 
 /**
@@ -278,15 +259,6 @@ export interface ValidationExceptionField {
   message: string | undefined;
 }
 
-export namespace ValidationExceptionField {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationExceptionField): any => ({
-    ...obj,
-  });
-}
-
 export enum ValidationExceptionReason {
   CANNOT_PARSE = "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
@@ -337,15 +309,6 @@ export interface DeleteWorkspaceApiKeyRequest {
   workspaceId: string | undefined;
 }
 
-export namespace DeleteWorkspaceApiKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceApiKeyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkspaceApiKeyResponse {
   /**
    * <p>The name of the API key that was deleted.</p>
@@ -356,15 +319,6 @@ export interface DeleteWorkspaceApiKeyResponse {
    * <p>The ID of the workspace where the key was deleted.</p>
    */
   workspaceId: string | undefined;
-}
-
-export namespace DeleteWorkspaceApiKeyResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceApiKeyResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -403,15 +357,6 @@ export interface AssertionAttributes {
   org?: string;
 }
 
-export namespace AssertionAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssertionAttributes): any => ({
-    ...obj,
-  });
-}
-
 export enum LicenseType {
   /**
    * Grafana Enterprise License.
@@ -433,15 +378,6 @@ export interface AssociateLicenseRequest {
    * <p>The type of license to associate with the workspace.</p>
    */
   licenseType: LicenseType | string | undefined;
-}
-
-export namespace AssociateLicenseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateLicenseRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthenticationProviderTypes {
@@ -481,15 +417,6 @@ export interface AuthenticationSummary {
    * <p>Specifies whether the workplace's user authentication method is fully configured.</p>
    */
   samlConfigurationStatus?: SamlConfigurationStatus | string;
-}
-
-export namespace AuthenticationSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticationSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum DataSourceType {
@@ -729,20 +656,6 @@ export interface WorkspaceDescription {
   tags?: Record<string, string>;
 }
 
-export namespace WorkspaceDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceDescription): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-    ...(obj.organizationRoleName && { organizationRoleName: SENSITIVE_STRING }),
-    ...(obj.organizationalUnits && { organizationalUnits: SENSITIVE_STRING }),
-    ...(obj.workspaceRoleArn && { workspaceRoleArn: SENSITIVE_STRING }),
-  });
-}
-
 export interface AssociateLicenseResponse {
   /**
    * <p>A structure containing data about the workspace.</p>
@@ -750,30 +663,11 @@ export interface AssociateLicenseResponse {
   workspace: WorkspaceDescription | undefined;
 }
 
-export namespace AssociateLicenseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociateLicenseResponse): any => ({
-    ...obj,
-    ...(obj.workspace && { workspace: WorkspaceDescription.filterSensitiveLog(obj.workspace) }),
-  });
-}
-
 export interface DescribeWorkspaceAuthenticationRequest {
   /**
    * <p>The ID of the workspace to return authentication information about.</p>
    */
   workspaceId: string | undefined;
-}
-
-export namespace DescribeWorkspaceAuthenticationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceAuthenticationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -785,15 +679,6 @@ export interface AwsSsoAuthentication {
    * <p>The ID of the Amazon Web Services SSO-managed application that is created by Amazon Managed Grafana.</p>
    */
   ssoClientId?: string;
-}
-
-export namespace AwsSsoAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSsoAuthentication): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -840,15 +725,6 @@ export namespace IdpMetadata {
     if (value.xml !== undefined) return visitor.xml(value.xml);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdpMetadata): any => {
-    if (obj.url !== undefined) return { url: obj.url };
-    if (obj.xml !== undefined) return { xml: obj.xml };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -867,15 +743,6 @@ export interface RoleValues {
    *             <code>Admin</code> role to.</p>
    */
   admin?: string[];
-}
-
-export namespace RoleValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoleValues): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -914,16 +781,6 @@ export interface SamlConfiguration {
   loginValidityDuration?: number;
 }
 
-export namespace SamlConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SamlConfiguration): any => ({
-    ...obj,
-    ...(obj.idpMetadata && { idpMetadata: IdpMetadata.filterSensitiveLog(obj.idpMetadata) }),
-  });
-}
-
 /**
  * <p>A structure containing information about how this workspace works with
  *          SAML. </p>
@@ -939,16 +796,6 @@ export interface SamlAuthentication {
    *          SAML. </p>
    */
   configuration?: SamlConfiguration;
-}
-
-export namespace SamlAuthentication {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SamlAuthentication): any => ({
-    ...obj,
-    ...(obj.configuration && { configuration: SamlConfiguration.filterSensitiveLog(obj.configuration) }),
-  });
 }
 
 /**
@@ -974,32 +821,12 @@ export interface AuthenticationDescription {
   awsSso?: AwsSsoAuthentication;
 }
 
-export namespace AuthenticationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthenticationDescription): any => ({
-    ...obj,
-    ...(obj.saml && { saml: SamlAuthentication.filterSensitiveLog(obj.saml) }),
-  });
-}
-
 export interface DescribeWorkspaceAuthenticationResponse {
   /**
    * <p>A structure containing information about the authentication methods used in
    *       the workspace.</p>
    */
   authentication: AuthenticationDescription | undefined;
-}
-
-export namespace DescribeWorkspaceAuthenticationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceAuthenticationResponse): any => ({
-    ...obj,
-    ...(obj.authentication && { authentication: AuthenticationDescription.filterSensitiveLog(obj.authentication) }),
-  });
 }
 
 export interface UpdateWorkspaceAuthenticationRequest {
@@ -1025,31 +852,11 @@ export interface UpdateWorkspaceAuthenticationRequest {
   samlConfiguration?: SamlConfiguration;
 }
 
-export namespace UpdateWorkspaceAuthenticationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceAuthenticationRequest): any => ({
-    ...obj,
-    ...(obj.samlConfiguration && { samlConfiguration: SamlConfiguration.filterSensitiveLog(obj.samlConfiguration) }),
-  });
-}
-
 export interface UpdateWorkspaceAuthenticationResponse {
   /**
    * <p>A structure that describes the user authentication for this workspace after the update is made.</p>
    */
   authentication: AuthenticationDescription | undefined;
-}
-
-export namespace UpdateWorkspaceAuthenticationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceAuthenticationResponse): any => ({
-    ...obj,
-    ...(obj.authentication && { authentication: AuthenticationDescription.filterSensitiveLog(obj.authentication) }),
-  });
 }
 
 export interface DisassociateLicenseRequest {
@@ -1064,30 +871,11 @@ export interface DisassociateLicenseRequest {
   licenseType: LicenseType | string | undefined;
 }
 
-export namespace DisassociateLicenseRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateLicenseRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateLicenseResponse {
   /**
    * <p>A structure containing information about the workspace.</p>
    */
   workspace: WorkspaceDescription | undefined;
-}
-
-export namespace DisassociateLicenseResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateLicenseResponse): any => ({
-    ...obj,
-    ...(obj.workspace && { workspace: WorkspaceDescription.filterSensitiveLog(obj.workspace) }),
-  });
 }
 
 export interface ListTagsForResourceRequest {
@@ -1097,29 +885,11 @@ export interface ListTagsForResourceRequest {
   resourceArn: string | undefined;
 }
 
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceResponse {
   /**
    * <p>The list of tags that are associated with the resource.</p>
    */
   tags?: Record<string, string>;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum UserType {
@@ -1168,15 +938,6 @@ export interface ListPermissionsRequest {
   workspaceId: string | undefined;
 }
 
-export namespace ListPermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum Role {
   /**
    * Role Admin.
@@ -1209,15 +970,6 @@ export interface User {
   type: UserType | string | undefined;
 }
 
-export namespace User {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: User): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure containing the identity of one user or group and the <code>Admin</code>
  *       or <code>Editor</code> role that they have.</p>
@@ -1235,15 +987,6 @@ export interface PermissionEntry {
   role: Role | string | undefined;
 }
 
-export namespace PermissionEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PermissionEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListPermissionsResponse {
   /**
    * <p>The token to use in a subsequent <code>ListPermissions</code> operation to return
@@ -1255,15 +998,6 @@ export interface ListPermissionsResponse {
    * <p>The permissions returned by the operation.</p>
    */
   permissions: PermissionEntry[] | undefined;
-}
-
-export namespace ListPermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum UpdateAction {
@@ -1298,15 +1032,6 @@ export interface UpdateInstruction {
   users: User[] | undefined;
 }
 
-export namespace UpdateInstruction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInstruction): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePermissionsRequest {
   /**
    * <p>An array of structures that contain the permission updates to make.</p>
@@ -1317,15 +1042,6 @@ export interface UpdatePermissionsRequest {
    * <p>The ID of the workspace to update.</p>
    */
   workspaceId: string | undefined;
-}
-
-export namespace UpdatePermissionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePermissionsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1349,29 +1065,11 @@ export interface UpdateError {
   causedBy: UpdateInstruction | undefined;
 }
 
-export namespace UpdateError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateError): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdatePermissionsResponse {
   /**
    * <p>An array of structures that contain the errors from the operation, if any.</p>
    */
   errors: UpdateError[] | undefined;
-}
-
-export namespace UpdatePermissionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePermissionsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -1387,25 +1085,7 @@ export interface TagResourceRequest {
   tags: Record<string, string> | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -1419,25 +1099,7 @@ export interface UntagResourceRequest {
   tagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface CreateWorkspaceRequest {
   /**
@@ -1535,35 +1197,11 @@ export interface CreateWorkspaceRequest {
   tags?: Record<string, string>;
 }
 
-export namespace CreateWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
-    ...obj,
-    ...(obj.organizationRoleName && { organizationRoleName: SENSITIVE_STRING }),
-    ...(obj.workspaceDescription && { workspaceDescription: SENSITIVE_STRING }),
-    ...(obj.workspaceName && { workspaceName: SENSITIVE_STRING }),
-    ...(obj.workspaceOrganizationalUnits && { workspaceOrganizationalUnits: SENSITIVE_STRING }),
-    ...(obj.workspaceRoleArn && { workspaceRoleArn: SENSITIVE_STRING }),
-  });
-}
-
 export interface CreateWorkspaceResponse {
   /**
    * <p>A structure containing data about the workspace that was created.</p>
    */
   workspace: WorkspaceDescription | undefined;
-}
-
-export namespace CreateWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
-    ...obj,
-    ...(obj.workspace && { workspace: WorkspaceDescription.filterSensitiveLog(obj.workspace) }),
-  });
 }
 
 export interface DeleteWorkspaceRequest {
@@ -1573,30 +1211,11 @@ export interface DeleteWorkspaceRequest {
   workspaceId: string | undefined;
 }
 
-export namespace DeleteWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkspaceResponse {
   /**
    * <p>A structure containing information about the workspace that was deleted.</p>
    */
   workspace: WorkspaceDescription | undefined;
-}
-
-export namespace DeleteWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteWorkspaceResponse): any => ({
-    ...obj,
-    ...(obj.workspace && { workspace: WorkspaceDescription.filterSensitiveLog(obj.workspace) }),
-  });
 }
 
 export interface DescribeWorkspaceRequest {
@@ -1606,30 +1225,11 @@ export interface DescribeWorkspaceRequest {
   workspaceId: string | undefined;
 }
 
-export namespace DescribeWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeWorkspaceResponse {
   /**
    * <p>A structure containing information about the workspace.</p>
    */
   workspace: WorkspaceDescription | undefined;
-}
-
-export namespace DescribeWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeWorkspaceResponse): any => ({
-    ...obj,
-    ...(obj.workspace && { workspace: WorkspaceDescription.filterSensitiveLog(obj.workspace) }),
-  });
 }
 
 export interface ListWorkspacesRequest {
@@ -1643,15 +1243,6 @@ export interface ListWorkspacesRequest {
    *          previous <code>ListWorkspaces</code> operation.)</p>
    */
   nextToken?: string;
-}
-
-export namespace ListWorkspacesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkspacesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1717,17 +1308,6 @@ export interface WorkspaceSummary {
   tags?: Record<string, string>;
 }
 
-export namespace WorkspaceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkspaceSummary): any => ({
-    ...obj,
-    ...(obj.description && { description: SENSITIVE_STRING }),
-    ...(obj.name && { name: SENSITIVE_STRING }),
-  });
-}
-
 export interface ListWorkspacesResponse {
   /**
    * <p>An array of structures that contain some information about the workspaces in the account.</p>
@@ -1738,16 +1318,6 @@ export interface ListWorkspacesResponse {
    * <p>The token to use when requesting the next set of workspaces.</p>
    */
   nextToken?: string;
-}
-
-export namespace ListWorkspacesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListWorkspacesResponse): any => ({
-    ...obj,
-    ...(obj.workspaces && { workspaces: obj.workspaces.map((item) => WorkspaceSummary.filterSensitiveLog(item)) }),
-  });
 }
 
 export interface UpdateWorkspaceRequest {
@@ -1833,20 +1403,6 @@ export interface UpdateWorkspaceRequest {
   workspaceRoleArn?: string;
 }
 
-export namespace UpdateWorkspaceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceRequest): any => ({
-    ...obj,
-    ...(obj.organizationRoleName && { organizationRoleName: SENSITIVE_STRING }),
-    ...(obj.workspaceDescription && { workspaceDescription: SENSITIVE_STRING }),
-    ...(obj.workspaceName && { workspaceName: SENSITIVE_STRING }),
-    ...(obj.workspaceOrganizationalUnits && { workspaceOrganizationalUnits: SENSITIVE_STRING }),
-    ...(obj.workspaceRoleArn && { workspaceRoleArn: SENSITIVE_STRING }),
-  });
-}
-
 export interface UpdateWorkspaceResponse {
   /**
    * <p>A structure containing data about the workspace that was created.</p>
@@ -1854,12 +1410,372 @@ export interface UpdateWorkspaceResponse {
   workspace: WorkspaceDescription | undefined;
 }
 
-export namespace UpdateWorkspaceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateWorkspaceResponse): any => ({
-    ...obj,
-    ...(obj.workspace && { workspace: WorkspaceDescription.filterSensitiveLog(obj.workspace) }),
-  });
-}
+/**
+ * @internal
+ */
+export const CreateWorkspaceApiKeyRequestFilterSensitiveLog = (obj: CreateWorkspaceApiKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceApiKeyResponseFilterSensitiveLog = (obj: CreateWorkspaceApiKeyResponse): any => ({
+  ...obj,
+  ...(obj.key && { key: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceApiKeyRequestFilterSensitiveLog = (obj: DeleteWorkspaceApiKeyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceApiKeyResponseFilterSensitiveLog = (obj: DeleteWorkspaceApiKeyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssertionAttributesFilterSensitiveLog = (obj: AssertionAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateLicenseRequestFilterSensitiveLog = (obj: AssociateLicenseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationSummaryFilterSensitiveLog = (obj: AuthenticationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceDescriptionFilterSensitiveLog = (obj: WorkspaceDescription): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.organizationRoleName && { organizationRoleName: SENSITIVE_STRING }),
+  ...(obj.organizationalUnits && { organizationalUnits: SENSITIVE_STRING }),
+  ...(obj.workspaceRoleArn && { workspaceRoleArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssociateLicenseResponseFilterSensitiveLog = (obj: AssociateLicenseResponse): any => ({
+  ...obj,
+  ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceAuthenticationRequestFilterSensitiveLog = (
+  obj: DescribeWorkspaceAuthenticationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSsoAuthenticationFilterSensitiveLog = (obj: AwsSsoAuthentication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdpMetadataFilterSensitiveLog = (obj: IdpMetadata): any => {
+  if (obj.url !== undefined) return { url: obj.url };
+  if (obj.xml !== undefined) return { xml: obj.xml };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RoleValuesFilterSensitiveLog = (obj: RoleValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SamlConfigurationFilterSensitiveLog = (obj: SamlConfiguration): any => ({
+  ...obj,
+  ...(obj.idpMetadata && { idpMetadata: IdpMetadataFilterSensitiveLog(obj.idpMetadata) }),
+});
+
+/**
+ * @internal
+ */
+export const SamlAuthenticationFilterSensitiveLog = (obj: SamlAuthentication): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: SamlConfigurationFilterSensitiveLog(obj.configuration) }),
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationDescriptionFilterSensitiveLog = (obj: AuthenticationDescription): any => ({
+  ...obj,
+  ...(obj.saml && { saml: SamlAuthenticationFilterSensitiveLog(obj.saml) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceAuthenticationResponseFilterSensitiveLog = (
+  obj: DescribeWorkspaceAuthenticationResponse
+): any => ({
+  ...obj,
+  ...(obj.authentication && { authentication: AuthenticationDescriptionFilterSensitiveLog(obj.authentication) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceAuthenticationRequestFilterSensitiveLog = (
+  obj: UpdateWorkspaceAuthenticationRequest
+): any => ({
+  ...obj,
+  ...(obj.samlConfiguration && { samlConfiguration: SamlConfigurationFilterSensitiveLog(obj.samlConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceAuthenticationResponseFilterSensitiveLog = (
+  obj: UpdateWorkspaceAuthenticationResponse
+): any => ({
+  ...obj,
+  ...(obj.authentication && { authentication: AuthenticationDescriptionFilterSensitiveLog(obj.authentication) }),
+});
+
+/**
+ * @internal
+ */
+export const DisassociateLicenseRequestFilterSensitiveLog = (obj: DisassociateLicenseRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateLicenseResponseFilterSensitiveLog = (obj: DisassociateLicenseResponse): any => ({
+  ...obj,
+  ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionsRequestFilterSensitiveLog = (obj: ListPermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UserFilterSensitiveLog = (obj: User): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PermissionEntryFilterSensitiveLog = (obj: PermissionEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListPermissionsResponseFilterSensitiveLog = (obj: ListPermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateInstructionFilterSensitiveLog = (obj: UpdateInstruction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePermissionsRequestFilterSensitiveLog = (obj: UpdatePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateErrorFilterSensitiveLog = (obj: UpdateError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePermissionsResponseFilterSensitiveLog = (obj: UpdatePermissionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceRequestFilterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
+  ...obj,
+  ...(obj.organizationRoleName && { organizationRoleName: SENSITIVE_STRING }),
+  ...(obj.workspaceDescription && { workspaceDescription: SENSITIVE_STRING }),
+  ...(obj.workspaceName && { workspaceName: SENSITIVE_STRING }),
+  ...(obj.workspaceOrganizationalUnits && { workspaceOrganizationalUnits: SENSITIVE_STRING }),
+  ...(obj.workspaceRoleArn && { workspaceRoleArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceResponseFilterSensitiveLog = (obj: CreateWorkspaceResponse): any => ({
+  ...obj,
+  ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceRequestFilterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWorkspaceResponseFilterSensitiveLog = (obj: DeleteWorkspaceResponse): any => ({
+  ...obj,
+  ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceRequestFilterSensitiveLog = (obj: DescribeWorkspaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceResponseFilterSensitiveLog = (obj: DescribeWorkspaceResponse): any => ({
+  ...obj,
+  ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
+});
+
+/**
+ * @internal
+ */
+export const ListWorkspacesRequestFilterSensitiveLog = (obj: ListWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkspaceSummaryFilterSensitiveLog = (obj: WorkspaceSummary): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListWorkspacesResponseFilterSensitiveLog = (obj: ListWorkspacesResponse): any => ({
+  ...obj,
+  ...(obj.workspaces && { workspaces: obj.workspaces.map((item) => WorkspaceSummaryFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceRequestFilterSensitiveLog = (obj: UpdateWorkspaceRequest): any => ({
+  ...obj,
+  ...(obj.organizationRoleName && { organizationRoleName: SENSITIVE_STRING }),
+  ...(obj.workspaceDescription && { workspaceDescription: SENSITIVE_STRING }),
+  ...(obj.workspaceName && { workspaceName: SENSITIVE_STRING }),
+  ...(obj.workspaceOrganizationalUnits && { workspaceOrganizationalUnits: SENSITIVE_STRING }),
+  ...(obj.workspaceRoleArn && { workspaceRoleArn: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceResponseFilterSensitiveLog = (obj: UpdateWorkspaceResponse): any => ({
+  ...obj,
+  ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
+});

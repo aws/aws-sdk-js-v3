@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import { ListPresetsRequest, ListPresetsResponse } from "../models/models_0";
+import {
+  ListPresetsRequest,
+  ListPresetsRequestFilterSensitiveLog,
+  ListPresetsResponse,
+  ListPresetsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListPresetsCommand,
   serializeAws_restJson1ListPresetsCommand,
@@ -77,8 +82,8 @@ export class ListPresetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPresetsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListPresetsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListPresetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListPresetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

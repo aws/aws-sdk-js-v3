@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { SubmitFeedbackRequest } from "../models/models_0";
+import { SubmitFeedbackRequest, SubmitFeedbackRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1SubmitFeedbackCommand,
   serializeAws_json1_1SubmitFeedbackCommand,
@@ -76,7 +76,7 @@ export class SubmitFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitFeedbackRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: SubmitFeedbackRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

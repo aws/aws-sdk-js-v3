@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { StopMonitoringMembersRequest, StopMonitoringMembersResponse } from "../models/models_0";
+import {
+  StopMonitoringMembersRequest,
+  StopMonitoringMembersRequestFilterSensitiveLog,
+  StopMonitoringMembersResponse,
+  StopMonitoringMembersResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1StopMonitoringMembersCommand,
   serializeAws_restJson1StopMonitoringMembersCommand,
@@ -74,8 +79,8 @@ export class StopMonitoringMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMonitoringMembersRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopMonitoringMembersResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StopMonitoringMembersRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopMonitoringMembersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

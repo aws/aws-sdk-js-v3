@@ -14,7 +14,9 @@ import {
 
 import {
   ListEndpointsByPlatformApplicationInput,
+  ListEndpointsByPlatformApplicationInputFilterSensitiveLog,
   ListEndpointsByPlatformApplicationResponse,
+  ListEndpointsByPlatformApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryListEndpointsByPlatformApplicationCommand,
@@ -86,8 +88,8 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEndpointsByPlatformApplicationInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListEndpointsByPlatformApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListEndpointsByPlatformApplicationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListEndpointsByPlatformApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

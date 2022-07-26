@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/models_0";
+import {
+  DeleteDBClusterMessage,
+  DeleteDBClusterMessageFilterSensitiveLog,
+  DeleteDBClusterResult,
+  DeleteDBClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBClusterCommand,
   serializeAws_queryDeleteDBClusterCommand,
@@ -73,8 +78,8 @@ export class DeleteDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDBClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteDBClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

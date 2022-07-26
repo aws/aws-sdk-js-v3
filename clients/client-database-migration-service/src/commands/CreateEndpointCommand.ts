@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import { CreateEndpointMessage, CreateEndpointResponse } from "../models/models_0";
+import {
+  CreateEndpointMessage,
+  CreateEndpointMessageFilterSensitiveLog,
+  CreateEndpointResponse,
+  CreateEndpointResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEndpointCommand,
   serializeAws_json1_1CreateEndpointCommand,
@@ -83,8 +88,8 @@ export class CreateEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEndpointMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateEndpointResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateEndpointMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateEndpointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

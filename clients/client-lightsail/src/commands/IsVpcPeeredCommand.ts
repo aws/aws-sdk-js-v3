@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { IsVpcPeeredRequest, IsVpcPeeredResult } from "../models/models_1";
+import {
+  IsVpcPeeredRequest,
+  IsVpcPeeredRequestFilterSensitiveLog,
+  IsVpcPeeredResult,
+  IsVpcPeeredResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1IsVpcPeeredCommand,
   serializeAws_json1_1IsVpcPeeredCommand,
@@ -72,8 +77,8 @@ export class IsVpcPeeredCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IsVpcPeeredRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: IsVpcPeeredResult.filterSensitiveLog,
+      inputFilterSensitiveLog: IsVpcPeeredRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: IsVpcPeeredResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

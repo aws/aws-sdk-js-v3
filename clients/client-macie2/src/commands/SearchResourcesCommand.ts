@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { SearchResourcesRequest, SearchResourcesResponse } from "../models/models_0";
+import {
+  SearchResourcesRequest,
+  SearchResourcesRequestFilterSensitiveLog,
+  SearchResourcesResponse,
+  SearchResourcesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1SearchResourcesCommand,
   serializeAws_restJson1SearchResourcesCommand,
@@ -72,8 +77,8 @@ export class SearchResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchResourcesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SearchResourcesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: SearchResourcesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchResourcesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

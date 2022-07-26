@@ -14,7 +14,9 @@ import {
 
 import {
   AssociateServiceActionWithProvisioningArtifactInput,
+  AssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog,
   AssociateServiceActionWithProvisioningArtifactOutput,
+  AssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand,
@@ -81,8 +83,8 @@ export class AssociateServiceActionWithProvisioningArtifactCommand extends $Comm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateServiceActionWithProvisioningArtifactInput.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateServiceActionWithProvisioningArtifactOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateServiceActionWithProvisioningArtifactInputFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateServiceActionWithProvisioningArtifactOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

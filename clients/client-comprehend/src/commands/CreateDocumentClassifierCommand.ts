@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { CreateDocumentClassifierRequest, CreateDocumentClassifierResponse } from "../models/models_0";
+import {
+  CreateDocumentClassifierRequest,
+  CreateDocumentClassifierRequestFilterSensitiveLog,
+  CreateDocumentClassifierResponse,
+  CreateDocumentClassifierResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDocumentClassifierCommand,
   serializeAws_json1_1CreateDocumentClassifierCommand,
@@ -75,8 +80,8 @@ export class CreateDocumentClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDocumentClassifierRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDocumentClassifierResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDocumentClassifierRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDocumentClassifierResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

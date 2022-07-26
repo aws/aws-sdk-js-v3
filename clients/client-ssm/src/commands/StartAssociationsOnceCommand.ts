@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StartAssociationsOnceRequest, StartAssociationsOnceResult } from "../models/models_1";
+import {
+  StartAssociationsOnceRequest,
+  StartAssociationsOnceRequestFilterSensitiveLog,
+  StartAssociationsOnceResult,
+  StartAssociationsOnceResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1StartAssociationsOnceCommand,
   serializeAws_json1_1StartAssociationsOnceCommand,
@@ -73,8 +78,8 @@ export class StartAssociationsOnceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartAssociationsOnceRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StartAssociationsOnceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StartAssociationsOnceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartAssociationsOnceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

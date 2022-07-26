@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteMaintenanceWindowRequest, DeleteMaintenanceWindowResult } from "../models/models_0";
+import {
+  DeleteMaintenanceWindowRequest,
+  DeleteMaintenanceWindowRequestFilterSensitiveLog,
+  DeleteMaintenanceWindowResult,
+  DeleteMaintenanceWindowResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMaintenanceWindowCommand,
   serializeAws_json1_1DeleteMaintenanceWindowCommand,
@@ -72,8 +77,8 @@ export class DeleteMaintenanceWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMaintenanceWindowRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMaintenanceWindowResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteMaintenanceWindowRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteMaintenanceWindowResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

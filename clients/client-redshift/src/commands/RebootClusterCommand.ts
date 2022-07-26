@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RebootClusterMessage, RebootClusterResult } from "../models/models_1";
+import {
+  RebootClusterMessage,
+  RebootClusterMessageFilterSensitiveLog,
+  RebootClusterResult,
+  RebootClusterResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryRebootClusterCommand,
   serializeAws_queryRebootClusterCommand,
@@ -79,8 +84,8 @@ export class RebootClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootClusterMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: RebootClusterResult.filterSensitiveLog,
+      inputFilterSensitiveLog: RebootClusterMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: RebootClusterResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

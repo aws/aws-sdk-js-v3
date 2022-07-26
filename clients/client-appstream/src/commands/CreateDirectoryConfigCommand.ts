@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { CreateDirectoryConfigRequest, CreateDirectoryConfigResult } from "../models/models_0";
+import {
+  CreateDirectoryConfigRequest,
+  CreateDirectoryConfigRequestFilterSensitiveLog,
+  CreateDirectoryConfigResult,
+  CreateDirectoryConfigResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDirectoryConfigCommand,
   serializeAws_json1_1CreateDirectoryConfigCommand,
@@ -72,8 +77,8 @@ export class CreateDirectoryConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDirectoryConfigRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDirectoryConfigResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDirectoryConfigRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDirectoryConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

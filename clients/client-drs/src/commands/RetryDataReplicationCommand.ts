@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { RetryDataReplicationRequest, SourceServer } from "../models/models_0";
+import {
+  RetryDataReplicationRequest,
+  RetryDataReplicationRequestFilterSensitiveLog,
+  SourceServer,
+  SourceServerFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1RetryDataReplicationCommand,
   serializeAws_restJson1RetryDataReplicationCommand,
@@ -72,8 +77,8 @@ export class RetryDataReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetryDataReplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: SourceServer.filterSensitiveLog,
+      inputFilterSensitiveLog: RetryDataReplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

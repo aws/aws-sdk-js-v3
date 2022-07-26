@@ -13,7 +13,10 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteRetentionConfigurationRequest } from "../models/models_0";
+import {
+  DeleteRetentionConfigurationRequest,
+  DeleteRetentionConfigurationRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRetentionConfigurationCommand,
   serializeAws_json1_1DeleteRetentionConfigurationCommand,
@@ -72,7 +75,7 @@ export class DeleteRetentionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRetentionConfigurationRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRetentionConfigurationRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

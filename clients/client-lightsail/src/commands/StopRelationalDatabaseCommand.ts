@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { StopRelationalDatabaseRequest, StopRelationalDatabaseResult } from "../models/models_1";
+import {
+  StopRelationalDatabaseRequest,
+  StopRelationalDatabaseRequestFilterSensitiveLog,
+  StopRelationalDatabaseResult,
+  StopRelationalDatabaseResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1StopRelationalDatabaseCommand,
   serializeAws_json1_1StopRelationalDatabaseCommand,
@@ -75,8 +80,8 @@ export class StopRelationalDatabaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopRelationalDatabaseRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: StopRelationalDatabaseResult.filterSensitiveLog,
+      inputFilterSensitiveLog: StopRelationalDatabaseRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StopRelationalDatabaseResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

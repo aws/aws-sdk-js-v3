@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { GetOrganizationCustomRulePolicyRequest, GetOrganizationCustomRulePolicyResponse } from "../models/models_0";
+import {
+  GetOrganizationCustomRulePolicyRequest,
+  GetOrganizationCustomRulePolicyRequestFilterSensitiveLog,
+  GetOrganizationCustomRulePolicyResponse,
+  GetOrganizationCustomRulePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetOrganizationCustomRulePolicyCommand,
   serializeAws_json1_1GetOrganizationCustomRulePolicyCommand,
@@ -74,8 +79,8 @@ export class GetOrganizationCustomRulePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOrganizationCustomRulePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetOrganizationCustomRulePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOrganizationCustomRulePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetOrganizationCustomRulePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

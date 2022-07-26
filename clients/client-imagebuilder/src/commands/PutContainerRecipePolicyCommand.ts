@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { PutContainerRecipePolicyRequest, PutContainerRecipePolicyResponse } from "../models/models_0";
+import {
+  PutContainerRecipePolicyRequest,
+  PutContainerRecipePolicyRequestFilterSensitiveLog,
+  PutContainerRecipePolicyResponse,
+  PutContainerRecipePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1PutContainerRecipePolicyCommand,
   serializeAws_restJson1PutContainerRecipePolicyCommand,
@@ -72,8 +77,8 @@ export class PutContainerRecipePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutContainerRecipePolicyRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutContainerRecipePolicyResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutContainerRecipePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutContainerRecipePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

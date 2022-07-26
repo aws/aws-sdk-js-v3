@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { UpdateServicePrimaryTaskSetRequest, UpdateServicePrimaryTaskSetResponse } from "../models/models_0";
+import {
+  UpdateServicePrimaryTaskSetRequest,
+  UpdateServicePrimaryTaskSetRequestFilterSensitiveLog,
+  UpdateServicePrimaryTaskSetResponse,
+  UpdateServicePrimaryTaskSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateServicePrimaryTaskSetCommand,
   serializeAws_json1_1UpdateServicePrimaryTaskSetCommand,
@@ -78,8 +83,8 @@ export class UpdateServicePrimaryTaskSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServicePrimaryTaskSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServicePrimaryTaskSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateServicePrimaryTaskSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateServicePrimaryTaskSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

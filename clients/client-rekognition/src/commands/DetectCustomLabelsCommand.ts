@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DetectCustomLabelsRequest, DetectCustomLabelsResponse } from "../models/models_0";
+import {
+  DetectCustomLabelsRequest,
+  DetectCustomLabelsRequestFilterSensitiveLog,
+  DetectCustomLabelsResponse,
+  DetectCustomLabelsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DetectCustomLabelsCommand,
   serializeAws_json1_1DetectCustomLabelsCommand,
@@ -122,8 +127,8 @@ export class DetectCustomLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectCustomLabelsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetectCustomLabelsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectCustomLabelsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetectCustomLabelsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

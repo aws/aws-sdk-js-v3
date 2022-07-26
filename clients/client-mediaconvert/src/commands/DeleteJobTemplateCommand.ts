@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import { DeleteJobTemplateRequest, DeleteJobTemplateResponse } from "../models/models_1";
+import {
+  DeleteJobTemplateRequest,
+  DeleteJobTemplateRequestFilterSensitiveLog,
+  DeleteJobTemplateResponse,
+  DeleteJobTemplateResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteJobTemplateCommand,
   serializeAws_restJson1DeleteJobTemplateCommand,
@@ -72,8 +77,8 @@ export class DeleteJobTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobTemplateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteJobTemplateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteJobTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteJobTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

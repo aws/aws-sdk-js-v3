@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DeleteIntentRequest } from "../models/models_0";
+import { DeleteIntentRequest, DeleteIntentRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteIntentCommand,
   serializeAws_restJson1DeleteIntentCommand,
@@ -74,7 +74,7 @@ export class DeleteIntentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIntentRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteIntentRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

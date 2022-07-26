@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DescribeLifecycleConfigurationRequest, LifecycleConfigurationDescription } from "../models/models_0";
+import {
+  DescribeLifecycleConfigurationRequest,
+  DescribeLifecycleConfigurationRequestFilterSensitiveLog,
+  LifecycleConfigurationDescription,
+  LifecycleConfigurationDescriptionFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeLifecycleConfigurationCommand,
   serializeAws_restJson1DescribeLifecycleConfigurationCommand,
@@ -82,8 +87,8 @@ export class DescribeLifecycleConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLifecycleConfigurationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: LifecycleConfigurationDescription.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeLifecycleConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: LifecycleConfigurationDescriptionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

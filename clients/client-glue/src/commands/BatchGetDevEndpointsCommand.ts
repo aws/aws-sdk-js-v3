@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchGetDevEndpointsRequest, BatchGetDevEndpointsResponse } from "../models/models_0";
+import {
+  BatchGetDevEndpointsRequest,
+  BatchGetDevEndpointsRequestFilterSensitiveLog,
+  BatchGetDevEndpointsResponse,
+  BatchGetDevEndpointsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetDevEndpointsCommand,
   serializeAws_json1_1BatchGetDevEndpointsCommand,
@@ -75,8 +80,8 @@ export class BatchGetDevEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetDevEndpointsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetDevEndpointsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchGetDevEndpointsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchGetDevEndpointsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

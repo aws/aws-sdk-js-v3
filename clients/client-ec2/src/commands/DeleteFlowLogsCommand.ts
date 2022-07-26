@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteFlowLogsRequest, DeleteFlowLogsResult } from "../models/models_2";
+import {
+  DeleteFlowLogsRequest,
+  DeleteFlowLogsRequestFilterSensitiveLog,
+  DeleteFlowLogsResult,
+  DeleteFlowLogsResultFilterSensitiveLog,
+} from "../models/models_2";
 import { deserializeAws_ec2DeleteFlowLogsCommand, serializeAws_ec2DeleteFlowLogsCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteFlowLogsCommandInput extends DeleteFlowLogsRequest {}
@@ -69,8 +74,8 @@ export class DeleteFlowLogsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlowLogsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlowLogsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteFlowLogsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteFlowLogsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

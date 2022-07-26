@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { GetInstanceAccessInput, GetInstanceAccessOutput } from "../models/models_0";
+import {
+  GetInstanceAccessInput,
+  GetInstanceAccessInputFilterSensitiveLog,
+  GetInstanceAccessOutput,
+  GetInstanceAccessOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetInstanceAccessCommand,
   serializeAws_json1_1GetInstanceAccessCommand,
@@ -106,8 +111,8 @@ export class GetInstanceAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInstanceAccessInput.filterSensitiveLog,
-      outputFilterSensitiveLog: GetInstanceAccessOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: GetInstanceAccessInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetInstanceAccessOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

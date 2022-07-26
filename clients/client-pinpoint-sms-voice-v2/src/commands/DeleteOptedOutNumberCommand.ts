@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteOptedOutNumberRequest, DeleteOptedOutNumberResult } from "../models/models_0";
+import {
+  DeleteOptedOutNumberRequest,
+  DeleteOptedOutNumberRequestFilterSensitiveLog,
+  DeleteOptedOutNumberResult,
+  DeleteOptedOutNumberResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -80,8 +85,8 @@ export class DeleteOptedOutNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOptedOutNumberRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteOptedOutNumberResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteOptedOutNumberRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteOptedOutNumberResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { GetOrganizationAdminAccountRequest, GetOrganizationAdminAccountResponse } from "../models/models_0";
+import {
+  GetOrganizationAdminAccountRequest,
+  GetOrganizationAdminAccountRequestFilterSensitiveLog,
+  GetOrganizationAdminAccountResponse,
+  GetOrganizationAdminAccountResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetOrganizationAdminAccountCommand,
   serializeAws_restJson1GetOrganizationAdminAccountCommand,
@@ -75,8 +80,8 @@ export class GetOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOrganizationAdminAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetOrganizationAdminAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetOrganizationAdminAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetOrganizationAdminAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

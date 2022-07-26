@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteSubnetRequest } from "../models/models_2";
+import { DeleteSubnetRequest, DeleteSubnetRequestFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2DeleteSubnetCommand, serializeAws_ec2DeleteSubnetCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteSubnetCommandInput extends DeleteSubnetRequest {}
@@ -69,7 +69,7 @@ export class DeleteSubnetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubnetRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSubnetRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

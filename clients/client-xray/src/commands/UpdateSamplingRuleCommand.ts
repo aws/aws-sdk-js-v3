@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateSamplingRuleRequest, UpdateSamplingRuleResult } from "../models/models_0";
+import {
+  UpdateSamplingRuleRequest,
+  UpdateSamplingRuleRequestFilterSensitiveLog,
+  UpdateSamplingRuleResult,
+  UpdateSamplingRuleResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSamplingRuleCommand,
   serializeAws_restJson1UpdateSamplingRuleCommand,
@@ -72,8 +77,8 @@ export class UpdateSamplingRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSamplingRuleRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSamplingRuleResult.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSamplingRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSamplingRuleResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeExportTasksMessage, ExportTasksMessage } from "../models/models_1";
+import {
+  DescribeExportTasksMessage,
+  DescribeExportTasksMessageFilterSensitiveLog,
+  ExportTasksMessage,
+  ExportTasksMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryDescribeExportTasksCommand,
   serializeAws_queryDescribeExportTasksCommand,
@@ -73,8 +78,8 @@ export class DescribeExportTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExportTasksMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ExportTasksMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: DescribeExportTasksMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ExportTasksMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

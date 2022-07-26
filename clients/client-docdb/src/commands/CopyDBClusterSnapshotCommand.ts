@@ -14,7 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { CopyDBClusterSnapshotMessage, CopyDBClusterSnapshotResult } from "../models/models_0";
+import {
+  CopyDBClusterSnapshotMessage,
+  CopyDBClusterSnapshotMessageFilterSensitiveLog,
+  CopyDBClusterSnapshotResult,
+  CopyDBClusterSnapshotResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCopyDBClusterSnapshotCommand,
   serializeAws_queryCopyDBClusterSnapshotCommand,
@@ -85,8 +90,8 @@ export class CopyDBClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDBClusterSnapshotMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CopyDBClusterSnapshotResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CopyDBClusterSnapshotMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CopyDBClusterSnapshotResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

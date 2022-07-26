@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { ListRunsRequest, ListRunsResult } from "../models/models_0";
+import {
+  ListRunsRequest,
+  ListRunsRequestFilterSensitiveLog,
+  ListRunsResult,
+  ListRunsResultFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1ListRunsCommand, serializeAws_json1_1ListRunsCommand } from "../protocols/Aws_json1_1";
 
 export interface ListRunsCommandInput extends ListRunsRequest {}
@@ -69,8 +74,8 @@ export class ListRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRunsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListRunsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ListRunsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListRunsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

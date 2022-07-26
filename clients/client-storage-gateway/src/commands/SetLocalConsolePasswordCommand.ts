@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SetLocalConsolePasswordInput, SetLocalConsolePasswordOutput } from "../models/models_0";
+import {
+  SetLocalConsolePasswordInput,
+  SetLocalConsolePasswordInputFilterSensitiveLog,
+  SetLocalConsolePasswordOutput,
+  SetLocalConsolePasswordOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1SetLocalConsolePasswordCommand,
   serializeAws_json1_1SetLocalConsolePasswordCommand,
@@ -75,8 +80,8 @@ export class SetLocalConsolePasswordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetLocalConsolePasswordInput.filterSensitiveLog,
-      outputFilterSensitiveLog: SetLocalConsolePasswordOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: SetLocalConsolePasswordInputFilterSensitiveLog,
+      outputFilterSensitiveLog: SetLocalConsolePasswordOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

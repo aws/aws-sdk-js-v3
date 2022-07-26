@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { UpdateAutoScalingGroupType } from "../models/models_0";
+import { UpdateAutoScalingGroupType, UpdateAutoScalingGroupTypeFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_queryUpdateAutoScalingGroupCommand,
   serializeAws_queryUpdateAutoScalingGroupCommand,
@@ -115,7 +115,7 @@ export class UpdateAutoScalingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAutoScalingGroupType.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAutoScalingGroupTypeFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

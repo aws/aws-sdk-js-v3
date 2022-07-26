@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { CreateRouteInput, CreateRouteOutput } from "../models/models_0";
+import {
+  CreateRouteInput,
+  CreateRouteInputFilterSensitiveLog,
+  CreateRouteOutput,
+  CreateRouteOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRouteCommand,
   serializeAws_restJson1CreateRouteCommand,
@@ -75,8 +80,8 @@ export class CreateRouteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRouteInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateRouteOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateRouteInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRouteOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

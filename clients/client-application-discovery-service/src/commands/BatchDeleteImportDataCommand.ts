@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { BatchDeleteImportDataRequest, BatchDeleteImportDataResponse } from "../models/models_0";
+import {
+  BatchDeleteImportDataRequest,
+  BatchDeleteImportDataRequestFilterSensitiveLog,
+  BatchDeleteImportDataResponse,
+  BatchDeleteImportDataResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeleteImportDataCommand,
   serializeAws_json1_1BatchDeleteImportDataCommand,
@@ -83,8 +88,8 @@ export class BatchDeleteImportDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteImportDataRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteImportDataResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: BatchDeleteImportDataRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchDeleteImportDataResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

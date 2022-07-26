@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { TagCertificateAuthorityRequest } from "../models/models_0";
+import { TagCertificateAuthorityRequest, TagCertificateAuthorityRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1TagCertificateAuthorityCommand,
   serializeAws_json1_1TagCertificateAuthorityCommand,
@@ -79,7 +79,7 @@ export class TagCertificateAuthorityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagCertificateAuthorityRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: TagCertificateAuthorityRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

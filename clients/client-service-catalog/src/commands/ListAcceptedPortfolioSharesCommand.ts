@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListAcceptedPortfolioSharesInput, ListAcceptedPortfolioSharesOutput } from "../models/models_0";
+import {
+  ListAcceptedPortfolioSharesInput,
+  ListAcceptedPortfolioSharesInputFilterSensitiveLog,
+  ListAcceptedPortfolioSharesOutput,
+  ListAcceptedPortfolioSharesOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ListAcceptedPortfolioSharesCommand,
   serializeAws_json1_1ListAcceptedPortfolioSharesCommand,
@@ -74,8 +79,8 @@ export class ListAcceptedPortfolioSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAcceptedPortfolioSharesInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ListAcceptedPortfolioSharesOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ListAcceptedPortfolioSharesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListAcceptedPortfolioSharesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

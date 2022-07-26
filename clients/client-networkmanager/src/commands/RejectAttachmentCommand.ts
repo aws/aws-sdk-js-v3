@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RejectAttachmentRequest, RejectAttachmentResponse } from "../models/models_0";
+import {
+  RejectAttachmentRequest,
+  RejectAttachmentRequestFilterSensitiveLog,
+  RejectAttachmentResponse,
+  RejectAttachmentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1RejectAttachmentCommand,
@@ -72,8 +77,8 @@ export class RejectAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectAttachmentRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: RejectAttachmentResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: RejectAttachmentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: RejectAttachmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

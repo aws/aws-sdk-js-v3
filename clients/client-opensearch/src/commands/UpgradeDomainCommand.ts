@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpgradeDomainRequest, UpgradeDomainResponse } from "../models/models_0";
+import {
+  UpgradeDomainRequest,
+  UpgradeDomainRequestFilterSensitiveLog,
+  UpgradeDomainResponse,
+  UpgradeDomainResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1UpgradeDomainCommand,
@@ -73,8 +78,8 @@ export class UpgradeDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpgradeDomainRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpgradeDomainResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpgradeDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpgradeDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput } from "../models/models_0";
+import {
+  CreateStorediSCSIVolumeInput,
+  CreateStorediSCSIVolumeInputFilterSensitiveLog,
+  CreateStorediSCSIVolumeOutput,
+  CreateStorediSCSIVolumeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1CreateStorediSCSIVolumeCommand,
   serializeAws_json1_1CreateStorediSCSIVolumeCommand,
@@ -83,8 +88,8 @@ export class CreateStorediSCSIVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStorediSCSIVolumeInput.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateStorediSCSIVolumeOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateStorediSCSIVolumeInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateStorediSCSIVolumeOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

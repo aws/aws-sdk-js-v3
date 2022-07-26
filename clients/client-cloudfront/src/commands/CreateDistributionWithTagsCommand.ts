@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { CreateDistributionWithTagsRequest, CreateDistributionWithTagsResult } from "../models/models_0";
+import {
+  CreateDistributionWithTagsRequest,
+  CreateDistributionWithTagsRequestFilterSensitiveLog,
+  CreateDistributionWithTagsResult,
+  CreateDistributionWithTagsResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restXmlCreateDistributionWithTagsCommand,
   serializeAws_restXmlCreateDistributionWithTagsCommand,
@@ -72,8 +77,8 @@ export class CreateDistributionWithTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDistributionWithTagsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDistributionWithTagsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDistributionWithTagsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDistributionWithTagsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateOutpostInput, UpdateOutpostOutput } from "../models/models_0";
+import {
+  UpdateOutpostInput,
+  UpdateOutpostInputFilterSensitiveLog,
+  UpdateOutpostOutput,
+  UpdateOutpostOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1UpdateOutpostCommand,
@@ -74,8 +79,8 @@ export class UpdateOutpostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateOutpostInput.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateOutpostOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateOutpostInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateOutpostOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

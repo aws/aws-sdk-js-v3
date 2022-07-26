@@ -14,7 +14,9 @@ import {
 
 import {
   GetConfigurationSetEventDestinationsRequest,
+  GetConfigurationSetEventDestinationsRequestFilterSensitiveLog,
   GetConfigurationSetEventDestinationsResponse,
+  GetConfigurationSetEventDestinationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
@@ -83,8 +85,8 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfigurationSetEventDestinationsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetConfigurationSetEventDestinationsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetConfigurationSetEventDestinationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetConfigurationSetEventDestinationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

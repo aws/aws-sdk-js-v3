@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DocumentationVersions, GetDocumentationVersionsRequest } from "../models/models_0";
+import {
+  DocumentationVersions,
+  DocumentationVersionsFilterSensitiveLog,
+  GetDocumentationVersionsRequest,
+  GetDocumentationVersionsRequestFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1GetDocumentationVersionsCommand,
   serializeAws_restJson1GetDocumentationVersionsCommand,
@@ -72,8 +77,8 @@ export class GetDocumentationVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDocumentationVersionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DocumentationVersions.filterSensitiveLog,
+      inputFilterSensitiveLog: GetDocumentationVersionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DocumentationVersionsFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

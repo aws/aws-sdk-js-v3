@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import { ListCoreDevicesRequest, ListCoreDevicesResponse } from "../models/models_0";
+import {
+  ListCoreDevicesRequest,
+  ListCoreDevicesRequestFilterSensitiveLog,
+  ListCoreDevicesResponse,
+  ListCoreDevicesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1ListCoreDevicesCommand,
   serializeAws_restJson1ListCoreDevicesCommand,
@@ -95,8 +100,8 @@ export class ListCoreDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoreDevicesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListCoreDevicesResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: ListCoreDevicesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCoreDevicesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

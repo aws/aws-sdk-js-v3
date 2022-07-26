@@ -18,7 +18,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import { GetSigningCertificateRequest, GetSigningCertificateResponse } from "../models/models_0";
+import {
+  GetSigningCertificateRequest,
+  GetSigningCertificateRequestFilterSensitiveLog,
+  GetSigningCertificateResponse,
+  GetSigningCertificateResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1GetSigningCertificateCommand,
   serializeAws_json1_1GetSigningCertificateCommand,
@@ -78,8 +83,8 @@ export class GetSigningCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSigningCertificateRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetSigningCertificateResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetSigningCertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetSigningCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

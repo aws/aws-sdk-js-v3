@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSimulationApplicationRequest, DeleteSimulationApplicationResponse } from "../models/models_0";
+import {
+  DeleteSimulationApplicationRequest,
+  DeleteSimulationApplicationRequestFilterSensitiveLog,
+  DeleteSimulationApplicationResponse,
+  DeleteSimulationApplicationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSimulationApplicationCommand,
   serializeAws_restJson1DeleteSimulationApplicationCommand,
@@ -74,8 +79,8 @@ export class DeleteSimulationApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSimulationApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSimulationApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSimulationApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSimulationApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

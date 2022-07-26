@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSizeConstraintSetRequest, DeleteSizeConstraintSetResponse } from "../models/models_0";
+import {
+  DeleteSizeConstraintSetRequest,
+  DeleteSizeConstraintSetRequestFilterSensitiveLog,
+  DeleteSizeConstraintSetResponse,
+  DeleteSizeConstraintSetResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSizeConstraintSetCommand,
   serializeAws_json1_1DeleteSizeConstraintSetCommand,
@@ -95,8 +100,8 @@ export class DeleteSizeConstraintSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSizeConstraintSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSizeConstraintSetResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteSizeConstraintSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteSizeConstraintSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

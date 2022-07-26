@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteRouteTableRequest } from "../models/models_2";
+import { DeleteRouteTableRequest, DeleteRouteTableRequestFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteRouteTableCommand,
   serializeAws_ec2DeleteRouteTableCommand,
@@ -72,7 +72,7 @@ export class DeleteRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRouteTableRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteRouteTableRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

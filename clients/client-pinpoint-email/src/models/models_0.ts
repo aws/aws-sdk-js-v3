@@ -104,15 +104,6 @@ export interface DeliveryOptions {
   SendingPoolName?: string;
 }
 
-export namespace DeliveryOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliveryOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Enable or disable collection of reputation metrics for emails that you send using this
  *             configuration set in the current AWS Region. </p>
@@ -133,15 +124,6 @@ export interface ReputationOptions {
   LastFreshStart?: Date;
 }
 
-export namespace ReputationOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReputationOptions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used to enable or disable email sending for messages that use this configuration set
  *             in the current AWS Region.</p>
@@ -152,15 +134,6 @@ export interface SendingOptions {
    *                 <code>false</code>, email sending is disabled for the configuration set.</p>
    */
   SendingEnabled?: boolean;
-}
-
-export namespace SendingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendingOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -214,15 +187,6 @@ export interface Tag {
   Value: string | undefined;
 }
 
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that defines the tracking options for a configuration set. When you use
  *             Amazon Pinpoint to send an email, it contains an invisible image that's used to track when
@@ -237,15 +201,6 @@ export interface TrackingOptions {
    * <p>The domain that you want to use for tracking open and click events.</p>
    */
   CustomRedirectDomain: string | undefined;
-}
-
-export namespace TrackingOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrackingOptions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -288,29 +243,11 @@ export interface CreateConfigurationSetRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface CreateConfigurationSetResponse {}
-
-export namespace CreateConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>There are too many instances of the specified resource type.</p>
@@ -421,15 +358,6 @@ export interface CloudWatchDimensionConfiguration {
   DefaultDimensionValue: string | undefined;
 }
 
-export namespace CloudWatchDimensionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
  *             monitor and gain insights on your email sending metrics.</p>
@@ -440,15 +368,6 @@ export interface CloudWatchDestination {
    *             Amazon CloudWatch.</p>
    */
   DimensionConfigurations: CloudWatchDimensionConfiguration[] | undefined;
-}
-
-export namespace CloudWatchDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -467,15 +386,6 @@ export interface KinesisFirehoseDestination {
    *             to.</p>
    */
   DeliveryStreamArn: string | undefined;
-}
-
-export namespace KinesisFirehoseDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
-    ...obj,
-  });
 }
 
 export enum EventType {
@@ -502,15 +412,6 @@ export interface PinpointDestination {
   ApplicationArn?: string;
 }
 
-export namespace PinpointDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PinpointDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
  *             send notification when certain email events occur.</p>
@@ -522,15 +423,6 @@ export interface SnsDestination {
    *                 Guide</a>.</p>
    */
   TopicArn: string | undefined;
-}
-
-export namespace SnsDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnsDestination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -581,15 +473,6 @@ export interface EventDestinationDefinition {
   PinpointDestination?: PinpointDestination;
 }
 
-export namespace EventDestinationDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestinationDefinition): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to add an event destination to a configuration set.</p>
  */
@@ -610,29 +493,11 @@ export interface CreateConfigurationSetEventDestinationRequest {
   EventDestination: EventDestinationDefinition | undefined;
 }
 
-export namespace CreateConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface CreateConfigurationSetEventDestinationResponse {}
-
-export namespace CreateConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to create a new dedicated IP pool.</p>
@@ -650,29 +515,11 @@ export interface CreateDedicatedIpPoolRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateDedicatedIpPoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDedicatedIpPoolRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface CreateDedicatedIpPoolResponse {}
-
-export namespace CreateDedicatedIpPoolResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDedicatedIpPoolResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The raw email message.</p>
@@ -712,15 +559,6 @@ export interface RawMessage {
   Data: Uint8Array | undefined;
 }
 
-export namespace RawMessage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RawMessage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that represents the content of the email, and optionally a character set
  *             specification.</p>
@@ -738,15 +576,6 @@ export interface Content {
    *                 <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</p>
    */
   Charset?: string;
-}
-
-export namespace Content {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Content): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -768,15 +597,6 @@ export interface Body {
   Html?: Content;
 }
 
-export namespace Body {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Body): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the email message that you're sending. The <code>Message</code> object
  *             consists of a subject line and a message body.</p>
@@ -796,15 +616,6 @@ export interface Message {
   Body: Body | undefined;
 }
 
-export namespace Message {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Message): any => ({
-    ...obj,
-  });
-}
-
 export interface Template {
   /**
    * <p>The Amazon Resource Name (ARN) of the template.</p>
@@ -815,15 +626,6 @@ export interface Template {
    * <p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>
    */
   TemplateData?: string;
-}
-
-export namespace Template {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Template): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -878,15 +680,6 @@ export interface EmailContent {
   Template?: Template;
 }
 
-export namespace EmailContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailContent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to perform a predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will
  *             be handled by various email providers around the world. When you perform a predictive inbox placement test, you
@@ -920,15 +713,6 @@ export interface CreateDeliverabilityTestReportRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateDeliverabilityTestReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeliverabilityTestReportRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum DeliverabilityTestStatus {
   COMPLETED = "COMPLETED",
   IN_PROGRESS = "IN_PROGRESS",
@@ -950,15 +734,6 @@ export interface CreateDeliverabilityTestReportResponse {
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
   DeliverabilityTestStatus: DeliverabilityTestStatus | string | undefined;
-}
-
-export namespace CreateDeliverabilityTestReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateDeliverabilityTestReportResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1036,15 +811,6 @@ export interface CreateEmailIdentityRequest {
   Tags?: Tag[];
 }
 
-export namespace CreateEmailIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEmailIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum DkimStatus {
   FAILED = "FAILED",
   NOT_STARTED = "NOT_STARTED",
@@ -1110,15 +876,6 @@ export interface DkimAttributes {
   Tokens?: string[];
 }
 
-export namespace DkimAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DkimAttributes): any => ({
-    ...obj,
-  });
-}
-
 export enum IdentityType {
   DOMAIN = "DOMAIN",
   EMAIL_ADDRESS = "EMAIL_ADDRESS",
@@ -1152,15 +909,6 @@ export interface CreateEmailIdentityResponse {
   DkimAttributes?: DkimAttributes;
 }
 
-export namespace CreateEmailIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateEmailIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to delete a configuration set.</p>
  */
@@ -1171,29 +919,11 @@ export interface DeleteConfigurationSetRequest {
   ConfigurationSetName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteConfigurationSetResponse {}
-
-export namespace DeleteConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to delete an event destination from a configuration set.</p>
@@ -1211,29 +941,11 @@ export interface DeleteConfigurationSetEventDestinationRequest {
   EventDestinationName: string | undefined;
 }
 
-export namespace DeleteConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteConfigurationSetEventDestinationResponse {}
-
-export namespace DeleteConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to delete a dedicated IP pool.</p>
@@ -1245,29 +957,11 @@ export interface DeleteDedicatedIpPoolRequest {
   PoolName: string | undefined;
 }
 
-export namespace DeleteDedicatedIpPoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDedicatedIpPoolRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteDedicatedIpPoolResponse {}
-
-export namespace DeleteDedicatedIpPoolResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteDedicatedIpPoolResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to delete an existing email identity. When you delete an identity, you lose
@@ -1282,44 +976,17 @@ export interface DeleteEmailIdentityRequest {
   EmailIdentity: string | undefined;
 }
 
-export namespace DeleteEmailIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEmailIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface DeleteEmailIdentityResponse {}
 
-export namespace DeleteEmailIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteEmailIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to obtain information about the email-sending capabilities of your Amazon Pinpoint
  *             account.</p>
  */
 export interface GetAccountRequest {}
-
-export namespace GetAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An object that contains information about the per-day and per-second sending limits
@@ -1345,15 +1012,6 @@ export interface SendQuota {
    *             past 24 hours.</p>
    */
   SentLast24Hours?: number;
-}
-
-export namespace SendQuota {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendQuota): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1420,15 +1078,6 @@ export interface GetAccountResponse {
   ProductionAccessEnabled?: boolean;
 }
 
-export namespace GetAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccountResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to retrieve a list of the blacklists that your dedicated IP addresses appear
  *             on.</p>
@@ -1440,15 +1089,6 @@ export interface GetBlacklistReportsRequest {
    *             Amazon SES.</p>
    */
   BlacklistItemNames: string[] | undefined;
-}
-
-export namespace GetBlacklistReportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBlacklistReportsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1473,15 +1113,6 @@ export interface BlacklistEntry {
   Description?: string;
 }
 
-export namespace BlacklistEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlacklistEntry): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains information about blacklist events.</p>
  */
@@ -1493,15 +1124,6 @@ export interface GetBlacklistReportsResponse {
   BlacklistReport: Record<string, BlacklistEntry[]> | undefined;
 }
 
-export namespace GetBlacklistReportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBlacklistReportsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to obtain information about a configuration set.</p>
  */
@@ -1511,15 +1133,6 @@ export interface GetConfigurationSetRequest {
    *             about.</p>
    */
   ConfigurationSetName: string | undefined;
-}
-
-export namespace GetConfigurationSetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationSetRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1562,15 +1175,6 @@ export interface GetConfigurationSetResponse {
   Tags?: Tag[];
 }
 
-export namespace GetConfigurationSetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationSetResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to obtain information about the event destinations for a configuration
  *             set.</p>
@@ -1580,15 +1184,6 @@ export interface GetConfigurationSetEventDestinationsRequest {
    * <p>The name of the configuration set that contains the event destination.</p>
    */
   ConfigurationSetName: string | undefined;
-}
-
-export namespace GetConfigurationSetEventDestinationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1644,15 +1239,6 @@ export interface EventDestination {
   PinpointDestination?: PinpointDestination;
 }
 
-export namespace EventDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an event destination for a configuration set.</p>
  */
@@ -1664,15 +1250,6 @@ export interface GetConfigurationSetEventDestinationsResponse {
   EventDestinations?: EventDestination[];
 }
 
-export namespace GetConfigurationSetEventDestinationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetConfigurationSetEventDestinationsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to obtain more information about a dedicated IP address.</p>
  */
@@ -1682,15 +1259,6 @@ export interface GetDedicatedIpRequest {
    *             has to be a dedicated IP address that's assocaited with your Amazon Pinpoint account.</p>
    */
   Ip: string | undefined;
-}
-
-export namespace GetDedicatedIpRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDedicatedIpRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum WarmupStatus {
@@ -1739,15 +1307,6 @@ export interface DedicatedIp {
   PoolName?: string;
 }
 
-export namespace DedicatedIp {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DedicatedIp): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a dedicated IP address.</p>
  */
@@ -1756,15 +1315,6 @@ export interface GetDedicatedIpResponse {
    * <p>An object that contains information about a dedicated IP address.</p>
    */
   DedicatedIp?: DedicatedIp;
-}
-
-export namespace GetDedicatedIpResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDedicatedIpResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1791,15 +1341,6 @@ export interface GetDedicatedIpsRequest {
   PageSize?: number;
 }
 
-export namespace GetDedicatedIpsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDedicatedIpsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the dedicated IP addresses that are associated with your Amazon Pinpoint
  *             account.</p>
@@ -1819,15 +1360,6 @@ export interface GetDedicatedIpsResponse {
   NextToken?: string;
 }
 
-export namespace GetDedicatedIpsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDedicatedIpsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Retrieve information about the status of the Deliverability dashboard for your Amazon Pinpoint account.
  *             When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and
@@ -1838,15 +1370,6 @@ export namespace GetDedicatedIpsResponse {
  *             features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
  */
 export interface GetDeliverabilityDashboardOptionsRequest {}
-
-export namespace GetDeliverabilityDashboardOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeliverabilityDashboardOptionsRequest): any => ({
-    ...obj,
-  });
-}
 
 export enum DeliverabilityDashboardAccountStatus {
   ACTIVE = "ACTIVE",
@@ -1873,15 +1396,6 @@ export interface InboxPlacementTrackingOption {
   TrackedIsps?: string[];
 }
 
-export namespace InboxPlacementTrackingOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InboxPlacementTrackingOption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains information about the Deliverability dashboard subscription for a
  *             verified domain that you use to send email and currently has an active Deliverability dashboard
@@ -1906,15 +1420,6 @@ export interface DomainDeliverabilityTrackingOption {
    *             domain.</p>
    */
   InboxPlacementTrackingOption?: InboxPlacementTrackingOption;
-}
-
-export namespace DomainDeliverabilityTrackingOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainDeliverabilityTrackingOption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1957,15 +1462,6 @@ export interface GetDeliverabilityDashboardOptionsResponse {
   PendingExpirationSubscribedDomains?: DomainDeliverabilityTrackingOption[];
 }
 
-export namespace GetDeliverabilityDashboardOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeliverabilityDashboardOptionsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to retrieve the results of a predictive inbox placement test.</p>
  */
@@ -1974,15 +1470,6 @@ export interface GetDeliverabilityTestReportRequest {
    * <p>A unique string that identifies the predictive inbox placement test.</p>
    */
   ReportId: string | undefined;
-}
-
-export namespace GetDeliverabilityTestReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeliverabilityTestReportRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2023,15 +1510,6 @@ export interface DeliverabilityTestReport {
   DeliverabilityTestStatus?: DeliverabilityTestStatus | string;
 }
 
-export namespace DeliverabilityTestReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliverabilityTestReport): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains inbox placement data for an email provider.</p>
  */
@@ -2066,15 +1544,6 @@ export interface PlacementStatistics {
   DkimPercentage?: number;
 }
 
-export namespace PlacementStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlacementStatistics): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that describes how email sent during the predictive inbox placement test was handled by a certain
  *             email provider.</p>
@@ -2089,15 +1558,6 @@ export interface IspPlacement {
    * <p>An object that contains inbox placement metrics for a specific email provider.</p>
    */
   PlacementStatistics?: PlacementStatistics;
-}
-
-export namespace IspPlacement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IspPlacement): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2135,15 +1595,6 @@ export interface GetDeliverabilityTestReportResponse {
   Tags?: Tag[];
 }
 
-export namespace GetDeliverabilityTestReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDeliverabilityTestReportResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Retrieve all the deliverability data for a specific campaign. This data is available
  *             for a campaign only if the campaign sent email by using a domain that the
@@ -2158,15 +1609,6 @@ export interface GetDomainDeliverabilityCampaignRequest {
    *             Amazon Pinpoint console.</p>
    */
   CampaignId: string | undefined;
-}
-
-export namespace GetDomainDeliverabilityCampaignRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainDeliverabilityCampaignRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2262,15 +1704,6 @@ export interface DomainDeliverabilityCampaign {
   Esps?: string[];
 }
 
-export namespace DomainDeliverabilityCampaign {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainDeliverabilityCampaign): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains all the deliverability data for a specific campaign. This data
  *             is available for a campaign only if the campaign sent email by using a domain that the
@@ -2282,15 +1715,6 @@ export interface GetDomainDeliverabilityCampaignResponse {
    * <p>An object that contains the deliverability data for the campaign.</p>
    */
   DomainDeliverabilityCampaign: DomainDeliverabilityCampaign | undefined;
-}
-
-export namespace GetDomainDeliverabilityCampaignResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainDeliverabilityCampaignResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2314,15 +1738,6 @@ export interface GetDomainStatisticsReportRequest {
    *             the <code>StartDate</code>.</p>
    */
   EndDate: Date | undefined;
-}
-
-export namespace GetDomainStatisticsReportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainStatisticsReportRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2360,15 +1775,6 @@ export interface DomainIspPlacement {
   SpamPercentage?: number;
 }
 
-export namespace DomainIspPlacement {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainIspPlacement): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains information about the amount of email that was delivered to
  *             recipients.</p>
@@ -2398,15 +1804,6 @@ export interface VolumeStatistics {
   ProjectedSpam?: number;
 }
 
-export namespace VolumeStatistics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeStatistics): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that contains information about the volume of email sent on each day of the
  *             analysis period.</p>
@@ -2428,15 +1825,6 @@ export interface DailyVolume {
    *             period, broken out by the recipient's email provider.</p>
    */
   DomainIspPlacements?: DomainIspPlacement[];
-}
-
-export namespace DailyVolume {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DailyVolume): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2463,15 +1851,6 @@ export interface OverallVolume {
   DomainIspPlacements?: DomainIspPlacement[];
 }
 
-export namespace OverallVolume {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OverallVolume): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that includes statistics that are related to the domain that you
  *             specified.</p>
@@ -2492,15 +1871,6 @@ export interface GetDomainStatisticsReportResponse {
   DailyVolumes: DailyVolume[] | undefined;
 }
 
-export namespace GetDomainStatisticsReportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDomainStatisticsReportResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to return details about an email identity.</p>
  */
@@ -2509,15 +1879,6 @@ export interface GetEmailIdentityRequest {
    * <p>The email identity that you want to retrieve details for.</p>
    */
   EmailIdentity: string | undefined;
-}
-
-export namespace GetEmailIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEmailIdentityRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum BehaviorOnMxFailure {
@@ -2581,15 +1942,6 @@ export interface MailFromAttributes {
   BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
 }
 
-export namespace MailFromAttributes {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MailFromAttributes): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about an email identity.</p>
  */
@@ -2639,15 +1991,6 @@ export interface GetEmailIdentityResponse {
   Tags?: Tag[];
 }
 
-export namespace GetEmailIdentityResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEmailIdentityResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to obtain a list of configuration sets for your Amazon Pinpoint account in the current
  *             AWS Region.</p>
@@ -2666,15 +2009,6 @@ export interface ListConfigurationSetsRequest {
    *             additional results.</p>
    */
   PageSize?: number;
-}
-
-export namespace ListConfigurationSetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2696,15 +2030,6 @@ export interface ListConfigurationSetsResponse {
   NextToken?: string;
 }
 
-export namespace ListConfigurationSetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A request to obtain a list of dedicated IP pools.</p>
  */
@@ -2724,15 +2049,6 @@ export interface ListDedicatedIpPoolsRequest {
   PageSize?: number;
 }
 
-export namespace ListDedicatedIpPoolsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDedicatedIpPoolsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of dedicated IP pools.</p>
  */
@@ -2749,15 +2065,6 @@ export interface ListDedicatedIpPoolsResponse {
    *             in the <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDedicatedIpPoolsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDedicatedIpPoolsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2781,15 +2088,6 @@ export interface ListDeliverabilityTestReportsRequest {
   PageSize?: number;
 }
 
-export namespace ListDeliverabilityTestReportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeliverabilityTestReportsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of the predictive inbox placement test reports that are available for your account, regardless of
  *             whether or not those tests are complete.</p>
@@ -2806,15 +2104,6 @@ export interface ListDeliverabilityTestReportsResponse {
    *             this token in the <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDeliverabilityTestReportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDeliverabilityTestReportsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2859,15 +2148,6 @@ export interface ListDomainDeliverabilityCampaignsRequest {
   PageSize?: number;
 }
 
-export namespace ListDomainDeliverabilityCampaignsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainDeliverabilityCampaignsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An array of objects that provide deliverability data for all the campaigns that used a
  *             specific domain to send email during a specified time range. This data is available for
@@ -2887,15 +2167,6 @@ export interface ListDomainDeliverabilityCampaignsResponse {
    *             position of the campaign in the list of campaigns.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListDomainDeliverabilityCampaignsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListDomainDeliverabilityCampaignsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2918,15 +2189,6 @@ export interface ListEmailIdentitiesRequest {
    *         <p>The value you specify has to be at least 0, and can be no more than 1000.</p>
    */
   PageSize?: number;
-}
-
-export namespace ListEmailIdentitiesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEmailIdentitiesRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2967,15 +2229,6 @@ export interface IdentityInfo {
   SendingEnabled?: boolean;
 }
 
-export namespace IdentityInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdentityInfo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of all of the identities that you've attempted to verify for use with Amazon Pinpoint,
  *             regardless of whether or not those identities were successfully verified.</p>
@@ -2996,30 +2249,12 @@ export interface ListEmailIdentitiesResponse {
   NextToken?: string;
 }
 
-export namespace ListEmailIdentitiesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEmailIdentitiesResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag
    *             information for.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -3029,15 +2264,6 @@ export interface ListTagsForResourceResponse {
    *                 (<code>Value</code>)</p>
    */
   Tags: Tag[] | undefined;
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3053,29 +2279,11 @@ export interface PutAccountDedicatedIpWarmupAttributesRequest {
   AutoWarmupEnabled?: boolean;
 }
 
-export namespace PutAccountDedicatedIpWarmupAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountDedicatedIpWarmupAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutAccountDedicatedIpWarmupAttributesResponse {}
-
-export namespace PutAccountDedicatedIpWarmupAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountDedicatedIpWarmupAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to change the ability of your account to send email.</p>
@@ -3092,29 +2300,11 @@ export interface PutAccountSendingAttributesRequest {
   SendingEnabled?: boolean;
 }
 
-export namespace PutAccountSendingAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountSendingAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutAccountSendingAttributesResponse {}
-
-export namespace PutAccountSendingAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccountSendingAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to associate a configuration set with a dedicated IP pool.</p>
@@ -3141,29 +2331,11 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
   SendingPoolName?: string;
 }
 
-export namespace PutConfigurationSetDeliveryOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetDeliveryOptionsResponse {}
-
-export namespace PutConfigurationSetDeliveryOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to enable or disable tracking of reputation metrics for a configuration
@@ -3184,29 +2356,11 @@ export interface PutConfigurationSetReputationOptionsRequest {
   ReputationMetricsEnabled?: boolean;
 }
 
-export namespace PutConfigurationSetReputationOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetReputationOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetReputationOptionsResponse {}
-
-export namespace PutConfigurationSetReputationOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetReputationOptionsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to enable or disable the ability of Amazon Pinpoint to send emails that use a specific
@@ -3226,29 +2380,11 @@ export interface PutConfigurationSetSendingOptionsRequest {
   SendingEnabled?: boolean;
 }
 
-export namespace PutConfigurationSetSendingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetSendingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetSendingOptionsResponse {}
-
-export namespace PutConfigurationSetSendingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetSendingOptionsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to add a custom domain for tracking open and click events to a configuration
@@ -3267,29 +2403,11 @@ export interface PutConfigurationSetTrackingOptionsRequest {
   CustomRedirectDomain?: string;
 }
 
-export namespace PutConfigurationSetTrackingOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetTrackingOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutConfigurationSetTrackingOptionsResponse {}
-
-export namespace PutConfigurationSetTrackingOptionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutConfigurationSetTrackingOptionsResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
@@ -3308,29 +2426,11 @@ export interface PutDedicatedIpInPoolRequest {
   DestinationPoolName: string | undefined;
 }
 
-export namespace PutDedicatedIpInPoolRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDedicatedIpInPoolRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutDedicatedIpInPoolResponse {}
-
-export namespace PutDedicatedIpInPoolResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDedicatedIpInPoolResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to change the warm-up attributes for a dedicated IP address. This operation
@@ -3349,29 +2449,11 @@ export interface PutDedicatedIpWarmupAttributesRequest {
   WarmupPercentage: number | undefined;
 }
 
-export namespace PutDedicatedIpWarmupAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDedicatedIpWarmupAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutDedicatedIpWarmupAttributesResponse {}
-
-export namespace PutDedicatedIpWarmupAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDedicatedIpWarmupAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Enable or disable the Deliverability dashboard for your Amazon Pinpoint account. When you enable the
@@ -3396,29 +2478,11 @@ export interface PutDeliverabilityDashboardOptionRequest {
   SubscribedDomains?: DomainDeliverabilityTrackingOption[];
 }
 
-export namespace PutDeliverabilityDashboardOptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDeliverabilityDashboardOptionRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A response that indicates whether the Deliverability dashboard is enabled for your Amazon Pinpoint
  *             account.</p>
  */
 export interface PutDeliverabilityDashboardOptionResponse {}
-
-export namespace PutDeliverabilityDashboardOptionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutDeliverabilityDashboardOptionResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to enable or disable DKIM signing of email that you send from an email
@@ -3439,29 +2503,11 @@ export interface PutEmailIdentityDkimAttributesRequest {
   SigningEnabled?: boolean;
 }
 
-export namespace PutEmailIdentityDkimAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityDkimAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutEmailIdentityDkimAttributesResponse {}
-
-export namespace PutEmailIdentityDkimAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityDkimAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to set the attributes that control how bounce and complaint events are
@@ -3488,29 +2534,11 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
   EmailForwardingEnabled?: boolean;
 }
 
-export namespace PutEmailIdentityFeedbackAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityFeedbackAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutEmailIdentityFeedbackAttributesResponse {}
-
-export namespace PutEmailIdentityFeedbackAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityFeedbackAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to configure the custom MAIL FROM domain for a verified identity.</p>
@@ -3553,29 +2581,11 @@ export interface PutEmailIdentityMailFromAttributesRequest {
   BehaviorOnMxFailure?: BehaviorOnMxFailure | string;
 }
 
-export namespace PutEmailIdentityMailFromAttributesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityMailFromAttributesRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface PutEmailIdentityMailFromAttributesResponse {}
-
-export namespace PutEmailIdentityMailFromAttributesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutEmailIdentityMailFromAttributesResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>An object that describes the recipients for an email.</p>
@@ -3598,15 +2608,6 @@ export interface Destination {
    *             for the email.</p>
    */
   BccAddresses?: string[];
-}
-
-export namespace Destination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Destination): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3644,15 +2645,6 @@ export interface MessageTag {
    *          </ul>
    */
   Value: string | undefined;
-}
-
-export namespace MessageTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageTag): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3701,15 +2693,6 @@ export interface SendEmailRequest {
   ConfigurationSetName?: string;
 }
 
-export namespace SendEmailRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendEmailRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A unique message ID that you receive when Amazon Pinpoint accepts an email for sending.</p>
  */
@@ -3725,15 +2708,6 @@ export interface SendEmailResponse {
    *         </note>
    */
   MessageId?: string;
-}
-
-export namespace SendEmailResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SendEmailResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -3752,25 +2726,7 @@ export interface TagResourceRequest {
   Tags: Tag[] | undefined;
 }
 
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface UntagResourceRequest {
   /**
@@ -3791,25 +2747,7 @@ export interface UntagResourceRequest {
   TagKeys: string[] | undefined;
 }
 
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A request to change the settings for an event destination for a configuration
@@ -3833,26 +2771,928 @@ export interface UpdateConfigurationSetEventDestinationRequest {
   EventDestination: EventDestinationDefinition | undefined;
 }
 
-export namespace UpdateConfigurationSetEventDestinationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
  *             fails.</p>
  */
 export interface UpdateConfigurationSetEventDestinationResponse {}
 
-export namespace UpdateConfigurationSetEventDestinationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const DeliveryOptionsFilterSensitiveLog = (obj: DeliveryOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReputationOptionsFilterSensitiveLog = (obj: ReputationOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendingOptionsFilterSensitiveLog = (obj: SendingOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagFilterSensitiveLog = (obj: Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrackingOptionsFilterSensitiveLog = (obj: TrackingOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetRequestFilterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetResponseFilterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchDimensionConfigurationFilterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchDestinationFilterSensitiveLog = (obj: CloudWatchDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KinesisFirehoseDestinationFilterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PinpointDestinationFilterSensitiveLog = (obj: PinpointDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SnsDestinationFilterSensitiveLog = (obj: SnsDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDestinationDefinitionFilterSensitiveLog = (obj: EventDestinationDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetEventDestinationRequestFilterSensitiveLog = (
+  obj: CreateConfigurationSetEventDestinationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateConfigurationSetEventDestinationResponseFilterSensitiveLog = (
+  obj: CreateConfigurationSetEventDestinationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDedicatedIpPoolRequestFilterSensitiveLog = (obj: CreateDedicatedIpPoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDedicatedIpPoolResponseFilterSensitiveLog = (obj: CreateDedicatedIpPoolResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RawMessageFilterSensitiveLog = (obj: RawMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContentFilterSensitiveLog = (obj: Content): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BodyFilterSensitiveLog = (obj: Body): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageFilterSensitiveLog = (obj: Message): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateFilterSensitiveLog = (obj: Template): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EmailContentFilterSensitiveLog = (obj: EmailContent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeliverabilityTestReportRequestFilterSensitiveLog = (
+  obj: CreateDeliverabilityTestReportRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDeliverabilityTestReportResponseFilterSensitiveLog = (
+  obj: CreateDeliverabilityTestReportResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEmailIdentityRequestFilterSensitiveLog = (obj: CreateEmailIdentityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DkimAttributesFilterSensitiveLog = (obj: DkimAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateEmailIdentityResponseFilterSensitiveLog = (obj: CreateEmailIdentityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetRequestFilterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetResponseFilterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetEventDestinationRequestFilterSensitiveLog = (
+  obj: DeleteConfigurationSetEventDestinationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteConfigurationSetEventDestinationResponseFilterSensitiveLog = (
+  obj: DeleteConfigurationSetEventDestinationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDedicatedIpPoolRequestFilterSensitiveLog = (obj: DeleteDedicatedIpPoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteDedicatedIpPoolResponseFilterSensitiveLog = (obj: DeleteDedicatedIpPoolResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEmailIdentityRequestFilterSensitiveLog = (obj: DeleteEmailIdentityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteEmailIdentityResponseFilterSensitiveLog = (obj: DeleteEmailIdentityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountRequestFilterSensitiveLog = (obj: GetAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendQuotaFilterSensitiveLog = (obj: SendQuota): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccountResponseFilterSensitiveLog = (obj: GetAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBlacklistReportsRequestFilterSensitiveLog = (obj: GetBlacklistReportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlacklistEntryFilterSensitiveLog = (obj: BlacklistEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBlacklistReportsResponseFilterSensitiveLog = (obj: GetBlacklistReportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConfigurationSetRequestFilterSensitiveLog = (obj: GetConfigurationSetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConfigurationSetResponseFilterSensitiveLog = (obj: GetConfigurationSetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConfigurationSetEventDestinationsRequestFilterSensitiveLog = (
+  obj: GetConfigurationSetEventDestinationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EventDestinationFilterSensitiveLog = (obj: EventDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetConfigurationSetEventDestinationsResponseFilterSensitiveLog = (
+  obj: GetConfigurationSetEventDestinationsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDedicatedIpRequestFilterSensitiveLog = (obj: GetDedicatedIpRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DedicatedIpFilterSensitiveLog = (obj: DedicatedIp): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDedicatedIpResponseFilterSensitiveLog = (obj: GetDedicatedIpResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDedicatedIpsRequestFilterSensitiveLog = (obj: GetDedicatedIpsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDedicatedIpsResponseFilterSensitiveLog = (obj: GetDedicatedIpsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeliverabilityDashboardOptionsRequestFilterSensitiveLog = (
+  obj: GetDeliverabilityDashboardOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InboxPlacementTrackingOptionFilterSensitiveLog = (obj: InboxPlacementTrackingOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainDeliverabilityTrackingOptionFilterSensitiveLog = (obj: DomainDeliverabilityTrackingOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeliverabilityDashboardOptionsResponseFilterSensitiveLog = (
+  obj: GetDeliverabilityDashboardOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeliverabilityTestReportRequestFilterSensitiveLog = (obj: GetDeliverabilityTestReportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeliverabilityTestReportFilterSensitiveLog = (obj: DeliverabilityTestReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PlacementStatisticsFilterSensitiveLog = (obj: PlacementStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IspPlacementFilterSensitiveLog = (obj: IspPlacement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDeliverabilityTestReportResponseFilterSensitiveLog = (
+  obj: GetDeliverabilityTestReportResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainDeliverabilityCampaignRequestFilterSensitiveLog = (
+  obj: GetDomainDeliverabilityCampaignRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainDeliverabilityCampaignFilterSensitiveLog = (obj: DomainDeliverabilityCampaign): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainDeliverabilityCampaignResponseFilterSensitiveLog = (
+  obj: GetDomainDeliverabilityCampaignResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainStatisticsReportRequestFilterSensitiveLog = (obj: GetDomainStatisticsReportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DomainIspPlacementFilterSensitiveLog = (obj: DomainIspPlacement): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeStatisticsFilterSensitiveLog = (obj: VolumeStatistics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DailyVolumeFilterSensitiveLog = (obj: DailyVolume): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OverallVolumeFilterSensitiveLog = (obj: OverallVolume): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainStatisticsReportResponseFilterSensitiveLog = (obj: GetDomainStatisticsReportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEmailIdentityRequestFilterSensitiveLog = (obj: GetEmailIdentityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MailFromAttributesFilterSensitiveLog = (obj: MailFromAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEmailIdentityResponseFilterSensitiveLog = (obj: GetEmailIdentityResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationSetsRequestFilterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConfigurationSetsResponseFilterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDedicatedIpPoolsRequestFilterSensitiveLog = (obj: ListDedicatedIpPoolsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDedicatedIpPoolsResponseFilterSensitiveLog = (obj: ListDedicatedIpPoolsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeliverabilityTestReportsRequestFilterSensitiveLog = (
+  obj: ListDeliverabilityTestReportsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDeliverabilityTestReportsResponseFilterSensitiveLog = (
+  obj: ListDeliverabilityTestReportsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainDeliverabilityCampaignsRequestFilterSensitiveLog = (
+  obj: ListDomainDeliverabilityCampaignsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDomainDeliverabilityCampaignsResponseFilterSensitiveLog = (
+  obj: ListDomainDeliverabilityCampaignsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEmailIdentitiesRequestFilterSensitiveLog = (obj: ListEmailIdentitiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IdentityInfoFilterSensitiveLog = (obj: IdentityInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEmailIdentitiesResponseFilterSensitiveLog = (obj: ListEmailIdentitiesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountDedicatedIpWarmupAttributesRequestFilterSensitiveLog = (
+  obj: PutAccountDedicatedIpWarmupAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountDedicatedIpWarmupAttributesResponseFilterSensitiveLog = (
+  obj: PutAccountDedicatedIpWarmupAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountSendingAttributesRequestFilterSensitiveLog = (obj: PutAccountSendingAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccountSendingAttributesResponseFilterSensitiveLog = (
+  obj: PutAccountSendingAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetDeliveryOptionsRequestFilterSensitiveLog = (
+  obj: PutConfigurationSetDeliveryOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetDeliveryOptionsResponseFilterSensitiveLog = (
+  obj: PutConfigurationSetDeliveryOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetReputationOptionsRequestFilterSensitiveLog = (
+  obj: PutConfigurationSetReputationOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetReputationOptionsResponseFilterSensitiveLog = (
+  obj: PutConfigurationSetReputationOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetSendingOptionsRequestFilterSensitiveLog = (
+  obj: PutConfigurationSetSendingOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetSendingOptionsResponseFilterSensitiveLog = (
+  obj: PutConfigurationSetSendingOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetTrackingOptionsRequestFilterSensitiveLog = (
+  obj: PutConfigurationSetTrackingOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationSetTrackingOptionsResponseFilterSensitiveLog = (
+  obj: PutConfigurationSetTrackingOptionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDedicatedIpInPoolRequestFilterSensitiveLog = (obj: PutDedicatedIpInPoolRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDedicatedIpInPoolResponseFilterSensitiveLog = (obj: PutDedicatedIpInPoolResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDedicatedIpWarmupAttributesRequestFilterSensitiveLog = (
+  obj: PutDedicatedIpWarmupAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDedicatedIpWarmupAttributesResponseFilterSensitiveLog = (
+  obj: PutDedicatedIpWarmupAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDeliverabilityDashboardOptionRequestFilterSensitiveLog = (
+  obj: PutDeliverabilityDashboardOptionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDeliverabilityDashboardOptionResponseFilterSensitiveLog = (
+  obj: PutDeliverabilityDashboardOptionResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEmailIdentityDkimAttributesRequestFilterSensitiveLog = (
+  obj: PutEmailIdentityDkimAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEmailIdentityDkimAttributesResponseFilterSensitiveLog = (
+  obj: PutEmailIdentityDkimAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEmailIdentityFeedbackAttributesRequestFilterSensitiveLog = (
+  obj: PutEmailIdentityFeedbackAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEmailIdentityFeedbackAttributesResponseFilterSensitiveLog = (
+  obj: PutEmailIdentityFeedbackAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEmailIdentityMailFromAttributesRequestFilterSensitiveLog = (
+  obj: PutEmailIdentityMailFromAttributesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEmailIdentityMailFromAttributesResponseFilterSensitiveLog = (
+  obj: PutEmailIdentityMailFromAttributesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MessageTagFilterSensitiveLog = (obj: MessageTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendEmailRequestFilterSensitiveLog = (obj: SendEmailRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendEmailResponseFilterSensitiveLog = (obj: SendEmailResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationSetEventDestinationRequestFilterSensitiveLog = (
+  obj: UpdateConfigurationSetEventDestinationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationSetEventDestinationResponseFilterSensitiveLog = (
+  obj: UpdateConfigurationSetEventDestinationResponse
+): any => ({
+  ...obj,
+});

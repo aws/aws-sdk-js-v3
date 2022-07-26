@@ -14,7 +14,9 @@ import {
 
 import {
   PutConfigurationSetDeliveryOptionsRequest,
+  PutConfigurationSetDeliveryOptionsRequestFilterSensitiveLog,
   PutConfigurationSetDeliveryOptionsResponse,
+  PutConfigurationSetDeliveryOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryPutConfigurationSetDeliveryOptionsCommand,
@@ -77,8 +79,8 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import { DetectPHIRequest, DetectPHIResponse } from "../models/models_0";
+import {
+  DetectPHIRequest,
+  DetectPHIRequestFilterSensitiveLog,
+  DetectPHIResponse,
+  DetectPHIResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { deserializeAws_json1_1DetectPHICommand, serializeAws_json1_1DetectPHICommand } from "../protocols/Aws_json1_1";
 
 export interface DetectPHICommandInput extends DetectPHIRequest {}
@@ -75,8 +80,8 @@ export class DetectPHICommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectPHIRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DetectPHIResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DetectPHIRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DetectPHIResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

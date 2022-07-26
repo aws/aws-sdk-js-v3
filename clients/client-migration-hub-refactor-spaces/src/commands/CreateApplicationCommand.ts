@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
+import {
+  CreateApplicationRequest,
+  CreateApplicationRequestFilterSensitiveLog,
+  CreateApplicationResponse,
+  CreateApplicationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateApplicationCommand,
   serializeAws_restJson1CreateApplicationCommand,
@@ -79,8 +84,8 @@ export class CreateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

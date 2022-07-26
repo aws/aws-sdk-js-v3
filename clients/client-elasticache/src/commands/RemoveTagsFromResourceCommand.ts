@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { RemoveTagsFromResourceMessage, TagListMessage } from "../models/models_0";
+import {
+  RemoveTagsFromResourceMessage,
+  RemoveTagsFromResourceMessageFilterSensitiveLog,
+  TagListMessage,
+  TagListMessageFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryRemoveTagsFromResourceCommand,
   serializeAws_queryRemoveTagsFromResourceCommand,
@@ -75,8 +80,8 @@ export class RemoveTagsFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromResourceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: TagListMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: RemoveTagsFromResourceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: TagListMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

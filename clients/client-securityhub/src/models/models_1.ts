@@ -72,15 +72,6 @@ export interface RuleGroupVariablesPortSetsDetails {
   Definition?: string[];
 }
 
-export namespace RuleGroupVariablesPortSetsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupVariablesPortSetsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Additional settings to use in the specified rules.</p>
  */
@@ -94,15 +85,6 @@ export interface RuleGroupVariables {
    * <p>A list of port ranges.</p>
    */
   PortSets?: RuleGroupVariablesPortSetsDetails;
-}
-
-export namespace RuleGroupVariables {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupVariables): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -120,15 +102,6 @@ export interface RuleGroupDetails {
    *          <p>For stateless rule groups, contains <code>StatelessRulesAndCustomActions</code>.</p>
    */
   RulesSource?: RuleGroupSource;
-}
-
-export namespace RuleGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleGroupDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -173,15 +146,6 @@ export interface AwsNetworkFirewallRuleGroupDetails {
   Type?: string;
 }
 
-export namespace AwsNetworkFirewallRuleGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsNetworkFirewallRuleGroupDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies information about the master user of the domain.
  *       </p>
@@ -204,15 +168,6 @@ export interface AwsOpenSearchServiceDomainMasterUserOptionsDetails {
    *       </p>
    */
   MasterUserPassword?: string;
-}
-
-export namespace AwsOpenSearchServiceDomainMasterUserOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainMasterUserOptionsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -239,15 +194,6 @@ export interface AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails {
   MasterUserOptions?: AwsOpenSearchServiceDomainMasterUserOptionsDetails;
 }
 
-export namespace AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration options for zone awareness.</p>
  */
@@ -256,15 +202,6 @@ export interface AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetai
    * <p>The number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
    */
   AvailabilityZoneCount?: number;
-}
-
-export namespace AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -324,15 +261,6 @@ export interface AwsOpenSearchServiceDomainClusterConfigDetails {
   DedicatedMasterType?: string;
 }
 
-export namespace AwsOpenSearchServiceDomainClusterConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainClusterConfigDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about additional options for the domain endpoint.</p>
  */
@@ -363,15 +291,6 @@ export interface AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
   TLSSecurityPolicy?: string;
 }
 
-export namespace AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the configuration for encryption at rest for the OpenSearch domain.</p>
  */
@@ -387,15 +306,6 @@ export interface AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
   KmsKeyId?: string;
 }
 
-export namespace AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration details for a log publishing option.</p>
  */
@@ -409,15 +319,6 @@ export interface AwsOpenSearchServiceDomainLogPublishingOption {
    * <p>Whether the log publishing is enabled.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace AwsOpenSearchServiceDomainLogPublishingOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainLogPublishingOption): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -440,15 +341,6 @@ export interface AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
   AuditLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
 }
 
-export namespace AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainLogPublishingOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about the configuration for node-to-node encryption.</p>
  */
@@ -457,15 +349,6 @@ export interface AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
    * <p>Whether node-to-node encryption is enabled.</p>
    */
   Enabled?: boolean;
-}
-
-export namespace AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -513,15 +396,6 @@ export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
   OptionalDeployment?: boolean;
 }
 
-export namespace AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information that OpenSearch Service derives based on the <code>VPCOptions</code> for the domain.</p>
  */
@@ -535,15 +409,6 @@ export interface AwsOpenSearchServiceDomainVpcOptionsDetails {
    * <p>A list of subnet IDs that are associated with the VPC endpoints for the domain.</p>
    */
   SubnetIds?: string[];
-}
-
-export namespace AwsOpenSearchServiceDomainVpcOptionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainVpcOptionsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -628,15 +493,6 @@ export interface AwsOpenSearchServiceDomainDetails {
   AdvancedSecurityOptions?: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails;
 }
 
-export namespace AwsOpenSearchServiceDomainDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An IAM role that is associated with the Amazon RDS DB cluster.</p>
  */
@@ -650,15 +506,6 @@ export interface AwsRdsDbClusterAssociatedRole {
    * <p>The status of the association between the IAM role and the DB cluster.</p>
    */
   Status?: string;
-}
-
-export namespace AwsRdsDbClusterAssociatedRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbClusterAssociatedRole): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -687,15 +534,6 @@ export interface AwsRdsDbClusterMember {
   DbClusterParameterGroupStatus?: string;
 }
 
-export namespace AwsRdsDbClusterMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbClusterMember): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an option group membership for a DB cluster.</p>
  */
@@ -709,15 +547,6 @@ export interface AwsRdsDbClusterOptionGroupMembership {
    * <p>The status of the DB cluster option group.</p>
    */
   Status?: string;
-}
-
-export namespace AwsRdsDbClusterOptionGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbClusterOptionGroupMembership): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -746,15 +575,6 @@ export interface AwsRdsDbDomainMembership {
   IamRoleName?: string;
 }
 
-export namespace AwsRdsDbDomainMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbDomainMembership): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A VPC security groups that the DB instance belongs to.</p>
  */
@@ -768,15 +588,6 @@ export interface AwsRdsDbInstanceVpcSecurityGroup {
    * <p>The status of the VPC security group.</p>
    */
   Status?: string;
-}
-
-export namespace AwsRdsDbInstanceVpcSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbInstanceVpcSecurityGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -989,15 +800,6 @@ export interface AwsRdsDbClusterDetails {
   IamDatabaseAuthenticationEnabled?: boolean;
 }
 
-export namespace AwsRdsDbClusterDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbClusterDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about an Amazon RDS DB cluster snapshot.</p>
  */
@@ -1100,15 +902,6 @@ export interface AwsRdsDbClusterSnapshotDetails {
   IamDatabaseAuthenticationEnabled?: boolean;
 }
 
-export namespace AwsRdsDbClusterSnapshotDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbClusterSnapshotDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An IAM role associated with the DB instance.</p>
  */
@@ -1149,15 +942,6 @@ export interface AwsRdsDbInstanceAssociatedRole {
   Status?: string;
 }
 
-export namespace AwsRdsDbInstanceAssociatedRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbInstanceAssociatedRole): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about a parameter group for a DB instance.</p>
  */
@@ -1173,15 +957,6 @@ export interface AwsRdsDbParameterGroup {
   ParameterApplyStatus?: string;
 }
 
-export namespace AwsRdsDbParameterGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbParameterGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An Availability Zone for a subnet in a subnet group.</p>
  */
@@ -1190,15 +965,6 @@ export interface AwsRdsDbSubnetGroupSubnetAvailabilityZone {
    * <p>The name of the Availability Zone for a subnet in the subnet group.</p>
    */
   Name?: string;
-}
-
-export namespace AwsRdsDbSubnetGroupSubnetAvailabilityZone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSubnetGroupSubnetAvailabilityZone): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1219,15 +985,6 @@ export interface AwsRdsDbSubnetGroupSubnet {
    * <p>The status of a subnet in the subnet group.</p>
    */
   SubnetStatus?: string;
-}
-
-export namespace AwsRdsDbSubnetGroupSubnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSubnetGroupSubnet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1265,15 +1022,6 @@ export interface AwsRdsDbSubnetGroup {
   DbSubnetGroupArn?: string;
 }
 
-export namespace AwsRdsDbSubnetGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSubnetGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the connection endpoint.</p>
  */
@@ -1294,15 +1042,6 @@ export interface AwsRdsDbInstanceEndpoint {
   HostedZoneId?: string;
 }
 
-export namespace AwsRdsDbInstanceEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbInstanceEndpoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An option group membership.</p>
  */
@@ -1316,15 +1055,6 @@ export interface AwsRdsDbOptionGroupMembership {
    * <p>The status of the option group membership.</p>
    */
   Status?: string;
-}
-
-export namespace AwsRdsDbOptionGroupMembership {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbOptionGroupMembership): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1342,15 +1072,6 @@ export interface AwsRdsPendingCloudWatchLogsExports {
   LogTypesToDisable?: string[];
 }
 
-export namespace AwsRdsPendingCloudWatchLogsExports {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsPendingCloudWatchLogsExports): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A processor feature.</p>
  */
@@ -1364,15 +1085,6 @@ export interface AwsRdsDbProcessorFeature {
    * <p>The value of the processor feature.</p>
    */
   Value?: string;
-}
-
-export namespace AwsRdsDbProcessorFeature {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbProcessorFeature): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1455,15 +1167,6 @@ export interface AwsRdsDbPendingModifiedValues {
   ProcessorFeatures?: AwsRdsDbProcessorFeature[];
 }
 
-export namespace AwsRdsDbPendingModifiedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbPendingModifiedValues): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the status of a read replica.</p>
  */
@@ -1487,15 +1190,6 @@ export interface AwsRdsDbStatusInfo {
    * <p>If the read replica is currently in an error state, provides the error details.</p>
    */
   Message?: string;
-}
-
-export namespace AwsRdsDbStatusInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbStatusInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1849,15 +1543,6 @@ export interface AwsRdsDbInstanceDetails {
   MaxAllocatedStorage?: number;
 }
 
-export namespace AwsRdsDbInstanceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbInstanceDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>EC2 security group information for an RDS DB security group.</p>
  */
@@ -1883,15 +1568,6 @@ export interface AwsRdsDbSecurityGroupEc2SecurityGroup {
   Status?: string;
 }
 
-export namespace AwsRdsDbSecurityGroupEc2SecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSecurityGroupEc2SecurityGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>IP range information for an RDS DB security group.</p>
  */
@@ -1905,15 +1581,6 @@ export interface AwsRdsDbSecurityGroupIpRange {
    * <p>Specifies the status of the IP range.</p>
    */
   Status?: string;
-}
-
-export namespace AwsRdsDbSecurityGroupIpRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSecurityGroupIpRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1955,15 +1622,6 @@ export interface AwsRdsDbSecurityGroupDetails {
    *       </p>
    */
   VpcId?: string;
-}
-
-export namespace AwsRdsDbSecurityGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSecurityGroupDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2106,15 +1764,6 @@ export interface AwsRdsDbSnapshotDetails {
   DbiResourceId?: string;
 }
 
-export namespace AwsRdsDbSnapshotDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsDbSnapshotDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about an Amazon RDS event notification subscription. The subscription allows Amazon RDS to post events to an SNS topic.</p>
  */
@@ -2175,15 +1824,6 @@ export interface AwsRdsEventSubscriptionDetails {
   SubscriptionCreationTime?: string;
 }
 
-export namespace AwsRdsEventSubscriptionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRdsEventSubscriptionDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A node in an Amazon Redshift cluster.</p>
  */
@@ -2202,15 +1842,6 @@ export interface AwsRedshiftClusterClusterNode {
    * <p>The public IP address of the node.</p>
    */
   PublicIpAddress?: string;
-}
-
-export namespace AwsRedshiftClusterClusterNode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterClusterNode): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2239,15 +1870,6 @@ export interface AwsRedshiftClusterClusterParameterStatus {
   ParameterApplyErrorDescription?: string;
 }
 
-export namespace AwsRedshiftClusterClusterParameterStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterClusterParameterStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A cluster parameter group that is associated with an Amazon Redshift cluster.</p>
  */
@@ -2268,15 +1890,6 @@ export interface AwsRedshiftClusterClusterParameterGroup {
   ParameterGroupName?: string;
 }
 
-export namespace AwsRedshiftClusterClusterParameterGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterClusterParameterGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A security group that is associated with the cluster.</p>
  */
@@ -2290,15 +1903,6 @@ export interface AwsRedshiftClusterClusterSecurityGroup {
    * <p>The status of the cluster security group.</p>
    */
   Status?: string;
-}
-
-export namespace AwsRedshiftClusterClusterSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterClusterSecurityGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2333,15 +1937,6 @@ export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
   SnapshotCopyGrantName?: string;
 }
 
-export namespace AwsRedshiftClusterClusterSnapshotCopyStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterClusterSnapshotCopyStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A time windows during which maintenance was deferred for an Amazon Redshift
  *          cluster.</p>
@@ -2369,15 +1964,6 @@ export interface AwsRedshiftClusterDeferredMaintenanceWindow {
   DeferMaintenanceStartTime?: string;
 }
 
-export namespace AwsRedshiftClusterDeferredMaintenanceWindow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterDeferredMaintenanceWindow): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The status of the elastic IP (EIP) address for an Amazon Redshift cluster.</p>
  */
@@ -2393,15 +1979,6 @@ export interface AwsRedshiftClusterElasticIpStatus {
   Status?: string;
 }
 
-export namespace AwsRedshiftClusterElasticIpStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterElasticIpStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The connection endpoint for an Amazon Redshift cluster.</p>
  */
@@ -2415,15 +1992,6 @@ export interface AwsRedshiftClusterEndpoint {
    * <p>The port that the database engine listens on.</p>
    */
   Port?: number;
-}
-
-export namespace AwsRedshiftClusterEndpoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterEndpoint): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2454,15 +2022,6 @@ export interface AwsRedshiftClusterHsmStatus {
   Status?: string;
 }
 
-export namespace AwsRedshiftClusterHsmStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterHsmStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An IAM role that the cluster can use to access other Amazon Web Services services.</p>
  */
@@ -2478,15 +2037,6 @@ export interface AwsRedshiftClusterIamRole {
    * <p>The ARN of the IAM role.</p>
    */
   IamRoleArn?: string;
-}
-
-export namespace AwsRedshiftClusterIamRole {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterIamRole): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2528,15 +2078,6 @@ export interface AwsRedshiftClusterLoggingStatus {
    * <p>Provides the prefix applied to the log file names.</p>
    */
   S3KeyPrefix?: string;
-}
-
-export namespace AwsRedshiftClusterLoggingStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterLoggingStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2601,15 +2142,6 @@ export interface AwsRedshiftClusterPendingModifiedValues {
   PubliclyAccessible?: boolean;
 }
 
-export namespace AwsRedshiftClusterPendingModifiedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterPendingModifiedValues): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the resize operation for the cluster.</p>
  */
@@ -2625,15 +2157,6 @@ export interface AwsRedshiftClusterResizeInfo {
    *          </p>
    */
   ResizeType?: string;
-}
-
-export namespace AwsRedshiftClusterResizeInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterResizeInfo): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2683,15 +2206,6 @@ export interface AwsRedshiftClusterRestoreStatus {
   Status?: string;
 }
 
-export namespace AwsRedshiftClusterRestoreStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterRestoreStatus): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A VPC security group that the cluster belongs to, if the cluster is in a VPC.</p>
  */
@@ -2705,15 +2219,6 @@ export interface AwsRedshiftClusterVpcSecurityGroup {
    * <p>The identifier of the VPC security group.</p>
    */
   VpcSecurityGroupId?: string;
-}
-
-export namespace AwsRedshiftClusterVpcSecurityGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterVpcSecurityGroup): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3016,15 +2521,6 @@ export interface AwsRedshiftClusterDetails {
   LoggingStatus?: AwsRedshiftClusterLoggingStatus;
 }
 
-export namespace AwsRedshiftClusterDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsRedshiftClusterDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>provides information about the Amazon S3 Public Access Block configuration for accounts.</p>
  */
@@ -3050,15 +2546,6 @@ export interface AwsS3AccountPublicAccessBlockDetails {
   RestrictPublicBuckets?: boolean;
 }
 
-export namespace AwsS3AccountPublicAccessBlockDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3AccountPublicAccessBlockDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about what Amazon S3
  *          does when a multipart upload is incomplete.</p>
@@ -3068,17 +2555,6 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMult
    * <p>The number of days after which Amazon S3 cancels an incomplete multipart upload.</p>
    */
   DaysAfterInitiation?: number;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3094,17 +2570,6 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOper
    * <p>The tag value.</p>
    */
   Value?: string;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3127,17 +2592,6 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOper
   Type?: string;
 }
 
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
-  ): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A tag filter.</p>
  */
@@ -3151,17 +2605,6 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagD
    * <p>The tag value</p>
    */
   Value?: string;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3189,15 +2632,6 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDeta
   Type?: string;
 }
 
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifies the objects that a rule applies to.</p>
  */
@@ -3206,15 +2640,6 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails {
    * <p>The configuration for the filter.</p>
    */
   Predicate?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3230,17 +2655,6 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTr
    * <p>The class of storage to change the object to after the object is noncurrent for the specified number of days.</p>
    */
   StorageClass?: string;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (
-    obj: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails
-  ): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3264,15 +2678,6 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails 
    * <p>The storage class to transition the object to.</p>
    */
   StorageClass?: string;
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3343,15 +2748,6 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
   Transitions?: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails[];
 }
 
-export namespace AwsS3BucketBucketLifecycleConfigurationRulesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationRulesDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The lifecycle configuration for the objects in the S3 bucket.</p>
  */
@@ -3360,15 +2756,6 @@ export interface AwsS3BucketBucketLifecycleConfigurationDetails {
    * <p>The lifecycle rules.</p>
    */
   Rules?: AwsS3BucketBucketLifecycleConfigurationRulesDetails[];
-}
-
-export namespace AwsS3BucketBucketLifecycleConfigurationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketLifecycleConfigurationDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3386,15 +2773,6 @@ export interface AwsS3BucketBucketVersioningConfiguration {
   Status?: string;
 }
 
-export namespace AwsS3BucketBucketVersioningConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketBucketVersioningConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about logging for
  *          the S3 bucket</p>
@@ -3409,15 +2787,6 @@ export interface AwsS3BucketLoggingConfiguration {
    * <p>The prefix added to log files for the S3 bucket.</p>
    */
   LogFilePrefix?: string;
-}
-
-export namespace AwsS3BucketLoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketLoggingConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export enum AwsS3BucketNotificationConfigurationS3KeyFilterRuleName {
@@ -3440,15 +2809,6 @@ export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
   Value?: string;
 }
 
-export namespace AwsS3BucketNotificationConfigurationS3KeyFilterRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationS3KeyFilterRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for an Amazon S3 filter.</p>
  */
@@ -3457,15 +2817,6 @@ export interface AwsS3BucketNotificationConfigurationS3KeyFilter {
    * <p>The filter rules for the filter.</p>
    */
   FilterRules?: AwsS3BucketNotificationConfigurationS3KeyFilterRule[];
-}
-
-export namespace AwsS3BucketNotificationConfigurationS3KeyFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationS3KeyFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3477,15 +2828,6 @@ export interface AwsS3BucketNotificationConfigurationFilter {
    * <p>Details for an Amazon S3 filter.</p>
    */
   S3KeyFilter?: AwsS3BucketNotificationConfigurationS3KeyFilter;
-}
-
-export namespace AwsS3BucketNotificationConfigurationFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3515,15 +2857,6 @@ export interface AwsS3BucketNotificationConfigurationDetail {
   Type?: string;
 }
 
-export namespace AwsS3BucketNotificationConfigurationDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationDetail): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The notification
  *          configuration for the S3 bucket.</p>
@@ -3533,15 +2866,6 @@ export interface AwsS3BucketNotificationConfiguration {
    * <p>Configurations for S3 bucket notifications.</p>
    */
   Configurations?: AwsS3BucketNotificationConfigurationDetail[];
-}
-
-export namespace AwsS3BucketNotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3561,15 +2885,6 @@ export interface AwsS3BucketWebsiteConfigurationRedirectTo {
   Protocol?: string;
 }
 
-export namespace AwsS3BucketWebsiteConfigurationRedirectTo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRedirectTo): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The condition that must be met in order to apply the routing rule.</p>
  */
@@ -3583,15 +2898,6 @@ export interface AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
    * <p>Indicates to redirect the request if the key prefix matches this value.</p>
    */
   KeyPrefixEquals?: string;
-}
-
-export namespace AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRuleCondition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3628,15 +2934,6 @@ export interface AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
   ReplaceKeyWith?: string;
 }
 
-export namespace AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A rule for redirecting requests
  *          to the website.</p>
@@ -3652,15 +2949,6 @@ export interface AwsS3BucketWebsiteConfigurationRoutingRule {
    *          met.</p>
    */
   Redirect?: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect;
-}
-
-export namespace AwsS3BucketWebsiteConfigurationRoutingRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3689,15 +2977,6 @@ export interface AwsS3BucketWebsiteConfiguration {
   RoutingRules?: AwsS3BucketWebsiteConfigurationRoutingRule[];
 }
 
-export namespace AwsS3BucketWebsiteConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies the default server-side encryption to apply to new objects in the
  *          bucket.</p>
@@ -3714,15 +2993,6 @@ export interface AwsS3BucketServerSideEncryptionByDefault {
   KMSMasterKeyID?: string;
 }
 
-export namespace AwsS3BucketServerSideEncryptionByDefault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionByDefault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An encryption rule to apply to the S3 bucket.</p>
  */
@@ -3735,15 +3005,6 @@ export interface AwsS3BucketServerSideEncryptionRule {
   ApplyServerSideEncryptionByDefault?: AwsS3BucketServerSideEncryptionByDefault;
 }
 
-export namespace AwsS3BucketServerSideEncryptionRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The encryption configuration for the S3 bucket.</p>
  */
@@ -3752,15 +3013,6 @@ export interface AwsS3BucketServerSideEncryptionConfiguration {
    * <p>The encryption rules that are applied to the S3 bucket.</p>
    */
   Rules?: AwsS3BucketServerSideEncryptionRule[];
-}
-
-export namespace AwsS3BucketServerSideEncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3831,15 +3083,6 @@ export interface AwsS3BucketDetails {
   BucketVersioningConfiguration?: AwsS3BucketBucketVersioningConfiguration;
 }
 
-export namespace AwsS3BucketDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about an Amazon S3 object.</p>
  */
@@ -3880,15 +3123,6 @@ export interface AwsS3ObjectDetails {
   SSEKMSKeyId?: string;
 }
 
-export namespace AwsS3ObjectDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3ObjectDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Defines the rotation schedule for the secret.</p>
  */
@@ -3897,15 +3131,6 @@ export interface AwsSecretsManagerSecretRotationRules {
    * <p>The number of days after the previous rotation to rotate the secret.</p>
    */
   AutomaticallyAfterDays?: number;
-}
-
-export namespace AwsSecretsManagerSecretRotationRules {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSecretsManagerSecretRotationRules): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3955,15 +3180,6 @@ export interface AwsSecretsManagerSecretDetails {
   Description?: string;
 }
 
-export namespace AwsSecretsManagerSecretDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSecretsManagerSecretDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum ComplianceStatus {
   FAILED = "FAILED",
   NOT_AVAILABLE = "NOT_AVAILABLE",
@@ -3986,15 +3202,6 @@ export interface StatusReason {
    * <p>The corresponding description for the status reason code.</p>
    */
   Description?: string;
-}
-
-export namespace StatusReason {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatusReason): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4051,15 +3258,6 @@ export interface Compliance {
   StatusReasons?: StatusReason[];
 }
 
-export namespace Compliance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Compliance): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a related finding.</p>
  */
@@ -4073,15 +3271,6 @@ export interface RelatedFinding {
    * <p>The product-generated identifier for a related finding.</p>
    */
   Id: string | undefined;
-}
-
-export namespace RelatedFinding {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelatedFinding): any => ({
-    ...obj,
-  });
 }
 
 export enum SeverityLabel {
@@ -4105,15 +3294,6 @@ export interface FindingProviderSeverity {
    * <p>The finding provider's original value for the severity.</p>
    */
   Original?: string;
-}
-
-export namespace FindingProviderSeverity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FindingProviderSeverity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4152,15 +3332,6 @@ export interface FindingProviderFields {
    *          Behaviors | Sensitive Data Identifications</p>
    */
   Types?: string[];
-}
-
-export namespace FindingProviderFields {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FindingProviderFields): any => ({
-    ...obj,
-  });
 }
 
 export enum MalwareState {
@@ -4212,15 +3383,6 @@ export interface Malware {
   State?: MalwareState | string;
 }
 
-export namespace Malware {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Malware): any => ({
-    ...obj,
-  });
-}
-
 export enum NetworkDirection {
   IN = "IN",
   OUT = "OUT",
@@ -4239,15 +3401,6 @@ export interface PortRange {
    * <p>The last port in the port range.</p>
    */
   End?: number;
-}
-
-export namespace PortRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4316,15 +3469,6 @@ export interface Network {
   DestinationDomain?: string;
 }
 
-export namespace Network {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Network): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the destination of the next component in the network path.</p>
  */
@@ -4338,15 +3482,6 @@ export interface NetworkPathComponentDetails {
    * <p>A list of port ranges for the destination.</p>
    */
   PortRanges?: PortRange[];
-}
-
-export namespace NetworkPathComponentDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkPathComponentDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4368,15 +3503,6 @@ export interface NetworkHeader {
    * <p>Information about the origin of the component.</p>
    */
   Source?: NetworkPathComponentDetails;
-}
-
-export namespace NetworkHeader {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkHeader): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4406,15 +3532,6 @@ export interface NetworkPathComponent {
   Ingress?: NetworkHeader;
 }
 
-export namespace NetworkPathComponent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkPathComponent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A user-defined note added to a finding.</p>
  */
@@ -4436,15 +3553,6 @@ export interface Note {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   UpdatedAt: string | undefined;
-}
-
-export namespace Note {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Note): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4520,15 +3628,6 @@ export interface PatchSummary {
   Operation?: string;
 }
 
-export namespace PatchSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PatchSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The details of process-related information about a finding.</p>
  */
@@ -4570,15 +3669,6 @@ export interface ProcessDetails {
   TerminatedAt?: string;
 }
 
-export namespace ProcessDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProcessDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum RecordState {
   ACTIVE = "ACTIVE",
   ARCHIVED = "ARCHIVED",
@@ -4599,15 +3689,6 @@ export interface Recommendation {
   Url?: string;
 }
 
-export namespace Recommendation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Recommendation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about the remediation steps for a finding.</p>
  */
@@ -4616,15 +3697,6 @@ export interface Remediation {
    * <p>A recommendation on the steps to take to remediate the issue identified by a finding.</p>
    */
   Recommendation?: Recommendation;
-}
-
-export namespace Remediation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Remediation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4652,15 +3724,6 @@ export interface Cell {
   CellReference?: string;
 }
 
-export namespace Cell {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cell): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifies where the sensitive data begins and ends.</p>
  */
@@ -4679,15 +3742,6 @@ export interface Range {
    * <p>In the line where the sensitive data starts, the column within the line where the sensitive data starts.</p>
    */
   StartColumn?: number;
-}
-
-export namespace Range {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Range): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4710,15 +3764,6 @@ export interface Page {
   OffsetRange?: Range;
 }
 
-export namespace Page {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Page): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An occurrence of sensitive data in an Apache Avro object container or an Apache Parquet file.</p>
  */
@@ -4732,15 +3777,6 @@ export interface _Record {
    * <p>The record index, starting from 0, for the record that contains the data.</p>
    */
   RecordIndex?: number;
-}
-
-export namespace _Record {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Record): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4773,15 +3809,6 @@ export interface Occurrences {
   Cells?: Cell[];
 }
 
-export namespace Occurrences {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Occurrences): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The list of detected instances of sensitive data.</p>
  */
@@ -4807,15 +3834,6 @@ export interface CustomDataIdentifiersDetections {
   Occurrences?: Occurrences;
 }
 
-export namespace CustomDataIdentifiersDetections {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomDataIdentifiersDetections): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains an instance of sensitive data that was detected by a customer-defined identifier.</p>
  */
@@ -4829,15 +3847,6 @@ export interface CustomDataIdentifiersResult {
    * <p>The total number of occurrences of sensitive data.</p>
    */
   TotalCount?: number;
-}
-
-export namespace CustomDataIdentifiersResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomDataIdentifiersResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4860,15 +3869,6 @@ export interface SensitiveDataDetections {
   Occurrences?: Occurrences;
 }
 
-export namespace SensitiveDataDetections {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SensitiveDataDetections): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a detected instance of sensitive data that are based on built-in identifiers.</p>
  */
@@ -4889,15 +3889,6 @@ export interface SensitiveDataResult {
   TotalCount?: number;
 }
 
-export namespace SensitiveDataResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SensitiveDataResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about the current status of the sensitive data detection.</p>
  */
@@ -4911,15 +3902,6 @@ export interface ClassificationStatus {
    * <p>A longer description of the current status of the sensitive data detection.</p>
    */
   Reason?: string;
-}
-
-export namespace ClassificationStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClassificationStatus): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4957,15 +3939,6 @@ export interface ClassificationResult {
   CustomDataIdentifiers?: CustomDataIdentifiersResult;
 }
 
-export namespace ClassificationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClassificationResult): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about sensitive data that was detected on a resource.</p>
  */
@@ -4981,15 +3954,6 @@ export interface DataClassificationDetails {
   Result?: ClassificationResult;
 }
 
-export namespace DataClassificationDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DataClassificationDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A wrapper type for the attributes of an Amazon SNS subscription.</p>
  */
@@ -5003,15 +3967,6 @@ export interface AwsSnsTopicSubscription {
    * <p>The subscription's protocol.</p>
    */
   Protocol?: string;
-}
-
-export namespace AwsSnsTopicSubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSnsTopicSubscription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5080,15 +4035,6 @@ export interface AwsSnsTopicDetails {
   HttpFailureFeedbackRoleArn?: string;
 }
 
-export namespace AwsSnsTopicDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSnsTopicDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Data about a queue.</p>
  */
@@ -5114,15 +4060,6 @@ export interface AwsSqsQueueDetails {
    *          messages after the value of <code>maxReceiveCount</code> is exceeded. </p>
    */
   DeadLetterTargetArn?: string;
-}
-
-export namespace AwsSqsQueueDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSqsQueueDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5253,15 +4190,6 @@ export interface AwsSsmComplianceSummary {
   PatchGroup?: string;
 }
 
-export namespace AwsSsmComplianceSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSsmComplianceSummary): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about the compliance for a patch.</p>
  */
@@ -5270,15 +4198,6 @@ export interface AwsSsmPatch {
    * <p>The compliance status details for the patch.</p>
    */
   ComplianceSummary?: AwsSsmComplianceSummary;
-}
-
-export namespace AwsSsmPatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSsmPatch): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5290,15 +4209,6 @@ export interface AwsSsmPatchComplianceDetails {
    * <p>Information about the status of a patch.</p>
    */
   Patch?: AwsSsmPatch;
-}
-
-export namespace AwsSsmPatchComplianceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSsmPatchComplianceDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5321,15 +4231,6 @@ export interface AwsWafRateBasedRuleMatchPredicate {
    * <p>The type of predicate.</p>
    */
   Type?: string;
-}
-
-export namespace AwsWafRateBasedRuleMatchPredicate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRateBasedRuleMatchPredicate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5367,15 +4268,6 @@ export interface AwsWafRateBasedRuleDetails {
   MatchPredicates?: AwsWafRateBasedRuleMatchPredicate[];
 }
 
-export namespace AwsWafRateBasedRuleDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRateBasedRuleDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details for a match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
  */
@@ -5395,15 +4287,6 @@ export interface AwsWafRegionalRateBasedRuleMatchPredicate {
    * <p>The type of predicate.</p>
    */
   Type?: string;
-}
-
-export namespace AwsWafRegionalRateBasedRuleMatchPredicate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalRateBasedRuleMatchPredicate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5441,15 +4324,6 @@ export interface AwsWafRegionalRateBasedRuleDetails {
   MatchPredicates?: AwsWafRegionalRateBasedRuleMatchPredicate[];
 }
 
-export namespace AwsWafRegionalRateBasedRuleDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalRateBasedRuleDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
  *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.
@@ -5475,15 +4349,6 @@ export interface AwsWafRegionalRulePredicateListDetails {
    *       </p>
    */
   Type?: string;
-}
-
-export namespace AwsWafRegionalRulePredicateListDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalRulePredicateListDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5517,15 +4382,6 @@ export interface AwsWafRegionalRuleDetails {
   RuleId?: string;
 }
 
-export namespace AwsWafRegionalRuleDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalRuleDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the action that AWS WAF should take on a web request when it matches the criteria defined in the rule.
  *       </p>
@@ -5536,15 +4392,6 @@ export interface AwsWafRegionalRuleGroupRulesActionDetails {
    * <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.</p>
    */
   Type?: string;
-}
-
-export namespace AwsWafRegionalRuleGroupRulesActionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalRuleGroupRulesActionDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5574,15 +4421,6 @@ export interface AwsWafRegionalRuleGroupRulesDetails {
    *       </p>
    */
   Type?: string;
-}
-
-export namespace AwsWafRegionalRuleGroupRulesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalRuleGroupRulesDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5616,15 +4454,6 @@ export interface AwsWafRegionalRuleGroupDetails {
   Rules?: AwsWafRegionalRuleGroupRulesDetails[];
 }
 
-export namespace AwsWafRegionalRuleGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalRuleGroupDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The action that WAF takes when a web request matches all conditions in the
  *          rule, such as allow, block, or count the request. </p>
@@ -5635,15 +4464,6 @@ export interface AwsWafRegionalWebAclRulesListActionDetails {
    *       </p>
    */
   Type?: string;
-}
-
-export namespace AwsWafRegionalWebAclRulesListActionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalWebAclRulesListActionDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5657,15 +4477,6 @@ export interface AwsWafRegionalWebAclRulesListOverrideActionDetails {
    *       </p>
    */
   Type?: string;
-}
-
-export namespace AwsWafRegionalWebAclRulesListOverrideActionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalWebAclRulesListOverrideActionDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5706,15 +4517,6 @@ export interface AwsWafRegionalWebAclRulesListDetails {
   Type?: string;
 }
 
-export namespace AwsWafRegionalWebAclRulesListDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalWebAclRulesListDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the web access control list (web ACL). The web ACL contains the rules that identify the requests that you
  *          want to allow, block, or count. </p>
@@ -5752,15 +4554,6 @@ export interface AwsWafRegionalWebAclDetails {
   WebAclId?: string;
 }
 
-export namespace AwsWafRegionalWebAclDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRegionalWebAclDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
  *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
@@ -5787,15 +4580,6 @@ export interface AwsWafRulePredicateListDetails {
    *       </p>
    */
   Type?: string;
-}
-
-export namespace AwsWafRulePredicateListDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRulePredicateListDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5830,15 +4614,6 @@ export interface AwsWafRuleDetails {
   RuleId?: string;
 }
 
-export namespace AwsWafRuleDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRuleDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
  *       </p>
@@ -5849,15 +4624,6 @@ export interface AwsWafRuleGroupRulesActionDetails {
    *          statement.</p>
    */
   Type?: string;
-}
-
-export namespace AwsWafRuleGroupRulesActionDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRuleGroupRulesActionDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5891,15 +4657,6 @@ export interface AwsWafRuleGroupRulesDetails {
   Type?: string;
 }
 
-export namespace AwsWafRuleGroupRulesDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRuleGroupRulesDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
  *       </p>
@@ -5929,15 +4686,6 @@ export interface AwsWafRuleGroupDetails {
    *       </p>
    */
   Rules?: AwsWafRuleGroupRulesDetails[];
-}
-
-export namespace AwsWafRuleGroupDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafRuleGroupDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5970,15 +4718,6 @@ export interface WafAction {
   Type?: string;
 }
 
-export namespace WafAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WafAction): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Details about a rule to exclude from a rule group.</p>
  */
@@ -5987,15 +4726,6 @@ export interface WafExcludedRule {
    * <p>The unique identifier for the rule to exclude from the rule group.</p>
    */
   RuleId?: string;
-}
-
-export namespace WafExcludedRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WafExcludedRule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6009,15 +4739,6 @@ export interface WafOverrideAction {
    *          <p>If set to <code>NONE</code>, the rule's action takes place.</p>
    */
   Type?: string;
-}
-
-export namespace WafOverrideAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WafOverrideAction): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6077,15 +4798,6 @@ export interface AwsWafWebAclRule {
   Type?: string;
 }
 
-export namespace AwsWafWebAclRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafWebAclRule): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about an WAF web access control list (web ACL).</p>
  */
@@ -6111,15 +4823,6 @@ export interface AwsWafWebAclDetails {
   WebAclId?: string;
 }
 
-export namespace AwsWafWebAclDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsWafWebAclDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about the encryption configuration for X-Ray.</p>
  */
@@ -6140,15 +4843,6 @@ export interface AwsXrayEncryptionConfigDetails {
   Type?: string;
 }
 
-export namespace AwsXrayEncryptionConfigDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsXrayEncryptionConfigDetails): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes the mounting of a volume in a container.
  *       </p>
@@ -6165,15 +4859,6 @@ export interface VolumeMount {
    *       </p>
    */
   MountPath?: string;
-}
-
-export namespace VolumeMount {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeMount): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6221,15 +4906,6 @@ export interface ContainerDetails {
    *       </p>
    */
   Privileged?: boolean;
-}
-
-export namespace ContainerDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6647,15 +5323,6 @@ export interface ResourceDetails {
   AwsEcsTask?: AwsEcsTaskDetails;
 }
 
-export namespace ResourceDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDetails): any => ({
-    ...obj,
-  });
-}
-
 export enum Partition {
   AWS = "aws",
   AWS_CN = "aws-cn",
@@ -6710,15 +5377,6 @@ export interface Resource {
    * <p>Additional details about the resource related to a finding.</p>
    */
   Details?: ResourceDetails;
-}
-
-export namespace Resource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Resource): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6828,15 +5486,6 @@ export interface Severity {
   Original?: string;
 }
 
-export namespace Severity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Severity): any => ({
-    ...obj,
-  });
-}
-
 export enum ThreatIntelIndicatorCategory {
   BACKDOOR = "BACKDOOR",
   CARD_STEALER = "CARD_STEALER",
@@ -6900,15 +5549,6 @@ export interface ThreatIntelIndicator {
   SourceUrl?: string;
 }
 
-export namespace ThreatIntelIndicator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThreatIntelIndicator): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the file paths that were affected by the threat.
  * 		</p>
@@ -6939,15 +5579,6 @@ export interface FilePaths {
   Hash?: string;
 }
 
-export namespace FilePaths {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FilePaths): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides information about the threat detected in a security finding and the file paths that were affected by the threat.
  * 		</p>
@@ -6976,15 +5607,6 @@ export interface Threat {
    * 		</p>
    */
   FilePaths?: FilePaths[];
-}
-
-export namespace Threat {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Threat): any => ({
-    ...obj,
-  });
 }
 
 export enum VerificationState {
@@ -7024,15 +5646,6 @@ export interface Cvss {
   Adjustments?: Adjustment[];
 }
 
-export namespace Cvss {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Cvss): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A vendor that generates a vulnerability report.</p>
  */
@@ -7067,15 +5680,6 @@ export interface VulnerabilityVendor {
    *             <code>2020-03-22T13:22:13.933Z</code>.</p>
    */
   VendorUpdatedAt?: string;
-}
-
-export namespace VulnerabilityVendor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VulnerabilityVendor): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7118,15 +5722,6 @@ export interface SoftwarePackage {
   FilePath?: string;
 }
 
-export namespace SoftwarePackage {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SoftwarePackage): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A vulnerability associated with a finding.</p>
  */
@@ -7160,15 +5755,6 @@ export interface Vulnerability {
    * <p>A list of URLs that provide additional information about the vulnerability.</p>
    */
   ReferenceUrls?: string[];
-}
-
-export namespace Vulnerability {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Vulnerability): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkflowStatus {
@@ -7223,15 +5809,6 @@ export interface Workflow {
    *          </ul>
    */
   Status?: WorkflowStatus | string;
-}
-
-export namespace Workflow {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Workflow): any => ({
-    ...obj,
-  });
 }
 
 export enum WorkflowState {
@@ -7508,15 +6085,6 @@ export interface AwsSecurityFinding {
   Sample?: boolean;
 }
 
-export namespace AwsSecurityFinding {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSecurityFinding): any => ({
-    ...obj,
-  });
-}
-
 export enum StringFilterComparison {
   EQUALS = "EQUALS",
   NOT_EQUALS = "NOT_EQUALS",
@@ -7619,15 +6187,6 @@ export interface StringFilter {
   Comparison?: StringFilterComparison | string;
 }
 
-export namespace StringFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StringFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A number filter for querying findings.</p>
  */
@@ -7651,15 +6210,6 @@ export interface NumberFilter {
   Eq?: number;
 }
 
-export namespace NumberFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NumberFilter): any => ({
-    ...obj,
-  });
-}
-
 export enum DateRangeUnit {
   DAYS = "DAYS",
 }
@@ -7677,15 +6227,6 @@ export interface DateRange {
    * <p>A date range unit for the date filter.</p>
    */
   Unit?: DateRangeUnit | string;
-}
-
-export namespace DateRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateRange): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7708,15 +6249,6 @@ export interface DateFilter {
   DateRange?: DateRange;
 }
 
-export namespace DateFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DateFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A keyword filter for querying findings.</p>
  */
@@ -7727,15 +6259,6 @@ export interface KeywordFilter {
   Value?: string;
 }
 
-export namespace KeywordFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeywordFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The IP filter for querying findings.</p>
  */
@@ -7744,15 +6267,6 @@ export interface IpFilter {
    * <p>A finding's CIDR value.</p>
    */
   Cidr?: string;
-}
-
-export namespace IpFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpFilter): any => ({
-    ...obj,
-  });
 }
 
 export enum MapFilterComparison {
@@ -7802,15 +6316,6 @@ export interface MapFilter {
   Comparison?: MapFilterComparison | string;
 }
 
-export namespace MapFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MapFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Boolean filter for querying findings.</p>
  */
@@ -7819,15 +6324,6 @@ export interface BooleanFilter {
    * <p>The value of the boolean.</p>
    */
   Value?: boolean;
-}
-
-export namespace BooleanFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BooleanFilter): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8425,15 +6921,6 @@ export interface AwsSecurityFindingFilters {
   Sample?: BooleanFilter[];
 }
 
-export namespace AwsSecurityFindingFilters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSecurityFindingFilters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Identifies a finding to update using <code>BatchUpdateFindings</code>.</p>
  */
@@ -8451,29 +6938,11 @@ export interface AwsSecurityFindingIdentifier {
   ProductArn: string | undefined;
 }
 
-export namespace AwsSecurityFindingIdentifier {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSecurityFindingIdentifier): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDisableStandardsRequest {
   /**
    * <p>The ARNs of the standards subscriptions to disable.</p>
    */
   StandardsSubscriptionArns: string[] | undefined;
-}
-
-export namespace BatchDisableStandardsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisableStandardsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum StandardsStatus {
@@ -8497,15 +6966,6 @@ export interface StandardsStatusReason {
    * <p>The reason code that represents the reason for the current status of a standard subscription.</p>
    */
   StatusReasonCode: StatusReasonCode | string | undefined;
-}
-
-export namespace StandardsStatusReason {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StandardsStatusReason): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8561,29 +7021,11 @@ export interface StandardsSubscription {
   StandardsStatusReason?: StandardsStatusReason;
 }
 
-export namespace StandardsSubscription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StandardsSubscription): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchDisableStandardsResponse {
   /**
    * <p>The details of the standards subscriptions that were disabled.</p>
    */
   StandardsSubscriptions?: StandardsSubscription[];
-}
-
-export namespace BatchDisableStandardsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchDisableStandardsResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8602,29 +7044,11 @@ export interface StandardsSubscriptionRequest {
   StandardsInput?: Record<string, string>;
 }
 
-export namespace StandardsSubscriptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StandardsSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchEnableStandardsRequest {
   /**
    * <p>The list of standards checks to enable.</p>
    */
   StandardsSubscriptionRequests: StandardsSubscriptionRequest[] | undefined;
-}
-
-export namespace BatchEnableStandardsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEnableStandardsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchEnableStandardsResponse {
@@ -8634,30 +7058,12 @@ export interface BatchEnableStandardsResponse {
   StandardsSubscriptions?: StandardsSubscription[];
 }
 
-export namespace BatchEnableStandardsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchEnableStandardsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchImportFindingsRequest {
   /**
    * <p>A list of findings to import. To successfully import a finding, it must follow the
    *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html">Amazon Web Services Security Finding Format</a>. Maximum of 100 findings per request.</p>
    */
   Findings: AwsSecurityFinding[] | undefined;
-}
-
-export namespace BatchImportFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchImportFindingsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8682,15 +7088,6 @@ export interface ImportFindingsError {
   ErrorMessage: string | undefined;
 }
 
-export namespace ImportFindingsError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportFindingsError): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchImportFindingsResponse {
   /**
    * <p>The number of findings that failed to import.</p>
@@ -8708,15 +7105,6 @@ export interface BatchImportFindingsResponse {
   FailedFindings?: ImportFindingsError[];
 }
 
-export namespace BatchImportFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchImportFindingsResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The updated note.</p>
  */
@@ -8730,15 +7118,6 @@ export interface NoteUpdate {
    * <p>The principal that updated the note.</p>
    */
   UpdatedBy: string | undefined;
-}
-
-export namespace NoteUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoteUpdate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8810,15 +7189,6 @@ export interface SeverityUpdate {
   Label?: SeverityLabel | string;
 }
 
-export namespace SeverityUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SeverityUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Used to update information about the investigation into the finding.</p>
  */
@@ -8862,15 +7232,6 @@ export interface WorkflowUpdate {
    *          </ul>
    */
   Status?: WorkflowStatus | string;
-}
-
-export namespace WorkflowUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkflowUpdate): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchUpdateFindingsRequest {
@@ -8977,15 +7338,6 @@ export interface BatchUpdateFindingsRequest {
   RelatedFindings?: RelatedFinding[];
 }
 
-export namespace BatchUpdateFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateFindingsRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A finding from a <code>BatchUpdateFindings</code> request that Security Hub was unable to
  *          update.</p>
@@ -9007,15 +7359,6 @@ export interface BatchUpdateFindingsUnprocessedFinding {
   ErrorMessage: string | undefined;
 }
 
-export namespace BatchUpdateFindingsUnprocessedFinding {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateFindingsUnprocessedFinding): any => ({
-    ...obj,
-  });
-}
-
 export interface BatchUpdateFindingsResponse {
   /**
    * <p>The list of findings that were updated successfully.</p>
@@ -9026,15 +7369,6 @@ export interface BatchUpdateFindingsResponse {
    * <p>The list of findings that were not updated.</p>
    */
   UnprocessedFindings: BatchUpdateFindingsUnprocessedFinding[] | undefined;
-}
-
-export namespace BatchUpdateFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchUpdateFindingsResponse): any => ({
-    ...obj,
-  });
 }
 
 export enum ControlStatus {
@@ -9059,29 +7393,11 @@ export interface CreateActionTargetRequest {
   Id: string | undefined;
 }
 
-export namespace CreateActionTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateActionTargetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateActionTargetResponse {
   /**
    * <p>The ARN for the custom action target.</p>
    */
   ActionTargetArn: string | undefined;
-}
-
-export namespace CreateActionTargetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateActionTargetResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9140,15 +7456,6 @@ export interface CreateFindingAggregatorRequest {
   Regions?: string[];
 }
 
-export namespace CreateFindingAggregatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFindingAggregatorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFindingAggregatorResponse {
   /**
    * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and stop finding aggregation.</p>
@@ -9169,15 +7476,6 @@ export interface CreateFindingAggregatorResponse {
    * <p>The list of excluded Regions or included Regions.</p>
    */
   Regions?: string[];
-}
-
-export namespace CreateFindingAggregatorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFindingAggregatorResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateInsightRequest {
@@ -9201,29 +7499,11 @@ export interface CreateInsightRequest {
   GroupByAttribute: string | undefined;
 }
 
-export namespace CreateInsightRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInsightRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateInsightResponse {
   /**
    * <p>The ARN of the insight created.</p>
    */
   InsightArn: string | undefined;
-}
-
-export namespace CreateInsightResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInsightResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMembersRequest {
@@ -9232,15 +7512,6 @@ export interface CreateMembersRequest {
    *          list includes the account ID and optionally the email address.</p>
    */
   AccountDetails: AccountDetails[] | undefined;
-}
-
-export namespace CreateMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMembersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9258,30 +7529,12 @@ export interface Result {
   ProcessingResult?: string;
 }
 
-export namespace Result {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Result): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMembersResponse {
   /**
    * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
    *          the account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
-}
-
-export namespace CreateMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMembersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeclineInvitationsRequest {
@@ -9292,30 +7545,12 @@ export interface DeclineInvitationsRequest {
   AccountIds: string[] | undefined;
 }
 
-export namespace DeclineInvitationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeclineInvitationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeclineInvitationsResponse {
   /**
    * <p>The list of Amazon Web Services accounts that were not processed. For each account, the list includes
    *          the account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
-}
-
-export namespace DeclineInvitationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeclineInvitationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteActionTargetRequest {
@@ -9325,29 +7560,11 @@ export interface DeleteActionTargetRequest {
   ActionTargetArn: string | undefined;
 }
 
-export namespace DeleteActionTargetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteActionTargetRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteActionTargetResponse {
   /**
    * <p>The ARN of the custom action target that was deleted.</p>
    */
   ActionTargetArn: string | undefined;
-}
-
-export namespace DeleteActionTargetResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteActionTargetResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFindingAggregatorRequest {
@@ -9357,40 +7574,13 @@ export interface DeleteFindingAggregatorRequest {
   FindingAggregatorArn: string | undefined;
 }
 
-export namespace DeleteFindingAggregatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFindingAggregatorRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFindingAggregatorResponse {}
-
-export namespace DeleteFindingAggregatorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteFindingAggregatorResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DeleteInsightRequest {
   /**
    * <p>The ARN of the insight to delete.</p>
    */
   InsightArn: string | undefined;
-}
-
-export namespace DeleteInsightRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInsightRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteInsightResponse {
@@ -9400,29 +7590,11 @@ export interface DeleteInsightResponse {
   InsightArn: string | undefined;
 }
 
-export namespace DeleteInsightResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInsightResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteInvitationsRequest {
   /**
    * <p>The list of the account IDs that sent the invitations to delete.</p>
    */
   AccountIds: string[] | undefined;
-}
-
-export namespace DeleteInvitationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInvitationsRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteInvitationsResponse {
@@ -9433,29 +7605,11 @@ export interface DeleteInvitationsResponse {
   UnprocessedAccounts?: Result[];
 }
 
-export namespace DeleteInvitationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteInvitationsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMembersRequest {
   /**
    * <p>The list of account IDs for the member accounts to delete.</p>
    */
   AccountIds: string[] | undefined;
-}
-
-export namespace DeleteMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMembersRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteMembersResponse {
@@ -9464,15 +7618,6 @@ export interface DeleteMembersResponse {
    *          account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
-}
-
-export namespace DeleteMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMembersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeActionTargetsRequest {
@@ -9496,15 +7641,6 @@ export interface DescribeActionTargetsRequest {
   MaxResults?: number;
 }
 
-export namespace DescribeActionTargetsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActionTargetsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeActionTargetsResponse {
   /**
    * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
@@ -9519,29 +7655,11 @@ export interface DescribeActionTargetsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeActionTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeActionTargetsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeHubRequest {
   /**
    * <p>The ARN of the Hub resource to retrieve.</p>
    */
   HubArn?: string;
-}
-
-export namespace DescribeHubRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHubRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeHubResponse {
@@ -9564,25 +7682,7 @@ export interface DescribeHubResponse {
   AutoEnableControls?: boolean;
 }
 
-export namespace DescribeHubResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHubResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeOrganizationConfigurationRequest {}
-
-export namespace DescribeOrganizationConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConfigurationRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeOrganizationConfigurationResponse {
   /**
@@ -9609,15 +7709,6 @@ export interface DescribeOrganizationConfigurationResponse {
   AutoEnableStandards?: AutoEnableStandards | string;
 }
 
-export namespace DescribeOrganizationConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeOrganizationConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProductsRequest {
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -9637,15 +7728,6 @@ export interface DescribeProductsRequest {
    * <p>The ARN of the integration to return.</p>
    */
   ProductArn?: string;
-}
-
-export namespace DescribeProductsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum IntegrationType {
@@ -9722,15 +7804,6 @@ export interface Product {
   ProductSubscriptionResourcePolicy?: string;
 }
 
-export namespace Product {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Product): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeProductsResponse {
   /**
    * <p>A list of products, including details for each product.</p>
@@ -9741,15 +7814,6 @@ export interface DescribeProductsResponse {
    * <p>The pagination token to use to request the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeProductsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProductsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeStandardsRequest {
@@ -9766,15 +7830,6 @@ export interface DescribeStandardsRequest {
    * <p>The maximum number of standards to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribeStandardsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStandardsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9807,15 +7862,6 @@ export interface Standard {
   EnabledByDefault?: boolean;
 }
 
-export namespace Standard {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Standard): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStandardsResponse {
   /**
    * <p>A list of available standards.</p>
@@ -9826,15 +7872,6 @@ export interface DescribeStandardsResponse {
    * <p>The pagination token to use to request the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace DescribeStandardsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStandardsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeStandardsControlsRequest {
@@ -9857,15 +7894,6 @@ export interface DescribeStandardsControlsRequest {
    * <p>The maximum number of security standard controls to return.</p>
    */
   MaxResults?: number;
-}
-
-export namespace DescribeStandardsControlsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStandardsControlsRequest): any => ({
-    ...obj,
-  });
 }
 
 export enum SeverityRating {
@@ -9936,15 +7964,6 @@ export interface StandardsControl {
   RelatedRequirements?: string[];
 }
 
-export namespace StandardsControl {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StandardsControl): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeStandardsControlsResponse {
   /**
    * <p>A list of security standards controls.</p>
@@ -9957,15 +7976,6 @@ export interface DescribeStandardsControlsResponse {
   NextToken?: string;
 }
 
-export namespace DescribeStandardsControlsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStandardsControlsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableImportFindingsForProductRequest {
   /**
    * <p>The ARN of the integrated product to disable the integration for.</p>
@@ -9973,25 +7983,7 @@ export interface DisableImportFindingsForProductRequest {
   ProductSubscriptionArn: string | undefined;
 }
 
-export namespace DisableImportFindingsForProductRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableImportFindingsForProductRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableImportFindingsForProductResponse {}
-
-export namespace DisableImportFindingsForProductResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableImportFindingsForProductResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisableOrganizationAdminAccountRequest {
   /**
@@ -10000,91 +7992,19 @@ export interface DisableOrganizationAdminAccountRequest {
   AdminAccountId: string | undefined;
 }
 
-export namespace DisableOrganizationAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableOrganizationAdminAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableOrganizationAdminAccountResponse {}
-
-export namespace DisableOrganizationAdminAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableOrganizationAdminAccountResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisableSecurityHubRequest {}
 
-export namespace DisableSecurityHubRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableSecurityHubRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisableSecurityHubResponse {}
-
-export namespace DisableSecurityHubResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisableSecurityHubResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateFromAdministratorAccountRequest {}
 
-export namespace DisassociateFromAdministratorAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFromAdministratorAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateFromAdministratorAccountResponse {}
-
-export namespace DisassociateFromAdministratorAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFromAdministratorAccountResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateFromMasterAccountRequest {}
 
-export namespace DisassociateFromMasterAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFromMasterAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateFromMasterAccountResponse {}
-
-export namespace DisassociateFromMasterAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateFromMasterAccountResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface DisassociateMembersRequest {
   /**
@@ -10093,25 +8013,7 @@ export interface DisassociateMembersRequest {
   AccountIds: string[] | undefined;
 }
 
-export namespace DisassociateMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DisassociateMembersResponse {}
-
-export namespace DisassociateMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisassociateMembersResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface EnableImportFindingsForProductRequest {
   /**
@@ -10120,29 +8022,11 @@ export interface EnableImportFindingsForProductRequest {
   ProductArn: string | undefined;
 }
 
-export namespace EnableImportFindingsForProductRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableImportFindingsForProductRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableImportFindingsForProductResponse {
   /**
    * <p>The ARN of your subscription to the product to enable integrations for.</p>
    */
   ProductSubscriptionArn?: string;
-}
-
-export namespace EnableImportFindingsForProductResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableImportFindingsForProductResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface EnableOrganizationAdminAccountRequest {
@@ -10153,25 +8037,7 @@ export interface EnableOrganizationAdminAccountRequest {
   AdminAccountId: string | undefined;
 }
 
-export namespace EnableOrganizationAdminAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableOrganizationAdminAccountRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableOrganizationAdminAccountResponse {}
-
-export namespace EnableOrganizationAdminAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableOrganizationAdminAccountResponse): any => ({
-    ...obj,
-  });
-}
 
 export interface EnableSecurityHubRequest {
   /**
@@ -10188,25 +8054,7 @@ export interface EnableSecurityHubRequest {
   EnableDefaultStandards?: boolean;
 }
 
-export namespace EnableSecurityHubRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableSecurityHubRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface EnableSecurityHubResponse {}
-
-export namespace EnableSecurityHubResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EnableSecurityHubResponse): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A finding aggregator. A finding aggregator contains the configuration for finding aggregation.</p>
@@ -10218,25 +8066,7 @@ export interface FindingAggregator {
   FindingAggregatorArn?: string;
 }
 
-export namespace FindingAggregator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FindingAggregator): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAdministratorAccountRequest {}
-
-export namespace GetAdministratorAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAdministratorAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Details about an invitation.</p>
@@ -10263,29 +8093,11 @@ export interface Invitation {
   MemberStatus?: string;
 }
 
-export namespace Invitation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Invitation): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAdministratorAccountResponse {
   /**
    * <p>Details about an invitation.</p>
    */
   Administrator?: Invitation;
-}
-
-export namespace GetAdministratorAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAdministratorAccountResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetEnabledStandardsRequest {
@@ -10309,15 +8121,6 @@ export interface GetEnabledStandardsRequest {
   MaxResults?: number;
 }
 
-export namespace GetEnabledStandardsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnabledStandardsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetEnabledStandardsResponse {
   /**
    * <p>The list of <code>StandardsSubscriptions</code> objects that include information about
@@ -10331,29 +8134,11 @@ export interface GetEnabledStandardsResponse {
   NextToken?: string;
 }
 
-export namespace GetEnabledStandardsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEnabledStandardsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFindingAggregatorRequest {
   /**
    * <p>The ARN of the finding aggregator to return details for. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
    */
   FindingAggregatorArn: string | undefined;
-}
-
-export namespace GetFindingAggregatorRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFindingAggregatorRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFindingAggregatorResponse {
@@ -10378,15 +8163,6 @@ export interface GetFindingAggregatorResponse {
   Regions?: string[];
 }
 
-export namespace GetFindingAggregatorResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFindingAggregatorResponse): any => ({
-    ...obj,
-  });
-}
-
 export enum SortOrder {
   ASCENDING = "asc",
   DESCENDING = "desc",
@@ -10405,15 +8181,6 @@ export interface SortCriterion {
    * <p>The order used to sort findings.</p>
    */
   SortOrder?: SortOrder | string;
-}
-
-export namespace SortCriterion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SortCriterion): any => ({
-    ...obj,
-  });
 }
 
 export interface GetFindingsRequest {
@@ -10447,15 +8214,6 @@ export interface GetFindingsRequest {
   MaxResults?: number;
 }
 
-export namespace GetFindingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFindingsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetFindingsResponse {
   /**
    * <p>The findings that matched the filters specified in the request.</p>
@@ -10468,29 +8226,11 @@ export interface GetFindingsResponse {
   NextToken?: string;
 }
 
-export namespace GetFindingsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFindingsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInsightResultsRequest {
   /**
    * <p>The ARN of the insight for which to return results.</p>
    */
   InsightArn: string | undefined;
-}
-
-export namespace GetInsightResultsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInsightResultsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10508,15 +8248,6 @@ export interface InsightResultValue {
    * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
    */
   Count: number | undefined;
-}
-
-export namespace InsightResultValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsightResultValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10542,29 +8273,11 @@ export interface InsightResults {
   ResultValues: InsightResultValue[] | undefined;
 }
 
-export namespace InsightResults {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsightResults): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInsightResultsResponse {
   /**
    * <p>The insight results returned by the operation.</p>
    */
   InsightResults: InsightResults | undefined;
-}
-
-export namespace GetInsightResultsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInsightResultsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface GetInsightsRequest {
@@ -10588,15 +8301,6 @@ export interface GetInsightsRequest {
    * <p>The maximum number of items to return in the response.</p>
    */
   MaxResults?: number;
-}
-
-export namespace GetInsightsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInsightsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10628,15 +8332,6 @@ export interface Insight {
   GroupByAttribute: string | undefined;
 }
 
-export namespace Insight {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Insight): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInsightsResponse {
   /**
    * <p>The insights returned by the operation.</p>
@@ -10649,25 +8344,7 @@ export interface GetInsightsResponse {
   NextToken?: string;
 }
 
-export namespace GetInsightsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInsightsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetInvitationsCountRequest {}
-
-export namespace GetInvitationsCountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInvitationsCountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetInvitationsCountResponse {
   /**
@@ -10677,25 +8354,7 @@ export interface GetInvitationsCountResponse {
   InvitationsCount?: number;
 }
 
-export namespace GetInvitationsCountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInvitationsCountResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMasterAccountRequest {}
-
-export namespace GetMasterAccountRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMasterAccountRequest): any => ({
-    ...obj,
-  });
-}
 
 export interface GetMasterAccountResponse {
   /**
@@ -10705,29 +8364,11 @@ export interface GetMasterAccountResponse {
   Master?: Invitation;
 }
 
-export namespace GetMasterAccountResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMasterAccountResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMembersRequest {
   /**
    * <p>The list of account IDs for the Security Hub member accounts to return the details for. </p>
    */
   AccountIds: string[] | undefined;
-}
-
-export namespace GetMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMembersRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10813,15 +8454,6 @@ export interface Member {
   UpdatedAt?: Date;
 }
 
-export namespace Member {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Member): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMembersResponse {
   /**
    * <p>The list of details about the Security Hub member accounts.</p>
@@ -10835,29 +8467,11 @@ export interface GetMembersResponse {
   UnprocessedAccounts?: Result[];
 }
 
-export namespace GetMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMembersResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface InviteMembersRequest {
   /**
    * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub as members. </p>
    */
   AccountIds: string[] | undefined;
-}
-
-export namespace InviteMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InviteMembersRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface InviteMembersResponse {
@@ -10866,15 +8480,6 @@ export interface InviteMembersResponse {
    *          includes the account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
-}
-
-export namespace InviteMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InviteMembersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListEnabledProductsForImportRequest {
@@ -10893,15 +8498,6 @@ export interface ListEnabledProductsForImportRequest {
   MaxResults?: number;
 }
 
-export namespace ListEnabledProductsForImportRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnabledProductsForImportRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListEnabledProductsForImportResponse {
   /**
    * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
@@ -10912,15 +8508,6 @@ export interface ListEnabledProductsForImportResponse {
    * <p>The pagination token to use to request the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListEnabledProductsForImportResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEnabledProductsForImportResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListFindingAggregatorsRequest {
@@ -10935,15 +8522,6 @@ export interface ListFindingAggregatorsRequest {
   MaxResults?: number;
 }
 
-export namespace ListFindingAggregatorsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFindingAggregatorsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListFindingAggregatorsResponse {
   /**
    * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
@@ -10956,15 +8534,6 @@ export interface ListFindingAggregatorsResponse {
    *       </p>
    */
   NextToken?: string;
-}
-
-export namespace ListFindingAggregatorsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListFindingAggregatorsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListInvitationsRequest {
@@ -10983,15 +8552,6 @@ export interface ListInvitationsRequest {
   NextToken?: string;
 }
 
-export namespace ListInvitationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInvitationsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListInvitationsResponse {
   /**
    * <p>The details of the invitations returned by the operation.</p>
@@ -11002,15 +8562,6 @@ export interface ListInvitationsResponse {
    * <p>The pagination token to use to request the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListInvitationsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListInvitationsResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMembersRequest {
@@ -11039,15 +8590,6 @@ export interface ListMembersRequest {
   NextToken?: string;
 }
 
-export namespace ListMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMembersRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMembersResponse {
   /**
    * <p>Member details returned by the operation.</p>
@@ -11058,15 +8600,6 @@ export interface ListMembersResponse {
    * <p>The pagination token to use to request the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMembersResponse): any => ({
-    ...obj,
-  });
 }
 
 export interface ListOrganizationAdminAccountsRequest {
@@ -11084,15 +8617,6 @@ export interface ListOrganizationAdminAccountsRequest {
   NextToken?: string;
 }
 
-export namespace ListOrganizationAdminAccountsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationAdminAccountsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListOrganizationAdminAccountsResponse {
   /**
    * <p>The list of Security Hub administrator accounts.</p>
@@ -11105,29 +8629,11 @@ export interface ListOrganizationAdminAccountsResponse {
   NextToken?: string;
 }
 
-export namespace ListOrganizationAdminAccountsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListOrganizationAdminAccountsResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ARN of the resource to retrieve tags for.</p>
    */
   ResourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface ListTagsForResourceResponse {
@@ -11137,11 +8643,2083 @@ export interface ListTagsForResourceResponse {
   Tags?: Record<string, string>;
 }
 
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const RuleGroupVariablesPortSetsDetailsFilterSensitiveLog = (obj: RuleGroupVariablesPortSetsDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupVariablesFilterSensitiveLog = (obj: RuleGroupVariables): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupDetailsFilterSensitiveLog = (obj: RuleGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsNetworkFirewallRuleGroupDetailsFilterSensitiveLog = (obj: AwsNetworkFirewallRuleGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainMasterUserOptionsDetailsFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainMasterUserOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetailsFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetailsFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainClusterConfigDetailsFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainClusterConfigDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainDomainEndpointOptionsDetailsFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetailsFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainLogPublishingOptionFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainLogPublishingOption
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainLogPublishingOptionsDetailsFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainLogPublishingOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetailsFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainServiceSoftwareOptionsDetailsFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainVpcOptionsDetailsFilterSensitiveLog = (
+  obj: AwsOpenSearchServiceDomainVpcOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsOpenSearchServiceDomainDetailsFilterSensitiveLog = (obj: AwsOpenSearchServiceDomainDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbClusterAssociatedRoleFilterSensitiveLog = (obj: AwsRdsDbClusterAssociatedRole): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbClusterMemberFilterSensitiveLog = (obj: AwsRdsDbClusterMember): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbClusterOptionGroupMembershipFilterSensitiveLog = (
+  obj: AwsRdsDbClusterOptionGroupMembership
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbDomainMembershipFilterSensitiveLog = (obj: AwsRdsDbDomainMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbInstanceVpcSecurityGroupFilterSensitiveLog = (obj: AwsRdsDbInstanceVpcSecurityGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbClusterDetailsFilterSensitiveLog = (obj: AwsRdsDbClusterDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbClusterSnapshotDetailsFilterSensitiveLog = (obj: AwsRdsDbClusterSnapshotDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbInstanceAssociatedRoleFilterSensitiveLog = (obj: AwsRdsDbInstanceAssociatedRole): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbParameterGroupFilterSensitiveLog = (obj: AwsRdsDbParameterGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbSubnetGroupSubnetAvailabilityZoneFilterSensitiveLog = (
+  obj: AwsRdsDbSubnetGroupSubnetAvailabilityZone
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbSubnetGroupSubnetFilterSensitiveLog = (obj: AwsRdsDbSubnetGroupSubnet): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbSubnetGroupFilterSensitiveLog = (obj: AwsRdsDbSubnetGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbInstanceEndpointFilterSensitiveLog = (obj: AwsRdsDbInstanceEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbOptionGroupMembershipFilterSensitiveLog = (obj: AwsRdsDbOptionGroupMembership): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsPendingCloudWatchLogsExportsFilterSensitiveLog = (obj: AwsRdsPendingCloudWatchLogsExports): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbProcessorFeatureFilterSensitiveLog = (obj: AwsRdsDbProcessorFeature): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbPendingModifiedValuesFilterSensitiveLog = (obj: AwsRdsDbPendingModifiedValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbStatusInfoFilterSensitiveLog = (obj: AwsRdsDbStatusInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbInstanceDetailsFilterSensitiveLog = (obj: AwsRdsDbInstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbSecurityGroupEc2SecurityGroupFilterSensitiveLog = (
+  obj: AwsRdsDbSecurityGroupEc2SecurityGroup
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbSecurityGroupIpRangeFilterSensitiveLog = (obj: AwsRdsDbSecurityGroupIpRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbSecurityGroupDetailsFilterSensitiveLog = (obj: AwsRdsDbSecurityGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsDbSnapshotDetailsFilterSensitiveLog = (obj: AwsRdsDbSnapshotDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRdsEventSubscriptionDetailsFilterSensitiveLog = (obj: AwsRdsEventSubscriptionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterClusterNodeFilterSensitiveLog = (obj: AwsRedshiftClusterClusterNode): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterClusterParameterStatusFilterSensitiveLog = (
+  obj: AwsRedshiftClusterClusterParameterStatus
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterClusterParameterGroupFilterSensitiveLog = (
+  obj: AwsRedshiftClusterClusterParameterGroup
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterClusterSecurityGroupFilterSensitiveLog = (
+  obj: AwsRedshiftClusterClusterSecurityGroup
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterClusterSnapshotCopyStatusFilterSensitiveLog = (
+  obj: AwsRedshiftClusterClusterSnapshotCopyStatus
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterDeferredMaintenanceWindowFilterSensitiveLog = (
+  obj: AwsRedshiftClusterDeferredMaintenanceWindow
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterElasticIpStatusFilterSensitiveLog = (obj: AwsRedshiftClusterElasticIpStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterEndpointFilterSensitiveLog = (obj: AwsRedshiftClusterEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterHsmStatusFilterSensitiveLog = (obj: AwsRedshiftClusterHsmStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterIamRoleFilterSensitiveLog = (obj: AwsRedshiftClusterIamRole): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterLoggingStatusFilterSensitiveLog = (obj: AwsRedshiftClusterLoggingStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterPendingModifiedValuesFilterSensitiveLog = (
+  obj: AwsRedshiftClusterPendingModifiedValues
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterResizeInfoFilterSensitiveLog = (obj: AwsRedshiftClusterResizeInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterRestoreStatusFilterSensitiveLog = (obj: AwsRedshiftClusterRestoreStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterVpcSecurityGroupFilterSensitiveLog = (obj: AwsRedshiftClusterVpcSecurityGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsRedshiftClusterDetailsFilterSensitiveLog = (obj: AwsRedshiftClusterDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3AccountPublicAccessBlockDetailsFilterSensitiveLog = (
+  obj: AwsS3AccountPublicAccessBlockDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetailsFilterSensitiveLog = (
+  obj: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetailsFilterSensitiveLog = (
+  obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetailsFilterSensitiveLog = (
+  obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetailsFilterSensitiveLog = (
+  obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetailsFilterSensitiveLog = (
+  obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketLifecycleConfigurationRulesFilterDetailsFilterSensitiveLog = (
+  obj: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetailsFilterSensitiveLog = (
+  obj: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetailsFilterSensitiveLog = (
+  obj: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketLifecycleConfigurationRulesDetailsFilterSensitiveLog = (
+  obj: AwsS3BucketBucketLifecycleConfigurationRulesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketLifecycleConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsS3BucketBucketLifecycleConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketBucketVersioningConfigurationFilterSensitiveLog = (
+  obj: AwsS3BucketBucketVersioningConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketLoggingConfigurationFilterSensitiveLog = (obj: AwsS3BucketLoggingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketNotificationConfigurationS3KeyFilterRuleFilterSensitiveLog = (
+  obj: AwsS3BucketNotificationConfigurationS3KeyFilterRule
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketNotificationConfigurationS3KeyFilterFilterSensitiveLog = (
+  obj: AwsS3BucketNotificationConfigurationS3KeyFilter
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketNotificationConfigurationFilterFilterSensitiveLog = (
+  obj: AwsS3BucketNotificationConfigurationFilter
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketNotificationConfigurationDetailFilterSensitiveLog = (
+  obj: AwsS3BucketNotificationConfigurationDetail
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketNotificationConfigurationFilterSensitiveLog = (
+  obj: AwsS3BucketNotificationConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketWebsiteConfigurationRedirectToFilterSensitiveLog = (
+  obj: AwsS3BucketWebsiteConfigurationRedirectTo
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketWebsiteConfigurationRoutingRuleConditionFilterSensitiveLog = (
+  obj: AwsS3BucketWebsiteConfigurationRoutingRuleCondition
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketWebsiteConfigurationRoutingRuleRedirectFilterSensitiveLog = (
+  obj: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketWebsiteConfigurationRoutingRuleFilterSensitiveLog = (
+  obj: AwsS3BucketWebsiteConfigurationRoutingRule
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketWebsiteConfigurationFilterSensitiveLog = (obj: AwsS3BucketWebsiteConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketServerSideEncryptionByDefaultFilterSensitiveLog = (
+  obj: AwsS3BucketServerSideEncryptionByDefault
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketServerSideEncryptionRuleFilterSensitiveLog = (
+  obj: AwsS3BucketServerSideEncryptionRule
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketServerSideEncryptionConfigurationFilterSensitiveLog = (
+  obj: AwsS3BucketServerSideEncryptionConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3BucketDetailsFilterSensitiveLog = (obj: AwsS3BucketDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsS3ObjectDetailsFilterSensitiveLog = (obj: AwsS3ObjectDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSecretsManagerSecretRotationRulesFilterSensitiveLog = (
+  obj: AwsSecretsManagerSecretRotationRules
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSecretsManagerSecretDetailsFilterSensitiveLog = (obj: AwsSecretsManagerSecretDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatusReasonFilterSensitiveLog = (obj: StatusReason): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComplianceFilterSensitiveLog = (obj: Compliance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelatedFindingFilterSensitiveLog = (obj: RelatedFinding): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FindingProviderSeverityFilterSensitiveLog = (obj: FindingProviderSeverity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FindingProviderFieldsFilterSensitiveLog = (obj: FindingProviderFields): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MalwareFilterSensitiveLog = (obj: Malware): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PortRangeFilterSensitiveLog = (obj: PortRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkFilterSensitiveLog = (obj: Network): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkPathComponentDetailsFilterSensitiveLog = (obj: NetworkPathComponentDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkHeaderFilterSensitiveLog = (obj: NetworkHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkPathComponentFilterSensitiveLog = (obj: NetworkPathComponent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoteFilterSensitiveLog = (obj: Note): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PatchSummaryFilterSensitiveLog = (obj: PatchSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProcessDetailsFilterSensitiveLog = (obj: ProcessDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationFilterSensitiveLog = (obj: Recommendation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemediationFilterSensitiveLog = (obj: Remediation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CellFilterSensitiveLog = (obj: Cell): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RangeFilterSensitiveLog = (obj: Range): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PageFilterSensitiveLog = (obj: Page): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _RecordFilterSensitiveLog = (obj: _Record): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OccurrencesFilterSensitiveLog = (obj: Occurrences): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomDataIdentifiersDetectionsFilterSensitiveLog = (obj: CustomDataIdentifiersDetections): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomDataIdentifiersResultFilterSensitiveLog = (obj: CustomDataIdentifiersResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SensitiveDataDetectionsFilterSensitiveLog = (obj: SensitiveDataDetections): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SensitiveDataResultFilterSensitiveLog = (obj: SensitiveDataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClassificationStatusFilterSensitiveLog = (obj: ClassificationStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClassificationResultFilterSensitiveLog = (obj: ClassificationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataClassificationDetailsFilterSensitiveLog = (obj: DataClassificationDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSnsTopicSubscriptionFilterSensitiveLog = (obj: AwsSnsTopicSubscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSnsTopicDetailsFilterSensitiveLog = (obj: AwsSnsTopicDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSqsQueueDetailsFilterSensitiveLog = (obj: AwsSqsQueueDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSsmComplianceSummaryFilterSensitiveLog = (obj: AwsSsmComplianceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSsmPatchFilterSensitiveLog = (obj: AwsSsmPatch): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSsmPatchComplianceDetailsFilterSensitiveLog = (obj: AwsSsmPatchComplianceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRateBasedRuleMatchPredicateFilterSensitiveLog = (obj: AwsWafRateBasedRuleMatchPredicate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRateBasedRuleDetailsFilterSensitiveLog = (obj: AwsWafRateBasedRuleDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalRateBasedRuleMatchPredicateFilterSensitiveLog = (
+  obj: AwsWafRegionalRateBasedRuleMatchPredicate
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalRateBasedRuleDetailsFilterSensitiveLog = (obj: AwsWafRegionalRateBasedRuleDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalRulePredicateListDetailsFilterSensitiveLog = (
+  obj: AwsWafRegionalRulePredicateListDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalRuleDetailsFilterSensitiveLog = (obj: AwsWafRegionalRuleDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalRuleGroupRulesActionDetailsFilterSensitiveLog = (
+  obj: AwsWafRegionalRuleGroupRulesActionDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalRuleGroupRulesDetailsFilterSensitiveLog = (
+  obj: AwsWafRegionalRuleGroupRulesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalRuleGroupDetailsFilterSensitiveLog = (obj: AwsWafRegionalRuleGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalWebAclRulesListActionDetailsFilterSensitiveLog = (
+  obj: AwsWafRegionalWebAclRulesListActionDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalWebAclRulesListOverrideActionDetailsFilterSensitiveLog = (
+  obj: AwsWafRegionalWebAclRulesListOverrideActionDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalWebAclRulesListDetailsFilterSensitiveLog = (
+  obj: AwsWafRegionalWebAclRulesListDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRegionalWebAclDetailsFilterSensitiveLog = (obj: AwsWafRegionalWebAclDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRulePredicateListDetailsFilterSensitiveLog = (obj: AwsWafRulePredicateListDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRuleDetailsFilterSensitiveLog = (obj: AwsWafRuleDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRuleGroupRulesActionDetailsFilterSensitiveLog = (obj: AwsWafRuleGroupRulesActionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRuleGroupRulesDetailsFilterSensitiveLog = (obj: AwsWafRuleGroupRulesDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafRuleGroupDetailsFilterSensitiveLog = (obj: AwsWafRuleGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WafActionFilterSensitiveLog = (obj: WafAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WafExcludedRuleFilterSensitiveLog = (obj: WafExcludedRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WafOverrideActionFilterSensitiveLog = (obj: WafOverrideAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafWebAclRuleFilterSensitiveLog = (obj: AwsWafWebAclRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafWebAclDetailsFilterSensitiveLog = (obj: AwsWafWebAclDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsXrayEncryptionConfigDetailsFilterSensitiveLog = (obj: AwsXrayEncryptionConfigDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VolumeMountFilterSensitiveLog = (obj: VolumeMount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContainerDetailsFilterSensitiveLog = (obj: ContainerDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDetailsFilterSensitiveLog = (obj: ResourceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SeverityFilterSensitiveLog = (obj: Severity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThreatIntelIndicatorFilterSensitiveLog = (obj: ThreatIntelIndicator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilePathsFilterSensitiveLog = (obj: FilePaths): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ThreatFilterSensitiveLog = (obj: Threat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CvssFilterSensitiveLog = (obj: Cvss): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VulnerabilityVendorFilterSensitiveLog = (obj: VulnerabilityVendor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SoftwarePackageFilterSensitiveLog = (obj: SoftwarePackage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VulnerabilityFilterSensitiveLog = (obj: Vulnerability): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowFilterSensitiveLog = (obj: Workflow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSecurityFindingFilterSensitiveLog = (obj: AwsSecurityFinding): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StringFilterFilterSensitiveLog = (obj: StringFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NumberFilterFilterSensitiveLog = (obj: NumberFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateRangeFilterSensitiveLog = (obj: DateRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DateFilterFilterSensitiveLog = (obj: DateFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KeywordFilterFilterSensitiveLog = (obj: KeywordFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IpFilterFilterSensitiveLog = (obj: IpFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapFilterFilterSensitiveLog = (obj: MapFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BooleanFilterFilterSensitiveLog = (obj: BooleanFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSecurityFindingFiltersFilterSensitiveLog = (obj: AwsSecurityFindingFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSecurityFindingIdentifierFilterSensitiveLog = (obj: AwsSecurityFindingIdentifier): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisableStandardsRequestFilterSensitiveLog = (obj: BatchDisableStandardsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StandardsStatusReasonFilterSensitiveLog = (obj: StandardsStatusReason): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StandardsSubscriptionFilterSensitiveLog = (obj: StandardsSubscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchDisableStandardsResponseFilterSensitiveLog = (obj: BatchDisableStandardsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StandardsSubscriptionRequestFilterSensitiveLog = (obj: StandardsSubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchEnableStandardsRequestFilterSensitiveLog = (obj: BatchEnableStandardsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchEnableStandardsResponseFilterSensitiveLog = (obj: BatchEnableStandardsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchImportFindingsRequestFilterSensitiveLog = (obj: BatchImportFindingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportFindingsErrorFilterSensitiveLog = (obj: ImportFindingsError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchImportFindingsResponseFilterSensitiveLog = (obj: BatchImportFindingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoteUpdateFilterSensitiveLog = (obj: NoteUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SeverityUpdateFilterSensitiveLog = (obj: SeverityUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkflowUpdateFilterSensitiveLog = (obj: WorkflowUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateFindingsRequestFilterSensitiveLog = (obj: BatchUpdateFindingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateFindingsUnprocessedFindingFilterSensitiveLog = (
+  obj: BatchUpdateFindingsUnprocessedFinding
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchUpdateFindingsResponseFilterSensitiveLog = (obj: BatchUpdateFindingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateActionTargetRequestFilterSensitiveLog = (obj: CreateActionTargetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateActionTargetResponseFilterSensitiveLog = (obj: CreateActionTargetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFindingAggregatorRequestFilterSensitiveLog = (obj: CreateFindingAggregatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateFindingAggregatorResponseFilterSensitiveLog = (obj: CreateFindingAggregatorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInsightRequestFilterSensitiveLog = (obj: CreateInsightRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateInsightResponseFilterSensitiveLog = (obj: CreateInsightResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMembersRequestFilterSensitiveLog = (obj: CreateMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultFilterSensitiveLog = (obj: Result): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMembersResponseFilterSensitiveLog = (obj: CreateMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeclineInvitationsRequestFilterSensitiveLog = (obj: DeclineInvitationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeclineInvitationsResponseFilterSensitiveLog = (obj: DeclineInvitationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteActionTargetRequestFilterSensitiveLog = (obj: DeleteActionTargetRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteActionTargetResponseFilterSensitiveLog = (obj: DeleteActionTargetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFindingAggregatorRequestFilterSensitiveLog = (obj: DeleteFindingAggregatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteFindingAggregatorResponseFilterSensitiveLog = (obj: DeleteFindingAggregatorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInsightRequestFilterSensitiveLog = (obj: DeleteInsightRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInsightResponseFilterSensitiveLog = (obj: DeleteInsightResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInvitationsRequestFilterSensitiveLog = (obj: DeleteInvitationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteInvitationsResponseFilterSensitiveLog = (obj: DeleteInvitationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMembersRequestFilterSensitiveLog = (obj: DeleteMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMembersResponseFilterSensitiveLog = (obj: DeleteMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeActionTargetsRequestFilterSensitiveLog = (obj: DescribeActionTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeActionTargetsResponseFilterSensitiveLog = (obj: DescribeActionTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHubRequestFilterSensitiveLog = (obj: DescribeHubRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeHubResponseFilterSensitiveLog = (obj: DescribeHubResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigurationRequestFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeOrganizationConfigurationResponseFilterSensitiveLog = (
+  obj: DescribeOrganizationConfigurationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProductsRequestFilterSensitiveLog = (obj: DescribeProductsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProductFilterSensitiveLog = (obj: Product): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeProductsResponseFilterSensitiveLog = (obj: DescribeProductsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStandardsRequestFilterSensitiveLog = (obj: DescribeStandardsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StandardFilterSensitiveLog = (obj: Standard): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStandardsResponseFilterSensitiveLog = (obj: DescribeStandardsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStandardsControlsRequestFilterSensitiveLog = (obj: DescribeStandardsControlsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StandardsControlFilterSensitiveLog = (obj: StandardsControl): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeStandardsControlsResponseFilterSensitiveLog = (obj: DescribeStandardsControlsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableImportFindingsForProductRequestFilterSensitiveLog = (
+  obj: DisableImportFindingsForProductRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableImportFindingsForProductResponseFilterSensitiveLog = (
+  obj: DisableImportFindingsForProductResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableOrganizationAdminAccountRequestFilterSensitiveLog = (
+  obj: DisableOrganizationAdminAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableOrganizationAdminAccountResponseFilterSensitiveLog = (
+  obj: DisableOrganizationAdminAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableSecurityHubRequestFilterSensitiveLog = (obj: DisableSecurityHubRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableSecurityHubResponseFilterSensitiveLog = (obj: DisableSecurityHubResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFromAdministratorAccountRequestFilterSensitiveLog = (
+  obj: DisassociateFromAdministratorAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFromAdministratorAccountResponseFilterSensitiveLog = (
+  obj: DisassociateFromAdministratorAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFromMasterAccountRequestFilterSensitiveLog = (
+  obj: DisassociateFromMasterAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateFromMasterAccountResponseFilterSensitiveLog = (
+  obj: DisassociateFromMasterAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMembersRequestFilterSensitiveLog = (obj: DisassociateMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateMembersResponseFilterSensitiveLog = (obj: DisassociateMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableImportFindingsForProductRequestFilterSensitiveLog = (
+  obj: EnableImportFindingsForProductRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableImportFindingsForProductResponseFilterSensitiveLog = (
+  obj: EnableImportFindingsForProductResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableOrganizationAdminAccountRequestFilterSensitiveLog = (
+  obj: EnableOrganizationAdminAccountRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableOrganizationAdminAccountResponseFilterSensitiveLog = (
+  obj: EnableOrganizationAdminAccountResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableSecurityHubRequestFilterSensitiveLog = (obj: EnableSecurityHubRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnableSecurityHubResponseFilterSensitiveLog = (obj: EnableSecurityHubResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FindingAggregatorFilterSensitiveLog = (obj: FindingAggregator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAdministratorAccountRequestFilterSensitiveLog = (obj: GetAdministratorAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InvitationFilterSensitiveLog = (obj: Invitation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAdministratorAccountResponseFilterSensitiveLog = (obj: GetAdministratorAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnabledStandardsRequestFilterSensitiveLog = (obj: GetEnabledStandardsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetEnabledStandardsResponseFilterSensitiveLog = (obj: GetEnabledStandardsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFindingAggregatorRequestFilterSensitiveLog = (obj: GetFindingAggregatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFindingAggregatorResponseFilterSensitiveLog = (obj: GetFindingAggregatorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SortCriterionFilterSensitiveLog = (obj: SortCriterion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFindingsRequestFilterSensitiveLog = (obj: GetFindingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetFindingsResponseFilterSensitiveLog = (obj: GetFindingsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInsightResultsRequestFilterSensitiveLog = (obj: GetInsightResultsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsightResultValueFilterSensitiveLog = (obj: InsightResultValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsightResultsFilterSensitiveLog = (obj: InsightResults): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInsightResultsResponseFilterSensitiveLog = (obj: GetInsightResultsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInsightsRequestFilterSensitiveLog = (obj: GetInsightsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InsightFilterSensitiveLog = (obj: Insight): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInsightsResponseFilterSensitiveLog = (obj: GetInsightsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInvitationsCountRequestFilterSensitiveLog = (obj: GetInvitationsCountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetInvitationsCountResponseFilterSensitiveLog = (obj: GetInvitationsCountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMasterAccountRequestFilterSensitiveLog = (obj: GetMasterAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMasterAccountResponseFilterSensitiveLog = (obj: GetMasterAccountResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMembersRequestFilterSensitiveLog = (obj: GetMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MemberFilterSensitiveLog = (obj: Member): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InviteMembersRequestFilterSensitiveLog = (obj: InviteMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InviteMembersResponseFilterSensitiveLog = (obj: InviteMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnabledProductsForImportRequestFilterSensitiveLog = (
+  obj: ListEnabledProductsForImportRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEnabledProductsForImportResponseFilterSensitiveLog = (
+  obj: ListEnabledProductsForImportResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingAggregatorsRequestFilterSensitiveLog = (obj: ListFindingAggregatorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListFindingAggregatorsResponseFilterSensitiveLog = (obj: ListFindingAggregatorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInvitationsRequestFilterSensitiveLog = (obj: ListInvitationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInvitationsResponseFilterSensitiveLog = (obj: ListInvitationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMembersRequestFilterSensitiveLog = (obj: ListMembersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationAdminAccountsRequestFilterSensitiveLog = (
+  obj: ListOrganizationAdminAccountsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListOrganizationAdminAccountsResponseFilterSensitiveLog = (
+  obj: ListOrganizationAdminAccountsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});

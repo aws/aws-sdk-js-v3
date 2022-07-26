@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import { AssociateS3ResourcesRequest, AssociateS3ResourcesResult } from "../models/models_0";
+import {
+  AssociateS3ResourcesRequest,
+  AssociateS3ResourcesRequestFilterSensitiveLog,
+  AssociateS3ResourcesResult,
+  AssociateS3ResourcesResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateS3ResourcesCommand,
   serializeAws_json1_1AssociateS3ResourcesCommand,
@@ -76,8 +81,8 @@ export class AssociateS3ResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateS3ResourcesRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: AssociateS3ResourcesResult.filterSensitiveLog,
+      inputFilterSensitiveLog: AssociateS3ResourcesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: AssociateS3ResourcesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

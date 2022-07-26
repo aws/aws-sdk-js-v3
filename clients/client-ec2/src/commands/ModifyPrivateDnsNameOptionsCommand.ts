@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyPrivateDnsNameOptionsRequest, ModifyPrivateDnsNameOptionsResult } from "../models/models_5";
+import {
+  ModifyPrivateDnsNameOptionsRequest,
+  ModifyPrivateDnsNameOptionsRequestFilterSensitiveLog,
+  ModifyPrivateDnsNameOptionsResult,
+  ModifyPrivateDnsNameOptionsResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyPrivateDnsNameOptionsCommand,
   serializeAws_ec2ModifyPrivateDnsNameOptionsCommand,
@@ -72,8 +77,8 @@ export class ModifyPrivateDnsNameOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyPrivateDnsNameOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyPrivateDnsNameOptionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyPrivateDnsNameOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyPrivateDnsNameOptionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

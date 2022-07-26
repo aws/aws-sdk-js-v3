@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ModifyAquaInputMessage, ModifyAquaOutputMessage } from "../models/models_1";
+import {
+  ModifyAquaInputMessage,
+  ModifyAquaInputMessageFilterSensitiveLog,
+  ModifyAquaOutputMessage,
+  ModifyAquaOutputMessageFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_queryModifyAquaConfigurationCommand,
   serializeAws_queryModifyAquaConfigurationCommand,
@@ -72,8 +77,8 @@ export class ModifyAquaConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyAquaInputMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyAquaOutputMessage.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyAquaInputMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyAquaOutputMessageFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { CreateProxySessionRequest, CreateProxySessionResponse } from "../models/models_0";
+import {
+  CreateProxySessionRequest,
+  CreateProxySessionRequestFilterSensitiveLog,
+  CreateProxySessionResponse,
+  CreateProxySessionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProxySessionCommand,
   serializeAws_restJson1CreateProxySessionCommand,
@@ -72,8 +77,8 @@ export class CreateProxySessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProxySessionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateProxySessionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateProxySessionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateProxySessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

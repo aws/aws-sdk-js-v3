@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdatePublicSharingSettingsRequest, UpdatePublicSharingSettingsResponse } from "../models/models_1";
+import {
+  UpdatePublicSharingSettingsRequest,
+  UpdatePublicSharingSettingsRequestFilterSensitiveLog,
+  UpdatePublicSharingSettingsResponse,
+  UpdatePublicSharingSettingsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdatePublicSharingSettingsCommand,
   serializeAws_restJson1UpdatePublicSharingSettingsCommand,
@@ -82,8 +87,8 @@ export class UpdatePublicSharingSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePublicSharingSettingsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePublicSharingSettingsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdatePublicSharingSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdatePublicSharingSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

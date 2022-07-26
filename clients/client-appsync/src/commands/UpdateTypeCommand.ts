@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { UpdateTypeRequest, UpdateTypeResponse } from "../models/models_0";
+import {
+  UpdateTypeRequest,
+  UpdateTypeRequestFilterSensitiveLog,
+  UpdateTypeResponse,
+  UpdateTypeResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateTypeCommand,
   serializeAws_restJson1UpdateTypeCommand,
@@ -72,8 +77,8 @@ export class UpdateTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTypeRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTypeResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateTypeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateTypeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

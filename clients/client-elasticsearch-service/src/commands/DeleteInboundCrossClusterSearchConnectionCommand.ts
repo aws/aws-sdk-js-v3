@@ -19,7 +19,9 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   DeleteInboundCrossClusterSearchConnectionRequest,
+  DeleteInboundCrossClusterSearchConnectionRequestFilterSensitiveLog,
   DeleteInboundCrossClusterSearchConnectionResponse,
+  DeleteInboundCrossClusterSearchConnectionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommand,
@@ -85,8 +87,8 @@ export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInboundCrossClusterSearchConnectionRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInboundCrossClusterSearchConnectionResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteInboundCrossClusterSearchConnectionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteInboundCrossClusterSearchConnectionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

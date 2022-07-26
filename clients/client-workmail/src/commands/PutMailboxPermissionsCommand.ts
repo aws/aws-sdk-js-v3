@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutMailboxPermissionsRequest, PutMailboxPermissionsResponse } from "../models/models_0";
+import {
+  PutMailboxPermissionsRequest,
+  PutMailboxPermissionsRequestFilterSensitiveLog,
+  PutMailboxPermissionsResponse,
+  PutMailboxPermissionsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1PutMailboxPermissionsCommand,
   serializeAws_json1_1PutMailboxPermissionsCommand,
@@ -73,8 +78,8 @@ export class PutMailboxPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMailboxPermissionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: PutMailboxPermissionsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: PutMailboxPermissionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutMailboxPermissionsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

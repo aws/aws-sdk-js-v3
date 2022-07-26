@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteWorkspaceImageRequest, DeleteWorkspaceImageResult } from "../models/models_0";
+import {
+  DeleteWorkspaceImageRequest,
+  DeleteWorkspaceImageRequestFilterSensitiveLog,
+  DeleteWorkspaceImageResult,
+  DeleteWorkspaceImageResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWorkspaceImageCommand,
   serializeAws_json1_1DeleteWorkspaceImageCommand,
@@ -74,8 +79,8 @@ export class DeleteWorkspaceImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceImageRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkspaceImageResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteWorkspaceImageRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteWorkspaceImageResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

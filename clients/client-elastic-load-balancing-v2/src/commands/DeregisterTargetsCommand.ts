@@ -17,7 +17,12 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import { DeregisterTargetsInput, DeregisterTargetsOutput } from "../models/models_0";
+import {
+  DeregisterTargetsInput,
+  DeregisterTargetsInputFilterSensitiveLog,
+  DeregisterTargetsOutput,
+  DeregisterTargetsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryDeregisterTargetsCommand,
   serializeAws_queryDeregisterTargetsCommand,
@@ -77,8 +82,8 @@ export class DeregisterTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterTargetsInput.filterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterTargetsOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterTargetsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterTargetsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

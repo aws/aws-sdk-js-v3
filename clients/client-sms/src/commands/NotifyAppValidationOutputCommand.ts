@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NotifyAppValidationOutputRequest, NotifyAppValidationOutputResponse } from "../models/models_0";
+import {
+  NotifyAppValidationOutputRequest,
+  NotifyAppValidationOutputRequestFilterSensitiveLog,
+  NotifyAppValidationOutputResponse,
+  NotifyAppValidationOutputResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1NotifyAppValidationOutputCommand,
   serializeAws_json1_1NotifyAppValidationOutputCommand,
@@ -72,8 +77,8 @@ export class NotifyAppValidationOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyAppValidationOutputRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: NotifyAppValidationOutputResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: NotifyAppValidationOutputRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: NotifyAppValidationOutputResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetBlueprintRunsRequest, GetBlueprintRunsResponse } from "../models/models_1";
+import {
+  GetBlueprintRunsRequest,
+  GetBlueprintRunsRequestFilterSensitiveLog,
+  GetBlueprintRunsResponse,
+  GetBlueprintRunsResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_json1_1GetBlueprintRunsCommand,
   serializeAws_json1_1GetBlueprintRunsCommand,
@@ -72,8 +77,8 @@ export class GetBlueprintRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBlueprintRunsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetBlueprintRunsResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetBlueprintRunsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetBlueprintRunsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

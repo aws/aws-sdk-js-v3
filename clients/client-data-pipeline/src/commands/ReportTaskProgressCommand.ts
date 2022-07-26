@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { ReportTaskProgressInput, ReportTaskProgressOutput } from "../models/models_0";
+import {
+  ReportTaskProgressInput,
+  ReportTaskProgressInputFilterSensitiveLog,
+  ReportTaskProgressOutput,
+  ReportTaskProgressOutputFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_json1_1ReportTaskProgressCommand,
   serializeAws_json1_1ReportTaskProgressCommand,
@@ -109,8 +114,8 @@ export class ReportTaskProgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReportTaskProgressInput.filterSensitiveLog,
-      outputFilterSensitiveLog: ReportTaskProgressOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: ReportTaskProgressInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ReportTaskProgressOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

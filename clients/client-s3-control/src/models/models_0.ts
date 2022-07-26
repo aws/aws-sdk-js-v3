@@ -14,15 +14,6 @@ export interface AbortIncompleteMultipartUpload {
   DaysAfterInitiation?: number;
 }
 
-export namespace AbortIncompleteMultipartUpload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AbortIncompleteMultipartUpload): any => ({
-    ...obj,
-  });
-}
-
 export enum NetworkOrigin {
   Internet = "Internet",
   VPC = "VPC",
@@ -37,15 +28,6 @@ export interface VpcConfiguration {
    *          ID.</p>
    */
   VpcId: string | undefined;
-}
-
-export namespace VpcConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfiguration): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -92,15 +74,6 @@ export interface AccessPoint {
   Alias?: string;
 }
 
-export namespace AccessPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessPoint): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for the activity metrics.</p>
  */
@@ -109,15 +82,6 @@ export interface ActivityMetrics {
    * <p>A container for whether the activity metrics are enabled.</p>
    */
   IsEnabled?: boolean;
-}
-
-export namespace ActivityMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActivityMetrics): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -143,15 +107,6 @@ export interface SelectionCriteria {
   MinStorageBytesPercentage?: number;
 }
 
-export namespace SelectionCriteria {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SelectionCriteria): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for the prefix-level storage metrics for S3 Storage Lens.</p>
  */
@@ -167,15 +122,6 @@ export interface PrefixLevelStorageMetrics {
   SelectionCriteria?: SelectionCriteria;
 }
 
-export namespace PrefixLevelStorageMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrefixLevelStorageMetrics): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for the prefix-level configuration.</p>
  */
@@ -184,15 +130,6 @@ export interface PrefixLevel {
    * <p>A container for the prefix-level storage metrics for S3 Storage Lens.</p>
    */
   StorageMetrics: PrefixLevelStorageMetrics | undefined;
-}
-
-export namespace PrefixLevel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrefixLevel): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -210,15 +147,6 @@ export interface BucketLevel {
   PrefixLevel?: PrefixLevel;
 }
 
-export namespace BucketLevel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketLevel): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for the account level Amazon S3 Storage Lens configuration.</p>
  */
@@ -232,15 +160,6 @@ export interface AccountLevel {
    * <p>A container for the S3 Storage Lens bucket-level configuration.</p>
    */
   BucketLevel: BucketLevel | undefined;
-}
-
-export namespace AccountLevel {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountLevel): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -266,15 +185,6 @@ export interface AsyncErrorDetails {
    * <p>The ID of the request associated with the error.</p>
    */
   RequestId?: string;
-}
-
-export namespace AsyncErrorDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AsyncErrorDetails): any => ({
-    ...obj,
-  });
 }
 
 export enum AsyncOperationName {
@@ -343,15 +253,6 @@ export interface PublicAccessBlockConfiguration {
   RestrictPublicBuckets?: boolean;
 }
 
-export namespace PublicAccessBlockConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicAccessBlockConfiguration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A Region that supports a Multi-Region Access Point as well as the associated bucket for the Region.</p>
  */
@@ -360,15 +261,6 @@ export interface Region {
    * <p>The name of the associated bucket for the Region.</p>
    */
   Bucket: string | undefined;
-}
-
-export namespace Region {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Region): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -394,15 +286,6 @@ export interface CreateMultiRegionAccessPointInput {
   Regions: Region[] | undefined;
 }
 
-export namespace CreateMultiRegionAccessPointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMultiRegionAccessPointInput): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for the information associated with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html">DeleteMultiRegionAccessPoint</a> request.</p>
  */
@@ -411,15 +294,6 @@ export interface DeleteMultiRegionAccessPointInput {
    * <p>The name of the Multi-Region Access Point associated with this request.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteMultiRegionAccessPointInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMultiRegionAccessPointInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -435,15 +309,6 @@ export interface PutMultiRegionAccessPointPolicyInput {
    * <p>The policy details for the <code>PutMultiRegionAccessPoint</code> request.</p>
    */
   Policy: string | undefined;
-}
-
-export namespace PutMultiRegionAccessPointPolicyInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMultiRegionAccessPointPolicyInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -466,15 +331,6 @@ export interface AsyncRequestParameters {
   PutMultiRegionAccessPointPolicyRequest?: PutMultiRegionAccessPointPolicyInput;
 }
 
-export namespace AsyncRequestParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AsyncRequestParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Status information for a single Multi-Region Access Point Region.</p>
  */
@@ -490,15 +346,6 @@ export interface MultiRegionAccessPointRegionalResponse {
   RequestStatus?: string;
 }
 
-export namespace MultiRegionAccessPointRegionalResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiRegionAccessPointRegionalResponse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Multi-Region Access Point details that are returned when querying about an asynchronous request.</p>
  */
@@ -508,15 +355,6 @@ export interface MultiRegionAccessPointsAsyncResponse {
    *          supports.</p>
    */
   Regions?: MultiRegionAccessPointRegionalResponse[];
-}
-
-export namespace MultiRegionAccessPointsAsyncResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiRegionAccessPointsAsyncResponse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -533,15 +371,6 @@ export interface AsyncResponseDetails {
    * <p>Error details for an asynchronous request.</p>
    */
   ErrorDetails?: AsyncErrorDetails;
-}
-
-export namespace AsyncResponseDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AsyncResponseDetails): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -579,15 +408,6 @@ export interface AsyncOperation {
   ResponseDetails?: AsyncResponseDetails;
 }
 
-export namespace AsyncOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AsyncOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lambda function used to transform objects through an Object Lambda Access Point.</p>
  */
@@ -602,15 +422,6 @@ export interface AwsLambdaTransformation {
    *          objects.</p>
    */
   FunctionPayload?: string;
-}
-
-export namespace AwsLambdaTransformation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsLambdaTransformation): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAccessPointRequest {
@@ -648,15 +459,6 @@ export interface CreateAccessPointRequest {
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
 }
 
-export namespace CreateAccessPointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccessPointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAccessPointResult {
   /**
    * <p>The ARN of the access point.</p>
@@ -670,15 +472,6 @@ export interface CreateAccessPointResult {
    * <p>The name or alias of the access point.</p>
    */
   Alias?: string;
-}
-
-export namespace CreateAccessPointResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccessPointResult): any => ({
-    ...obj,
-  });
 }
 
 export enum ObjectLambdaAllowedFeature {
@@ -720,14 +513,6 @@ export namespace ObjectLambdaContentTransformation {
     if (value.AwsLambda !== undefined) return visitor.AwsLambda(value.AwsLambda);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectLambdaContentTransformation): any => {
-    if (obj.AwsLambda !== undefined) return { AwsLambda: AwsLambdaTransformation.filterSensitiveLog(obj.AwsLambda) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -744,18 +529,6 @@ export interface ObjectLambdaTransformationConfiguration {
    * <p>A container for the content transformation of an Object Lambda Access Point configuration.</p>
    */
   ContentTransformation: ObjectLambdaContentTransformation | undefined;
-}
-
-export namespace ObjectLambdaTransformationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectLambdaTransformationConfiguration): any => ({
-    ...obj,
-    ...(obj.ContentTransformation && {
-      ContentTransformation: ObjectLambdaContentTransformation.filterSensitiveLog(obj.ContentTransformation),
-    }),
-  });
 }
 
 /**
@@ -784,20 +557,6 @@ export interface ObjectLambdaConfiguration {
   TransformationConfigurations: ObjectLambdaTransformationConfiguration[] | undefined;
 }
 
-export namespace ObjectLambdaConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectLambdaConfiguration): any => ({
-    ...obj,
-    ...(obj.TransformationConfigurations && {
-      TransformationConfigurations: obj.TransformationConfigurations.map((item) =>
-        ObjectLambdaTransformationConfiguration.filterSensitiveLog(item)
-      ),
-    }),
-  });
-}
-
 export interface CreateAccessPointForObjectLambdaRequest {
   /**
    * <p>The Amazon Web Services account ID for owner of the specified Object Lambda Access Point.</p>
@@ -815,30 +574,11 @@ export interface CreateAccessPointForObjectLambdaRequest {
   Configuration: ObjectLambdaConfiguration | undefined;
 }
 
-export namespace CreateAccessPointForObjectLambdaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccessPointForObjectLambdaRequest): any => ({
-    ...obj,
-    ...(obj.Configuration && { Configuration: ObjectLambdaConfiguration.filterSensitiveLog(obj.Configuration) }),
-  });
-}
-
 export interface CreateAccessPointForObjectLambdaResult {
   /**
    * <p>Specifies the ARN for the Object Lambda Access Point.</p>
    */
   ObjectLambdaAccessPointArn?: string;
-}
-
-export namespace CreateAccessPointForObjectLambdaResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateAccessPointForObjectLambdaResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -911,15 +651,6 @@ export interface CreateBucketConfiguration {
    *          </note>
    */
   LocationConstraint?: BucketLocationConstraint | string;
-}
-
-export namespace CreateBucketConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBucketConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBucketRequest {
@@ -1002,15 +733,6 @@ export interface CreateBucketRequest {
   OutpostId?: string;
 }
 
-export namespace CreateBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBucketRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateBucketResult {
   /**
    * <p>The location of the bucket.</p>
@@ -1023,15 +745,6 @@ export interface CreateBucketResult {
    *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   BucketArn?: string;
-}
-
-export namespace CreateBucketResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateBucketResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1080,15 +793,6 @@ export interface JobManifestLocation {
   ETag: string | undefined;
 }
 
-export namespace JobManifestLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobManifestLocation): any => ({
-    ...obj,
-  });
-}
-
 export enum JobManifestFieldName {
   Bucket = "Bucket",
   Ignore = "Ignore",
@@ -1118,15 +822,6 @@ export interface JobManifestSpec {
   Fields?: (JobManifestFieldName | string)[];
 }
 
-export namespace JobManifestSpec {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobManifestSpec): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the configuration information for a job's manifest.</p>
  */
@@ -1141,15 +836,6 @@ export interface JobManifest {
    * <p>Contains the information required to locate the specified job's manifest.</p>
    */
   Location: JobManifestLocation | undefined;
-}
-
-export namespace JobManifest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobManifest): any => ({
-    ...obj,
-  });
 }
 
 export enum ReplicationStatus {
@@ -1188,15 +874,6 @@ export interface JobManifestGeneratorFilter {
   ObjectReplicationStatuses?: (ReplicationStatus | string)[];
 }
 
-export namespace JobManifestGeneratorFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobManifestGeneratorFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration for the use of SSE-KMS to encrypt generated manifest objects.</p>
  */
@@ -1208,28 +885,10 @@ export interface SSEKMSEncryption {
   KeyId: string | undefined;
 }
 
-export namespace SSEKMSEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSEKMSEncryption): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configuration for the use of SSE-S3 to encrypt generated manifest objects.</p>
  */
 export interface SSES3Encryption {}
-
-export namespace SSES3Encryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSES3Encryption): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The encryption configuration to use when storing the generated manifest.</p>
@@ -1245,15 +904,6 @@ export interface GeneratedManifestEncryption {
    *          objects.</p>
    */
   SSEKMS?: SSEKMSEncryption;
-}
-
-export namespace GeneratedManifestEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GeneratedManifestEncryption): any => ({
-    ...obj,
-  });
 }
 
 export enum GeneratedManifestFormat {
@@ -1291,15 +941,6 @@ export interface S3ManifestOutputLocation {
   ManifestFormat: GeneratedManifestFormat | string | undefined;
 }
 
-export namespace S3ManifestOutputLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ManifestOutputLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container for the service that will create the S3 manifest.</p>
  */
@@ -1333,15 +974,6 @@ export interface S3JobManifestGenerator {
   EnableManifestOutput: boolean | undefined;
 }
 
-export namespace S3JobManifestGenerator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3JobManifestGenerator): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Configures the type of the job's ManifestGenerator.</p>
  */
@@ -1372,15 +1004,6 @@ export namespace JobManifestGenerator {
     if (value.S3JobManifestGenerator !== undefined) return visitor.S3JobManifestGenerator(value.S3JobManifestGenerator);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobManifestGenerator): any => {
-    if (obj.S3JobManifestGenerator !== undefined)
-      return { S3JobManifestGenerator: S3JobManifestGenerator.filterSensitiveLog(obj.S3JobManifestGenerator) };
-    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-  };
 }
 
 /**
@@ -1394,29 +1017,11 @@ export interface LambdaInvokeOperation {
   FunctionArn?: string;
 }
 
-export namespace LambdaInvokeOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LambdaInvokeOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains no configuration parameters because the DELETE Object tagging API only accepts
  *          the bucket name and key name as parameters, which are defined in the job's manifest.</p>
  */
 export interface S3DeleteObjectTaggingOperation {}
-
-export namespace S3DeleteObjectTaggingOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DeleteObjectTaggingOperation): any => ({
-    ...obj,
-  });
-}
 
 export enum S3GlacierJobTier {
   BULK = "BULK",
@@ -1452,15 +1057,6 @@ export interface S3InitiateRestoreObjectOperation {
   GlacierJobTier?: S3GlacierJobTier | string;
 }
 
-export namespace S3InitiateRestoreObjectOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3InitiateRestoreObjectOperation): any => ({
-    ...obj,
-  });
-}
-
 export enum S3GranteeTypeIdentifier {
   CANONICAL = "id",
   EMAIL_ADDRESS = "emailAddress",
@@ -1487,15 +1083,6 @@ export interface S3Grantee {
   DisplayName?: string;
 }
 
-export namespace S3Grantee {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Grantee): any => ({
-    ...obj,
-  });
-}
-
 export enum S3Permission {
   FULL_CONTROL = "FULL_CONTROL",
   READ = "READ",
@@ -1519,15 +1106,6 @@ export interface S3Grant {
   Permission?: S3Permission | string;
 }
 
-export namespace S3Grant {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Grant): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1543,15 +1121,6 @@ export interface S3ObjectOwner {
   DisplayName?: string;
 }
 
-export namespace S3ObjectOwner {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ObjectOwner): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1565,15 +1134,6 @@ export interface S3AccessControlList {
    * <p></p>
    */
   Grants?: S3Grant[];
-}
-
-export namespace S3AccessControlList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3AccessControlList): any => ({
-    ...obj,
-  });
 }
 
 export enum S3CannedAccessControlList {
@@ -1601,15 +1161,6 @@ export interface S3AccessControlPolicy {
   CannedAccessControlList?: S3CannedAccessControlList | string;
 }
 
-export namespace S3AccessControlPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3AccessControlPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the configuration parameters for a Set Object ACL operation. S3 Batch Operations
  *          passes every object to the underlying PUT Object acl API. For more information about the
@@ -1620,15 +1171,6 @@ export interface S3SetObjectAclOperation {
    * <p></p>
    */
   AccessControlPolicy?: S3AccessControlPolicy;
-}
-
-export namespace S3SetObjectAclOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SetObjectAclOperation): any => ({
-    ...obj,
-  });
 }
 
 export enum S3ChecksumAlgorithm {
@@ -1708,15 +1250,6 @@ export interface S3ObjectMetadata {
   SSEAlgorithm?: S3SSEAlgorithm | string;
 }
 
-export namespace S3ObjectMetadata {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ObjectMetadata): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1730,15 +1263,6 @@ export interface S3Tag {
    * <p></p>
    */
   Value: string | undefined;
-}
-
-export namespace S3Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Tag): any => ({
-    ...obj,
-  });
 }
 
 export enum S3ObjectLockLegalHoldStatus {
@@ -1873,15 +1397,6 @@ export interface S3CopyObjectOperation {
   ChecksumAlgorithm?: S3ChecksumAlgorithm | string;
 }
 
-export namespace S3CopyObjectOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3CopyObjectOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Whether S3 Object Lock legal hold will be applied to objects in an S3 Batch Operations
  *          job.</p>
@@ -1892,15 +1407,6 @@ export interface S3ObjectLockLegalHold {
    *          job.</p>
    */
   Status: S3ObjectLockLegalHoldStatus | string | undefined;
-}
-
-export namespace S3ObjectLockLegalHold {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ObjectLockLegalHold): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1915,15 +1421,6 @@ export interface S3SetObjectLegalHoldOperation {
    *          Batch Operations job.</p>
    */
   LegalHold: S3ObjectLockLegalHold | undefined;
-}
-
-export namespace S3SetObjectLegalHoldOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SetObjectLegalHoldOperation): any => ({
-    ...obj,
-  });
 }
 
 export enum S3ObjectLockRetentionMode {
@@ -1952,15 +1449,6 @@ export interface S3Retention {
   Mode?: S3ObjectLockRetentionMode | string;
 }
 
-export namespace S3Retention {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3Retention): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the configuration parameters for the Object Lock retention action for an
  *          S3 Batch Operations job. Batch Operations passes every object to the underlying
@@ -1983,15 +1471,6 @@ export interface S3SetObjectRetentionOperation {
   Retention: S3Retention | undefined;
 }
 
-export namespace S3SetObjectRetentionOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SetObjectRetentionOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the configuration parameters for a Set Object Tagging operation. S3 Batch Operations
  *          passes every object to the underlying PUT Object tagging API. For more information about
@@ -2004,29 +1483,11 @@ export interface S3SetObjectTaggingOperation {
   TagSet?: S3Tag[];
 }
 
-export namespace S3SetObjectTaggingOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3SetObjectTaggingOperation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the job's
  *          manifest.</p>
  */
 export interface S3ReplicateObjectOperation {}
-
-export namespace S3ReplicateObjectOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ReplicateObjectOperation): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>The operation that you want this job to perform on every object listed in the manifest.
@@ -2094,15 +1555,6 @@ export interface JobOperation {
   S3ReplicateObject?: S3ReplicateObjectOperation;
 }
 
-export namespace JobOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobOperation): any => ({
-    ...obj,
-  });
-}
-
 export enum JobReportFormat {
   Report_CSV_20180820 = "Report_CSV_20180820",
 }
@@ -2144,15 +1596,6 @@ export interface JobReport {
    *          failed tasks.</p>
    */
   ReportScope?: JobReportScope | string;
-}
-
-export namespace JobReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobReport): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateJobRequest {
@@ -2220,31 +1663,12 @@ export interface CreateJobRequest {
   ManifestGenerator?: JobManifestGenerator;
 }
 
-export namespace CreateJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
-    ...obj,
-    ...(obj.ManifestGenerator && { ManifestGenerator: JobManifestGenerator.filterSensitiveLog(obj.ManifestGenerator) }),
-  });
-}
-
 export interface CreateJobResult {
   /**
    * <p>The ID for this job. Amazon S3 generates this ID automatically and returns it after a
    *          successful <code>Create Job</code> request.</p>
    */
   JobId?: string;
-}
-
-export namespace CreateJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateJobResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2329,30 +1753,12 @@ export interface CreateMultiRegionAccessPointRequest {
   Details: CreateMultiRegionAccessPointInput | undefined;
 }
 
-export namespace CreateMultiRegionAccessPointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMultiRegionAccessPointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateMultiRegionAccessPointResult {
   /**
    * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous
    *          requests.</p>
    */
   RequestTokenARN?: string;
-}
-
-export namespace CreateMultiRegionAccessPointResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateMultiRegionAccessPointResult): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAccessPointRequest {
@@ -2369,15 +1775,6 @@ export interface DeleteAccessPointRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteAccessPointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessPointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccessPointForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -2388,15 +1785,6 @@ export interface DeleteAccessPointForObjectLambdaRequest {
    * <p>The name of the access point you want to delete.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteAccessPointForObjectLambdaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessPointForObjectLambdaRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAccessPointPolicyRequest {
@@ -2413,15 +1801,6 @@ export interface DeleteAccessPointPolicyRequest {
   Name: string | undefined;
 }
 
-export namespace DeleteAccessPointPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessPointPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAccessPointPolicyForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -2432,15 +1811,6 @@ export interface DeleteAccessPointPolicyForObjectLambdaRequest {
    * <p>The name of the Object Lambda Access Point you want to delete the policy for.</p>
    */
   Name: string | undefined;
-}
-
-export namespace DeleteAccessPointPolicyForObjectLambdaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteAccessPointPolicyForObjectLambdaRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBucketRequest {
@@ -2457,15 +1827,6 @@ export interface DeleteBucketRequest {
   Bucket: string | undefined;
 }
 
-export namespace DeleteBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBucketLifecycleConfigurationRequest {
   /**
    * <p>The account ID of the lifecycle configuration to delete.</p>
@@ -2478,15 +1839,6 @@ export interface DeleteBucketLifecycleConfigurationRequest {
    *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
-}
-
-export namespace DeleteBucketLifecycleConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketLifecycleConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBucketPolicyRequest {
@@ -2503,15 +1855,6 @@ export interface DeleteBucketPolicyRequest {
   Bucket: string | undefined;
 }
 
-export namespace DeleteBucketPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBucketTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket tag set to be removed.</p>
@@ -2526,15 +1869,6 @@ export interface DeleteBucketTaggingRequest {
   Bucket: string | undefined;
 }
 
-export namespace DeleteBucketTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteBucketTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteJobTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -2547,25 +1881,7 @@ export interface DeleteJobTaggingRequest {
   JobId: string | undefined;
 }
 
-export namespace DeleteJobTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteJobTaggingResult {}
-
-export namespace DeleteJobTaggingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteJobTaggingResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p></p>
@@ -2606,15 +1922,6 @@ export interface DeleteMultiRegionAccessPointRequest {
   Details: DeleteMultiRegionAccessPointInput | undefined;
 }
 
-export namespace DeleteMultiRegionAccessPointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMultiRegionAccessPointRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteMultiRegionAccessPointResult {
   /**
    * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous
@@ -2623,30 +1930,12 @@ export interface DeleteMultiRegionAccessPointResult {
   RequestTokenARN?: string;
 }
 
-export namespace DeleteMultiRegionAccessPointResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMultiRegionAccessPointResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePublicAccessBlockRequest {
   /**
    * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
    *          you want to remove.</p>
    */
   AccountId?: string;
-}
-
-export namespace DeletePublicAccessBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePublicAccessBlockRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteStorageLensConfigurationRequest {
@@ -2661,15 +1950,6 @@ export interface DeleteStorageLensConfigurationRequest {
   AccountId?: string;
 }
 
-export namespace DeleteStorageLensConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStorageLensConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStorageLensConfigurationTaggingRequest {
   /**
    * <p>The ID of the S3 Storage Lens configuration.</p>
@@ -2682,25 +1962,7 @@ export interface DeleteStorageLensConfigurationTaggingRequest {
   AccountId?: string;
 }
 
-export namespace DeleteStorageLensConfigurationTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStorageLensConfigurationTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteStorageLensConfigurationTaggingResult {}
-
-export namespace DeleteStorageLensConfigurationTaggingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStorageLensConfigurationTaggingResult): any => ({
-    ...obj,
-  });
-}
 
 export interface DescribeJobRequest {
   /**
@@ -2712,15 +1974,6 @@ export interface DescribeJobRequest {
    * <p>The ID for the job whose information you want to retrieve.</p>
    */
   JobId: string | undefined;
-}
-
-export namespace DescribeJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2736,15 +1989,6 @@ export interface JobFailure {
    * <p>The failure reason, if any, for the specified job.</p>
    */
   FailureReason?: string;
-}
-
-export namespace JobFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobFailure): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2764,15 +2008,6 @@ export interface S3GeneratedManifestDescriptor {
   Location?: JobManifestLocation;
 }
 
-export namespace S3GeneratedManifestDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3GeneratedManifestDescriptor): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provides timing details for the job.</p>
  */
@@ -2781,15 +2016,6 @@ export interface JobTimers {
    * <p>Indicates the elapsed time in seconds the job has been in the Active job state.</p>
    */
   ElapsedTimeInActiveSeconds?: number;
-}
-
-export namespace JobTimers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobTimers): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2816,15 +2042,6 @@ export interface JobProgressSummary {
    * <p>The JobTimers attribute of a job's progress summary.</p>
    */
   Timers?: JobTimers;
-}
-
-export namespace JobProgressSummary {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobProgressSummary): any => ({
-    ...obj,
-  });
 }
 
 export enum JobStatus {
@@ -2956,32 +2173,12 @@ export interface JobDescriptor {
   GeneratedManifestDescriptor?: S3GeneratedManifestDescriptor;
 }
 
-export namespace JobDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobDescriptor): any => ({
-    ...obj,
-    ...(obj.ManifestGenerator && { ManifestGenerator: JobManifestGenerator.filterSensitiveLog(obj.ManifestGenerator) }),
-  });
-}
-
 export interface DescribeJobResult {
   /**
    * <p>Contains the configuration parameters and status for the job specified in the
    *             <code>Describe Job</code> request.</p>
    */
   Job?: JobDescriptor;
-}
-
-export namespace DescribeJobResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeJobResult): any => ({
-    ...obj,
-    ...(obj.Job && { Job: JobDescriptor.filterSensitiveLog(obj.Job) }),
-  });
 }
 
 export interface DescribeMultiRegionAccessPointOperationRequest {
@@ -2998,29 +2195,11 @@ export interface DescribeMultiRegionAccessPointOperationRequest {
   RequestTokenARN: string | undefined;
 }
 
-export namespace DescribeMultiRegionAccessPointOperationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMultiRegionAccessPointOperationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeMultiRegionAccessPointOperationResult {
   /**
    * <p>A container element containing the details of the asynchronous operation.</p>
    */
   AsyncOperation?: AsyncOperation;
-}
-
-export namespace DescribeMultiRegionAccessPointOperationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeMultiRegionAccessPointOperationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAccessPointRequest {
@@ -3035,15 +2214,6 @@ export interface GetAccessPointRequest {
    *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
-}
-
-export namespace GetAccessPointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAccessPointResult {
@@ -3106,15 +2276,6 @@ export interface GetAccessPointResult {
   Endpoints?: Record<string, string>;
 }
 
-export namespace GetAccessPointResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessPointConfigurationForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -3127,30 +2288,11 @@ export interface GetAccessPointConfigurationForObjectLambdaRequest {
   Name: string | undefined;
 }
 
-export namespace GetAccessPointConfigurationForObjectLambdaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointConfigurationForObjectLambdaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessPointConfigurationForObjectLambdaResult {
   /**
    * <p>Object Lambda Access Point configuration document.</p>
    */
   Configuration?: ObjectLambdaConfiguration;
-}
-
-export namespace GetAccessPointConfigurationForObjectLambdaResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointConfigurationForObjectLambdaResult): any => ({
-    ...obj,
-    ...(obj.Configuration && { Configuration: ObjectLambdaConfiguration.filterSensitiveLog(obj.Configuration) }),
-  });
 }
 
 export interface GetAccessPointForObjectLambdaRequest {
@@ -3163,15 +2305,6 @@ export interface GetAccessPointForObjectLambdaRequest {
    * <p>The name of the Object Lambda Access Point.</p>
    */
   Name: string | undefined;
-}
-
-export namespace GetAccessPointForObjectLambdaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointForObjectLambdaRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAccessPointForObjectLambdaResult {
@@ -3192,15 +2325,6 @@ export interface GetAccessPointForObjectLambdaResult {
   CreationDate?: Date;
 }
 
-export namespace GetAccessPointForObjectLambdaResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointForObjectLambdaResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessPointPolicyRequest {
   /**
    * <p>The account ID for the account that owns the specified access point.</p>
@@ -3215,29 +2339,11 @@ export interface GetAccessPointPolicyRequest {
   Name: string | undefined;
 }
 
-export namespace GetAccessPointPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessPointPolicyResult {
   /**
    * <p>The access point policy associated with the specified access point.</p>
    */
   Policy?: string;
-}
-
-export namespace GetAccessPointPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAccessPointPolicyForObjectLambdaRequest {
@@ -3252,29 +2358,11 @@ export interface GetAccessPointPolicyForObjectLambdaRequest {
   Name: string | undefined;
 }
 
-export namespace GetAccessPointPolicyForObjectLambdaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointPolicyForObjectLambdaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessPointPolicyForObjectLambdaResult {
   /**
    * <p>Object Lambda Access Point resource policy document.</p>
    */
   Policy?: string;
-}
-
-export namespace GetAccessPointPolicyForObjectLambdaResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointPolicyForObjectLambdaResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAccessPointPolicyStatusRequest {
@@ -3289,15 +2377,6 @@ export interface GetAccessPointPolicyStatusRequest {
   Name: string | undefined;
 }
 
-export namespace GetAccessPointPolicyStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointPolicyStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates whether this access point policy is public. For more information about how Amazon S3
  *          evaluates policies to determine whether they are public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
@@ -3309,29 +2388,11 @@ export interface PolicyStatus {
   IsPublic?: boolean;
 }
 
-export namespace PolicyStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyStatus): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessPointPolicyStatusResult {
   /**
    * <p>Indicates the current policy status of the specified access point.</p>
    */
   PolicyStatus?: PolicyStatus;
-}
-
-export namespace GetAccessPointPolicyStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointPolicyStatusResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetAccessPointPolicyStatusForObjectLambdaRequest {
@@ -3346,30 +2407,12 @@ export interface GetAccessPointPolicyStatusForObjectLambdaRequest {
   Name: string | undefined;
 }
 
-export namespace GetAccessPointPolicyStatusForObjectLambdaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointPolicyStatusForObjectLambdaRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetAccessPointPolicyStatusForObjectLambdaResult {
   /**
    * <p>Indicates whether this access point policy is public. For more information about how Amazon S3
    *          evaluates policies to determine whether they are public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
    */
   PolicyStatus?: PolicyStatus;
-}
-
-export namespace GetAccessPointPolicyStatusForObjectLambdaResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetAccessPointPolicyStatusForObjectLambdaResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketRequest {
@@ -3384,15 +2427,6 @@ export interface GetBucketRequest {
    *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
-}
-
-export namespace GetBucketRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketResult {
@@ -3412,15 +2446,6 @@ export interface GetBucketResult {
   CreationDate?: Date;
 }
 
-export namespace GetBucketResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketResult): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketLifecycleConfigurationRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -3433,15 +2458,6 @@ export interface GetBucketLifecycleConfigurationRequest {
    *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
-}
-
-export namespace GetBucketLifecycleConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketLifecycleConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3468,15 +2484,6 @@ export interface LifecycleExpiration {
   ExpiredObjectDeleteMarker?: boolean;
 }
 
-export namespace LifecycleExpiration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleExpiration): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container for the Outposts bucket lifecycle rule and operator.</p>
  */
@@ -3491,15 +2498,6 @@ export interface LifecycleRuleAndOperator {
    *          apply.</p>
    */
   Tags?: S3Tag[];
-}
-
-export namespace LifecycleRuleAndOperator {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleRuleAndOperator): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3527,15 +2525,6 @@ export interface LifecycleRuleFilter {
   And?: LifecycleRuleAndOperator;
 }
 
-export namespace LifecycleRuleFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleRuleFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container of the noncurrent version expiration.</p>
  */
@@ -3547,15 +2536,6 @@ export interface NoncurrentVersionExpiration {
    *             <i>Amazon S3 User Guide</i>.</p>
    */
   NoncurrentDays?: number;
-}
-
-export namespace NoncurrentVersionExpiration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoncurrentVersionExpiration): any => ({
-    ...obj,
-  });
 }
 
 export type TransitionStorageClass = "DEEP_ARCHIVE" | "GLACIER" | "INTELLIGENT_TIERING" | "ONEZONE_IA" | "STANDARD_IA";
@@ -3576,15 +2556,6 @@ export interface NoncurrentVersionTransition {
    * <p>The class of storage used to store the object.</p>
    */
   StorageClass?: TransitionStorageClass | string;
-}
-
-export namespace NoncurrentVersionTransition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoncurrentVersionTransition): any => ({
-    ...obj,
-  });
 }
 
 export type ExpirationStatus = "Disabled" | "Enabled";
@@ -3612,15 +2583,6 @@ export interface Transition {
    * <p>The storage class to which you want the object to transition.</p>
    */
   StorageClass?: TransitionStorageClass | string;
-}
-
-export namespace Transition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Transition): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3686,29 +2648,11 @@ export interface LifecycleRule {
   AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
 }
 
-export namespace LifecycleRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleRule): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketLifecycleConfigurationResult {
   /**
    * <p>Container for the lifecycle rule of the Outposts bucket.</p>
    */
   Rules?: LifecycleRule[];
-}
-
-export namespace GetBucketLifecycleConfigurationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketLifecycleConfigurationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketPolicyRequest {
@@ -3725,29 +2669,11 @@ export interface GetBucketPolicyRequest {
   Bucket: string | undefined;
 }
 
-export namespace GetBucketPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketPolicyResult {
   /**
    * <p>The policy of the Outposts bucket.</p>
    */
   Policy?: string;
-}
-
-export namespace GetBucketPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetBucketTaggingRequest {
@@ -3764,29 +2690,11 @@ export interface GetBucketTaggingRequest {
   Bucket: string | undefined;
 }
 
-export namespace GetBucketTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetBucketTaggingResult {
   /**
    * <p>The tags set of the Outposts bucket.</p>
    */
   TagSet: S3Tag[] | undefined;
-}
-
-export namespace GetBucketTaggingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetBucketTaggingResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetJobTaggingRequest {
@@ -3801,29 +2709,11 @@ export interface GetJobTaggingRequest {
   JobId: string | undefined;
 }
 
-export namespace GetJobTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetJobTaggingResult {
   /**
    * <p>The set of tags associated with the S3 Batch Operations job.</p>
    */
   Tags?: S3Tag[];
-}
-
-export namespace GetJobTaggingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetJobTaggingResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMultiRegionAccessPointRequest {
@@ -3841,15 +2731,6 @@ export interface GetMultiRegionAccessPointRequest {
   Name: string | undefined;
 }
 
-export namespace GetMultiRegionAccessPointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A combination of a bucket and Region that's part of a Multi-Region Access Point.</p>
  */
@@ -3863,15 +2744,6 @@ export interface RegionReport {
    * <p>The name of the Region.</p>
    */
   Region?: string;
-}
-
-export namespace RegionReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionReport): any => ({
-    ...obj,
-  });
 }
 
 export enum MultiRegionAccessPointStatus {
@@ -3928,29 +2800,11 @@ export interface MultiRegionAccessPointReport {
   Regions?: RegionReport[];
 }
 
-export namespace MultiRegionAccessPointReport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiRegionAccessPointReport): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMultiRegionAccessPointResult {
   /**
    * <p>A container element containing the details of the requested Multi-Region Access Point.</p>
    */
   AccessPoint?: MultiRegionAccessPointReport;
-}
-
-export namespace GetMultiRegionAccessPointResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMultiRegionAccessPointPolicyRequest {
@@ -3967,15 +2821,6 @@ export interface GetMultiRegionAccessPointPolicyRequest {
   Name: string | undefined;
 }
 
-export namespace GetMultiRegionAccessPointPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The last established access control policy for a Multi-Region Access Point.</p>
  *          <p>When you update the policy, the update is first listed as the proposed policy. After the
@@ -3990,15 +2835,6 @@ export interface EstablishedMultiRegionAccessPointPolicy {
   Policy?: string;
 }
 
-export namespace EstablishedMultiRegionAccessPointPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EstablishedMultiRegionAccessPointPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The proposed access control policy for the Multi-Region Access Point.</p>
  *          <p>When you update the policy, the update is first listed as the proposed policy. After the
@@ -4011,15 +2847,6 @@ export interface ProposedMultiRegionAccessPointPolicy {
    * <p>The details of the proposed policy.</p>
    */
   Policy?: string;
-}
-
-export namespace ProposedMultiRegionAccessPointPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProposedMultiRegionAccessPointPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4041,29 +2868,11 @@ export interface MultiRegionAccessPointPolicyDocument {
   Proposed?: ProposedMultiRegionAccessPointPolicy;
 }
 
-export namespace MultiRegionAccessPointPolicyDocument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultiRegionAccessPointPolicyDocument): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMultiRegionAccessPointPolicyResult {
   /**
    * <p>The policy associated with the specified Multi-Region Access Point.</p>
    */
   Policy?: MultiRegionAccessPointPolicyDocument;
-}
-
-export namespace GetMultiRegionAccessPointPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetMultiRegionAccessPointPolicyStatusRequest {
@@ -4080,30 +2889,12 @@ export interface GetMultiRegionAccessPointPolicyStatusRequest {
   Name: string | undefined;
 }
 
-export namespace GetMultiRegionAccessPointPolicyStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointPolicyStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMultiRegionAccessPointPolicyStatusResult {
   /**
    * <p>Indicates whether this access point policy is public. For more information about how Amazon S3
    *          evaluates policies to determine whether they are public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
    */
   Established?: PolicyStatus;
-}
-
-export namespace GetMultiRegionAccessPointPolicyStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetMultiRegionAccessPointPolicyStatusResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPublicAccessBlockOutput {
@@ -4114,30 +2905,12 @@ export interface GetPublicAccessBlockOutput {
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
 }
 
-export namespace GetPublicAccessBlockOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPublicAccessBlockOutput): any => ({
-    ...obj,
-  });
-}
-
 export interface GetPublicAccessBlockRequest {
   /**
    * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
    *          you want to retrieve.</p>
    */
   AccountId?: string;
-}
-
-export namespace GetPublicAccessBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetPublicAccessBlockRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4175,15 +2948,6 @@ export interface GetStorageLensConfigurationRequest {
   AccountId?: string;
 }
 
-export namespace GetStorageLensConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStorageLensConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon Web Services organization for your S3 Storage Lens.</p>
  */
@@ -4196,15 +2960,6 @@ export interface StorageLensAwsOrg {
    *          </p>
    */
   Arn: string | undefined;
-}
-
-export namespace StorageLensAwsOrg {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageLensAwsOrg): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4221,15 +2976,6 @@ export interface CloudWatchMetrics {
   IsEnabled: boolean | undefined;
 }
 
-export namespace CloudWatchMetrics {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchMetrics): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -4244,28 +2990,10 @@ export interface SSEKMS {
   KeyId: string | undefined;
 }
 
-export namespace SSEKMS {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSEKMS): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
 export interface SSES3 {}
-
-export namespace SSES3 {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSES3): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>A container for the encryption of the S3 Storage Lens metrics exports.</p>
@@ -4280,15 +3008,6 @@ export interface StorageLensDataExportEncryption {
    * <p></p>
    */
   SSEKMS?: SSEKMS;
-}
-
-export namespace StorageLensDataExportEncryption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageLensDataExportEncryption): any => ({
-    ...obj,
-  });
 }
 
 export type Format = "CSV" | "Parquet";
@@ -4335,15 +3054,6 @@ export interface S3BucketDestination {
   Encryption?: StorageLensDataExportEncryption;
 }
 
-export namespace S3BucketDestination {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3BucketDestination): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container to specify the properties of your S3 Storage Lens metrics export, including the
  *          destination, schema, and format.</p>
@@ -4364,15 +3074,6 @@ export interface StorageLensDataExport {
   CloudWatchMetrics?: CloudWatchMetrics;
 }
 
-export namespace StorageLensDataExport {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageLensDataExport): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for what Amazon S3 Storage Lens will exclude.</p>
  */
@@ -4388,15 +3089,6 @@ export interface _Exclude {
   Regions?: string[];
 }
 
-export namespace _Exclude {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: _Exclude): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A container for what Amazon S3 Storage Lens configuration includes.</p>
  */
@@ -4410,15 +3102,6 @@ export interface Include {
    * <p>A container for the S3 Storage Lens Region includes.</p>
    */
   Regions?: string[];
-}
-
-export namespace Include {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Include): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4474,29 +3157,11 @@ export interface StorageLensConfiguration {
   StorageLensArn?: string;
 }
 
-export namespace StorageLensConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageLensConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStorageLensConfigurationResult {
   /**
    * <p>The S3 Storage Lens configuration requested.</p>
    */
   StorageLensConfiguration?: StorageLensConfiguration;
-}
-
-export namespace GetStorageLensConfigurationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStorageLensConfigurationResult): any => ({
-    ...obj,
-  });
 }
 
 export interface GetStorageLensConfigurationTaggingRequest {
@@ -4509,15 +3174,6 @@ export interface GetStorageLensConfigurationTaggingRequest {
    * <p>The account ID of the requester.</p>
    */
   AccountId?: string;
-}
-
-export namespace GetStorageLensConfigurationTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStorageLensConfigurationTaggingRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4535,29 +3191,11 @@ export interface StorageLensTag {
   Value: string | undefined;
 }
 
-export namespace StorageLensTag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageLensTag): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStorageLensConfigurationTaggingResult {
   /**
    * <p>The tags of S3 Storage Lens configuration requested.</p>
    */
   Tags?: StorageLensTag[];
-}
-
-export namespace GetStorageLensConfigurationTaggingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetStorageLensConfigurationTaggingResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAccessPointsRequest {
@@ -4589,15 +3227,6 @@ export interface ListAccessPointsRequest {
   MaxResults?: number;
 }
 
-export namespace ListAccessPointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccessPointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccessPointsResult {
   /**
    * <p>Contains identification and configuration information for one or more access points associated
@@ -4611,15 +3240,6 @@ export interface ListAccessPointsResult {
    *          API to retrieve additional access points.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAccessPointsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccessPointsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAccessPointsForObjectLambdaRequest {
@@ -4644,15 +3264,6 @@ export interface ListAccessPointsForObjectLambdaRequest {
   MaxResults?: number;
 }
 
-export namespace ListAccessPointsForObjectLambdaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccessPointsForObjectLambdaRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An access point with an attached Lambda function used to access transformed data from an Amazon S3
  *          bucket.</p>
@@ -4669,15 +3280,6 @@ export interface ObjectLambdaAccessPoint {
   ObjectLambdaAccessPointArn?: string;
 }
 
-export namespace ObjectLambdaAccessPoint {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectLambdaAccessPoint): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccessPointsForObjectLambdaResult {
   /**
    * <p>Returns list of Object Lambda Access Points.</p>
@@ -4690,15 +3292,6 @@ export interface ListAccessPointsForObjectLambdaResult {
    *          retrieve additional access points.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListAccessPointsForObjectLambdaResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListAccessPointsForObjectLambdaResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4771,15 +3364,6 @@ export interface ListJobsRequest {
   MaxResults?: number;
 }
 
-export namespace ListJobsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsRequest): any => ({
-    ...obj,
-  });
-}
-
 export enum OperationName {
   LambdaInvoke = "LambdaInvoke",
   S3DeleteObjectTagging = "S3DeleteObjectTagging",
@@ -4842,15 +3426,6 @@ export interface JobListDescriptor {
   ProgressSummary?: JobProgressSummary;
 }
 
-export namespace JobListDescriptor {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobListDescriptor): any => ({
-    ...obj,
-  });
-}
-
 export interface ListJobsResult {
   /**
    * <p>If the <code>List Jobs</code> request produced more than the maximum number of results,
@@ -4863,15 +3438,6 @@ export interface ListJobsResult {
    * <p>The list of current jobs and jobs that have ended within the last 30 days.</p>
    */
   Jobs?: JobListDescriptor[];
-}
-
-export namespace ListJobsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListJobsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListMultiRegionAccessPointsRequest {
@@ -4891,15 +3457,6 @@ export interface ListMultiRegionAccessPointsRequest {
   MaxResults?: number;
 }
 
-export namespace ListMultiRegionAccessPointsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMultiRegionAccessPointsRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface ListMultiRegionAccessPointsResult {
   /**
    * <p>The list of Multi-Region Access Points associated with the user.</p>
@@ -4912,15 +3469,6 @@ export interface ListMultiRegionAccessPointsResult {
    *          calls to this action to retrieve additional Multi-Region Access Points.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListMultiRegionAccessPointsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListMultiRegionAccessPointsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface ListRegionalBucketsRequest {
@@ -4946,15 +3494,6 @@ export interface ListRegionalBucketsRequest {
    *          </note>
    */
   OutpostId?: string;
-}
-
-export namespace ListRegionalBucketsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRegionalBucketsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4987,15 +3526,6 @@ export interface RegionalBucket {
   OutpostId?: string;
 }
 
-export namespace RegionalBucket {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RegionalBucket): any => ({
-    ...obj,
-  });
-}
-
 export interface ListRegionalBucketsResult {
   /**
    * <p></p>
@@ -5012,15 +3542,6 @@ export interface ListRegionalBucketsResult {
   NextToken?: string;
 }
 
-export namespace ListRegionalBucketsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListRegionalBucketsResult): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStorageLensConfigurationsRequest {
   /**
    * <p>The account ID of the requester.</p>
@@ -5031,15 +3552,6 @@ export interface ListStorageLensConfigurationsRequest {
    * <p>A pagination token to request the next page of results.</p>
    */
   NextToken?: string;
-}
-
-export namespace ListStorageLensConfigurationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStorageLensConfigurationsRequest): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5071,15 +3583,6 @@ export interface ListStorageLensConfigurationEntry {
   IsEnabled?: boolean;
 }
 
-export namespace ListStorageLensConfigurationEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStorageLensConfigurationEntry): any => ({
-    ...obj,
-  });
-}
-
 export interface ListStorageLensConfigurationsResult {
   /**
    * <p>If the request produced more than the maximum number of S3 Storage Lens configuration results,
@@ -5092,15 +3595,6 @@ export interface ListStorageLensConfigurationsResult {
    * <p>A list of S3 Storage Lens configurations.</p>
    */
   StorageLensConfigurationList?: ListStorageLensConfigurationEntry[];
-}
-
-export namespace ListStorageLensConfigurationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStorageLensConfigurationsResult): any => ({
-    ...obj,
-  });
 }
 
 export interface PutAccessPointConfigurationForObjectLambdaRequest {
@@ -5118,16 +3612,6 @@ export interface PutAccessPointConfigurationForObjectLambdaRequest {
    * <p>Object Lambda Access Point configuration document.</p>
    */
   Configuration: ObjectLambdaConfiguration | undefined;
-}
-
-export namespace PutAccessPointConfigurationForObjectLambdaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccessPointConfigurationForObjectLambdaRequest): any => ({
-    ...obj,
-    ...(obj.Configuration && { Configuration: ObjectLambdaConfiguration.filterSensitiveLog(obj.Configuration) }),
-  });
 }
 
 export interface PutAccessPointPolicyRequest {
@@ -5151,15 +3635,6 @@ export interface PutAccessPointPolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutAccessPointPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccessPointPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAccessPointPolicyForObjectLambdaRequest {
   /**
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
@@ -5177,15 +3652,6 @@ export interface PutAccessPointPolicyForObjectLambdaRequest {
   Policy: string | undefined;
 }
 
-export namespace PutAccessPointPolicyForObjectLambdaRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutAccessPointPolicyForObjectLambdaRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The container for the Outposts bucket lifecycle configuration.</p>
  */
@@ -5194,15 +3660,6 @@ export interface LifecycleConfiguration {
    * <p>A lifecycle rule for individual objects in an Outposts bucket. </p>
    */
   Rules?: LifecycleRule[];
-}
-
-export namespace LifecycleConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleConfiguration): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketLifecycleConfigurationRequest {
@@ -5220,15 +3677,6 @@ export interface PutBucketLifecycleConfigurationRequest {
    * <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
    */
   LifecycleConfiguration?: LifecycleConfiguration;
-}
-
-export namespace PutBucketLifecycleConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketLifecycleConfigurationRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketPolicyRequest {
@@ -5259,15 +3707,6 @@ export interface PutBucketPolicyRequest {
   Policy: string | undefined;
 }
 
-export namespace PutBucketPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -5276,15 +3715,6 @@ export interface Tagging {
    * <p>A collection for a set of tags.</p>
    */
   TagSet: S3Tag[] | undefined;
-}
-
-export namespace Tagging {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tagging): any => ({
-    ...obj,
-  });
 }
 
 export interface PutBucketTaggingRequest {
@@ -5306,15 +3736,6 @@ export interface PutBucketTaggingRequest {
   Tagging: Tagging | undefined;
 }
 
-export namespace PutBucketTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutBucketTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutJobTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
@@ -5332,25 +3753,7 @@ export interface PutJobTaggingRequest {
   Tags: S3Tag[] | undefined;
 }
 
-export namespace PutJobTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutJobTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutJobTaggingResult {}
-
-export namespace PutJobTaggingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutJobTaggingResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>
@@ -5391,30 +3794,12 @@ export interface PutMultiRegionAccessPointPolicyRequest {
   Details: PutMultiRegionAccessPointPolicyInput | undefined;
 }
 
-export namespace PutMultiRegionAccessPointPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMultiRegionAccessPointPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutMultiRegionAccessPointPolicyResult {
   /**
    * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous
    *          requests.</p>
    */
   RequestTokenARN?: string;
-}
-
-export namespace PutMultiRegionAccessPointPolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutMultiRegionAccessPointPolicyResult): any => ({
-    ...obj,
-  });
 }
 
 export interface PutPublicAccessBlockRequest {
@@ -5429,15 +3814,6 @@ export interface PutPublicAccessBlockRequest {
    *          you want to set.</p>
    */
   AccountId?: string;
-}
-
-export namespace PutPublicAccessBlockRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutPublicAccessBlockRequest): any => ({
-    ...obj,
-  });
 }
 
 export interface PutStorageLensConfigurationRequest {
@@ -5465,15 +3841,6 @@ export interface PutStorageLensConfigurationRequest {
   Tags?: StorageLensTag[];
 }
 
-export namespace PutStorageLensConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStorageLensConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutStorageLensConfigurationTaggingRequest {
   /**
    * <p>The ID of the S3 Storage Lens configuration.</p>
@@ -5494,25 +3861,7 @@ export interface PutStorageLensConfigurationTaggingRequest {
   Tags: StorageLensTag[] | undefined;
 }
 
-export namespace PutStorageLensConfigurationTaggingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStorageLensConfigurationTaggingRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface PutStorageLensConfigurationTaggingResult {}
-
-export namespace PutStorageLensConfigurationTaggingResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStorageLensConfigurationTaggingResult): any => ({
-    ...obj,
-  });
-}
 
 export interface UpdateJobPriorityRequest {
   /**
@@ -5531,15 +3880,6 @@ export interface UpdateJobPriorityRequest {
   Priority: number | undefined;
 }
 
-export namespace UpdateJobPriorityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobPriorityRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateJobPriorityResult {
   /**
    * <p>The ID for the job whose priority Amazon S3 updated.</p>
@@ -5550,15 +3890,6 @@ export interface UpdateJobPriorityResult {
    * <p>The new priority assigned to the specified job.</p>
    */
   Priority: number | undefined;
-}
-
-export namespace UpdateJobPriorityResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobPriorityResult): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5610,15 +3941,6 @@ export interface UpdateJobStatusRequest {
   StatusUpdateReason?: string;
 }
 
-export namespace UpdateJobStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobStatusRequest): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateJobStatusResult {
   /**
    * <p>The ID for the job whose status was updated.</p>
@@ -5636,11 +3958,1413 @@ export interface UpdateJobStatusResult {
   StatusUpdateReason?: string;
 }
 
-export namespace UpdateJobStatusResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobStatusResult): any => ({
-    ...obj,
-  });
-}
+/**
+ * @internal
+ */
+export const AbortIncompleteMultipartUploadFilterSensitiveLog = (obj: AbortIncompleteMultipartUpload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VpcConfigurationFilterSensitiveLog = (obj: VpcConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessPointFilterSensitiveLog = (obj: AccessPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ActivityMetricsFilterSensitiveLog = (obj: ActivityMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SelectionCriteriaFilterSensitiveLog = (obj: SelectionCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrefixLevelStorageMetricsFilterSensitiveLog = (obj: PrefixLevelStorageMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PrefixLevelFilterSensitiveLog = (obj: PrefixLevel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BucketLevelFilterSensitiveLog = (obj: BucketLevel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccountLevelFilterSensitiveLog = (obj: AccountLevel): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AsyncErrorDetailsFilterSensitiveLog = (obj: AsyncErrorDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PublicAccessBlockConfigurationFilterSensitiveLog = (obj: PublicAccessBlockConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegionFilterSensitiveLog = (obj: Region): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMultiRegionAccessPointInputFilterSensitiveLog = (obj: CreateMultiRegionAccessPointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMultiRegionAccessPointInputFilterSensitiveLog = (obj: DeleteMultiRegionAccessPointInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMultiRegionAccessPointPolicyInputFilterSensitiveLog = (
+  obj: PutMultiRegionAccessPointPolicyInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AsyncRequestParametersFilterSensitiveLog = (obj: AsyncRequestParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiRegionAccessPointRegionalResponseFilterSensitiveLog = (
+  obj: MultiRegionAccessPointRegionalResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiRegionAccessPointsAsyncResponseFilterSensitiveLog = (
+  obj: MultiRegionAccessPointsAsyncResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AsyncResponseDetailsFilterSensitiveLog = (obj: AsyncResponseDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AsyncOperationFilterSensitiveLog = (obj: AsyncOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaTransformationFilterSensitiveLog = (obj: AwsLambdaTransformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessPointRequestFilterSensitiveLog = (obj: CreateAccessPointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessPointResultFilterSensitiveLog = (obj: CreateAccessPointResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectLambdaContentTransformationFilterSensitiveLog = (obj: ObjectLambdaContentTransformation): any => {
+  if (obj.AwsLambda !== undefined) return { AwsLambda: AwsLambdaTransformationFilterSensitiveLog(obj.AwsLambda) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ObjectLambdaTransformationConfigurationFilterSensitiveLog = (
+  obj: ObjectLambdaTransformationConfiguration
+): any => ({
+  ...obj,
+  ...(obj.ContentTransformation && {
+    ContentTransformation: ObjectLambdaContentTransformationFilterSensitiveLog(obj.ContentTransformation),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ObjectLambdaConfigurationFilterSensitiveLog = (obj: ObjectLambdaConfiguration): any => ({
+  ...obj,
+  ...(obj.TransformationConfigurations && {
+    TransformationConfigurations: obj.TransformationConfigurations.map((item) =>
+      ObjectLambdaTransformationConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessPointForObjectLambdaRequestFilterSensitiveLog = (
+  obj: CreateAccessPointForObjectLambdaRequest
+): any => ({
+  ...obj,
+  ...(obj.Configuration && { Configuration: ObjectLambdaConfigurationFilterSensitiveLog(obj.Configuration) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAccessPointForObjectLambdaResultFilterSensitiveLog = (
+  obj: CreateAccessPointForObjectLambdaResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBucketConfigurationFilterSensitiveLog = (obj: CreateBucketConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBucketRequestFilterSensitiveLog = (obj: CreateBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBucketResultFilterSensitiveLog = (obj: CreateBucketResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobManifestLocationFilterSensitiveLog = (obj: JobManifestLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobManifestSpecFilterSensitiveLog = (obj: JobManifestSpec): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobManifestFilterSensitiveLog = (obj: JobManifest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobManifestGeneratorFilterFilterSensitiveLog = (obj: JobManifestGeneratorFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSEKMSEncryptionFilterSensitiveLog = (obj: SSEKMSEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSES3EncryptionFilterSensitiveLog = (obj: SSES3Encryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeneratedManifestEncryptionFilterSensitiveLog = (obj: GeneratedManifestEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ManifestOutputLocationFilterSensitiveLog = (obj: S3ManifestOutputLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3JobManifestGeneratorFilterSensitiveLog = (obj: S3JobManifestGenerator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobManifestGeneratorFilterSensitiveLog = (obj: JobManifestGenerator): any => {
+  if (obj.S3JobManifestGenerator !== undefined)
+    return { S3JobManifestGenerator: S3JobManifestGeneratorFilterSensitiveLog(obj.S3JobManifestGenerator) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const LambdaInvokeOperationFilterSensitiveLog = (obj: LambdaInvokeOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DeleteObjectTaggingOperationFilterSensitiveLog = (obj: S3DeleteObjectTaggingOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3InitiateRestoreObjectOperationFilterSensitiveLog = (obj: S3InitiateRestoreObjectOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3GranteeFilterSensitiveLog = (obj: S3Grantee): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3GrantFilterSensitiveLog = (obj: S3Grant): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ObjectOwnerFilterSensitiveLog = (obj: S3ObjectOwner): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3AccessControlListFilterSensitiveLog = (obj: S3AccessControlList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3AccessControlPolicyFilterSensitiveLog = (obj: S3AccessControlPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SetObjectAclOperationFilterSensitiveLog = (obj: S3SetObjectAclOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ObjectMetadataFilterSensitiveLog = (obj: S3ObjectMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3TagFilterSensitiveLog = (obj: S3Tag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3CopyObjectOperationFilterSensitiveLog = (obj: S3CopyObjectOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ObjectLockLegalHoldFilterSensitiveLog = (obj: S3ObjectLockLegalHold): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SetObjectLegalHoldOperationFilterSensitiveLog = (obj: S3SetObjectLegalHoldOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3RetentionFilterSensitiveLog = (obj: S3Retention): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SetObjectRetentionOperationFilterSensitiveLog = (obj: S3SetObjectRetentionOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3SetObjectTaggingOperationFilterSensitiveLog = (obj: S3SetObjectTaggingOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3ReplicateObjectOperationFilterSensitiveLog = (obj: S3ReplicateObjectOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobOperationFilterSensitiveLog = (obj: JobOperation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobReportFilterSensitiveLog = (obj: JobReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateJobRequestFilterSensitiveLog = (obj: CreateJobRequest): any => ({
+  ...obj,
+  ...(obj.ManifestGenerator && { ManifestGenerator: JobManifestGeneratorFilterSensitiveLog(obj.ManifestGenerator) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateJobResultFilterSensitiveLog = (obj: CreateJobResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMultiRegionAccessPointRequestFilterSensitiveLog = (
+  obj: CreateMultiRegionAccessPointRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateMultiRegionAccessPointResultFilterSensitiveLog = (obj: CreateMultiRegionAccessPointResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessPointRequestFilterSensitiveLog = (obj: DeleteAccessPointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessPointForObjectLambdaRequestFilterSensitiveLog = (
+  obj: DeleteAccessPointForObjectLambdaRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessPointPolicyRequestFilterSensitiveLog = (obj: DeleteAccessPointPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccessPointPolicyForObjectLambdaRequestFilterSensitiveLog = (
+  obj: DeleteAccessPointPolicyForObjectLambdaRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketRequestFilterSensitiveLog = (obj: DeleteBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketLifecycleConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteBucketLifecycleConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketPolicyRequestFilterSensitiveLog = (obj: DeleteBucketPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBucketTaggingRequestFilterSensitiveLog = (obj: DeleteBucketTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobTaggingRequestFilterSensitiveLog = (obj: DeleteJobTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteJobTaggingResultFilterSensitiveLog = (obj: DeleteJobTaggingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMultiRegionAccessPointRequestFilterSensitiveLog = (
+  obj: DeleteMultiRegionAccessPointRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMultiRegionAccessPointResultFilterSensitiveLog = (obj: DeleteMultiRegionAccessPointResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeletePublicAccessBlockRequestFilterSensitiveLog = (obj: DeletePublicAccessBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStorageLensConfigurationRequestFilterSensitiveLog = (
+  obj: DeleteStorageLensConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStorageLensConfigurationTaggingRequestFilterSensitiveLog = (
+  obj: DeleteStorageLensConfigurationTaggingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteStorageLensConfigurationTaggingResultFilterSensitiveLog = (
+  obj: DeleteStorageLensConfigurationTaggingResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobRequestFilterSensitiveLog = (obj: DescribeJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobFailureFilterSensitiveLog = (obj: JobFailure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3GeneratedManifestDescriptorFilterSensitiveLog = (obj: S3GeneratedManifestDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobTimersFilterSensitiveLog = (obj: JobTimers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobProgressSummaryFilterSensitiveLog = (obj: JobProgressSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobDescriptorFilterSensitiveLog = (obj: JobDescriptor): any => ({
+  ...obj,
+  ...(obj.ManifestGenerator && { ManifestGenerator: JobManifestGeneratorFilterSensitiveLog(obj.ManifestGenerator) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeJobResultFilterSensitiveLog = (obj: DescribeJobResult): any => ({
+  ...obj,
+  ...(obj.Job && { Job: JobDescriptorFilterSensitiveLog(obj.Job) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeMultiRegionAccessPointOperationRequestFilterSensitiveLog = (
+  obj: DescribeMultiRegionAccessPointOperationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMultiRegionAccessPointOperationResultFilterSensitiveLog = (
+  obj: DescribeMultiRegionAccessPointOperationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointRequestFilterSensitiveLog = (obj: GetAccessPointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointResultFilterSensitiveLog = (obj: GetAccessPointResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointConfigurationForObjectLambdaRequestFilterSensitiveLog = (
+  obj: GetAccessPointConfigurationForObjectLambdaRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointConfigurationForObjectLambdaResultFilterSensitiveLog = (
+  obj: GetAccessPointConfigurationForObjectLambdaResult
+): any => ({
+  ...obj,
+  ...(obj.Configuration && { Configuration: ObjectLambdaConfigurationFilterSensitiveLog(obj.Configuration) }),
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointForObjectLambdaRequestFilterSensitiveLog = (
+  obj: GetAccessPointForObjectLambdaRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointForObjectLambdaResultFilterSensitiveLog = (
+  obj: GetAccessPointForObjectLambdaResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointPolicyRequestFilterSensitiveLog = (obj: GetAccessPointPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointPolicyResultFilterSensitiveLog = (obj: GetAccessPointPolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointPolicyForObjectLambdaRequestFilterSensitiveLog = (
+  obj: GetAccessPointPolicyForObjectLambdaRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointPolicyForObjectLambdaResultFilterSensitiveLog = (
+  obj: GetAccessPointPolicyForObjectLambdaResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointPolicyStatusRequestFilterSensitiveLog = (obj: GetAccessPointPolicyStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PolicyStatusFilterSensitiveLog = (obj: PolicyStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointPolicyStatusResultFilterSensitiveLog = (obj: GetAccessPointPolicyStatusResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointPolicyStatusForObjectLambdaRequestFilterSensitiveLog = (
+  obj: GetAccessPointPolicyStatusForObjectLambdaRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetAccessPointPolicyStatusForObjectLambdaResultFilterSensitiveLog = (
+  obj: GetAccessPointPolicyStatusForObjectLambdaResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketRequestFilterSensitiveLog = (obj: GetBucketRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketResultFilterSensitiveLog = (obj: GetBucketResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketLifecycleConfigurationRequestFilterSensitiveLog = (
+  obj: GetBucketLifecycleConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleExpirationFilterSensitiveLog = (obj: LifecycleExpiration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleRuleAndOperatorFilterSensitiveLog = (obj: LifecycleRuleAndOperator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleRuleFilterFilterSensitiveLog = (obj: LifecycleRuleFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoncurrentVersionExpirationFilterSensitiveLog = (obj: NoncurrentVersionExpiration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NoncurrentVersionTransitionFilterSensitiveLog = (obj: NoncurrentVersionTransition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransitionFilterSensitiveLog = (obj: Transition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleRuleFilterSensitiveLog = (obj: LifecycleRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketLifecycleConfigurationResultFilterSensitiveLog = (
+  obj: GetBucketLifecycleConfigurationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketPolicyRequestFilterSensitiveLog = (obj: GetBucketPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketPolicyResultFilterSensitiveLog = (obj: GetBucketPolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketTaggingRequestFilterSensitiveLog = (obj: GetBucketTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketTaggingResultFilterSensitiveLog = (obj: GetBucketTaggingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobTaggingRequestFilterSensitiveLog = (obj: GetJobTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetJobTaggingResultFilterSensitiveLog = (obj: GetJobTaggingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMultiRegionAccessPointRequestFilterSensitiveLog = (obj: GetMultiRegionAccessPointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegionReportFilterSensitiveLog = (obj: RegionReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiRegionAccessPointReportFilterSensitiveLog = (obj: MultiRegionAccessPointReport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMultiRegionAccessPointResultFilterSensitiveLog = (obj: GetMultiRegionAccessPointResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMultiRegionAccessPointPolicyRequestFilterSensitiveLog = (
+  obj: GetMultiRegionAccessPointPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EstablishedMultiRegionAccessPointPolicyFilterSensitiveLog = (
+  obj: EstablishedMultiRegionAccessPointPolicy
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProposedMultiRegionAccessPointPolicyFilterSensitiveLog = (
+  obj: ProposedMultiRegionAccessPointPolicy
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiRegionAccessPointPolicyDocumentFilterSensitiveLog = (
+  obj: MultiRegionAccessPointPolicyDocument
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMultiRegionAccessPointPolicyResultFilterSensitiveLog = (
+  obj: GetMultiRegionAccessPointPolicyResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMultiRegionAccessPointPolicyStatusRequestFilterSensitiveLog = (
+  obj: GetMultiRegionAccessPointPolicyStatusRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMultiRegionAccessPointPolicyStatusResultFilterSensitiveLog = (
+  obj: GetMultiRegionAccessPointPolicyStatusResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPublicAccessBlockOutputFilterSensitiveLog = (obj: GetPublicAccessBlockOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPublicAccessBlockRequestFilterSensitiveLog = (obj: GetPublicAccessBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStorageLensConfigurationRequestFilterSensitiveLog = (obj: GetStorageLensConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageLensAwsOrgFilterSensitiveLog = (obj: StorageLensAwsOrg): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudWatchMetricsFilterSensitiveLog = (obj: CloudWatchMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSEKMSFilterSensitiveLog = (obj: SSEKMS): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SSES3FilterSensitiveLog = (obj: SSES3): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageLensDataExportEncryptionFilterSensitiveLog = (obj: StorageLensDataExportEncryption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3BucketDestinationFilterSensitiveLog = (obj: S3BucketDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageLensDataExportFilterSensitiveLog = (obj: StorageLensDataExport): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const _ExcludeFilterSensitiveLog = (obj: _Exclude): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IncludeFilterSensitiveLog = (obj: Include): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageLensConfigurationFilterSensitiveLog = (obj: StorageLensConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStorageLensConfigurationResultFilterSensitiveLog = (obj: GetStorageLensConfigurationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStorageLensConfigurationTaggingRequestFilterSensitiveLog = (
+  obj: GetStorageLensConfigurationTaggingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StorageLensTagFilterSensitiveLog = (obj: StorageLensTag): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStorageLensConfigurationTaggingResultFilterSensitiveLog = (
+  obj: GetStorageLensConfigurationTaggingResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessPointsRequestFilterSensitiveLog = (obj: ListAccessPointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessPointsResultFilterSensitiveLog = (obj: ListAccessPointsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessPointsForObjectLambdaRequestFilterSensitiveLog = (
+  obj: ListAccessPointsForObjectLambdaRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ObjectLambdaAccessPointFilterSensitiveLog = (obj: ObjectLambdaAccessPoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAccessPointsForObjectLambdaResultFilterSensitiveLog = (
+  obj: ListAccessPointsForObjectLambdaResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const JobListDescriptorFilterSensitiveLog = (obj: JobListDescriptor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListJobsResultFilterSensitiveLog = (obj: ListJobsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMultiRegionAccessPointsRequestFilterSensitiveLog = (obj: ListMultiRegionAccessPointsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMultiRegionAccessPointsResultFilterSensitiveLog = (obj: ListMultiRegionAccessPointsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegionalBucketsRequestFilterSensitiveLog = (obj: ListRegionalBucketsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegionalBucketFilterSensitiveLog = (obj: RegionalBucket): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRegionalBucketsResultFilterSensitiveLog = (obj: ListRegionalBucketsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStorageLensConfigurationsRequestFilterSensitiveLog = (
+  obj: ListStorageLensConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStorageLensConfigurationEntryFilterSensitiveLog = (obj: ListStorageLensConfigurationEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStorageLensConfigurationsResultFilterSensitiveLog = (
+  obj: ListStorageLensConfigurationsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccessPointConfigurationForObjectLambdaRequestFilterSensitiveLog = (
+  obj: PutAccessPointConfigurationForObjectLambdaRequest
+): any => ({
+  ...obj,
+  ...(obj.Configuration && { Configuration: ObjectLambdaConfigurationFilterSensitiveLog(obj.Configuration) }),
+});
+
+/**
+ * @internal
+ */
+export const PutAccessPointPolicyRequestFilterSensitiveLog = (obj: PutAccessPointPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAccessPointPolicyForObjectLambdaRequestFilterSensitiveLog = (
+  obj: PutAccessPointPolicyForObjectLambdaRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LifecycleConfigurationFilterSensitiveLog = (obj: LifecycleConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketLifecycleConfigurationRequestFilterSensitiveLog = (
+  obj: PutBucketLifecycleConfigurationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketPolicyRequestFilterSensitiveLog = (obj: PutBucketPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TaggingFilterSensitiveLog = (obj: Tagging): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketTaggingRequestFilterSensitiveLog = (obj: PutBucketTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutJobTaggingRequestFilterSensitiveLog = (obj: PutJobTaggingRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutJobTaggingResultFilterSensitiveLog = (obj: PutJobTaggingResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMultiRegionAccessPointPolicyRequestFilterSensitiveLog = (
+  obj: PutMultiRegionAccessPointPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMultiRegionAccessPointPolicyResultFilterSensitiveLog = (
+  obj: PutMultiRegionAccessPointPolicyResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutPublicAccessBlockRequestFilterSensitiveLog = (obj: PutPublicAccessBlockRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutStorageLensConfigurationRequestFilterSensitiveLog = (obj: PutStorageLensConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutStorageLensConfigurationTaggingRequestFilterSensitiveLog = (
+  obj: PutStorageLensConfigurationTaggingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutStorageLensConfigurationTaggingResultFilterSensitiveLog = (
+  obj: PutStorageLensConfigurationTaggingResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobPriorityRequestFilterSensitiveLog = (obj: UpdateJobPriorityRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobPriorityResultFilterSensitiveLog = (obj: UpdateJobPriorityResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobStatusRequestFilterSensitiveLog = (obj: UpdateJobStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateJobStatusResultFilterSensitiveLog = (obj: UpdateJobStatusResult): any => ({
+  ...obj,
+});

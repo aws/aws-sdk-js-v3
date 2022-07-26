@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
+import {
+  CreateDBInstanceMessage,
+  CreateDBInstanceMessageFilterSensitiveLog,
+  CreateDBInstanceResult,
+  CreateDBInstanceResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_queryCreateDBInstanceCommand,
   serializeAws_queryCreateDBInstanceCommand,
@@ -80,8 +85,8 @@ export class CreateDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBInstanceMessage.filterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBInstanceResult.filterSensitiveLog,
+      inputFilterSensitiveLog: CreateDBInstanceMessageFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateDBInstanceResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

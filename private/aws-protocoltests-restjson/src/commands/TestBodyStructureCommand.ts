@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TestBodyStructureInputOutput } from "../models/models_0";
+import { TestBodyStructureInputOutput, TestBodyStructureInputOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1TestBodyStructureCommand,
   serializeAws_restJson1TestBodyStructureCommand,
@@ -77,8 +77,8 @@ export class TestBodyStructureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestBodyStructureInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: TestBodyStructureInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: TestBodyStructureInputOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: TestBodyStructureInputOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstanceMaintenanceOptionsRequest, ModifyInstanceMaintenanceOptionsResult } from "../models/models_5";
+import {
+  ModifyInstanceMaintenanceOptionsRequest,
+  ModifyInstanceMaintenanceOptionsRequestFilterSensitiveLog,
+  ModifyInstanceMaintenanceOptionsResult,
+  ModifyInstanceMaintenanceOptionsResultFilterSensitiveLog,
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommand,
   serializeAws_ec2ModifyInstanceMaintenanceOptionsCommand,
@@ -77,8 +82,8 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceMaintenanceOptionsRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ModifyInstanceMaintenanceOptionsResult.filterSensitiveLog,
+      inputFilterSensitiveLog: ModifyInstanceMaintenanceOptionsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ModifyInstanceMaintenanceOptionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

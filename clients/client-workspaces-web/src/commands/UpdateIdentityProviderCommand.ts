@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateIdentityProviderRequest, UpdateIdentityProviderResponse } from "../models/models_0";
+import {
+  UpdateIdentityProviderRequest,
+  UpdateIdentityProviderRequestFilterSensitiveLog,
+  UpdateIdentityProviderResponse,
+  UpdateIdentityProviderResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateIdentityProviderCommand,
   serializeAws_restJson1UpdateIdentityProviderCommand,
@@ -72,8 +77,8 @@ export class UpdateIdentityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIdentityProviderRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIdentityProviderResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: UpdateIdentityProviderRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateIdentityProviderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

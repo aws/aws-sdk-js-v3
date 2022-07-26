@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_1";
+import {
+  GetMasterAccountRequest,
+  GetMasterAccountRequestFilterSensitiveLog,
+  GetMasterAccountResponse,
+  GetMasterAccountResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetMasterAccountCommand,
   serializeAws_restJson1GetMasterAccountCommand,
@@ -78,8 +83,8 @@ export class GetMasterAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMasterAccountRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: GetMasterAccountResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: GetMasterAccountRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetMasterAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

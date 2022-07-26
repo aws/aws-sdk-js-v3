@@ -12,7 +12,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteConfigurationSetRequest, DeleteConfigurationSetResult } from "../models/models_0";
+import {
+  DeleteConfigurationSetRequest,
+  DeleteConfigurationSetRequestFilterSensitiveLog,
+  DeleteConfigurationSetResult,
+  DeleteConfigurationSetResultFilterSensitiveLog,
+} from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -79,8 +84,8 @@ export class DeleteConfigurationSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationSetRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationSetResult.filterSensitiveLog,
+      inputFilterSensitiveLog: DeleteConfigurationSetRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteConfigurationSetResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

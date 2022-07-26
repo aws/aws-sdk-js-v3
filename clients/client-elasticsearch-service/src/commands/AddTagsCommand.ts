@@ -17,7 +17,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import { AddTagsRequest } from "../models/models_0";
+import { AddTagsRequest, AddTagsRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1AddTagsCommand,
   serializeAws_restJson1AddTagsCommand,
@@ -77,7 +77,7 @@ export class AddTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddTagsRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: AddTagsRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

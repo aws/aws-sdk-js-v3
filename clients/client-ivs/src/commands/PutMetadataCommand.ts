@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { PutMetadataRequest } from "../models/models_0";
+import { PutMetadataRequest, PutMetadataRequestFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1PutMetadataCommand,
   serializeAws_restJson1PutMetadataCommand,
@@ -76,7 +76,7 @@ export class PutMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMetadataRequest.filterSensitiveLog,
+      inputFilterSensitiveLog: PutMetadataRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
