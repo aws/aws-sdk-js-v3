@@ -54,6 +54,14 @@ import {
 } from "@aws-sdk/types";
 
 import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
+import {
+  BatchGetGraphMemberDatasourcesCommandInput,
+  BatchGetGraphMemberDatasourcesCommandOutput,
+} from "./commands/BatchGetGraphMemberDatasourcesCommand";
+import {
+  BatchGetMembershipDatasourcesCommandInput,
+  BatchGetMembershipDatasourcesCommandOutput,
+} from "./commands/BatchGetMembershipDatasourcesCommand";
 import { CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
 import { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand";
@@ -75,6 +83,10 @@ import {
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import {
+  ListDatasourcePackagesCommandInput,
+  ListDatasourcePackagesCommandOutput,
+} from "./commands/ListDatasourcePackagesCommand";
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
@@ -94,6 +106,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateDatasourcePackagesCommandInput,
+  UpdateDatasourcePackagesCommandOutput,
+} from "./commands/UpdateDatasourcePackagesCommand";
+import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
@@ -101,6 +117,8 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AcceptInvitationCommandInput
+  | BatchGetGraphMemberDatasourcesCommandInput
+  | BatchGetMembershipDatasourcesCommandInput
   | CreateGraphCommandInput
   | CreateMembersCommandInput
   | DeleteGraphCommandInput
@@ -110,6 +128,7 @@ export type ServiceInputTypes =
   | DisassociateMembershipCommandInput
   | EnableOrganizationAdminAccountCommandInput
   | GetMembersCommandInput
+  | ListDatasourcePackagesCommandInput
   | ListGraphsCommandInput
   | ListInvitationsCommandInput
   | ListMembersCommandInput
@@ -119,10 +138,13 @@ export type ServiceInputTypes =
   | StartMonitoringMemberCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateDatasourcePackagesCommandInput
   | UpdateOrganizationConfigurationCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptInvitationCommandOutput
+  | BatchGetGraphMemberDatasourcesCommandOutput
+  | BatchGetMembershipDatasourcesCommandOutput
   | CreateGraphCommandOutput
   | CreateMembersCommandOutput
   | DeleteGraphCommandOutput
@@ -132,6 +154,7 @@ export type ServiceOutputTypes =
   | DisassociateMembershipCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
   | GetMembersCommandOutput
+  | ListDatasourcePackagesCommandOutput
   | ListGraphsCommandOutput
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
@@ -141,6 +164,7 @@ export type ServiceOutputTypes =
   | StartMonitoringMemberCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateDatasourcePackagesCommandOutput
   | UpdateOrganizationConfigurationCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -310,10 +334,12 @@ export interface DetectiveClientResolvedConfig extends DetectiveClientResolvedCo
  *          <p>Detective is also integrated with Organizations. The organization
  *          management account designates the Detective administrator account for the
  *          organization. That account becomes the administrator account for the organization behavior
- *          graph. The Detective administrator account can enable any organization account as
- *          a member account in the organization behavior graph. The organization accounts do not
- *          receive invitations. The Detective administrator account can also invite other
- *          accounts to the organization behavior graph.</p>
+ *          graph. The Detective administrator account is also the delegated administrator
+ *          account for Detective in Organizations.</p>
+ *          <p>The Detective administrator account can enable any organization account as a
+ *          member account in the organization behavior graph. The organization accounts do not receive
+ *          invitations. The Detective administrator account can also invite other accounts to
+ *          the organization behavior graph.</p>
  *          <p>Every behavior graph is specific to a Region. You can only use the API to manage
  *          behavior graphs that belong to the Region that is associated with the currently selected
  *          endpoint.</p>

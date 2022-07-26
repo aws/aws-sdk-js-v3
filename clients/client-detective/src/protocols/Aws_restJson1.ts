@@ -18,6 +18,14 @@ import {
 } from "@aws-sdk/types";
 
 import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "../commands/AcceptInvitationCommand";
+import {
+  BatchGetGraphMemberDatasourcesCommandInput,
+  BatchGetGraphMemberDatasourcesCommandOutput,
+} from "../commands/BatchGetGraphMemberDatasourcesCommand";
+import {
+  BatchGetMembershipDatasourcesCommandInput,
+  BatchGetMembershipDatasourcesCommandOutput,
+} from "../commands/BatchGetMembershipDatasourcesCommand";
 import { CreateGraphCommandInput, CreateGraphCommandOutput } from "../commands/CreateGraphCommand";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "../commands/CreateMembersCommand";
 import { DeleteGraphCommandInput, DeleteGraphCommandOutput } from "../commands/DeleteGraphCommand";
@@ -39,6 +47,10 @@ import {
   EnableOrganizationAdminAccountCommandOutput,
 } from "../commands/EnableOrganizationAdminAccountCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand";
+import {
+  ListDatasourcePackagesCommandInput,
+  ListDatasourcePackagesCommandOutput,
+} from "../commands/ListDatasourcePackagesCommand";
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "../commands/ListGraphsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "../commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
@@ -58,6 +70,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateDatasourcePackagesCommandInput,
+  UpdateDatasourcePackagesCommandOutput,
+} from "../commands/UpdateDatasourcePackagesCommand";
+import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "../commands/UpdateOrganizationConfigurationCommand";
@@ -66,13 +82,20 @@ import {
   Account,
   Administrator,
   ConflictException,
+  DatasourcePackage,
+  DatasourcePackageIngestDetail,
+  DatasourcePackageIngestState,
+  DatasourcePackageUsageInfo,
   Graph,
   InternalServerException,
   MemberDetail,
+  MembershipDatasources,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  TimestampForCollection,
   TooManyRequestsException,
   UnprocessedAccount,
+  UnprocessedGraph,
   ValidationException,
 } from "../models/models_0";
 
@@ -94,6 +117,58 @@ export const serializeAws_restJson1AcceptInvitationCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchGetGraphMemberDatasourcesCommand = async (
+  input: BatchGetGraphMemberDatasourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/datasources/get";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AccountIds != null && {
+      AccountIds: serializeAws_restJson1AccountIdExtendedList(input.AccountIds, context),
+    }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchGetMembershipDatasourcesCommand = async (
+  input: BatchGetMembershipDatasourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/membership/datasources/get";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.GraphArns != null && { GraphArns: serializeAws_restJson1GraphArnList(input.GraphArns, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -310,6 +385,33 @@ export const serializeAws_restJson1GetMembersCommand = async (
   body = JSON.stringify({
     ...(input.AccountIds != null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
     ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListDatasourcePackagesCommand = async (
+  input: ListDatasourcePackagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/datasources/list";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -567,6 +669,34 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateDatasourcePackagesCommand = async (
+  input: UpdateDatasourcePackagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/datasources/update";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.DatasourcePackages != null && {
+      DatasourcePackages: serializeAws_restJson1DatasourcePackageList(input.DatasourcePackages, context),
+    }),
+    ...(input.GraphArn != null && { GraphArn: input.GraphArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateOrganizationConfigurationCommand = async (
   input: UpdateOrganizationConfigurationCommandInput,
   context: __SerdeContext
@@ -621,6 +751,119 @@ const deserializeAws_restJson1AcceptInvitationCommandError = async (
     case "ConflictException":
     case "com.amazonaws.detective#ConflictException":
       throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1BatchGetGraphMemberDatasourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetGraphMemberDatasourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchGetGraphMemberDatasourcesCommandError(output, context);
+  }
+  const contents: BatchGetGraphMemberDatasourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MemberDatasources: undefined,
+    UnprocessedAccounts: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MemberDatasources !== undefined && data.MemberDatasources !== null) {
+    contents.MemberDatasources = deserializeAws_restJson1MembershipDatasourcesList(data.MemberDatasources, context);
+  }
+  if (data.UnprocessedAccounts !== undefined && data.UnprocessedAccounts !== null) {
+    contents.UnprocessedAccounts = deserializeAws_restJson1UnprocessedAccountList(data.UnprocessedAccounts, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchGetGraphMemberDatasourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetGraphMemberDatasourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1BatchGetMembershipDatasourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetMembershipDatasourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchGetMembershipDatasourcesCommandError(output, context);
+  }
+  const contents: BatchGetMembershipDatasourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MembershipDatasources: undefined,
+    UnprocessedGraphs: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MembershipDatasources !== undefined && data.MembershipDatasources !== null) {
+    contents.MembershipDatasources = deserializeAws_restJson1MembershipDatasourcesList(
+      data.MembershipDatasources,
+      context
+    );
+  }
+  if (data.UnprocessedGraphs !== undefined && data.UnprocessedGraphs !== null) {
+    contents.UnprocessedGraphs = deserializeAws_restJson1UnprocessedGraphList(data.UnprocessedGraphs, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchGetMembershipDatasourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetMembershipDatasourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
@@ -1078,6 +1321,64 @@ const deserializeAws_restJson1GetMembersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMembersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1ListDatasourcePackagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasourcePackagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListDatasourcePackagesCommandError(output, context);
+  }
+  const contents: ListDatasourcePackagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    DatasourcePackages: undefined,
+    NextToken: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DatasourcePackages !== undefined && data.DatasourcePackages !== null) {
+    contents.DatasourcePackages = deserializeAws_restJson1DatasourcePackageIngestDetails(
+      data.DatasourcePackages,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListDatasourcePackagesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasourcePackagesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1569,6 +1870,56 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateDatasourcePackagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDatasourcePackagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateDatasourcePackagesCommandError(output, context);
+  }
+  const contents: UpdateDatasourcePackagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateDatasourcePackagesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDatasourcePackagesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.detective#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_restJson1UpdateOrganizationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1673,6 +2024,9 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
+  if (data.Resources !== undefined && data.Resources !== null) {
+    contents.Resources = deserializeAws_restJson1ResourceList(data.Resources, context);
+  }
   const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
@@ -1702,6 +2056,12 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 ): Promise<ValidationException> => {
   const contents: any = {};
   const data: any = parsedOutput.body;
+  if (data.ErrorCode !== undefined && data.ErrorCode !== null) {
+    contents.ErrorCode = __expectString(data.ErrorCode);
+  }
+  if (data.ErrorCodeReason !== undefined && data.ErrorCodeReason !== null) {
+    contents.ErrorCodeReason = __expectString(data.ErrorCodeReason);
+  }
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
@@ -1717,6 +2077,17 @@ const serializeAws_restJson1Account = (input: Account, context: __SerdeContext):
     ...(input.AccountId != null && { AccountId: input.AccountId }),
     ...(input.EmailAddress != null && { EmailAddress: input.EmailAddress }),
   };
+};
+
+const serializeAws_restJson1AccountIdExtendedList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1AccountIdList = (input: string[], context: __SerdeContext): any => {
@@ -1738,6 +2109,31 @@ const serializeAws_restJson1AccountList = (input: Account[], context: __SerdeCon
         return null as any;
       }
       return serializeAws_restJson1Account(entry, context);
+    });
+};
+
+const serializeAws_restJson1DatasourcePackageList = (
+  input: (DatasourcePackage | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1GraphArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -1786,6 +2182,86 @@ const deserializeAws_restJson1AdministratorList = (output: any, context: __Serde
   return retVal;
 };
 
+const deserializeAws_restJson1DatasourcePackageIngestDetail = (
+  output: any,
+  context: __SerdeContext
+): DatasourcePackageIngestDetail => {
+  return {
+    DatasourcePackageIngestState: __expectString(output.DatasourcePackageIngestState),
+    LastIngestStateChange:
+      output.LastIngestStateChange != null
+        ? deserializeAws_restJson1LastIngestStateChangeDates(output.LastIngestStateChange, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DatasourcePackageIngestDetails = (
+  output: any,
+  context: __SerdeContext
+): Record<string, DatasourcePackageIngestDetail> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, DatasourcePackageIngestDetail>, [key, value]: [DatasourcePackage | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1DatasourcePackageIngestDetail(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1DatasourcePackageIngestHistory = (
+  output: any,
+  context: __SerdeContext
+): Record<string, Record<string, TimestampForCollection>> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, Record<string, TimestampForCollection>>, [key, value]: [DatasourcePackage | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1LastIngestStateChangeDates(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1DatasourcePackageIngestStates = (
+  output: any,
+  context: __SerdeContext
+): Record<string, DatasourcePackageIngestState | string> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, DatasourcePackageIngestState | string>, [key, value]: [DatasourcePackage | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: __expectString(value) as any,
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1DatasourcePackageUsageInfo = (
+  output: any,
+  context: __SerdeContext
+): DatasourcePackageUsageInfo => {
+  return {
+    VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
+    VolumeUsageUpdateTime:
+      output.VolumeUsageUpdateTime != null
+        ? __expectNonNull(__parseRfc3339DateTime(output.VolumeUsageUpdateTime))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Graph => {
   return {
     Arn: __expectString(output.Arn),
@@ -1805,10 +2281,32 @@ const deserializeAws_restJson1GraphList = (output: any, context: __SerdeContext)
   return retVal;
 };
 
+const deserializeAws_restJson1LastIngestStateChangeDates = (
+  output: any,
+  context: __SerdeContext
+): Record<string, TimestampForCollection> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, TimestampForCollection>, [key, value]: [DatasourcePackageIngestState | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1TimestampForCollection(value, context),
+      };
+    },
+    {}
+  );
+};
+
 const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeContext): MemberDetail => {
   return {
     AccountId: __expectString(output.AccountId),
     AdministratorId: __expectString(output.AdministratorId),
+    DatasourcePackageIngestStates:
+      output.DatasourcePackageIngestStates != null
+        ? deserializeAws_restJson1DatasourcePackageIngestStates(output.DatasourcePackageIngestStates, context)
+        : undefined,
     DisabledReason: __expectString(output.DisabledReason),
     EmailAddress: __expectString(output.EmailAddress),
     GraphArn: __expectString(output.GraphArn),
@@ -1822,6 +2320,10 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
         : undefined,
     Status: __expectString(output.Status),
     UpdatedTime: output.UpdatedTime != null ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTime)) : undefined,
+    VolumeUsageByDatasourcePackage:
+      output.VolumeUsageByDatasourcePackage != null
+        ? deserializeAws_restJson1VolumeUsageByDatasourcePackage(output.VolumeUsageByDatasourcePackage, context)
+        : undefined,
     VolumeUsageInBytes: __expectLong(output.VolumeUsageInBytes),
     VolumeUsageUpdatedTime:
       output.VolumeUsageUpdatedTime != null
@@ -1842,6 +2344,44 @@ const deserializeAws_restJson1MemberDetailList = (output: any, context: __SerdeC
   return retVal;
 };
 
+const deserializeAws_restJson1MembershipDatasources = (output: any, context: __SerdeContext): MembershipDatasources => {
+  return {
+    AccountId: __expectString(output.AccountId),
+    DatasourcePackageIngestHistory:
+      output.DatasourcePackageIngestHistory != null
+        ? deserializeAws_restJson1DatasourcePackageIngestHistory(output.DatasourcePackageIngestHistory, context)
+        : undefined,
+    GraphArn: __expectString(output.GraphArn),
+  } as any;
+};
+
+const deserializeAws_restJson1MembershipDatasourcesList = (
+  output: any,
+  context: __SerdeContext
+): MembershipDatasources[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MembershipDatasources(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ResourceList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -1852,6 +2392,15 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1TimestampForCollection = (
+  output: any,
+  context: __SerdeContext
+): TimestampForCollection => {
+  return {
+    Timestamp: output.Timestamp != null ? __expectNonNull(__parseRfc3339DateTime(output.Timestamp)) : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1UnprocessedAccount = (output: any, context: __SerdeContext): UnprocessedAccount => {
@@ -1871,6 +2420,43 @@ const deserializeAws_restJson1UnprocessedAccountList = (output: any, context: __
       return deserializeAws_restJson1UnprocessedAccount(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1UnprocessedGraph = (output: any, context: __SerdeContext): UnprocessedGraph => {
+  return {
+    GraphArn: __expectString(output.GraphArn),
+    Reason: __expectString(output.Reason),
+  } as any;
+};
+
+const deserializeAws_restJson1UnprocessedGraphList = (output: any, context: __SerdeContext): UnprocessedGraph[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UnprocessedGraph(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1VolumeUsageByDatasourcePackage = (
+  output: any,
+  context: __SerdeContext
+): Record<string, DatasourcePackageUsageInfo> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, DatasourcePackageUsageInfo>, [key, value]: [DatasourcePackage | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1DatasourcePackageUsageInfo(value, context),
+      };
+    },
+    {}
+  );
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

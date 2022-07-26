@@ -75,6 +75,12 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+export enum ErrorCode {
+  InternalError = "INTERNAL_ERROR",
+  InvalidGraphArn = "INVALID_GRAPH_ARN",
+  InvalidRequestBody = "INVALID_REQUEST_BODY",
+}
+
 /**
  * <p>The request parameters are invalid.</p>
  */
@@ -82,6 +88,15 @@ export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * <p>The error code associated with the validation failure.</p>
+   */
+  ErrorCode?: ErrorCode | string;
+
+  /**
+   * <p> An explanation of why validation failed.</p>
+   */
+  ErrorCodeReason?: string;
   /**
    * @internal
    */
@@ -93,6 +108,8 @@ export class ValidationException extends __BaseException {
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
     this.Message = opts.Message;
+    this.ErrorCode = opts.ErrorCode;
+    this.ErrorCodeReason = opts.ErrorCodeReason;
   }
 }
 
@@ -137,6 +154,125 @@ export interface Administrator {
   DelegationTime?: Date;
 }
 
+export interface BatchGetGraphMemberDatasourcesRequest {
+  /**
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn: string | undefined;
+
+  /**
+   * <p>The list of Amazon Web Services accounts to get data source package information
+   *          on.</p>
+   */
+  AccountIds: string[] | undefined;
+}
+
+export enum DatasourcePackage {
+  DETECTIVE_CORE = "DETECTIVE_CORE",
+  EKS_AUDIT = "EKS_AUDIT",
+}
+
+export enum DatasourcePackageIngestState {
+  DISABLED = "DISABLED",
+  STARTED = "STARTED",
+  STOPPED = "STOPPED",
+}
+
+/**
+ * <p>Details on when data collection began for a source package.</p>
+ */
+export interface TimestampForCollection {
+  /**
+   * <p>The data and time when data collection began for a source package. The value is an
+   *          ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   */
+  Timestamp?: Date;
+}
+
+/**
+ * <p>Details on data source packages for members of the behavior graph.</p>
+ */
+export interface MembershipDatasources {
+  /**
+   * <p>The account identifier of the Amazon Web Services account.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The ARN of the organization behavior graph.</p>
+   */
+  GraphArn?: string;
+
+  /**
+   * <p>Details on when a data source package was added to a behavior graph.</p>
+   */
+  DatasourcePackageIngestHistory?: Record<string, Record<string, TimestampForCollection>>;
+}
+
+/**
+ * <p>A member account that was included in a request but for which the request could not be
+ *          processed.</p>
+ */
+export interface UnprocessedAccount {
+  /**
+   * <p>The Amazon Web Services account identifier of the member account that was not
+   *          processed.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The reason that the member account request could not be processed.</p>
+   */
+  Reason?: string;
+}
+
+export interface BatchGetGraphMemberDatasourcesResponse {
+  /**
+   * <p>Details on the status of data source packages for members of the behavior graph.</p>
+   */
+  MemberDatasources?: MembershipDatasources[];
+
+  /**
+   * <p>Accounts that data source package information could not be retrieved for.</p>
+   */
+  UnprocessedAccounts?: UnprocessedAccount[];
+}
+
+export interface BatchGetMembershipDatasourcesRequest {
+  /**
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArns: string[] | undefined;
+}
+
+/**
+ * <p>Behavior graphs that could not be processed in the request.</p>
+ */
+export interface UnprocessedGraph {
+  /**
+   * <p>The ARN of the organization behavior graph.</p>
+   */
+  GraphArn?: string;
+
+  /**
+   * <p>The reason data source package information could not be processed for a behavior
+   *          graph.</p>
+   */
+  Reason?: string;
+}
+
+export interface BatchGetMembershipDatasourcesResponse {
+  /**
+   * <p>Details on the data source package history for an member of the behavior graph.</p>
+   */
+  MembershipDatasources?: MembershipDatasources[];
+
+  /**
+   * <p>Graphs that data source package information could not be retrieved for.</p>
+   */
+  UnprocessedGraphs?: UnprocessedGraph[];
+}
+
 export interface CreateGraphRequest {
   /**
    * <p>The tags to assign to the new behavior graph. You can add up to 50 tags. For each tag,
@@ -176,6 +312,10 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string;
   /**
+   * <p>The type of resource that has exceeded the service quota.</p>
+   */
+  Resources?: string[];
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
@@ -186,6 +326,7 @@ export class ServiceQuotaExceededException extends __BaseException {
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.Message = opts.Message;
+    this.Resources = opts.Resources;
   }
 }
 
@@ -236,6 +377,22 @@ export enum MemberStatus {
   INVITED = "INVITED",
   VERIFICATION_FAILED = "VERIFICATION_FAILED",
   VERIFICATION_IN_PROGRESS = "VERIFICATION_IN_PROGRESS",
+}
+
+/**
+ * <p>Information on the usage of a data source package in the behavior graph.</p>
+ */
+export interface DatasourcePackageUsageInfo {
+  /**
+   * <p>Total volume of data in bytes per day ingested for a given data source package.</p>
+   */
+  VolumeUsageInBytes?: number;
+
+  /**
+   * <p>The data and time when the member account data volume was last updated. The value is an
+   *          ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   */
+  VolumeUsageUpdateTime?: Date;
 }
 
 /**
@@ -351,11 +508,15 @@ export interface MemberDetail {
   UpdatedTime?: Date;
 
   /**
+   * @deprecated
+   *
    * <p>The data volume in bytes per day for the member account.</p>
    */
   VolumeUsageInBytes?: number;
 
   /**
+   * @deprecated
+   *
    * <p>The data and time when the member account data volume was last updated. The value is an
    *          ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
    */
@@ -390,23 +551,16 @@ export interface MemberDetail {
    *          <code>INVITATION</code>. </p>
    */
   InvitationType?: InvitationType | string;
-}
-
-/**
- * <p>A member account that was included in a request but for which the request could not be
- *          processed.</p>
- */
-export interface UnprocessedAccount {
-  /**
-   * <p>The Amazon Web Services account identifier of the member account that was not
-   *          processed.</p>
-   */
-  AccountId?: string;
 
   /**
-   * <p>The reason that the member account request could not be processed.</p>
+   * <p>Details on the volume of usage for each data source package in a behavior graph.</p>
    */
-  Reason?: string;
+  VolumeUsageByDatasourcePackage?: Record<string, DatasourcePackageUsageInfo>;
+
+  /**
+   * <p>The state of a data source package for the behavior graph.</p>
+   */
+  DatasourcePackageIngestStates?: Record<string, DatasourcePackageIngestState | string>;
 }
 
 export interface CreateMembersResponse {
@@ -544,6 +698,54 @@ export interface GetMembersResponse {
   UnprocessedAccounts?: UnprocessedAccount[];
 }
 
+export interface ListDatasourcePackagesRequest {
+  /**
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn: string | undefined;
+
+  /**
+   * <p>For requests to get the next page of results, the pagination token that was returned
+   *          with the previous set of results. The initial request does not include a pagination
+   *          token.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Details about the data source packages ingested by your behavior graph.</p>
+ */
+export interface DatasourcePackageIngestDetail {
+  /**
+   * <p>Details on which data source packages are ingested for a member account.</p>
+   */
+  DatasourcePackageIngestState?: DatasourcePackageIngestState | string;
+
+  /**
+   * <p>The date a data source package was enabled for this account</p>
+   */
+  LastIngestStateChange?: Record<string, TimestampForCollection>;
+}
+
+export interface ListDatasourcePackagesResponse {
+  /**
+   * <p>Details on the data source packages active in the behavior graph.</p>
+   */
+  DatasourcePackages?: Record<string, DatasourcePackageIngestDetail>;
+
+  /**
+   * <p>For requests to get the next page of results, the pagination token that was returned
+   *          with the previous set of results. The initial request does not include a pagination
+   *          token.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListGraphsRequest {
   /**
    * <p>For requests to get the next page of results, the pagination token that was returned
@@ -673,7 +875,7 @@ export interface ListOrganizationAdminAccountsRequest {
 
 export interface ListOrganizationAdminAccountsResponse {
   /**
-   * <p>The list of delegated administrator accounts.</p>
+   * <p>The list of Detective administrator accounts.</p>
    */
   Administrators?: Administrator[];
 
@@ -753,6 +955,18 @@ export interface UntagResourceRequest {
 
 export interface UntagResourceResponse {}
 
+export interface UpdateDatasourcePackagesRequest {
+  /**
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn: string | undefined;
+
+  /**
+   * <p>The data source package start for the behavior graph.</p>
+   */
+  DatasourcePackages: (DatasourcePackage | string)[] | undefined;
+}
+
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>The ARN of the organization behavior graph.</p>
@@ -790,6 +1004,70 @@ export const AdministratorFilterSensitiveLog = (obj: Administrator): any => ({
 /**
  * @internal
  */
+export const BatchGetGraphMemberDatasourcesRequestFilterSensitiveLog = (
+  obj: BatchGetGraphMemberDatasourcesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimestampForCollectionFilterSensitiveLog = (obj: TimestampForCollection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MembershipDatasourcesFilterSensitiveLog = (obj: MembershipDatasources): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedAccountFilterSensitiveLog = (obj: UnprocessedAccount): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetGraphMemberDatasourcesResponseFilterSensitiveLog = (
+  obj: BatchGetGraphMemberDatasourcesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetMembershipDatasourcesRequestFilterSensitiveLog = (
+  obj: BatchGetMembershipDatasourcesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnprocessedGraphFilterSensitiveLog = (obj: UnprocessedGraph): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetMembershipDatasourcesResponseFilterSensitiveLog = (
+  obj: BatchGetMembershipDatasourcesResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateGraphRequestFilterSensitiveLog = (obj: CreateGraphRequest): any => ({
   ...obj,
 });
@@ -811,14 +1089,14 @@ export const CreateMembersRequestFilterSensitiveLog = (obj: CreateMembersRequest
 /**
  * @internal
  */
-export const MemberDetailFilterSensitiveLog = (obj: MemberDetail): any => ({
+export const DatasourcePackageUsageInfoFilterSensitiveLog = (obj: DatasourcePackageUsageInfo): any => ({
   ...obj,
 });
 
 /**
  * @internal
  */
-export const UnprocessedAccountFilterSensitiveLog = (obj: UnprocessedAccount): any => ({
+export const MemberDetailFilterSensitiveLog = (obj: MemberDetail): any => ({
   ...obj,
 });
 
@@ -895,6 +1173,27 @@ export const GetMembersRequestFilterSensitiveLog = (obj: GetMembersRequest): any
  * @internal
  */
 export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasourcePackagesRequestFilterSensitiveLog = (obj: ListDatasourcePackagesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DatasourcePackageIngestDetailFilterSensitiveLog = (obj: DatasourcePackageIngestDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDatasourcePackagesResponseFilterSensitiveLog = (obj: ListDatasourcePackagesResponse): any => ({
   ...obj,
 });
 
@@ -1018,6 +1317,13 @@ export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest
  * @internal
  */
 export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDatasourcePackagesRequestFilterSensitiveLog = (obj: UpdateDatasourcePackagesRequest): any => ({
   ...obj,
 });
 

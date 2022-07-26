@@ -22,11 +22,12 @@ export interface DisableOrganizationAdminAccountCommandInput {}
 export interface DisableOrganizationAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Removes the Detective administrator account for the organization in the current
- *          Region. Deletes the behavior graph for that account.</p>
- *          <p>Can only be called by the organization management account. Before you can select a
- *          different Detective administrator account, you must remove the Detective
- *          administrator account in all Regions.</p>
+ * <p>Removes the Detective administrator account in the current Region. Deletes the
+ *          organization behavior graph.</p>
+ *          <p>Can only be called by the organization management account.</p>
+ *          <p>Removing the Detective administrator account does not affect the delegated
+ *          administrator account for Detective in Organizations.</p>
+ *          <p>To remove the delegated administrator account in Organizations, use the Organizations API. Removing the delegated administrator account also removes the Detective administrator account in all Regions, except for Regions where the Detective administrator account is the organization management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

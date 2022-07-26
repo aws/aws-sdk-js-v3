@@ -6,6 +6,16 @@ import {
   AcceptInvitationCommandInput,
   AcceptInvitationCommandOutput,
 } from "./commands/AcceptInvitationCommand";
+import {
+  BatchGetGraphMemberDatasourcesCommand,
+  BatchGetGraphMemberDatasourcesCommandInput,
+  BatchGetGraphMemberDatasourcesCommandOutput,
+} from "./commands/BatchGetGraphMemberDatasourcesCommand";
+import {
+  BatchGetMembershipDatasourcesCommand,
+  BatchGetMembershipDatasourcesCommandInput,
+  BatchGetMembershipDatasourcesCommandOutput,
+} from "./commands/BatchGetMembershipDatasourcesCommand";
 import { CreateGraphCommand, CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
 import {
   CreateMembersCommand,
@@ -39,6 +49,11 @@ import {
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
 import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import {
+  ListDatasourcePackagesCommand,
+  ListDatasourcePackagesCommandInput,
+  ListDatasourcePackagesCommandOutput,
+} from "./commands/ListDatasourcePackagesCommand";
 import { ListGraphsCommand, ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import {
   ListInvitationsCommand,
@@ -73,6 +88,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateDatasourcePackagesCommand,
+  UpdateDatasourcePackagesCommandInput,
+  UpdateDatasourcePackagesCommandOutput,
+} from "./commands/UpdateDatasourcePackagesCommand";
+import {
   UpdateOrganizationConfigurationCommand,
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
@@ -93,10 +113,12 @@ import { DetectiveClient } from "./DetectiveClient";
  *          <p>Detective is also integrated with Organizations. The organization
  *          management account designates the Detective administrator account for the
  *          organization. That account becomes the administrator account for the organization behavior
- *          graph. The Detective administrator account can enable any organization account as
- *          a member account in the organization behavior graph. The organization accounts do not
- *          receive invitations. The Detective administrator account can also invite other
- *          accounts to the organization behavior graph.</p>
+ *          graph. The Detective administrator account is also the delegated administrator
+ *          account for Detective in Organizations.</p>
+ *          <p>The Detective administrator account can enable any organization account as a
+ *          member account in the organization behavior graph. The organization accounts do not receive
+ *          invitations. The Detective administrator account can also invite other accounts to
+ *          the organization behavior graph.</p>
  *          <p>Every behavior graph is specific to a Region. You can only use the API to manage
  *          behavior graphs that belong to the Region that is associated with the currently selected
  *          endpoint.</p>
@@ -181,6 +203,70 @@ export class Detective extends DetectiveClient {
     cb?: (err: any, data?: AcceptInvitationCommandOutput) => void
   ): Promise<AcceptInvitationCommandOutput> | void {
     const command = new AcceptInvitationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets data source package information for the behavior graph.</p>
+   */
+  public batchGetGraphMemberDatasources(
+    args: BatchGetGraphMemberDatasourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetGraphMemberDatasourcesCommandOutput>;
+  public batchGetGraphMemberDatasources(
+    args: BatchGetGraphMemberDatasourcesCommandInput,
+    cb: (err: any, data?: BatchGetGraphMemberDatasourcesCommandOutput) => void
+  ): void;
+  public batchGetGraphMemberDatasources(
+    args: BatchGetGraphMemberDatasourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetGraphMemberDatasourcesCommandOutput) => void
+  ): void;
+  public batchGetGraphMemberDatasources(
+    args: BatchGetGraphMemberDatasourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetGraphMemberDatasourcesCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetGraphMemberDatasourcesCommandOutput) => void
+  ): Promise<BatchGetGraphMemberDatasourcesCommandOutput> | void {
+    const command = new BatchGetGraphMemberDatasourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information on the data source package history for an account.</p>
+   */
+  public batchGetMembershipDatasources(
+    args: BatchGetMembershipDatasourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetMembershipDatasourcesCommandOutput>;
+  public batchGetMembershipDatasources(
+    args: BatchGetMembershipDatasourcesCommandInput,
+    cb: (err: any, data?: BatchGetMembershipDatasourcesCommandOutput) => void
+  ): void;
+  public batchGetMembershipDatasources(
+    args: BatchGetMembershipDatasourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetMembershipDatasourcesCommandOutput) => void
+  ): void;
+  public batchGetMembershipDatasources(
+    args: BatchGetMembershipDatasourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetMembershipDatasourcesCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetMembershipDatasourcesCommandOutput) => void
+  ): Promise<BatchGetMembershipDatasourcesCommandOutput> | void {
+    const command = new BatchGetMembershipDatasourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -405,11 +491,12 @@ export class Detective extends DetectiveClient {
   }
 
   /**
-   * <p>Removes the Detective administrator account for the organization in the current
-   *          Region. Deletes the behavior graph for that account.</p>
-   *          <p>Can only be called by the organization management account. Before you can select a
-   *          different Detective administrator account, you must remove the Detective
-   *          administrator account in all Regions.</p>
+   * <p>Removes the Detective administrator account in the current Region. Deletes the
+   *          organization behavior graph.</p>
+   *          <p>Can only be called by the organization management account.</p>
+   *          <p>Removing the Detective administrator account does not affect the delegated
+   *          administrator account for Detective in Organizations.</p>
+   *          <p>To remove the delegated administrator account in Organizations, use the Organizations API. Removing the delegated administrator account also removes the Detective administrator account in all Regions, except for Regions where the Detective administrator account is the organization management account.</p>
    */
   public disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
@@ -484,9 +571,13 @@ export class Detective extends DetectiveClient {
    *          <p>If the account does not have Detective enabled, then enables Detective
    *          for that account and creates a new behavior graph.</p>
    *          <p>Can only be called by the organization management account.</p>
-   *          <p>The Detective administrator account for an organization must be the same in all
-   *          Regions. If you already designated a Detective administrator account in another
-   *          Region, then you must designate the same account.</p>
+   *          <p>If the organization has a delegated administrator account in Organizations, then the
+   *             Detective administrator account must be either the delegated administrator
+   *          account or the organization management account.</p>
+   *          <p>If the organization does not have a delegated administrator account in Organizations, then you can choose any account in the organization. If you choose an account other
+   *          than the organization management account, Detective calls Organizations to
+   *          make that account the delegated administrator account for Detective. The
+   *          organization management account cannot be the delegated administrator account.</p>
    */
   public enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
@@ -534,6 +625,38 @@ export class Detective extends DetectiveClient {
     cb?: (err: any, data?: GetMembersCommandOutput) => void
   ): Promise<GetMembersCommandOutput> | void {
     const command = new GetMembersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists data source packages in the behavior graph.</p>
+   */
+  public listDatasourcePackages(
+    args: ListDatasourcePackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasourcePackagesCommandOutput>;
+  public listDatasourcePackages(
+    args: ListDatasourcePackagesCommandInput,
+    cb: (err: any, data?: ListDatasourcePackagesCommandOutput) => void
+  ): void;
+  public listDatasourcePackages(
+    args: ListDatasourcePackagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatasourcePackagesCommandOutput) => void
+  ): void;
+  public listDatasourcePackages(
+    args: ListDatasourcePackagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasourcePackagesCommandOutput) => void),
+    cb?: (err: any, data?: ListDatasourcePackagesCommandOutput) => void
+  ): Promise<ListDatasourcePackagesCommandOutput> | void {
+    const command = new ListDatasourcePackagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -836,6 +959,38 @@ export class Detective extends DetectiveClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a data source packages for the behavior graph.</p>
+   */
+  public updateDatasourcePackages(
+    args: UpdateDatasourcePackagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDatasourcePackagesCommandOutput>;
+  public updateDatasourcePackages(
+    args: UpdateDatasourcePackagesCommandInput,
+    cb: (err: any, data?: UpdateDatasourcePackagesCommandOutput) => void
+  ): void;
+  public updateDatasourcePackages(
+    args: UpdateDatasourcePackagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDatasourcePackagesCommandOutput) => void
+  ): void;
+  public updateDatasourcePackages(
+    args: UpdateDatasourcePackagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDatasourcePackagesCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDatasourcePackagesCommandOutput) => void
+  ): Promise<UpdateDatasourcePackagesCommandOutput> | void {
+    const command = new UpdateDatasourcePackagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
