@@ -54,16 +54,30 @@ import {
 } from "@aws-sdk/types";
 
 import { CreateAccessCommandInput, CreateAccessCommandOutput } from "./commands/CreateAccessCommand";
+import { CreateAgreementCommandInput, CreateAgreementCommandOutput } from "./commands/CreateAgreementCommand";
+import { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
+import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
 import { CreateServerCommandInput, CreateServerCommandOutput } from "./commands/CreateServerCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
 import { DeleteAccessCommandInput, DeleteAccessCommandOutput } from "./commands/DeleteAccessCommand";
+import { DeleteAgreementCommandInput, DeleteAgreementCommandOutput } from "./commands/DeleteAgreementCommand";
+import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
+import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
+import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "./commands/DeleteServerCommand";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "./commands/DeleteSshPublicKeyCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import { DescribeAccessCommandInput, DescribeAccessCommandOutput } from "./commands/DescribeAccessCommand";
+import { DescribeAgreementCommandInput, DescribeAgreementCommandOutput } from "./commands/DescribeAgreementCommand";
+import {
+  DescribeCertificateCommandInput,
+  DescribeCertificateCommandOutput,
+} from "./commands/DescribeCertificateCommand";
+import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "./commands/DescribeConnectorCommand";
 import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "./commands/DescribeExecutionCommand";
+import { DescribeProfileCommandInput, DescribeProfileCommandOutput } from "./commands/DescribeProfileCommand";
 import {
   DescribeSecurityPolicyCommandInput,
   DescribeSecurityPolicyCommandOutput,
@@ -71,9 +85,14 @@ import {
 import { DescribeServerCommandInput, DescribeServerCommandOutput } from "./commands/DescribeServerCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import { DescribeWorkflowCommandInput, DescribeWorkflowCommandOutput } from "./commands/DescribeWorkflowCommand";
+import { ImportCertificateCommandInput, ImportCertificateCommandOutput } from "./commands/ImportCertificateCommand";
 import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "./commands/ImportSshPublicKeyCommand";
 import { ListAccessesCommandInput, ListAccessesCommandOutput } from "./commands/ListAccessesCommand";
+import { ListAgreementsCommandInput, ListAgreementsCommandOutput } from "./commands/ListAgreementsCommand";
+import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
+import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
+import { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
 import {
   ListSecurityPoliciesCommandInput,
   ListSecurityPoliciesCommandOutput,
@@ -89,6 +108,7 @@ import {
   SendWorkflowStepStateCommandInput,
   SendWorkflowStepStateCommandOutput,
 } from "./commands/SendWorkflowStepStateCommand";
+import { StartFileTransferCommandInput, StartFileTransferCommandOutput } from "./commands/StartFileTransferCommand";
 import { StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
 import { StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -98,75 +118,121 @@ import {
 } from "./commands/TestIdentityProviderCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAccessCommandInput, UpdateAccessCommandOutput } from "./commands/UpdateAccessCommand";
+import { UpdateAgreementCommandInput, UpdateAgreementCommandOutput } from "./commands/UpdateAgreementCommand";
+import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "./commands/UpdateCertificateCommand";
+import { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
+import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
 import { UpdateServerCommandInput, UpdateServerCommandOutput } from "./commands/UpdateServerCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CreateAccessCommandInput
+  | CreateAgreementCommandInput
+  | CreateConnectorCommandInput
+  | CreateProfileCommandInput
   | CreateServerCommandInput
   | CreateUserCommandInput
   | CreateWorkflowCommandInput
   | DeleteAccessCommandInput
+  | DeleteAgreementCommandInput
+  | DeleteCertificateCommandInput
+  | DeleteConnectorCommandInput
+  | DeleteProfileCommandInput
   | DeleteServerCommandInput
   | DeleteSshPublicKeyCommandInput
   | DeleteUserCommandInput
   | DeleteWorkflowCommandInput
   | DescribeAccessCommandInput
+  | DescribeAgreementCommandInput
+  | DescribeCertificateCommandInput
+  | DescribeConnectorCommandInput
   | DescribeExecutionCommandInput
+  | DescribeProfileCommandInput
   | DescribeSecurityPolicyCommandInput
   | DescribeServerCommandInput
   | DescribeUserCommandInput
   | DescribeWorkflowCommandInput
+  | ImportCertificateCommandInput
   | ImportSshPublicKeyCommandInput
   | ListAccessesCommandInput
+  | ListAgreementsCommandInput
+  | ListCertificatesCommandInput
+  | ListConnectorsCommandInput
   | ListExecutionsCommandInput
+  | ListProfilesCommandInput
   | ListSecurityPoliciesCommandInput
   | ListServersCommandInput
   | ListTagsForResourceCommandInput
   | ListUsersCommandInput
   | ListWorkflowsCommandInput
   | SendWorkflowStepStateCommandInput
+  | StartFileTransferCommandInput
   | StartServerCommandInput
   | StopServerCommandInput
   | TagResourceCommandInput
   | TestIdentityProviderCommandInput
   | UntagResourceCommandInput
   | UpdateAccessCommandInput
+  | UpdateAgreementCommandInput
+  | UpdateCertificateCommandInput
+  | UpdateConnectorCommandInput
+  | UpdateProfileCommandInput
   | UpdateServerCommandInput
   | UpdateUserCommandInput;
 
 export type ServiceOutputTypes =
   | CreateAccessCommandOutput
+  | CreateAgreementCommandOutput
+  | CreateConnectorCommandOutput
+  | CreateProfileCommandOutput
   | CreateServerCommandOutput
   | CreateUserCommandOutput
   | CreateWorkflowCommandOutput
   | DeleteAccessCommandOutput
+  | DeleteAgreementCommandOutput
+  | DeleteCertificateCommandOutput
+  | DeleteConnectorCommandOutput
+  | DeleteProfileCommandOutput
   | DeleteServerCommandOutput
   | DeleteSshPublicKeyCommandOutput
   | DeleteUserCommandOutput
   | DeleteWorkflowCommandOutput
   | DescribeAccessCommandOutput
+  | DescribeAgreementCommandOutput
+  | DescribeCertificateCommandOutput
+  | DescribeConnectorCommandOutput
   | DescribeExecutionCommandOutput
+  | DescribeProfileCommandOutput
   | DescribeSecurityPolicyCommandOutput
   | DescribeServerCommandOutput
   | DescribeUserCommandOutput
   | DescribeWorkflowCommandOutput
+  | ImportCertificateCommandOutput
   | ImportSshPublicKeyCommandOutput
   | ListAccessesCommandOutput
+  | ListAgreementsCommandOutput
+  | ListCertificatesCommandOutput
+  | ListConnectorsCommandOutput
   | ListExecutionsCommandOutput
+  | ListProfilesCommandOutput
   | ListSecurityPoliciesCommandOutput
   | ListServersCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
   | ListWorkflowsCommandOutput
   | SendWorkflowStepStateCommandOutput
+  | StartFileTransferCommandOutput
   | StartServerCommandOutput
   | StopServerCommandOutput
   | TagResourceCommandOutput
   | TestIdentityProviderCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccessCommandOutput
+  | UpdateAgreementCommandOutput
+  | UpdateCertificateCommandOutput
+  | UpdateConnectorCommandOutput
+  | UpdateProfileCommandOutput
   | UpdateServerCommandOutput
   | UpdateUserCommandOutput;
 
@@ -324,15 +390,15 @@ type TransferClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
 export interface TransferClientResolvedConfig extends TransferClientResolvedConfigType {}
 
 /**
- * <p>Amazon Web Services Transfer Family is a fully managed service that enables the transfer of files over the
- *       File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH)
- *       File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon
- *       S3). Amazon Web Services helps you seamlessly migrate your file transfer workflows to Amazon Web Services Transfer Family by
- *       integrating with existing authentication systems, and providing DNS routing with Amazon Route
- *       53 so nothing changes for your customers and partners, or their applications. With your data
- *       in Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning,
- *       and archiving. Getting started with Amazon Web Services Transfer Family is easy since there is no
- *       infrastructure to buy and set up.</p>
+ * <p>Transfer Family is a fully managed service that enables the transfer of files over the File
+ *       Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File
+ *       Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3).
+ *       Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating
+ *       with existing authentication systems, and providing DNS routing with Amazon Route 53 so
+ *       nothing changes for your customers and partners, or their applications. With your data in
+ *       Amazon S3, you can use it with Amazon Web Services for processing, analytics, machine learning, and
+ *       archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and
+ *       set up.</p>
  */
 export class TransferClient extends __Client<
   __HttpHandlerOptions,

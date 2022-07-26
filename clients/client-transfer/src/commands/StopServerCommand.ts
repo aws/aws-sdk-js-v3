@@ -29,7 +29,7 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  *       stopping your server.</p>
  *
  *          <note>
- *             <p>Stopping the server will not reduce or impact your file transfer protocol endpoint
+ *             <p>Stopping the server does not reduce or impact your file transfer protocol endpoint
  *         billing; you must delete the server to stop being billed.</p>
  *          </note>
  *

@@ -13,51 +13,46 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  CreateAccessRequest,
-  CreateAccessRequestFilterSensitiveLog,
-  CreateAccessResponse,
-  CreateAccessResponseFilterSensitiveLog,
+  UpdateCertificateRequest,
+  UpdateCertificateRequestFilterSensitiveLog,
+  UpdateCertificateResponse,
+  UpdateCertificateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CreateAccessCommand,
-  serializeAws_json1_1CreateAccessCommand,
+  deserializeAws_json1_1UpdateCertificateCommand,
+  serializeAws_json1_1UpdateCertificateCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
-export interface CreateAccessCommandInput extends CreateAccessRequest {}
-export interface CreateAccessCommandOutput extends CreateAccessResponse, __MetadataBearer {}
+export interface UpdateCertificateCommandInput extends UpdateCertificateRequest {}
+export interface UpdateCertificateCommandOutput extends UpdateCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Used by administrators to choose which groups in the directory should have access to
- *       upload and download files over the enabled protocols using Transfer Family. For example, a
- *       Microsoft Active Directory might contain 50,000 users, but only a small fraction might need
- *       the ability to transfer files to the server. An administrator can use
- *         <code>CreateAccess</code> to limit the access to the correct set of users who need this
- *       ability.</p>
+ * <p>Updates the active and inactive dates for a certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, CreateAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, CreateAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, UpdateCertificateCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, UpdateCertificateCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const command = new CreateAccessCommand(input);
+ * const command = new UpdateCertificateCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateAccessCommandInput} for command's `input` shape.
- * @see {@link CreateAccessCommandOutput} for command's `response` shape.
+ * @see {@link UpdateCertificateCommandInput} for command's `input` shape.
+ * @see {@link UpdateCertificateCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
-export class CreateAccessCommand extends $Command<
-  CreateAccessCommandInput,
-  CreateAccessCommandOutput,
+export class UpdateCertificateCommand extends $Command<
+  UpdateCertificateCommandInput,
+  UpdateCertificateCommandOutput,
   TransferClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: CreateAccessCommandInput) {
+  constructor(readonly input: UpdateCertificateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -70,20 +65,20 @@ export class CreateAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateAccessCommandInput, CreateAccessCommandOutput> {
+  ): Handler<UpdateCertificateCommandInput, UpdateCertificateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "TransferClient";
-    const commandName = "CreateAccessCommand";
+    const commandName = "UpdateCertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateCertificateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateCertificateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,12 +88,12 @@ export class CreateAccessCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CreateAccessCommand(input, context);
+  private serialize(input: UpdateCertificateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1UpdateCertificateCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAccessCommandOutput> {
-    return deserializeAws_json1_1CreateAccessCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCertificateCommandOutput> {
+    return deserializeAws_json1_1UpdateCertificateCommand(output, context);
   }
 
   // Start section: command_body_extra

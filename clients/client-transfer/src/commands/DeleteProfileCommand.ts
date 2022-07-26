@@ -12,52 +12,42 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { DeleteProfileRequest, DeleteProfileRequestFilterSensitiveLog } from "../models/models_0";
 import {
-  DescribeAccessRequest,
-  DescribeAccessRequestFilterSensitiveLog,
-  DescribeAccessResponse,
-  DescribeAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_json1_1DescribeAccessCommand,
-  serializeAws_json1_1DescribeAccessCommand,
+  deserializeAws_json1_1DeleteProfileCommand,
+  serializeAws_json1_1DeleteProfileCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
-export interface DescribeAccessCommandInput extends DescribeAccessRequest {}
-export interface DescribeAccessCommandOutput extends DescribeAccessResponse, __MetadataBearer {}
+export interface DeleteProfileCommandInput extends DeleteProfileRequest {}
+export interface DeleteProfileCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
- *       server, as identified by its <code>ServerId</code> property and its
- *       <code>ExternalId</code>.</p>
- *
- *          <p>The response from this call returns the properties of the access that is associated with
- *       the <code>ServerId</code> value that was specified.</p>
+ * <p>Deletes the profile that's specified in the <code>ProfileId</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TransferClient, DescribeAccessCommand } from "@aws-sdk/client-transfer"; // ES Modules import
- * // const { TransferClient, DescribeAccessCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
+ * import { TransferClient, DeleteProfileCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, DeleteProfileCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
- * const command = new DescribeAccessCommand(input);
+ * const command = new DeleteProfileCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeAccessCommandInput} for command's `input` shape.
- * @see {@link DescribeAccessCommandOutput} for command's `response` shape.
+ * @see {@link DeleteProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteProfileCommandOutput} for command's `response` shape.
  * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
-export class DescribeAccessCommand extends $Command<
-  DescribeAccessCommandInput,
-  DescribeAccessCommandOutput,
+export class DeleteProfileCommand extends $Command<
+  DeleteProfileCommandInput,
+  DeleteProfileCommandOutput,
   TransferClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeAccessCommandInput) {
+  constructor(readonly input: DeleteProfileCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -70,20 +60,20 @@ export class DescribeAccessCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TransferClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeAccessCommandInput, DescribeAccessCommandOutput> {
+  ): Handler<DeleteProfileCommandInput, DeleteProfileCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "TransferClient";
-    const commandName = "DescribeAccessCommand";
+    const commandName = "DeleteProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteProfileRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,12 +83,12 @@ export class DescribeAccessCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeAccessCommand(input, context);
+  private serialize(input: DeleteProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteProfileCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccessCommandOutput> {
-    return deserializeAws_json1_1DescribeAccessCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProfileCommandOutput> {
+    return deserializeAws_json1_1DeleteProfileCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -7,6 +7,21 @@ import {
   CreateAccessCommandOutput,
 } from "./commands/CreateAccessCommand";
 import {
+  CreateAgreementCommand,
+  CreateAgreementCommandInput,
+  CreateAgreementCommandOutput,
+} from "./commands/CreateAgreementCommand";
+import {
+  CreateConnectorCommand,
+  CreateConnectorCommandInput,
+  CreateConnectorCommandOutput,
+} from "./commands/CreateConnectorCommand";
+import {
+  CreateProfileCommand,
+  CreateProfileCommandInput,
+  CreateProfileCommandOutput,
+} from "./commands/CreateProfileCommand";
+import {
   CreateServerCommand,
   CreateServerCommandInput,
   CreateServerCommandOutput,
@@ -22,6 +37,26 @@ import {
   DeleteAccessCommandInput,
   DeleteAccessCommandOutput,
 } from "./commands/DeleteAccessCommand";
+import {
+  DeleteAgreementCommand,
+  DeleteAgreementCommandInput,
+  DeleteAgreementCommandOutput,
+} from "./commands/DeleteAgreementCommand";
+import {
+  DeleteCertificateCommand,
+  DeleteCertificateCommandInput,
+  DeleteCertificateCommandOutput,
+} from "./commands/DeleteCertificateCommand";
+import {
+  DeleteConnectorCommand,
+  DeleteConnectorCommandInput,
+  DeleteConnectorCommandOutput,
+} from "./commands/DeleteConnectorCommand";
+import {
+  DeleteProfileCommand,
+  DeleteProfileCommandInput,
+  DeleteProfileCommandOutput,
+} from "./commands/DeleteProfileCommand";
 import {
   DeleteServerCommand,
   DeleteServerCommandInput,
@@ -44,10 +79,30 @@ import {
   DescribeAccessCommandOutput,
 } from "./commands/DescribeAccessCommand";
 import {
+  DescribeAgreementCommand,
+  DescribeAgreementCommandInput,
+  DescribeAgreementCommandOutput,
+} from "./commands/DescribeAgreementCommand";
+import {
+  DescribeCertificateCommand,
+  DescribeCertificateCommandInput,
+  DescribeCertificateCommandOutput,
+} from "./commands/DescribeCertificateCommand";
+import {
+  DescribeConnectorCommand,
+  DescribeConnectorCommandInput,
+  DescribeConnectorCommandOutput,
+} from "./commands/DescribeConnectorCommand";
+import {
   DescribeExecutionCommand,
   DescribeExecutionCommandInput,
   DescribeExecutionCommandOutput,
 } from "./commands/DescribeExecutionCommand";
+import {
+  DescribeProfileCommand,
+  DescribeProfileCommandInput,
+  DescribeProfileCommandOutput,
+} from "./commands/DescribeProfileCommand";
 import {
   DescribeSecurityPolicyCommand,
   DescribeSecurityPolicyCommandInput,
@@ -69,6 +124,11 @@ import {
   DescribeWorkflowCommandOutput,
 } from "./commands/DescribeWorkflowCommand";
 import {
+  ImportCertificateCommand,
+  ImportCertificateCommandInput,
+  ImportCertificateCommandOutput,
+} from "./commands/ImportCertificateCommand";
+import {
   ImportSshPublicKeyCommand,
   ImportSshPublicKeyCommandInput,
   ImportSshPublicKeyCommandOutput,
@@ -79,10 +139,30 @@ import {
   ListAccessesCommandOutput,
 } from "./commands/ListAccessesCommand";
 import {
+  ListAgreementsCommand,
+  ListAgreementsCommandInput,
+  ListAgreementsCommandOutput,
+} from "./commands/ListAgreementsCommand";
+import {
+  ListCertificatesCommand,
+  ListCertificatesCommandInput,
+  ListCertificatesCommandOutput,
+} from "./commands/ListCertificatesCommand";
+import {
+  ListConnectorsCommand,
+  ListConnectorsCommandInput,
+  ListConnectorsCommandOutput,
+} from "./commands/ListConnectorsCommand";
+import {
   ListExecutionsCommand,
   ListExecutionsCommandInput,
   ListExecutionsCommandOutput,
 } from "./commands/ListExecutionsCommand";
+import {
+  ListProfilesCommand,
+  ListProfilesCommandInput,
+  ListProfilesCommandOutput,
+} from "./commands/ListProfilesCommand";
 import {
   ListSecurityPoliciesCommand,
   ListSecurityPoliciesCommandInput,
@@ -105,6 +185,11 @@ import {
   SendWorkflowStepStateCommandInput,
   SendWorkflowStepStateCommandOutput,
 } from "./commands/SendWorkflowStepStateCommand";
+import {
+  StartFileTransferCommand,
+  StartFileTransferCommandInput,
+  StartFileTransferCommandOutput,
+} from "./commands/StartFileTransferCommand";
 import { StartServerCommand, StartServerCommandInput, StartServerCommandOutput } from "./commands/StartServerCommand";
 import { StopServerCommand, StopServerCommandInput, StopServerCommandOutput } from "./commands/StopServerCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -124,6 +209,26 @@ import {
   UpdateAccessCommandOutput,
 } from "./commands/UpdateAccessCommand";
 import {
+  UpdateAgreementCommand,
+  UpdateAgreementCommandInput,
+  UpdateAgreementCommandOutput,
+} from "./commands/UpdateAgreementCommand";
+import {
+  UpdateCertificateCommand,
+  UpdateCertificateCommandInput,
+  UpdateCertificateCommandOutput,
+} from "./commands/UpdateCertificateCommand";
+import {
+  UpdateConnectorCommand,
+  UpdateConnectorCommandInput,
+  UpdateConnectorCommandOutput,
+} from "./commands/UpdateConnectorCommand";
+import {
+  UpdateProfileCommand,
+  UpdateProfileCommandInput,
+  UpdateProfileCommandOutput,
+} from "./commands/UpdateProfileCommand";
+import {
   UpdateServerCommand,
   UpdateServerCommandInput,
   UpdateServerCommandOutput,
@@ -132,20 +237,20 @@ import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } fr
 import { TransferClient } from "./TransferClient";
 
 /**
- * <p>Amazon Web Services Transfer Family is a fully managed service that enables the transfer of files over the
- *       File Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH)
- *       File Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon
- *       S3). Amazon Web Services helps you seamlessly migrate your file transfer workflows to Amazon Web Services Transfer Family by
- *       integrating with existing authentication systems, and providing DNS routing with Amazon Route
- *       53 so nothing changes for your customers and partners, or their applications. With your data
- *       in Amazon S3, you can use it with Amazon Web Services services for processing, analytics, machine learning,
- *       and archiving. Getting started with Amazon Web Services Transfer Family is easy since there is no
- *       infrastructure to buy and set up.</p>
+ * <p>Transfer Family is a fully managed service that enables the transfer of files over the File
+ *       Transfer Protocol (FTP), File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File
+ *       Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage Service (Amazon S3).
+ *       Amazon Web Services helps you seamlessly migrate your file transfer workflows to Transfer Family by integrating
+ *       with existing authentication systems, and providing DNS routing with Amazon Route 53 so
+ *       nothing changes for your customers and partners, or their applications. With your data in
+ *       Amazon S3, you can use it with Amazon Web Services for processing, analytics, machine learning, and
+ *       archiving. Getting started with Transfer Family is easy since there is no infrastructure to buy and
+ *       set up.</p>
  */
 export class Transfer extends TransferClient {
   /**
    * <p>Used by administrators to choose which groups in the directory should have access to
-   *       upload and download files over the enabled protocols using Amazon Web Services Transfer Family. For example, a
+   *       upload and download files over the enabled protocols using Transfer Family. For example, a
    *       Microsoft Active Directory might contain 50,000 users, but only a small fraction might need
    *       the ability to transfer files to the server. An administrator can use
    *         <code>CreateAccess</code> to limit the access to the correct set of users who need this
@@ -167,6 +272,110 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: CreateAccessCommandOutput) => void
   ): Promise<CreateAccessCommandOutput> | void {
     const command = new CreateAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an agreement. An agreement is a bilateral trading partner agreement, or partnership,
+   *       between an Transfer Family server and an AS2 process. The agreement defines the file and message
+   *       transfer relationship between the server and the AS2 process. To define an agreement, Transfer Family
+   *       combines a server, local profile, partner profile, certificate, and other
+   *       attributes.</p>
+   *          <p>The partner is identified with the <code>PartnerProfileId</code>, and the AS2 process is identified with the <code>LocalProfileId</code>.</p>
+   */
+  public createAgreement(
+    args: CreateAgreementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAgreementCommandOutput>;
+  public createAgreement(
+    args: CreateAgreementCommandInput,
+    cb: (err: any, data?: CreateAgreementCommandOutput) => void
+  ): void;
+  public createAgreement(
+    args: CreateAgreementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAgreementCommandOutput) => void
+  ): void;
+  public createAgreement(
+    args: CreateAgreementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAgreementCommandOutput) => void),
+    cb?: (err: any, data?: CreateAgreementCommandOutput) => void
+  ): Promise<CreateAgreementCommandOutput> | void {
+    const command = new CreateAgreementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates the connector, which captures the parameters for an outbound connection for the
+   *       AS2 protocol. The connector is required for sending files from a
+   *       customer's non Amazon Web Services server. </p>
+   */
+  public createConnector(
+    args: CreateConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectorCommandOutput>;
+  public createConnector(
+    args: CreateConnectorCommandInput,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
+  public createConnector(
+    args: CreateConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
+  public createConnector(
+    args: CreateConnectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectorCommandOutput) => void),
+    cb?: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): Promise<CreateConnectorCommandOutput> | void {
+    const command = new CreateConnectorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates the profile for the AS2 process. The agreement is between the partner and the AS2
+   *       process.</p>
+   */
+  public createProfile(
+    args: CreateProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateProfileCommandOutput>;
+  public createProfile(
+    args: CreateProfileCommandInput,
+    cb: (err: any, data?: CreateProfileCommandOutput) => void
+  ): void;
+  public createProfile(
+    args: CreateProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateProfileCommandOutput) => void
+  ): void;
+  public createProfile(
+    args: CreateProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProfileCommandOutput) => void),
+    cb?: (err: any, data?: CreateProfileCommandOutput) => void
+  ): Promise<CreateProfileCommandOutput> | void {
+    const command = new CreateProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -214,7 +423,7 @@ export class Transfer extends TransferClient {
    *       You can only create and associate users with servers that have the
    *         <code>IdentityProviderType</code> set to <code>SERVICE_MANAGED</code>. Using parameters for
    *         <code>CreateUser</code>, you can specify the user name, set the home directory, store the
-   *       user's public key, and assign the user's Amazon Web Services Identity and Access Management (IAM)
+   *       user's public key, and assign the user's Identity and Access Management (IAM)
    *       role. You can also optionally add a session policy, and assign metadata with tags that can
    *       be used to group and search for users.</p>
    */
@@ -296,6 +505,135 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: DeleteAccessCommandOutput) => void
   ): Promise<DeleteAccessCommandOutput> | void {
     const command = new DeleteAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete the agreement that's specified in the provided <code>AgreementId</code>.</p>
+   */
+  public deleteAgreement(
+    args: DeleteAgreementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAgreementCommandOutput>;
+  public deleteAgreement(
+    args: DeleteAgreementCommandInput,
+    cb: (err: any, data?: DeleteAgreementCommandOutput) => void
+  ): void;
+  public deleteAgreement(
+    args: DeleteAgreementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAgreementCommandOutput) => void
+  ): void;
+  public deleteAgreement(
+    args: DeleteAgreementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAgreementCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAgreementCommandOutput) => void
+  ): Promise<DeleteAgreementCommandOutput> | void {
+    const command = new DeleteAgreementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the certificate that's specified in the <code>CertificateId</code>
+   *       parameter.</p>
+   */
+  public deleteCertificate(
+    args: DeleteCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCertificateCommandOutput>;
+  public deleteCertificate(
+    args: DeleteCertificateCommandInput,
+    cb: (err: any, data?: DeleteCertificateCommandOutput) => void
+  ): void;
+  public deleteCertificate(
+    args: DeleteCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCertificateCommandOutput) => void
+  ): void;
+  public deleteCertificate(
+    args: DeleteCertificateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCertificateCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCertificateCommandOutput) => void
+  ): Promise<DeleteCertificateCommandOutput> | void {
+    const command = new DeleteCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the agreement that's specified in the provided <code>ConnectorId</code>.</p>
+   */
+  public deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectorCommandOutput>;
+  public deleteConnector(
+    args: DeleteConnectorCommandInput,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
+  public deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
+  public deleteConnector(
+    args: DeleteConnectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectorCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): Promise<DeleteConnectorCommandOutput> | void {
+    const command = new DeleteConnectorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the profile that's specified in the <code>ProfileId</code> parameter.</p>
+   */
+  public deleteProfile(
+    args: DeleteProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProfileCommandOutput>;
+  public deleteProfile(
+    args: DeleteProfileCommandInput,
+    cb: (err: any, data?: DeleteProfileCommandOutput) => void
+  ): void;
+  public deleteProfile(
+    args: DeleteProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProfileCommandOutput) => void
+  ): void;
+  public deleteProfile(
+    args: DeleteProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProfileCommandOutput) => void),
+    cb?: (err: any, data?: DeleteProfileCommandOutput) => void
+  ): Promise<DeleteProfileCommandOutput> | void {
+    const command = new DeleteProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -436,7 +774,7 @@ export class Transfer extends TransferClient {
   /**
    * <p>Describes the access that is assigned to the specific file transfer protocol-enabled
    *       server, as identified by its <code>ServerId</code> property and its
-   *       <code>ExternalID</code>.</p>
+   *       <code>ExternalId</code>.</p>
    *
    *          <p>The response from this call returns the properties of the access that is associated with
    *       the <code>ServerId</code> value that was specified.</p>
@@ -471,6 +809,103 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Describes the agreement that's identified by the <code>AgreementId</code>.</p>
+   */
+  public describeAgreement(
+    args: DescribeAgreementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAgreementCommandOutput>;
+  public describeAgreement(
+    args: DescribeAgreementCommandInput,
+    cb: (err: any, data?: DescribeAgreementCommandOutput) => void
+  ): void;
+  public describeAgreement(
+    args: DescribeAgreementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAgreementCommandOutput) => void
+  ): void;
+  public describeAgreement(
+    args: DescribeAgreementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAgreementCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAgreementCommandOutput) => void
+  ): Promise<DescribeAgreementCommandOutput> | void {
+    const command = new DescribeAgreementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the certificate that's identified by the <code>CertificateId</code>.</p>
+   */
+  public describeCertificate(
+    args: DescribeCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCertificateCommandOutput>;
+  public describeCertificate(
+    args: DescribeCertificateCommandInput,
+    cb: (err: any, data?: DescribeCertificateCommandOutput) => void
+  ): void;
+  public describeCertificate(
+    args: DescribeCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCertificateCommandOutput) => void
+  ): void;
+  public describeCertificate(
+    args: DescribeCertificateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCertificateCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCertificateCommandOutput) => void
+  ): Promise<DescribeCertificateCommandOutput> | void {
+    const command = new DescribeCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the connector that's identified by the <code>ConnectorId.</code>
+   *          </p>
+   */
+  public describeConnector(
+    args: DescribeConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConnectorCommandOutput>;
+  public describeConnector(
+    args: DescribeConnectorCommandInput,
+    cb: (err: any, data?: DescribeConnectorCommandOutput) => void
+  ): void;
+  public describeConnector(
+    args: DescribeConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConnectorCommandOutput) => void
+  ): void;
+  public describeConnector(
+    args: DescribeConnectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConnectorCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConnectorCommandOutput) => void
+  ): Promise<DescribeConnectorCommandOutput> | void {
+    const command = new DescribeConnectorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>You can use <code>DescribeExecution</code> to check the details of the execution of the specified workflow.</p>
    */
   public describeExecution(
@@ -492,6 +927,38 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: DescribeExecutionCommandOutput) => void
   ): Promise<DescribeExecutionCommandOutput> | void {
     const command = new DescribeExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the details of the profile that's specified by the <code>ProfileId</code>.</p>
+   */
+  public describeProfile(
+    args: DescribeProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProfileCommandOutput>;
+  public describeProfile(
+    args: DescribeProfileCommandInput,
+    cb: (err: any, data?: DescribeProfileCommandOutput) => void
+  ): void;
+  public describeProfile(
+    args: DescribeProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProfileCommandOutput) => void
+  ): void;
+  public describeProfile(
+    args: DescribeProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProfileCommandOutput) => void),
+    cb?: (err: any, data?: DescribeProfileCommandOutput) => void
+  ): Promise<DescribeProfileCommandOutput> | void {
+    const command = new DescribeProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -640,6 +1107,40 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Imports the signing and encryption certificates that you need to create local (AS2)
+   *       profiles and partner
+   *       profiles.</p>
+   */
+  public importCertificate(
+    args: ImportCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportCertificateCommandOutput>;
+  public importCertificate(
+    args: ImportCertificateCommandInput,
+    cb: (err: any, data?: ImportCertificateCommandOutput) => void
+  ): void;
+  public importCertificate(
+    args: ImportCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportCertificateCommandOutput) => void
+  ): void;
+  public importCertificate(
+    args: ImportCertificateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportCertificateCommandOutput) => void),
+    cb?: (err: any, data?: ImportCertificateCommandOutput) => void
+  ): Promise<ImportCertificateCommandOutput> | void {
+    const command = new ImportCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Adds a Secure Shell (SSH) public key to a user account identified by a
    *         <code>UserName</code> value assigned to the specific file transfer protocol-enabled server,
    *       identified by <code>ServerId</code>.</p>
@@ -706,6 +1207,110 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Returns a list of the agreements for the server that's identified by the
+   *         <code>ServerId</code> that you supply. If you want to limit the results to a certain number,
+   *       supply a value for the <code>MaxResults</code> parameter. If you ran the command previously
+   *       and received a value for <code>NextToken</code>, you can supply that value to continue listing
+   *       agreements from where you left off.</p>
+   */
+  public listAgreements(
+    args: ListAgreementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgreementsCommandOutput>;
+  public listAgreements(
+    args: ListAgreementsCommandInput,
+    cb: (err: any, data?: ListAgreementsCommandOutput) => void
+  ): void;
+  public listAgreements(
+    args: ListAgreementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgreementsCommandOutput) => void
+  ): void;
+  public listAgreements(
+    args: ListAgreementsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAgreementsCommandOutput) => void),
+    cb?: (err: any, data?: ListAgreementsCommandOutput) => void
+  ): Promise<ListAgreementsCommandOutput> | void {
+    const command = new ListAgreementsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of the current certificates that have been imported into Transfer Family. If you want to
+   *       limit the results to a certain number, supply a value for the <code>MaxResults</code>
+   *       parameter. If you ran the command previously and received a value for the
+   *         <code>NextToken</code> parameter, you can supply that value to continue listing certificates
+   *       from where you left off.</p>
+   */
+  public listCertificates(
+    args: ListCertificatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCertificatesCommandOutput>;
+  public listCertificates(
+    args: ListCertificatesCommandInput,
+    cb: (err: any, data?: ListCertificatesCommandOutput) => void
+  ): void;
+  public listCertificates(
+    args: ListCertificatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCertificatesCommandOutput) => void
+  ): void;
+  public listCertificates(
+    args: ListCertificatesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCertificatesCommandOutput) => void),
+    cb?: (err: any, data?: ListCertificatesCommandOutput) => void
+  ): Promise<ListCertificatesCommandOutput> | void {
+    const command = new ListCertificatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the connectors for the specified Region.</p>
+   */
+  public listConnectors(
+    args: ListConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectorsCommandOutput>;
+  public listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+  public listConnectors(
+    args: ListConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+  public listConnectors(
+    args: ListConnectorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConnectorsCommandOutput) => void),
+    cb?: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): Promise<ListConnectorsCommandOutput> | void {
+    const command = new ListConnectorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists all executions for the specified workflow.</p>
    */
   public listExecutions(
@@ -727,6 +1332,38 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: ListExecutionsCommandOutput) => void
   ): Promise<ListExecutionsCommandOutput> | void {
     const command = new ListExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of the profiles for your system. If you want to limit the results to a
+   *       certain number, supply a value for the <code>MaxResults</code> parameter. If you ran the
+   *       command previously and received a value for <code>NextToken</code>, you can supply that value
+   *       to continue listing profiles from where you left off.</p>
+   */
+  public listProfiles(
+    args: ListProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProfilesCommandOutput>;
+  public listProfiles(args: ListProfilesCommandInput, cb: (err: any, data?: ListProfilesCommandOutput) => void): void;
+  public listProfiles(
+    args: ListProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProfilesCommandOutput) => void
+  ): void;
+  public listProfiles(
+    args: ListProfilesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProfilesCommandOutput) => void),
+    cb?: (err: any, data?: ListProfilesCommandOutput) => void
+  ): Promise<ListProfilesCommandOutput> | void {
+    const command = new ListProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -926,6 +1563,39 @@ export class Transfer extends TransferClient {
   }
 
   /**
+   * <p>Begins an outbound file transfer. You specify the <code>ConnectorId</code> and the file
+   *       paths for where to send the files. </p>
+   */
+  public startFileTransfer(
+    args: StartFileTransferCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFileTransferCommandOutput>;
+  public startFileTransfer(
+    args: StartFileTransferCommandInput,
+    cb: (err: any, data?: StartFileTransferCommandOutput) => void
+  ): void;
+  public startFileTransfer(
+    args: StartFileTransferCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFileTransferCommandOutput) => void
+  ): void;
+  public startFileTransfer(
+    args: StartFileTransferCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFileTransferCommandOutput) => void),
+    cb?: (err: any, data?: StartFileTransferCommandOutput) => void
+  ): Promise<StartFileTransferCommandOutput> | void {
+    const command = new StartFileTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
    *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
    *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
@@ -966,7 +1636,7 @@ export class Transfer extends TransferClient {
    *       stopping your server.</p>
    *
    *          <note>
-   *             <p>Stopping the server will not reduce or impact your file transfer protocol endpoint
+   *             <p>Stopping the server does not reduce or impact your file transfer protocol endpoint
    *         billing; you must delete the server to stop being billed.</p>
    *          </note>
    *
@@ -1153,6 +1823,140 @@ export class Transfer extends TransferClient {
     cb?: (err: any, data?: UpdateAccessCommandOutput) => void
   ): Promise<UpdateAccessCommandOutput> | void {
     const command = new UpdateAccessCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates some of the parameters for an existing agreement. Provide the
+   *         <code>AgreementId</code> and the <code>ServerId</code> for the agreement that you want to
+   *       update, along with the new values for the parameters to update.</p>
+   */
+  public updateAgreement(
+    args: UpdateAgreementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgreementCommandOutput>;
+  public updateAgreement(
+    args: UpdateAgreementCommandInput,
+    cb: (err: any, data?: UpdateAgreementCommandOutput) => void
+  ): void;
+  public updateAgreement(
+    args: UpdateAgreementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgreementCommandOutput) => void
+  ): void;
+  public updateAgreement(
+    args: UpdateAgreementCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAgreementCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAgreementCommandOutput) => void
+  ): Promise<UpdateAgreementCommandOutput> | void {
+    const command = new UpdateAgreementCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the active and inactive dates for a certificate.</p>
+   */
+  public updateCertificate(
+    args: UpdateCertificateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCertificateCommandOutput>;
+  public updateCertificate(
+    args: UpdateCertificateCommandInput,
+    cb: (err: any, data?: UpdateCertificateCommandOutput) => void
+  ): void;
+  public updateCertificate(
+    args: UpdateCertificateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCertificateCommandOutput) => void
+  ): void;
+  public updateCertificate(
+    args: UpdateCertificateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCertificateCommandOutput) => void),
+    cb?: (err: any, data?: UpdateCertificateCommandOutput) => void
+  ): Promise<UpdateCertificateCommandOutput> | void {
+    const command = new UpdateCertificateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates some of the parameters for an existing connector. Provide the
+   *         <code>ConnectorId</code> for the connector that you want to update, along with the new
+   *       values for the parameters to update.</p>
+   */
+  public updateConnector(
+    args: UpdateConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectorCommandOutput>;
+  public updateConnector(
+    args: UpdateConnectorCommandInput,
+    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
+  ): void;
+  public updateConnector(
+    args: UpdateConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
+  ): void;
+  public updateConnector(
+    args: UpdateConnectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectorCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConnectorCommandOutput) => void
+  ): Promise<UpdateConnectorCommandOutput> | void {
+    const command = new UpdateConnectorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates some of the parameters for an existing profile. Provide the <code>ProfileId</code>
+   *       for the profile that you want to update, along with the new values for the parameters to
+   *       update.</p>
+   */
+  public updateProfile(
+    args: UpdateProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProfileCommandOutput>;
+  public updateProfile(
+    args: UpdateProfileCommandInput,
+    cb: (err: any, data?: UpdateProfileCommandOutput) => void
+  ): void;
+  public updateProfile(
+    args: UpdateProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProfileCommandOutput) => void
+  ): void;
+  public updateProfile(
+    args: UpdateProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProfileCommandOutput) => void),
+    cb?: (err: any, data?: UpdateProfileCommandOutput) => void
+  ): Promise<UpdateProfileCommandOutput> | void {
+    const command = new UpdateProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
