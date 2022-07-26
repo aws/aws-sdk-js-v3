@@ -71,6 +71,10 @@ import { DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput } from "./c
 import { DeleteResolverCommandInput, DeleteResolverCommandOutput } from "./commands/DeleteResolverCommand";
 import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
 import { DisassociateApiCommandInput, DisassociateApiCommandOutput } from "./commands/DisassociateApiCommand";
+import {
+  EvaluateMappingTemplateCommandInput,
+  EvaluateMappingTemplateCommandOutput,
+} from "./commands/EvaluateMappingTemplateCommand";
 import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "./commands/FlushApiCacheCommand";
 import { GetApiAssociationCommandInput, GetApiAssociationCommandOutput } from "./commands/GetApiAssociationCommand";
 import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
@@ -138,6 +142,7 @@ export type ServiceInputTypes =
   | DeleteResolverCommandInput
   | DeleteTypeCommandInput
   | DisassociateApiCommandInput
+  | EvaluateMappingTemplateCommandInput
   | FlushApiCacheCommandInput
   | GetApiAssociationCommandInput
   | GetApiCacheCommandInput
@@ -189,6 +194,7 @@ export type ServiceOutputTypes =
   | DeleteResolverCommandOutput
   | DeleteTypeCommandOutput
   | DisassociateApiCommandOutput
+  | EvaluateMappingTemplateCommandOutput
   | FlushApiCacheCommandOutput
   | GetApiAssociationCommandOutput
   | GetApiCacheCommandOutput

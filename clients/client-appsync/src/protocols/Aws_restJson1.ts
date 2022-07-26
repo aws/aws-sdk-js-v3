@@ -34,6 +34,10 @@ import { DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput } from "../
 import { DeleteResolverCommandInput, DeleteResolverCommandOutput } from "../commands/DeleteResolverCommand";
 import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "../commands/DeleteTypeCommand";
 import { DisassociateApiCommandInput, DisassociateApiCommandOutput } from "../commands/DisassociateApiCommand";
+import {
+  EvaluateMappingTemplateCommandInput,
+  EvaluateMappingTemplateCommandOutput,
+} from "../commands/EvaluateMappingTemplateCommand";
 import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "../commands/FlushApiCacheCommand";
 import { GetApiAssociationCommandInput, GetApiAssociationCommandOutput } from "../commands/GetApiAssociationCommand";
 import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "../commands/GetApiCacheCommand";
@@ -101,6 +105,7 @@ import {
   DomainNameConfig,
   DynamodbDataSourceConfig,
   ElasticsearchDataSourceConfig,
+  ErrorDetail,
   FunctionConfiguration,
   GraphqlApi,
   GraphQLSchemaException,
@@ -802,6 +807,32 @@ export const serializeAws_restJson1DisassociateApiCommand = async (
     hostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1EvaluateMappingTemplateCommand = async (
+  input: EvaluateMappingTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/dataplane-evaluatetemplate";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.context != null && { context: input.context }),
+    ...(input.template != null && { template: input.template }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -2936,6 +2967,61 @@ const deserializeAws_restJson1DisassociateApiCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.appsync#NotFoundException":
       throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_restJson1EvaluateMappingTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EvaluateMappingTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1EvaluateMappingTemplateCommandError(output, context);
+  }
+  const contents: EvaluateMappingTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    error: undefined,
+    evaluationResult: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.error !== undefined && data.error !== null) {
+    contents.error = deserializeAws_restJson1ErrorDetail(data.error, context);
+  }
+  if (data.evaluationResult !== undefined && data.evaluationResult !== null) {
+    contents.evaluationResult = __expectString(data.evaluationResult);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1EvaluateMappingTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EvaluateMappingTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appsync#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.appsync#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.appsync#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -5334,6 +5420,12 @@ const deserializeAws_restJson1ElasticsearchDataSourceConfig = (
   return {
     awsRegion: __expectString(output.awsRegion),
     endpoint: __expectString(output.endpoint),
+  } as any;
+};
+
+const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
+  return {
+    message: __expectString(output.message),
   } as any;
 };
 

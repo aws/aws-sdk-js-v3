@@ -85,6 +85,11 @@ import {
   DisassociateApiCommandOutput,
 } from "./commands/DisassociateApiCommand";
 import {
+  EvaluateMappingTemplateCommand,
+  EvaluateMappingTemplateCommandInput,
+  EvaluateMappingTemplateCommandOutput,
+} from "./commands/EvaluateMappingTemplateCommand";
+import {
   FlushApiCacheCommand,
   FlushApiCacheCommandInput,
   FlushApiCacheCommandOutput,
@@ -762,6 +767,44 @@ export class AppSync extends AppSyncClient {
     cb?: (err: any, data?: DisassociateApiCommandOutput) => void
   ): Promise<DisassociateApiCommandOutput> | void {
     const command = new DisassociateApiCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Evaluates a given template and returns the response. The mapping template can be a
+   *          request or response template.</p>
+   *          <p>Request templates take the incoming request after a GraphQL operation is parsed and
+   *          convert it into a request configuration for the selected data source operation. Response
+   *          templates interpret responses from the data source and map it to the shape of the GraphQL
+   *          field output type.</p>
+   *          <p>Mapping templates are written in the Apache Velocity Template Language (VTL).</p>
+   */
+  public evaluateMappingTemplate(
+    args: EvaluateMappingTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EvaluateMappingTemplateCommandOutput>;
+  public evaluateMappingTemplate(
+    args: EvaluateMappingTemplateCommandInput,
+    cb: (err: any, data?: EvaluateMappingTemplateCommandOutput) => void
+  ): void;
+  public evaluateMappingTemplate(
+    args: EvaluateMappingTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EvaluateMappingTemplateCommandOutput) => void
+  ): void;
+  public evaluateMappingTemplate(
+    args: EvaluateMappingTemplateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EvaluateMappingTemplateCommandOutput) => void),
+    cb?: (err: any, data?: EvaluateMappingTemplateCommandOutput) => void
+  ): Promise<EvaluateMappingTemplateCommandOutput> | void {
+    const command = new EvaluateMappingTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

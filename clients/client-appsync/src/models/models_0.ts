@@ -113,7 +113,7 @@ export interface CognitoUserPoolConfig {
 
   /**
    * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
-   *          ID.</p>
+   *          ID. If this value isn't set, no filtering is applied.</p>
    */
   appIdClientRegex?: string;
 }
@@ -1250,7 +1250,7 @@ export interface DomainNameConfig {
   appsyncDomainName?: string;
 
   /**
-   * <p>The ID of your Amazon Route 53 hosted zone.</p>
+   * <p>The ID of your Amazon Route 53 hosted zone.</p>
    */
   hostedZoneId?: string;
 }
@@ -1551,7 +1551,7 @@ export interface UserPoolConfig {
 
   /**
    * <p>A regular expression for validating the incoming Amazon Cognito user pool app client
-   *          ID.</p>
+   *          ID. If this value isn't set, no filtering is applied.</p>
    */
   appIdClientRegex?: string;
 }
@@ -1694,7 +1694,7 @@ export interface CachingConfig {
    * <p>The TTL in seconds for a resolver that has caching activated.</p>
    *          <p>Valid values are 1–3,600 seconds.</p>
    */
-  ttl?: number;
+  ttl: number | undefined;
 
   /**
    * <p>The caching keys for a resolver that has caching activated.</p>
@@ -2056,6 +2056,43 @@ export interface DisassociateApiRequest {
 }
 
 export interface DisassociateApiResponse {}
+
+export interface EvaluateMappingTemplateRequest {
+  /**
+   * <p>The mapping template; this can be a request or response template. A
+   *             <code>template</code> is required for this action.</p>
+   */
+  template: string | undefined;
+
+  /**
+   * <p>The map that holds all of the contextual information for your resolver invocation. A
+   *             <code>context</code> is required for this action.</p>
+   */
+  context: string | undefined;
+}
+
+/**
+ * <p>Contains the list of errors generated when attempting to evaluate a mapping
+ *          template.</p>
+ */
+export interface ErrorDetail {
+  /**
+   * <p>The error payload.</p>
+   */
+  message?: string;
+}
+
+export interface EvaluateMappingTemplateResponse {
+  /**
+   * <p>The mapping template; this can be a request or response template.</p>
+   */
+  evaluationResult?: string;
+
+  /**
+   * <p>The <code>ErrorDetail</code> object.</p>
+   */
+  error?: ErrorDetail;
+}
 
 /**
  * <p>Represents the input of a <code>FlushApiCache</code> operation.</p>
@@ -3534,6 +3571,27 @@ export const DisassociateApiRequestFilterSensitiveLog = (obj: DisassociateApiReq
  * @internal
  */
 export const DisassociateApiResponseFilterSensitiveLog = (obj: DisassociateApiResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluateMappingTemplateRequestFilterSensitiveLog = (obj: EvaluateMappingTemplateRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorDetailFilterSensitiveLog = (obj: ErrorDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluateMappingTemplateResponseFilterSensitiveLog = (obj: EvaluateMappingTemplateResponse): any => ({
   ...obj,
 });
 
