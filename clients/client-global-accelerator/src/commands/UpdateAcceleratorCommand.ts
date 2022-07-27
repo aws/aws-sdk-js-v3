@@ -35,8 +35,9 @@ export interface UpdateAcceleratorCommandOutput extends UpdateAcceleratorRespons
  * <p>Update an accelerator. </p>
  *
  * 		       <important>
- * 			         <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the
- * 				US West (Oregon) Region to create or update accelerators.</p>
+ * 			         <p>Global Accelerator is a global service that supports endpoints in multiple Amazon Web Services Regions but you must specify the
+ * 				US West (Oregon) Region to create, update, or otherwise work with accelerators.  That is, for example, specify <code>--region us-west-2</code>
+ * 				on AWS CLI commands.</p>
  * 		       </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

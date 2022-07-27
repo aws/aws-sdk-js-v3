@@ -35,7 +35,7 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
 
 /**
  * <p>Create an endpoint group for the specified listener for a custom routing accelerator.
- * 		An endpoint group is a collection of endpoints in one AWS
+ * 	    An endpoint group is a collection of endpoints in one Amazon Web Services
  * 		Region. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

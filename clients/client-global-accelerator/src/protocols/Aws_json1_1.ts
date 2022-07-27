@@ -163,6 +163,7 @@ import { GlobalAcceleratorServiceException as __BaseException } from "../models/
 import {
   Accelerator,
   AcceleratorAttributes,
+  AcceleratorEvent,
   AcceleratorNotDisabledException,
   AcceleratorNotFoundException,
   AccessDeniedException,
@@ -1046,6 +1047,9 @@ const deserializeAws_json1_1AllowCustomRoutingTrafficCommandError = async (
   let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      throw await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
@@ -1732,6 +1736,9 @@ const deserializeAws_json1_1DenyCustomRoutingTrafficCommandError = async (
   let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "EndpointGroupNotFoundException":
+    case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
+      throw await deserializeAws_json1_1EndpointGroupNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
@@ -2974,6 +2981,9 @@ const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
       throw await deserializeAws_json1_1AcceleratorNotFoundExceptionResponse(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
       throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
@@ -4328,7 +4338,9 @@ const deserializeAws_json1_1Accelerator = (output: any, context: __SerdeContext)
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
         : undefined,
     DnsName: __expectString(output.DnsName),
+    DualStackDnsName: __expectString(output.DualStackDnsName),
     Enabled: __expectBoolean(output.Enabled),
+    Events: output.Events != null ? deserializeAws_json1_1AcceleratorEvents(output.Events, context) : undefined,
     IpAddressType: __expectString(output.IpAddressType),
     IpSets: output.IpSets != null ? deserializeAws_json1_1IpSets(output.IpSets, context) : undefined,
     LastModifiedTime:
@@ -4346,6 +4358,26 @@ const deserializeAws_json1_1AcceleratorAttributes = (output: any, context: __Ser
     FlowLogsS3Bucket: __expectString(output.FlowLogsS3Bucket),
     FlowLogsS3Prefix: __expectString(output.FlowLogsS3Prefix),
   } as any;
+};
+
+const deserializeAws_json1_1AcceleratorEvent = (output: any, context: __SerdeContext): AcceleratorEvent => {
+  return {
+    Message: __expectString(output.Message),
+    Timestamp:
+      output.Timestamp != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp))) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AcceleratorEvents = (output: any, context: __SerdeContext): AcceleratorEvent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AcceleratorEvent(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1AcceleratorNotDisabledException = (
@@ -4986,6 +5018,7 @@ const deserializeAws_json1_1IpAddresses = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1IpSet = (output: any, context: __SerdeContext): IpSet => {
   return {
+    IpAddressFamily: __expectString(output.IpAddressFamily),
     IpAddresses:
       output.IpAddresses != null ? deserializeAws_json1_1IpAddresses(output.IpAddresses, context) : undefined,
     IpFamily: __expectString(output.IpFamily),

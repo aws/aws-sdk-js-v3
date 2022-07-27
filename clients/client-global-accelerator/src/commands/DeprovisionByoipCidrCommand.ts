@@ -32,13 +32,13 @@ export interface DeprovisionByoipCidrCommandInput extends DeprovisionByoipCidrRe
 export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrResponse, __MetadataBearer {}
 
 /**
- * <p>Releases the specified address range that you provisioned to use with your AWS resources
+ * <p>Releases the specified address range that you provisioned to use with your Amazon Web Services resources
  * 			through bring your own IP addresses (BYOIP) and deletes the corresponding address pool. </p>
  * 		       <p>Before you can release an address range, you must stop advertising it by using <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html">WithdrawByoipCidr</a> and you must not have
  * 			any accelerators that are using static IP addresses allocated from its address range.
  * 		</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
- * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
+ * 			your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

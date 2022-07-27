@@ -32,7 +32,7 @@ export interface ListAcceleratorsCommandInput extends ListAcceleratorsRequest {}
 export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse, __MetadataBearer {}
 
 /**
- * <p>List the accelerators for an AWS account. </p>
+ * <p>List the accelerators for an Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

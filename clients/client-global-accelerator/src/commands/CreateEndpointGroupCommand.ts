@@ -32,7 +32,7 @@ export interface CreateEndpointGroupCommandInput extends CreateEndpointGroupRequ
 export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS
+ * <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one Amazon Web Services
  * 			Region. A resource must be valid and active when you add it as an endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

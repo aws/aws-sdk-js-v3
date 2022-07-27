@@ -3,8 +3,33 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { GlobalAcceleratorServiceException as __BaseException } from "./GlobalAcceleratorServiceException";
 
+/**
+ * <p>A complex type that contains a <code>Timestamp</code> value and <code>Message</code> for changes
+ * 			that you make to an accelerator in Global Accelerator. Messages stored here provide progress or error information when
+ * 			you update an accelerator from IPv4 to dual-stack, or from dual-stack to IPv4. Global Accelerator stores a maximum
+ * 			of ten event messages. </p>
+ */
+export interface AcceleratorEvent {
+  /**
+   * <p>A string that contains an <code>Event</code> message describing changes or errors
+   * 			when you update an accelerator in Global Accelerator from IPv4 to dual-stack, or dual-stack to IPv4.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>A timestamp for when you update an accelerator in Global Accelerator from IPv4 to dual-stack, or dual-stack to IPv4.</p>
+   */
+  Timestamp?: Date;
+}
+
 export enum IpAddressType {
+  DUAL_STACK = "DUAL_STACK",
   IPV4 = "IPV4",
+}
+
+export enum IpAddressFamily {
+  IPv4 = "IPv4",
+  IPv6 = "IPv6",
 }
 
 /**
@@ -12,7 +37,9 @@ export enum IpAddressType {
  */
 export interface IpSet {
   /**
-   * <p>The types of IP addresses included in this IP set.</p>
+   * @deprecated
+   *
+   * <p>IpFamily is deprecated and has been replaced by IpAddressFamily.</p>
    */
   IpFamily?: string;
 
@@ -20,6 +47,11 @@ export interface IpSet {
    * <p>The array of IP addresses in the IP address set. An IP address set can have a maximum of two IP addresses.</p>
    */
   IpAddresses?: string[];
+
+  /**
+   * <p>The types of IP addresses included in this IP set. </p>
+   */
+  IpAddressFamily?: IpAddressFamily | string;
 }
 
 export type AcceleratorStatus = "DEPLOYED" | "IN_PROGRESS";
@@ -41,8 +73,7 @@ export interface Accelerator {
   Name?: string;
 
   /**
-   * <p>The value for the address type must be IPv4.
-   * 			</p>
+   * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
   IpAddressType?: IpAddressType | string;
 
@@ -58,12 +89,14 @@ export interface Accelerator {
   IpSets?: IpSet[];
 
   /**
-   * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. </p>
-   * 		       <p>The naming convention for the DNS name is the following: A lowercase letter a,
+   * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses.</p>
+   * 		       <p>The naming convention for the DNS name for an accelerator is the following: A lowercase letter a,
    * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.awsglobalaccelerator.com.</p>
-   * 		       <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
-   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   *          <p>If you have a dual-stack accelerator, you also have a second DNS name, DualStackDnsName, that points to both the A record and the AAAA record for all four
+   * 			static addresses for the accelerator (two IPv4 addresses and two IPv6 addresses).</p>
+   * 		       <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html">
+   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   DnsName?: string;
 
@@ -81,6 +114,23 @@ export interface Accelerator {
    * <p>The date and time that the accelerator was last modified.</p>
    */
   LastModifiedTime?: Date;
+
+  /**
+   * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses:
+   * 			two IPv4 addresses and two IPv6 addresses.</p>
+   * 		       <p>The naming convention for the dual-stack DNS name is the following: A lowercase letter a,
+   * 			followed by a 16-bit random hex string, followed by .dualstack.awsglobalaccelerator.com. For example:
+   * 			a1234567890abcdef.dualstack.awsglobalaccelerator.com.</p>
+   * 		       <p>Note: Global Accelerator also assigns a default DNS name, DnsName, to your accelerator that points just to the static IPv4 addresses. </p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+   */
+  DualStackDnsName?: string;
+
+  /**
+   * <p>A history of changes that you make to an accelerator in Global Accelerator.</p>
+   */
+  Events?: AcceleratorEvent[];
 }
 
 /**
@@ -90,14 +140,14 @@ export interface AcceleratorAttributes {
   /**
    * <p>Indicates whether flow logs are enabled. The default value is false. If the value is true,
    * 				<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
-   * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow logs</a> in
+   * 		    the <i>Global Accelerator Developer Guide</i>.</p>
    */
   FlowLogsEnabled?: boolean;
 
   /**
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
-   * 				<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the
+   * 		    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 			bucket.</p>
    */
   FlowLogsS3Bucket?: string;
@@ -105,8 +155,7 @@ export interface AcceleratorAttributes {
   /**
    * <p>The prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 				<code>FlowLogsEnabled</code> is <code>true</code>.</p>
-   * 		       <p>If you don’t specify a prefix, the flow logs are stored in the
-   * 			root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
+   * 		       <p>If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
    * 		       <p>s3-bucket_name//AWSLogs/aws_account_id</p>
    */
   FlowLogsS3Prefix?: string;
@@ -286,7 +335,7 @@ export class EndpointGroupNotFoundException extends __BaseException {
 }
 
 /**
- * <p>There was an internal error for AWS Global Accelerator.</p>
+ * <p>There was an internal error for Global Accelerator.</p>
  */
 export class InternalServiceErrorException extends __BaseException {
   readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
@@ -328,7 +377,7 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>Processing your request would cause you to exceed an AWS Global Accelerator limit.</p>
+ * <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -358,18 +407,18 @@ export interface AdvertiseByoipCidrRequest {
 
 /**
  * <p>A complex type that contains a <code>Message</code> and a <code>Timestamp</code> value for changes
- * 			that you make in the status an IP address range that you bring to AWS Global Accelerator through bring your own IP
+ * 			that you make in the status of an IP address range that you bring to Global Accelerator through bring your own IP
  * 			address (BYOIP).</p>
  */
 export interface ByoipCidrEvent {
   /**
    * <p>A string that contains an <code>Event</code> message describing changes that you make in the status
-   * 			of an IP address range that you bring to AWS Global Accelerator through bring your own IP address (BYOIP).</p>
+   * 			of an IP address range that you bring to Global Accelerator through bring your own IP address (BYOIP).</p>
    */
   Message?: string;
 
   /**
-   * <p>A timestamp when you make a status change for an IP address range that you bring to AWS Global Accelerator through
+   * <p>A timestamp for when you make a status change for an IP address range that you bring to Global Accelerator through
    * 			bring your own IP address (BYOIP).</p>
    */
   Timestamp?: Date;
@@ -390,7 +439,7 @@ export enum ByoipCidrState {
 }
 
 /**
- * <p>Information about an IP address range that is provisioned for use with your AWS resources through
+ * <p>Information about an IP address range that is provisioned for use with your Amazon Web Services resources through
  * 			bring your own IP address (BYOIP).</p>
  * 		       <p>The following describes each BYOIP <code>State</code> that your IP address range can be in.</p>
  * 		       <ul>
@@ -398,66 +447,66 @@ export enum ByoipCidrState {
  *                <p>
  *                   <b>PENDING_PROVISIONING</b> —
  * 				You’ve submitted a request to provision an IP address range but it is not yet provisioned with
- * 				AWS Global Accelerator.</p>
+ * 			    Global Accelerator.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>READY</b> — The address range is provisioned
- * 				with AWS Global Accelerator and can be advertised.</p>
+ * 			    with Global Accelerator and can be advertised.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>PENDING_ADVERTISING</b> — You’ve submitted a
- * 				request for AWS Global Accelerator to advertise an address range but it is not yet being advertised.</p>
+ * 			    request for Global Accelerator to advertise an address range but it is not yet being advertised.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>ADVERTISING</b> — The address range is
- * 				being advertised by AWS Global Accelerator.</p>
+ * 			    being advertised by Global Accelerator.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>PENDING_WITHDRAWING</b> — You’ve submitted
  * 				a request to withdraw an address range from being advertised but it is still being advertised
- * 				by AWS Global Accelerator.</p>
+ * 				by Global Accelerator.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>PENDING_DEPROVISIONING</b> — You’ve submitted a
- * 				request to deprovision an address range from AWS Global Accelerator but it is still provisioned.</p>
+ * 			    request to deprovision an address range from Global Accelerator but it is still provisioned.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>DEPROVISIONED</b> — The address range is deprovisioned
- * 				from AWS Global Accelerator.</p>
+ * 			    from Global Accelerator.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>FAILED_PROVISION </b> — The request to
- * 				provision the address range from AWS Global Accelerator was not successful. Please make sure that
+ * 			    provision the address range from Global Accelerator was not successful. Please make sure that
  * 				you provide all of the correct information, and try again. If the request fails
- * 				a second time, contact AWS support.</p>
+ * 				a second time, contact Amazon Web Services support.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>FAILED_ADVERTISING</b> — The request for AWS Global Accelerator
+ *                   <b>FAILED_ADVERTISING</b> — The request for Global Accelerator
  * 				to advertise the address range was not successful. Please make sure that
  * 				you provide all of the correct information, and try again. If the request fails
- * 				a second time, contact AWS support.</p>
+ * 				a second time, contact Amazon Web Services support.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>FAILED_WITHDRAW</b> — The request to withdraw
- * 				the address range from advertising by AWS Global Accelerator was not successful. Please make sure that
+ * 			    the address range from advertising by Global Accelerator was not successful. Please make sure that
  * 				you provide all of the correct information, and try again. If the request fails
- * 				a second time, contact AWS support.</p>
+ * 				a second time, contact Amazon Web Services support.</p>
  *             </li>
  *             <li>
  *                <p>
  *                   <b>FAILED_DEPROVISION </b> — The request to
- * 				deprovision the address range from AWS Global Accelerator was not successful. Please make sure that
+ * 			    deprovision the address range from Global Accelerator was not successful. Please make sure that
  * 				you provide all of the correct information, and try again. If the request fails
- * 				a second time, contact AWS support.</p>
+ * 				a second time, contact Amazon Web Services support.</p>
  *             </li>
  *          </ul>
  */
@@ -473,7 +522,7 @@ export interface ByoipCidr {
   State?: ByoipCidrState | string;
 
   /**
-   * <p>A history of status changes for an IP address range that you bring to AWS Global Accelerator
+   * <p>A history of status changes for an IP address range that you bring to Global Accelerator
    * 			through bring your own IP address (BYOIP).</p>
    */
   Events?: ByoipCidrEvent[];
@@ -612,10 +661,10 @@ export class AssociatedListenerFoundException extends __BaseException {
 }
 
 /**
- * <p>Provides authorization for Amazon to bring a specific IP address range to a specific AWS
+ * <p>Provides authorization for Amazon to bring a specific IP address range to a specific Amazon Web Services
  * 			account using bring your own IP addresses (BYOIP). </p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
- * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring your own
+ * 		    IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
  */
 export interface CidrAuthorizationContext {
   /**
@@ -648,27 +697,29 @@ export interface Tag {
 
 export interface CreateAcceleratorRequest {
   /**
-   * <p>The name of an accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or
-   * 			hyphens (-), and must not begin or end with a hyphen.</p>
+   * <p>The name of the accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters,
+   * 			periods (.), or hyphens (-), and must not begin or end with a hyphen or period.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The value for the address type must be IPv4.</p>
+   * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
-   * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses
-   * 			from your own pool to use for the accelerator's static IP addresses when you create an accelerator. You can
-   * 			specify one or two addresses, separated by a space. Do not include the /32 suffix.</p>
-   * 		       <p>Only one IP address from each of your IP address ranges can be used for each accelerator. If you specify only
-   * 			one IP address from your IP address range, Global Accelerator assigns a second static IP address for the
-   * 			accelerator from the AWS IP address pool.</p>
+   * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose an IPv4 address
+   * 			from your own pool to use for the accelerator's static IPv4 address when you create an accelerator. </p>
+   * 	        <p>After you bring an address range to Amazon Web Services, it appears in your account as an address pool.
+   * 	    	When you create an accelerator, you can assign one IPv4 address from your range to it. Global Accelerator assigns
+   * 	    	you a second static IPv4 address from an Amazon IP address range. If you bring two IPv4 address ranges
+   * 	    	to Amazon Web Services, you can assign one IPv4 address from each range to your accelerator. This restriction is
+   * 			because Global Accelerator assigns each address range to a different network zone, for high availability.</p>
+   * 		       <p>You can specify one or two addresses, separated by a space. Do not include the /32 suffix.</p>
    * 		       <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new
    * 			accelerator with the new addresses.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring Your Own
-   * 			IP Addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
+   * 		    your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   IpAddresses?: string[];
 
@@ -687,7 +738,7 @@ export interface CreateAcceleratorRequest {
   /**
    * <p>Create tags for an accelerator.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
-   * 			in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 		    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -707,21 +758,23 @@ export interface CreateCustomRoutingAcceleratorRequest {
   Name: string | undefined;
 
   /**
-   * <p>The value for the address type must be IPv4.</p>
+   * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
   /**
-   * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose IP addresses
-   * 				from your own pool to use for the accelerator's static IP addresses when you create an accelerator. You can
-   * 				specify one or two addresses, separated by a space. Do not include the /32 suffix.</p>
-   * 			      <p>Only one IP address from each of your IP address ranges can be used for each accelerator. If you specify only
-   * 				one IP address from your IP address range, Global Accelerator assigns a second static IP address for the
-   * 				accelerator from the AWS IP address pool.</p>
-   * 			      <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new
-   * 				accelerator with the new addresses.</p>
-   * 			      <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
-   * 				your own IP addresses (BYOIP)</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * <p>Optionally, if you've added your own IP address pool to Global Accelerator (BYOIP), you can choose an IPv4 address
+   * 			from your own pool to use for the accelerator's static IPv4 address when you create an accelerator. </p>
+   * 		       <p>After you bring an address range to Amazon Web Services, it appears in your account as an address pool.
+   * 			When you create an accelerator, you can assign one IPv4 address from your range to it. Global Accelerator assigns
+   * 			you a second static IPv4 address from an Amazon IP address range. If you bring two IPv4 address ranges
+   * 			to Amazon Web Services, you can assign one IPv4 address from each range to your accelerator. This restriction is
+   * 			because Global Accelerator assigns each address range to a different network zone, for high availability.</p>
+   * 		       <p>You can specify one or two addresses, separated by a space. Do not include the /32 suffix.</p>
+   * 		       <p>Note that you can't update IP addresses for an existing accelerator. To change them, you must create a new
+   * 			accelerator with the new addresses.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
+   * 			your own IP addresses (BYOIP)</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   IpAddresses?: string[];
 
@@ -740,7 +793,7 @@ export interface CreateCustomRoutingAcceleratorRequest {
   /**
    * <p>Create tags for an accelerator.</p>
    * 	        <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
-   * 		in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 	    in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   Tags?: Tag[];
 }
@@ -763,7 +816,7 @@ export interface CustomRoutingAccelerator {
   Name?: string;
 
   /**
-   * <p>The value for the address type must be IPv4.</p>
+   * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
@@ -779,12 +832,14 @@ export interface CustomRoutingAccelerator {
   IpSets?: IpSet[];
 
   /**
-   * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses. </p>
+   * <p>The Domain Name System (DNS) name that Global Accelerator creates that points to an accelerator's static IPv4 addresses. </p>
    * 		       <p>The naming convention for the DNS name is the following: A lowercase letter a,
    * 			followed by a 16-bit random hex string, followed by .awsglobalaccelerator.com. For example:
    * 			a1234567890abcdef.awsglobalaccelerator.com.</p>
-   * 		       <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
-   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 		       <p>If you have a dual-stack accelerator, you also have a second DNS name, DualStackDnsName, that points to both the A record and the AAAA record for all four
+   * 			static addresses for the accelerator (two IPv4 addresses and two IPv6 addresses).</p>
+   * 		       <p>For more information about the default DNS name, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html">
+   * 			Support for DNS Addressing in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   DnsName?: string;
 
@@ -844,7 +899,7 @@ export interface CreateCustomRoutingEndpointGroupRequest {
   ListenerArn: string | undefined;
 
   /**
-   * <p>The AWS Region where the endpoint group is located. A listener can have only one endpoint group in a
+   * <p>The Amazon Web Services Region where the endpoint group is located. A listener can have only one endpoint group in a
    * 		specific Region.</p>
    */
   EndpointGroupRegion: string | undefined;
@@ -889,7 +944,7 @@ export interface CustomRoutingDestinationDescription {
 }
 
 /**
- * <p>A complex type for the endpoint group for a custom routing accelerator. An AWS Region can have only one endpoint group for a specific listener.
+ * <p>A complex type for the endpoint group for a custom routing accelerator. An Amazon Web Services Region can have only one endpoint group for a specific listener.
  * 		</p>
  */
 export interface CustomRoutingEndpointGroup {
@@ -899,7 +954,7 @@ export interface CustomRoutingEndpointGroup {
   EndpointGroupArn?: string;
 
   /**
-   * <p>The AWS Region where the endpoint group is located.</p>
+   * <p>The Amazon Web Services Region where the endpoint group is located.</p>
    */
   EndpointGroupRegion?: string;
 
@@ -1059,21 +1114,24 @@ export interface EndpointConfiguration {
   EndpointId?: string;
 
   /**
-   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic
+   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure Global Accelerator to route traffic
    * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
    * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
-   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint Weights</a> in the
-   * 				<i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint weights</a> in the
+   * 	        <i>Global Accelerator Developer Guide</i>.</p>
    */
   Weight?: number;
 
   /**
-   * <p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint.
+   * <p>Indicates whether client IP address preservation is enabled for an endpoint.
    * 			The value is true or false. The default value is true for new accelerators. </p>
    * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
-   * 			traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>
+   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
+   *
+   * 		       <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
+   * 			Balancers and Amazon EC2 instances.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
-   * 			Preserve Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   ClientIPPreservationEnabled?: boolean;
 }
@@ -1090,18 +1148,18 @@ export enum HealthCheckProtocol {
  * 			receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080
  * 			and 1443, respectively, on the endpoints.</p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
- * 			Port overrides</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+ * 		    Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</p>
  */
 export interface PortOverride {
   /**
    * <p>The listener port that you want to map to a specific endpoint port. This is the port that user traffic
-   * 		arrives to the Global Accelerator on.</p>
+   * 		    arrives to the Global Accelerator on.</p>
    */
   ListenerPort?: number;
 
   /**
    * <p>The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint,
-   * 			such as the Application Load Balancer or Amazon EC2 instance.</p>
+   * 		    such as the Application Load Balancer or Amazon EC2 instance.</p>
    */
   EndpointPort?: number;
 }
@@ -1113,7 +1171,7 @@ export interface CreateEndpointGroupRequest {
   ListenerArn: string | undefined;
 
   /**
-   * <p>The AWS Region where the endpoint group is located. A listener can have only one endpoint group in a
+   * <p>The Amazon Web Services Region where the endpoint group is located. A listener can have only one endpoint group in a
    * 			specific Region.</p>
    */
   EndpointGroupRegion: string | undefined;
@@ -1124,7 +1182,7 @@ export interface CreateEndpointGroupRequest {
   EndpointConfigurations?: EndpointConfiguration[];
 
   /**
-   * <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for
+   * <p>The percentage of traffic to send to an Amazon Web Services Region. Additional traffic is distributed to other endpoint groups for
    * 			this listener. </p>
    * 		       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
    * 			applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>
@@ -1133,14 +1191,14 @@ export interface CreateEndpointGroupRequest {
   TrafficDialPercentage?: number;
 
   /**
-   * <p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
-   * 			is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the
+   * <p>The port that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
+   * 	        is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the
    * 			first port in the list.</p>
    */
   HealthCheckPort?: number;
 
   /**
-   * <p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
+   * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
   HealthCheckProtocol?: HealthCheckProtocol | string;
@@ -1174,7 +1232,7 @@ export interface CreateEndpointGroupRequest {
    * 			receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080
    * 			and 1443, respectively, on the endpoints.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
-   * 			Port overrides</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 			Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   PortOverrides?: PortOverride[];
 }
@@ -1195,11 +1253,11 @@ export interface EndpointDescription {
   EndpointId?: string;
 
   /**
-   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic
+   * <p>The weight associated with the endpoint. When you add weights to endpoints, you configure Global Accelerator to route traffic
    * 			based on proportions that you specify. For example, you might specify endpoint weights of 4, 5, 5, and 6 (sum=20). The
    * 			result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is routed both to the second
-   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint Weights</a> in the
-   * 				<i>AWS Global Accelerator Developer Guide</i>. </p>
+   * 			and third endpoints, and 6/20 is routed to the last endpoint. For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html">Endpoint weights</a> in the
+   * 	        <i>Global Accelerator Developer Guide</i>. </p>
    */
   Weight?: number;
 
@@ -1214,18 +1272,21 @@ export interface EndpointDescription {
   HealthReason?: string;
 
   /**
-   * <p>Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint.
+   * <p>Indicates whether client IP address preservation is enabled for an endpoint.
    * 			The value is true or false. The default value is true for new accelerators. </p>
    * 		       <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
-   * 			traffic travels to applications on the Application Load Balancer endpoint fronted by the accelerator.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works-client-ip.html">
-   * 			Viewing Client IP Addresses in AWS Global Accelerator</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
+   *
+   * 		       <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
+   * 			Balancers and Amazon EC2 instances.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
+   * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   ClientIPPreservationEnabled?: boolean;
 }
 
 /**
- * <p>A complex type for the endpoint group. An AWS Region can have only one endpoint group for a specific listener.
+ * <p>A complex type for the endpoint group. An Amazon Web Services Region can have only one endpoint group for a specific listener.
  * 		</p>
  */
 export interface EndpointGroup {
@@ -1235,7 +1296,7 @@ export interface EndpointGroup {
   EndpointGroupArn?: string;
 
   /**
-   * <p>The AWS Region where the endpoint group is located.</p>
+   * <p>The Amazon Web Services Region where the endpoint group is located.</p>
    */
   EndpointGroupRegion?: string;
 
@@ -1245,7 +1306,7 @@ export interface EndpointGroup {
   EndpointDescriptions?: EndpointDescription[];
 
   /**
-   * <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for
+   * <p>The percentage of traffic to send to an Amazon Web Services Region. Additional traffic is distributed to other endpoint groups for
    * 			this listener. </p>
    * 		       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
    * 			applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>
@@ -1257,7 +1318,7 @@ export interface EndpointGroup {
    * <p>The port that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. </p>
    *
    * 		       <p>The default port is the port for the listener that this endpoint group is associated with. If the listener port is a
-   * 			list, Global Accelerator uses the first specified port in the list of ports.</p>
+   * 		    list, Global Accelerator uses the first specified port in the list of ports.</p>
    */
   HealthCheckPort?: number;
 
@@ -1286,7 +1347,7 @@ export interface EndpointGroup {
 
   /**
    * <p>Allows you to override the destination ports used to route traffic to an endpoint.
-   * 			Using a port override lets you to map a list of external destination ports (that your
+   * 			Using a port override lets you map a list of external destination ports (that your
    * 			users send traffic to) to a list of internal destination ports that you want an application
    * 			endpoint to receive traffic on. </p>
    */
@@ -1320,13 +1381,13 @@ export interface CreateListenerRequest {
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
    * 			regardless of the port and protocol of the client request. Client affinity gives you control over whether to always
    * 			route each client to the same specific endpoint.</p>
-   * 		       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
-   * 			affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
+   * 	        <p>Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
+   * 	        affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
    * 			destination IP address, destination port, and protocol—to select the hash value, and then chooses the best
    * 			endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not
    * 			be always routed to the same endpoint because the hash value changes. </p>
    * 		       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>
-   * 			instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
+   * 		    instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    * 		       <p>The default value is <code>NONE</code>.</p>
    */
@@ -1362,13 +1423,13 @@ export interface Listener {
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
    * 			regardless of the port and protocol of the client request. Client affinity gives you control over whether to always
    * 			route each client to the same specific endpoint.</p>
-   * 		       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
-   * 			affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
+   * 	        <p>Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
+   * 	        affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
    * 			destination IP address, destination port, and protocol—to select the hash value, and then chooses the best
    * 			endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not
    * 			be always routed to the same endpoint because the hash value changes. </p>
    * 		       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>
-   * 			instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
+   * 		    instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    * 		       <p>The default value is <code>NONE</code>.</p>
    */
@@ -1389,14 +1450,14 @@ export interface CustomRoutingAcceleratorAttributes {
   /**
    * <p>Indicates whether flow logs are enabled. The default value is false. If the value is true,
    * 			<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
-   * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow logs</a> in
+   * 		    the <i>Global Accelerator Developer Guide</i>.</p>
    */
   FlowLogsEnabled?: boolean;
 
   /**
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
-   * 			<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the
+   * 		    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 			bucket.</p>
    */
   FlowLogsS3Bucket?: string;
@@ -1664,7 +1725,7 @@ export interface DestinationPortMapping {
   EndpointId?: string;
 
   /**
-   * <p>The AWS Region for the endpoint group.</p>
+   * <p>The Amazon Web Services Region for the endpoint group.</p>
    */
   EndpointGroupRegion?: string;
 
@@ -1674,7 +1735,7 @@ export interface DestinationPortMapping {
   DestinationSocketAddress?: SocketAddress;
 
   /**
-   * <p>The IP address type, which must be IPv4.</p>
+   * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
@@ -1882,8 +1943,8 @@ export interface ListCustomRoutingPortMappingsRequest {
 
 /**
  * <p>Returns the ports and associated IP addresses and ports of Amazon EC2 instances in your virtual
- * 			private cloud (VPC) subnets. Custom routing is a port mapping protocol in AWS Global Accelerator that
- * 			statically associates port ranges with VPC subnets, which allows Global Accelerator to route to
+ * 		    private cloud (VPC) subnets. Custom routing is a port mapping protocol in Global Accelerator that
+ * 		    statically associates port ranges with VPC subnets, which allows Global Accelerator to route to
  * 			specific instances and ports within one or more subnets. </p>
  */
 export interface PortMapping {
@@ -2109,13 +2170,13 @@ export interface UpdateAcceleratorRequest {
   AcceleratorArn: string | undefined;
 
   /**
-   * <p>The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or
-   * 			hyphens (-), and must not begin or end with a hyphen.</p>
+   * <p>The name of the accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters,
+   * 			periods (.), or hyphens (-), and must not begin or end with a hyphen or period.</p>
    */
   Name?: string;
 
   /**
-   * <p>The IP address type, which must be IPv4.</p>
+   * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
   IpAddressType?: IpAddressType | string;
 
@@ -2143,13 +2204,13 @@ export interface UpdateAcceleratorAttributesRequest {
    * <p>Update whether flow logs are enabled. The default value is false. If the value is true,
    * 				<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
-   * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 		    the <i>Global Accelerator Developer Guide</i>.</p>
    */
   FlowLogsEnabled?: boolean;
 
   /**
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
-   * 				<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the
+   * 		    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 			bucket.</p>
    */
   FlowLogsS3Bucket?: string;
@@ -2157,8 +2218,8 @@ export interface UpdateAcceleratorAttributesRequest {
   /**
    * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute is required if
    * 				<code>FlowLogsEnabled</code> is <code>true</code>. </p>
-   * 		       <p>If you don’t specify a prefix, the flow logs are stored in the
-   * 			root of the bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//), like the following:</p>
+   * 		       <p>If you specify slash (/) for the S3 bucket prefix, the log file bucket folder structure will include a double slash (//),
+   * 			like the following:</p>
    * 			      <p>s3-bucket_name//AWSLogs/aws_account_id</p>
    */
   FlowLogsS3Prefix?: string;
@@ -2178,13 +2239,13 @@ export interface UpdateCustomRoutingAcceleratorRequest {
   AcceleratorArn: string | undefined;
 
   /**
-   * <p>The name of the accelerator. The name can have a maximum of 32 characters, must contain only alphanumeric characters or
-   * 		hyphens (-), and must not begin or end with a hyphen.</p>
+   * <p>The name of the accelerator. The name can have a maximum of 64 characters, must contain only alphanumeric characters,
+   * 		periods (.), or hyphens (-), and must not begin or end with a hyphen or period.</p>
    */
   Name?: string;
 
   /**
-   * <p>The value for the address type must be IPv4.</p>
+   * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
   IpAddressType?: IpAddressType | string;
 
@@ -2211,14 +2272,14 @@ export interface UpdateCustomRoutingAcceleratorAttributesRequest {
   /**
    * <p>Update whether flow logs are enabled. The default value is false. If the value is true,
    * 		<code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</p>
-   * 	        <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow Logs</a> in
-   * 		the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 	        <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow logs</a> in
+   * 	    the <i>Global Accelerator Developer Guide</i>.</p>
    */
   FlowLogsEnabled?: boolean;
 
   /**
    * <p>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code> is
-   * 		<code>true</code>. The bucket must exist and have a bucket policy that grants AWS Global Accelerator permission to write to the
+   * 	    <code>true</code>. The bucket must exist and have a bucket policy that grants Global Accelerator permission to write to the
    * 		bucket.</p>
    */
   FlowLogsS3Bucket?: string;
@@ -2274,7 +2335,7 @@ export interface UpdateEndpointGroupRequest {
   EndpointConfigurations?: EndpointConfiguration[];
 
   /**
-   * <p>The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for
+   * <p>The percentage of traffic to send to an Amazon Web Services Region. Additional traffic is distributed to other endpoint groups for
    * 			this listener. </p>
    * 		       <p>Use this action to increase (dial up) or decrease (dial down) traffic to a specific Region. The percentage is
    * 			applied to the traffic that would otherwise have been routed to the Region based on optimal routing.</p>
@@ -2283,14 +2344,14 @@ export interface UpdateEndpointGroupRequest {
   TrafficDialPercentage?: number;
 
   /**
-   * <p>The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
-   * 			is the listener port that this endpoint group is associated with. If the listener port is a list of ports, Global Accelerator uses
+   * <p>The port that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port
+   * 	        is the listener port that this endpoint group is associated with. If the listener port is a list of ports, Global Accelerator uses
    * 			the first port in the list.</p>
    */
   HealthCheckPort?: number;
 
   /**
-   * <p>The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
+   * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
   HealthCheckProtocol?: HealthCheckProtocol | string;
@@ -2318,7 +2379,7 @@ export interface UpdateEndpointGroupRequest {
    * 			receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080
    * 			and 1443, respectively, on the endpoints.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html">
-   * 			Port overrides</a> in the <i>AWS Global Accelerator Developer Guide</i>.</p>
+   * 			Overriding listener ports</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   PortOverrides?: PortOverride[];
 }
@@ -2350,13 +2411,13 @@ export interface UpdateListenerRequest {
    * <p>Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications,
    * 			regardless of the port and protocol of the client request. Client affinity gives you control over whether to always
    * 			route each client to the same specific endpoint.</p>
-   * 		       <p>AWS Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
-   * 			affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
+   * 	        <p>Global Accelerator uses a consistent-flow hashing algorithm to choose the optimal endpoint for a connection. If client
+   * 	        affinity is <code>NONE</code>, Global Accelerator uses the "five-tuple" (5-tuple) properties—source IP address, source port,
    * 			destination IP address, destination port, and protocol—to select the hash value, and then chooses the best
    * 			endpoint. However, with this setting, if someone uses different ports to connect to Global Accelerator, their connections might not
    * 			be always routed to the same endpoint because the hash value changes. </p>
    * 		       <p>If you want a given client to always be routed to the same endpoint, set client affinity to <code>SOURCE_IP</code>
-   * 			instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
+   * 		    instead. When you use the <code>SOURCE_IP</code> setting, Global Accelerator uses the "two-tuple" (2-tuple) properties—
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    * 		       <p>The default value is <code>NONE</code>.</p>
    */
@@ -2383,6 +2444,13 @@ export interface WithdrawByoipCidrResponse {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const AcceleratorEventFilterSensitiveLog = (obj: AcceleratorEvent): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -34,7 +34,7 @@ export interface ListCustomRoutingAcceleratorsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>List the custom routing accelerators for an AWS account. </p>
+ * <p>List the custom routing accelerators for an Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
