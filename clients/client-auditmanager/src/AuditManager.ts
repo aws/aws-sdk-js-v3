@@ -724,9 +724,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *          Deletes a share request for a custom framework in Audit Manager.
-   *       </p>
+   * <p> Deletes a share request for a custom framework in Audit Manager. </p>
    */
   public deleteAssessmentFrameworkShare(
     args: DeleteAssessmentFrameworkShareCommandInput,
@@ -759,7 +757,8 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>Deletes an assessment report in Audit Manager. </p>
-   *          <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager attempts to delete the following data:</p>
+   *          <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager
+   *          attempts to delete the following data:</p>
    *          <ol>
    *             <li>
    *                <p>The specified assessment report that’s stored in your S3 bucket</p>
@@ -844,8 +843,8 @@ export class AuditManager extends AuditManagerClient {
   /**
    * <p> Deregisters an account in Audit Manager. </p>
    *          <note>
-   *             <p>When you deregister your account from Audit Manager, your data isn’t deleted. If you want
-   *             to delete your resource data, you must perform that task separately before you
+   *             <p>When you deregister your account from Audit Manager, your data isn’t deleted. If
+   *             you want to delete your resource data, you must perform that task separately before you
    *             deregister your account. Either, you can do this in the Audit Manager console. Or,
    *             you can use one of the delete API operations that are provided by Audit Manager. </p>
    *             <p>To delete your Audit Manager resource data, see the following instructions: </p>
@@ -923,11 +922,11 @@ export class AuditManager extends AuditManagerClient {
    *             evidence to that delegated administrator account moving forward.</p>
    *          </important>
    *          <note>
-   *             <p>When you deregister a delegated administrator account for Audit Manager, the data for that
-   *             account isn’t deleted. If you want to delete resource data for a delegated administrator
-   *             account, you must perform that task separately before you deregister the account.
-   *             Either, you can do this in the Audit Manager console. Or, you can use one of the
-   *             delete API operations that are provided by Audit Manager. </p>
+   *             <p>When you deregister a delegated administrator account for Audit Manager, the data
+   *             for that account isn’t deleted. If you want to delete resource data for a delegated
+   *             administrator account, you must perform that task separately before you deregister the
+   *             account. Either, you can do this in the Audit Manager console. Or, you can use one
+   *             of the delete API operations that are provided by Audit Manager. </p>
    *             <p>To delete your Audit Manager resource data, see the following instructions: </p>
    *             <ul>
    *                <li>
@@ -1557,10 +1556,10 @@ export class AuditManager extends AuditManagerClient {
    * <p>Lists the latest analytics data for controls within a specific control domain and a
    *          specific active assessment.</p>
    *          <note>
-   *             <p>Control insights are listed only if the control belongs to the control domain and assessment
-   *          that was specified. Moreover, the control must have collected evidence on the
-   *          <code>lastUpdated</code> date of <code>controlInsightsByAssessment</code>. If neither
-   *          of these conditions are met, no data is listed for that control. </p>
+   *             <p>Control insights are listed only if the control belongs to the control domain and
+   *             assessment that was specified. Moreover, the control must have collected evidence on the
+   *                <code>lastUpdated</code> date of <code>controlInsightsByAssessment</code>. If neither
+   *             of these conditions are met, no data is listed for that control. </p>
    *          </note>
    */
   public listAssessmentControlInsightsByControlDomain(
@@ -1727,9 +1726,10 @@ export class AuditManager extends AuditManagerClient {
    * <p>Lists the latest analytics data for control domains across all of your active
    *          assessments. </p>
    *          <note>
-   *             <p>A control domain is listed only if at least one of the controls within that domain collected
-   *          evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If
-   *          this condition isn’t met, no data is listed for that control domain.</p>
+   *             <p>A control domain is listed only if at least one of the controls within that domain
+   *             collected evidence on the <code>lastUpdated</code> date of
+   *                <code>controlDomainInsights</code>. If this condition isn’t met, no data is listed
+   *             for that control domain.</p>
    *          </note>
    */
   public listControlDomainInsights(
@@ -1764,9 +1764,10 @@ export class AuditManager extends AuditManagerClient {
   /**
    * <p>Lists analytics data for control domains within a specified active assessment.</p>
    *          <note>
-   *             <p>A control domain is listed only if at least one of the controls within that domain collected
-   *          evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If
-   *          this condition isn’t met, no data is listed for that domain.</p>
+   *             <p>A control domain is listed only if at least one of the controls within that domain
+   *             collected evidence on the <code>lastUpdated</code> date of
+   *                <code>controlDomainInsights</code>. If this condition isn’t met, no data is listed
+   *             for that domain.</p>
    *          </note>
    */
   public listControlDomainInsightsByAssessment(
@@ -1804,10 +1805,10 @@ export class AuditManager extends AuditManagerClient {
    * <p>Lists the latest analytics data for controls within a specific control domain across all
    *          active assessments.</p>
    *          <note>
-   *             <p>Control insights are listed only if the control belongs to the control domain that was
-   *          specified and the control collected evidence on the <code>lastUpdated</code> date of
-   *          <code>controlInsightsMetadata</code>. If neither of these conditions are met, no data
-   *          is listed for that control. </p>
+   *             <p>Control insights are listed only if the control belongs to the control domain that
+   *             was specified and the control collected evidence on the <code>lastUpdated</code> date of
+   *                <code>controlInsightsMetadata</code>. If neither of these conditions are met, no data
+   *             is listed for that control. </p>
    *          </note>
    */
   public listControlInsightsByControlDomain(
@@ -1869,7 +1870,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p> Returns a list of keywords that are pre-mapped to the specified control data source. </p>
+   * <p> Returns a list of keywords that are pre-mapped to the specified control data source.
+   *       </p>
    */
   public listKeywordsForDataSource(
     args: ListKeywordsForDataSourceCommandInput,
@@ -2031,7 +2033,9 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p> Creates a share request for a custom framework in Audit Manager. </p>
-   *          <p>The share request specifies a recipient and notifies them that a custom framework is available. Recipients have 120 days to accept or decline the request. If no action is taken, the share request expires.</p>
+   *          <p>The share request specifies a recipient and notifies them that a custom framework is
+   *          available. Recipients have 120 days to accept or decline the request. If no action is
+   *          taken, the share request expires.</p>
    *          <p>When you create a share request, Audit Manager stores a snapshot of your custom
    *          framework in the US East (N. Virginia) Amazon Web Services Region. Audit Manager also
    *          stores a backup of the same snapshot in the US West (Oregon) Amazon Web Services Region.</p>
@@ -2054,8 +2058,8 @@ export class AuditManager extends AuditManagerClient {
    *          </ul>
    *          <p>When a sender <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/framework-sharing.html#framework-sharing-resend">resends a share request</a>, the snapshot is replaced with an updated version that
    *          corresponds with the latest version of the custom framework. </p>
-   *          <p>When a recipient accepts a share request, the snapshot is replicated into their
-   *             Amazon Web Services account under the Amazon Web Services Region that was specified in the share request. </p>
+   *          <p>When a recipient accepts a share request, the snapshot is replicated into their Amazon Web Services account under the Amazon Web Services Region that was specified in the share
+   *          request. </p>
    *          <important>
    *             <p>When you invoke the <code>StartAssessmentFrameworkShare</code> API, you are about to
    *             share a custom framework with another Amazon Web Services account. You may not share a

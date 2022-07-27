@@ -29,7 +29,8 @@ export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentRep
 
 /**
  * <p>Deletes an assessment report in Audit Manager. </p>
- *          <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager attempts to delete the following data:</p>
+ *          <p>When you run the <code>DeleteAssessmentReport</code> operation, Audit Manager
+ *          attempts to delete the following data:</p>
  *          <ol>
  *             <li>
  *                <p>The specified assessment report that’s stored in your S3 bucket</p>

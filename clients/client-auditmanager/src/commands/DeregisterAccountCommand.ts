@@ -30,8 +30,8 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
 /**
  * <p> Deregisters an account in Audit Manager. </p>
  *          <note>
- *             <p>When you deregister your account from Audit Manager, your data isn’t deleted. If you want
- *             to delete your resource data, you must perform that task separately before you
+ *             <p>When you deregister your account from Audit Manager, your data isn’t deleted. If
+ *             you want to delete your resource data, you must perform that task separately before you
  *             deregister your account. Either, you can do this in the Audit Manager console. Or,
  *             you can use one of the delete API operations that are provided by Audit Manager. </p>
  *             <p>To delete your Audit Manager resource data, see the following instructions: </p>

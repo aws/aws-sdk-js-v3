@@ -40,11 +40,11 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
  *             evidence to that delegated administrator account moving forward.</p>
  *          </important>
  *          <note>
- *             <p>When you deregister a delegated administrator account for Audit Manager, the data for that
- *             account isn’t deleted. If you want to delete resource data for a delegated administrator
- *             account, you must perform that task separately before you deregister the account.
- *             Either, you can do this in the Audit Manager console. Or, you can use one of the
- *             delete API operations that are provided by Audit Manager. </p>
+ *             <p>When you deregister a delegated administrator account for Audit Manager, the data
+ *             for that account isn’t deleted. If you want to delete resource data for a delegated
+ *             administrator account, you must perform that task separately before you deregister the
+ *             account. Either, you can do this in the Audit Manager console. Or, you can use one
+ *             of the delete API operations that are provided by Audit Manager. </p>
  *             <p>To delete your Audit Manager resource data, see the following instructions: </p>
  *             <ul>
  *                <li>

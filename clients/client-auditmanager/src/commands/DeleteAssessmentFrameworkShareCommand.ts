@@ -30,9 +30,7 @@ export interface DeleteAssessmentFrameworkShareCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *          Deletes a share request for a custom framework in Audit Manager.
- *       </p>
+ * <p> Deletes a share request for a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

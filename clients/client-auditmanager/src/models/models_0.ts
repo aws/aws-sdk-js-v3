@@ -568,8 +568,9 @@ export interface AssessmentEvidenceFolder {
   evidenceResourcesIncludedCount?: number;
 
   /**
-   * <p> The number of evidence that falls under the configuration data category. This
-   *             evidence is collected from configuration snapshots of other Amazon Web Services such as Amazon EC2, Amazon S3, or IAM. </p>
+   * <p> The number of evidence that falls under the configuration data category. This evidence
+   *          is collected from configuration snapshots of other Amazon Web Services such as
+   *             Amazon EC2, Amazon S3, or IAM. </p>
    */
   evidenceByTypeConfigurationDataCount?: number;
 
@@ -756,7 +757,8 @@ export interface AssessmentFrameworkShareRequest {
   customControlsCount?: number;
 
   /**
-   * <p>The compliance type that the shared custom framework supports, such as CIS or HIPAA.</p>
+   * <p>The compliance type that the shared custom framework supports, such as CIS or
+   *          HIPAA.</p>
    */
   complianceType?: string;
 }
@@ -1083,7 +1085,7 @@ export interface BatchAssociateAssessmentReportEvidenceResponse {
 
 /**
  * <p> A collection of attributes that's used to create a delegation for an assessment in
- *          Audit Manager. </p>
+ *             Audit Manager. </p>
  */
 export interface CreateDelegationRequest {
   /**
@@ -1105,11 +1107,11 @@ export interface CreateDelegationRequest {
    * <p> The type of customer persona. </p>
    *          <note>
    *             <p>In <code>CreateAssessment</code>, <code>roleType</code> can only be
-   *             <code>PROCESS_OWNER</code>. </p>
+   *                <code>PROCESS_OWNER</code>. </p>
    *             <p>In <code>UpdateSettings</code>, <code>roleType</code> can only be
-   *             <code>PROCESS_OWNER</code>.</p>
+   *                <code>PROCESS_OWNER</code>.</p>
    *             <p>In <code>BatchCreateDelegationByAssessment</code>, <code>roleType</code> can only be
-   *             <code>RESOURCE_OWNER</code>.</p>
+   *                <code>RESOURCE_OWNER</code>.</p>
    *          </note>
    */
   roleType?: RoleType | string;
@@ -1311,7 +1313,8 @@ export interface CreateAssessmentRequest {
   description?: string;
 
   /**
-   * <p> The assessment report storage destination for the assessment that's being created. </p>
+   * <p> The assessment report storage destination for the assessment that's being created.
+   *       </p>
    */
   assessmentReportsDestination: AssessmentReportsDestination | undefined;
 
@@ -1344,6 +1347,28 @@ export interface CreateAssessmentResponse {
    *          framework. </p>
    */
   assessment?: Assessment;
+}
+
+/**
+ * <p>You've reached your account quota for this resource type. To perform the requested
+ *          action, delete some existing resources or <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">request a quota increase</a> from
+ *          the Service Quotas console. For a list of Audit Manager service quotas, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas and
+ *             restrictions for Audit Manager</a>.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
 }
 
 /**
@@ -1413,7 +1438,33 @@ export enum KeywordInputType {
 
 /**
  * <p> The keyword to search for in CloudTrail logs, Config rules,
- *          Security Hub checks, and Amazon Web Services API names. </p>
+ *             Security Hub checks, and Amazon Web Services API names. </p>
+ *          <p> To learn more about the supported keywords that you can use when mapping a control data
+ *          source, see the following pages in the <i>Audit Manager User
+ *             Guide</i>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html">Config rules supported by Audit Manager</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html">Security Hub controls supported by Audit Manager</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html">API calls
+ *                   supported by Audit Manager</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-cloudtrail.html">CloudTrail event names supported by Audit Manager</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  */
 export interface SourceKeyword {
   /**
@@ -1536,7 +1587,33 @@ export interface ControlMappingSource {
 
   /**
    * <p> The keyword to search for in CloudTrail logs, Config rules,
-   *          Security Hub checks, and Amazon Web Services API names. </p>
+   *             Security Hub checks, and Amazon Web Services API names. </p>
+   *          <p> To learn more about the supported keywords that you can use when mapping a control data
+   *          source, see the following pages in the <i>Audit Manager User
+   *             Guide</i>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html">Config rules supported by Audit Manager</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html">Security Hub controls supported by Audit Manager</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html">API calls
+   *                   supported by Audit Manager</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-cloudtrail.html">CloudTrail event names supported by Audit Manager</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   sourceKeyword?: SourceKeyword;
 
@@ -1798,7 +1875,33 @@ export interface CreateControlMappingSource {
 
   /**
    * <p> The keyword to search for in CloudTrail logs, Config rules,
-   *          Security Hub checks, and Amazon Web Services API names. </p>
+   *             Security Hub checks, and Amazon Web Services API names. </p>
+   *          <p> To learn more about the supported keywords that you can use when mapping a control data
+   *          source, see the following pages in the <i>Audit Manager User
+   *             Guide</i>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html">Config rules supported by Audit Manager</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html">Security Hub controls supported by Audit Manager</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html">API calls
+   *                   supported by Audit Manager</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-cloudtrail.html">CloudTrail event names supported by Audit Manager</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   sourceKeyword?: SourceKeyword;
 
@@ -2282,7 +2385,7 @@ export interface Evidence {
   /**
    * <p> The evaluation status for evidence that falls under the compliance check category. For
    *          evidence collected from Security Hub, a <i>Pass</i> or
-   *          <i>Fail</i> result is shown. For evidence collected from Config, a <i>Compliant</i> or <i>Noncompliant</i>
+   *             <i>Fail</i> result is shown. For evidence collected from Config, a <i>Compliant</i> or <i>Noncompliant</i>
    *          result is shown. </p>
    */
   complianceCheck?: string;
@@ -2445,7 +2548,7 @@ export interface GetEvidenceFoldersByAssessmentControlRequest {
 export interface GetEvidenceFoldersByAssessmentControlResponse {
   /**
    * <p> The list of evidence folders that the
-   *          <code>GetEvidenceFoldersByAssessmentControl</code> API returned. </p>
+   *             <code>GetEvidenceFoldersByAssessmentControl</code> API returned. </p>
    */
   evidenceFolders?: AssessmentEvidenceFolder[];
 
@@ -2460,7 +2563,7 @@ export interface GetInsightsRequest {}
 /**
  * <p>A summary of the latest analytics data for all your active assessments. </p>
  *          <p>This summary is a snapshot of the data that your active assessments collected on the
- *          <code>lastUpdated</code> date. It’s important to understand that the following totals
+ *             <code>lastUpdated</code> date. It’s important to understand that the following totals
  *          are daily counts based on this date — they aren’t a total sum to date. </p>
  *          <p>The <code>Insights</code> data is eventually consistent. This means that, when you read
  *          data from <code>Insights</code>, the response might not instantly reflect the results of a
@@ -2468,20 +2571,21 @@ export interface GetInsightsRequest {}
  *          hours, the response should return the latest data.</p>
  *          <note>
  *             <p>If you delete an assessment or change its status to inactive,
- *             <code>InsightsByAssessment</code> includes data for that assessment as
+ *                <code>InsightsByAssessment</code> includes data for that assessment as
  *             follows.</p>
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>Inactive assessments</b> - If Audit Manager collected
- *                evidence for your assessment before you changed it inactive, that evidence is
- *                included in the <code>InsightsByAssessment</code> counts for that day.</p>
+ *                      <b>Inactive assessments</b> - If Audit Manager
+ *                   collected evidence for your assessment before you changed it inactive, that
+ *                   evidence is included in the <code>InsightsByAssessment</code> counts for that
+ *                   day.</p>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Deleted assessments</b> - If Audit Manager collected
- *                evidence for your assessment before you deleted it, that evidence isn't included
- *                in the <code>InsightsByAssessment</code> counts for that day.</p>
+ *                      <b>Deleted assessments</b> - If Audit Manager
+ *                   collected evidence for your assessment before you deleted it, that evidence isn't
+ *                   included in the <code>InsightsByAssessment</code> counts for that day.</p>
  *                </li>
  *             </ul>
  *          </note>
@@ -2493,35 +2597,37 @@ export interface Insights {
   activeAssessmentsCount?: number;
 
   /**
-   * <p>The number of compliance check evidence that Audit Manager classified as non-compliant
-   *          on the <code>lastUpdated</code> date. This includes evidence that was collected from
-   *          Security Hub with a <i>Fail</i> ruling, or collected from
-   *          Config with a <i>Non-compliant</i> ruling. </p>
+   * <p>The number of compliance check evidence that Audit Manager classified as
+   *          non-compliant on the <code>lastUpdated</code> date. This includes evidence that was
+   *          collected from Security Hub with a <i>Fail</i> ruling, or collected
+   *          from Config with a <i>Non-compliant</i> ruling. </p>
    */
   noncompliantEvidenceCount?: number;
 
   /**
-   * <p>The number of compliance check evidence that Audit Manager classified as compliant on
-   *          the <code>lastUpdated</code> date. This includes evidence that was collected from Security Hub with a <i>Pass</i> ruling, or collected from Config with a <i>Compliant</i> ruling. </p>
+   * <p>The number of compliance check evidence that Audit Manager classified as compliant
+   *          on the <code>lastUpdated</code> date. This includes evidence that was collected from
+   *             Security Hub with a <i>Pass</i> ruling, or collected from
+   *             Config with a <i>Compliant</i> ruling. </p>
    */
   compliantEvidenceCount?: number;
 
   /**
-   * <p>The number of evidence without a compliance check ruling. Evidence is inconclusive when the
-   *          associated control uses Security Hub or Config as a data source
-   *          but you didn't enable those services. This is also the case when a control uses a data
-   *          source that doesn’t support compliance checks (for example: manual evidence, API calls, or
-   *          CloudTrail). </p>
+   * <p>The number of evidence without a compliance check ruling. Evidence is inconclusive when
+   *          the associated control uses Security Hub or Config as a data
+   *          source but you didn't enable those services. This is also the case when a control uses a
+   *          data source that doesn’t support compliance checks (for example: manual evidence, API
+   *          calls, or CloudTrail). </p>
    *          <note>
-   *             <p>If evidence has a compliance check status of <i>not applicable</i>, it's classed
-   *          as <i>inconclusive</i> in <code>Insights</code> data.</p>
+   *             <p>If evidence has a compliance check status of <i>not applicable</i>,
+   *             it's classed as <i>inconclusive</i> in <code>Insights</code> data.</p>
    *          </note>
    */
   inconclusiveEvidenceCount?: number;
 
   /**
    * <p>The number of assessment controls that collected non-compliant evidence on the
-   *          <code>lastUpdated</code> date. </p>
+   *             <code>lastUpdated</code> date. </p>
    */
   assessmentControlsCountByNoncompliantEvidence?: number;
 
@@ -2552,66 +2658,69 @@ export interface GetInsightsByAssessmentRequest {
 
 /**
  * <p>A summary of the latest analytics data for a specific active assessment.</p>
- *          <p>This summary is a snapshot of the data that was collected on the <code>lastUpdated</code>
- *          date. It’s important to understand that the totals in <code>InsightsByAssessment</code> are
- *          daily counts based on this date — they aren’t a total sum to date. </p>
+ *          <p>This summary is a snapshot of the data that was collected on the
+ *             <code>lastUpdated</code> date. It’s important to understand that the totals in
+ *             <code>InsightsByAssessment</code> are daily counts based on this date — they aren’t a
+ *          total sum to date. </p>
  *          <p>The <code>InsightsByAssessment</code> data is eventually consistent. This means that
  *          when you read data from <code>InsightsByAssessment</code>, the response might not instantly
  *          reflect the results of a recently completed write or update operation. If you repeat your
  *          read request after a few hours, the response returns the latest data.</p>
  *          <note>
  *             <p>If you delete an assessment or change its status to inactive,
- *             <code>InsightsByAssessment</code> includes data for that assessment as
+ *                <code>InsightsByAssessment</code> includes data for that assessment as
  *             follows.</p>
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>Inactive assessments</b> - If Audit Manager collected
- *                evidence for your assessment before you changed it inactive, that evidence is
- *                included in the <code>InsightsByAssessment</code> counts for that day.</p>
+ *                      <b>Inactive assessments</b> - If Audit Manager
+ *                   collected evidence for your assessment before you changed it inactive, that
+ *                   evidence is included in the <code>InsightsByAssessment</code> counts for that
+ *                   day.</p>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Deleted assessments</b> - If Audit Manager collected
- *                evidence for your assessment before you deleted it, that evidence isn't included
- *                in the <code>InsightsByAssessment</code> counts for that day.</p>
+ *                      <b>Deleted assessments</b> - If Audit Manager
+ *                   collected evidence for your assessment before you deleted it, that evidence isn't
+ *                   included in the <code>InsightsByAssessment</code> counts for that day.</p>
  *                </li>
  *             </ul>
  *          </note>
  */
 export interface InsightsByAssessment {
   /**
-   * <p>The number of compliance check evidence that Audit Manager classified as non-compliant.
-   *          This includes evidence that was collected from Security Hub with a
-   *          <i>Fail</i> ruling, or collected from Config with a
-   *          <i>Non-compliant</i> ruling. </p>
+   * <p>The number of compliance check evidence that Audit Manager classified as
+   *          non-compliant. This includes evidence that was collected from Security Hub with a
+   *             <i>Fail</i> ruling, or collected from Config with a
+   *             <i>Non-compliant</i> ruling. </p>
    */
   noncompliantEvidenceCount?: number;
 
   /**
    * <p>The number of compliance check evidence that Audit Manager classified as compliant.
    *          This includes evidence that was collected from Security Hub with a
-   *          <i>Pass</i> ruling, or collected from Config with a
-   *          <i>Compliant</i> ruling. </p>
+   *             <i>Pass</i> ruling, or collected from Config with a
+   *             <i>Compliant</i> ruling. </p>
    */
   compliantEvidenceCount?: number;
 
   /**
-   * <p>The amount of evidence without a compliance check ruling. Evidence is inconclusive if the
-   *          associated control uses Security Hub or Config as a data source
-   *          and you didn't enable those services. This is also the case if a control uses a data source
-   *          that doesn’t support compliance checks (for example, manual evidence, API calls, or CloudTrail). </p>
+   * <p>The amount of evidence without a compliance check ruling. Evidence is inconclusive if
+   *          the associated control uses Security Hub or Config as a data
+   *          source and you didn't enable those services. This is also the case if a control uses a data
+   *          source that doesn’t support compliance checks (for example, manual evidence, API calls, or
+   *             CloudTrail). </p>
    *          <note>
-   *             <p>If evidence has a compliance check status of <i>not applicable</i>, it's
-   *          classified as <i>inconclusive</i> in <code>InsightsByAssessment</code>
-   *          data.</p>
+   *             <p>If evidence has a compliance check status of <i>not applicable</i>,
+   *             it's classified as <i>inconclusive</i> in
+   *                <code>InsightsByAssessment</code> data.</p>
    *          </note>
    */
   inconclusiveEvidenceCount?: number;
 
   /**
    * <p>The number of assessment controls that collected non-compliant evidence on the
-   *          <code>lastUpdated</code> date. </p>
+   *             <code>lastUpdated</code> date. </p>
    */
   assessmentControlsCountByNoncompliantEvidence?: number;
 
@@ -2758,23 +2867,22 @@ export interface ListAssessmentControlInsightsByControlDomainRequest {
 }
 
 /**
- * <p>A breakdown of the latest compliance check status for the evidence in your Audit Manager
- *          assessments. </p>
+ * <p>A breakdown of the latest compliance check status for the evidence in your Audit Manager assessments. </p>
  */
 export interface EvidenceInsights {
   /**
-   * <p>The number of compliance check evidence that Audit Manager classified as non-compliant.
-   *          This includes evidence that was collected from Security Hub with a
-   *          <i>Fail</i> ruling, or collected from Config with a
-   *          <i>Non-compliant</i> ruling. </p>
+   * <p>The number of compliance check evidence that Audit Manager classified as
+   *          non-compliant. This includes evidence that was collected from Security Hub with a
+   *             <i>Fail</i> ruling, or collected from Config with a
+   *             <i>Non-compliant</i> ruling. </p>
    */
   noncompliantEvidenceCount?: number;
 
   /**
-   * <p>The number of compliance check evidence that Audit Manager classified as compliant. This
-   *          includes evidence that was collected from Security Hub with a
-   *          <i>Pass</i> ruling, or collected from Config with a
-   *          <i>Compliant</i> ruling. </p>
+   * <p>The number of compliance check evidence that Audit Manager classified as compliant.
+   *          This includes evidence that was collected from Security Hub with a
+   *             <i>Pass</i> ruling, or collected from Config with a
+   *             <i>Compliant</i> ruling. </p>
    */
   compliantEvidenceCount?: number;
 
@@ -2784,9 +2892,9 @@ export interface EvidenceInsights {
    *          control uses a data source that doesn’t support compliance checks (for example, manual
    *          evidence, API calls, or CloudTrail). </p>
    *          <note>
-   *             <p>If evidence has a compliance check status of <i>not applicable</i> in the
-   *          console, it's classified as <i>inconclusive</i> in
-   *          <code>EvidenceInsights</code> data.</p>
+   *             <p>If evidence has a compliance check status of <i>not applicable</i> in
+   *             the console, it's classified as <i>inconclusive</i> in
+   *                <code>EvidenceInsights</code> data.</p>
    *          </note>
    */
   inconclusiveEvidenceCount?: number;
@@ -2795,8 +2903,8 @@ export interface EvidenceInsights {
 /**
  * <p>A summary of the latest analytics data for a specific control in a specific active
  *          assessment.</p>
- *          <p>Control insights are grouped by control domain, and ranked by the highest total count of non-compliant evidence.
- *       </p>
+ *          <p>Control insights are grouped by control domain, and ranked by the highest total count of
+ *          non-compliant evidence. </p>
  */
 export interface ControlInsightsMetadataByAssessmentItem {
   /**
@@ -2829,7 +2937,7 @@ export interface ControlInsightsMetadataByAssessmentItem {
 export interface ListAssessmentControlInsightsByControlDomainResponse {
   /**
    * <p>The assessment control analytics data that the
-   *          <code>ListAssessmentControlInsightsByControlDomain</code> API returned. </p>
+   *             <code>ListAssessmentControlInsightsByControlDomain</code> API returned. </p>
    */
   controlInsightsByAssessment?: ControlInsightsMetadataByAssessmentItem[];
 
@@ -2966,7 +3074,8 @@ export interface ListControlDomainInsightsRequest {
 
 /**
  * <p>A summary of the latest analytics data for a specific control domain.</p>
- *          <p>Control domain insights are grouped by control domain, and ranked by the highest total count of non-compliant evidence.</p>
+ *          <p>Control domain insights are grouped by control domain, and ranked by the highest total
+ *          count of non-compliant evidence.</p>
  */
 export interface ControlDomainInsights {
   /**
@@ -2980,8 +3089,8 @@ export interface ControlDomainInsights {
   id?: string;
 
   /**
-   * <p>The number of controls in the control domain that collected non-compliant evidence on the
-   *          <code>lastUpdated</code> date. </p>
+   * <p>The number of controls in the control domain that collected non-compliant evidence on
+   *          the <code>lastUpdated</code> date. </p>
    */
   controlsCountByNoncompliantEvidence?: number;
 
@@ -2991,8 +3100,8 @@ export interface ControlDomainInsights {
   totalControlsCount?: number;
 
   /**
-   * <p>A breakdown of the compliance check status for the evidence that’s associated with the control
-   *          domain. </p>
+   * <p>A breakdown of the compliance check status for the evidence that’s associated with the
+   *          control domain. </p>
    */
   evidenceInsights?: EvidenceInsights;
 
@@ -3035,7 +3144,7 @@ export interface ListControlDomainInsightsByAssessmentRequest {
 export interface ListControlDomainInsightsByAssessmentResponse {
   /**
    * <p>The control domain analytics data that the
-   *          <code>ListControlDomainInsightsByAssessment</code> API returned. </p>
+   *             <code>ListControlDomainInsightsByAssessment</code> API returned. </p>
    */
   controlDomainInsights?: ControlDomainInsights[];
 
@@ -3064,7 +3173,9 @@ export interface ListControlInsightsByControlDomainRequest {
 
 /**
  * <p>A summary of the latest analytics data for a specific control. </p>
- *          <p>This data reflects the total counts for the specified control across all active assessments. Control insights are grouped by control domain, and ranked by the highest total count of non-compliant evidence.</p>
+ *          <p>This data reflects the total counts for the specified control across all active
+ *          assessments. Control insights are grouped by control domain, and ranked by the highest
+ *          total count of non-compliant evidence.</p>
  */
 export interface ControlInsightsMetadataItem {
   /**
@@ -3498,7 +3609,7 @@ export interface UpdateAssessmentControlSetStatusRequest {
 export interface UpdateAssessmentControlSetStatusResponse {
   /**
    * <p> The name of the updated control set that the
-   *          <code>UpdateAssessmentControlSetStatus</code> API returned. </p>
+   *             <code>UpdateAssessmentControlSetStatus</code> API returned. </p>
    */
   controlSet?: AssessmentControlSet;
 }
@@ -3584,7 +3695,7 @@ export interface UpdateAssessmentFrameworkShareRequest {
 export interface UpdateAssessmentFrameworkShareResponse {
   /**
    * <p> The updated share request that's returned by the
-   *          <code>UpdateAssessmentFrameworkShare</code> operation. </p>
+   *             <code>UpdateAssessmentFrameworkShare</code> operation. </p>
    */
   assessmentFrameworkShareRequest?: AssessmentFrameworkShareRequest;
 }

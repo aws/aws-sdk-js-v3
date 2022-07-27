@@ -239,6 +239,7 @@ import {
   Role,
   Scope,
   ServiceMetadata,
+  ServiceQuotaExceededException,
   Settings,
   SourceKeyword,
   ThrottlingException,
@@ -2612,6 +2613,9 @@ const deserializeAws_restJson1CreateAssessmentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.auditmanager#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -2666,6 +2670,9 @@ const deserializeAws_restJson1CreateAssessmentFrameworkCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.auditmanager#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -2774,6 +2781,9 @@ const deserializeAws_restJson1CreateControlCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.auditmanager#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -5373,6 +5383,9 @@ const deserializeAws_restJson1UpdateAssessmentStatusCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.auditmanager#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.auditmanager#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.auditmanager#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
@@ -5612,6 +5625,22 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
     contents.resourceType = __expectString(data.resourceType);
   }
   const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: any = {};
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  const exception = new ServiceQuotaExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

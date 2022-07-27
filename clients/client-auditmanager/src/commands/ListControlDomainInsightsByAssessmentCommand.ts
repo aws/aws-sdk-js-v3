@@ -33,9 +33,10 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput
 /**
  * <p>Lists analytics data for control domains within a specified active assessment.</p>
  *          <note>
- *             <p>A control domain is listed only if at least one of the controls within that domain collected
- *          evidence on the <code>lastUpdated</code> date of <code>controlDomainInsights</code>. If
- *          this condition isn’t met, no data is listed for that domain.</p>
+ *             <p>A control domain is listed only if at least one of the controls within that domain
+ *             collected evidence on the <code>lastUpdated</code> date of
+ *                <code>controlDomainInsights</code>. If this condition isn’t met, no data is listed
+ *             for that domain.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -33,10 +33,10 @@ export interface ListControlInsightsByControlDomainCommandOutput
  * <p>Lists the latest analytics data for controls within a specific control domain across all
  *          active assessments.</p>
  *          <note>
- *             <p>Control insights are listed only if the control belongs to the control domain that was
- *          specified and the control collected evidence on the <code>lastUpdated</code> date of
- *          <code>controlInsightsMetadata</code>. If neither of these conditions are met, no data
- *          is listed for that control. </p>
+ *             <p>Control insights are listed only if the control belongs to the control domain that
+ *             was specified and the control collected evidence on the <code>lastUpdated</code> date of
+ *                <code>controlInsightsMetadata</code>. If neither of these conditions are met, no data
+ *             is listed for that control. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

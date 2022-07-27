@@ -28,7 +28,8 @@ export interface ListKeywordsForDataSourceCommandInput extends ListKeywordsForDa
 export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p> Returns a list of keywords that are pre-mapped to the specified control data source. </p>
+ * <p> Returns a list of keywords that are pre-mapped to the specified control data source.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
