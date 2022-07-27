@@ -4,6 +4,8 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import {
   Account,
   AccountSettings,
+  Address,
+  AddressFilterSensitiveLog,
   AlexaForBusinessMetadata,
   AlexaForBusinessMetadataFilterSensitiveLog,
   AppInstanceAdminSummary,
@@ -20,6 +22,8 @@ import {
   Bot,
   BotFilterSensitiveLog,
   BusinessCallingSettings,
+  CandidateAddress,
+  CandidateAddressFilterSensitiveLog,
   Capability,
   ChannelBanSummary,
   ChannelBanSummaryFilterSensitiveLog,
@@ -40,6 +44,7 @@ import {
   ChannelPrivacy,
   ChannelSummary,
   ChannelSummaryFilterSensitiveLog,
+  ConversationRetentionSettings,
   Credential,
   CredentialFilterSensitiveLog,
   EmailStatus,
@@ -65,7 +70,6 @@ import {
   ProxySession,
   ProxySessionFilterSensitiveLog,
   ProxySessionStatus,
-  RetentionSettings,
   Room,
   RoomFilterSensitiveLog,
   RoomMembership,
@@ -88,6 +92,31 @@ import {
   VoiceConnectorItem,
   VoiceConnectorSettings,
 } from "./models_0";
+
+/**
+ * <p>The retention settings that determine how long to retain chat-room messages for an Amazon Chime Enterprise account.</p>
+ */
+export interface RoomRetentionSettings {
+  /**
+   * <p>The number of days for which to retain chat-room messages.</p>
+   */
+  RetentionDays?: number;
+}
+
+/**
+ * <p>The retention settings for an Amazon Chime Enterprise account that determine how long to retain items such as chat-room messages and chat-conversation messages.</p>
+ */
+export interface RetentionSettings {
+  /**
+   * <p>The chat room retention settings.</p>
+   */
+  RoomRetentionSettings?: RoomRetentionSettings;
+
+  /**
+   * <p>The chat conversation retention settings.</p>
+   */
+  ConversationRetentionSettings?: ConversationRetentionSettings;
+}
 
 export interface GetRetentionSettingsResponse {
   /**
@@ -296,12 +325,12 @@ export interface GetVoiceConnectorLoggingConfigurationRequest {
  */
 export interface LoggingConfiguration {
   /**
-   * <p>Boolean that enables SIP message logs to CloudWatch logs.</p>
+   * <p>When true, enables SIP message logs for sending to Amazon CloudWatch Logs.</p>
    */
   EnableSIPLogs?: boolean;
 
   /**
-   * <p>Boolean that enables logging of detailed media metrics for Voice Connectors to CloudWatch logs.</p>
+   * <p>Boolean that enables the logging of Voice Connector metrics to Cloudwatch.</p>
    */
   EnableMediaMetricLogs?: boolean;
 }
@@ -2656,6 +2685,82 @@ export interface UpdateVoiceConnectorGroupResponse {
   VoiceConnectorGroup?: VoiceConnectorGroup;
 }
 
+export interface ValidateE911AddressRequest {
+  /**
+   * <p>The AWS account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The address street number, such as <code>200</code> or <code>2121</code>.</p>
+   */
+  StreetNumber: string | undefined;
+
+  /**
+   * <p>The address street information, such as <code>8th Avenue</code>.</p>
+   */
+  StreetInfo: string | undefined;
+
+  /**
+   * <p>The address city, such as <code>Portland</code>.</p>
+   */
+  City: string | undefined;
+
+  /**
+   * <p>The address state, such as <code>ME</code>.</p>
+   */
+  State: string | undefined;
+
+  /**
+   * <p>The address country, such as <code>US</code>. </p>
+   */
+  Country: string | undefined;
+
+  /**
+   * <p>The address postal code, such as <code>04352</code>.</p>
+   */
+  PostalCode: string | undefined;
+}
+
+export interface ValidateE911AddressResponse {
+  /**
+   * <p>Number indicating the result of address validation.
+   *             <code>0</code> means the address was perfect as is and successfully validated.
+   *             <code>1</code> means the address was corrected. <code>2</code> means the address sent was
+   *             not close enough and was not validated.</p>
+   */
+  ValidationResult?: number;
+
+  /**
+   * <p>The ID that represents the address.</p>
+   */
+  AddressExternalId?: string;
+
+  /**
+   * <p>The validated address.</p>
+   */
+  Address?: Address;
+
+  /**
+   * <p>The list of address suggestions.</p>
+   */
+  CandidateAddressList?: CandidateAddress[];
+}
+
+/**
+ * @internal
+ */
+export const RoomRetentionSettingsFilterSensitiveLog = (obj: RoomRetentionSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetentionSettingsFilterSensitiveLog = (obj: RetentionSettings): any => ({
+  ...obj,
+});
+
 /**
  * @internal
  */
@@ -4265,4 +4370,28 @@ export const UpdateVoiceConnectorGroupRequestFilterSensitiveLog = (obj: UpdateVo
  */
 export const UpdateVoiceConnectorGroupResponseFilterSensitiveLog = (obj: UpdateVoiceConnectorGroupResponse): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidateE911AddressRequestFilterSensitiveLog = (obj: ValidateE911AddressRequest): any => ({
+  ...obj,
+  ...(obj.StreetNumber && { StreetNumber: SENSITIVE_STRING }),
+  ...(obj.StreetInfo && { StreetInfo: SENSITIVE_STRING }),
+  ...(obj.City && { City: SENSITIVE_STRING }),
+  ...(obj.State && { State: SENSITIVE_STRING }),
+  ...(obj.Country && { Country: SENSITIVE_STRING }),
+  ...(obj.PostalCode && { PostalCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidateE911AddressResponseFilterSensitiveLog = (obj: ValidateE911AddressResponse): any => ({
+  ...obj,
+  ...(obj.Address && { Address: AddressFilterSensitiveLog(obj.Address) }),
+  ...(obj.CandidateAddressList && {
+    CandidateAddressList: obj.CandidateAddressList.map((item) => CandidateAddressFilterSensitiveLog(item)),
+  }),
 });

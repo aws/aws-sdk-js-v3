@@ -585,6 +585,10 @@ import {
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand";
+import {
+  ValidateE911AddressCommandInput,
+  ValidateE911AddressCommandOutput,
+} from "./commands/ValidateE911AddressCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -777,7 +781,8 @@ export type ServiceInputTypes =
   | UpdateUserCommandInput
   | UpdateUserSettingsCommandInput
   | UpdateVoiceConnectorCommandInput
-  | UpdateVoiceConnectorGroupCommandInput;
+  | UpdateVoiceConnectorGroupCommandInput
+  | ValidateE911AddressCommandInput;
 
 export type ServiceOutputTypes =
   | AssociatePhoneNumberWithUserCommandOutput
@@ -969,7 +974,8 @@ export type ServiceOutputTypes =
   | UpdateUserCommandOutput
   | UpdateUserSettingsCommandOutput
   | UpdateVoiceConnectorCommandOutput
-  | UpdateVoiceConnectorGroupCommandOutput;
+  | UpdateVoiceConnectorGroupCommandOutput
+  | ValidateE911AddressCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

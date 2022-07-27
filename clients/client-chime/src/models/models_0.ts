@@ -144,6 +144,61 @@ export interface AccountSettings {
 }
 
 /**
+ * <p>A validated address.</p>
+ */
+export interface Address {
+  /**
+   * <p>The address street, such as <code>8th Avenue</code>.</p>
+   */
+  streetName?: string;
+
+  /**
+   * <p>The address suffix, such as the <code>N</code> in <code>8th Avenue N</code>.</p>
+   */
+  streetSuffix?: string;
+
+  /**
+   * <p>An address suffix location, such as the <code>S. Unit A</code> in <code>Central Park S. Unit A</code>.</p>
+   */
+  postDirectional?: string;
+
+  /**
+   * <p>An address prefix location, such as the <code>N</code> in <code>N. Third St.</code>.</p>
+   */
+  preDirectional?: string;
+
+  /**
+   * <p>The numeric portion of an address.</p>
+   */
+  streetNumber?: string;
+
+  /**
+   * <p>The city of an address.</p>
+   */
+  city?: string;
+
+  /**
+   * <p>The state of an address.</p>
+   */
+  state?: string;
+
+  /**
+   * <p>The postal code of an address.</p>
+   */
+  postalCode?: string;
+
+  /**
+   * <p>The Zip + 4 or postal code + 4 of an address.</p>
+   */
+  postalCodePlus4?: string;
+
+  /**
+   * <p>The country of an address. </p>
+   */
+  country?: string;
+}
+
+/**
  * <p>The Alexa for Business metadata associated with an Amazon Chime user, used to integrate Alexa for Business with a device.</p>
  */
 export interface AlexaForBusinessMetadata {
@@ -1224,6 +1279,46 @@ export enum CallingNameStatus {
   UpdateFailed = "UpdateFailed",
   UpdateInProgress = "UpdateInProgress",
   UpdateSucceeded = "UpdateSucceeded",
+}
+
+/**
+ * <p>A suggested address.</p>
+ */
+export interface CandidateAddress {
+  /**
+   * <p>The street information of a candidate address</p>
+   */
+  streetInfo?: string;
+
+  /**
+   * <p>The numeric portion of a candidate address.</p>
+   */
+  streetNumber?: string;
+
+  /**
+   * <p>The city of a candidate address.</p>
+   */
+  city?: string;
+
+  /**
+   * <p>The state of a candidate address.</p>
+   */
+  state?: string;
+
+  /**
+   * <p>The postal code of a candidate address.</p>
+   */
+  postalCode?: string;
+
+  /**
+   * <p>The Zip + 4 or postal code + 4 of a candidate address.</p>
+   */
+  postalCodePlus4?: string;
+
+  /**
+   * <p>The country of a candidate address.</p>
+   */
+  country?: string;
 }
 
 export enum Capability {
@@ -4516,31 +4611,6 @@ export interface GetRetentionSettingsRequest {
 }
 
 /**
- * <p>The retention settings that determine how long to retain chat-room messages for an Amazon Chime Enterprise account.</p>
- */
-export interface RoomRetentionSettings {
-  /**
-   * <p>The number of days for which to retain chat-room messages.</p>
-   */
-  RetentionDays?: number;
-}
-
-/**
- * <p>The retention settings for an Amazon Chime Enterprise account that determine how long to retain items such as chat-room messages and chat-conversation messages.</p>
- */
-export interface RetentionSettings {
-  /**
-   * <p>The chat room retention settings.</p>
-   */
-  RoomRetentionSettings?: RoomRetentionSettings;
-
-  /**
-   * <p>The chat conversation retention settings.</p>
-   */
-  ConversationRetentionSettings?: ConversationRetentionSettings;
-}
-
-/**
  * @internal
  */
 export const SigninDelegateGroupFilterSensitiveLog = (obj: SigninDelegateGroup): any => ({
@@ -4559,6 +4629,23 @@ export const AccountFilterSensitiveLog = (obj: Account): any => ({
  */
 export const AccountSettingsFilterSensitiveLog = (obj: AccountSettings): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AddressFilterSensitiveLog = (obj: Address): any => ({
+  ...obj,
+  ...(obj.streetName && { streetName: SENSITIVE_STRING }),
+  ...(obj.streetSuffix && { streetSuffix: SENSITIVE_STRING }),
+  ...(obj.postDirectional && { postDirectional: SENSITIVE_STRING }),
+  ...(obj.preDirectional && { preDirectional: SENSITIVE_STRING }),
+  ...(obj.streetNumber && { streetNumber: SENSITIVE_STRING }),
+  ...(obj.city && { city: SENSITIVE_STRING }),
+  ...(obj.state && { state: SENSITIVE_STRING }),
+  ...(obj.postalCode && { postalCode: SENSITIVE_STRING }),
+  ...(obj.postalCodePlus4 && { postalCodePlus4: SENSITIVE_STRING }),
+  ...(obj.country && { country: SENSITIVE_STRING }),
 });
 
 /**
@@ -5003,6 +5090,20 @@ export const BotFilterSensitiveLog = (obj: Bot): any => ({
  */
 export const BusinessCallingSettingsFilterSensitiveLog = (obj: BusinessCallingSettings): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CandidateAddressFilterSensitiveLog = (obj: CandidateAddress): any => ({
+  ...obj,
+  ...(obj.streetInfo && { streetInfo: SENSITIVE_STRING }),
+  ...(obj.streetNumber && { streetNumber: SENSITIVE_STRING }),
+  ...(obj.city && { city: SENSITIVE_STRING }),
+  ...(obj.state && { state: SENSITIVE_STRING }),
+  ...(obj.postalCode && { postalCode: SENSITIVE_STRING }),
+  ...(obj.postalCodePlus4 && { postalCodePlus4: SENSITIVE_STRING }),
+  ...(obj.country && { country: SENSITIVE_STRING }),
 });
 
 /**
@@ -6499,19 +6600,5 @@ export const GetProxySessionResponseFilterSensitiveLog = (obj: GetProxySessionRe
  * @internal
  */
 export const GetRetentionSettingsRequestFilterSensitiveLog = (obj: GetRetentionSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RoomRetentionSettingsFilterSensitiveLog = (obj: RoomRetentionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetentionSettingsFilterSensitiveLog = (obj: RetentionSettings): any => ({
   ...obj,
 });

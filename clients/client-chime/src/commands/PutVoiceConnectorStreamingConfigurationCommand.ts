@@ -32,7 +32,7 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
 
 /**
  * <p>Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming
- *             configuration specifies whether media streaming is enabled for sending to Indonesians.
+ *             configuration specifies whether media streaming is enabled for sending to Kinesis.
  *             It also sets the retention period, in hours, for the Amazon Kinesis data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

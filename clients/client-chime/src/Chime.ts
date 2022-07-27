@@ -864,6 +864,11 @@ import {
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand";
+import {
+  ValidateE911AddressCommand,
+  ValidateE911AddressCommandInput,
+  ValidateE911AddressCommandOutput,
+} from "./commands/ValidateE911AddressCommand";
 
 /**
  * <p>The Amazon Chime API (application programming interface) is designed for developers to
@@ -6075,7 +6080,7 @@ export class Chime extends ChimeClient {
 
   /**
    * <p>Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming
-   *             configuration specifies whether media streaming is enabled for sending to Indonesians.
+   *             configuration specifies whether media streaming is enabled for sending to Kinesis.
    *             It also sets the retention period, in hours, for the Amazon Kinesis data.</p>
    */
   public putVoiceConnectorStreamingConfiguration(
@@ -7367,6 +7372,41 @@ export class Chime extends ChimeClient {
     cb?: (err: any, data?: UpdateVoiceConnectorGroupCommandOutput) => void
   ): Promise<UpdateVoiceConnectorGroupCommandOutput> | void {
     const command = new UpdateVoiceConnectorGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Validates an address to be used for 911 calls made with Amazon
+   *             Chime Voice Connectors. You can use validated addresses
+   *             in a Presence Information Data Format Location Object file that you include in SIP requests.
+   *             That helps ensure that addresses are routed to the appropriate Public Safety Answering Point.</p>
+   */
+  public validateE911Address(
+    args: ValidateE911AddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidateE911AddressCommandOutput>;
+  public validateE911Address(
+    args: ValidateE911AddressCommandInput,
+    cb: (err: any, data?: ValidateE911AddressCommandOutput) => void
+  ): void;
+  public validateE911Address(
+    args: ValidateE911AddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateE911AddressCommandOutput) => void
+  ): void;
+  public validateE911Address(
+    args: ValidateE911AddressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateE911AddressCommandOutput) => void),
+    cb?: (err: any, data?: ValidateE911AddressCommandOutput) => void
+  ): Promise<ValidateE911AddressCommandOutput> | void {
+    const command = new ValidateE911AddressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

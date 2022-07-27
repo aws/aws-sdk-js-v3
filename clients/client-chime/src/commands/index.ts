@@ -189,3 +189,4 @@ export * from "./UpdateUserCommand";
 export * from "./UpdateUserSettingsCommand";
 export * from "./UpdateVoiceConnectorCommand";
 export * from "./UpdateVoiceConnectorGroupCommand";
+export * from "./ValidateE911AddressCommand";

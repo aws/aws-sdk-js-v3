@@ -555,11 +555,16 @@ import {
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
 } from "../commands/UpdateVoiceConnectorGroupCommand";
+import {
+  ValidateE911AddressCommandInput,
+  ValidateE911AddressCommandOutput,
+} from "../commands/ValidateE911AddressCommand";
 import { ChimeServiceException as __BaseException } from "../models/ChimeServiceException";
 import {
   AccessDeniedException,
   Account,
   AccountSettings,
+  Address,
   AlexaForBusinessMetadata,
   AppInstance,
   AppInstanceAdmin,
@@ -578,6 +583,7 @@ import {
   BatchCreateChannelMembershipError,
   Bot,
   BusinessCallingSettings,
+  CandidateAddress,
   Capability,
   Channel,
   ChannelBan,
@@ -627,10 +633,8 @@ import {
   PhoneNumberType,
   ProxySession,
   ResourceLimitExceededException,
-  RetentionSettings,
   Room,
   RoomMembership,
-  RoomRetentionSettings,
   SelectedVideoStreams,
   ServiceFailureException,
   ServiceUnavailableException,
@@ -662,6 +666,8 @@ import {
   OriginationRoute,
   PhoneNumberCountry,
   Proxy,
+  RetentionSettings,
+  RoomRetentionSettings,
   SipMediaApplicationLoggingConfiguration,
   StreamingConfiguration,
   StreamingNotificationTarget,
@@ -7609,6 +7615,37 @@ export const serializeAws_restJson1UpdateVoiceConnectorGroupCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ValidateE911AddressCommand = async (
+  input: ValidateE911AddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/emergency-calling/address";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AwsAccountId != null && { AwsAccountId: input.AwsAccountId }),
+    ...(input.City != null && { City: input.City }),
+    ...(input.Country != null && { Country: input.Country }),
+    ...(input.PostalCode != null && { PostalCode: input.PostalCode }),
+    ...(input.State != null && { State: input.State }),
+    ...(input.StreetInfo != null && { StreetInfo: input.StreetInfo }),
+    ...(input.StreetNumber != null && { StreetNumber: input.StreetNumber }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -19674,6 +19711,81 @@ const deserializeAws_restJson1UpdateVoiceConnectorGroupCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ValidateE911AddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ValidateE911AddressCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ValidateE911AddressCommandError(output, context);
+  }
+  const contents: ValidateE911AddressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Address: undefined,
+    AddressExternalId: undefined,
+    CandidateAddressList: undefined,
+    ValidationResult: undefined,
+  };
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Address !== undefined && data.Address !== null) {
+    contents.Address = deserializeAws_restJson1Address(data.Address, context);
+  }
+  if (data.AddressExternalId !== undefined && data.AddressExternalId !== null) {
+    contents.AddressExternalId = __expectString(data.AddressExternalId);
+  }
+  if (data.CandidateAddressList !== undefined && data.CandidateAddressList !== null) {
+    contents.CandidateAddressList = deserializeAws_restJson1CandidateAddressList(data.CandidateAddressList, context);
+  }
+  if (data.ValidationResult !== undefined && data.ValidationResult !== null) {
+    contents.ValidationResult = __expectInt32(data.ValidationResult);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ValidateE911AddressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ValidateE911AddressCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chime#BadRequestException":
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.chime#ForbiddenException":
+      throw await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.chime#NotFoundException":
+      throw await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.chime#ServiceFailureException":
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chime#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottledClientException":
+    case "com.amazonaws.chime#ThrottledClientException":
+      throw await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context);
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chime#UnauthorizedClientException":
+      throw await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -20763,6 +20875,21 @@ const deserializeAws_restJson1AccountSettings = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1Address = (output: any, context: __SerdeContext): Address => {
+  return {
+    city: __expectString(output.city),
+    country: __expectString(output.country),
+    postDirectional: __expectString(output.postDirectional),
+    postalCode: __expectString(output.postalCode),
+    postalCodePlus4: __expectString(output.postalCodePlus4),
+    preDirectional: __expectString(output.preDirectional),
+    state: __expectString(output.state),
+    streetName: __expectString(output.streetName),
+    streetNumber: __expectString(output.streetNumber),
+    streetSuffix: __expectString(output.streetSuffix),
+  } as any;
+};
+
 const deserializeAws_restJson1AlexaForBusinessMetadata = (
   output: any,
   context: __SerdeContext
@@ -21091,6 +21218,30 @@ const deserializeAws_restJson1CallingRegionList = (output: any, context: __Serde
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1CandidateAddress = (output: any, context: __SerdeContext): CandidateAddress => {
+  return {
+    city: __expectString(output.city),
+    country: __expectString(output.country),
+    postalCode: __expectString(output.postalCode),
+    postalCodePlus4: __expectString(output.postalCodePlus4),
+    state: __expectString(output.state),
+    streetInfo: __expectString(output.streetInfo),
+    streetNumber: __expectString(output.streetNumber),
+  } as any;
+};
+
+const deserializeAws_restJson1CandidateAddressList = (output: any, context: __SerdeContext): CandidateAddress[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CandidateAddress(entry, context);
     });
   return retVal;
 };
