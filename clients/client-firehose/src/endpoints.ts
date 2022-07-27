@@ -3,6 +3,22 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "cn-north-1": {
+    variants: [
+      {
+        hostname: "firehose.cn-north-1.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
+  },
+  "cn-northwest-1": {
+    variants: [
+      {
+        hostname: "firehose.cn-northwest-1.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
+  },
   "us-east-1": {
     variants: [
       {
