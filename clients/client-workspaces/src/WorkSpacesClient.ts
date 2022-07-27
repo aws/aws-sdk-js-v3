@@ -78,6 +78,10 @@ import {
   CreateWorkspaceBundleCommandInput,
   CreateWorkspaceBundleCommandOutput,
 } from "./commands/CreateWorkspaceBundleCommand";
+import {
+  CreateWorkspaceImageCommandInput,
+  CreateWorkspaceImageCommandOutput,
+} from "./commands/CreateWorkspaceImageCommand";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "./commands/CreateWorkspacesCommand";
 import {
   DeleteClientBrandingCommandInput,
@@ -250,6 +254,7 @@ export type ServiceInputTypes =
   | CreateTagsCommandInput
   | CreateUpdatedWorkspaceImageCommandInput
   | CreateWorkspaceBundleCommandInput
+  | CreateWorkspaceImageCommandInput
   | CreateWorkspacesCommandInput
   | DeleteClientBrandingCommandInput
   | DeleteConnectClientAddInCommandInput
@@ -313,6 +318,7 @@ export type ServiceOutputTypes =
   | CreateTagsCommandOutput
   | CreateUpdatedWorkspaceImageCommandOutput
   | CreateWorkspaceBundleCommandOutput
+  | CreateWorkspaceImageCommandOutput
   | CreateWorkspacesCommandOutput
   | DeleteClientBrandingCommandOutput
   | DeleteConnectClientAddInCommandOutput

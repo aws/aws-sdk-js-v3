@@ -48,6 +48,11 @@ import {
   CreateWorkspaceBundleCommandOutput,
 } from "./commands/CreateWorkspaceBundleCommand";
 import {
+  CreateWorkspaceImageCommand,
+  CreateWorkspaceImageCommandInput,
+  CreateWorkspaceImageCommandOutput,
+} from "./commands/CreateWorkspaceImageCommand";
+import {
   CreateWorkspacesCommand,
   CreateWorkspacesCommandInput,
   CreateWorkspacesCommandOutput,
@@ -677,6 +682,38 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: CreateWorkspaceBundleCommandOutput) => void
   ): Promise<CreateWorkspaceBundleCommandOutput> | void {
     const command = new CreateWorkspaceBundleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new WorkSpace image from an existing WorkSpace.</p>
+   */
+  public createWorkspaceImage(
+    args: CreateWorkspaceImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkspaceImageCommandOutput>;
+  public createWorkspaceImage(
+    args: CreateWorkspaceImageCommandInput,
+    cb: (err: any, data?: CreateWorkspaceImageCommandOutput) => void
+  ): void;
+  public createWorkspaceImage(
+    args: CreateWorkspaceImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkspaceImageCommandOutput) => void
+  ): void;
+  public createWorkspaceImage(
+    args: CreateWorkspaceImageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkspaceImageCommandOutput) => void),
+    cb?: (err: any, data?: CreateWorkspaceImageCommandOutput) => void
+  ): Promise<CreateWorkspaceImageCommandOutput> | void {
+    const command = new CreateWorkspaceImageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

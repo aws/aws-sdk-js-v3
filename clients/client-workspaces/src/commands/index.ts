@@ -9,6 +9,7 @@ export * from "./CreateIpGroupCommand";
 export * from "./CreateTagsCommand";
 export * from "./CreateUpdatedWorkspaceImageCommand";
 export * from "./CreateWorkspaceBundleCommand";
+export * from "./CreateWorkspaceImageCommand";
 export * from "./CreateWorkspacesCommand";
 export * from "./DeleteClientBrandingCommand";
 export * from "./DeleteConnectClientAddInCommand";

@@ -41,6 +41,10 @@ import {
   CreateWorkspaceBundleCommandInput,
   CreateWorkspaceBundleCommandOutput,
 } from "../commands/CreateWorkspaceBundleCommand";
+import {
+  CreateWorkspaceImageCommandInput,
+  CreateWorkspaceImageCommandOutput,
+} from "../commands/CreateWorkspaceImageCommand";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "../commands/CreateWorkspacesCommand";
 import {
   DeleteClientBrandingCommandInput,
@@ -232,6 +236,8 @@ import {
   CreateUpdatedWorkspaceImageResult,
   CreateWorkspaceBundleRequest,
   CreateWorkspaceBundleResult,
+  CreateWorkspaceImageRequest,
+  CreateWorkspaceImageResult,
   CreateWorkspacesRequest,
   CreateWorkspacesResult,
   DefaultClientBrandingAttributes,
@@ -509,6 +515,19 @@ export const serializeAws_json1_1CreateWorkspaceBundleCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateWorkspaceBundleRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateWorkspaceImageCommand = async (
+  input: CreateWorkspaceImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.CreateWorkspaceImage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateWorkspaceImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1740,6 +1759,68 @@ const deserializeAws_json1_1CreateWorkspaceBundleCommandError = async (
     case "ResourceUnavailableException":
     case "com.amazonaws.workspaces#ResourceUnavailableException":
       throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
+export const deserializeAws_json1_1CreateWorkspaceImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkspaceImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateWorkspaceImageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateWorkspaceImageResult(data, context);
+  const response: CreateWorkspaceImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateWorkspaceImageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkspaceImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context);
+    case "InvalidResourceStateException":
+    case "com.amazonaws.workspaces#InvalidResourceStateException":
+      throw await deserializeAws_json1_1InvalidResourceStateExceptionResponse(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
+      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.workspaces#ResourceLimitExceededException":
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       const $metadata = deserializeMetadata(output);
@@ -4673,6 +4754,18 @@ const serializeAws_json1_1CreateWorkspaceBundleRequest = (
   };
 };
 
+const serializeAws_json1_1CreateWorkspaceImageRequest = (
+  input: CreateWorkspaceImageRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
+  };
+};
+
 const serializeAws_json1_1CreateWorkspacesRequest = (input: CreateWorkspacesRequest, context: __SerdeContext): any => {
   return {
     ...(input.Workspaces != null && {
@@ -5808,6 +5901,26 @@ const deserializeAws_json1_1CreateWorkspaceBundleResult = (
       output.WorkspaceBundle != null
         ? deserializeAws_json1_1WorkspaceBundle(output.WorkspaceBundle, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateWorkspaceImageResult = (
+  output: any,
+  context: __SerdeContext
+): CreateWorkspaceImageResult => {
+  return {
+    Created:
+      output.Created != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Created))) : undefined,
+    Description: __expectString(output.Description),
+    ImageId: __expectString(output.ImageId),
+    Name: __expectString(output.Name),
+    OperatingSystem:
+      output.OperatingSystem != null
+        ? deserializeAws_json1_1OperatingSystem(output.OperatingSystem, context)
+        : undefined,
+    OwnerAccountId: __expectString(output.OwnerAccountId),
+    RequiredTenancy: __expectString(output.RequiredTenancy),
+    State: __expectString(output.State),
   } as any;
 };
 

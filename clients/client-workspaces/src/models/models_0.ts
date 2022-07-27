@@ -826,6 +826,103 @@ export interface CreateWorkspaceBundleResult {
   WorkspaceBundle?: WorkspaceBundle;
 }
 
+export interface CreateWorkspaceImageRequest {
+  /**
+   * <p>The name of the new WorkSpace image.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the new WorkSpace image.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The identifier of the source WorkSpace</p>
+   */
+  WorkspaceId: string | undefined;
+
+  /**
+   * <p>The tags that you want to add to the new WorkSpace image.
+   *          To add tags when you're creating the image, you must create an IAM policy that grants
+   *          your IAM user permission to use <code>workspaces:CreateTags</code>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export enum OperatingSystemType {
+  LINUX = "LINUX",
+  WINDOWS = "WINDOWS",
+}
+
+/**
+ * <p>The operating system that the image is running.</p>
+ */
+export interface OperatingSystem {
+  /**
+   * <p>The operating system.</p>
+   */
+  Type?: OperatingSystemType | string;
+}
+
+export enum WorkspaceImageRequiredTenancy {
+  DEDICATED = "DEDICATED",
+  DEFAULT = "DEFAULT",
+}
+
+export enum WorkspaceImageState {
+  AVAILABLE = "AVAILABLE",
+  ERROR = "ERROR",
+  PENDING = "PENDING",
+}
+
+export interface CreateWorkspaceImageResult {
+  /**
+   * <p>The identifier of the new WorkSpace image.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The name of the image.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The operating system that the image is running.</p>
+   */
+  OperatingSystem?: OperatingSystem;
+
+  /**
+   * <p>The availability status of the image.</p>
+   */
+  State?: WorkspaceImageState | string;
+
+  /**
+   * <p>Specifies whether the image is running on dedicated hardware.
+   *          When Bring Your Own License (BYOL) is enabled, this value is set
+   *          to DEDICATED. For more information, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm">
+   *             Bring Your Own Windows Desktop Images.</a>
+   *          </p>
+   */
+  RequiredTenancy?: WorkspaceImageRequiredTenancy | string;
+
+  /**
+   * <p>The date when the image was created.</p>
+   */
+  Created?: Date;
+
+  /**
+   * <p>The identifier of the AWS account that owns the image.</p>
+   */
+  OwnerAccountId?: string;
+}
+
 export enum RunningMode {
   ALWAYS_ON = "ALWAYS_ON",
   AUTO_STOP = "AUTO_STOP",
@@ -1109,8 +1206,7 @@ export enum DedicatedTenancySupportEnum {
  */
 export interface DefaultClientBrandingAttributes {
   /**
-   * <p>The logo URL. The only image
-   *          format accepted is a binary data object that is converted from a <code>.png</code> file.</p>
+   * <p>The logo. The only image format accepted is a binary data object that is converted from a <code>.png</code> file.</p>
    */
   LogoUrl?: string;
 
@@ -1158,7 +1254,8 @@ export interface DefaultClientBrandingAttributes {
   /**
    * <p>The login message. Specified as a key value pair, in which the key is a locale and the
    *          value is the localized message for that locale. The only key supported is
-   *             <code>en_US</code>. </p>
+   *          <code>en_US</code>. The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code, dd, dl, dt, div, em,
+   *             i, li, ol, p, pre, q, small, span, strike, strong, sub, sup, u, ul</code>.</p>
    */
   LoginMessage?: Record<string, string>;
 }
@@ -1173,8 +1270,7 @@ export interface DefaultClientBrandingAttributes {
  */
 export interface DefaultImportClientBrandingAttributes {
   /**
-   * <p>The logo. The only image
-   *          format accepted is a binary data object that is converted from a <code>.png</code> file.</p>
+   * <p>The logo. The only image format accepted is a binary data object that is converted from a <code>.png</code> file.</p>
    */
   Logo?: Uint8Array;
 
@@ -1222,7 +1318,8 @@ export interface DefaultImportClientBrandingAttributes {
   /**
    * <p>The login message. Specified as a key value pair, in which the key is a locale and the
    *          value is the localized message for that locale. The only key supported is
-   *             <code>en_US</code>. </p>
+   *          <code>en_US</code>. The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code, dd, dl, dt, div, em,
+   *             i, li, ol, p, pre, q, small, span, strike, strong, sub, sup, u, ul</code>.</p>
    */
   LoginMessage?: Record<string, string>;
 }
@@ -1425,8 +1522,8 @@ export interface DescribeClientBrandingRequest {
  */
 export interface IosClientBrandingAttributes {
   /**
-   * <p>The logo. This is the
-   *          standard-resolution display that has a 1:1 pixel density (or @1x), where one pixel is equal
+   * <p>The logo. This is the standard-resolution display that has a 1:1 pixel density
+   *          (or @1x), where one pixel is equal
    *          to one point. The only image format accepted is a binary data object that is converted from
    *          a <code>.png</code> file.</p>
    */
@@ -1498,7 +1595,8 @@ export interface IosClientBrandingAttributes {
   /**
    * <p>The login message. Specified as a key value pair, in which the key is a locale and the
    *          value is the localized message for that locale. The only key supported is
-   *             <code>en_US</code>. </p>
+   *          <code>en_US</code>. The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code, dd, dl, dt, div, em,
+   *             i, li, ol, p, pre, q, small, span, strike, strong, sub, sup, u, ul</code>.</p>
    */
   LoginMessage?: Record<string, string>;
 }
@@ -2059,32 +2157,6 @@ export interface DescribeWorkspaceImagesRequest {
   MaxResults?: number;
 }
 
-export enum OperatingSystemType {
-  LINUX = "LINUX",
-  WINDOWS = "WINDOWS",
-}
-
-/**
- * <p>The operating system that the image is running.</p>
- */
-export interface OperatingSystem {
-  /**
-   * <p>The operating system.</p>
-   */
-  Type?: OperatingSystemType | string;
-}
-
-export enum WorkspaceImageRequiredTenancy {
-  DEDICATED = "DEDICATED",
-  DEFAULT = "DEFAULT",
-}
-
-export enum WorkspaceImageState {
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  PENDING = "PENDING",
-}
-
 /**
  * <p>Describes whether a WorkSpace image needs to be updated with the latest drivers and
  *          other components required by Amazon WorkSpaces.</p>
@@ -2449,7 +2521,8 @@ export interface IosImportClientBrandingAttributes {
   /**
    * <p>The login message. Specified as a key value pair, in which the key is a locale and the
    *          value is the localized message for that locale. The only key supported is
-   *             <code>en_US</code>. </p>
+   *          <code>en_US</code>. The HTML tags supported include the following: <code>a, b, blockquote, br, cite, code, dd, dl, dt, div, em,
+   *             i, li, ol, p, pre, q, small, span, strike, strong, sub, sup, u, ul</code>.</p>
    */
   LoginMessage?: Record<string, string>;
 }
@@ -3413,6 +3486,27 @@ export const CreateWorkspaceBundleResultFilterSensitiveLog = (obj: CreateWorkspa
 /**
  * @internal
  */
+export const CreateWorkspaceImageRequestFilterSensitiveLog = (obj: CreateWorkspaceImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OperatingSystemFilterSensitiveLog = (obj: OperatingSystem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWorkspaceImageResultFilterSensitiveLog = (obj: CreateWorkspaceImageResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const WorkspacePropertiesFilterSensitiveLog = (obj: WorkspaceProperties): any => ({
   ...obj,
 });
@@ -3822,13 +3916,6 @@ export const DescribeWorkspaceImagePermissionsResultFilterSensitiveLog = (
  * @internal
  */
 export const DescribeWorkspaceImagesRequestFilterSensitiveLog = (obj: DescribeWorkspaceImagesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OperatingSystemFilterSensitiveLog = (obj: OperatingSystem): any => ({
   ...obj,
 });
 
