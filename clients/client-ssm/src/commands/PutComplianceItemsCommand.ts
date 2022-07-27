@@ -56,7 +56,7 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  *      or <code>Failed</code> for associations.</p>
  *             </li>
  *             <li>
- *                <p>Severity: A patch severity. For example, <code>critical</code>.</p>
+ *                <p>Severity: A patch severity. For example, <code>Critical</code>.</p>
  *             </li>
  *             <li>
  *                <p>DocumentName: An SSM document name. For example, <code>AWS-RunPatchBaseline</code>.</p>

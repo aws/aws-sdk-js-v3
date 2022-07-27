@@ -3357,17 +3357,22 @@ export interface GetServiceSettingRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>/ssm/managed-instance/activation-tier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/opsinsights/opscenter</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>/ssm/parameter-store/default-parameter-tier</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>/ssm/parameter-store/high-throughput-enabled</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/activation-tier</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -4330,6 +4335,10 @@ export interface CommandInvocation {
    *                <p>Terminated: The parent command exceeded its MaxErrors limit and subsequent command
    *      invocations were canceled by the system. This is a terminal state.</p>
    *             </li>
+   *             <li>
+   *                <p>Delayed: The system attempted to send the command to the managed node but wasn't
+   *      successful. The system retries again.</p>
+   *             </li>
    *          </ul>
    */
   StatusDetails?: string;
@@ -4464,9 +4473,11 @@ export interface Command {
   Comment?: string;
 
   /**
-   * <p>If this time is reached and the command hasn't already started running, it won't run.
-   *    Calculated based on the <code>ExpiresAfter</code> user input provided as part of the
-   *     <code>SendCommand</code> API operation.</p>
+   * <p>If a command expires, it changes status to <code>DeliveryTimedOut</code> for all invocations
+   *    that have the status <code>InProgress</code>, <code>Pending</code>, or <code>Delayed</code>.
+   *     <code>ExpiresAfter</code> is calculated based on the total timeout for the overall command. For
+   *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html?icmpid=docs_ec2_console#monitor-about-status-timeouts">Understanding command timeout values</a> in the
+   *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   ExpiresAfter?: Date;
 
@@ -4540,6 +4551,10 @@ export interface Command {
    *                <p>Rate Exceeded: The number of managed nodes targeted by the command exceeded the account
    *      limit for pending invocations. The system has canceled the command before running it on any
    *      managed node. This is a terminal state.</p>
+   *             </li>
+   *             <li>
+   *                <p>Delayed: The system attempted to send the command to the managed node but wasn't
+   *      successful. The system retries again.</p>
    *             </li>
    *          </ul>
    */
@@ -4837,8 +4852,9 @@ export interface ListComplianceSummariesRequest {
  */
 export interface SeveritySummary {
   /**
-   * <p>The total number of resources or compliance items that have a severity level of critical.
-   *    Critical severity is determined by the organization that published the compliance items.</p>
+   * <p>The total number of resources or compliance items that have a severity level of
+   *     <code>Critical</code>. Critical severity is determined by the organization that published the
+   *    compliance items.</p>
    */
   CriticalCount?: number;
 
@@ -7443,17 +7459,22 @@ export interface ResetServiceSettingRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>/ssm/managed-instance/activation-tier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/opsinsights/opscenter</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>/ssm/parameter-store/default-parameter-tier</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>/ssm/parameter-store/high-throughput-enabled</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/activation-tier</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -8160,9 +8181,12 @@ export interface StartSessionRequest {
   Target: string | undefined;
 
   /**
-   * <p>The name of the SSM document to define the parameters and plugin settings for the session.
-   *    For example, <code>SSM-SessionManagerRunShell</code>. You can call the <a>GetDocument</a> API to verify the document exists before attempting to start a session.
-   *    If no document name is provided, a shell to the managed node is launched by default.</p>
+   * <p>The name of the SSM document you want to use to define the type of session, input
+   *    parameters, or preferences for the session. For example, <code>SSM-SessionManagerRunShell</code>.
+   *    You can call the <a>GetDocument</a> API to verify the document exists before
+   *    attempting to start a session. If no document name is provided, a shell to the managed node is
+   *    launched by default. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-sessions-start.html">Start a
+   *     session</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   DocumentName?: string;
 

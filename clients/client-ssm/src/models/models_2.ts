@@ -949,17 +949,22 @@ export interface UpdateServiceSettingRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>/ssm/managed-instance/activation-tier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/opsinsights/opscenter</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>/ssm/parameter-store/default-parameter-tier</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>/ssm/parameter-store/high-throughput-enabled</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/activation-tier</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -970,24 +975,6 @@ export interface UpdateServiceSettingRequest {
    * <p>The new value to specify for the service setting. The following list specifies the available
    *    values for each setting.</p>
    *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/parameter-store/default-parameter-tier</code>: <code>Standard</code>,
-   *       <code>Advanced</code>, <code>Intelligent-Tiering</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>: <code>true</code> or
-   *       <code>false</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/activation-tier</code>: <code>true</code> or
-   *       <code>false</code>
-   *                </p>
-   *             </li>
    *             <li>
    *                <p>
    *                   <code>/ssm/automation/customer-script-log-destination</code>: <code>CloudWatch</code>
@@ -1007,6 +994,23 @@ export interface UpdateServiceSettingRequest {
    *                <p>
    *                   <code>/ssm/managed-instance/activation-tier</code>: <code>standard</code> or
    *       <code>advanced</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/opsinsights/opscenter</code>: <code>Enabled</code> or <code>Disabled</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/parameter-store/default-parameter-tier</code>: <code>Standard</code>,
+   *       <code>Advanced</code>, <code>Intelligent-Tiering</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>: <code>true</code> or
+   *       <code>false</code>
    *                </p>
    *             </li>
    *          </ul>
