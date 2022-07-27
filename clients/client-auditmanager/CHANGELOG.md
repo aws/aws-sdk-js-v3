@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.137.0...v3.138.0) (2022-07-27)
+
+
+### Features
+
+* **client-auditmanager:** This release adds an exceeded quota exception to several APIs. We added a ServiceQuotaExceededException for the following operations: CreateAssessment, CreateControl, CreateAssessmentFramework, and UpdateAssessmentStatus. ([352b023](https://github.com/aws/aws-sdk-js-v3/commit/352b023a92f3390a18deaafb81133b123638525f))
+
+
+
+
+
 # [3.137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.136.1...v3.137.0) (2022-07-26)
 
 

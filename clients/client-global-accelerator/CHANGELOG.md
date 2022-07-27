@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.137.0...v3.138.0) (2022-07-27)
+
+
+### Features
+
+* **client-global-accelerator:** Global Accelerator now supports dual-stack accelerators, enabling support for IPv4 and IPv6 traffic. ([d07e946](https://github.com/aws/aws-sdk-js-v3/commit/d07e94626b332aabe551dbef6f224e877f2cb502))
+
+
+
+
+
 # [3.137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.136.1...v3.137.0) (2022-07-26)
 
 

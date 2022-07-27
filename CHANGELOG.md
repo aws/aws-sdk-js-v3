@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.137.0...v3.138.0) (2022-07-27)
+
+
+### Features
+
+* **client-auditmanager:** This release adds an exceeded quota exception to several APIs. We added a ServiceQuotaExceededException for the following operations: CreateAssessment, CreateControl, CreateAssessmentFramework, and UpdateAssessmentStatus. ([352b023](https://github.com/aws/aws-sdk-js-v3/commit/352b023a92f3390a18deaafb81133b123638525f))
+* **client-chime:** Chime VoiceConnector will now support ValidateE911Address which will allow customers to prevalidate their addresses included in their SIP invites for emergency calling ([a5a02f7](https://github.com/aws/aws-sdk-js-v3/commit/a5a02f7e30797c84c103f4d2fd892a54233a0eff))
+* **client-config-service:** This release adds ListConformancePackComplianceScores API to support the new compliance score feature, which provides a percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack. ([6945e9e](https://github.com/aws/aws-sdk-js-v3/commit/6945e9e9c5c46a04657f91766fcaa93d01b48a29))
+* **client-global-accelerator:** Global Accelerator now supports dual-stack accelerators, enabling support for IPv4 and IPv6 traffic. ([d07e946](https://github.com/aws/aws-sdk-js-v3/commit/d07e94626b332aabe551dbef6f224e877f2cb502))
+* **client-marketplace-catalog:** The SDK for the StartChangeSet API will now automatically set and use an idempotency token in the ClientRequestToken request parameter if the customer does not provide it. ([df77d8b](https://github.com/aws/aws-sdk-js-v3/commit/df77d8b55d0e6a270af332539297f8651095e8c9))
+* **client-polly:** Amazon Polly adds new English and Hindi voice - Kajal. Kajal is available as Neural voice only. ([d06d2de](https://github.com/aws/aws-sdk-js-v3/commit/d06d2de2c321b9643468f3d64e65958c0fd0b89d))
+* **client-workspaces:** Added CreateWorkspaceImage API to create a new WorkSpace image from an existing WorkSpace. ([6f03fb8](https://github.com/aws/aws-sdk-js-v3/commit/6f03fb882a494bfaecb228ba23589363c3694db8))
+* **clients:** update client endpoints as of 2022-07-27 ([caeedeb](https://github.com/aws/aws-sdk-js-v3/commit/caeedebeea234a709a08c98b9bc6de90bb0946e9))
+
+
+
+
+
 # [3.137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.136.1...v3.137.0) (2022-07-26)
 
 

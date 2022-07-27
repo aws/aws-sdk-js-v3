@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.137.0...v3.138.0) (2022-07-27)
+
+
+### Features
+
+* **client-polly:** Amazon Polly adds new English and Hindi voice - Kajal. Kajal is available as Neural voice only. ([d06d2de](https://github.com/aws/aws-sdk-js-v3/commit/d06d2de2c321b9643468f3d64e65958c0fd0b89d))
+
+
+
+
+
 # [3.137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.136.1...v3.137.0) (2022-07-26)
 
 
