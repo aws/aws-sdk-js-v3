@@ -293,6 +293,10 @@ import {
   ListAggregateDiscoveredResourcesCommandOutput,
 } from "./commands/ListAggregateDiscoveredResourcesCommand";
 import {
+  ListConformancePackComplianceScoresCommandInput,
+  ListConformancePackComplianceScoresCommandOutput,
+} from "./commands/ListConformancePackComplianceScoresCommand";
+import {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
@@ -434,6 +438,7 @@ export type ServiceInputTypes =
   | GetResourceConfigHistoryCommandInput
   | GetStoredQueryCommandInput
   | ListAggregateDiscoveredResourcesCommandInput
+  | ListConformancePackComplianceScoresCommandInput
   | ListDiscoveredResourcesCommandInput
   | ListStoredQueriesCommandInput
   | ListTagsForResourceCommandInput
@@ -524,6 +529,7 @@ export type ServiceOutputTypes =
   | GetResourceConfigHistoryCommandOutput
   | GetStoredQueryCommandOutput
   | ListAggregateDiscoveredResourcesCommandOutput
+  | ListConformancePackComplianceScoresCommandOutput
   | ListDiscoveredResourcesCommandOutput
   | ListStoredQueriesCommandOutput
   | ListTagsForResourceCommandOutput

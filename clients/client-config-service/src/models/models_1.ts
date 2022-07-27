@@ -4,6 +4,9 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 import { ConfigServiceServiceException as __BaseException } from "./ConfigServiceServiceException";
 import {
   ConformancePackInputParameter,
+  DeliveryChannel,
+  Evaluation,
+  ExternalEvaluation,
   FailedRemediationBatch,
   FailedRemediationExceptionBatch,
   FieldInfo,
@@ -17,6 +20,85 @@ import {
   StoredQuery,
   Tag,
 } from "./models_0";
+
+export interface PutConformancePackResponse {
+  /**
+   * <p>ARN of the conformance pack.</p>
+   */
+  ConformancePackArn?: string;
+}
+
+/**
+ * <p>The input for the <a>PutDeliveryChannel</a>
+ * 			action.</p>
+ */
+export interface PutDeliveryChannelRequest {
+  /**
+   * <p>The configuration delivery channel object that delivers the
+   * 			configuration information to an Amazon S3 bucket and to an Amazon
+   * 			SNS topic.</p>
+   */
+  DeliveryChannel: DeliveryChannel | undefined;
+}
+
+/**
+ * <p></p>
+ */
+export interface PutEvaluationsRequest {
+  /**
+   * <p>The assessments that the Lambda function performs. Each
+   * 			evaluation identifies an Amazon Web Services resource and indicates whether it
+   * 			complies with the Config rule that invokes the Lambda
+   * 			function.</p>
+   */
+  Evaluations?: Evaluation[];
+
+  /**
+   * <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the
+   * 			evaluation.</p>
+   */
+  ResultToken: string | undefined;
+
+  /**
+   * <p>Use this parameter to specify a test run for
+   * 			<code>PutEvaluations</code>. You can verify whether your Lambda function will deliver evaluation results to Config. No
+   * 			updates occur to your existing evaluations, and evaluation results
+   * 			are not sent to Config.</p>
+   *
+   * 		       <note>
+   * 			         <p>When <code>TestMode</code> is <code>true</code>,
+   * 					<code>PutEvaluations</code> doesn't require a valid value
+   * 				for the <code>ResultToken</code> parameter, but the value cannot
+   * 				be null.</p>
+   * 		       </note>
+   */
+  TestMode?: boolean;
+}
+
+/**
+ * <p></p>
+ */
+export interface PutEvaluationsResponse {
+  /**
+   * <p>Requests that failed because of a client or server
+   * 			error.</p>
+   */
+  FailedEvaluations?: Evaluation[];
+}
+
+export interface PutExternalEvaluationRequest {
+  /**
+   * <p>The name of the Config rule.</p>
+   */
+  ConfigRuleName: string | undefined;
+
+  /**
+   * <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
+   */
+  ExternalEvaluation: ExternalEvaluation | undefined;
+}
+
+export interface PutExternalEvaluationResponse {}
 
 export interface PutOrganizationConfigRuleRequest {
   /**
@@ -449,6 +531,48 @@ export interface UntagResourceRequest {
    */
   TagKeys: string[] | undefined;
 }
+
+/**
+ * @internal
+ */
+export const PutConformancePackResponseFilterSensitiveLog = (obj: PutConformancePackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutDeliveryChannelRequestFilterSensitiveLog = (obj: PutDeliveryChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEvaluationsRequestFilterSensitiveLog = (obj: PutEvaluationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutEvaluationsResponseFilterSensitiveLog = (obj: PutEvaluationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutExternalEvaluationRequestFilterSensitiveLog = (obj: PutExternalEvaluationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutExternalEvaluationResponseFilterSensitiveLog = (obj: PutExternalEvaluationResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

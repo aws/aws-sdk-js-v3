@@ -61,6 +61,7 @@ export * from "./GetOrganizationCustomRulePolicyCommand";
 export * from "./GetResourceConfigHistoryCommand";
 export * from "./GetStoredQueryCommand";
 export * from "./ListAggregateDiscoveredResourcesCommand";
+export * from "./ListConformancePackComplianceScoresCommand";
 export * from "./ListDiscoveredResourcesCommand";
 export * from "./ListStoredQueriesCommand";
 export * from "./ListTagsForResourceCommand";

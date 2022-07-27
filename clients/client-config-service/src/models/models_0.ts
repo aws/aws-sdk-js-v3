@@ -2016,6 +2016,38 @@ export interface ConformancePackComplianceFilters {
 }
 
 /**
+ * <p>A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
+ * 			This metric provides you with a high-level view of the compliance state of your conformance packs, and can be used to identify, investigate, and understand
+ * 			compliance deviations in your conformance packs.</p>
+ */
+export interface ConformancePackComplianceScore {
+  /**
+   * <p>Compliance score for the conformance pack.</p>
+   */
+  Score?: string;
+
+  /**
+   * <p>The name of the conformance pack.</p>
+   */
+  ConformancePackName?: string;
+
+  /**
+   * <p>The time that the conformance pack compliance score was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+/**
+ * <p>A list of filters to apply to the conformance pack compliance score result set.</p>
+ */
+export interface ConformancePackComplianceScoresFilters {
+  /**
+   * <p>The name of a conformance pack whose score should be included in the compliance score result.</p>
+   */
+  ConformancePackNames: string[] | undefined;
+}
+
+/**
  * <p>Summary includes the name and status of the conformance pack.</p>
  */
 export interface ConformancePackComplianceSummary {
@@ -6200,6 +6232,54 @@ export interface ListAggregateDiscoveredResourcesResponse {
   NextToken?: string;
 }
 
+export enum SortBy {
+  SCORE = "SCORE",
+}
+
+export enum SortOrder {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
+export interface ListConformancePackComplianceScoresRequest {
+  /**
+   * <p>Filters the results based on the <code>ConformancePackComplianceScoresFilters</code>.</p>
+   */
+  Filters?: ConformancePackComplianceScoresFilters;
+
+  /**
+   * <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>
+   */
+  SortOrder?: SortOrder | string;
+
+  /**
+   * <p>Sorts your conformance pack compliance scores in either ascending or descending order, depending on <code>SortOrder</code>.</p>
+   */
+  SortBy?: SortBy | string;
+
+  /**
+   * <p>The maximum number of conformance pack compliance scores returned on each page.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The <code>nextToken</code> string in a prior request that you can use to get the paginated response for next set of conformance pack compliance scores.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListConformancePackComplianceScoresResponse {
+  /**
+   * <p>The <code>nextToken</code> string that you can use to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>A list of <code>ConformancePackComplianceScore</code> objects</p>
+   */
+  ConformancePackComplianceScores: ConformancePackComplianceScore[] | undefined;
+}
+
 /**
  * <p></p>
  */
@@ -6850,85 +6930,6 @@ export interface PutConformancePackRequest {
   ConformancePackInputParameters?: ConformancePackInputParameter[];
 }
 
-export interface PutConformancePackResponse {
-  /**
-   * <p>ARN of the conformance pack.</p>
-   */
-  ConformancePackArn?: string;
-}
-
-/**
- * <p>The input for the <a>PutDeliveryChannel</a>
- * 			action.</p>
- */
-export interface PutDeliveryChannelRequest {
-  /**
-   * <p>The configuration delivery channel object that delivers the
-   * 			configuration information to an Amazon S3 bucket and to an Amazon
-   * 			SNS topic.</p>
-   */
-  DeliveryChannel: DeliveryChannel | undefined;
-}
-
-/**
- * <p></p>
- */
-export interface PutEvaluationsRequest {
-  /**
-   * <p>The assessments that the Lambda function performs. Each
-   * 			evaluation identifies an Amazon Web Services resource and indicates whether it
-   * 			complies with the Config rule that invokes the Lambda
-   * 			function.</p>
-   */
-  Evaluations?: Evaluation[];
-
-  /**
-   * <p>An encrypted token that associates an evaluation with an Config rule. Identifies the rule and the event that triggered the
-   * 			evaluation.</p>
-   */
-  ResultToken: string | undefined;
-
-  /**
-   * <p>Use this parameter to specify a test run for
-   * 			<code>PutEvaluations</code>. You can verify whether your Lambda function will deliver evaluation results to Config. No
-   * 			updates occur to your existing evaluations, and evaluation results
-   * 			are not sent to Config.</p>
-   *
-   * 		       <note>
-   * 			         <p>When <code>TestMode</code> is <code>true</code>,
-   * 					<code>PutEvaluations</code> doesn't require a valid value
-   * 				for the <code>ResultToken</code> parameter, but the value cannot
-   * 				be null.</p>
-   * 		       </note>
-   */
-  TestMode?: boolean;
-}
-
-/**
- * <p></p>
- */
-export interface PutEvaluationsResponse {
-  /**
-   * <p>Requests that failed because of a client or server
-   * 			error.</p>
-   */
-  FailedEvaluations?: Evaluation[];
-}
-
-export interface PutExternalEvaluationRequest {
-  /**
-   * <p>The name of the Config rule.</p>
-   */
-  ConfigRuleName: string | undefined;
-
-  /**
-   * <p>An <code>ExternalEvaluation</code> object that provides details about compliance.</p>
-   */
-  ExternalEvaluation: ExternalEvaluation | undefined;
-}
-
-export interface PutExternalEvaluationResponse {}
-
 /**
  * @internal
  */
@@ -7262,6 +7263,22 @@ export const ConfigurationRecorderStatusFilterSensitiveLog = (obj: Configuration
  * @internal
  */
 export const ConformancePackComplianceFiltersFilterSensitiveLog = (obj: ConformancePackComplianceFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConformancePackComplianceScoreFilterSensitiveLog = (obj: ConformancePackComplianceScore): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConformancePackComplianceScoresFiltersFilterSensitiveLog = (
+  obj: ConformancePackComplianceScoresFilters
+): any => ({
   ...obj,
 });
 
@@ -8502,6 +8519,24 @@ export const ListAggregateDiscoveredResourcesResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const ListConformancePackComplianceScoresRequestFilterSensitiveLog = (
+  obj: ListConformancePackComplianceScoresRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListConformancePackComplianceScoresResponseFilterSensitiveLog = (
+  obj: ListConformancePackComplianceScoresResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListDiscoveredResourcesRequestFilterSensitiveLog = (obj: ListDiscoveredResourcesRequest): any => ({
   ...obj,
 });
@@ -8619,47 +8654,5 @@ export const PutConfigurationRecorderRequestFilterSensitiveLog = (obj: PutConfig
  * @internal
  */
 export const PutConformancePackRequestFilterSensitiveLog = (obj: PutConformancePackRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConformancePackResponseFilterSensitiveLog = (obj: PutConformancePackResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutDeliveryChannelRequestFilterSensitiveLog = (obj: PutDeliveryChannelRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEvaluationsRequestFilterSensitiveLog = (obj: PutEvaluationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutEvaluationsResponseFilterSensitiveLog = (obj: PutEvaluationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutExternalEvaluationRequestFilterSensitiveLog = (obj: PutExternalEvaluationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutExternalEvaluationResponseFilterSensitiveLog = (obj: PutExternalEvaluationResponse): any => ({
   ...obj,
 });

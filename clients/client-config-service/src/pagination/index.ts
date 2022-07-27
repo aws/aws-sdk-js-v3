@@ -42,6 +42,7 @@ export * from "./GetOrganizationConfigRuleDetailedStatusPaginator";
 export * from "./GetOrganizationConformancePackDetailedStatusPaginator";
 export * from "./GetResourceConfigHistoryPaginator";
 export * from "./ListAggregateDiscoveredResourcesPaginator";
+export * from "./ListConformancePackComplianceScoresPaginator";
 export * from "./ListDiscoveredResourcesPaginator";
 export * from "./ListStoredQueriesPaginator";
 export * from "./ListTagsForResourcePaginator";

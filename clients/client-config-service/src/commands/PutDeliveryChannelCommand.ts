@@ -13,7 +13,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutDeliveryChannelRequest, PutDeliveryChannelRequestFilterSensitiveLog } from "../models/models_0";
+import { PutDeliveryChannelRequest, PutDeliveryChannelRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_json1_1PutDeliveryChannelCommand,
   serializeAws_json1_1PutDeliveryChannelCommand,

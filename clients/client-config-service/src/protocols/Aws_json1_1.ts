@@ -257,6 +257,10 @@ import {
   ListAggregateDiscoveredResourcesCommandOutput,
 } from "../commands/ListAggregateDiscoveredResourcesCommand";
 import {
+  ListConformancePackComplianceScoresCommandInput,
+  ListConformancePackComplianceScoresCommandOutput,
+} from "../commands/ListConformancePackComplianceScoresCommand";
+import {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "../commands/ListDiscoveredResourcesCommand";
@@ -373,6 +377,8 @@ import {
   ConfigurationRecorder,
   ConfigurationRecorderStatus,
   ConformancePackComplianceFilters,
+  ConformancePackComplianceScore,
+  ConformancePackComplianceScoresFilters,
   ConformancePackComplianceSummary,
   ConformancePackDetail,
   ConformancePackEvaluationFilters,
@@ -520,6 +526,8 @@ import {
   LimitExceededException,
   ListAggregateDiscoveredResourcesRequest,
   ListAggregateDiscoveredResourcesResponse,
+  ListConformancePackComplianceScoresRequest,
+  ListConformancePackComplianceScoresResponse,
   ListDiscoveredResourcesRequest,
   ListDiscoveredResourcesResponse,
   ListStoredQueriesRequest,
@@ -576,12 +584,6 @@ import {
   PutConfigurationAggregatorResponse,
   PutConfigurationRecorderRequest,
   PutConformancePackRequest,
-  PutConformancePackResponse,
-  PutDeliveryChannelRequest,
-  PutEvaluationsRequest,
-  PutEvaluationsResponse,
-  PutExternalEvaluationRequest,
-  PutExternalEvaluationResponse,
   RecordingGroup,
   Relationship,
   RemediationConfiguration,
@@ -614,6 +616,12 @@ import {
   ValidationException,
 } from "../models/models_0";
 import {
+  PutConformancePackResponse,
+  PutDeliveryChannelRequest,
+  PutEvaluationsRequest,
+  PutEvaluationsResponse,
+  PutExternalEvaluationRequest,
+  PutExternalEvaluationResponse,
   PutOrganizationConfigRuleRequest,
   PutOrganizationConfigRuleResponse,
   PutOrganizationConformancePackRequest,
@@ -1446,6 +1454,19 @@ export const serializeAws_json1_1ListAggregateDiscoveredResourcesCommand = async
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAggregateDiscoveredResourcesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListConformancePackComplianceScoresCommand = async (
+  input: ListConformancePackComplianceScoresCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StarlingDoveService.ListConformancePackComplianceScores",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListConformancePackComplianceScoresRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4797,6 +4818,56 @@ const deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandError = async
   }
 };
 
+export const deserializeAws_json1_1ListConformancePackComplianceScoresCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConformancePackComplianceScoresCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListConformancePackComplianceScoresCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListConformancePackComplianceScoresResponse(data, context);
+  const response: ListConformancePackComplianceScoresCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListConformancePackComplianceScoresCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConformancePackComplianceScoresCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
+      throw await deserializeAws_json1_1InvalidLimitExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1ListDiscoveredResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7088,6 +7159,17 @@ const serializeAws_json1_1ConformancePackComplianceResourceIds = (input: string[
     });
 };
 
+const serializeAws_json1_1ConformancePackComplianceScoresFilters = (
+  input: ConformancePackComplianceScoresFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ConformancePackNames != null && {
+      ConformancePackNames: serializeAws_json1_1ConformancePackNameFilter(input.ConformancePackNames, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1ConformancePackConfigRuleNames = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7136,6 +7218,17 @@ const serializeAws_json1_1ConformancePackInputParameters = (
         return null as any;
       }
       return serializeAws_json1_1ConformancePackInputParameter(entry, context);
+    });
+};
+
+const serializeAws_json1_1ConformancePackNameFilter = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
     });
 };
 
@@ -7991,6 +8084,21 @@ const serializeAws_json1_1ListAggregateDiscoveredResourcesRequest = (
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
+  };
+};
+
+const serializeAws_json1_1ListConformancePackComplianceScoresRequest = (
+  input: ListConformancePackComplianceScoresRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters != null && {
+      Filters: serializeAws_json1_1ConformancePackComplianceScoresFilters(input.Filters, context),
+    }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -9604,6 +9712,35 @@ const deserializeAws_json1_1ConfigurationRecorderStatusList = (
   return retVal;
 };
 
+const deserializeAws_json1_1ConformancePackComplianceScore = (
+  output: any,
+  context: __SerdeContext
+): ConformancePackComplianceScore => {
+  return {
+    ConformancePackName: __expectString(output.ConformancePackName),
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    Score: __expectString(output.Score),
+  } as any;
+};
+
+const deserializeAws_json1_1ConformancePackComplianceScores = (
+  output: any,
+  context: __SerdeContext
+): ConformancePackComplianceScore[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConformancePackComplianceScore(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ConformancePackComplianceSummary = (
   output: any,
   context: __SerdeContext
@@ -10879,6 +11016,19 @@ const deserializeAws_json1_1ListAggregateDiscoveredResourcesResponse = (
       output.ResourceIdentifiers != null
         ? deserializeAws_json1_1DiscoveredResourceIdentifierList(output.ResourceIdentifiers, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListConformancePackComplianceScoresResponse = (
+  output: any,
+  context: __SerdeContext
+): ListConformancePackComplianceScoresResponse => {
+  return {
+    ConformancePackComplianceScores:
+      output.ConformancePackComplianceScores != null
+        ? deserializeAws_json1_1ConformancePackComplianceScores(output.ConformancePackComplianceScores, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 

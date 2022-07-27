@@ -312,6 +312,11 @@ import {
   ListAggregateDiscoveredResourcesCommandOutput,
 } from "./commands/ListAggregateDiscoveredResourcesCommand";
 import {
+  ListConformancePackComplianceScoresCommand,
+  ListConformancePackComplianceScoresCommandInput,
+  ListConformancePackComplianceScoresCommandOutput,
+} from "./commands/ListConformancePackComplianceScoresCommand";
+import {
   ListDiscoveredResourcesCommand,
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
@@ -2848,6 +2853,41 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: ListAggregateDiscoveredResourcesCommandOutput) => void
   ): Promise<ListAggregateDiscoveredResourcesCommandOutput> | void {
     const command = new ListAggregateDiscoveredResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of conformance pack compliance scores.
+   * 			A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
+   * 			This metric provides you with a high-level view of the compliance state of your conformance packs, and can be used to identify, investigate, and understand
+   * 			compliance deviations in your conformance packs.</p>
+   */
+  public listConformancePackComplianceScores(
+    args: ListConformancePackComplianceScoresCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConformancePackComplianceScoresCommandOutput>;
+  public listConformancePackComplianceScores(
+    args: ListConformancePackComplianceScoresCommandInput,
+    cb: (err: any, data?: ListConformancePackComplianceScoresCommandOutput) => void
+  ): void;
+  public listConformancePackComplianceScores(
+    args: ListConformancePackComplianceScoresCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConformancePackComplianceScoresCommandOutput) => void
+  ): void;
+  public listConformancePackComplianceScores(
+    args: ListConformancePackComplianceScoresCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConformancePackComplianceScoresCommandOutput) => void),
+    cb?: (err: any, data?: ListConformancePackComplianceScoresCommandOutput) => void
+  ): Promise<ListConformancePackComplianceScoresCommandOutput> | void {
+    const command = new ListConformancePackComplianceScoresCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
