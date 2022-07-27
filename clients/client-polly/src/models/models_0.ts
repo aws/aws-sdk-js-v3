@@ -167,6 +167,7 @@ export type VoiceId =
   | "Joanna"
   | "Joey"
   | "Justin"
+  | "Kajal"
   | "Karl"
   | "Kendra"
   | "Kevin"
