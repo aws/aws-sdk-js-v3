@@ -12,6 +12,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CancelChangeSetCommandInput, CancelChangeSetCommandOutput } from "../commands/CancelChangeSetCommand";
 import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "../commands/DescribeChangeSetCommand";
@@ -182,7 +183,7 @@ export const serializeAws_restJson1StartChangeSetCommand = async (
     ...(input.Catalog != null && { Catalog: input.Catalog }),
     ...(input.ChangeSet != null && { ChangeSet: serializeAws_restJson1RequestedChangeList(input.ChangeSet, context) }),
     ...(input.ChangeSetName != null && { ChangeSetName: input.ChangeSetName }),
-    ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
   });
   return new __HttpRequest({
     protocol,

@@ -329,7 +329,7 @@ export interface DescribeEntityResponse {
   EntityIdentifier?: string;
 
   /**
-   * <p>The ARN associated to the unique identifier for the change set referenced in this
+   * <p>The ARN associated to the unique identifier for the entity referenced in this
    *             request.</p>
    */
   EntityArn?: string;
