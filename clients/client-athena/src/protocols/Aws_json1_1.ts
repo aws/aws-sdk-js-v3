@@ -9,6 +9,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   parseEpochTimestamp as __parseEpochTimestamp,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -713,7 +714,6 @@ const deserializeAws_json1_1BatchGetNamedQueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -724,14 +724,12 @@ const deserializeAws_json1_1BatchGetNamedQueryCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -760,7 +758,6 @@ const deserializeAws_json1_1BatchGetPreparedStatementCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -771,14 +768,12 @@ const deserializeAws_json1_1BatchGetPreparedStatementCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -807,7 +802,6 @@ const deserializeAws_json1_1BatchGetQueryExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -818,14 +812,12 @@ const deserializeAws_json1_1BatchGetQueryExecutionCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -854,7 +846,6 @@ const deserializeAws_json1_1CreateDataCatalogCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -865,14 +856,12 @@ const deserializeAws_json1_1CreateDataCatalogCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -901,7 +890,6 @@ const deserializeAws_json1_1CreateNamedQueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -912,14 +900,12 @@ const deserializeAws_json1_1CreateNamedQueryCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -948,7 +934,6 @@ const deserializeAws_json1_1CreatePreparedStatementCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -959,14 +944,12 @@ const deserializeAws_json1_1CreatePreparedStatementCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -995,7 +978,6 @@ const deserializeAws_json1_1CreateWorkGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1006,14 +988,12 @@ const deserializeAws_json1_1CreateWorkGroupCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1042,7 +1022,6 @@ const deserializeAws_json1_1DeleteDataCatalogCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1053,14 +1032,12 @@ const deserializeAws_json1_1DeleteDataCatalogCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1089,7 +1066,6 @@ const deserializeAws_json1_1DeleteNamedQueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1100,14 +1076,12 @@ const deserializeAws_json1_1DeleteNamedQueryCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1136,7 +1110,6 @@ const deserializeAws_json1_1DeletePreparedStatementCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1150,14 +1123,12 @@ const deserializeAws_json1_1DeletePreparedStatementCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1186,7 +1157,6 @@ const deserializeAws_json1_1DeleteWorkGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1197,14 +1167,12 @@ const deserializeAws_json1_1DeleteWorkGroupCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1233,7 +1201,6 @@ const deserializeAws_json1_1GetDatabaseCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1247,14 +1214,12 @@ const deserializeAws_json1_1GetDatabaseCommandError = async (
       throw await deserializeAws_json1_1MetadataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1283,7 +1248,6 @@ const deserializeAws_json1_1GetDataCatalogCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1294,14 +1258,12 @@ const deserializeAws_json1_1GetDataCatalogCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1330,7 +1292,6 @@ const deserializeAws_json1_1GetNamedQueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1341,14 +1302,12 @@ const deserializeAws_json1_1GetNamedQueryCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1377,7 +1336,6 @@ const deserializeAws_json1_1GetPreparedStatementCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1391,14 +1349,12 @@ const deserializeAws_json1_1GetPreparedStatementCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1427,7 +1383,6 @@ const deserializeAws_json1_1GetQueryExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1438,14 +1393,12 @@ const deserializeAws_json1_1GetQueryExecutionCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1474,7 +1427,6 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1485,14 +1437,12 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1521,7 +1471,6 @@ const deserializeAws_json1_1GetQueryRuntimeStatisticsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1532,14 +1481,12 @@ const deserializeAws_json1_1GetQueryRuntimeStatisticsCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1568,7 +1515,6 @@ const deserializeAws_json1_1GetTableMetadataCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1582,14 +1528,12 @@ const deserializeAws_json1_1GetTableMetadataCommandError = async (
       throw await deserializeAws_json1_1MetadataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1618,7 +1562,6 @@ const deserializeAws_json1_1GetWorkGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1629,14 +1572,12 @@ const deserializeAws_json1_1GetWorkGroupCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1665,7 +1606,6 @@ const deserializeAws_json1_1ListDatabasesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1679,14 +1619,12 @@ const deserializeAws_json1_1ListDatabasesCommandError = async (
       throw await deserializeAws_json1_1MetadataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1715,7 +1653,6 @@ const deserializeAws_json1_1ListDataCatalogsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1726,14 +1663,12 @@ const deserializeAws_json1_1ListDataCatalogsCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1762,7 +1697,6 @@ const deserializeAws_json1_1ListEngineVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1773,14 +1707,12 @@ const deserializeAws_json1_1ListEngineVersionsCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1809,7 +1741,6 @@ const deserializeAws_json1_1ListNamedQueriesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1820,14 +1751,12 @@ const deserializeAws_json1_1ListNamedQueriesCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1856,7 +1785,6 @@ const deserializeAws_json1_1ListPreparedStatementsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1867,14 +1795,12 @@ const deserializeAws_json1_1ListPreparedStatementsCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1903,7 +1829,6 @@ const deserializeAws_json1_1ListQueryExecutionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1914,14 +1839,12 @@ const deserializeAws_json1_1ListQueryExecutionsCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1950,7 +1873,6 @@ const deserializeAws_json1_1ListTableMetadataCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1964,14 +1886,12 @@ const deserializeAws_json1_1ListTableMetadataCommandError = async (
       throw await deserializeAws_json1_1MetadataExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2000,7 +1920,6 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -2014,14 +1933,12 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2050,7 +1967,6 @@ const deserializeAws_json1_1ListWorkGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -2061,14 +1977,12 @@ const deserializeAws_json1_1ListWorkGroupsCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2097,7 +2011,6 @@ const deserializeAws_json1_1StartQueryExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -2111,14 +2024,12 @@ const deserializeAws_json1_1StartQueryExecutionCommandError = async (
       throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2147,7 +2058,6 @@ const deserializeAws_json1_1StopQueryExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -2158,14 +2068,12 @@ const deserializeAws_json1_1StopQueryExecutionCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2194,7 +2102,6 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -2208,14 +2115,12 @@ const deserializeAws_json1_1TagResourceCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2244,7 +2149,6 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -2258,14 +2162,12 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2294,7 +2196,6 @@ const deserializeAws_json1_1UpdateDataCatalogCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -2305,14 +2206,12 @@ const deserializeAws_json1_1UpdateDataCatalogCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2341,7 +2240,6 @@ const deserializeAws_json1_1UpdateNamedQueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -2352,14 +2250,12 @@ const deserializeAws_json1_1UpdateNamedQueryCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2388,7 +2284,6 @@ const deserializeAws_json1_1UpdatePreparedStatementCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -2402,14 +2297,12 @@ const deserializeAws_json1_1UpdatePreparedStatementCommandError = async (
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2438,7 +2331,6 @@ const deserializeAws_json1_1UpdateWorkGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -2449,14 +2341,12 @@ const deserializeAws_json1_1UpdateWorkGroupCommandError = async (
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -2653,9 +2543,6 @@ const serializeAws_json1_1ExecutionParameters = (input: string[], context: __Ser
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2810,9 +2697,6 @@ const serializeAws_json1_1NamedQueryIdList = (input: string[], context: __SerdeC
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2833,9 +2717,6 @@ const serializeAws_json1_1PreparedStatementNameList = (input: string[], context:
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2851,9 +2732,6 @@ const serializeAws_json1_1QueryExecutionIdList = (input: string[], context: __Se
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2930,9 +2808,6 @@ const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -2941,9 +2816,6 @@ const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_json1_1Tag(entry, context);
     });
 };

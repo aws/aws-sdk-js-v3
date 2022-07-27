@@ -1,11 +1,23 @@
 import { escapeAttribute } from "./escape-attribute";
 import { Stringable } from "./stringable";
+import { XmlText } from "./XmlText";
 
 /**
  * Represents an XML node.
  */
 export class XmlNode {
   private attributes: Record<string, any> = {};
+
+  public static of(name: string, childText?: string, withName?: string): XmlNode {
+    const node = new XmlNode(name);
+    if (childText !== undefined) {
+      node.addChildNode(new XmlText(childText));
+    }
+    if (withName !== undefined) {
+      node.withName(withName);
+    }
+    return node;
+  }
 
   constructor(private name: string, public readonly children: Stringable[] = []) {}
 

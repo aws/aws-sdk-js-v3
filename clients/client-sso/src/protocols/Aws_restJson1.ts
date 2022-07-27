@@ -7,6 +7,8 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map as __map,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -34,15 +36,15 @@ export const serializeAws_restJson1GetRoleCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-sso_bearer_token": input.accessToken!,
+  });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/federation/credentials";
-  const query: any = {
-    ...(input.roleName !== undefined && { role_name: input.roleName }),
-    ...(input.accountId !== undefined && { account_id: input.accountId }),
-  };
+  const query: any = map({
+    role_name: [, input.roleName!],
+    account_id: [, input.accountId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -61,15 +63,15 @@ export const serializeAws_restJson1ListAccountRolesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-sso_bearer_token": input.accessToken!,
+  });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/roles";
-  const query: any = {
-    ...(input.nextToken !== undefined && { next_token: input.nextToken }),
-    ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
-    ...(input.accountId !== undefined && { account_id: input.accountId }),
-  };
+  const query: any = map({
+    next_token: [, input.nextToken!],
+    max_result: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    account_id: [, input.accountId!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -88,14 +90,14 @@ export const serializeAws_restJson1ListAccountsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-sso_bearer_token": input.accessToken!,
+  });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/accounts";
-  const query: any = {
-    ...(input.nextToken !== undefined && { next_token: input.nextToken }),
-    ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
-  };
+  const query: any = map({
+    next_token: [, input.nextToken!],
+    max_result: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -114,9 +116,9 @@ export const serializeAws_restJson1LogoutCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
-    ...(isSerializableHeaderValue(input.accessToken) && { "x-amz-sso_bearer_token": input.accessToken! }),
-  };
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-sso_bearer_token": input.accessToken!,
+  });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logout";
   let body: any;
   return new __HttpRequest({
@@ -137,15 +139,14 @@ export const deserializeAws_restJson1GetRoleCredentialsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRoleCredentialsCommandError(output, context);
   }
-  const contents: GetRoleCredentialsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    roleCredentials: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.roleCredentials !== undefined && data.roleCredentials !== null) {
+  if (data.roleCredentials != null) {
     contents.roleCredentials = deserializeAws_restJson1RoleCredentials(data.roleCredentials, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetRoleCredentialsCommandError = async (
@@ -156,7 +157,6 @@ const deserializeAws_restJson1GetRoleCredentialsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
@@ -173,14 +173,12 @@ const deserializeAws_restJson1GetRoleCredentialsCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -191,19 +189,17 @@ export const deserializeAws_restJson1ListAccountRolesCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAccountRolesCommandError(output, context);
   }
-  const contents: ListAccountRolesCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    roleList: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.roleList !== undefined && data.roleList !== null) {
+  if (data.roleList != null) {
     contents.roleList = deserializeAws_restJson1RoleListType(data.roleList, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListAccountRolesCommandError = async (
@@ -214,7 +210,6 @@ const deserializeAws_restJson1ListAccountRolesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
@@ -231,14 +226,12 @@ const deserializeAws_restJson1ListAccountRolesCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -249,19 +242,17 @@ export const deserializeAws_restJson1ListAccountsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAccountsCommandError(output, context);
   }
-  const contents: ListAccountsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    accountList: undefined,
-    nextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.accountList !== undefined && data.accountList !== null) {
+  if (data.accountList != null) {
     contents.accountList = deserializeAws_restJson1AccountListType(data.accountList, context);
   }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListAccountsCommandError = async (
@@ -272,7 +263,6 @@ const deserializeAws_restJson1ListAccountsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
@@ -289,14 +279,12 @@ const deserializeAws_restJson1ListAccountsCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -307,11 +295,11 @@ export const deserializeAws_restJson1LogoutCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1LogoutCommandError(output, context);
   }
-  const contents: LogoutCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1LogoutCommandError = async (
@@ -322,7 +310,6 @@ const deserializeAws_restJson1LogoutCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
@@ -336,24 +323,23 @@ const deserializeAws_restJson1LogoutCommandError = async (
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InvalidRequestException({
@@ -367,9 +353,9 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceNotFoundException({
@@ -383,9 +369,9 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new TooManyRequestsException({
@@ -399,9 +385,9 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new UnauthorizedException({

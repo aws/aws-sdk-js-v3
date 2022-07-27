@@ -25,6 +25,7 @@ const {
   noPrivateClients,
   s: serverOnly,
   batchSize,
+  keepFiles,
 } = yargs(process.argv.slice(2))
   .alias("m", "models")
   .string("m")
@@ -43,6 +44,8 @@ const {
   .alias("s", "server-artifacts")
   .boolean("s")
   .describe("s", "Generate server artifacts instead of client ones")
+  .boolean("keepFiles")
+  .describe("keepFiles", "Don't clean up temp files")
   .conflicts("s", ["m", "g", "n"])
   .describe("b", "Batchsize for generating clients")
   .number("b")
@@ -58,10 +61,11 @@ const {
       await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
 
-      emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
-      emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
-
-      rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
+      if (!keepFiles) {
+        emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+        emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
+        rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
+      }
       return;
     }
 
@@ -87,14 +91,15 @@ const {
       await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
     }
 
-    emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
-    if (!noPrivateClients) {
-      emptyDirSync(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
-      emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!keepFiles) {
+      emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
+      if (!noPrivateClients) {
+        emptyDirSync(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
+        emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+      }
+      emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
+      rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
     }
-    emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
-
-    rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
   } catch (e) {
     console.log(e);
     process.exit(1);

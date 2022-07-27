@@ -13,6 +13,7 @@ import {
   strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -621,7 +622,6 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -638,14 +638,12 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -674,7 +672,6 @@ const deserializeAws_queryCreateDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -694,14 +691,12 @@ const deserializeAws_queryCreateDomainCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -730,7 +725,6 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -753,14 +747,12 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -789,7 +781,6 @@ const deserializeAws_queryDefineExpressionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -812,14 +803,12 @@ const deserializeAws_queryDefineExpressionCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -848,7 +837,6 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -871,14 +859,12 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -907,7 +893,6 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -930,14 +915,12 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -966,7 +949,6 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -986,14 +968,12 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1022,7 +1002,6 @@ const deserializeAws_queryDeleteDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1033,14 +1012,12 @@ const deserializeAws_queryDeleteDomainCommandError = async (
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1069,7 +1046,6 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1089,14 +1065,12 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1125,7 +1099,6 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1145,14 +1118,12 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1181,7 +1152,6 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1201,14 +1171,12 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1237,7 +1205,6 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1251,14 +1218,12 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1287,7 +1252,6 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1310,14 +1274,12 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1349,7 +1311,6 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1369,14 +1330,12 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1405,7 +1364,6 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1416,14 +1374,12 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
       throw await deserializeAws_queryInternalExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1452,7 +1408,6 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1466,14 +1421,12 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1502,7 +1455,6 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1516,14 +1468,12 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1552,7 +1502,6 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1566,14 +1515,12 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1605,7 +1552,6 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1619,14 +1565,12 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1655,7 +1599,6 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1669,14 +1612,12 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
       throw await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1705,7 +1646,6 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1722,14 +1662,12 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1758,7 +1696,6 @@ const deserializeAws_queryListDomainNamesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1766,14 +1703,12 @@ const deserializeAws_queryListDomainNamesCommandError = async (
       throw await deserializeAws_queryBaseExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1802,7 +1737,6 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1828,14 +1762,12 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1864,7 +1796,6 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1890,14 +1821,12 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1926,7 +1855,6 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1949,14 +1877,12 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -1985,7 +1911,6 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2008,14 +1933,12 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
       throw await deserializeAws_queryValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -2125,19 +2048,19 @@ const deserializeAws_queryValidationExceptionResponse = async (
 
 const serializeAws_queryAnalysisOptions = (input: AnalysisOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Synonyms !== undefined && input.Synonyms !== null) {
+  if (input.Synonyms != null) {
     entries["Synonyms"] = input.Synonyms;
   }
-  if (input.Stopwords !== undefined && input.Stopwords !== null) {
+  if (input.Stopwords != null) {
     entries["Stopwords"] = input.Stopwords;
   }
-  if (input.StemmingDictionary !== undefined && input.StemmingDictionary !== null) {
+  if (input.StemmingDictionary != null) {
     entries["StemmingDictionary"] = input.StemmingDictionary;
   }
-  if (input.JapaneseTokenizationDictionary !== undefined && input.JapaneseTokenizationDictionary !== null) {
+  if (input.JapaneseTokenizationDictionary != null) {
     entries["JapaneseTokenizationDictionary"] = input.JapaneseTokenizationDictionary;
   }
-  if (input.AlgorithmicStemming !== undefined && input.AlgorithmicStemming !== null) {
+  if (input.AlgorithmicStemming != null) {
     entries["AlgorithmicStemming"] = input.AlgorithmicStemming;
   }
   return entries;
@@ -2145,13 +2068,13 @@ const serializeAws_queryAnalysisOptions = (input: AnalysisOptions, context: __Se
 
 const serializeAws_queryAnalysisScheme = (input: AnalysisScheme, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AnalysisSchemeName !== undefined && input.AnalysisSchemeName !== null) {
+  if (input.AnalysisSchemeName != null) {
     entries["AnalysisSchemeName"] = input.AnalysisSchemeName;
   }
-  if (input.AnalysisSchemeLanguage !== undefined && input.AnalysisSchemeLanguage !== null) {
+  if (input.AnalysisSchemeLanguage != null) {
     entries["AnalysisSchemeLanguage"] = input.AnalysisSchemeLanguage;
   }
-  if (input.AnalysisOptions !== undefined && input.AnalysisOptions !== null) {
+  if (input.AnalysisOptions != null) {
     const memberEntries = serializeAws_queryAnalysisOptions(input.AnalysisOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisOptions.${key}`;
@@ -2163,7 +2086,7 @@ const serializeAws_queryAnalysisScheme = (input: AnalysisScheme, context: __Serd
 
 const serializeAws_queryBuildSuggestersRequest = (input: BuildSuggestersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -2171,7 +2094,7 @@ const serializeAws_queryBuildSuggestersRequest = (input: BuildSuggestersRequest,
 
 const serializeAws_queryCreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -2179,19 +2102,19 @@ const serializeAws_queryCreateDomainRequest = (input: CreateDomainRequest, conte
 
 const serializeAws_queryDateArrayOptions = (input: DateArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.SourceFields !== undefined && input.SourceFields !== null) {
+  if (input.SourceFields != null) {
     entries["SourceFields"] = input.SourceFields;
   }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+  if (input.FacetEnabled != null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+  if (input.SearchEnabled != null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
   return entries;
@@ -2199,22 +2122,22 @@ const serializeAws_queryDateArrayOptions = (input: DateArrayOptions, context: __
 
 const serializeAws_queryDateOptions = (input: DateOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.SourceField !== undefined && input.SourceField !== null) {
+  if (input.SourceField != null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+  if (input.FacetEnabled != null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+  if (input.SearchEnabled != null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
+  if (input.SortEnabled != null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
@@ -2225,10 +2148,10 @@ const serializeAws_queryDefineAnalysisSchemeRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.AnalysisScheme !== undefined && input.AnalysisScheme !== null) {
+  if (input.AnalysisScheme != null) {
     const memberEntries = serializeAws_queryAnalysisScheme(input.AnalysisScheme, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisScheme.${key}`;
@@ -2240,10 +2163,10 @@ const serializeAws_queryDefineAnalysisSchemeRequest = (
 
 const serializeAws_queryDefineExpressionRequest = (input: DefineExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Expression !== undefined && input.Expression !== null) {
+  if (input.Expression != null) {
     const memberEntries = serializeAws_queryExpression(input.Expression, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Expression.${key}`;
@@ -2255,10 +2178,10 @@ const serializeAws_queryDefineExpressionRequest = (input: DefineExpressionReques
 
 const serializeAws_queryDefineIndexFieldRequest = (input: DefineIndexFieldRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.IndexField !== undefined && input.IndexField !== null) {
+  if (input.IndexField != null) {
     const memberEntries = serializeAws_queryIndexField(input.IndexField, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IndexField.${key}`;
@@ -2270,10 +2193,10 @@ const serializeAws_queryDefineIndexFieldRequest = (input: DefineIndexFieldReques
 
 const serializeAws_queryDefineSuggesterRequest = (input: DefineSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Suggester !== undefined && input.Suggester !== null) {
+  if (input.Suggester != null) {
     const memberEntries = serializeAws_querySuggester(input.Suggester, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Suggester.${key}`;
@@ -2288,10 +2211,10 @@ const serializeAws_queryDeleteAnalysisSchemeRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.AnalysisSchemeName !== undefined && input.AnalysisSchemeName !== null) {
+  if (input.AnalysisSchemeName != null) {
     entries["AnalysisSchemeName"] = input.AnalysisSchemeName;
   }
   return entries;
@@ -2299,7 +2222,7 @@ const serializeAws_queryDeleteAnalysisSchemeRequest = (
 
 const serializeAws_queryDeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -2307,10 +2230,10 @@ const serializeAws_queryDeleteDomainRequest = (input: DeleteDomainRequest, conte
 
 const serializeAws_queryDeleteExpressionRequest = (input: DeleteExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.ExpressionName !== undefined && input.ExpressionName !== null) {
+  if (input.ExpressionName != null) {
     entries["ExpressionName"] = input.ExpressionName;
   }
   return entries;
@@ -2318,10 +2241,10 @@ const serializeAws_queryDeleteExpressionRequest = (input: DeleteExpressionReques
 
 const serializeAws_queryDeleteIndexFieldRequest = (input: DeleteIndexFieldRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.IndexFieldName !== undefined && input.IndexFieldName !== null) {
+  if (input.IndexFieldName != null) {
     entries["IndexFieldName"] = input.IndexFieldName;
   }
   return entries;
@@ -2329,10 +2252,10 @@ const serializeAws_queryDeleteIndexFieldRequest = (input: DeleteIndexFieldReques
 
 const serializeAws_queryDeleteSuggesterRequest = (input: DeleteSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.SuggesterName !== undefined && input.SuggesterName !== null) {
+  if (input.SuggesterName != null) {
     entries["SuggesterName"] = input.SuggesterName;
   }
   return entries;
@@ -2343,17 +2266,17 @@ const serializeAws_queryDescribeAnalysisSchemesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.AnalysisSchemeNames !== undefined && input.AnalysisSchemeNames !== null) {
+  if (input.AnalysisSchemeNames != null) {
     const memberEntries = serializeAws_queryStandardNameList(input.AnalysisSchemeNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisSchemeNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Deployed !== undefined && input.Deployed !== null) {
+  if (input.Deployed != null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -2364,10 +2287,10 @@ const serializeAws_queryDescribeAvailabilityOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Deployed !== undefined && input.Deployed !== null) {
+  if (input.Deployed != null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -2378,10 +2301,10 @@ const serializeAws_queryDescribeDomainEndpointOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Deployed !== undefined && input.Deployed !== null) {
+  if (input.Deployed != null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -2389,7 +2312,7 @@ const serializeAws_queryDescribeDomainEndpointOptionsRequest = (
 
 const serializeAws_queryDescribeDomainsRequest = (input: DescribeDomainsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainNames !== undefined && input.DomainNames !== null) {
+  if (input.DomainNames != null) {
     const memberEntries = serializeAws_queryDomainNameList(input.DomainNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DomainNames.${key}`;
@@ -2404,17 +2327,17 @@ const serializeAws_queryDescribeExpressionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.ExpressionNames !== undefined && input.ExpressionNames !== null) {
+  if (input.ExpressionNames != null) {
     const memberEntries = serializeAws_queryStandardNameList(input.ExpressionNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExpressionNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Deployed !== undefined && input.Deployed !== null) {
+  if (input.Deployed != null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -2425,17 +2348,17 @@ const serializeAws_queryDescribeIndexFieldsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.FieldNames !== undefined && input.FieldNames !== null) {
+  if (input.FieldNames != null) {
     const memberEntries = serializeAws_queryDynamicFieldNameList(input.FieldNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FieldNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Deployed !== undefined && input.Deployed !== null) {
+  if (input.Deployed != null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -2446,7 +2369,7 @@ const serializeAws_queryDescribeScalingParametersRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -2457,10 +2380,10 @@ const serializeAws_queryDescribeServiceAccessPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Deployed !== undefined && input.Deployed !== null) {
+  if (input.Deployed != null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -2471,17 +2394,17 @@ const serializeAws_queryDescribeSuggestersRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.SuggesterNames !== undefined && input.SuggesterNames !== null) {
+  if (input.SuggesterNames != null) {
     const memberEntries = serializeAws_queryStandardNameList(input.SuggesterNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SuggesterNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Deployed !== undefined && input.Deployed !== null) {
+  if (input.Deployed != null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -2489,13 +2412,13 @@ const serializeAws_queryDescribeSuggestersRequest = (
 
 const serializeAws_queryDocumentSuggesterOptions = (input: DocumentSuggesterOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceField !== undefined && input.SourceField !== null) {
+  if (input.SourceField != null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.FuzzyMatching !== undefined && input.FuzzyMatching !== null) {
+  if (input.FuzzyMatching != null) {
     entries["FuzzyMatching"] = input.FuzzyMatching;
   }
-  if (input.SortExpression !== undefined && input.SortExpression !== null) {
+  if (input.SortExpression != null) {
     entries["SortExpression"] = input.SortExpression;
   }
   return entries;
@@ -2503,10 +2426,10 @@ const serializeAws_queryDocumentSuggesterOptions = (input: DocumentSuggesterOpti
 
 const serializeAws_queryDomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EnforceHTTPS !== undefined && input.EnforceHTTPS !== null) {
+  if (input.EnforceHTTPS != null) {
     entries["EnforceHTTPS"] = input.EnforceHTTPS;
   }
-  if (input.TLSSecurityPolicy !== undefined && input.TLSSecurityPolicy !== null) {
+  if (input.TLSSecurityPolicy != null) {
     entries["TLSSecurityPolicy"] = input.TLSSecurityPolicy;
   }
   return entries;
@@ -2527,19 +2450,19 @@ const serializeAws_queryDomainNameList = (input: string[], context: __SerdeConte
 
 const serializeAws_queryDoubleArrayOptions = (input: DoubleArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = __serializeFloat(input.DefaultValue);
   }
-  if (input.SourceFields !== undefined && input.SourceFields !== null) {
+  if (input.SourceFields != null) {
     entries["SourceFields"] = input.SourceFields;
   }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+  if (input.FacetEnabled != null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+  if (input.SearchEnabled != null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
   return entries;
@@ -2547,22 +2470,22 @@ const serializeAws_queryDoubleArrayOptions = (input: DoubleArrayOptions, context
 
 const serializeAws_queryDoubleOptions = (input: DoubleOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = __serializeFloat(input.DefaultValue);
   }
-  if (input.SourceField !== undefined && input.SourceField !== null) {
+  if (input.SourceField != null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+  if (input.FacetEnabled != null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+  if (input.SearchEnabled != null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
+  if (input.SortEnabled != null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
@@ -2583,10 +2506,10 @@ const serializeAws_queryDynamicFieldNameList = (input: string[], context: __Serd
 
 const serializeAws_queryExpression = (input: Expression, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExpressionName !== undefined && input.ExpressionName !== null) {
+  if (input.ExpressionName != null) {
     entries["ExpressionName"] = input.ExpressionName;
   }
-  if (input.ExpressionValue !== undefined && input.ExpressionValue !== null) {
+  if (input.ExpressionValue != null) {
     entries["ExpressionValue"] = input.ExpressionValue;
   }
   return entries;
@@ -2594,7 +2517,7 @@ const serializeAws_queryExpression = (input: Expression, context: __SerdeContext
 
 const serializeAws_queryIndexDocumentsRequest = (input: IndexDocumentsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -2602,83 +2525,83 @@ const serializeAws_queryIndexDocumentsRequest = (input: IndexDocumentsRequest, c
 
 const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IndexFieldName !== undefined && input.IndexFieldName !== null) {
+  if (input.IndexFieldName != null) {
     entries["IndexFieldName"] = input.IndexFieldName;
   }
-  if (input.IndexFieldType !== undefined && input.IndexFieldType !== null) {
+  if (input.IndexFieldType != null) {
     entries["IndexFieldType"] = input.IndexFieldType;
   }
-  if (input.IntOptions !== undefined && input.IntOptions !== null) {
+  if (input.IntOptions != null) {
     const memberEntries = serializeAws_queryIntOptions(input.IntOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IntOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DoubleOptions !== undefined && input.DoubleOptions !== null) {
+  if (input.DoubleOptions != null) {
     const memberEntries = serializeAws_queryDoubleOptions(input.DoubleOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LiteralOptions !== undefined && input.LiteralOptions !== null) {
+  if (input.LiteralOptions != null) {
     const memberEntries = serializeAws_queryLiteralOptions(input.LiteralOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LiteralOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TextOptions !== undefined && input.TextOptions !== null) {
+  if (input.TextOptions != null) {
     const memberEntries = serializeAws_queryTextOptions(input.TextOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TextOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DateOptions !== undefined && input.DateOptions !== null) {
+  if (input.DateOptions != null) {
     const memberEntries = serializeAws_queryDateOptions(input.DateOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DateOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LatLonOptions !== undefined && input.LatLonOptions !== null) {
+  if (input.LatLonOptions != null) {
     const memberEntries = serializeAws_queryLatLonOptions(input.LatLonOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LatLonOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.IntArrayOptions !== undefined && input.IntArrayOptions !== null) {
+  if (input.IntArrayOptions != null) {
     const memberEntries = serializeAws_queryIntArrayOptions(input.IntArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IntArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DoubleArrayOptions !== undefined && input.DoubleArrayOptions !== null) {
+  if (input.DoubleArrayOptions != null) {
     const memberEntries = serializeAws_queryDoubleArrayOptions(input.DoubleArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LiteralArrayOptions !== undefined && input.LiteralArrayOptions !== null) {
+  if (input.LiteralArrayOptions != null) {
     const memberEntries = serializeAws_queryLiteralArrayOptions(input.LiteralArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LiteralArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TextArrayOptions !== undefined && input.TextArrayOptions !== null) {
+  if (input.TextArrayOptions != null) {
     const memberEntries = serializeAws_queryTextArrayOptions(input.TextArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TextArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DateArrayOptions !== undefined && input.DateArrayOptions !== null) {
+  if (input.DateArrayOptions != null) {
     const memberEntries = serializeAws_queryDateArrayOptions(input.DateArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DateArrayOptions.${key}`;
@@ -2690,19 +2613,19 @@ const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext
 
 const serializeAws_queryIntArrayOptions = (input: IntArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.SourceFields !== undefined && input.SourceFields !== null) {
+  if (input.SourceFields != null) {
     entries["SourceFields"] = input.SourceFields;
   }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+  if (input.FacetEnabled != null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+  if (input.SearchEnabled != null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
   return entries;
@@ -2710,22 +2633,22 @@ const serializeAws_queryIntArrayOptions = (input: IntArrayOptions, context: __Se
 
 const serializeAws_queryIntOptions = (input: IntOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.SourceField !== undefined && input.SourceField !== null) {
+  if (input.SourceField != null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+  if (input.FacetEnabled != null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+  if (input.SearchEnabled != null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
+  if (input.SortEnabled != null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
@@ -2733,22 +2656,22 @@ const serializeAws_queryIntOptions = (input: IntOptions, context: __SerdeContext
 
 const serializeAws_queryLatLonOptions = (input: LatLonOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.SourceField !== undefined && input.SourceField !== null) {
+  if (input.SourceField != null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+  if (input.FacetEnabled != null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+  if (input.SearchEnabled != null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
+  if (input.SortEnabled != null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
@@ -2756,19 +2679,19 @@ const serializeAws_queryLatLonOptions = (input: LatLonOptions, context: __SerdeC
 
 const serializeAws_queryLiteralArrayOptions = (input: LiteralArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.SourceFields !== undefined && input.SourceFields !== null) {
+  if (input.SourceFields != null) {
     entries["SourceFields"] = input.SourceFields;
   }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+  if (input.FacetEnabled != null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+  if (input.SearchEnabled != null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
   return entries;
@@ -2776,22 +2699,22 @@ const serializeAws_queryLiteralArrayOptions = (input: LiteralArrayOptions, conte
 
 const serializeAws_queryLiteralOptions = (input: LiteralOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.SourceField !== undefined && input.SourceField !== null) {
+  if (input.SourceField != null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
+  if (input.FacetEnabled != null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
+  if (input.SearchEnabled != null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
+  if (input.SortEnabled != null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
@@ -2799,13 +2722,13 @@ const serializeAws_queryLiteralOptions = (input: LiteralOptions, context: __Serd
 
 const serializeAws_queryScalingParameters = (input: ScalingParameters, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DesiredInstanceType !== undefined && input.DesiredInstanceType !== null) {
+  if (input.DesiredInstanceType != null) {
     entries["DesiredInstanceType"] = input.DesiredInstanceType;
   }
-  if (input.DesiredReplicationCount !== undefined && input.DesiredReplicationCount !== null) {
+  if (input.DesiredReplicationCount != null) {
     entries["DesiredReplicationCount"] = input.DesiredReplicationCount;
   }
-  if (input.DesiredPartitionCount !== undefined && input.DesiredPartitionCount !== null) {
+  if (input.DesiredPartitionCount != null) {
     entries["DesiredPartitionCount"] = input.DesiredPartitionCount;
   }
   return entries;
@@ -2826,10 +2749,10 @@ const serializeAws_queryStandardNameList = (input: string[], context: __SerdeCon
 
 const serializeAws_querySuggester = (input: Suggester, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SuggesterName !== undefined && input.SuggesterName !== null) {
+  if (input.SuggesterName != null) {
     entries["SuggesterName"] = input.SuggesterName;
   }
-  if (input.DocumentSuggesterOptions !== undefined && input.DocumentSuggesterOptions !== null) {
+  if (input.DocumentSuggesterOptions != null) {
     const memberEntries = serializeAws_queryDocumentSuggesterOptions(input.DocumentSuggesterOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DocumentSuggesterOptions.${key}`;
@@ -2841,19 +2764,19 @@ const serializeAws_querySuggester = (input: Suggester, context: __SerdeContext):
 
 const serializeAws_queryTextArrayOptions = (input: TextArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.SourceFields !== undefined && input.SourceFields !== null) {
+  if (input.SourceFields != null) {
     entries["SourceFields"] = input.SourceFields;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.HighlightEnabled !== undefined && input.HighlightEnabled !== null) {
+  if (input.HighlightEnabled != null) {
     entries["HighlightEnabled"] = input.HighlightEnabled;
   }
-  if (input.AnalysisScheme !== undefined && input.AnalysisScheme !== null) {
+  if (input.AnalysisScheme != null) {
     entries["AnalysisScheme"] = input.AnalysisScheme;
   }
   return entries;
@@ -2861,22 +2784,22 @@ const serializeAws_queryTextArrayOptions = (input: TextArrayOptions, context: __
 
 const serializeAws_queryTextOptions = (input: TextOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
+  if (input.DefaultValue != null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.SourceField !== undefined && input.SourceField !== null) {
+  if (input.SourceField != null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
+  if (input.ReturnEnabled != null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
+  if (input.SortEnabled != null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
-  if (input.HighlightEnabled !== undefined && input.HighlightEnabled !== null) {
+  if (input.HighlightEnabled != null) {
     entries["HighlightEnabled"] = input.HighlightEnabled;
   }
-  if (input.AnalysisScheme !== undefined && input.AnalysisScheme !== null) {
+  if (input.AnalysisScheme != null) {
     entries["AnalysisScheme"] = input.AnalysisScheme;
   }
   return entries;
@@ -2887,10 +2810,10 @@ const serializeAws_queryUpdateAvailabilityOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.MultiAZ !== undefined && input.MultiAZ !== null) {
+  if (input.MultiAZ != null) {
     entries["MultiAZ"] = input.MultiAZ;
   }
   return entries;
@@ -2901,10 +2824,10 @@ const serializeAws_queryUpdateDomainEndpointOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.DomainEndpointOptions !== undefined && input.DomainEndpointOptions !== null) {
+  if (input.DomainEndpointOptions != null) {
     const memberEntries = serializeAws_queryDomainEndpointOptions(input.DomainEndpointOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DomainEndpointOptions.${key}`;
@@ -2919,10 +2842,10 @@ const serializeAws_queryUpdateScalingParametersRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.ScalingParameters !== undefined && input.ScalingParameters !== null) {
+  if (input.ScalingParameters != null) {
     const memberEntries = serializeAws_queryScalingParameters(input.ScalingParameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingParameters.${key}`;
@@ -2937,10 +2860,10 @@ const serializeAws_queryUpdateServiceAccessPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined && input.DomainName !== null) {
+  if (input.DomainName != null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.AccessPolicies !== undefined && input.AccessPolicies !== null) {
+  if (input.AccessPolicies != null) {
     entries["AccessPolicies"] = input.AccessPolicies;
   }
   return entries;
@@ -3022,9 +2945,6 @@ const deserializeAws_queryAnalysisSchemeStatusList = (output: any, context: __Se
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryAnalysisSchemeStatus(entry, context);
     });
 };
@@ -3537,9 +3457,6 @@ const deserializeAws_queryDomainStatusList = (output: any, context: __SerdeConte
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryDomainStatus(entry, context);
     });
 };
@@ -3632,9 +3549,6 @@ const deserializeAws_queryExpressionStatusList = (output: any, context: __SerdeC
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryExpressionStatus(entry, context);
     });
 };
@@ -3643,9 +3557,6 @@ const deserializeAws_queryFieldNameList = (output: any, context: __SerdeContext)
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -3741,9 +3652,6 @@ const deserializeAws_queryIndexFieldStatusList = (output: any, context: __SerdeC
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryIndexFieldStatus(entry, context);
     });
 };
@@ -4098,9 +4006,6 @@ const deserializeAws_querySuggesterStatusList = (output: any, context: __SerdeCo
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_querySuggesterStatus(entry, context);
     });
 };

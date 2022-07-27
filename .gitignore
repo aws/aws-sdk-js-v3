@@ -43,6 +43,7 @@ dist
 dist-*
 
 /verdaccio/*
+/storage/.verdaccio-db.json
 !/verdaccio/config.yaml
 
 *.tsbuildinfo

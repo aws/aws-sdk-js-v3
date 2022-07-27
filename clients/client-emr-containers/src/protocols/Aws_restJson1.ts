@@ -7,7 +7,10 @@ import {
   expectString as __expectString,
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map as __map,
   parseRfc3339DateTime as __parseRfc3339DateTime,
+  resolvedPath as __resolvedPath,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -88,24 +91,15 @@ export const serializeAws_restJson1CancelJobRunCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/virtualclusters/{virtualClusterId}/jobruns/{id}";
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
-  if (input.virtualClusterId !== undefined) {
-    const labelValue: string = input.virtualClusterId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: virtualClusterId.");
-    }
-    resolvedPath = resolvedPath.replace("{virtualClusterId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: virtualClusterId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "virtualClusterId",
+    () => input.virtualClusterId!,
+    "{virtualClusterId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -129,15 +123,14 @@ export const serializeAws_restJson1CreateManagedEndpointCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/virtualclusters/{virtualClusterId}/endpoints";
-  if (input.virtualClusterId !== undefined) {
-    const labelValue: string = input.virtualClusterId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: virtualClusterId.");
-    }
-    resolvedPath = resolvedPath.replace("{virtualClusterId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: virtualClusterId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "virtualClusterId",
+    () => input.virtualClusterId!,
+    "{virtualClusterId}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.certificateArn != null && { certificateArn: input.certificateArn }),
@@ -200,24 +193,15 @@ export const serializeAws_restJson1DeleteManagedEndpointCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/virtualclusters/{virtualClusterId}/endpoints/{id}";
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
-  if (input.virtualClusterId !== undefined) {
-    const labelValue: string = input.virtualClusterId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: virtualClusterId.");
-    }
-    resolvedPath = resolvedPath.replace("{virtualClusterId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: virtualClusterId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "virtualClusterId",
+    () => input.virtualClusterId!,
+    "{virtualClusterId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -237,15 +221,7 @@ export const serializeAws_restJson1DeleteVirtualClusterCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters/{id}";
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -267,24 +243,15 @@ export const serializeAws_restJson1DescribeJobRunCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/virtualclusters/{virtualClusterId}/jobruns/{id}";
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
-  if (input.virtualClusterId !== undefined) {
-    const labelValue: string = input.virtualClusterId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: virtualClusterId.");
-    }
-    resolvedPath = resolvedPath.replace("{virtualClusterId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: virtualClusterId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "virtualClusterId",
+    () => input.virtualClusterId!,
+    "{virtualClusterId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -306,24 +273,15 @@ export const serializeAws_restJson1DescribeManagedEndpointCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/virtualclusters/{virtualClusterId}/endpoints/{id}";
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
-  if (input.virtualClusterId !== undefined) {
-    const labelValue: string = input.virtualClusterId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: virtualClusterId.");
-    }
-    resolvedPath = resolvedPath.replace("{virtualClusterId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: virtualClusterId.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "virtualClusterId",
+    () => input.virtualClusterId!,
+    "{virtualClusterId}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -343,15 +301,7 @@ export const serializeAws_restJson1DescribeVirtualClusterCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters/{id}";
-  if (input.id !== undefined) {
-    const labelValue: string = input.id;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: id.");
-    }
-    resolvedPath = resolvedPath.replace("{id}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: id.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -373,27 +323,28 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/virtualclusters/{virtualClusterId}/jobruns";
-  if (input.virtualClusterId !== undefined) {
-    const labelValue: string = input.virtualClusterId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: virtualClusterId.");
-    }
-    resolvedPath = resolvedPath.replace("{virtualClusterId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: virtualClusterId.");
-  }
-  const query: any = {
-    ...(input.createdBefore !== undefined && {
-      createdBefore: (input.createdBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.createdAfter !== undefined && {
-      createdAfter: (input.createdAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry as any) }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "virtualClusterId",
+    () => input.virtualClusterId!,
+    "{virtualClusterId}",
+    false
+  );
+  const query: any = map({
+    createdBefore: [
+      () => input.createdBefore !== void 0,
+      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdAfter: [
+      () => input.createdAfter !== void 0,
+      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    name: [, input.name!],
+    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -416,27 +367,28 @@ export const serializeAws_restJson1ListManagedEndpointsCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/virtualclusters/{virtualClusterId}/endpoints";
-  if (input.virtualClusterId !== undefined) {
-    const labelValue: string = input.virtualClusterId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: virtualClusterId.");
-    }
-    resolvedPath = resolvedPath.replace("{virtualClusterId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: virtualClusterId.");
-  }
-  const query: any = {
-    ...(input.createdBefore !== undefined && {
-      createdBefore: (input.createdBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.createdAfter !== undefined && {
-      createdAfter: (input.createdAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.types !== undefined && { types: (input.types || []).map((_entry) => _entry as any) }),
-    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry as any) }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "virtualClusterId",
+    () => input.virtualClusterId!,
+    "{virtualClusterId}",
+    false
+  );
+  const query: any = map({
+    createdBefore: [
+      () => input.createdBefore !== void 0,
+      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdAfter: [
+      () => input.createdAfter !== void 0,
+      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    types: [() => input.types !== void 0, () => (input.types! || []).map((_entry) => _entry as any)],
+    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -457,15 +409,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -485,19 +429,21 @@ export const serializeAws_restJson1ListVirtualClustersCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters";
-  const query: any = {
-    ...(input.containerProviderId !== undefined && { containerProviderId: input.containerProviderId }),
-    ...(input.containerProviderType !== undefined && { containerProviderType: input.containerProviderType }),
-    ...(input.createdAfter !== undefined && {
-      createdAfter: (input.createdAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.createdBefore !== undefined && {
-      createdBefore: (input.createdBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
-    ...(input.states !== undefined && { states: (input.states || []).map((_entry) => _entry as any) }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-  };
+  const query: any = map({
+    containerProviderId: [, input.containerProviderId!],
+    containerProviderType: [, input.containerProviderType!],
+    createdAfter: [
+      () => input.createdAfter !== void 0,
+      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    createdBefore: [
+      () => input.createdBefore !== void 0,
+      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -522,15 +468,14 @@ export const serializeAws_restJson1StartJobRunCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/virtualclusters/{virtualClusterId}/jobruns";
-  if (input.virtualClusterId !== undefined) {
-    const labelValue: string = input.virtualClusterId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: virtualClusterId.");
-    }
-    resolvedPath = resolvedPath.replace("{virtualClusterId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: virtualClusterId.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "virtualClusterId",
+    () => input.virtualClusterId!,
+    "{virtualClusterId}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
@@ -563,15 +508,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
     "content-type": "application/json",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify({
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
@@ -594,18 +531,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  if (input.resourceArn !== undefined) {
-    const labelValue: string = input.resourceArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceArn.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceArn.");
-  }
-  const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
-  };
+  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  const query: any = map({
+    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -626,19 +555,17 @@ export const deserializeAws_restJson1CancelJobRunCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelJobRunCommandError(output, context);
   }
-  const contents: CancelJobRunCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    id: undefined,
-    virtualClusterId: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id !== undefined && data.id !== null) {
+  if (data.id != null) {
     contents.id = __expectString(data.id);
   }
-  if (data.virtualClusterId !== undefined && data.virtualClusterId !== null) {
+  if (data.virtualClusterId != null) {
     contents.virtualClusterId = __expectString(data.virtualClusterId);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CancelJobRunCommandError = async (
@@ -649,7 +576,6 @@ const deserializeAws_restJson1CancelJobRunCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -660,14 +586,12 @@ const deserializeAws_restJson1CancelJobRunCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -678,27 +602,23 @@ export const deserializeAws_restJson1CreateManagedEndpointCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateManagedEndpointCommandError(output, context);
   }
-  const contents: CreateManagedEndpointCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    arn: undefined,
-    id: undefined,
-    name: undefined,
-    virtualClusterId: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn !== undefined && data.arn !== null) {
+  if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
-  if (data.id !== undefined && data.id !== null) {
+  if (data.id != null) {
     contents.id = __expectString(data.id);
   }
-  if (data.name !== undefined && data.name !== null) {
+  if (data.name != null) {
     contents.name = __expectString(data.name);
   }
-  if (data.virtualClusterId !== undefined && data.virtualClusterId !== null) {
+  if (data.virtualClusterId != null) {
     contents.virtualClusterId = __expectString(data.virtualClusterId);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateManagedEndpointCommandError = async (
@@ -709,7 +629,6 @@ const deserializeAws_restJson1CreateManagedEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -723,14 +642,12 @@ const deserializeAws_restJson1CreateManagedEndpointCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -741,23 +658,20 @@ export const deserializeAws_restJson1CreateVirtualClusterCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateVirtualClusterCommandError(output, context);
   }
-  const contents: CreateVirtualClusterCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    arn: undefined,
-    id: undefined,
-    name: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn !== undefined && data.arn !== null) {
+  if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
-  if (data.id !== undefined && data.id !== null) {
+  if (data.id != null) {
     contents.id = __expectString(data.id);
   }
-  if (data.name !== undefined && data.name !== null) {
+  if (data.name != null) {
     contents.name = __expectString(data.name);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateVirtualClusterCommandError = async (
@@ -768,7 +682,6 @@ const deserializeAws_restJson1CreateVirtualClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -782,14 +695,12 @@ const deserializeAws_restJson1CreateVirtualClusterCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -800,19 +711,17 @@ export const deserializeAws_restJson1DeleteManagedEndpointCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteManagedEndpointCommandError(output, context);
   }
-  const contents: DeleteManagedEndpointCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    id: undefined,
-    virtualClusterId: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id !== undefined && data.id !== null) {
+  if (data.id != null) {
     contents.id = __expectString(data.id);
   }
-  if (data.virtualClusterId !== undefined && data.virtualClusterId !== null) {
+  if (data.virtualClusterId != null) {
     contents.virtualClusterId = __expectString(data.virtualClusterId);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteManagedEndpointCommandError = async (
@@ -823,7 +732,6 @@ const deserializeAws_restJson1DeleteManagedEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -834,14 +742,12 @@ const deserializeAws_restJson1DeleteManagedEndpointCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -852,15 +758,14 @@ export const deserializeAws_restJson1DeleteVirtualClusterCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteVirtualClusterCommandError(output, context);
   }
-  const contents: DeleteVirtualClusterCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    id: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.id !== undefined && data.id !== null) {
+  if (data.id != null) {
     contents.id = __expectString(data.id);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteVirtualClusterCommandError = async (
@@ -871,7 +776,6 @@ const deserializeAws_restJson1DeleteVirtualClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -882,14 +786,12 @@ const deserializeAws_restJson1DeleteVirtualClusterCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -900,15 +802,14 @@ export const deserializeAws_restJson1DescribeJobRunCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeJobRunCommandError(output, context);
   }
-  const contents: DescribeJobRunCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    jobRun: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobRun !== undefined && data.jobRun !== null) {
+  if (data.jobRun != null) {
     contents.jobRun = deserializeAws_restJson1JobRun(data.jobRun, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DescribeJobRunCommandError = async (
@@ -919,7 +820,6 @@ const deserializeAws_restJson1DescribeJobRunCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -933,14 +833,12 @@ const deserializeAws_restJson1DescribeJobRunCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -951,15 +849,14 @@ export const deserializeAws_restJson1DescribeManagedEndpointCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeManagedEndpointCommandError(output, context);
   }
-  const contents: DescribeManagedEndpointCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    endpoint: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endpoint !== undefined && data.endpoint !== null) {
+  if (data.endpoint != null) {
     contents.endpoint = deserializeAws_restJson1Endpoint(data.endpoint, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DescribeManagedEndpointCommandError = async (
@@ -970,7 +867,6 @@ const deserializeAws_restJson1DescribeManagedEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -984,14 +880,12 @@ const deserializeAws_restJson1DescribeManagedEndpointCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1002,15 +896,14 @@ export const deserializeAws_restJson1DescribeVirtualClusterCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeVirtualClusterCommandError(output, context);
   }
-  const contents: DescribeVirtualClusterCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    virtualCluster: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.virtualCluster !== undefined && data.virtualCluster !== null) {
+  if (data.virtualCluster != null) {
     contents.virtualCluster = deserializeAws_restJson1VirtualCluster(data.virtualCluster, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DescribeVirtualClusterCommandError = async (
@@ -1021,7 +914,6 @@ const deserializeAws_restJson1DescribeVirtualClusterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1035,14 +927,12 @@ const deserializeAws_restJson1DescribeVirtualClusterCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1053,19 +943,17 @@ export const deserializeAws_restJson1ListJobRunsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListJobRunsCommandError(output, context);
   }
-  const contents: ListJobRunsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    jobRuns: undefined,
-    nextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.jobRuns !== undefined && data.jobRuns !== null) {
+  if (data.jobRuns != null) {
     contents.jobRuns = deserializeAws_restJson1JobRuns(data.jobRuns, context);
   }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListJobRunsCommandError = async (
@@ -1076,7 +964,6 @@ const deserializeAws_restJson1ListJobRunsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1087,14 +974,12 @@ const deserializeAws_restJson1ListJobRunsCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1105,19 +990,17 @@ export const deserializeAws_restJson1ListManagedEndpointsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListManagedEndpointsCommandError(output, context);
   }
-  const contents: ListManagedEndpointsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    endpoints: undefined,
-    nextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.endpoints !== undefined && data.endpoints !== null) {
+  if (data.endpoints != null) {
     contents.endpoints = deserializeAws_restJson1Endpoints(data.endpoints, context);
   }
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListManagedEndpointsCommandError = async (
@@ -1128,7 +1011,6 @@ const deserializeAws_restJson1ListManagedEndpointsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1139,14 +1021,12 @@ const deserializeAws_restJson1ListManagedEndpointsCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1157,15 +1037,14 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
-  const contents: ListTagsForResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    tags: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.tags !== undefined && data.tags !== null) {
+  if (data.tags != null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListTagsForResourceCommandError = async (
@@ -1176,7 +1055,6 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1190,14 +1068,12 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1208,19 +1084,17 @@ export const deserializeAws_restJson1ListVirtualClustersCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListVirtualClustersCommandError(output, context);
   }
-  const contents: ListVirtualClustersCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    nextToken: undefined,
-    virtualClusters: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.nextToken !== undefined && data.nextToken !== null) {
+  if (data.nextToken != null) {
     contents.nextToken = __expectString(data.nextToken);
   }
-  if (data.virtualClusters !== undefined && data.virtualClusters !== null) {
+  if (data.virtualClusters != null) {
     contents.virtualClusters = deserializeAws_restJson1VirtualClusters(data.virtualClusters, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListVirtualClustersCommandError = async (
@@ -1231,7 +1105,6 @@ const deserializeAws_restJson1ListVirtualClustersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1242,14 +1115,12 @@ const deserializeAws_restJson1ListVirtualClustersCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1260,27 +1131,23 @@ export const deserializeAws_restJson1StartJobRunCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartJobRunCommandError(output, context);
   }
-  const contents: StartJobRunCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    arn: undefined,
-    id: undefined,
-    name: undefined,
-    virtualClusterId: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.arn !== undefined && data.arn !== null) {
+  if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
-  if (data.id !== undefined && data.id !== null) {
+  if (data.id != null) {
     contents.id = __expectString(data.id);
   }
-  if (data.name !== undefined && data.name !== null) {
+  if (data.name != null) {
     contents.name = __expectString(data.name);
   }
-  if (data.virtualClusterId !== undefined && data.virtualClusterId !== null) {
+  if (data.virtualClusterId != null) {
     contents.virtualClusterId = __expectString(data.virtualClusterId);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1StartJobRunCommandError = async (
@@ -1291,7 +1158,6 @@ const deserializeAws_restJson1StartJobRunCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1305,14 +1171,12 @@ const deserializeAws_restJson1StartJobRunCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1323,11 +1187,11 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
-  const contents: TagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1TagResourceCommandError = async (
@@ -1338,7 +1202,6 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1352,14 +1215,12 @@ const deserializeAws_restJson1TagResourceCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -1370,11 +1231,11 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
-  const contents: UntagResourceCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UntagResourceCommandError = async (
@@ -1385,7 +1246,6 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1399,24 +1259,23 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1InternalServerExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new InternalServerException({
@@ -1430,9 +1289,9 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ResourceNotFoundException({
@@ -1446,9 +1305,9 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ValidationException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.message !== undefined && data.message !== null) {
+  if (data.message != null) {
     contents.message = __expectString(data.message);
   }
   const exception = new ValidationException({
@@ -1484,9 +1343,6 @@ const serializeAws_restJson1ConfigurationList = (input: Configuration[], context
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1Configuration(entry, context);
     });
 };
@@ -1527,9 +1383,6 @@ const serializeAws_restJson1EntryPointArguments = (input: string[], context: __S
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -1666,7 +1519,7 @@ const deserializeAws_restJson1ConfigurationOverrides = (
 };
 
 const deserializeAws_restJson1ContainerInfo = (output: any, context: __SerdeContext): ContainerInfo => {
-  if (output.eksInfo !== undefined && output.eksInfo !== null) {
+  if (output.eksInfo != null) {
     return {
       eksInfo: deserializeAws_restJson1EksInfo(output.eksInfo, context),
     };

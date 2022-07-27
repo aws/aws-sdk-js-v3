@@ -290,7 +290,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
             String locationName = binding.getMember().getTrait(JsonNameTrait.class)
                     .map(JsonNameTrait::getValue)
                     .orElseGet(binding::getLocationName);
-            writer.openBlock("if (data.$L !== undefined && data.$L !== null) {", "}", locationName, locationName,
+            writer.openBlock("if (data.$L != null) {", "}", locationName,
                     () -> {
                 writer.write("contents.$L = $L;", memberName,
                         target.accept(getMemberDeserVisitor(context, binding.getMember(), "data." + locationName)));

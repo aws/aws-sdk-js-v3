@@ -10,6 +10,7 @@ import {
   parseBoolean as __parseBoolean,
   parseRfc3339DateTime as __parseRfc3339DateTime,
   strictParseInt32 as __strictParseInt32,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -3265,7 +3266,6 @@ const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -3282,14 +3282,12 @@ const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3315,7 +3313,6 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -3335,14 +3332,12 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3368,7 +3363,6 @@ const deserializeAws_queryAddUserToGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -3382,14 +3376,12 @@ const deserializeAws_queryAddUserToGroupCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3415,7 +3407,6 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -3435,14 +3426,12 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3468,7 +3457,6 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -3491,14 +3479,12 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3524,7 +3510,6 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -3544,14 +3529,12 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3577,7 +3560,6 @@ const deserializeAws_queryChangePasswordCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
@@ -3600,14 +3582,12 @@ const deserializeAws_queryChangePasswordCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3636,7 +3616,6 @@ const deserializeAws_queryCreateAccessKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -3650,14 +3629,12 @@ const deserializeAws_queryCreateAccessKeyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3683,7 +3660,6 @@ const deserializeAws_queryCreateAccountAliasCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -3697,14 +3673,12 @@ const deserializeAws_queryCreateAccountAliasCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3733,7 +3707,6 @@ const deserializeAws_queryCreateGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -3750,14 +3723,12 @@ const deserializeAws_queryCreateGroupCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3786,7 +3757,6 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -3806,14 +3776,12 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3842,7 +3810,6 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -3862,14 +3829,12 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3898,7 +3863,6 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -3918,14 +3882,12 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -3954,7 +3916,6 @@ const deserializeAws_queryCreatePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -3977,14 +3938,12 @@ const deserializeAws_queryCreatePolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4013,7 +3972,6 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -4033,14 +3991,12 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4069,7 +4025,6 @@ const deserializeAws_queryCreateRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4092,14 +4047,12 @@ const deserializeAws_queryCreateRoleCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4128,7 +4081,6 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4148,14 +4100,12 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4184,7 +4134,6 @@ const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -4201,14 +4150,12 @@ const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4240,7 +4187,6 @@ const deserializeAws_queryCreateServiceSpecificCredentialCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -4254,14 +4200,12 @@ const deserializeAws_queryCreateServiceSpecificCredentialCommandError = async (
       throw await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4290,7 +4234,6 @@ const deserializeAws_queryCreateUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4313,14 +4256,12 @@ const deserializeAws_queryCreateUserCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4349,7 +4290,6 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4369,14 +4309,12 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4402,7 +4340,6 @@ const deserializeAws_queryDeactivateMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
@@ -4419,14 +4356,12 @@ const deserializeAws_queryDeactivateMFADeviceCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4452,7 +4387,6 @@ const deserializeAws_queryDeleteAccessKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -4466,14 +4400,12 @@ const deserializeAws_queryDeleteAccessKeyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4499,7 +4431,6 @@ const deserializeAws_queryDeleteAccountAliasCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -4513,14 +4444,12 @@ const deserializeAws_queryDeleteAccountAliasCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4546,7 +4475,6 @@ const deserializeAws_queryDeleteAccountPasswordPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -4560,14 +4488,12 @@ const deserializeAws_queryDeleteAccountPasswordPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4593,7 +4519,6 @@ const deserializeAws_queryDeleteGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -4610,14 +4535,12 @@ const deserializeAws_queryDeleteGroupCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4643,7 +4566,6 @@ const deserializeAws_queryDeleteGroupPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -4657,14 +4579,12 @@ const deserializeAws_queryDeleteGroupPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4690,7 +4610,6 @@ const deserializeAws_queryDeleteInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -4707,14 +4626,12 @@ const deserializeAws_queryDeleteInstanceProfileCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4740,7 +4657,6 @@ const deserializeAws_queryDeleteLoginProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
@@ -4757,14 +4673,12 @@ const deserializeAws_queryDeleteLoginProfileCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4790,7 +4704,6 @@ const deserializeAws_queryDeleteOpenIDConnectProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -4804,14 +4717,12 @@ const deserializeAws_queryDeleteOpenIDConnectProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4837,7 +4748,6 @@ const deserializeAws_queryDeletePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -4857,14 +4767,12 @@ const deserializeAws_queryDeletePolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4890,7 +4798,6 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -4910,14 +4817,12 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4943,7 +4848,6 @@ const deserializeAws_queryDeleteRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4966,14 +4870,12 @@ const deserializeAws_queryDeleteRoleCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -4999,7 +4901,6 @@ const deserializeAws_queryDeleteRolePermissionsBoundaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -5013,14 +4914,12 @@ const deserializeAws_queryDeleteRolePermissionsBoundaryCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5046,7 +4945,6 @@ const deserializeAws_queryDeleteRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -5063,14 +4961,12 @@ const deserializeAws_queryDeleteRolePolicyCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5096,7 +4992,6 @@ const deserializeAws_queryDeleteSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -5113,14 +5008,12 @@ const deserializeAws_queryDeleteSAMLProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5146,7 +5039,6 @@ const deserializeAws_queryDeleteServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -5163,14 +5055,12 @@ const deserializeAws_queryDeleteServerCertificateCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5199,7 +5089,6 @@ const deserializeAws_queryDeleteServiceLinkedRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -5213,14 +5102,12 @@ const deserializeAws_queryDeleteServiceLinkedRoleCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5246,7 +5133,6 @@ const deserializeAws_queryDeleteServiceSpecificCredentialCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -5254,14 +5140,12 @@ const deserializeAws_queryDeleteServiceSpecificCredentialCommandError = async (
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5287,7 +5171,6 @@ const deserializeAws_queryDeleteSigningCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -5301,14 +5184,12 @@ const deserializeAws_queryDeleteSigningCertificateCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5334,7 +5215,6 @@ const deserializeAws_queryDeleteSSHPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -5342,14 +5222,12 @@ const deserializeAws_queryDeleteSSHPublicKeyCommandError = async (
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5375,7 +5253,6 @@ const deserializeAws_queryDeleteUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -5395,14 +5272,12 @@ const deserializeAws_queryDeleteUserCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5428,7 +5303,6 @@ const deserializeAws_queryDeleteUserPermissionsBoundaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -5439,14 +5313,12 @@ const deserializeAws_queryDeleteUserPermissionsBoundaryCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5472,7 +5344,6 @@ const deserializeAws_queryDeleteUserPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -5486,14 +5357,12 @@ const deserializeAws_queryDeleteUserPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5519,7 +5388,6 @@ const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
@@ -5536,14 +5404,12 @@ const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5569,7 +5435,6 @@ const deserializeAws_queryDetachGroupPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -5586,14 +5451,12 @@ const deserializeAws_queryDetachGroupPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5619,7 +5482,6 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -5639,14 +5501,12 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5672,7 +5532,6 @@ const deserializeAws_queryDetachUserPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -5689,14 +5548,12 @@ const deserializeAws_queryDetachUserPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5722,7 +5579,6 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -5745,14 +5601,12 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5781,7 +5635,6 @@ const deserializeAws_queryGenerateCredentialReportCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -5792,14 +5645,12 @@ const deserializeAws_queryGenerateCredentialReportCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5831,7 +5682,6 @@ const deserializeAws_queryGenerateOrganizationsAccessReportCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReportGenerationLimitExceededException":
@@ -5839,14 +5689,12 @@ const deserializeAws_queryGenerateOrganizationsAccessReportCommandError = async 
       throw await deserializeAws_queryReportGenerationLimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5878,7 +5726,6 @@ const deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -5889,14 +5736,12 @@ const deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError = async
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5925,7 +5770,6 @@ const deserializeAws_queryGetAccessKeyLastUsedCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -5933,14 +5777,12 @@ const deserializeAws_queryGetAccessKeyLastUsedCommandError = async (
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -5972,7 +5814,6 @@ const deserializeAws_queryGetAccountAuthorizationDetailsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -5980,14 +5821,12 @@ const deserializeAws_queryGetAccountAuthorizationDetailsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6016,7 +5855,6 @@ const deserializeAws_queryGetAccountPasswordPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6027,14 +5865,12 @@ const deserializeAws_queryGetAccountPasswordPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6063,7 +5899,6 @@ const deserializeAws_queryGetAccountSummaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -6071,14 +5906,12 @@ const deserializeAws_queryGetAccountSummaryCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6107,7 +5940,6 @@ const deserializeAws_queryGetContextKeysForCustomPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6115,14 +5947,12 @@ const deserializeAws_queryGetContextKeysForCustomPolicyCommandError = async (
       throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6151,7 +5981,6 @@ const deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6162,14 +5991,12 @@ const deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError = async (
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6198,7 +6025,6 @@ const deserializeAws_queryGetCredentialReportCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CredentialReportExpiredException":
@@ -6215,14 +6041,12 @@ const deserializeAws_queryGetCredentialReportCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6251,7 +6075,6 @@ const deserializeAws_queryGetGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6262,14 +6085,12 @@ const deserializeAws_queryGetGroupCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6298,7 +6119,6 @@ const deserializeAws_queryGetGroupPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6309,14 +6129,12 @@ const deserializeAws_queryGetGroupPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6345,7 +6163,6 @@ const deserializeAws_queryGetInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6356,14 +6173,12 @@ const deserializeAws_queryGetInstanceProfileCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6392,7 +6207,6 @@ const deserializeAws_queryGetLoginProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6403,14 +6217,12 @@ const deserializeAws_queryGetLoginProfileCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6439,7 +6251,6 @@ const deserializeAws_queryGetOpenIDConnectProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6453,14 +6264,12 @@ const deserializeAws_queryGetOpenIDConnectProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6489,7 +6298,6 @@ const deserializeAws_queryGetOrganizationsAccessReportCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6497,14 +6305,12 @@ const deserializeAws_queryGetOrganizationsAccessReportCommandError = async (
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6533,7 +6339,6 @@ const deserializeAws_queryGetPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6547,14 +6352,12 @@ const deserializeAws_queryGetPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6583,7 +6386,6 @@ const deserializeAws_queryGetPolicyVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6597,14 +6399,12 @@ const deserializeAws_queryGetPolicyVersionCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6633,7 +6433,6 @@ const deserializeAws_queryGetRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6644,14 +6443,12 @@ const deserializeAws_queryGetRoleCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6680,7 +6477,6 @@ const deserializeAws_queryGetRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6691,14 +6487,12 @@ const deserializeAws_queryGetRolePolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6727,7 +6521,6 @@ const deserializeAws_queryGetSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6741,14 +6534,12 @@ const deserializeAws_queryGetSAMLProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6777,7 +6568,6 @@ const deserializeAws_queryGetServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6788,14 +6578,12 @@ const deserializeAws_queryGetServerCertificateCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6827,7 +6615,6 @@ const deserializeAws_queryGetServiceLastAccessedDetailsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6838,14 +6625,12 @@ const deserializeAws_queryGetServiceLastAccessedDetailsCommandError = async (
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6877,7 +6662,6 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6888,14 +6672,12 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError 
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6927,7 +6709,6 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -6941,14 +6722,12 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError = async
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -6977,7 +6756,6 @@ const deserializeAws_queryGetSSHPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -6988,14 +6766,12 @@ const deserializeAws_queryGetSSHPublicKeyCommandError = async (
       throw await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7024,7 +6800,6 @@ const deserializeAws_queryGetUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7035,14 +6810,12 @@ const deserializeAws_queryGetUserCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7071,7 +6844,6 @@ const deserializeAws_queryGetUserPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7082,14 +6854,12 @@ const deserializeAws_queryGetUserPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7118,7 +6888,6 @@ const deserializeAws_queryListAccessKeysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7129,14 +6898,12 @@ const deserializeAws_queryListAccessKeysCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7165,7 +6932,6 @@ const deserializeAws_queryListAccountAliasesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -7173,14 +6939,12 @@ const deserializeAws_queryListAccountAliasesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7209,7 +6973,6 @@ const deserializeAws_queryListAttachedGroupPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7223,14 +6986,12 @@ const deserializeAws_queryListAttachedGroupPoliciesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7259,7 +7020,6 @@ const deserializeAws_queryListAttachedRolePoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7273,14 +7033,12 @@ const deserializeAws_queryListAttachedRolePoliciesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7309,7 +7067,6 @@ const deserializeAws_queryListAttachedUserPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7323,14 +7080,12 @@ const deserializeAws_queryListAttachedUserPoliciesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7359,7 +7114,6 @@ const deserializeAws_queryListEntitiesForPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7373,14 +7127,12 @@ const deserializeAws_queryListEntitiesForPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7409,7 +7161,6 @@ const deserializeAws_queryListGroupPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7420,14 +7171,12 @@ const deserializeAws_queryListGroupPoliciesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7456,7 +7205,6 @@ const deserializeAws_queryListGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -7464,14 +7212,12 @@ const deserializeAws_queryListGroupsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7500,7 +7246,6 @@ const deserializeAws_queryListGroupsForUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7511,14 +7256,12 @@ const deserializeAws_queryListGroupsForUserCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7547,7 +7290,6 @@ const deserializeAws_queryListInstanceProfilesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -7555,14 +7297,12 @@ const deserializeAws_queryListInstanceProfilesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7591,7 +7331,6 @@ const deserializeAws_queryListInstanceProfilesForRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7602,14 +7341,12 @@ const deserializeAws_queryListInstanceProfilesForRoleCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7638,7 +7375,6 @@ const deserializeAws_queryListInstanceProfileTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7649,14 +7385,12 @@ const deserializeAws_queryListInstanceProfileTagsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7685,7 +7419,6 @@ const deserializeAws_queryListMFADevicesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -7696,14 +7429,12 @@ const deserializeAws_queryListMFADevicesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7732,7 +7463,6 @@ const deserializeAws_queryListMFADeviceTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7746,14 +7476,12 @@ const deserializeAws_queryListMFADeviceTagsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7782,7 +7510,6 @@ const deserializeAws_queryListOpenIDConnectProvidersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -7790,14 +7517,12 @@ const deserializeAws_queryListOpenIDConnectProvidersCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7829,7 +7554,6 @@ const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7843,14 +7567,12 @@ const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7879,7 +7601,6 @@ const deserializeAws_queryListPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -7887,14 +7608,12 @@ const deserializeAws_queryListPoliciesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7926,7 +7645,6 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7937,14 +7655,12 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessCommandError = async 
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -7973,7 +7689,6 @@ const deserializeAws_queryListPolicyTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -7987,14 +7702,12 @@ const deserializeAws_queryListPolicyTagsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8023,7 +7736,6 @@ const deserializeAws_queryListPolicyVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8037,14 +7749,12 @@ const deserializeAws_queryListPolicyVersionsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8073,7 +7783,6 @@ const deserializeAws_queryListRolePoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8084,14 +7793,12 @@ const deserializeAws_queryListRolePoliciesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8120,7 +7827,6 @@ const deserializeAws_queryListRolesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -8128,14 +7834,12 @@ const deserializeAws_queryListRolesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8164,7 +7868,6 @@ const deserializeAws_queryListRoleTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8175,14 +7878,12 @@ const deserializeAws_queryListRoleTagsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8211,7 +7912,6 @@ const deserializeAws_queryListSAMLProvidersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -8219,14 +7919,12 @@ const deserializeAws_queryListSAMLProvidersCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8255,7 +7953,6 @@ const deserializeAws_queryListSAMLProviderTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8269,14 +7966,12 @@ const deserializeAws_queryListSAMLProviderTagsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8305,7 +8000,6 @@ const deserializeAws_queryListServerCertificatesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -8313,14 +8007,12 @@ const deserializeAws_queryListServerCertificatesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8349,7 +8041,6 @@ const deserializeAws_queryListServerCertificateTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8360,14 +8051,12 @@ const deserializeAws_queryListServerCertificateTagsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8399,7 +8088,6 @@ const deserializeAws_queryListServiceSpecificCredentialsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8410,14 +8098,12 @@ const deserializeAws_queryListServiceSpecificCredentialsCommandError = async (
       throw await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8446,7 +8132,6 @@ const deserializeAws_queryListSigningCertificatesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8457,14 +8142,12 @@ const deserializeAws_queryListSigningCertificatesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8493,7 +8176,6 @@ const deserializeAws_queryListSSHPublicKeysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8501,14 +8183,12 @@ const deserializeAws_queryListSSHPublicKeysCommandError = async (
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8537,7 +8217,6 @@ const deserializeAws_queryListUserPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8548,14 +8227,12 @@ const deserializeAws_queryListUserPoliciesCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8584,7 +8261,6 @@ const deserializeAws_queryListUsersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -8592,14 +8268,12 @@ const deserializeAws_queryListUsersCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8628,7 +8302,6 @@ const deserializeAws_queryListUserTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -8639,14 +8312,12 @@ const deserializeAws_queryListUserTagsCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8675,20 +8346,14 @@ const deserializeAws_queryListVirtualMFADevicesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    default:
-      const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
-      });
-      throw __decorateServiceException(response, parsedBody.Error);
-  }
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
 };
 
 export const deserializeAws_queryPutGroupPolicyCommand = async (
@@ -8713,7 +8378,6 @@ const deserializeAws_queryPutGroupPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -8730,14 +8394,12 @@ const deserializeAws_queryPutGroupPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8763,7 +8425,6 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8783,14 +8444,12 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8816,7 +8475,6 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -8836,14 +8494,12 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8869,7 +8525,6 @@ const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8886,14 +8541,12 @@ const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8919,7 +8572,6 @@ const deserializeAws_queryPutUserPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -8936,14 +8588,12 @@ const deserializeAws_queryPutUserPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -8969,7 +8619,6 @@ const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -8983,14 +8632,12 @@ const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError = 
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9016,7 +8663,6 @@ const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -9033,14 +8679,12 @@ const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9066,7 +8710,6 @@ const deserializeAws_queryRemoveUserFromGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -9080,14 +8723,12 @@ const deserializeAws_queryRemoveUserFromGroupCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9119,7 +8760,6 @@ const deserializeAws_queryResetServiceSpecificCredentialCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -9127,14 +8767,12 @@ const deserializeAws_queryResetServiceSpecificCredentialCommandError = async (
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9160,7 +8798,6 @@ const deserializeAws_queryResyncMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAuthenticationCodeException":
@@ -9177,14 +8814,12 @@ const deserializeAws_queryResyncMFADeviceCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9210,7 +8845,6 @@ const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -9227,14 +8861,12 @@ const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9260,7 +8892,6 @@ const deserializeAws_querySetSecurityTokenServicePreferencesCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
@@ -9268,14 +8899,12 @@ const deserializeAws_querySetSecurityTokenServicePreferencesCommandError = async
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9304,7 +8933,6 @@ const deserializeAws_querySimulateCustomPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -9315,14 +8943,12 @@ const deserializeAws_querySimulateCustomPolicyCommandError = async (
       throw await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9351,7 +8977,6 @@ const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -9365,14 +8990,12 @@ const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
       throw await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9398,7 +9021,6 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9418,14 +9040,12 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9451,7 +9071,6 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9471,14 +9090,12 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9504,7 +9121,6 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9524,14 +9140,12 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9557,7 +9171,6 @@ const deserializeAws_queryTagPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9577,14 +9190,12 @@ const deserializeAws_queryTagPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9610,7 +9221,6 @@ const deserializeAws_queryTagRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9630,14 +9240,12 @@ const deserializeAws_queryTagRoleCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9663,7 +9271,6 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9683,14 +9290,12 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9716,7 +9321,6 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9736,14 +9340,12 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9769,7 +9371,6 @@ const deserializeAws_queryTagUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9789,14 +9390,12 @@ const deserializeAws_queryTagUserCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9822,7 +9421,6 @@ const deserializeAws_queryUntagInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9839,14 +9437,12 @@ const deserializeAws_queryUntagInstanceProfileCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9872,7 +9468,6 @@ const deserializeAws_queryUntagMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9889,14 +9484,12 @@ const deserializeAws_queryUntagMFADeviceCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9922,7 +9515,6 @@ const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9939,14 +9531,12 @@ const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -9972,7 +9562,6 @@ const deserializeAws_queryUntagPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -9989,14 +9578,12 @@ const deserializeAws_queryUntagPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10022,7 +9609,6 @@ const deserializeAws_queryUntagRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -10036,14 +9622,12 @@ const deserializeAws_queryUntagRoleCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10069,7 +9653,6 @@ const deserializeAws_queryUntagSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -10086,14 +9669,12 @@ const deserializeAws_queryUntagSAMLProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10119,7 +9700,6 @@ const deserializeAws_queryUntagServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -10136,14 +9716,12 @@ const deserializeAws_queryUntagServerCertificateCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10169,7 +9747,6 @@ const deserializeAws_queryUntagUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -10183,14 +9760,12 @@ const deserializeAws_queryUntagUserCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10216,7 +9791,6 @@ const deserializeAws_queryUpdateAccessKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -10230,14 +9804,12 @@ const deserializeAws_queryUpdateAccessKeyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10263,7 +9835,6 @@ const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -10280,14 +9851,12 @@ const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10313,7 +9882,6 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -10333,14 +9901,12 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10366,7 +9932,6 @@ const deserializeAws_queryUpdateGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -10383,14 +9948,12 @@ const deserializeAws_queryUpdateGroupCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10416,7 +9979,6 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
@@ -10436,14 +9998,12 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10469,7 +10029,6 @@ const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError = as
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -10483,14 +10042,12 @@ const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError = as
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10519,7 +10076,6 @@ const deserializeAws_queryUpdateRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10533,14 +10089,12 @@ const deserializeAws_queryUpdateRoleCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10569,7 +10123,6 @@ const deserializeAws_queryUpdateRoleDescriptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10583,14 +10136,12 @@ const deserializeAws_queryUpdateRoleDescriptionCommandError = async (
       throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10619,7 +10170,6 @@ const deserializeAws_queryUpdateSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
@@ -10636,14 +10186,12 @@ const deserializeAws_queryUpdateSAMLProviderCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10669,7 +10217,6 @@ const deserializeAws_queryUpdateServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
@@ -10686,14 +10233,12 @@ const deserializeAws_queryUpdateServerCertificateCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10719,7 +10264,6 @@ const deserializeAws_queryUpdateServiceSpecificCredentialCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10727,14 +10271,12 @@ const deserializeAws_queryUpdateServiceSpecificCredentialCommandError = async (
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10760,7 +10302,6 @@ const deserializeAws_queryUpdateSigningCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -10774,14 +10315,12 @@ const deserializeAws_queryUpdateSigningCertificateCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10807,7 +10346,6 @@ const deserializeAws_queryUpdateSSHPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
@@ -10815,14 +10353,12 @@ const deserializeAws_queryUpdateSSHPublicKeyCommandError = async (
       throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10848,7 +10384,6 @@ const deserializeAws_queryUpdateUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -10871,14 +10406,12 @@ const deserializeAws_queryUpdateUserCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10907,7 +10440,6 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -10933,14 +10465,12 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -10969,7 +10499,6 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateCertificateException":
@@ -10995,14 +10524,12 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
       throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -11031,7 +10558,6 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateSSHPublicKeyException":
@@ -11051,14 +10577,12 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
       throw await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody.Error);
   }
 };
 
@@ -11431,10 +10955,10 @@ const serializeAws_queryAddClientIDToOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+  if (input.OpenIDConnectProviderArn != null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
-  if (input.ClientID !== undefined && input.ClientID !== null) {
+  if (input.ClientID != null) {
     entries["ClientID"] = input.ClientID;
   }
   return entries;
@@ -11445,10 +10969,10 @@ const serializeAws_queryAddRoleToInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+  if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -11456,10 +10980,10 @@ const serializeAws_queryAddRoleToInstanceProfileRequest = (
 
 const serializeAws_queryAddUserToGroupRequest = (input: AddUserToGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -11467,10 +10991,10 @@ const serializeAws_queryAddUserToGroupRequest = (input: AddUserToGroupRequest, c
 
 const serializeAws_queryAttachGroupPolicyRequest = (input: AttachGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -11478,10 +11002,10 @@ const serializeAws_queryAttachGroupPolicyRequest = (input: AttachGroupPolicyRequ
 
 const serializeAws_queryAttachRolePolicyRequest = (input: AttachRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -11489,10 +11013,10 @@ const serializeAws_queryAttachRolePolicyRequest = (input: AttachRolePolicyReques
 
 const serializeAws_queryAttachUserPolicyRequest = (input: AttachUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -11500,10 +11024,10 @@ const serializeAws_queryAttachUserPolicyRequest = (input: AttachUserPolicyReques
 
 const serializeAws_queryChangePasswordRequest = (input: ChangePasswordRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OldPassword !== undefined && input.OldPassword !== null) {
+  if (input.OldPassword != null) {
     entries["OldPassword"] = input.OldPassword;
   }
-  if (input.NewPassword !== undefined && input.NewPassword !== null) {
+  if (input.NewPassword != null) {
     entries["NewPassword"] = input.NewPassword;
   }
   return entries;
@@ -11524,17 +11048,17 @@ const serializeAws_queryclientIDListType = (input: string[], context: __SerdeCon
 
 const serializeAws_queryContextEntry = (input: ContextEntry, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ContextKeyName !== undefined && input.ContextKeyName !== null) {
+  if (input.ContextKeyName != null) {
     entries["ContextKeyName"] = input.ContextKeyName;
   }
-  if (input.ContextKeyValues !== undefined && input.ContextKeyValues !== null) {
+  if (input.ContextKeyValues != null) {
     const memberEntries = serializeAws_queryContextKeyValueListType(input.ContextKeyValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextKeyValues.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ContextKeyType !== undefined && input.ContextKeyType !== null) {
+  if (input.ContextKeyType != null) {
     entries["ContextKeyType"] = input.ContextKeyType;
   }
   return entries;
@@ -11571,7 +11095,7 @@ const serializeAws_queryContextKeyValueListType = (input: string[], context: __S
 
 const serializeAws_queryCreateAccessKeyRequest = (input: CreateAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -11582,7 +11106,7 @@ const serializeAws_queryCreateAccountAliasRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AccountAlias !== undefined && input.AccountAlias !== null) {
+  if (input.AccountAlias != null) {
     entries["AccountAlias"] = input.AccountAlias;
   }
   return entries;
@@ -11590,10 +11114,10 @@ const serializeAws_queryCreateAccountAliasRequest = (
 
 const serializeAws_queryCreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Path !== undefined && input.Path !== null) {
+  if (input.Path != null) {
     entries["Path"] = input.Path;
   }
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
   return entries;
@@ -11604,13 +11128,13 @@ const serializeAws_queryCreateInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+  if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
-  if (input.Path !== undefined && input.Path !== null) {
+  if (input.Path != null) {
     entries["Path"] = input.Path;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11625,13 +11149,13 @@ const serializeAws_queryCreateLoginProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Password !== undefined && input.Password !== null) {
+  if (input.Password != null) {
     entries["Password"] = input.Password;
   }
-  if (input.PasswordResetRequired !== undefined && input.PasswordResetRequired !== null) {
+  if (input.PasswordResetRequired != null) {
     entries["PasswordResetRequired"] = input.PasswordResetRequired;
   }
   return entries;
@@ -11642,24 +11166,24 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Url !== undefined && input.Url !== null) {
+  if (input.Url != null) {
     entries["Url"] = input.Url;
   }
-  if (input.ClientIDList !== undefined && input.ClientIDList !== null) {
+  if (input.ClientIDList != null) {
     const memberEntries = serializeAws_queryclientIDListType(input.ClientIDList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientIDList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ThumbprintList !== undefined && input.ThumbprintList !== null) {
+  if (input.ThumbprintList != null) {
     const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11671,19 +11195,19 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
 
 const serializeAws_queryCreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.Path !== undefined && input.Path !== null) {
+  if (input.Path != null) {
     entries["Path"] = input.Path;
   }
-  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
+  if (input.PolicyDocument != null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
-  if (input.Description !== undefined && input.Description !== null) {
+  if (input.Description != null) {
     entries["Description"] = input.Description;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11698,13 +11222,13 @@ const serializeAws_queryCreatePolicyVersionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
+  if (input.PolicyDocument != null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
-  if (input.SetAsDefault !== undefined && input.SetAsDefault !== null) {
+  if (input.SetAsDefault != null) {
     entries["SetAsDefault"] = input.SetAsDefault;
   }
   return entries;
@@ -11712,25 +11236,25 @@ const serializeAws_queryCreatePolicyVersionRequest = (
 
 const serializeAws_queryCreateRoleRequest = (input: CreateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Path !== undefined && input.Path !== null) {
+  if (input.Path != null) {
     entries["Path"] = input.Path;
   }
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.AssumeRolePolicyDocument !== undefined && input.AssumeRolePolicyDocument !== null) {
+  if (input.AssumeRolePolicyDocument != null) {
     entries["AssumeRolePolicyDocument"] = input.AssumeRolePolicyDocument;
   }
-  if (input.Description !== undefined && input.Description !== null) {
+  if (input.Description != null) {
     entries["Description"] = input.Description;
   }
-  if (input.MaxSessionDuration !== undefined && input.MaxSessionDuration !== null) {
+  if (input.MaxSessionDuration != null) {
     entries["MaxSessionDuration"] = input.MaxSessionDuration;
   }
-  if (input.PermissionsBoundary !== undefined && input.PermissionsBoundary !== null) {
+  if (input.PermissionsBoundary != null) {
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11745,13 +11269,13 @@ const serializeAws_queryCreateSAMLProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SAMLMetadataDocument !== undefined && input.SAMLMetadataDocument !== null) {
+  if (input.SAMLMetadataDocument != null) {
     entries["SAMLMetadataDocument"] = input.SAMLMetadataDocument;
   }
-  if (input.Name !== undefined && input.Name !== null) {
+  if (input.Name != null) {
     entries["Name"] = input.Name;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11766,13 +11290,13 @@ const serializeAws_queryCreateServiceLinkedRoleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AWSServiceName !== undefined && input.AWSServiceName !== null) {
+  if (input.AWSServiceName != null) {
     entries["AWSServiceName"] = input.AWSServiceName;
   }
-  if (input.Description !== undefined && input.Description !== null) {
+  if (input.Description != null) {
     entries["Description"] = input.Description;
   }
-  if (input.CustomSuffix !== undefined && input.CustomSuffix !== null) {
+  if (input.CustomSuffix != null) {
     entries["CustomSuffix"] = input.CustomSuffix;
   }
   return entries;
@@ -11783,10 +11307,10 @@ const serializeAws_queryCreateServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.ServiceName !== undefined && input.ServiceName !== null) {
+  if (input.ServiceName != null) {
     entries["ServiceName"] = input.ServiceName;
   }
   return entries;
@@ -11794,16 +11318,16 @@ const serializeAws_queryCreateServiceSpecificCredentialRequest = (
 
 const serializeAws_queryCreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Path !== undefined && input.Path !== null) {
+  if (input.Path != null) {
     entries["Path"] = input.Path;
   }
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PermissionsBoundary !== undefined && input.PermissionsBoundary !== null) {
+  if (input.PermissionsBoundary != null) {
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11818,13 +11342,13 @@ const serializeAws_queryCreateVirtualMFADeviceRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Path !== undefined && input.Path !== null) {
+  if (input.Path != null) {
     entries["Path"] = input.Path;
   }
-  if (input.VirtualMFADeviceName !== undefined && input.VirtualMFADeviceName !== null) {
+  if (input.VirtualMFADeviceName != null) {
     entries["VirtualMFADeviceName"] = input.VirtualMFADeviceName;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -11839,10 +11363,10 @@ const serializeAws_queryDeactivateMFADeviceRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+  if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
   return entries;
@@ -11850,10 +11374,10 @@ const serializeAws_queryDeactivateMFADeviceRequest = (
 
 const serializeAws_queryDeleteAccessKeyRequest = (input: DeleteAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.AccessKeyId !== undefined && input.AccessKeyId !== null) {
+  if (input.AccessKeyId != null) {
     entries["AccessKeyId"] = input.AccessKeyId;
   }
   return entries;
@@ -11864,7 +11388,7 @@ const serializeAws_queryDeleteAccountAliasRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AccountAlias !== undefined && input.AccountAlias !== null) {
+  if (input.AccountAlias != null) {
     entries["AccountAlias"] = input.AccountAlias;
   }
   return entries;
@@ -11872,10 +11396,10 @@ const serializeAws_queryDeleteAccountAliasRequest = (
 
 const serializeAws_queryDeleteGroupPolicyRequest = (input: DeleteGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -11883,7 +11407,7 @@ const serializeAws_queryDeleteGroupPolicyRequest = (input: DeleteGroupPolicyRequ
 
 const serializeAws_queryDeleteGroupRequest = (input: DeleteGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
   return entries;
@@ -11894,7 +11418,7 @@ const serializeAws_queryDeleteInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+  if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
   return entries;
@@ -11905,7 +11429,7 @@ const serializeAws_queryDeleteLoginProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -11916,7 +11440,7 @@ const serializeAws_queryDeleteOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+  if (input.OpenIDConnectProviderArn != null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
   return entries;
@@ -11924,7 +11448,7 @@ const serializeAws_queryDeleteOpenIDConnectProviderRequest = (
 
 const serializeAws_queryDeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -11935,10 +11459,10 @@ const serializeAws_queryDeletePolicyVersionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.VersionId !== undefined && input.VersionId !== null) {
+  if (input.VersionId != null) {
     entries["VersionId"] = input.VersionId;
   }
   return entries;
@@ -11949,7 +11473,7 @@ const serializeAws_queryDeleteRolePermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -11957,10 +11481,10 @@ const serializeAws_queryDeleteRolePermissionsBoundaryRequest = (
 
 const serializeAws_queryDeleteRolePolicyRequest = (input: DeleteRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -11968,7 +11492,7 @@ const serializeAws_queryDeleteRolePolicyRequest = (input: DeleteRolePolicyReques
 
 const serializeAws_queryDeleteRoleRequest = (input: DeleteRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -11979,7 +11503,7 @@ const serializeAws_queryDeleteSAMLProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
+  if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
   return entries;
@@ -11990,7 +11514,7 @@ const serializeAws_queryDeleteServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
+  if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
   return entries;
@@ -12001,7 +11525,7 @@ const serializeAws_queryDeleteServiceLinkedRoleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -12012,10 +11536,10 @@ const serializeAws_queryDeleteServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.ServiceSpecificCredentialId !== undefined && input.ServiceSpecificCredentialId !== null) {
+  if (input.ServiceSpecificCredentialId != null) {
     entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
   }
   return entries;
@@ -12026,10 +11550,10 @@ const serializeAws_queryDeleteSigningCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.CertificateId !== undefined && input.CertificateId !== null) {
+  if (input.CertificateId != null) {
     entries["CertificateId"] = input.CertificateId;
   }
   return entries;
@@ -12040,10 +11564,10 @@ const serializeAws_queryDeleteSSHPublicKeyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SSHPublicKeyId !== undefined && input.SSHPublicKeyId !== null) {
+  if (input.SSHPublicKeyId != null) {
     entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
   }
   return entries;
@@ -12054,7 +11578,7 @@ const serializeAws_queryDeleteUserPermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -12062,10 +11586,10 @@ const serializeAws_queryDeleteUserPermissionsBoundaryRequest = (
 
 const serializeAws_queryDeleteUserPolicyRequest = (input: DeleteUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -12073,7 +11597,7 @@ const serializeAws_queryDeleteUserPolicyRequest = (input: DeleteUserPolicyReques
 
 const serializeAws_queryDeleteUserRequest = (input: DeleteUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -12084,7 +11608,7 @@ const serializeAws_queryDeleteVirtualMFADeviceRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+  if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
   return entries;
@@ -12092,10 +11616,10 @@ const serializeAws_queryDeleteVirtualMFADeviceRequest = (
 
 const serializeAws_queryDetachGroupPolicyRequest = (input: DetachGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -12103,10 +11627,10 @@ const serializeAws_queryDetachGroupPolicyRequest = (input: DetachGroupPolicyRequ
 
 const serializeAws_queryDetachRolePolicyRequest = (input: DetachRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -12114,10 +11638,10 @@ const serializeAws_queryDetachRolePolicyRequest = (input: DetachRolePolicyReques
 
 const serializeAws_queryDetachUserPolicyRequest = (input: DetachUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -12125,16 +11649,16 @@ const serializeAws_queryDetachUserPolicyRequest = (input: DetachUserPolicyReques
 
 const serializeAws_queryEnableMFADeviceRequest = (input: EnableMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+  if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
-  if (input.AuthenticationCode1 !== undefined && input.AuthenticationCode1 !== null) {
+  if (input.AuthenticationCode1 != null) {
     entries["AuthenticationCode1"] = input.AuthenticationCode1;
   }
-  if (input.AuthenticationCode2 !== undefined && input.AuthenticationCode2 !== null) {
+  if (input.AuthenticationCode2 != null) {
     entries["AuthenticationCode2"] = input.AuthenticationCode2;
   }
   return entries;
@@ -12158,10 +11682,10 @@ const serializeAws_queryGenerateOrganizationsAccessReportRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EntityPath !== undefined && input.EntityPath !== null) {
+  if (input.EntityPath != null) {
     entries["EntityPath"] = input.EntityPath;
   }
-  if (input.OrganizationsPolicyId !== undefined && input.OrganizationsPolicyId !== null) {
+  if (input.OrganizationsPolicyId != null) {
     entries["OrganizationsPolicyId"] = input.OrganizationsPolicyId;
   }
   return entries;
@@ -12172,10 +11696,10 @@ const serializeAws_queryGenerateServiceLastAccessedDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Arn !== undefined && input.Arn !== null) {
+  if (input.Arn != null) {
     entries["Arn"] = input.Arn;
   }
-  if (input.Granularity !== undefined && input.Granularity !== null) {
+  if (input.Granularity != null) {
     entries["Granularity"] = input.Granularity;
   }
   return entries;
@@ -12186,7 +11710,7 @@ const serializeAws_queryGetAccessKeyLastUsedRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AccessKeyId !== undefined && input.AccessKeyId !== null) {
+  if (input.AccessKeyId != null) {
     entries["AccessKeyId"] = input.AccessKeyId;
   }
   return entries;
@@ -12197,17 +11721,17 @@ const serializeAws_queryGetAccountAuthorizationDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Filter !== undefined && input.Filter !== null) {
+  if (input.Filter != null) {
     const memberEntries = serializeAws_queryentityListType(input.Filter, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filter.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -12218,7 +11742,7 @@ const serializeAws_queryGetContextKeysForCustomPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyInputList !== undefined && input.PolicyInputList !== null) {
+  if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
@@ -12233,10 +11757,10 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicySourceArn !== undefined && input.PolicySourceArn !== null) {
+  if (input.PolicySourceArn != null) {
     entries["PolicySourceArn"] = input.PolicySourceArn;
   }
-  if (input.PolicyInputList !== undefined && input.PolicyInputList !== null) {
+  if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
@@ -12248,10 +11772,10 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
 
 const serializeAws_queryGetGroupPolicyRequest = (input: GetGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -12259,13 +11783,13 @@ const serializeAws_queryGetGroupPolicyRequest = (input: GetGroupPolicyRequest, c
 
 const serializeAws_queryGetGroupRequest = (input: GetGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12276,7 +11800,7 @@ const serializeAws_queryGetInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+  if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
   return entries;
@@ -12284,7 +11808,7 @@ const serializeAws_queryGetInstanceProfileRequest = (
 
 const serializeAws_queryGetLoginProfileRequest = (input: GetLoginProfileRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -12295,7 +11819,7 @@ const serializeAws_queryGetOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+  if (input.OpenIDConnectProviderArn != null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
   return entries;
@@ -12306,16 +11830,16 @@ const serializeAws_queryGetOrganizationsAccessReportRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.JobId !== undefined && input.JobId !== null) {
+  if (input.JobId != null) {
     entries["JobId"] = input.JobId;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.SortKey !== undefined && input.SortKey !== null) {
+  if (input.SortKey != null) {
     entries["SortKey"] = input.SortKey;
   }
   return entries;
@@ -12323,7 +11847,7 @@ const serializeAws_queryGetOrganizationsAccessReportRequest = (
 
 const serializeAws_queryGetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
@@ -12331,10 +11855,10 @@ const serializeAws_queryGetPolicyRequest = (input: GetPolicyRequest, context: __
 
 const serializeAws_queryGetPolicyVersionRequest = (input: GetPolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.VersionId !== undefined && input.VersionId !== null) {
+  if (input.VersionId != null) {
     entries["VersionId"] = input.VersionId;
   }
   return entries;
@@ -12342,10 +11866,10 @@ const serializeAws_queryGetPolicyVersionRequest = (input: GetPolicyVersionReques
 
 const serializeAws_queryGetRolePolicyRequest = (input: GetRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -12353,7 +11877,7 @@ const serializeAws_queryGetRolePolicyRequest = (input: GetRolePolicyRequest, con
 
 const serializeAws_queryGetRoleRequest = (input: GetRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -12361,7 +11885,7 @@ const serializeAws_queryGetRoleRequest = (input: GetRoleRequest, context: __Serd
 
 const serializeAws_queryGetSAMLProviderRequest = (input: GetSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
+  if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
   return entries;
@@ -12372,7 +11896,7 @@ const serializeAws_queryGetServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
+  if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
   return entries;
@@ -12383,13 +11907,13 @@ const serializeAws_queryGetServiceLastAccessedDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.JobId !== undefined && input.JobId !== null) {
+  if (input.JobId != null) {
     entries["JobId"] = input.JobId;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -12400,16 +11924,16 @@ const serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.JobId !== undefined && input.JobId !== null) {
+  if (input.JobId != null) {
     entries["JobId"] = input.JobId;
   }
-  if (input.ServiceNamespace !== undefined && input.ServiceNamespace !== null) {
+  if (input.ServiceNamespace != null) {
     entries["ServiceNamespace"] = input.ServiceNamespace;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -12420,7 +11944,7 @@ const serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DeletionTaskId !== undefined && input.DeletionTaskId !== null) {
+  if (input.DeletionTaskId != null) {
     entries["DeletionTaskId"] = input.DeletionTaskId;
   }
   return entries;
@@ -12428,13 +11952,13 @@ const serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest = (
 
 const serializeAws_queryGetSSHPublicKeyRequest = (input: GetSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SSHPublicKeyId !== undefined && input.SSHPublicKeyId !== null) {
+  if (input.SSHPublicKeyId != null) {
     entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
   }
-  if (input.Encoding !== undefined && input.Encoding !== null) {
+  if (input.Encoding != null) {
     entries["Encoding"] = input.Encoding;
   }
   return entries;
@@ -12442,10 +11966,10 @@ const serializeAws_queryGetSSHPublicKeyRequest = (input: GetSSHPublicKeyRequest,
 
 const serializeAws_queryGetUserPolicyRequest = (input: GetUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
   return entries;
@@ -12453,7 +11977,7 @@ const serializeAws_queryGetUserPolicyRequest = (input: GetUserPolicyRequest, con
 
 const serializeAws_queryGetUserRequest = (input: GetUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -12461,13 +11985,13 @@ const serializeAws_queryGetUserRequest = (input: GetUserRequest, context: __Serd
 
 const serializeAws_queryListAccessKeysRequest = (input: ListAccessKeysRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12478,10 +12002,10 @@ const serializeAws_queryListAccountAliasesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12492,16 +12016,16 @@ const serializeAws_queryListAttachedGroupPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
+  if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12512,16 +12036,16 @@ const serializeAws_queryListAttachedRolePoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
+  if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12532,16 +12056,16 @@ const serializeAws_queryListAttachedUserPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
+  if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12552,22 +12076,22 @@ const serializeAws_queryListEntitiesForPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.EntityFilter !== undefined && input.EntityFilter !== null) {
+  if (input.EntityFilter != null) {
     entries["EntityFilter"] = input.EntityFilter;
   }
-  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
+  if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.PolicyUsageFilter !== undefined && input.PolicyUsageFilter !== null) {
+  if (input.PolicyUsageFilter != null) {
     entries["PolicyUsageFilter"] = input.PolicyUsageFilter;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12575,13 +12099,13 @@ const serializeAws_queryListEntitiesForPolicyRequest = (
 
 const serializeAws_queryListGroupPoliciesRequest = (input: ListGroupPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12589,13 +12113,13 @@ const serializeAws_queryListGroupPoliciesRequest = (input: ListGroupPoliciesRequ
 
 const serializeAws_queryListGroupsForUserRequest = (input: ListGroupsForUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12603,13 +12127,13 @@ const serializeAws_queryListGroupsForUserRequest = (input: ListGroupsForUserRequ
 
 const serializeAws_queryListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
+  if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12620,13 +12144,13 @@ const serializeAws_queryListInstanceProfilesForRoleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12637,13 +12161,13 @@ const serializeAws_queryListInstanceProfilesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
+  if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12654,13 +12178,13 @@ const serializeAws_queryListInstanceProfileTagsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+  if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12668,13 +12192,13 @@ const serializeAws_queryListInstanceProfileTagsRequest = (
 
 const serializeAws_queryListMFADevicesRequest = (input: ListMFADevicesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12682,13 +12206,13 @@ const serializeAws_queryListMFADevicesRequest = (input: ListMFADevicesRequest, c
 
 const serializeAws_queryListMFADeviceTagsRequest = (input: ListMFADeviceTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+  if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12707,13 +12231,13 @@ const serializeAws_queryListOpenIDConnectProviderTagsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+  if (input.OpenIDConnectProviderArn != null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12724,13 +12248,13 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.Arn !== undefined && input.Arn !== null) {
+  if (input.Arn != null) {
     entries["Arn"] = input.Arn;
   }
-  if (input.ServiceNamespaces !== undefined && input.ServiceNamespaces !== null) {
+  if (input.ServiceNamespaces != null) {
     const memberEntries = serializeAws_queryserviceNamespaceListType(input.ServiceNamespaces, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceNamespaces.${key}`;
@@ -12742,22 +12266,22 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
 
 const serializeAws_queryListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Scope !== undefined && input.Scope !== null) {
+  if (input.Scope != null) {
     entries["Scope"] = input.Scope;
   }
-  if (input.OnlyAttached !== undefined && input.OnlyAttached !== null) {
+  if (input.OnlyAttached != null) {
     entries["OnlyAttached"] = input.OnlyAttached;
   }
-  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
+  if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.PolicyUsageFilter !== undefined && input.PolicyUsageFilter !== null) {
+  if (input.PolicyUsageFilter != null) {
     entries["PolicyUsageFilter"] = input.PolicyUsageFilter;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12765,13 +12289,13 @@ const serializeAws_queryListPoliciesRequest = (input: ListPoliciesRequest, conte
 
 const serializeAws_queryListPolicyTagsRequest = (input: ListPolicyTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12782,13 +12306,13 @@ const serializeAws_queryListPolicyVersionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12796,13 +12320,13 @@ const serializeAws_queryListPolicyVersionsRequest = (
 
 const serializeAws_queryListRolePoliciesRequest = (input: ListRolePoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12810,13 +12334,13 @@ const serializeAws_queryListRolePoliciesRequest = (input: ListRolePoliciesReques
 
 const serializeAws_queryListRolesRequest = (input: ListRolesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
+  if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12824,13 +12348,13 @@ const serializeAws_queryListRolesRequest = (input: ListRolesRequest, context: __
 
 const serializeAws_queryListRoleTagsRequest = (input: ListRoleTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12846,13 +12370,13 @@ const serializeAws_queryListSAMLProviderTagsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
+  if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12863,13 +12387,13 @@ const serializeAws_queryListServerCertificatesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
+  if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12880,13 +12404,13 @@ const serializeAws_queryListServerCertificateTagsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
+  if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12897,10 +12421,10 @@ const serializeAws_queryListServiceSpecificCredentialsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.ServiceName !== undefined && input.ServiceName !== null) {
+  if (input.ServiceName != null) {
     entries["ServiceName"] = input.ServiceName;
   }
   return entries;
@@ -12911,13 +12435,13 @@ const serializeAws_queryListSigningCertificatesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12925,13 +12449,13 @@ const serializeAws_queryListSigningCertificatesRequest = (
 
 const serializeAws_queryListSSHPublicKeysRequest = (input: ListSSHPublicKeysRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12939,13 +12463,13 @@ const serializeAws_queryListSSHPublicKeysRequest = (input: ListSSHPublicKeysRequ
 
 const serializeAws_queryListUserPoliciesRequest = (input: ListUserPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12953,13 +12477,13 @@ const serializeAws_queryListUserPoliciesRequest = (input: ListUserPoliciesReques
 
 const serializeAws_queryListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PathPrefix !== undefined && input.PathPrefix !== null) {
+  if (input.PathPrefix != null) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12967,13 +12491,13 @@ const serializeAws_queryListUsersRequest = (input: ListUsersRequest, context: __
 
 const serializeAws_queryListUserTagsRequest = (input: ListUserTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12984,13 +12508,13 @@ const serializeAws_queryListVirtualMFADevicesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AssignmentStatus !== undefined && input.AssignmentStatus !== null) {
+  if (input.AssignmentStatus != null) {
     entries["AssignmentStatus"] = input.AssignmentStatus;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
   return entries;
@@ -12998,13 +12522,13 @@ const serializeAws_queryListVirtualMFADevicesRequest = (
 
 const serializeAws_queryPutGroupPolicyRequest = (input: PutGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
+  if (input.PolicyDocument != null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
   return entries;
@@ -13015,10 +12539,10 @@ const serializeAws_queryPutRolePermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PermissionsBoundary !== undefined && input.PermissionsBoundary !== null) {
+  if (input.PermissionsBoundary != null) {
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
   return entries;
@@ -13026,13 +12550,13 @@ const serializeAws_queryPutRolePermissionsBoundaryRequest = (
 
 const serializeAws_queryPutRolePolicyRequest = (input: PutRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
+  if (input.PolicyDocument != null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
   return entries;
@@ -13043,10 +12567,10 @@ const serializeAws_queryPutUserPermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PermissionsBoundary !== undefined && input.PermissionsBoundary !== null) {
+  if (input.PermissionsBoundary != null) {
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
   return entries;
@@ -13054,13 +12578,13 @@ const serializeAws_queryPutUserPermissionsBoundaryRequest = (
 
 const serializeAws_queryPutUserPolicyRequest = (input: PutUserPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PolicyName !== undefined && input.PolicyName !== null) {
+  if (input.PolicyName != null) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
+  if (input.PolicyDocument != null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
   return entries;
@@ -13071,10 +12595,10 @@ const serializeAws_queryRemoveClientIDFromOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+  if (input.OpenIDConnectProviderArn != null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
-  if (input.ClientID !== undefined && input.ClientID !== null) {
+  if (input.ClientID != null) {
     entries["ClientID"] = input.ClientID;
   }
   return entries;
@@ -13085,10 +12609,10 @@ const serializeAws_queryRemoveRoleFromInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+  if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
   return entries;
@@ -13099,10 +12623,10 @@ const serializeAws_queryRemoveUserFromGroupRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
   return entries;
@@ -13113,10 +12637,10 @@ const serializeAws_queryResetServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.ServiceSpecificCredentialId !== undefined && input.ServiceSpecificCredentialId !== null) {
+  if (input.ServiceSpecificCredentialId != null) {
     entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
   }
   return entries;
@@ -13137,16 +12661,16 @@ const serializeAws_queryResourceNameListType = (input: string[], context: __Serd
 
 const serializeAws_queryResyncMFADeviceRequest = (input: ResyncMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+  if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
-  if (input.AuthenticationCode1 !== undefined && input.AuthenticationCode1 !== null) {
+  if (input.AuthenticationCode1 != null) {
     entries["AuthenticationCode1"] = input.AuthenticationCode1;
   }
-  if (input.AuthenticationCode2 !== undefined && input.AuthenticationCode2 !== null) {
+  if (input.AuthenticationCode2 != null) {
     entries["AuthenticationCode2"] = input.AuthenticationCode2;
   }
   return entries;
@@ -13170,10 +12694,10 @@ const serializeAws_querySetDefaultPolicyVersionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.VersionId !== undefined && input.VersionId !== null) {
+  if (input.VersionId != null) {
     entries["VersionId"] = input.VersionId;
   }
   return entries;
@@ -13184,7 +12708,7 @@ const serializeAws_querySetSecurityTokenServicePreferencesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GlobalEndpointTokenVersion !== undefined && input.GlobalEndpointTokenVersion !== null) {
+  if (input.GlobalEndpointTokenVersion != null) {
     entries["GlobalEndpointTokenVersion"] = input.GlobalEndpointTokenVersion;
   }
   return entries;
@@ -13195,57 +12719,57 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyInputList !== undefined && input.PolicyInputList !== null) {
+  if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PermissionsBoundaryPolicyInputList !== undefined && input.PermissionsBoundaryPolicyInputList !== null) {
+  if (input.PermissionsBoundaryPolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PermissionsBoundaryPolicyInputList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ActionNames !== undefined && input.ActionNames !== null) {
+  if (input.ActionNames != null) {
     const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourceArns !== undefined && input.ResourceArns !== null) {
+  if (input.ResourceArns != null) {
     const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourcePolicy !== undefined && input.ResourcePolicy !== null) {
+  if (input.ResourcePolicy != null) {
     entries["ResourcePolicy"] = input.ResourcePolicy;
   }
-  if (input.ResourceOwner !== undefined && input.ResourceOwner !== null) {
+  if (input.ResourceOwner != null) {
     entries["ResourceOwner"] = input.ResourceOwner;
   }
-  if (input.CallerArn !== undefined && input.CallerArn !== null) {
+  if (input.CallerArn != null) {
     entries["CallerArn"] = input.CallerArn;
   }
-  if (input.ContextEntries !== undefined && input.ContextEntries !== null) {
+  if (input.ContextEntries != null) {
     const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextEntries.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourceHandlingOption !== undefined && input.ResourceHandlingOption !== null) {
+  if (input.ResourceHandlingOption != null) {
     entries["ResourceHandlingOption"] = input.ResourceHandlingOption;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -13256,60 +12780,60 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicySourceArn !== undefined && input.PolicySourceArn !== null) {
+  if (input.PolicySourceArn != null) {
     entries["PolicySourceArn"] = input.PolicySourceArn;
   }
-  if (input.PolicyInputList !== undefined && input.PolicyInputList !== null) {
+  if (input.PolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PolicyInputList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PermissionsBoundaryPolicyInputList !== undefined && input.PermissionsBoundaryPolicyInputList !== null) {
+  if (input.PermissionsBoundaryPolicyInputList != null) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PermissionsBoundaryPolicyInputList.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ActionNames !== undefined && input.ActionNames !== null) {
+  if (input.ActionNames != null) {
     const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourceArns !== undefined && input.ResourceArns !== null) {
+  if (input.ResourceArns != null) {
     const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourcePolicy !== undefined && input.ResourcePolicy !== null) {
+  if (input.ResourcePolicy != null) {
     entries["ResourcePolicy"] = input.ResourcePolicy;
   }
-  if (input.ResourceOwner !== undefined && input.ResourceOwner !== null) {
+  if (input.ResourceOwner != null) {
     entries["ResourceOwner"] = input.ResourceOwner;
   }
-  if (input.CallerArn !== undefined && input.CallerArn !== null) {
+  if (input.CallerArn != null) {
     entries["CallerArn"] = input.CallerArn;
   }
-  if (input.ContextEntries !== undefined && input.ContextEntries !== null) {
+  if (input.ContextEntries != null) {
     const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ContextEntries.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourceHandlingOption !== undefined && input.ResourceHandlingOption !== null) {
+  if (input.ResourceHandlingOption != null) {
     entries["ResourceHandlingOption"] = input.ResourceHandlingOption;
   }
-  if (input.MaxItems !== undefined && input.MaxItems !== null) {
+  if (input.MaxItems != null) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined && input.Marker !== null) {
+  if (input.Marker != null) {
     entries["Marker"] = input.Marker;
   }
   return entries;
@@ -13330,10 +12854,10 @@ const serializeAws_querySimulationPolicyListType = (input: string[], context: __
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined && input.Key !== null) {
+  if (input.Key != null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined && input.Value !== null) {
+  if (input.Value != null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -13344,10 +12868,10 @@ const serializeAws_queryTagInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+  if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -13388,10 +12912,10 @@ const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): a
 
 const serializeAws_queryTagMFADeviceRequest = (input: TagMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+  if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -13406,10 +12930,10 @@ const serializeAws_queryTagOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+  if (input.OpenIDConnectProviderArn != null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -13421,10 +12945,10 @@ const serializeAws_queryTagOpenIDConnectProviderRequest = (
 
 const serializeAws_queryTagPolicyRequest = (input: TagPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -13436,10 +12960,10 @@ const serializeAws_queryTagPolicyRequest = (input: TagPolicyRequest, context: __
 
 const serializeAws_queryTagRoleRequest = (input: TagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -13451,10 +12975,10 @@ const serializeAws_queryTagRoleRequest = (input: TagRoleRequest, context: __Serd
 
 const serializeAws_queryTagSAMLProviderRequest = (input: TagSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
+  if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -13469,10 +12993,10 @@ const serializeAws_queryTagServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
+  if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -13484,10 +13008,10 @@ const serializeAws_queryTagServerCertificateRequest = (
 
 const serializeAws_queryTagUserRequest = (input: TagUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -13515,10 +13039,10 @@ const serializeAws_queryUntagInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined && input.InstanceProfileName !== null) {
+  if (input.InstanceProfileName != null) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
   }
-  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+  if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -13530,10 +13054,10 @@ const serializeAws_queryUntagInstanceProfileRequest = (
 
 const serializeAws_queryUntagMFADeviceRequest = (input: UntagMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SerialNumber !== undefined && input.SerialNumber !== null) {
+  if (input.SerialNumber != null) {
     entries["SerialNumber"] = input.SerialNumber;
   }
-  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+  if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -13548,10 +13072,10 @@ const serializeAws_queryUntagOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+  if (input.OpenIDConnectProviderArn != null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
-  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+  if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -13563,10 +13087,10 @@ const serializeAws_queryUntagOpenIDConnectProviderRequest = (
 
 const serializeAws_queryUntagPolicyRequest = (input: UntagPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined && input.PolicyArn !== null) {
+  if (input.PolicyArn != null) {
     entries["PolicyArn"] = input.PolicyArn;
   }
-  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+  if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -13578,10 +13102,10 @@ const serializeAws_queryUntagPolicyRequest = (input: UntagPolicyRequest, context
 
 const serializeAws_queryUntagRoleRequest = (input: UntagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+  if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -13593,10 +13117,10 @@ const serializeAws_queryUntagRoleRequest = (input: UntagRoleRequest, context: __
 
 const serializeAws_queryUntagSAMLProviderRequest = (input: UntagSAMLProviderRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
+  if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
-  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+  if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -13611,10 +13135,10 @@ const serializeAws_queryUntagServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
+  if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
-  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+  if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -13626,10 +13150,10 @@ const serializeAws_queryUntagServerCertificateRequest = (
 
 const serializeAws_queryUntagUserRequest = (input: UntagUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.TagKeys !== undefined && input.TagKeys !== null) {
+  if (input.TagKeys != null) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -13641,13 +13165,13 @@ const serializeAws_queryUntagUserRequest = (input: UntagUserRequest, context: __
 
 const serializeAws_queryUpdateAccessKeyRequest = (input: UpdateAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.AccessKeyId !== undefined && input.AccessKeyId !== null) {
+  if (input.AccessKeyId != null) {
     entries["AccessKeyId"] = input.AccessKeyId;
   }
-  if (input.Status !== undefined && input.Status !== null) {
+  if (input.Status != null) {
     entries["Status"] = input.Status;
   }
   return entries;
@@ -13658,31 +13182,31 @@ const serializeAws_queryUpdateAccountPasswordPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MinimumPasswordLength !== undefined && input.MinimumPasswordLength !== null) {
+  if (input.MinimumPasswordLength != null) {
     entries["MinimumPasswordLength"] = input.MinimumPasswordLength;
   }
-  if (input.RequireSymbols !== undefined && input.RequireSymbols !== null) {
+  if (input.RequireSymbols != null) {
     entries["RequireSymbols"] = input.RequireSymbols;
   }
-  if (input.RequireNumbers !== undefined && input.RequireNumbers !== null) {
+  if (input.RequireNumbers != null) {
     entries["RequireNumbers"] = input.RequireNumbers;
   }
-  if (input.RequireUppercaseCharacters !== undefined && input.RequireUppercaseCharacters !== null) {
+  if (input.RequireUppercaseCharacters != null) {
     entries["RequireUppercaseCharacters"] = input.RequireUppercaseCharacters;
   }
-  if (input.RequireLowercaseCharacters !== undefined && input.RequireLowercaseCharacters !== null) {
+  if (input.RequireLowercaseCharacters != null) {
     entries["RequireLowercaseCharacters"] = input.RequireLowercaseCharacters;
   }
-  if (input.AllowUsersToChangePassword !== undefined && input.AllowUsersToChangePassword !== null) {
+  if (input.AllowUsersToChangePassword != null) {
     entries["AllowUsersToChangePassword"] = input.AllowUsersToChangePassword;
   }
-  if (input.MaxPasswordAge !== undefined && input.MaxPasswordAge !== null) {
+  if (input.MaxPasswordAge != null) {
     entries["MaxPasswordAge"] = input.MaxPasswordAge;
   }
-  if (input.PasswordReusePrevention !== undefined && input.PasswordReusePrevention !== null) {
+  if (input.PasswordReusePrevention != null) {
     entries["PasswordReusePrevention"] = input.PasswordReusePrevention;
   }
-  if (input.HardExpiry !== undefined && input.HardExpiry !== null) {
+  if (input.HardExpiry != null) {
     entries["HardExpiry"] = input.HardExpiry;
   }
   return entries;
@@ -13693,10 +13217,10 @@ const serializeAws_queryUpdateAssumeRolePolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.PolicyDocument !== undefined && input.PolicyDocument !== null) {
+  if (input.PolicyDocument != null) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
   return entries;
@@ -13704,13 +13228,13 @@ const serializeAws_queryUpdateAssumeRolePolicyRequest = (
 
 const serializeAws_queryUpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined && input.GroupName !== null) {
+  if (input.GroupName != null) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.NewPath !== undefined && input.NewPath !== null) {
+  if (input.NewPath != null) {
     entries["NewPath"] = input.NewPath;
   }
-  if (input.NewGroupName !== undefined && input.NewGroupName !== null) {
+  if (input.NewGroupName != null) {
     entries["NewGroupName"] = input.NewGroupName;
   }
   return entries;
@@ -13721,13 +13245,13 @@ const serializeAws_queryUpdateLoginProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Password !== undefined && input.Password !== null) {
+  if (input.Password != null) {
     entries["Password"] = input.Password;
   }
-  if (input.PasswordResetRequired !== undefined && input.PasswordResetRequired !== null) {
+  if (input.PasswordResetRequired != null) {
     entries["PasswordResetRequired"] = input.PasswordResetRequired;
   }
   return entries;
@@ -13738,10 +13262,10 @@ const serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined && input.OpenIDConnectProviderArn !== null) {
+  if (input.OpenIDConnectProviderArn != null) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
-  if (input.ThumbprintList !== undefined && input.ThumbprintList !== null) {
+  if (input.ThumbprintList != null) {
     const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
@@ -13756,10 +13280,10 @@ const serializeAws_queryUpdateRoleDescriptionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.Description !== undefined && input.Description !== null) {
+  if (input.Description != null) {
     entries["Description"] = input.Description;
   }
   return entries;
@@ -13767,13 +13291,13 @@ const serializeAws_queryUpdateRoleDescriptionRequest = (
 
 const serializeAws_queryUpdateRoleRequest = (input: UpdateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined && input.RoleName !== null) {
+  if (input.RoleName != null) {
     entries["RoleName"] = input.RoleName;
   }
-  if (input.Description !== undefined && input.Description !== null) {
+  if (input.Description != null) {
     entries["Description"] = input.Description;
   }
-  if (input.MaxSessionDuration !== undefined && input.MaxSessionDuration !== null) {
+  if (input.MaxSessionDuration != null) {
     entries["MaxSessionDuration"] = input.MaxSessionDuration;
   }
   return entries;
@@ -13784,10 +13308,10 @@ const serializeAws_queryUpdateSAMLProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SAMLMetadataDocument !== undefined && input.SAMLMetadataDocument !== null) {
+  if (input.SAMLMetadataDocument != null) {
     entries["SAMLMetadataDocument"] = input.SAMLMetadataDocument;
   }
-  if (input.SAMLProviderArn !== undefined && input.SAMLProviderArn !== null) {
+  if (input.SAMLProviderArn != null) {
     entries["SAMLProviderArn"] = input.SAMLProviderArn;
   }
   return entries;
@@ -13798,13 +13322,13 @@ const serializeAws_queryUpdateServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
+  if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
-  if (input.NewPath !== undefined && input.NewPath !== null) {
+  if (input.NewPath != null) {
     entries["NewPath"] = input.NewPath;
   }
-  if (input.NewServerCertificateName !== undefined && input.NewServerCertificateName !== null) {
+  if (input.NewServerCertificateName != null) {
     entries["NewServerCertificateName"] = input.NewServerCertificateName;
   }
   return entries;
@@ -13815,13 +13339,13 @@ const serializeAws_queryUpdateServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.ServiceSpecificCredentialId !== undefined && input.ServiceSpecificCredentialId !== null) {
+  if (input.ServiceSpecificCredentialId != null) {
     entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
   }
-  if (input.Status !== undefined && input.Status !== null) {
+  if (input.Status != null) {
     entries["Status"] = input.Status;
   }
   return entries;
@@ -13832,13 +13356,13 @@ const serializeAws_queryUpdateSigningCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.CertificateId !== undefined && input.CertificateId !== null) {
+  if (input.CertificateId != null) {
     entries["CertificateId"] = input.CertificateId;
   }
-  if (input.Status !== undefined && input.Status !== null) {
+  if (input.Status != null) {
     entries["Status"] = input.Status;
   }
   return entries;
@@ -13849,13 +13373,13 @@ const serializeAws_queryUpdateSSHPublicKeyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SSHPublicKeyId !== undefined && input.SSHPublicKeyId !== null) {
+  if (input.SSHPublicKeyId != null) {
     entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
   }
-  if (input.Status !== undefined && input.Status !== null) {
+  if (input.Status != null) {
     entries["Status"] = input.Status;
   }
   return entries;
@@ -13863,13 +13387,13 @@ const serializeAws_queryUpdateSSHPublicKeyRequest = (
 
 const serializeAws_queryUpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.NewPath !== undefined && input.NewPath !== null) {
+  if (input.NewPath != null) {
     entries["NewPath"] = input.NewPath;
   }
-  if (input.NewUserName !== undefined && input.NewUserName !== null) {
+  if (input.NewUserName != null) {
     entries["NewUserName"] = input.NewUserName;
   }
   return entries;
@@ -13880,22 +13404,22 @@ const serializeAws_queryUploadServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Path !== undefined && input.Path !== null) {
+  if (input.Path != null) {
     entries["Path"] = input.Path;
   }
-  if (input.ServerCertificateName !== undefined && input.ServerCertificateName !== null) {
+  if (input.ServerCertificateName != null) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
   }
-  if (input.CertificateBody !== undefined && input.CertificateBody !== null) {
+  if (input.CertificateBody != null) {
     entries["CertificateBody"] = input.CertificateBody;
   }
-  if (input.PrivateKey !== undefined && input.PrivateKey !== null) {
+  if (input.PrivateKey != null) {
     entries["PrivateKey"] = input.PrivateKey;
   }
-  if (input.CertificateChain !== undefined && input.CertificateChain !== null) {
+  if (input.CertificateChain != null) {
     entries["CertificateChain"] = input.CertificateChain;
   }
-  if (input.Tags !== undefined && input.Tags !== null) {
+  if (input.Tags != null) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -13910,10 +13434,10 @@ const serializeAws_queryUploadSigningCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.CertificateBody !== undefined && input.CertificateBody !== null) {
+  if (input.CertificateBody != null) {
     entries["CertificateBody"] = input.CertificateBody;
   }
   return entries;
@@ -13924,10 +13448,10 @@ const serializeAws_queryUploadSSHPublicKeyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined && input.UserName !== null) {
+  if (input.UserName != null) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SSHPublicKeyBody !== undefined && input.SSHPublicKeyBody !== null) {
+  if (input.SSHPublicKeyBody != null) {
     entries["SSHPublicKeyBody"] = input.SSHPublicKeyBody;
   }
   return entries;
@@ -13967,9 +13491,6 @@ const deserializeAws_queryAccessDetails = (output: any, context: __SerdeContext)
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryAccessDetail(entry, context);
     });
 };
@@ -14044,9 +13565,6 @@ const deserializeAws_queryaccessKeyMetadataListType = (output: any, context: __S
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryAccessKeyMetadata(entry, context);
     });
 };
@@ -14055,9 +13573,6 @@ const deserializeAws_queryaccountAliasListType = (output: any, context: __SerdeC
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -14066,9 +13581,6 @@ const deserializeAws_queryArnListType = (output: any, context: __SerdeContext): 
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -14094,9 +13606,6 @@ const deserializeAws_queryattachedPoliciesListType = (output: any, context: __Se
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryAttachedPolicy(entry, context);
     });
 };
@@ -14119,9 +13628,6 @@ const deserializeAws_querycertificateListType = (output: any, context: __SerdeCo
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_querySigningCertificate(entry, context);
     });
 };
@@ -14130,9 +13636,6 @@ const deserializeAws_queryclientIDListType = (output: any, context: __SerdeConte
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -14154,9 +13657,6 @@ const deserializeAws_queryContextKeyNamesResultListType = (output: any, context:
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -14471,9 +13971,6 @@ const deserializeAws_queryentityDetailsListType = (output: any, context: __Serde
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryEntityDetails(entry, context);
     });
 };
@@ -14621,9 +14118,6 @@ const deserializeAws_queryEvaluationResultsListType = (output: any, context: __S
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryEvaluationResult(entry, context);
     });
 };
@@ -15275,9 +14769,6 @@ const deserializeAws_querygroupDetailListType = (output: any, context: __SerdeCo
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryGroupDetail(entry, context);
     });
 };
@@ -15286,9 +14777,6 @@ const deserializeAws_querygroupListType = (output: any, context: __SerdeContext)
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryGroup(entry, context);
     });
 };
@@ -15297,9 +14785,6 @@ const deserializeAws_querygroupNameListType = (output: any, context: __SerdeCont
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -15346,9 +14831,6 @@ const deserializeAws_queryinstanceProfileListType = (output: any, context: __Ser
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryInstanceProfile(entry, context);
     });
 };
@@ -15924,9 +15406,6 @@ const deserializeAws_querylistPolicyGrantingServiceAccessResponseListType = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryListPoliciesGrantingServiceAccessEntry(entry, context);
     });
 };
@@ -16411,9 +15890,6 @@ const deserializeAws_queryManagedPolicyDetailListType = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryManagedPolicyDetail(entry, context);
     });
 };
@@ -16440,9 +15916,6 @@ const deserializeAws_querymfaDeviceListType = (output: any, context: __SerdeCont
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryMFADevice(entry, context);
     });
 };
@@ -16477,9 +15950,6 @@ const deserializeAws_queryOpenIDConnectProviderListType = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryOpenIDConnectProviderListEntry(entry, context);
     });
 };
@@ -16643,9 +16113,6 @@ const deserializeAws_querypolicyDetailListType = (output: any, context: __SerdeC
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicyDetail(entry, context);
     });
 };
@@ -16654,9 +16121,6 @@ const deserializeAws_querypolicyDocumentVersionListType = (output: any, context:
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicyVersion(entry, context);
     });
 };
@@ -16710,9 +16174,6 @@ const deserializeAws_querypolicyGrantingServiceAccessListType = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicyGrantingServiceAccess(entry, context);
     });
 };
@@ -16735,9 +16196,6 @@ const deserializeAws_queryPolicyGroupListType = (output: any, context: __SerdeCo
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicyGroup(entry, context);
     });
 };
@@ -16746,9 +16204,6 @@ const deserializeAws_querypolicyListType = (output: any, context: __SerdeContext
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicy(entry, context);
     });
 };
@@ -16757,9 +16212,6 @@ const deserializeAws_querypolicyNameListType = (output: any, context: __SerdeCon
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -16795,9 +16247,6 @@ const deserializeAws_queryPolicyRoleListType = (output: any, context: __SerdeCon
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicyRole(entry, context);
     });
 };
@@ -16820,9 +16269,6 @@ const deserializeAws_queryPolicyUserListType = (output: any, context: __SerdeCon
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryPolicyUser(entry, context);
     });
 };
@@ -16947,9 +16393,6 @@ const deserializeAws_queryResourceSpecificResultListType = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryResourceSpecificResult(entry, context);
     });
 };
@@ -17090,9 +16533,6 @@ const deserializeAws_queryroleDetailListType = (output: any, context: __SerdeCon
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryRoleDetail(entry, context);
     });
 };
@@ -17115,9 +16555,6 @@ const deserializeAws_queryroleListType = (output: any, context: __SerdeContext):
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryRole(entry, context);
     });
 };
@@ -17126,9 +16563,6 @@ const deserializeAws_queryRoleUsageListType = (output: any, context: __SerdeCont
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryRoleUsageType(entry, context);
     });
 };
@@ -17174,9 +16608,6 @@ const deserializeAws_querySAMLProviderListType = (output: any, context: __SerdeC
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_querySAMLProviderListEntry(entry, context);
     });
 };
@@ -17248,9 +16679,6 @@ const deserializeAws_queryserverCertificateMetadataListType = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryServerCertificateMetadata(entry, context);
     });
 };
@@ -17324,9 +16752,6 @@ const deserializeAws_queryServicesLastAccessed = (output: any, context: __SerdeC
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryServiceLastAccessed(entry, context);
     });
 };
@@ -17408,9 +16833,6 @@ const deserializeAws_queryServiceSpecificCredentialsListType = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryServiceSpecificCredentialMetadata(entry, context);
     });
 };
@@ -17498,9 +16920,6 @@ const deserializeAws_querySSHPublicKeyListType = (output: any, context: __SerdeC
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_querySSHPublicKeyMetadata(entry, context);
     });
 };
@@ -17553,9 +16972,6 @@ const deserializeAws_queryStatementListType = (output: any, context: __SerdeCont
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryStatement(entry, context);
     });
 };
@@ -17590,9 +17006,6 @@ const deserializeAws_querytagListType = (output: any, context: __SerdeContext): 
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryTag(entry, context);
     });
 };
@@ -17601,9 +17014,6 @@ const deserializeAws_querythumbprintListType = (output: any, context: __SerdeCon
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return __expectString(entry) as any;
     });
 };
@@ -17640,9 +17050,6 @@ const deserializeAws_queryTrackedActionsLastAccessed = (
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryTrackedActionLastAccessed(entry, context);
     });
 };
@@ -17868,9 +17275,6 @@ const deserializeAws_queryuserDetailListType = (output: any, context: __SerdeCon
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryUserDetail(entry, context);
     });
 };
@@ -17879,9 +17283,6 @@ const deserializeAws_queryuserListType = (output: any, context: __SerdeContext):
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryUser(entry, context);
     });
 };
@@ -17922,9 +17323,6 @@ const deserializeAws_queryvirtualMFADeviceListType = (output: any, context: __Se
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
-      if (entry === null) {
-        return null as any;
-      }
       return deserializeAws_queryVirtualMFADevice(entry, context);
     });
 };

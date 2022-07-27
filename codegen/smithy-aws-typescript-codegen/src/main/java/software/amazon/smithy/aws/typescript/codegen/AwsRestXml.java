@@ -194,14 +194,14 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         // Start with the XML declaration.
         writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
-        writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
+        writer.addImport("XmlNode", "XmlNode", "@aws-sdk/xml-builder");
 
         // Handle the @xmlName trait for the input shape.
         StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);
         String nodeName = inputShape.getTrait(XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
                 .orElse(inputShapeId.getName(serviceShape));
-        writer.write("const bodyNode = new __XmlNode($S);", nodeName);
+        writer.write("const bodyNode = new XmlNode($S);", nodeName);
 
         // Add @xmlNamespace value of the service to the root node,
         // fall back to one from the input shape.

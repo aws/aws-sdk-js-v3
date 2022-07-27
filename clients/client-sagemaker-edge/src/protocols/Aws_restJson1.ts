@@ -5,7 +5,9 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  map as __map,
   serializeFloat as __serializeFloat,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -119,15 +121,14 @@ export const deserializeAws_restJson1GetDeploymentsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDeploymentsCommandError(output, context);
   }
-  const contents: GetDeploymentsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Deployments: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.Deployments !== undefined && data.Deployments !== null) {
+  if (data.Deployments != null) {
     contents.Deployments = deserializeAws_restJson1EdgeDeployments(data.Deployments, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetDeploymentsCommandError = async (
@@ -138,7 +139,6 @@ const deserializeAws_restJson1GetDeploymentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
@@ -146,14 +146,12 @@ const deserializeAws_restJson1GetDeploymentsCommandError = async (
       throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -164,19 +162,17 @@ export const deserializeAws_restJson1GetDeviceRegistrationCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDeviceRegistrationCommandError(output, context);
   }
-  const contents: GetDeviceRegistrationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    CacheTTL: undefined,
-    DeviceRegistration: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.CacheTTL !== undefined && data.CacheTTL !== null) {
+  if (data.CacheTTL != null) {
     contents.CacheTTL = __expectString(data.CacheTTL);
   }
-  if (data.DeviceRegistration !== undefined && data.DeviceRegistration !== null) {
+  if (data.DeviceRegistration != null) {
     contents.DeviceRegistration = __expectString(data.DeviceRegistration);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetDeviceRegistrationCommandError = async (
@@ -187,7 +183,6 @@ const deserializeAws_restJson1GetDeviceRegistrationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
@@ -195,14 +190,12 @@ const deserializeAws_restJson1GetDeviceRegistrationCommandError = async (
       throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -213,11 +206,11 @@ export const deserializeAws_restJson1SendHeartbeatCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SendHeartbeatCommandError(output, context);
   }
-  const contents: SendHeartbeatCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1SendHeartbeatCommandError = async (
@@ -228,7 +221,6 @@ const deserializeAws_restJson1SendHeartbeatCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
@@ -236,24 +228,23 @@ const deserializeAws_restJson1SendHeartbeatCommandError = async (
       throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new InternalServiceException({
@@ -280,9 +271,6 @@ const serializeAws_restJson1DeploymentModels = (input: DeploymentModel[], contex
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1DeploymentModel(entry, context);
     });
 };
@@ -315,9 +303,6 @@ const serializeAws_restJson1EdgeMetrics = (input: EdgeMetric[], context: __Serde
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1EdgeMetric(entry, context);
     });
 };
@@ -336,9 +321,6 @@ const serializeAws_restJson1Models = (input: Model[], context: __SerdeContext): 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return serializeAws_restJson1Model(entry, context);
     });
 };

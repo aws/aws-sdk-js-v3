@@ -7,6 +7,9 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  map as __map,
+  resolvedPath as __resolvedPath,
+  throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -99,15 +102,14 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.EventDestination != null && {
@@ -135,15 +137,14 @@ export const serializeAws_restJson1DeleteConfigurationSetCommand = async (
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -165,24 +166,22 @@ export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
-  if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EventDestinationName.");
-    }
-    resolvedPath = resolvedPath.replace("{EventDestinationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EventDestinationName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EventDestinationName",
+    () => input.EventDestinationName!,
+    "{EventDestinationName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -204,15 +203,14 @@ export const serializeAws_restJson1GetConfigurationSetEventDestinationsCommand =
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -233,10 +231,10 @@ export const serializeAws_restJson1ListConfigurationSetsCommand = async (
   const headers: any = {};
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/sms-voice/configuration-sets";
-  const query: any = {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
-  };
+  const query: any = map({
+    NextToken: [, input.NextToken!],
+    PageSize: [, input.PageSize!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -290,24 +288,22 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
-  if (input.ConfigurationSetName !== undefined) {
-    const labelValue: string = input.ConfigurationSetName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationSetName.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationSetName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationSetName.");
-  }
-  if (input.EventDestinationName !== undefined) {
-    const labelValue: string = input.EventDestinationName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EventDestinationName.");
-    }
-    resolvedPath = resolvedPath.replace("{EventDestinationName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EventDestinationName.");
-  }
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "ConfigurationSetName",
+    () => input.ConfigurationSetName!,
+    "{ConfigurationSetName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "EventDestinationName",
+    () => input.EventDestinationName!,
+    "{EventDestinationName}",
+    false
+  );
   let body: any;
   body = JSON.stringify({
     ...(input.EventDestination != null && {
@@ -332,11 +328,11 @@ export const deserializeAws_restJson1CreateConfigurationSetCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateConfigurationSetCommandError(output, context);
   }
-  const contents: CreateConfigurationSetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateConfigurationSetCommandError = async (
@@ -347,7 +343,6 @@ const deserializeAws_restJson1CreateConfigurationSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -367,14 +362,12 @@ const deserializeAws_restJson1CreateConfigurationSetCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -385,11 +378,11 @@ export const deserializeAws_restJson1CreateConfigurationSetEventDestinationComma
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError(output, context);
   }
-  const contents: CreateConfigurationSetEventDestinationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError = async (
@@ -400,7 +393,6 @@ const deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -423,14 +415,12 @@ const deserializeAws_restJson1CreateConfigurationSetEventDestinationCommandError
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -441,11 +431,11 @@ export const deserializeAws_restJson1DeleteConfigurationSetCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteConfigurationSetCommandError(output, context);
   }
-  const contents: DeleteConfigurationSetCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteConfigurationSetCommandError = async (
@@ -456,7 +446,6 @@ const deserializeAws_restJson1DeleteConfigurationSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -473,14 +462,12 @@ const deserializeAws_restJson1DeleteConfigurationSetCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -491,11 +478,11 @@ export const deserializeAws_restJson1DeleteConfigurationSetEventDestinationComma
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError(output, context);
   }
-  const contents: DeleteConfigurationSetEventDestinationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError = async (
@@ -506,7 +493,6 @@ const deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -523,14 +509,12 @@ const deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommandError
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -541,15 +525,14 @@ export const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError(output, context);
   }
-  const contents: GetConfigurationSetEventDestinationsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    EventDestinations: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.EventDestinations !== undefined && data.EventDestinations !== null) {
+  if (data.EventDestinations != null) {
     contents.EventDestinations = deserializeAws_restJson1EventDestinations(data.EventDestinations, context);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError = async (
@@ -560,7 +543,6 @@ const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError =
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -577,14 +559,12 @@ const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommandError =
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -595,19 +575,17 @@ export const deserializeAws_restJson1ListConfigurationSetsCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListConfigurationSetsCommandError(output, context);
   }
-  const contents: ListConfigurationSetsCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ConfigurationSets: undefined,
-    NextToken: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.ConfigurationSets !== undefined && data.ConfigurationSets !== null) {
+  if (data.ConfigurationSets != null) {
     contents.ConfigurationSets = deserializeAws_restJson1ConfigurationSets(data.ConfigurationSets, context);
   }
-  if (data.NextToken !== undefined && data.NextToken !== null) {
+  if (data.NextToken != null) {
     contents.NextToken = __expectString(data.NextToken);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1ListConfigurationSetsCommandError = async (
@@ -618,7 +596,6 @@ const deserializeAws_restJson1ListConfigurationSetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -632,14 +609,12 @@ const deserializeAws_restJson1ListConfigurationSetsCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -650,15 +625,14 @@ export const deserializeAws_restJson1SendVoiceMessageCommand = async (
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SendVoiceMessageCommandError(output, context);
   }
-  const contents: SendVoiceMessageCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-    MessageId: undefined,
-  };
+  });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data.MessageId !== undefined && data.MessageId !== null) {
+  if (data.MessageId != null) {
     contents.MessageId = __expectString(data.MessageId);
   }
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1SendVoiceMessageCommandError = async (
@@ -669,7 +643,6 @@ const deserializeAws_restJson1SendVoiceMessageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -683,14 +656,12 @@ const deserializeAws_restJson1SendVoiceMessageCommandError = async (
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
@@ -701,11 +672,11 @@ export const deserializeAws_restJson1UpdateConfigurationSetEventDestinationComma
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError(output, context);
   }
-  const contents: UpdateConfigurationSetEventDestinationCommandOutput = {
+  const contents: any = map({
     $metadata: deserializeMetadata(output),
-  };
+  });
   await collectBody(output.body, context);
-  return Promise.resolve(contents);
+  return contents;
 };
 
 const deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError = async (
@@ -716,7 +687,6 @@ const deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __BaseException;
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -733,24 +703,23 @@ const deserializeAws_restJson1UpdateConfigurationSetEventDestinationCommandError
       throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      const $metadata = deserializeMetadata(output);
-      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
-      response = new __BaseException({
-        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
-        $fault: "client",
-        $metadata,
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
       });
-      throw __decorateServiceException(response, parsedBody);
   }
 };
 
+const map = __map;
 const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new AlreadyExistsException({
@@ -764,9 +733,9 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new BadRequestException({
@@ -780,9 +749,9 @@ const deserializeAws_restJson1InternalServiceErrorExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceErrorException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new InternalServiceErrorException({
@@ -796,9 +765,9 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new LimitExceededException({
@@ -812,9 +781,9 @@ const deserializeAws_restJson1NotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<NotFoundException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new NotFoundException({
@@ -828,9 +797,9 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
-  const contents: any = {};
+  const contents: any = map({});
   const data: any = parsedOutput.body;
-  if (data.Message !== undefined && data.Message !== null) {
+  if (data.Message != null) {
     contents.Message = __expectString(data.Message);
   }
   const exception = new TooManyRequestsException({
@@ -890,9 +859,6 @@ const serializeAws_restJson1EventTypes = (input: (EventType | string)[], context
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };

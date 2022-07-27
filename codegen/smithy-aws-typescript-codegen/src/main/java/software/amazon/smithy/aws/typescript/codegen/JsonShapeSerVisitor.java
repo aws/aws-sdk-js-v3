@@ -79,13 +79,16 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Filter out null entries if we don't have the sparse trait.
         String potentialFilter = "";
-        if (!shape.hasTrait(SparseTrait.ID)) {
+        boolean hasSparseTrait = shape.hasTrait(SparseTrait.ID);
+        if (!hasSparseTrait) {
             potentialFilter = ".filter((e: any) => e != null)";
         }
 
         writer.openBlock("return input$L.map(entry => {", "});", potentialFilter, () -> {
             // Short circuit null values from serialization.
-            writer.write("if (entry === null) { return null as any; }");
+            if (hasSparseTrait) {
+                writer.write("if (entry === null) { return null as any; }");
+            }
 
             // Dispatch to the input value provider for any additional handling.
             writer.write("return $L;", target.accept(getMemberVisitor("entry")));
