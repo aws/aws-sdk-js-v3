@@ -33,7 +33,8 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  * <p>Adds the specified inbound (ingress) rules to a security group.</p>
  *          <p>An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6 CIDR
  *        address range, or from the instances that are associated with the specified destination security
- *        groups.</p>
+ *        groups. When specifying an inbound rule for your security group in a VPC, the
+ *          <code>IpPermissions</code> must include a source for the traffic.</p>
  *          <p>You specify a protocol for each rule (for example, TCP).
  *        For TCP and UDP, you must also specify the destination port or port range.
  *        For ICMP/ICMPv6, you must also specify the ICMP/ICMPv6 type and code.
@@ -41,6 +42,10 @@ export interface AuthorizeSecurityGroupIngressCommandOutput
  *          <p>Rule changes are propagated to instances within the security group as quickly as possible.
  *          However, a small delay might occur.</p>
  *          <p>For more information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC quotas</a>.</p>
+ *
+ *          <note>
+ *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

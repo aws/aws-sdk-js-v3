@@ -544,7 +544,6 @@ export interface Placement {
    *             tenancy is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
    *             command.</p>
    *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
-   *
    *         <p>T3 instances that use the <code>unlimited</code> CPU credit option do not support
    *                 <code>host</code> tenancy.</p>
    */
@@ -2251,8 +2250,9 @@ export interface ExportToS3TaskSpecification {
   DiskImageFormat?: DiskImageFormat | string;
 
   /**
-   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and grant
-   *    WRITE and READ_ACP permissions to the Amazon Web Services account <code>vm-import-export@amazon.com</code>.</p>
+   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and have
+   *    an access control list (ACL) attached that specifies the Region-specific canonical account ID for
+   *    the <code>Grantee</code>. For more information about the ACL to your S3 bucket, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html#vmexport-prerequisites">Prerequisites</a> in the VM Import/Export User Guide.</p>
    */
   S3Bucket?: string;
 
@@ -2308,8 +2308,9 @@ export interface ExportToS3Task {
   DiskImageFormat?: DiskImageFormat | string;
 
   /**
-   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and grant
-   *    WRITE and READ_ACP permissions to the Amazon Web Services account <code>vm-import-export@amazon.com</code>.</p>
+   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and have
+   *    an access control list (ACL) attached that specifies the Region-specific canonical account ID for
+   *    the <code>Grantee</code>. For more information about the ACL to your S3 bucket, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html#vmexport-prerequisites">Prerequisites</a> in the VM Import/Export User Guide.</p>
    */
   S3Bucket?: string;
 
@@ -3911,7 +3912,7 @@ export interface RequestLaunchTemplateData {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault VPC, you
+   * <p>One or more security group names. For a nondefault VPC, you
    *             must use security group IDs instead. You cannot specify both a security group ID and
    *             security name in the same request.</p>
    */

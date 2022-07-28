@@ -159,8 +159,7 @@ export interface ExportImageRequest {
   ImageId: string | undefined;
 
   /**
-   * <p>Information about the destination Amazon S3 bucket. The bucket must exist and grant WRITE
-   *    and READ_ACP permissions to the Amazon Web Services account vm-import-export@amazon.com.</p>
+   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist.</p>
    */
   S3ExportLocation: ExportTaskS3LocationRequest | undefined;
 
@@ -4454,8 +4453,9 @@ export interface InstanceCreditSpecificationRequest {
   InstanceId?: string;
 
   /**
-   * <p>The credit option for CPU usage of the instance. Valid values are
-   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   * <p>The credit option for CPU usage of the instance.</p>
+   *         <p>Valid values: <code>standard</code> | <code>unlimited</code>
+   *          </p>
    *         <p>T3 instances with <code>host</code> tenancy do not support the <code>unlimited</code>
    *             CPU credit option.</p>
    */

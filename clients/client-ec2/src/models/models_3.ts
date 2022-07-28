@@ -3877,8 +3877,8 @@ export interface ImageAttribute {
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *         format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used,
-   *       there is a 24-hour delay before that usage is reported.</p>
+   *         format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used
+   *       to launch an instance, there is a 24-hour delay before that usage is reported.</p>
    *          <note>
    *             <p>
    *                <code>lastLaunchedTime</code> data is available starting April 2017.</p>
@@ -4974,8 +4974,9 @@ export interface InstanceCreditSpecification {
   InstanceId?: string;
 
   /**
-   * <p>The credit option for CPU usage of the instance. Valid values are
-   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   * <p>The credit option for CPU usage of the instance.</p>
+   *         <p>Valid values: <code>standard</code> | <code>unlimited</code>
+   *          </p>
    */
   CpuCredits?: string;
 }

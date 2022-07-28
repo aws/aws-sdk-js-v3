@@ -2090,7 +2090,7 @@ export interface RunInstancesRequest {
    *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
    *                 ModifyInstanceCreditSpecification</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
    *                     performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a
+   *         <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a/T4g
    *             instances)</p>
    *         <p>For T3 instances with <code>host</code> tenancy, only <code>standard</code> is
    *             supported.</p>
