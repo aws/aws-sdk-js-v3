@@ -863,7 +863,7 @@ export interface DomainEndpointOptions {
   CustomEndpointCertificateArn?: string;
 }
 
-export type VolumeType = "gp2" | "io1" | "standard";
+export type VolumeType = "gp2" | "gp3" | "io1" | "standard";
 
 /**
  * <p>Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.</p>
@@ -885,9 +885,14 @@ export interface EBSOptions {
   VolumeSize?: number;
 
   /**
-   * <p>Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).</p>
+   * <p>Specifies the IOPS for Provisioned IOPS And GP3 EBS volume (SSD).</p>
    */
   Iops?: number;
+
+  /**
+   * <p>Specifies the Throughput for GP3 EBS volume (SSD).</p>
+   */
+  Throughput?: number;
 }
 
 /**
@@ -2425,6 +2430,10 @@ export interface StorageTypeLimit {
    *       Maximum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
    *       <li>MinimumIops</li>
    *       Minimum amount of Iops that is applicable for given storage type.It can be empty if it is not applicable.
+   *       <li>MaximumThroughput</li>
+   *       Maximum amount of Throughput that is applicable for given storage type.It can be empty if it is not applicable.
+   *       <li>MinimumThroughput</li>
+   *       Minimum amount of Throughput that is applicable for given storage type.It can be empty if it is not applicable.
    *     </ol>
    *   </p>
    */
@@ -2469,6 +2478,7 @@ export interface StorageType {
    *       <ol>
    *         <li>standard</li>
    *         <li>gp2</li>
+   *         <li>gp3</li>
    *         <li>io1</li>
    *       </ol>
    *       Refer <code><a>VolumeType</a></code> for more information regarding above EBS storage options.
