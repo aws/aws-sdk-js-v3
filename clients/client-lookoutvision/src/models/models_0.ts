@@ -25,6 +25,42 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * <p>Information about the pixels in an anomaly mask. For more information, see <a>Anomaly</a>.
+ *       <code>PixelAnomaly</code> is only returned by image segmentation models.</p>
+ */
+export interface PixelAnomaly {
+  /**
+   * <p>The percentage area of the image that the anomaly type covers.</p>
+   */
+  TotalPercentageArea?: number;
+
+  /**
+   * <p>A hex color value for the mask that covers an anomaly type. Each anomaly type has
+   *          a different mask color. The color maps to the color of the anomaly type used in the
+   *          training dataset. </p>
+   */
+  Color?: string;
+}
+
+/**
+ * <p>Information about an anomaly type found on an image by an image segmentation model.
+ *          For more information, see <a>DetectAnomalies</a>.</p>
+ */
+export interface Anomaly {
+  /**
+   * <p>The name of an anomaly type found in an image.
+   *          <code>Name</code> maps to an anomaly type in the training dataset, apart from the anomaly type <code>background</code>.
+   *       The service automatically inserts the <code>background</code> anomaly type into the response from <code>DetectAnomalies</code>. </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Information about the pixel mask that covers an anomaly type.</p>
+   */
+  PixelAnomaly?: PixelAnomaly;
+}
+
 export enum ResourceType {
   DATASET = "DATASET",
   MODEL = "MODEL",
@@ -919,13 +955,24 @@ export interface TargetPlatform {
   Arch: TargetPlatformArch | string | undefined;
 
   /**
-   * <p>The target accelerator for the model. NVIDIA (Nvidia graphics processing unit)
-   *          is the only accelerator that is currently supported. You must also specify the <code>gpu-code</code>, <code>trt-ver</code>,
-   *          and <code>cuda-ver</code> compiler options.
-   *
-   *       </p>
+   * <p>The target accelerator for the model. Currently, Amazon Lookout for Vision only supports NVIDIA (Nvidia graphics processing unit)
+   *          and CPU accelerators. If you specify NVIDIA as an accelerator, you must also specify the <code>gpu-code</code>, <code>trt-ver</code>,
+   *          and <code>cuda-ver</code> compiler options. If you don't specify an accelerator, Lookout for Vision uses the CPU for compilation and we highly recommend that you use the
+   *          <a>GreengrassConfiguration$CompilerOptions</a> field. For example, you can use the following compiler options for CPU: </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu': 'skylake-avx512'}</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon', '+vfpv4']}</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  Accelerator: TargetPlatformAccelerator | string | undefined;
+  Accelerator?: TargetPlatformAccelerator | string;
 }
 
 /**
@@ -940,8 +987,8 @@ export interface TargetPlatform {
 export interface GreengrassConfiguration {
   /**
    * <p>Additional compiler options for the Greengrass component. Currently,
-   *    only NVIDIA Graphics Processing Units (GPU) are supported. If you specify <code>TargetPlatform</code>, you must specify
-   * <code>CompilerOptions</code>. If you specify <code>TargetDevice</code>, don't specify <code>CompilerOptions</code>.</p>
+   *    only NVIDIA Graphics Processing Units (GPU) and CPU accelerators are supported.
+   *    If you specify <code>TargetDevice</code>, don't specify <code>CompilerOptions</code>.</p>
    *
    *
    *          <p>For more information, see
@@ -1232,7 +1279,11 @@ export interface ImageSource {
 }
 
 /**
- * <p>The prediction results from a call to <a>DetectAnomalies</a>.</p>
+ * <p>The prediction results from a call to <a>DetectAnomalies</a>.
+ *       <code>DetectAnomalyResult</code> includes classification information for the prediction (<code>IsAnomalous</code> and <code>Confidence</code>).
+ *          If the model you use is an image segementation model, <code>DetectAnomalyResult</code> also includes segmentation information (<code>Anomalies</code>
+ *          and <code>AnomalyMask</code>). Classification information is calculated separately from segmentation information
+ *          and you shouldn't assume a relationship between them.</p>
  */
 export interface DetectAnomalyResult {
   /**
@@ -1242,14 +1293,36 @@ export interface DetectAnomalyResult {
   Source?: ImageSource;
 
   /**
-   * <p>True if the image contains an anomaly, otherwise false.</p>
+   * <p>True if Amazon Lookout for Vision classifies the image as containing an anomaly, otherwise false.</p>
    */
   IsAnomalous?: boolean;
 
   /**
-   * <p>The confidence that Amazon Lookout for Vision has in the accuracy of the prediction.</p>
+   * <p>The confidence that Lookout for Vision has in the accuracy of the classification in <code>IsAnomalous</code>.</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>If the model is an image segmentation model, <code>Anomalies</code> contains a list of
+   *          anomaly types found in the image. There is one entry for each type of anomaly found (even
+   *          if multiple instances of an anomaly type exist on the image). The first element in the list
+   *          is always an anomaly type representing the image background ('background') and shouldn't be
+   *          considered an anomaly. Amazon Lookout for Vision automatically add the background anomaly type to the
+   *          response, and you don't need to declare a background anomaly type in your dataset.</p>
+   *          <p>If the list has one entry ('background'), no anomalies were found on the image.</p>
+   *          <p></p>
+   *          <p>An image classification model doesn't return an <code>Anomalies</code> list. </p>
+   */
+  Anomalies?: Anomaly[];
+
+  /**
+   * <p>If the model is an image segmentation model, <code>AnomalyMask</code> contains pixel masks that covers all anomaly types found on the image.
+   *
+   *       Each anomaly type has a different mask color. To map a color to an anomaly type, see the <code>color</code> field
+   *       of the <a>PixelAnomaly</a> object.</p>
+   *          <p>An image classification model doesn't return an <code>Anomalies</code> list. </p>
+   */
+  AnomalyMask?: Uint8Array;
 }
 
 export interface DetectAnomaliesResponse {
@@ -1737,6 +1810,20 @@ export interface UpdateDatasetEntriesResponse {
    */
   Status?: DatasetStatus | string;
 }
+
+/**
+ * @internal
+ */
+export const PixelAnomalyFilterSensitiveLog = (obj: PixelAnomaly): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnomalyFilterSensitiveLog = (obj: Anomaly): any => ({
+  ...obj,
+});
 
 /**
  * @internal

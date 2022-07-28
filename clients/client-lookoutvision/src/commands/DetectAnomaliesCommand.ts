@@ -39,12 +39,17 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
 /**
  * <p>Detects anomalies in an image that you supply. </p>
  *          <p>The response from <code>DetectAnomalies</code> includes a boolean prediction
- *          that the image contains one or more anomalies and a confidence value for the prediction.</p>
+ *          that the image contains one or more anomalies and a confidence value for the prediction.
+ *       If the model is an image segmentation model, the response also includes segmentation
+ *       information for each type of anomaly found in the image.</p>
  *          <note>
  *             <p>Before calling <code>DetectAnomalies</code>, you must first start your model with the <a>StartModel</a> operation.
  *          You are charged for the amount of time, in minutes, that a model runs and for the number of anomaly detection units that your
  *          model uses. If you are not using a model, use the <a>StopModel</a> operation to stop your model. </p>
  *          </note>
+ *
+ *          <p>For more information, see <i>Detecting anomalies in an image</i> in the Amazon Lookout for Vision developer guide.</p>
+ *
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DetectAnomalies</code> operation.</p>
  * @example

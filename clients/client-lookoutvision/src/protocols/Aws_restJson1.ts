@@ -60,6 +60,7 @@ import {
 import { LookoutVisionServiceException as __BaseException } from "../models/LookoutVisionServiceException";
 import {
   AccessDeniedException,
+  Anomaly,
   ConflictException,
   DatasetDescription,
   DatasetGroundTruthManifest,
@@ -81,6 +82,7 @@ import {
   ModelPerformance,
   OutputConfig,
   OutputS3Object,
+  PixelAnomaly,
   ProjectDescription,
   ProjectMetadata,
   ResourceNotFoundException,
@@ -2497,6 +2499,26 @@ const serializeAws_restJson1TargetPlatform = (input: TargetPlatform, context: __
   };
 };
 
+const deserializeAws_restJson1Anomaly = (output: any, context: __SerdeContext): Anomaly => {
+  return {
+    Name: __expectString(output.Name),
+    PixelAnomaly:
+      output.PixelAnomaly != null ? deserializeAws_restJson1PixelAnomaly(output.PixelAnomaly, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AnomalyList = (output: any, context: __SerdeContext): Anomaly[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Anomaly(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1DatasetDescription = (output: any, context: __SerdeContext): DatasetDescription => {
   return {
     CreationTimestamp:
@@ -2563,6 +2585,8 @@ const deserializeAws_restJson1DatasetMetadataList = (output: any, context: __Ser
 
 const deserializeAws_restJson1DetectAnomalyResult = (output: any, context: __SerdeContext): DetectAnomalyResult => {
   return {
+    Anomalies: output.Anomalies != null ? deserializeAws_restJson1AnomalyList(output.Anomalies, context) : undefined,
+    AnomalyMask: output.AnomalyMask != null ? context.base64Decoder(output.AnomalyMask) : undefined,
     Confidence: __limitedParseFloat32(output.Confidence),
     IsAnomalous: __expectBoolean(output.IsAnomalous),
     Source: output.Source != null ? deserializeAws_restJson1ImageSource(output.Source, context) : undefined,
@@ -2780,6 +2804,13 @@ const deserializeAws_restJson1OutputS3Object = (output: any, context: __SerdeCon
   return {
     Bucket: __expectString(output.Bucket),
     Key: __expectString(output.Key),
+  } as any;
+};
+
+const deserializeAws_restJson1PixelAnomaly = (output: any, context: __SerdeContext): PixelAnomaly => {
+  return {
+    Color: __expectString(output.Color),
+    TotalPercentageArea: __limitedParseFloat32(output.TotalPercentageArea),
   } as any;
 };
 
