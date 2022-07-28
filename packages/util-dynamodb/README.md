@@ -48,3 +48,23 @@ const params = {
 const { Item } = await client.getItem(params);
 unmarshall(Item);
 ```
+
+## Calculate Time to Live From Number of Hours
+
+```js
+const { DynamoDB } = require("@aws-sdk/client-dynamodb");
+const { marshall, calculateTtl } = require("@aws-sdk/util-dynamodb");
+
+const timeToLiveHours = 48;
+
+const client = new DynamoDB(clientParams);
+const params = {
+  TableName: "Table",
+  Item: marshall({
+    HashKey: "hashKey",
+    ttl: calculateTtl(timeToLiveHours),
+  }),
+};
+
+await client.putItem(params);
+```
