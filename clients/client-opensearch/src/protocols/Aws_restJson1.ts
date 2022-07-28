@@ -4188,6 +4188,7 @@ const serializeAws_restJson1EBSOptions = (input: EBSOptions, context: __SerdeCon
   return {
     ...(input.EBSEnabled != null && { EBSEnabled: input.EBSEnabled }),
     ...(input.Iops != null && { Iops: input.Iops }),
+    ...(input.Throughput != null && { Throughput: input.Throughput }),
     ...(input.VolumeSize != null && { VolumeSize: input.VolumeSize }),
     ...(input.VolumeType != null && { VolumeType: input.VolumeType }),
   };
@@ -4899,6 +4900,7 @@ const deserializeAws_restJson1EBSOptions = (output: any, context: __SerdeContext
   return {
     EBSEnabled: __expectBoolean(output.EBSEnabled),
     Iops: __expectInt32(output.Iops),
+    Throughput: __expectInt32(output.Throughput),
     VolumeSize: __expectInt32(output.VolumeSize),
     VolumeType: __expectString(output.VolumeType),
   } as any;

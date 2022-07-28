@@ -1205,6 +1205,7 @@ export interface DomainEndpointOptions {
 
 export enum VolumeType {
   gp2 = "gp2",
+  gp3 = "gp3",
   io1 = "io1",
   standard = "standard",
 }
@@ -1229,9 +1230,14 @@ export interface EBSOptions {
   VolumeSize?: number;
 
   /**
-   * <p>The IOPD for a Provisioned IOPS EBS volume (SSD).</p>
+   * <p>The IOPS for Provisioned IOPS And GP3 EBS volume (SSD).</p>
    */
   Iops?: number;
+
+  /**
+   * <p>The Throughput for GP3 EBS volume (SSD).</p>
+   */
+  Throughput?: number;
 }
 
 /**
@@ -2961,6 +2967,10 @@ export interface StorageTypeLimit {
    *         Maximum amount of Iops that is applicable for given the storage type. Can be empty if not applicable.
    *         <li>MinimumIops</li>
    *         Minimum amount of Iops that is applicable for given the storage type. Can be empty if not applicable.
+   *         <li>MaximumThroughput</li>
+   *         Maximum amount of Throughput that is applicable for given the storage type. Can be empty if not applicable.
+   *         <li>MinimumThroughput</li>
+   *         Minimum amount of Throughput that is applicable for given the storage type. Can be empty if not applicable.
    *       </ol>
    *     </p>
    */
@@ -3007,6 +3017,7 @@ export interface StorageType {
    *       <ol>
    *         <li>standard</li>
    *         <li>gp2</li>
+   *         <li>gp3</li>
    *         <li>io1</li>
    *       </ol>
    *       See
