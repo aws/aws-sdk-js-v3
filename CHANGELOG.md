@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.138.0...v3.139.0) (2022-07-28)
+
+
+### Features
+
+* **client-elasticsearch-service:** This release adds support for gp3 EBS (Elastic Block Store) storage. ([3bb625d](https://github.com/aws/aws-sdk-js-v3/commit/3bb625d03be2e1bfec90eac07b136ad84b039b6f))
+* **client-lookoutvision:** This release introduces support for image segmentation models and updates CPU accelerator options for models hosted on edge devices. ([3710b44](https://github.com/aws/aws-sdk-js-v3/commit/3710b44677824a037bbbf1ab4891e98dfe75b10f))
+* **client-opensearch:** This release adds support for gp3 EBS (Elastic Block Store) storage. ([66d0dda](https://github.com/aws/aws-sdk-js-v3/commit/66d0ddab6754a5e57e5cb1c653e16ab9e2cbd8fa))
+* **clients:** update client endpoints as of 2022-07-28 ([612f647](https://github.com/aws/aws-sdk-js-v3/commit/612f647e7310f19bdb7d201af9b4371052f185cc))
+
+
+
+
+
 # [3.138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.137.0...v3.138.0) (2022-07-27)
 
 
