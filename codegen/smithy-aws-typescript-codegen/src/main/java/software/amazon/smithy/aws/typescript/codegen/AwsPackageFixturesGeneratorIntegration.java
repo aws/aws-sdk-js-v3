@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import software.amazon.smithy.aws.traits.ServiceTrait;
@@ -78,7 +79,7 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             String documentation = Arrays.asList(rawDocumentation.split("\n")).stream()
                     .map(StringUtils::trim)
                     .collect(Collectors.joining("\n"));
-            resource = resource.replaceAll(Pattern.quote("${documentation}"), documentation);
+            resource = resource.replaceAll(Pattern.quote("${documentation}"), Matcher.quoteReplacement(documentation));
 
             TopDownIndex topDownIndex = TopDownIndex.of(model);
             OperationShape firstOperation = topDownIndex.getContainedOperations(service).iterator().next();
@@ -87,7 +88,7 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             resource = resource.replaceAll(Pattern.quote("${operationName}"),
                     operationName.substring(0, 1).toLowerCase() + operationName.substring(1));
 
-            writer.write(resource);
+            writer.write(resource.replaceAll(Pattern.quote("$"), Matcher.quoteReplacement("$$")));
         });
     }
 }
