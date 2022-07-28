@@ -56,5 +56,76 @@ describe("object mapping", () => {
         conditionalValue3: 12,
       });
     });
+
+    it("should allow a set of passing filters", () => {
+      expect(
+        map({
+          a: [, 0],
+          b: [, false],
+          c: [, ""],
+          d: [, []],
+          e: [, [void 0, void 0]],
+          f: [, {}],
+          g: [, [false, void 0]],
+          h: [true, void 0],
+          i: [1, void 0],
+          j: [" ", void 0],
+          k: [[], void 0],
+          l: [{}, void 0],
+          m: [() => true, void 0],
+          n: [(val) => val === void 0, void 1],
+          o: [() => true, () => void 0],
+          p: [(val) => val !== 1, () => 1], // value is not provided to filter fn when value provider is lazy
+          q: 0,
+          r: false,
+          s: "",
+          t: undefined,
+          u: null,
+        })
+      ).toEqual({
+        a: 0,
+        b: false,
+        c: "",
+        d: [],
+        e: [undefined, undefined],
+        f: {},
+        g: [false, undefined],
+        h: undefined,
+        i: undefined,
+        j: undefined,
+        k: undefined,
+        l: undefined,
+        m: undefined,
+        n: undefined,
+        o: undefined,
+        p: 1,
+        q: 0,
+        r: false,
+        s: "",
+        t: undefined,
+        u: null,
+      });
+    });
+
+    it("should block a set of failing filters", () => {
+      expect(
+        map({
+          a: [, undefined],
+          b: [, null],
+          c: [(_) => _ !== "", ""],
+          d: [(_) => _.length !== 0, []],
+          e: [0, 0],
+          f: [false, false],
+          g: ["", ""],
+          h: [undefined, undefined],
+          i: [null, null],
+          j: [() => false, void 0],
+          k: [(val) => val !== void 0, void 0],
+          l: [() => false, () => void 0],
+          m: [(val) => val === 1, () => 1], // value is not provided to filter fn when value provider is lazy
+          n: [, () => undefined],
+        })
+      ).toEqual({});
+    });
   });
 });
