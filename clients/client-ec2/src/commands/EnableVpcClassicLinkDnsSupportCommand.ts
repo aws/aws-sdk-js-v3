@@ -30,7 +30,10 @@ export interface EnableVpcClassicLinkDnsSupportCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS
+ * <note>
+ *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
+ *          <p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS
  * 			hostname of a linked EC2-Classic instance resolves to its private IP address when
  * 			addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
  * 			of an instance in a VPC resolves to its private IP address when addressed from a linked

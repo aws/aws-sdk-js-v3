@@ -1708,8 +1708,12 @@ export interface LaunchTemplateSpecification {
   LaunchTemplateName?: string;
 
   /**
-   * <p>The version number of the launch template.</p>
-   *         <p>Default: The default version for the launch template.</p>
+   * <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>.</p>
+   *         <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch
+   *             template.</p>
+   *         <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch
+   *             template.</p>
+   *         <p>Default: The default version of the launch template.</p>
    */
   Version?: string;
 }

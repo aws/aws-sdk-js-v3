@@ -1166,7 +1166,7 @@
         "target": "com.amazonaws.ec2#AllocateAddressResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate  \n         it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address \n         pool and can be allocated to a different Amazon Web Services account.</p>\n         <p>You can allocate an Elastic IP address from an address pool owned by Amazon Web Services or from an address pool created \n       from a public IPv4 address range that you have brought to Amazon Web Services for use with your Amazon Web Services resources using bring your own \n         IP addresses (BYOIP). For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>[EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You cannot recover an \n       Elastic IP address that you released after it is allocated to another Amazon Web Services account. You cannot recover an Elastic IP\n         address for EC2-Classic. To attempt to recover an Elastic IP address that you released, specify it in this operation.</p>\n         <p>An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By default, you can allocate\n         5 Elastic IP addresses for EC2-Classic per Region and 5 Elastic IP addresses for EC2-VPC per Region.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance). </p>"
+        "smithy.api#documentation": "<p>Allocates an Elastic IP address to your Amazon Web Services account. After you allocate the Elastic IP address you can associate  \n         it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address \n         pool and can be allocated to a different Amazon Web Services account.</p>\n         <p>You can allocate an Elastic IP address from an address pool owned by Amazon Web Services or from an address pool created \n       from a public IPv4 address range that you have brought to Amazon Web Services for use with your Amazon Web Services resources using bring your own \n         IP addresses (BYOIP). For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>[EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You cannot recover an \n       Elastic IP address that you released after it is allocated to another Amazon Web Services account. You cannot recover an Elastic IP\n         address for EC2-Classic. To attempt to recover an Elastic IP address that you released, specify it in this operation.</p>\n         <p>An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By default, you can allocate\n         5 Elastic IP addresses for EC2-Classic per Region and 5 Elastic IP addresses for EC2-VPC per Region.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance). </p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#AllocateAddressRequest": {
@@ -3985,7 +3985,7 @@
         "target": "com.amazonaws.ec2#AssociateAddressResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Associates an Elastic IP address, or carrier IP address (for instances that are in\n      subnets in Wavelength Zones) with an instance or a network interface. Before you can use an\n      Elastic IP address, you must allocate it to your account.</p>\n         <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.\n\t\t\tFor more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>[EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already\n      associated with a different instance, it is disassociated from that instance and associated\n      with the specified instance. If you associate an Elastic IP address with an instance that has\n      an existing Elastic IP address, the existing address is disassociated from the instance, but\n      remains allocated to your account.</p>\n         <p>[VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic\n      IP address is associated with the primary IP address. If the Elastic IP address is already\n      associated with a different instance or a network interface, you get an error unless you allow\n      reassociation. You cannot associate an Elastic IP address with an instance or network\n      interface that has an existing Elastic IP address.</p>\n         <p>[Subnets in Wavelength Zones] You can associate an IP address from the telecommunication\n      carrier to the instance or network interface. </p>\n         <p>You cannot associate an Elastic IP address with an interface in a different network border group.</p>\n         <important>\n            <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2\n        doesn't return an error, and you may be charged for each time the Elastic IP address is\n        remapped to the same instance. For more information, see the <i>Elastic IP\n          Addresses</i> section of <a href=\"http://aws.amazon.com/ec2/pricing/\">Amazon EC2\n          Pricing</a>.</p>\n         </important>"
+        "smithy.api#documentation": "<p>Associates an Elastic IP address, or carrier IP address (for instances that are in\n      subnets in Wavelength Zones) with an instance or a network interface. Before you can use an\n      Elastic IP address, you must allocate it to your account.</p>\n         <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.\n\t\t\tFor more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>[EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already\n      associated with a different instance, it is disassociated from that instance and associated\n      with the specified instance. If you associate an Elastic IP address with an instance that has\n      an existing Elastic IP address, the existing address is disassociated from the instance, but\n      remains allocated to your account.</p>\n         <p>[VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic\n      IP address is associated with the primary IP address. If the Elastic IP address is already\n      associated with a different instance or a network interface, you get an error unless you allow\n      reassociation. You cannot associate an Elastic IP address with an instance or network\n      interface that has an existing Elastic IP address.</p>\n         <p>[Subnets in Wavelength Zones] You can associate an IP address from the telecommunication\n      carrier to the instance or network interface. </p>\n         <p>You cannot associate an Elastic IP address with an interface in a different network border group.</p>\n         <important>\n            <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2\n        doesn't return an error, and you may be charged for each time the Elastic IP address is\n        remapped to the same instance. For more information, see the <i>Elastic IP\n          Addresses</i> section of <a href=\"http://aws.amazon.com/ec2/pricing/\">Amazon EC2\n          Pricing</a>.</p>\n         </important>\n     \n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#AssociateAddressRequest": {
@@ -4996,7 +4996,7 @@
         "target": "com.amazonaws.ec2#AttachClassicLinkVpcResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's\n\t\t\tsecurity groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You\n\t\t\tcan only link an instance that's in the <code>running</code> state. An instance is\n\t\t\tautomatically unlinked from a VPC when it's stopped - you can link it to the VPC again when\n\t\t\tyou restart it.</p>\n\t\t       <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p>\n\t\t       <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>"
+        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t        <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's\n\t\t\tsecurity groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You\n\t\t\tcan only link an instance that's in the <code>running</code> state. An instance is\n\t\t\tautomatically unlinked from a VPC when it's stopped - you can link it to the VPC again when\n\t\t\tyou restart it.</p>\n\t\t       <p>After you've linked an instance, you cannot change the VPC security groups that are associated with it. To change the security groups, you must first unlink the instance, and then link it again.</p>\n\t\t       <p>Linking your instance to a VPC is sometimes referred to as <i>attaching</i> your instance.</p>"
       }
     },
     "com.amazonaws.ec2#AttachClassicLinkVpcRequest": {
@@ -8156,7 +8156,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a linked EC2-Classic instance.</p>"
+        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t\t       <p>Describes a linked EC2-Classic instance.</p>"
       }
     },
     "com.amazonaws.ec2#ClassicLinkInstanceList": {
@@ -10724,7 +10724,7 @@
         "target": "com.amazonaws.ec2#CreateDefaultVpcResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet\n\t\t\tin each Availability Zone. For more information about the components of a default VPC,\n\t\t\tsee <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html\">Default VPC and\n\t\t\tdefault subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot\n\t\t\tspecify the components of the default VPC yourself.</p>\n\t\t       <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have\n\t\t\tmore than one default VPC per Region.</p>\n\t\t       <p>If your account supports EC2-Classic, you cannot use this action to create a default VPC\n\t\t\tin a Region that supports EC2-Classic. If you want a default VPC in a Region that\n\t\t\tsupports EC2-Classic, see \"I really want a default VPC for my existing EC2 account. Is\n\t\t\tthat possible?\" in the <a href=\"http://aws.amazon.com/vpc/faqs/#Default_VPCs\">Default VPCs\n\t\t\tFAQ</a>.</p>"
+        "smithy.api#documentation": "<p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet\n\t\t\tin each Availability Zone. For more information about the components of a default VPC,\n\t\t\tsee <a href=\"https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html\">Default VPC and\n\t\t\tdefault subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. You cannot\n\t\t\tspecify the components of the default VPC yourself.</p>\n\t\t       <p>If you deleted your previous default VPC, you can create a default VPC. You cannot have\n\t\t\tmore than one default VPC per Region.</p>\n\t\t       <p>If your account supports EC2-Classic, you cannot use this action to create a default VPC\n\t\t\tin a Region that supports EC2-Classic. If you want a default VPC in a Region that\n\t\t\tsupports EC2-Classic, see \"I really want a default VPC for my existing EC2 account. Is\n\t\t\tthat possible?\" in the <a href=\"http://aws.amazon.com/vpc/faqs/#Default_VPCs\">Default VPCs\n\t\t\tFAQ</a>.</p>\n\t        <note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>"
       }
     },
     "com.amazonaws.ec2#CreateDefaultVpcRequest": {
@@ -19505,7 +19505,7 @@
         "target": "com.amazonaws.ec2#DescribeAddressesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p>\n         <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.\n\t\t\t\tFor more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p>\n         <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.\n\t\t\t\tFor more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#DescribeAddressesAttribute": {
@@ -20145,7 +20145,7 @@
         "target": "com.amazonaws.ec2#DescribeClassicLinkInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes one or more of your linked EC2-Classic instances. This request only returns\n\t\t\tinformation about EC2-Classic instances linked to a VPC through ClassicLink. You cannot\n\t\t\tuse this request to return information about other instances.</p>",
+        "smithy.api#documentation": "<p>Describes one or more of your linked EC2-Classic instances. This request only returns\n\t\t\tinformation about EC2-Classic instances linked to a VPC through ClassicLink. You cannot\n\t\t\tuse this request to return information about other instances.</p>\n\t        <note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -23546,7 +23546,7 @@
         "target": "com.amazonaws.ec2#DescribeInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified instances or all instances.</p>\n        <p>If you specify instance IDs, the output includes information for only the specified\n            instances. If you specify filters, the output includes information for only those\n            instances that meet the filter criteria. If you do not specify instance IDs or filters,\n            the output includes information for all instances, which can affect performance. We\n            recommend that you use pagination to ensure that the operation returns quickly and\n            successfully.</p>\n        <p>If you specify an instance ID that is not valid, an error is returned. If you specify\n            an instance that you do not own, it is not included in the output.</p>\n        <p>Recently terminated instances might appear in the returned results. This interval is\n            usually less than one hour.</p>\n        <p>If you describe instances in the rare case where an Availability Zone is experiencing\n            a service disruption and you specify instance IDs that are in the affected zone, or do\n            not specify any instance IDs at all, the call fails. If you describe instances and\n            specify only instance IDs that are in an unaffected zone, the call works\n            normally.</p>",
+        "smithy.api#documentation": "<p>Describes the specified instances or all instances.</p>\n        <p>If you specify instance IDs, the output includes information for only the specified\n            instances. If you specify filters, the output includes information for only those\n            instances that meet the filter criteria. If you do not specify instance IDs or filters,\n            the output includes information for all instances, which can affect performance. We\n            recommend that you use pagination to ensure that the operation returns quickly and\n            successfully.</p>\n        <p>If you specify an instance ID that is not valid, an error is returned. If you specify\n            an instance that you do not own, it is not included in the output.</p>\n        <p>Recently terminated instances might appear in the returned results. This interval is\n            usually less than one hour.</p>\n        <p>If you describe instances in the rare case where an Availability Zone is experiencing\n            a service disruption and you specify instance IDs that are in the affected zone, or do\n            not specify any instance IDs at all, the call fails. If you describe instances and\n            specify only instance IDs that are in an unaffected zone, the call works\n            normally.</p>\n        <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        </note>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -26404,7 +26404,7 @@
         "target": "com.amazonaws.ec2#DescribeReservedInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes one or more of the Reserved Instances that you purchased.</p>\n         <p>For more information about Reserved Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\">Reserved\n\t\t\t\tInstances</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Describes one or more of the Reserved Instances that you purchased.</p>\n         <p>For more information about Reserved Instances, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html\">Reserved\n\t\t\t\tInstances</a> in the <i>Amazon EC2 User Guide</i>.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#DescribeReservedInstancesListings": {
@@ -26475,7 +26475,7 @@
         "target": "com.amazonaws.ec2#DescribeReservedInstancesModificationsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>\n   \t     <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Describes the modifications made to your Reserved Instances. If no parameter is specified, information about all your Reserved Instances modification requests is returned. If a modification ID is specified, only information about the specific modification is returned.</p>\n   \t     <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modifying Reserved Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -26546,7 +26546,7 @@
         "target": "com.amazonaws.ec2#DescribeReservedInstancesOfferingsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p>\n         <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Reserved Instance Marketplace</a>\n\t\t\t\tin the <i>Amazon EC2 User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p>\n         <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html\">Reserved Instance Marketplace</a>\n\t\t\t\tin the <i>Amazon EC2 User Guide</i>.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -26848,7 +26848,7 @@
         "target": "com.amazonaws.ec2#DescribeScheduledInstanceAvailabilityResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Finds available schedules that meet the specified criteria.</p>\n         <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>\n         <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>\n         to purchase Scheduled Instances with that schedule.</p>",
+        "smithy.api#documentation": "<p>Finds available schedules that meet the specified criteria.</p>\n         <p>You can search for an available schedule no more than 3 months in advance. You must meet the minimum required duration of 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>\n         <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>\n         to purchase Scheduled Instances with that schedule.</p>\n      \n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -26958,7 +26958,7 @@
         "target": "com.amazonaws.ec2#DescribeScheduledInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>",
+        "smithy.api#documentation": "<p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>\n      \n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -30038,7 +30038,7 @@
         "target": "com.amazonaws.ec2#DescribeVpcClassicLinkResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the ClassicLink status of one or more VPCs.</p>"
+        "smithy.api#documentation": "<p>Describes the ClassicLink status of one or more VPCs.</p>\n\t        <note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>"
       }
     },
     "com.amazonaws.ec2#DescribeVpcClassicLinkDnsSupport": {
@@ -30050,7 +30050,7 @@
         "target": "com.amazonaws.ec2#DescribeVpcClassicLinkDnsSupportResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS\n            hostname of a linked EC2-Classic instance resolves to its private IP address when\n            addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname\n            of an instance in a VPC resolves to its private IP address when addressed from a linked\n            EC2-Classic instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Describes the ClassicLink DNS support status of one or more VPCs. If enabled, the DNS\n            hostname of a linked EC2-Classic instance resolves to its private IP address when\n            addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname\n            of an instance in a VPC resolves to its private IP address when addressed from a linked\n            EC2-Classic instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -31138,7 +31138,7 @@
         "target": "com.amazonaws.ec2#DetachClassicLinkVpcResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.</p>"
+        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t\t       <p>Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the instance has been unlinked, the VPC security groups are no longer associated with it. An instance is automatically unlinked from a VPC when it's stopped.</p>"
       }
     },
     "com.amazonaws.ec2#DetachClassicLinkVpcRequest": {
@@ -32143,7 +32143,7 @@
         "target": "com.amazonaws.ec2#DisableVpcClassicLinkResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>"
+        "smithy.api#documentation": "<p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#DisableVpcClassicLinkDnsSupport": {
@@ -32155,7 +32155,7 @@
         "target": "com.amazonaws.ec2#DisableVpcClassicLinkDnsSupportResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to\n\t\t\tpublic IP addresses when addressed between a linked EC2-Classic instance and instances\n\t\t\tin the VPC to which it's linked. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You must specify a VPC ID in the request.</p>"
+        "smithy.api#documentation": "<p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to\n\t\t\tpublic IP addresses when addressed between a linked EC2-Classic instance and instances\n\t\t\tin the VPC to which it's linked. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You must specify a VPC ID in the request.</p>\n      \n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#DisableVpcClassicLinkDnsSupportRequest": {
@@ -32227,7 +32227,7 @@
         "target": "smithy.api#Unit"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>\n\t\t\t      <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more\n\t\t\tinformation, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP\n\t\t\t\tAddresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>"
+        "smithy.api#documentation": "<p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>\n\t\t\t      <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more\n\t\t\tinformation, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP\n\t\t\t\tAddresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n     \n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>"
       }
     },
     "com.amazonaws.ec2#DisassociateAddressRequest": {
@@ -34596,7 +34596,7 @@
         "target": "com.amazonaws.ec2#EnableVpcClassicLinkResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your\n\t\t\tClassicLink-enabled VPC to allow communication over private IP addresses. You cannot\n\t\t\tenable your VPC for ClassicLink if any of your VPC route tables have existing routes for\n\t\t\taddress ranges within the <code>10.0.0.0/8</code> IP address range, excluding local\n\t\t\troutes for VPCs in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address\n\t\t\tranges. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your\n\t\t\tClassicLink-enabled VPC to allow communication over private IP addresses. You cannot\n\t\t\tenable your VPC for ClassicLink if any of your VPC route tables have existing routes for\n\t\t\taddress ranges within the <code>10.0.0.0/8</code> IP address range, excluding local\n\t\t\troutes for VPCs in the <code>10.0.0.0/16</code> and <code>10.1.0.0/16</code> IP address\n\t\t\tranges. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#EnableVpcClassicLinkDnsSupport": {
@@ -34608,7 +34608,7 @@
         "target": "com.amazonaws.ec2#EnableVpcClassicLinkDnsSupportResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS\n\t\t\thostname of a linked EC2-Classic instance resolves to its private IP address when\n\t\t\taddressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname\n\t\t\tof an instance in a VPC resolves to its private IP address when addressed from a linked\n\t\t\tEC2-Classic instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You must specify a VPC ID in the request.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS\n\t\t\thostname of a linked EC2-Classic instance resolves to its private IP address when\n\t\t\taddressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname\n\t\t\tof an instance in a VPC resolves to its private IP address when addressed from a linked\n\t\t\tEC2-Classic instance. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n\t\t\t\t<i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         <p>You must specify a VPC ID in the request.</p>"
       }
     },
     "com.amazonaws.ec2#EnableVpcClassicLinkDnsSupportRequest": {
@@ -51037,7 +51037,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the launch specification for an instance.</p>"
+        "smithy.api#documentation": "<p>Describes the launch specification for an instance.</p>\n         <note>\n           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#LaunchSpecsList": {
@@ -52608,7 +52608,7 @@
         "Version": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The version number of the launch template.</p>\n        <p>Default: The default version for the launch template.</p>"
+            "smithy.api#documentation": "<p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>.</p>\n        <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch\n            template.</p>\n        <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch\n            template.</p>\n        <p>Default: The default version of the launch template.</p>"
           }
         }
       },
@@ -56257,7 +56257,7 @@
         "target": "com.amazonaws.ec2#ModifyReservedInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Modifies the Availability Zone, instance count, instance type, or network platform\n            (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be\n            modified must be identical, except for Availability Zone, network platform, and instance\n            type.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modifying Reserved\n\t\t\t\tInstances</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Modifies the Availability Zone, instance count, instance type, or network platform\n            (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be\n            modified must be identical, except for Availability Zone, network platform, and instance\n            type.</p>\n\t\t       <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html\">Modifying Reserved\n\t\t\t\tInstances</a> in the <i>Amazon EC2 User Guide</i>.</p>\n     \n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#ModifyReservedInstancesRequest": {
@@ -57703,7 +57703,7 @@
         "target": "com.amazonaws.ec2#ModifyVpcPeeringConnectionOptionsResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Modifies the VPC peering connection options on one side of a VPC peering connection. You can do the following:</p>\n         <ul>\n            <li>\n               <p>Enable/disable communication over the peering connection between an EC2-Classic instance that's linked to your VPC (using ClassicLink) and instances in the peer VPC.</p>\n            </li>\n            <li>\n               <p>Enable/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that's linked to the peer VPC.</p>\n            </li>\n            <li>\n               <p>Enable/disable the ability to resolve public DNS hostnames to private IP\n                    addresses when queried from instances in the peer VPC.</p>\n            </li>\n         </ul>\n         <p>If the peered VPCs are in the same Amazon Web Services account, you can enable DNS resolution \n        for queries from the local VPC. This ensures that queries from the local VPC resolve to private IP\n        addresses in the peer VPC. This option is not available if the peered VPCs are in different\n        different Amazon Web Services accounts or different Regions. For peered VPCs in different \n        Amazon Web Services accounts, each Amazon Web Services account owner must initiate a separate request \n        to modify the peering connection options. For inter-region peering connections, you must use the \n        Region for the requester VPC to modify the requester VPC peering options and the Region for the \n        accepter VPC to modify the accepter VPC peering options. To verify which VPCs are the accepter and \n        the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a> command.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Modifies the VPC peering connection options on one side of a VPC peering connection. You can do the following:</p>\n         <ul>\n            <li>\n               <p>Enable/disable communication over the peering connection between an EC2-Classic instance that's linked to your VPC (using ClassicLink) and instances in the peer VPC.</p>\n            </li>\n            <li>\n               <p>Enable/disable communication over the peering connection between instances in your VPC and an EC2-Classic instance that's linked to the peer VPC.</p>\n            </li>\n            <li>\n               <p>Enable/disable the ability to resolve public DNS hostnames to private IP\n                    addresses when queried from instances in the peer VPC.</p>\n            </li>\n         </ul>\n         <p>If the peered VPCs are in the same Amazon Web Services account, you can enable DNS resolution \n        for queries from the local VPC. This ensures that queries from the local VPC resolve to private IP\n        addresses in the peer VPC. This option is not available if the peered VPCs are in different\n        different Amazon Web Services accounts or different Regions. For peered VPCs in different \n        Amazon Web Services accounts, each Amazon Web Services account owner must initiate a separate request \n        to modify the peering connection options. For inter-region peering connections, you must use the \n        Region for the requester VPC to modify the requester VPC peering options and the Region for the \n        accepter VPC to modify the accepter VPC peering options. To verify which VPCs are the accepter and \n        the requester for a VPC peering connection, use the <a>DescribeVpcPeeringConnections</a> command.</p>"
       }
     },
     "com.amazonaws.ec2#ModifyVpcPeeringConnectionOptionsRequest": {
@@ -58255,7 +58255,7 @@
         "target": "com.amazonaws.ec2#MoveAddressToVpcResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The\n      Elastic IP address must be allocated to your account for more than 24 hours, and it must not\n      be associated with an instance. After the Elastic IP address is moved, it is no longer\n      available for use in the EC2-Classic platform, unless you move it back using the\n        <a>RestoreAddressToClassic</a> request. You cannot move an Elastic IP address that was\n      originally allocated for use in the EC2-VPC platform to the EC2-Classic platform. </p>"
+        "smithy.api#documentation": "<p>Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The\n      Elastic IP address must be allocated to your account for more than 24 hours, and it must not\n      be associated with an instance. After the Elastic IP address is moved, it is no longer\n      available for use in the EC2-Classic platform, unless you move it back using the\n        <a>RestoreAddressToClassic</a> request. You cannot move an Elastic IP address that was\n      originally allocated for use in the EC2-VPC platform to the EC2-Classic platform.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#MoveAddressToVpcRequest": {
@@ -58393,7 +58393,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the status of a moving Elastic IP address.</p>"
+        "smithy.api#documentation": "<p>Describes the status of a moving Elastic IP address.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#MovingAddressStatusSet": {
@@ -60959,7 +60959,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the VPC peering connection options.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Describes the VPC peering connection options.</p>"
       }
     },
     "com.amazonaws.ec2#PeeringConnectionOptionsRequest": {
@@ -60985,7 +60985,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The VPC peering connection options.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>The VPC peering connection options.</p>"
       }
     },
     "com.amazonaws.ec2#PeeringTgwInfo": {
@@ -64029,7 +64029,7 @@
         "target": "smithy.api#Unit"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Releases the specified Elastic IP address.</p>\n         <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it\n\t\t\t\tfrom any instance that it's associated with. To disassociate an Elastic IP address without\n\t\t\t\treleasing it, use <a>DisassociateAddress</a>.</p>\n         <p>[Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic IP address\n\t\t\t  before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p>\n         <p>After releasing an Elastic IP address, it is released to the IP address pool. \n        Be sure to update your DNS records and any servers or devices that communicate with the address. \n        If you attempt to release an Elastic IP address that you already released, you'll get an\n       <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p>\n         <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.\n        For more information, see <a>AllocateAddress</a>.</p>\n         <p>For more\n       information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP\n         Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Releases the specified Elastic IP address.</p>\n         <p>[EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates it\n\t\t\t\tfrom any instance that it's associated with. To disassociate an Elastic IP address without\n\t\t\t\treleasing it, use <a>DisassociateAddress</a>.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>[Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic IP address\n\t\t\t  before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).</p>\n         <p>After releasing an Elastic IP address, it is released to the IP address pool. \n        Be sure to update your DNS records and any servers or devices that communicate with the address. \n        If you attempt to release an Elastic IP address that you already released, you'll get an\n       <code>AuthFailure</code> error if the address is already allocated to another Amazon Web Services account.</p>\n         <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.\n        For more information, see <a>AllocateAddress</a>.</p>\n         <p>For more\n       information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\">Elastic IP\n         Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#ReleaseAddressRequest": {
@@ -65267,7 +65267,7 @@
         "target": "com.amazonaws.ec2#RequestSpotInstancesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates a Spot Instance request.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html\">Spot Instance requests</a> in\n            the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        \n        <important>\n            <p>We strongly discourage using the RequestSpotInstances API because it is a legacy\n                API with no planned investment. For options for requesting Spot Instances, see\n                    <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\">Which\n                    is the best Spot request method to use?</a> in the\n                    <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        </important>"
+        "smithy.api#documentation": "<p>Creates a Spot Instance request.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html\">Spot Instance requests</a> in\n            the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        \n        <important>\n            <p>We strongly discourage using the RequestSpotInstances API because it is a legacy\n                API with no planned investment. For options for requesting Spot Instances, see\n                    <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use\">Which\n                    is the best Spot request method to use?</a> in the\n                    <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        </important>\n        <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        </note>"
       }
     },
     "com.amazonaws.ec2#RequestSpotInstancesRequest": {
@@ -65589,7 +65589,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a launch request for one or more instances, and includes owner, requester,\n            and security group information that applies to all instances in the launch\n            request.</p>"
+        "smithy.api#documentation": "<p>Describes a launch request for one or more instances, and includes owner, requester,\n            and security group information that applies to all instances in the launch\n            request.</p>\n        \n        <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        </note>"
       }
     },
     "com.amazonaws.ec2#ReservationFleetInstanceSpecification": {
@@ -66009,7 +66009,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the configuration settings for the modified Reserved Instances.</p>"
+        "smithy.api#documentation": "<p>Describes the configuration settings for the modified Reserved Instances.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#ReservedInstancesConfigurationList": {
@@ -67123,6 +67123,18 @@
           {
             "value": "vpc-flow-log",
             "name": "vpc_flow_log"
+          },
+          {
+            "value": "capacity-reservation-fleet",
+            "name": "capacity_reservation_fleet"
+          },
+          {
+            "value": "traffic-mirror-filter-rule",
+            "name": "traffic_mirror_filter_rule"
+          },
+          {
+            "value": "vpc-endpoint-connection-device-type",
+            "name": "vpc_endpoint_connection_device_type"
           }
         ]
       }
@@ -67440,7 +67452,7 @@
         "target": "com.amazonaws.ec2#RestoreAddressToClassicResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.</p>"
+        "smithy.api#documentation": "<p>Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#RestoreAddressToClassicRequest": {
@@ -68516,7 +68528,7 @@
         "target": "com.amazonaws.ec2#Reservation"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Launches the specified number of instances using an AMI for which you have\n            permissions.</p>\n        <p>You can specify a number of options, or leave the default options. The following rules\n            apply:</p>\n        <ul>\n            <li>\n                <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from\n                    your default VPC for you. If you don't have a default VPC, you must specify a\n                    subnet ID in the request.</p>\n            </li>\n            <li>\n                <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for\n                    you.</p>\n            </li>\n            <li>\n                <p>Some instance types must be launched into a VPC. If you do not have a default\n                    VPC, or if you do not specify a subnet ID, the request fails. For more\n                    information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types\">Instance types available only in a VPC</a>.</p>\n            </li>\n            <li>\n                <p>[EC2-VPC] All instances have a network interface with a primary private IPv4\n                    address. If you don't specify this address, we choose one from the IPv4 range of\n                    your subnet.</p>\n            </li>\n            <li>\n                <p>Not all instance types support IPv6 addresses. For more information, see\n                        <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance\n                    types</a>.</p>\n            </li>\n            <li>\n                <p>If you don't specify a security group ID, we use the default security group.\n                    For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\">Security\n                        groups</a>.</p>\n            </li>\n            <li>\n                <p>If any of the AMIs have a product code attached for which the user has not\n                    subscribed, the request fails.</p>\n            </li>\n         </ul>\n        <p>You can create a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">launch template</a>,\n            which is a resource that contains the parameters to launch an instance. When you launch\n            an instance using <a>RunInstances</a>, you can specify the launch template\n            instead of specifying the launch parameters.</p>\n        <p>To ensure faster instance launches, break up large requests into smaller batches. For\n            example, create five separate launch requests for 100 instances each instead of one\n            launch request for 500 instances.</p>\n        <p>An instance is ready for you to use when it's in the <code>running</code> state. You\n            can check the state of your instance using <a>DescribeInstances</a>. You can\n            tag instances and EBS volumes during launch, after launch, or both. For more\n            information, see <a>CreateTags</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging your Amazon EC2\n                resources</a>.</p>\n        <p>Linux instances have access to the public key of the key pair at boot. You can use\n            this key to provide secure access to the instance. Amazon EC2 public images use this\n            feature to provide secure access without passwords. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Key\n                pairs</a>.</p>\n        <p>For troubleshooting, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\">What to do if\n                an instance immediately terminates</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\">Troubleshooting connecting to your instance</a>.</p>"
+        "smithy.api#documentation": "<p>Launches the specified number of instances using an AMI for which you have\n            permissions.</p>\n        <p>You can specify a number of options, or leave the default options. The following rules\n            apply:</p>\n        <ul>\n            <li>\n                <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from\n                    your default VPC for you. If you don't have a default VPC, you must specify a\n                    subnet ID in the request.</p>\n            </li>\n            <li>\n                <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for\n                    you.</p>\n            </li>\n            <li>\n                <p>Some instance types must be launched into a VPC. If you do not have a default\n                    VPC, or if you do not specify a subnet ID, the request fails. For more\n                    information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types\">Instance types available only in a VPC</a>.</p>\n            </li>\n            <li>\n                <p>[EC2-VPC] All instances have a network interface with a primary private IPv4\n                    address. If you don't specify this address, we choose one from the IPv4 range of\n                    your subnet.</p>\n            </li>\n            <li>\n                <p>Not all instance types support IPv6 addresses. For more information, see\n                        <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance\n                    types</a>.</p>\n            </li>\n            <li>\n                <p>If you don't specify a security group ID, we use the default security group.\n                    For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\">Security\n                        groups</a>.</p>\n            </li>\n            <li>\n                <p>If any of the AMIs have a product code attached for which the user has not\n                    subscribed, the request fails.</p>\n            </li>\n         </ul>\n        <p>You can create a <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\">launch template</a>,\n            which is a resource that contains the parameters to launch an instance. When you launch\n            an instance using <a>RunInstances</a>, you can specify the launch template\n            instead of specifying the launch parameters.</p>\n        <p>To ensure faster instance launches, break up large requests into smaller batches. For\n            example, create five separate launch requests for 100 instances each instead of one\n            launch request for 500 instances.</p>\n        <p>An instance is ready for you to use when it's in the <code>running</code> state. You\n            can check the state of your instance using <a>DescribeInstances</a>. You can\n            tag instances and EBS volumes during launch, after launch, or both. For more\n            information, see <a>CreateTags</a> and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging your Amazon EC2\n                resources</a>.</p>\n        <p>Linux instances have access to the public key of the key pair at boot. You can use\n            this key to provide secure access to the instance. Amazon EC2 public images use this\n            feature to provide secure access without passwords. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Key\n                pairs</a>.</p>\n        <p>For troubleshooting, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\">What to do if\n                an instance immediately terminates</a>, and <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\">Troubleshooting connecting to your instance</a>.</p>\n        \n        <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>\n        </note>"
       }
     },
     "com.amazonaws.ec2#RunInstancesMonitoringEnabled": {
@@ -69084,7 +69096,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a Scheduled Instance.</p>"
+        "smithy.api#documentation": "<p>Describes a Scheduled Instance.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#ScheduledInstanceAvailability": {
@@ -69196,7 +69208,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a schedule that is available for your Scheduled Instances.</p>"
+        "smithy.api#documentation": "<p>Describes a schedule that is available for your Scheduled Instances.</p>\n         <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.ec2#ScheduledInstanceAvailabilitySet": {
@@ -71746,7 +71758,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the launch specification for one or more Spot Instances. If you include\n            On-Demand capacity in your fleet request or want to specify an EFA network device, you\n            can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html\">LaunchTemplateConfig</a>.</p>"
+        "smithy.api#documentation": "<p>Describes the launch specification for one or more Spot Instances. If you include\n            On-Demand capacity in your fleet request or want to specify an EFA network device, you\n            can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html\">LaunchTemplateConfig</a>.</p>\n        \n        <note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        </note>"
       }
     },
     "com.amazonaws.ec2#SpotFleetMonitoring": {
@@ -80343,7 +80355,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes whether a VPC is enabled for ClassicLink.</p>"
+        "smithy.api#documentation": "<note>\n\t           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n\t        </note>\n\t\t       <p>Describes whether a VPC is enabled for ClassicLink.</p>"
       }
     },
     "com.amazonaws.ec2#VpcClassicLinkIdList": {
@@ -80879,7 +80891,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the VPC peering connection options.</p>"
+        "smithy.api#documentation": "<note>\n            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html\">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\n         </note>\n         <p>Describes the VPC peering connection options.</p>"
       }
     },
     "com.amazonaws.ec2#VpcPeeringConnectionStateReason": {

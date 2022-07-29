@@ -28,7 +28,10 @@ export interface EnableVpcClassicLinkCommandInput extends EnableVpcClassicLinkRe
 export interface EnableVpcClassicLinkCommandOutput extends EnableVpcClassicLinkResult, __MetadataBearer {}
 
 /**
- * <p>Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your
+ * <note>
+ *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
+ *          <p>Enables a VPC for ClassicLink. You can then link EC2-Classic instances to your
  * 			ClassicLink-enabled VPC to allow communication over private IP addresses. You cannot
  * 			enable your VPC for ClassicLink if any of your VPC route tables have existing routes for
  * 			address ranges within the <code>10.0.0.0/8</code> IP address range, excluding local

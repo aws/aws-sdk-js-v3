@@ -1664,6 +1664,9 @@ export interface DescribeReservedInstancesModificationsRequest {
 
 /**
  * <p>Describes the configuration settings for the modified Reserved Instances.</p>
+ *          <note>
+ *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
  */
 export interface ReservedInstancesConfiguration {
   /**
@@ -2359,6 +2362,9 @@ export interface ScheduledInstanceRecurrence {
 
 /**
  * <p>Describes a schedule that is available for your Scheduled Instances.</p>
+ *          <note>
+ *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
  */
 export interface ScheduledInstanceAvailability {
   /**
@@ -2517,6 +2523,9 @@ export interface DescribeScheduledInstancesRequest {
 
 /**
  * <p>Describes a Scheduled Instance.</p>
+ *          <note>
+ *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
  */
 export interface ScheduledInstance {
   /**
@@ -3676,6 +3685,10 @@ export interface SpotFleetTagSpecification {
  * <p>Describes the launch specification for one or more Spot Instances. If you include
  *             On-Demand capacity in your fleet request or want to specify an EFA network device, you
  *             can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
+ *
+ *         <note>
+ *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *         </note>
  */
 export interface SpotFleetLaunchSpecification {
   /**
@@ -4524,6 +4537,9 @@ export interface RunInstancesMonitoringEnabled {
 
 /**
  * <p>Describes the launch specification for an instance.</p>
+ *          <note>
+ *            <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *          </note>
  */
 export interface LaunchSpecification {
   /**
@@ -6991,7 +7007,10 @@ export interface DescribeVpcClassicLinkRequest {
 }
 
 /**
- * <p>Describes whether a VPC is enabled for ClassicLink.</p>
+ * <note>
+ * 	           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * 	        </note>
+ * 		       <p>Describes whether a VPC is enabled for ClassicLink.</p>
  */
 export interface VpcClassicLink {
   /**

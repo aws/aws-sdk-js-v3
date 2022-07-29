@@ -27,6 +27,10 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * 			      <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP
  * 				Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *
+ *          <note>
+ *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
  *          <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

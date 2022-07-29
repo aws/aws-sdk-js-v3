@@ -591,7 +591,10 @@ export interface Ipv6CidrBlock {
 }
 
 /**
- * <p>Describes the VPC peering connection options.</p>
+ * <note>
+ *             <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
+ *          <p>Describes the VPC peering connection options.</p>
  */
 export interface VpcPeeringConnectionOptionsDescription {
   /**
@@ -1587,6 +1590,7 @@ export type Affinity = "default" | "host";
 
 export type ResourceType =
   | "capacity-reservation"
+  | "capacity-reservation-fleet"
   | "carrier-gateway"
   | "client-vpn-endpoint"
   | "customer-gateway"
@@ -1639,6 +1643,7 @@ export type ResourceType =
   | "subnet"
   | "subnet-cidr-reservation"
   | "traffic-mirror-filter"
+  | "traffic-mirror-filter-rule"
   | "traffic-mirror-session"
   | "traffic-mirror-target"
   | "transit-gateway"
@@ -1651,6 +1656,7 @@ export type ResourceType =
   | "volume"
   | "vpc"
   | "vpc-endpoint"
+  | "vpc-endpoint-connection-device-type"
   | "vpc-endpoint-service"
   | "vpc-flow-log"
   | "vpc-peering-connection"

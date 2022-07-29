@@ -28,7 +28,10 @@ export interface AttachClassicLinkVpcCommandInput extends AttachClassicLinkVpcRe
 export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcResult, __MetadataBearer {}
 
 /**
- * <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's
+ * <note>
+ * 	           <p>We are retiring EC2-Classic on August 15, 2022. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * 	        </note>
+ * 	        <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's
  * 			security groups. You cannot link an EC2-Classic instance to more than one VPC at a time. You
  * 			can only link an instance that's in the <code>running</code> state. An instance is
  * 			automatically unlinked from a VPC when it's stopped - you can link it to the VPC again when
