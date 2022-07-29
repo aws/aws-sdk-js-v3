@@ -2607,11 +2607,24 @@ export interface CreateDataRepositoryTaskRequest {
   Type: DataRepositoryTaskType | string | undefined;
 
   /**
-   * <p>(Optional) The path or paths on the Amazon FSx file system to use when the data repository task is processed.
-   *             The default path is the file system root directory. The paths you provide need to be relative to the mount point of the file system.
-   *             If the mount point is <code>/mnt/fsx</code> and <code>/mnt/fsx/path1</code> is a directory or
-   *             file on the file system you want to export, then the path to provide is <code>path1</code>.
+   * <p>A list of paths for the data repository task to use when the task is processed.
    *             If a path that you provide isn't valid, the task fails.</p>
+   *         <ul>
+   *             <li>
+   *                <p>For export tasks, the list contains paths on the Amazon FSx file system
+   *                 from which the files are exported to the Amazon S3 bucket. The default path is the
+   *                 file system root directory. The paths you provide need to be relative to the mount
+   *                 point of the file system. If the mount point is <code>/mnt/fsx</code> and
+   *                 <code>/mnt/fsx/path1</code> is a directory or file on the file system you want
+   *                 to export, then the path to provide is <code>path1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For import tasks, the list contains paths in the Amazon S3 bucket
+   *                 from which POSIX metadata changes are imported to the Amazon FSx file system.
+   *                 The path can be an S3 bucket or prefix in the format
+   *                 <code>s3://myBucket/myPrefix</code> (where <code>myPrefix</code> is optional).</p>
+   *             </li>
+   *          </ul>
    */
   Paths?: string[];
 
@@ -3360,12 +3373,12 @@ export interface CreateFileSystemOpenZFSConfiguration {
   CopyTagsToBackups?: boolean;
 
   /**
-   * <p>A Boolean value indicating whether tags for the volume should be copied to snapshots.
+   * <p>A Boolean value indicating whether tags for the file system should be copied to volumes.
    *             This value defaults to <code>false</code>. If it's set to <code>true</code>, all tags
-   *             for the volume are copied to snapshots where the user doesn't specify tags. If this
+   *             for the file system are copied to volumes where the user doesn't specify tags. If this
    *             value is <code>true</code>, and you specify one or more tags, only the specified tags
-   *             are copied to snapshots. If you specify one or more tags when creating the snapshot, no
-   *             tags are copied from the volume, regardless of this value. </p>
+   *             are copied to volumes. If you specify one or more tags when creating the volume, no
+   *             tags are copied from the file system, regardless of this value.</p>
    */
   CopyTagsToVolumes?: boolean;
 

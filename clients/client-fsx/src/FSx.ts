@@ -1438,8 +1438,7 @@ export class FSx extends FSxClient {
   }
 
   /**
-   * <p>Lists tags for an Amazon FSx file systems and backups in the case of Amazon FSx for
-   *             Windows File Server.</p>
+   * <p>Lists tags for Amazon FSx resources.</p>
    *
    *         <p>When retrieving all tags, you can optionally specify the <code>MaxResults</code>
    *             parameter to limit the number of tags in a response. If more tags remain, Amazon FSx
