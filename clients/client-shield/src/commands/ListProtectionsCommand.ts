@@ -28,7 +28,8 @@ export interface ListProtectionsCommandInput extends ListProtectionsRequest {}
 export interface ListProtectionsCommandOutput extends ListProtectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all <a>Protection</a> objects for the account.</p>
+ * <p>Retrieves <a>Protection</a> objects for the account. You can retrieve all protections or you can provide
+ *        filtering criteria and retrieve just the subset of protections that match the criteria. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

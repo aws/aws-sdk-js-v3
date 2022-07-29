@@ -28,7 +28,8 @@ export interface ListProtectionGroupsCommandInput extends ListProtectionGroupsRe
 export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the <a>ProtectionGroup</a> objects for the account.</p>
+ * <p>Retrieves <a>ProtectionGroup</a> objects for the account. You can retrieve all protection groups or you can provide
+ *        filtering criteria and retrieve just the subset of protection groups that match the criteria. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

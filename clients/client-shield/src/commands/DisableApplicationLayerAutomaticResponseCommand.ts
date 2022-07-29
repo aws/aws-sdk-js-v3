@@ -31,7 +31,7 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disable the Shield Advanced automatic application layer DDoS mitigation feature for the resource. This
+ * <p>Disable the Shield Advanced automatic application layer DDoS mitigation feature for the protected resource. This
  *        stops Shield Advanced from creating, verifying, and applying WAF rules for attacks that it detects for the resource. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -187,6 +187,8 @@ import {
   EnableProactiveEngagementResponse,
   GetSubscriptionStateRequest,
   GetSubscriptionStateResponse,
+  InclusionProtectionFilters,
+  InclusionProtectionGroupFilters,
   InternalErrorException,
   InvalidOperationException,
   InvalidPaginationTokenException,
@@ -208,10 +210,13 @@ import {
   Mitigation,
   NoAssociatedRoleException,
   OptimisticLockException,
+  ProtectedResourceType,
   Protection,
   ProtectionGroup,
+  ProtectionGroupAggregation,
   ProtectionGroupArbitraryPatternLimits,
   ProtectionGroupLimits,
+  ProtectionGroupPattern,
   ProtectionGroupPatternTypeLimits,
   ProtectionLimits,
   ResourceAlreadyExistsException,
@@ -3012,6 +3017,43 @@ const serializeAws_json1_1GetSubscriptionStateRequest = (
   return {};
 };
 
+const serializeAws_json1_1InclusionProtectionFilters = (
+  input: InclusionProtectionFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ProtectionNames != null && {
+      ProtectionNames: serializeAws_json1_1ProtectionNameFilters(input.ProtectionNames, context),
+    }),
+    ...(input.ResourceArns != null && {
+      ResourceArns: serializeAws_json1_1ResourceArnFilters(input.ResourceArns, context),
+    }),
+    ...(input.ResourceTypes != null && {
+      ResourceTypes: serializeAws_json1_1ProtectedResourceTypeFilters(input.ResourceTypes, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1InclusionProtectionGroupFilters = (
+  input: InclusionProtectionGroupFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Aggregations != null && {
+      Aggregations: serializeAws_json1_1ProtectionGroupAggregationFilters(input.Aggregations, context),
+    }),
+    ...(input.Patterns != null && {
+      Patterns: serializeAws_json1_1ProtectionGroupPatternFilters(input.Patterns, context),
+    }),
+    ...(input.ProtectionGroupIds != null && {
+      ProtectionGroupIds: serializeAws_json1_1ProtectionGroupIdFilters(input.ProtectionGroupIds, context),
+    }),
+    ...(input.ResourceTypes != null && {
+      ResourceTypes: serializeAws_json1_1ProtectedResourceTypeFilters(input.ResourceTypes, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1ListAttacksRequest = (input: ListAttacksRequest, context: __SerdeContext): any => {
   return {
     ...(input.EndTime != null && { EndTime: serializeAws_json1_1TimeRange(input.EndTime, context) }),
@@ -3029,6 +3071,9 @@ const serializeAws_json1_1ListProtectionGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.InclusionFilters != null && {
+      InclusionFilters: serializeAws_json1_1InclusionProtectionGroupFilters(input.InclusionFilters, context),
+    }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
@@ -3036,6 +3081,9 @@ const serializeAws_json1_1ListProtectionGroupsRequest = (
 
 const serializeAws_json1_1ListProtectionsRequest = (input: ListProtectionsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.InclusionFilters != null && {
+      InclusionFilters: serializeAws_json1_1InclusionProtectionFilters(input.InclusionFilters, context),
+    }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
@@ -3061,6 +3109,45 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_1ProtectedResourceTypeFilters = (
+  input: (ProtectedResourceType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ProtectionGroupAggregationFilters = (
+  input: (ProtectionGroupAggregation | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ProtectionGroupIdFilters = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1ProtectionGroupMembers = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3072,7 +3159,43 @@ const serializeAws_json1_1ProtectionGroupMembers = (input: string[], context: __
     });
 };
 
+const serializeAws_json1_1ProtectionGroupPatternFilters = (
+  input: (ProtectionGroupPattern | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ProtectionNameFilters = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1ResourceArnFilterList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1ResourceArnFilters = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {

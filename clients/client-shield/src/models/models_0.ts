@@ -230,7 +230,7 @@ export class LimitsExceededException extends __BaseException {
 }
 
 /**
- * <p>The ARN of the role that you specifed does not exist.</p>
+ * <p>The ARN of the role that you specified does not exist.</p>
  */
 export class NoAssociatedRoleException extends __BaseException {
   readonly name: "NoAssociatedRoleException" = "NoAssociatedRoleException";
@@ -771,7 +771,7 @@ export interface CreateProtectionRequest {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>For an Global Accelerator accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>
+   *                <p>For an Global Accelerator standard accelerator: <code>arn:aws:globalaccelerator::<i>account-id</i>:accelerator/<i>accelerator-id</i>
    *                   </code>
    *                </p>
    *             </li>
@@ -949,7 +949,7 @@ export interface DescribeAttackRequest {
 
 export interface DescribeAttackResponse {
   /**
-   * <p>The attack that is described.</p>
+   * <p>The attack that you requested. </p>
    */
   Attack?: AttackDetail;
 }
@@ -973,7 +973,7 @@ export interface TimeRange {
 
 export interface DescribeAttackStatisticsResponse {
   /**
-   * <p>The time range. </p>
+   * <p>The time range of the attack.</p>
    */
   TimeRange: TimeRange | undefined;
 
@@ -1008,14 +1008,14 @@ export interface DescribeEmergencyContactSettingsResponse {
 
 export interface DescribeProtectionRequest {
   /**
-   * <p>The unique identifier (ID) for the <a>Protection</a> object that is
-   *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
+   * <p>The unique identifier (ID) for the <a>Protection</a> object to describe.
+   *            You must provide either the <code>ResourceArn</code> of the protected resource or the <code>ProtectionID</code> of the protection, but not both.</p>
    */
   ProtectionId?: string;
 
   /**
-   * <p>The ARN (Amazon Resource Name) of the Amazon Web Services resource for the <a>Protection</a> object that is
-   *          described. When submitting the <code>DescribeProtection</code> request you must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</p>
+   * <p>The ARN (Amazon Resource Name) of the protected Amazon Web Services resource.
+   *            You must provide either the <code>ResourceArn</code> of the protected resource or the <code>ProtectionID</code> of the protection, but not both.</p>
    */
   ResourceArn?: string;
 }
@@ -1059,7 +1059,7 @@ export interface Protection {
 
 export interface DescribeProtectionResponse {
   /**
-   * <p>The <a>Protection</a> object that is described.</p>
+   * <p>The <a>Protection</a> that you requested. </p>
    */
   Protection?: Protection;
 }
@@ -1097,7 +1097,7 @@ export interface ProtectionGroup {
   Aggregation: ProtectionGroupAggregation | string | undefined;
 
   /**
-   * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>
+   * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource ARNs (Amazon Resource Names), or include all resources of a specified resource type.</p>
    */
   Pattern: ProtectionGroupPattern | string | undefined;
 
@@ -1108,7 +1108,7 @@ export interface ProtectionGroup {
   ResourceType?: ProtectedResourceType | string;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+   * <p>The ARNs (Amazon Resource Names) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
   Members: string[] | undefined;
 
@@ -1265,7 +1265,7 @@ export interface DescribeSubscriptionResponse {
 
 export interface DisableApplicationLayerAutomaticResponseRequest {
   /**
-   * <p>The ARN (Amazon Resource Name) of the resource.</p>
+   * <p>The ARN (Amazon Resource Name) of the protected resource.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -1305,7 +1305,7 @@ export interface DisassociateHealthCheckResponse {}
 
 export interface EnableApplicationLayerAutomaticResponseRequest {
   /**
-   * <p>The ARN (Amazon Resource Name) of the resource.</p>
+   * <p>The ARN (Amazon Resource Name) of the protected resource.</p>
    */
   ResourceArn: string | undefined;
 
@@ -1412,6 +1412,31 @@ export class InvalidPaginationTokenException extends __BaseException {
   }
 }
 
+/**
+ * <p>Narrows the set of protection groups that the call retrieves. You can retrieve a single protection group by its name and you can retrieve all protection groups that are configured with a specific pattern, aggregation, or resource type. You can provide up to one criteria per filter type. Shield Advanced returns the protection groups that exactly match all of the search criteria that you provide.</p>
+ */
+export interface InclusionProtectionGroupFilters {
+  /**
+   * <p>The ID of the protection group that you want to retrieve.  </p>
+   */
+  ProtectionGroupIds?: string[];
+
+  /**
+   * <p>The pattern specification of the protection groups that you want to retrieve.  </p>
+   */
+  Patterns?: (ProtectionGroupPattern | string)[];
+
+  /**
+   * <p>The resource type configuration of the protection groups that you want to retrieve. In the protection group configuration, you specify the resource type when you set the group's <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code>. </p>
+   */
+  ResourceTypes?: (ProtectedResourceType | string)[];
+
+  /**
+   * <p>The aggregation setting of the protection groups that you want to retrieve.  </p>
+   */
+  Aggregations?: (ProtectionGroupAggregation | string)[];
+}
+
 export interface ListProtectionGroupsRequest {
   /**
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
@@ -1431,6 +1456,11 @@ export interface ListProtectionGroupsRequest {
    *          <p>The default setting is 20.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Narrows the set of protection groups that the call retrieves. You can retrieve a single protection group by its name and you can retrieve all protection groups that are configured with specific pattern or aggregation settings. You can provide up to one criteria per filter type. Shield Advanced returns the protection groups that exactly match all of the search criteria that you provide.</p>
+   */
+  InclusionFilters?: InclusionProtectionGroupFilters;
 }
 
 export interface ListProtectionGroupsResponse {
@@ -1448,6 +1478,26 @@ export interface ListProtectionGroupsResponse {
    *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
+}
+
+/**
+ * <p>Narrows the set of protections that the call retrieves. You can retrieve a single protection by providing its name or the ARN (Amazon Resource Name) of its protected resource. You can also retrieve all protections for a specific resource type. You can provide up to one criteria per filter type. Shield Advanced returns protections that exactly match all of the filter criteria that you provide.</p>
+ */
+export interface InclusionProtectionFilters {
+  /**
+   * <p>The ARN (Amazon Resource Name) of the resource whose protection you want to retrieve.  </p>
+   */
+  ResourceArns?: string[];
+
+  /**
+   * <p>The name of the protection that you want to retrieve.  </p>
+   */
+  ProtectionNames?: string[];
+
+  /**
+   * <p>The type of protected resource whose protections you want to retrieve.  </p>
+   */
+  ResourceTypes?: (ProtectedResourceType | string)[];
 }
 
 export interface ListProtectionsRequest {
@@ -1469,6 +1519,11 @@ export interface ListProtectionsRequest {
    *          <p>The default setting is 20.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Narrows the set of protections that the call retrieves. You can retrieve a single protection by providing its name or the ARN (Amazon Resource Name) of its protected resource. You can also retrieve all protections for a specific resource type. You can provide up to one criteria per filter type. Shield Advanced returns protections that exactly match all of the filter criteria that you provide.</p>
+   */
+  InclusionFilters?: InclusionProtectionFilters;
 }
 
 export interface ListProtectionsResponse {
@@ -2239,6 +2294,13 @@ export const ListAttacksResponseFilterSensitiveLog = (obj: ListAttacksResponse):
 /**
  * @internal
  */
+export const InclusionProtectionGroupFiltersFilterSensitiveLog = (obj: InclusionProtectionGroupFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListProtectionGroupsRequestFilterSensitiveLog = (obj: ListProtectionGroupsRequest): any => ({
   ...obj,
 });
@@ -2247,6 +2309,13 @@ export const ListProtectionGroupsRequestFilterSensitiveLog = (obj: ListProtectio
  * @internal
  */
 export const ListProtectionGroupsResponseFilterSensitiveLog = (obj: ListProtectionGroupsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InclusionProtectionFiltersFilterSensitiveLog = (obj: InclusionProtectionFilters): any => ({
   ...obj,
 });
 

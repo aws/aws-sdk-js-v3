@@ -29,6 +29,10 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionRespo
 
 /**
  * <p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>
+ *          <note>
+ *             <p>For accounts that are members of an Organizations organization, Shield Advanced subscriptions are billed against the organization's payer account,
+ *               regardless of whether the payer account itself is subscribed. </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
