@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.139.0...v3.140.0) (2022-07-29)
+
+
+### Features
+
+* **client-shield:** AWS Shield Advanced now supports filtering for ListProtections and ListProtectionGroups. ([d907155](https://github.com/aws/aws-sdk-js-v3/commit/d90715521b9611358ee22647ccb24588174e6964))
+
+
+
+
+
 # [3.137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.136.1...v3.137.0) (2022-07-26)
 
 

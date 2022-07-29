@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.139.0...v3.140.0) (2022-07-29)
+
+
+### Features
+
+* **client-ec2:** Documentation updates for Amazon EC2. ([504891a](https://github.com/aws/aws-sdk-js-v3/commit/504891a60f4cf5f642a8092f32747fad0d8d3f99))
+
+
+
+
+
 # [3.139.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.138.0...v3.139.0) (2022-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

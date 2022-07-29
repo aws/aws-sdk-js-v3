@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.139.0...v3.140.0) (2022-07-29)
+
+
+### Bug Fixes
+
+* **clients:** create new session for every H2 requests ([#3810](https://github.com/aws/aws-sdk-js-v3/issues/3810)) ([b2c026f](https://github.com/aws/aws-sdk-js-v3/commit/b2c026f8309339bfee59cf75e7dc5fc0a22a7fa2))
+
+
+
+
+
 # [3.137.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.136.1...v3.137.0) (2022-07-26)
 
 
