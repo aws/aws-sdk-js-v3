@@ -107,12 +107,16 @@ export interface PutOrganizationConfigRuleRequest {
   OrganizationConfigRuleName: string | undefined;
 
   /**
-   * <p>An <code>OrganizationManagedRuleMetadata</code> object. </p>
+   * <p>An <code>OrganizationManagedRuleMetadata</code> object. This object specifies organization
+   * 			managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier.
+   * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
    */
   OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata;
 
   /**
-   * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
+   * <p>An <code>OrganizationCustomRuleMetadata</code> object. This object specifies organization custom rule metadata such as resource type,
+   * 			resource ID of Amazon Web Services resource, Lambda function ARN, and organization trigger types that trigger Config to evaluate your Amazon Web Services resources against a rule.
+   * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
    */
   OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
 
@@ -122,9 +126,9 @@ export interface PutOrganizationConfigRuleRequest {
   ExcludedAccounts?: string[];
 
   /**
-   * <p>An object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug
+   * <p>An <code>OrganizationCustomPolicyRuleMetadata</code> object. This object specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug
    * 			logging enabled, and other custom rule metadata, such as resource type, resource ID of
-   * 				Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+   * 			Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
    */
   OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata;
 }

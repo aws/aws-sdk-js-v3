@@ -29,8 +29,8 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the Config Developer Guide.</p>
- * 		       <p>This API creates a service linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
- * 		The service linked role is created only when the role does not exist in your account. </p>
+ * 		       <p>This API creates a service-linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
+ * 		The service-linked role is created only when the role does not exist in your account. </p>
  * 		       <note>
  *             <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
  * 			If you provide both Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>

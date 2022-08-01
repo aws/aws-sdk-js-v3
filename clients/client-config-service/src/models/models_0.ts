@@ -1178,7 +1178,7 @@ export interface SourceDetail {
 }
 
 /**
- * <p>Provides the CustomPolicyDetails, the rule owner (Amazon Web Services or customer), the rule
+ * <p>Provides the CustomPolicyDetails, the rule owner (<code>Amazon Web Services</code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule
  * 			identifier, and the events that cause the evaluation of your Amazon Web Services
  * 			resources.</p>
  */
@@ -1186,9 +1186,9 @@ export interface Source {
   /**
    * <p>Indicates whether Amazon Web Services or the customer owns and manages the Config rule.</p>
    *
-   * 		       <p>Config Managed Rules are predefined rules owned by Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Config Managed Rules</a> in the Config developer guide.</p>
+   * 		       <p>Config Managed Rules are predefined rules owned by Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Config Managed Rules</a> in the <i>Config developer guide</i>.</p>
    *
-   * 		       <p>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>) or Lambda (<code>CUSTOM_LAMBDA</code>). For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">Config Custom Rules </a> in the Config developer guide.</p>
+   * 		       <p>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>) or Lambda (<code>CUSTOM_LAMBDA</code>). For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">Config Custom Rules </a> in the <i>Config developer guide</i>.</p>
    */
   Owner: Owner | string | undefined;
 
@@ -1218,22 +1218,28 @@ export interface Source {
 }
 
 /**
- * <p>An Config rule represents an Lambda function that you
- * 			create for a custom rule or a predefined function for an Config managed
- * 			rule. The function evaluates configuration items to assess whether
- * 			your Amazon Web Services resources comply with your desired configurations. This
- * 			function can run when Config detects a configuration change to
- * 			an Amazon Web Services resource and at a periodic frequency that you choose (for
- * 			example, every 24 hours).</p>
+ * <p>Config rules evaluate the configuration settings of your Amazon Web Services resources. A rule can run when Config detects a configuration change to
+ * 			an Amazon Web Services resource or at a periodic frequency that you choose (for
+ * 			example, every 24 hours). There are two types of rules: Config Managed Rules and Config Custom Rules.
+ * 			Managed rules are predefined, customizable rules created by Config. For a list of managed rules, see
+ * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List of Config
+ * 					Managed Rules</a>.</p>
+ *
+ * 		       <p>Custom rules are rules that you can create using either Guard or Lambda functions.
+ * 			Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
+ * 				Repository</a>) is a policy-as-code language that allows you to write policies that
+ * 			are enforced by Config Custom Policy rules. Lambda uses custom code that you upload to
+ * 			evaluate a custom rule. It is invoked by events that are published to it by an event source, which Config invokes when the custom rule is initiated.</p>
+ *
+ * 		       <p>For more information about developing and using Config
+ * 			rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating Amazon Web Services resource Configurations with Config</a>
+ * 			in the <i>Config Developer Guide</i>.</p>
  *
  * 		       <note>
  * 			         <p>You can use the Amazon Web Services CLI and Amazon Web Services SDKs if you want to create
  * 				a rule that triggers evaluations for your resources when Config delivers the configuration snapshot. For more
  * 				information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
  * 		       </note>
- * 		       <p>For more information about developing and using Config
- * 			rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating Amazon Web Services resource Configurations with Config</a>
- * 			in the <i>Config Developer Guide</i>.</p>
  */
 export interface ConfigRule {
   /**
@@ -1274,7 +1280,7 @@ export interface ConfigRule {
   Scope?: Scope;
 
   /**
-   * <p>Provides the rule owner (Amazon Web Services or customer), the rule identifier,
+   * <p>Provides the rule owner (<code>Amazon Web Services</code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule identifier,
    * 			and the notifications that cause the function to evaluate your Amazon Web Services
    * 			resources.</p>
    */
@@ -1339,7 +1345,7 @@ export interface ConfigRule {
    * <p>Service principal name of the service that created the
    * 			rule.</p>
    * 		       <note>
-   * 			         <p>The field is populated only if the service linked rule is
+   * 			         <p>The field is populated only if the service-linked rule is
    * 				created by a service. The field is empty if you create your own
    * 				rule.</p>
    * 		       </note>
@@ -2018,11 +2024,11 @@ export interface ConformancePackComplianceFilters {
 /**
  * <p>A compliance score is the percentage of the number of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations in the conformance pack.
  * 			This metric provides you with a high-level view of the compliance state of your conformance packs, and can be used to identify, investigate, and understand
- * 			compliance deviations in your conformance packs.</p>
+ * 			the level of compliance in your conformance packs.</p>
  */
 export interface ConformancePackComplianceScore {
   /**
-   * <p>Compliance score for the conformance pack.</p>
+   * <p>Compliance score for the conformance pack. Conformance packs with no evaluation results will have a compliance score of <code>INSUFFICIENT_DATA</code>.</p>
    */
   Score?: string;
 
@@ -2038,11 +2044,12 @@ export interface ConformancePackComplianceScore {
 }
 
 /**
- * <p>A list of filters to apply to the conformance pack compliance score result set.</p>
+ * <p>A list of filters to apply to the conformance pack compliance score result set. </p>
  */
 export interface ConformancePackComplianceScoresFilters {
   /**
-   * <p>The name of a conformance pack whose score should be included in the compliance score result.</p>
+   * <p>The names of the conformance packs whose compliance scores you want to include in the conformance pack compliance score result set.
+   * 			You can include up to 25 conformance packs in the <code>ConformancePackNames</code> array of strings, each with a character limit of 256 characters for the conformance pack name.</p>
    */
   ConformancePackNames: string[] | undefined;
 }
@@ -2667,13 +2674,13 @@ export interface DeleteRemediationConfigurationResponse {}
  *                <p>For PutConfigRule, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
  *             </li>
  *             <li>
- *                <p>For PutOrganizationConfigRule, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service linked role.</p>
+ *                <p>For PutOrganizationConfigRule, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have permissions: </p>
  * 				           <ul>
  *                   <li>
- *                      <p>To call IAM <code>GetRole</code> action or create a service linked role.</p>
+ *                      <p>To call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
  *                   <li>
  *                      <p>To read Amazon S3 bucket.</p>
@@ -2931,8 +2938,8 @@ export interface DeliveryChannel {
    * <p>The name of the Amazon S3 bucket to which Config delivers
    * 			configuration snapshots and configuration history files.</p>
    * 		       <p>If you specify a bucket that belongs to another Amazon Web Services account,
-   * 			that bucket must have policies that grant access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions for the Amazon S3 Bucket</a> in the Config
-   * 			Developer Guide.</p>
+   * 			that bucket must have policies that grant access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions for the Amazon S3 Bucket</a> in the <i>Config
+   * 			Developer Guide</i>.</p>
    */
   s3BucketName?: string;
 
@@ -2953,8 +2960,8 @@ export interface DeliveryChannel {
    * 			changes.</p>
    * 		       <p>If you choose a topic from another account, the topic must have
    * 			policies that grant access permissions to Config. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions for the Amazon SNS Topic</a> in the Config
-   * 			Developer Guide.</p>
+   * 			information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions for the Amazon SNS Topic</a> in the <i>Config
+   * 			Developer Guide</i>.</p>
    */
   snsTopicARN?: string;
 
@@ -4406,7 +4413,7 @@ export interface RemediationConfiguration {
   Arn?: string;
 
   /**
-   * <p>Name of the service that owns the service linked rule, if applicable.</p>
+   * <p>Name of the service that owns the service-linked rule, if applicable.</p>
    */
   CreatedByService?: string;
 }
@@ -6249,11 +6256,13 @@ export interface ListConformancePackComplianceScoresRequest {
 
   /**
    * <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>
+   * 		       <p>Conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be first when sorting by ascending order and last when sorting by descending order.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * <p>Sorts your conformance pack compliance scores in either ascending or descending order, depending on <code>SortOrder</code>.</p>
+   * 		       <p>By default, conformance pack compliance scores are sorted in ascending order by compliance score and alphabetically by name of the conformance pack if there is more than one conformance pack with the same compliance score.</p>
    */
   SortBy?: SortBy | string;
 
@@ -6275,7 +6284,7 @@ export interface ListConformancePackComplianceScoresResponse {
   NextToken?: string;
 
   /**
-   * <p>A list of <code>ConformancePackComplianceScore</code> objects</p>
+   * <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
    */
   ConformancePackComplianceScores: ConformancePackComplianceScore[] | undefined;
 }
