@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.140.0...v3.141.0) (2022-08-01)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** make command middleware useable, turn marshalling into middleware ([#3808](https://github.com/aws/aws-sdk-js-v3/issues/3808)) ([38b1a28](https://github.com/aws/aws-sdk-js-v3/commit/38b1a2882c70da815b081a378d39bb6dec06d4d2))
+
+
+### Features
+
+* **client-workspaces:** This release introduces ModifySamlProperties, a new API that allows control of SAML properties associated with a WorkSpaces directory. The DescribeWorkspaceDirectories API will now additionally return SAML properties in its responses. ([5d254af](https://github.com/aws/aws-sdk-js-v3/commit/5d254afca17b4d0987fbdfbe3c24dd5e32649f74))
+* **clients:** update client endpoints as of 2022-08-01 ([aaf49f2](https://github.com/aws/aws-sdk-js-v3/commit/aaf49f21b371412e6ea7e00890b71a7b31991b66))
+
+
+
+
+
 # [3.140.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.139.0...v3.140.0) (2022-07-29)
 
 

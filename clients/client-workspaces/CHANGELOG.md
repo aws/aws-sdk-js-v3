@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.141.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.140.0...v3.141.0) (2022-08-01)
+
+
+### Features
+
+* **client-workspaces:** This release introduces ModifySamlProperties, a new API that allows control of SAML properties associated with a WorkSpaces directory. The DescribeWorkspaceDirectories API will now additionally return SAML properties in its responses. ([5d254af](https://github.com/aws/aws-sdk-js-v3/commit/5d254afca17b4d0987fbdfbe3c24dd5e32649f74))
+
+
+
+
+
 # [3.138.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.137.0...v3.138.0) (2022-07-27)
 
 
