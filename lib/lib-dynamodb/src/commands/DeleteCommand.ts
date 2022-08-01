@@ -60,8 +60,7 @@ export class DeleteCommand extends DynamoDBDocumentClientCommand<
     { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
   ];
 
-  protected readonly clientCommand = new __DeleteItemCommand(this.input as any);
-  protected readonly clientCommandName = __DeleteItemCommand.name;
+  protected readonly clientCommand: __DeleteItemCommand;
   public readonly middlewareStack: MiddlewareStack<
     DeleteCommandInput | __DeleteItemCommandInput,
     DeleteCommandOutput | __DeleteItemCommandOutput
@@ -69,6 +68,7 @@ export class DeleteCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: DeleteCommandInput) {
     super();
+    this.clientCommand = new __DeleteItemCommand(this.input as any);
   }
 
   /**

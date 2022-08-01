@@ -48,8 +48,7 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
   protected readonly inputKeyNodes = [{ key: "TransactItems", children: [{ key: "Get", children: [{ key: "Key" }] }] }];
   protected readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
 
-  protected readonly clientCommand = new __TransactGetItemsCommand(this.input as any);
-  protected readonly clientCommandName = __TransactGetItemsCommand.name;
+  protected readonly clientCommand: __TransactGetItemsCommand;
   public readonly middlewareStack: MiddlewareStack<
     TransactGetCommandInput | __TransactGetItemsCommandInput,
     TransactGetCommandOutput | __TransactGetItemsCommandOutput
@@ -57,6 +56,7 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: TransactGetCommandInput) {
     super();
+    this.clientCommand = new __TransactGetItemsCommand(this.input as any);
   }
 
   /**

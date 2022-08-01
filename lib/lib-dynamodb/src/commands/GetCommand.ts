@@ -35,8 +35,7 @@ export class GetCommand extends DynamoDBDocumentClientCommand<
   protected readonly inputKeyNodes = [{ key: "Key" }];
   protected readonly outputKeyNodes = [{ key: "Item" }];
 
-  protected readonly clientCommand = new __GetItemCommand(this.input as any);
-  protected readonly clientCommandName = __GetItemCommand.name;
+  protected readonly clientCommand: __GetItemCommand;
   public readonly middlewareStack: MiddlewareStack<
     GetCommandInput | __GetItemCommandInput,
     GetCommandOutput | __GetItemCommandOutput
@@ -44,6 +43,7 @@ export class GetCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: GetCommandInput) {
     super();
+    this.clientCommand = new __GetItemCommand(this.input as any);
   }
 
   /**

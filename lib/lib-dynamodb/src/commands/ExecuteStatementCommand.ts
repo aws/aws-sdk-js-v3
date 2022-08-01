@@ -36,8 +36,7 @@ export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   protected readonly inputKeyNodes = [{ key: "Parameters" }];
   protected readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
 
-  protected readonly clientCommand = new __ExecuteStatementCommand(this.input as any);
-  protected readonly clientCommandName = __ExecuteStatementCommand.name;
+  protected readonly clientCommand: __ExecuteStatementCommand;
   public readonly middlewareStack: MiddlewareStack<
     ExecuteStatementCommandInput | __ExecuteStatementCommandInput,
     ExecuteStatementCommandOutput | __ExecuteStatementCommandOutput
@@ -45,6 +44,7 @@ export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: ExecuteStatementCommandInput) {
     super();
+    this.clientCommand = new __ExecuteStatementCommand(this.input as any);
   }
 
   /**

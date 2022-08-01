@@ -64,8 +64,7 @@ export class BatchGetCommand extends DynamoDBDocumentClientCommand<
     },
   ];
 
-  protected readonly clientCommand = new __BatchGetItemCommand(this.input as any);
-  protected readonly clientCommandName = __BatchGetItemCommand.name;
+  protected readonly clientCommand: __BatchGetItemCommand;
   public readonly middlewareStack: MiddlewareStack<
     BatchGetCommandInput | __BatchGetItemCommandInput,
     BatchGetCommandOutput | __BatchGetItemCommandOutput
@@ -73,6 +72,7 @@ export class BatchGetCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: BatchGetCommandInput) {
     super();
+    this.clientCommand = new __BatchGetItemCommand(this.input as any);
   }
 
   /**

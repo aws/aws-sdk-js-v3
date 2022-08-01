@@ -96,8 +96,7 @@ export class BatchWriteCommand extends DynamoDBDocumentClientCommand<
     },
   ];
 
-  protected readonly clientCommand = new __BatchWriteItemCommand(this.input as any);
-  protected readonly clientCommandName = __BatchWriteItemCommand.name;
+  protected readonly clientCommand: __BatchWriteItemCommand;
   public readonly middlewareStack: MiddlewareStack<
     BatchWriteCommandInput | __BatchWriteItemCommandInput,
     BatchWriteCommandOutput | __BatchWriteItemCommandOutput
@@ -105,6 +104,7 @@ export class BatchWriteCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: BatchWriteCommandInput) {
     super();
+    this.clientCommand = new __BatchWriteItemCommand(this.input as any);
   }
 
   /**

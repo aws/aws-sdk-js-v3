@@ -68,8 +68,7 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
   ];
   protected readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
 
-  protected readonly clientCommand = new __QueryCommand(this.input as any);
-  protected readonly clientCommandName = __QueryCommand.name;
+  protected readonly clientCommand: __QueryCommand;
   public readonly middlewareStack: MiddlewareStack<
     QueryCommandInput | __QueryCommandInput,
     QueryCommandOutput | __QueryCommandOutput
@@ -77,6 +76,7 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: QueryCommandInput) {
     super();
+    this.clientCommand = new __QueryCommand(this.input as any);
   }
 
   /**

@@ -60,8 +60,7 @@ export class PutCommand extends DynamoDBDocumentClientCommand<
     { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
   ];
 
-  protected readonly clientCommand = new __PutItemCommand(this.input as any);
-  protected readonly clientCommandName = __PutItemCommand.name;
+  protected readonly clientCommand: __PutItemCommand;
   public readonly middlewareStack: MiddlewareStack<
     PutCommandInput | __PutItemCommandInput,
     PutCommandOutput | __PutItemCommandOutput
@@ -69,6 +68,7 @@ export class PutCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: PutCommandInput) {
     super();
+    this.clientCommand = new __PutItemCommand(this.input as any);
   }
 
   /**

@@ -43,8 +43,7 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   protected readonly inputKeyNodes = [{ key: "Statements", children: [{ key: "Parameters" }] }];
   protected readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
 
-  protected readonly clientCommand = new __BatchExecuteStatementCommand(this.input as any);
-  protected readonly clientCommandName = __BatchExecuteStatementCommand.name;
+  protected readonly clientCommand: __BatchExecuteStatementCommand;
   public readonly middlewareStack: MiddlewareStack<
     BatchExecuteStatementCommandInput | __BatchExecuteStatementCommandInput,
     BatchExecuteStatementCommandOutput | __BatchExecuteStatementCommandOutput
@@ -52,6 +51,7 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     super();
+    this.clientCommand = new __BatchExecuteStatementCommand(this.input as any);
   }
 
   /**

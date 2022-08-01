@@ -43,8 +43,7 @@ export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<
   protected readonly inputKeyNodes = [{ key: "TransactStatements", children: [{ key: "Parameters" }] }];
   protected readonly outputKeyNodes = [{ key: "Responses", children: [{ key: "Item" }] }];
 
-  protected readonly clientCommand = new __ExecuteTransactionCommand(this.input as any);
-  protected readonly clientCommandName = __ExecuteTransactionCommand.name;
+  protected readonly clientCommand: __ExecuteTransactionCommand;
   public readonly middlewareStack: MiddlewareStack<
     ExecuteTransactionCommandInput | __ExecuteTransactionCommandInput,
     ExecuteTransactionCommandOutput | __ExecuteTransactionCommandOutput
@@ -52,6 +51,7 @@ export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: ExecuteTransactionCommandInput) {
     super();
+    this.clientCommand = new __ExecuteTransactionCommand(this.input as any);
   }
 
   /**

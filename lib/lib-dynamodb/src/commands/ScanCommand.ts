@@ -56,8 +56,7 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
   ];
   protected readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
 
-  protected readonly clientCommand = new __ScanCommand(this.input as any);
-  protected readonly clientCommandName = __ScanCommand.name;
+  protected readonly clientCommand: __ScanCommand;
   public readonly middlewareStack: MiddlewareStack<
     ScanCommandInput | __ScanCommandInput,
     ScanCommandOutput | __ScanCommandOutput
@@ -65,6 +64,7 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: ScanCommandInput) {
     super();
+    this.clientCommand = new __ScanCommand(this.input as any);
   }
 
   /**

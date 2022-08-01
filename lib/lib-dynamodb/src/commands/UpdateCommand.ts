@@ -76,8 +76,7 @@ export class UpdateCommand extends DynamoDBDocumentClientCommand<
     { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
   ];
 
-  protected readonly clientCommand = new __UpdateItemCommand(this.input as any);
-  protected readonly clientCommandName = __UpdateItemCommand.name;
+  protected readonly clientCommand: __UpdateItemCommand;
   public readonly middlewareStack: MiddlewareStack<
     UpdateCommandInput | __UpdateItemCommandInput,
     UpdateCommandOutput | __UpdateItemCommandOutput
@@ -85,6 +84,7 @@ export class UpdateCommand extends DynamoDBDocumentClientCommand<
 
   constructor(readonly input: UpdateCommandInput) {
     super();
+    this.clientCommand = new __UpdateItemCommand(this.input as any);
   }
 
   /**
