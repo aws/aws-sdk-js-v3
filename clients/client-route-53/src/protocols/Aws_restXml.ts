@@ -22,7 +22,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { XmlNode, XmlText } from "@aws-sdk/xml-builder";
+import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
 
@@ -408,10 +408,10 @@ export const serializeAws_restXmlAssociateVPCWithHostedZoneCommand = async (
   );
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("AssociateVPCWithHostedZoneRequest");
+  const bodyNode = new __XmlNode("AssociateVPCWithHostedZoneRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.Comment !== undefined) {
-    const node = XmlNode.of("AssociateVPCComment", input.Comment).withName("Comment");
+    const node = __XmlNode.of("AssociateVPCComment", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.VPC !== undefined) {
@@ -443,18 +443,18 @@ export const serializeAws_restXmlChangeCidrCollectionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("ChangeCidrCollectionRequest");
+  const bodyNode = new __XmlNode("ChangeCidrCollectionRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.Changes !== undefined) {
     const nodes = serializeAws_restXmlCidrCollectionChanges(input.Changes, context);
-    const containerNode = new XmlNode("Changes");
+    const containerNode = new __XmlNode("Changes");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
     bodyNode.addChildNode(containerNode);
   }
   if (input.CollectionVersion !== undefined) {
-    const node = XmlNode.of("CollectionVersion", String(input.CollectionVersion)).withName("CollectionVersion");
+    const node = __XmlNode.of("CollectionVersion", String(input.CollectionVersion)).withName("CollectionVersion");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -490,7 +490,7 @@ export const serializeAws_restXmlChangeResourceRecordSetsCommand = async (
   );
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("ChangeResourceRecordSetsRequest");
+  const bodyNode = new __XmlNode("ChangeResourceRecordSetsRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.ChangeBatch !== undefined) {
     const node = serializeAws_restXmlChangeBatch(input.ChangeBatch, context).withName("ChangeBatch");
@@ -530,11 +530,11 @@ export const serializeAws_restXmlChangeTagsForResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("ChangeTagsForResourceRequest");
+  const bodyNode = new __XmlNode("ChangeTagsForResourceRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.AddTags !== undefined) {
     const nodes = serializeAws_restXmlTagList(input.AddTags, context);
-    const containerNode = new XmlNode("AddTags");
+    const containerNode = new __XmlNode("AddTags");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -542,7 +542,7 @@ export const serializeAws_restXmlChangeTagsForResourceCommand = async (
   }
   if (input.RemoveTagKeys !== undefined) {
     const nodes = serializeAws_restXmlTagKeyList(input.RemoveTagKeys, context);
-    const containerNode = new XmlNode("RemoveTagKeys");
+    const containerNode = new __XmlNode("RemoveTagKeys");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -572,14 +572,14 @@ export const serializeAws_restXmlCreateCidrCollectionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/cidrcollection";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("CreateCidrCollectionRequest");
+  const bodyNode = new __XmlNode("CreateCidrCollectionRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.CallerReference !== undefined) {
-    const node = XmlNode.of("CidrNonce", input.CallerReference).withName("CallerReference");
+    const node = __XmlNode.of("CidrNonce", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.Name !== undefined) {
-    const node = XmlNode.of("CollectionName", input.Name).withName("Name");
+    const node = __XmlNode.of("CollectionName", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -606,10 +606,10 @@ export const serializeAws_restXmlCreateHealthCheckCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheck";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("CreateHealthCheckRequest");
+  const bodyNode = new __XmlNode("CreateHealthCheckRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.CallerReference !== undefined) {
-    const node = XmlNode.of("HealthCheckNonce", input.CallerReference).withName("CallerReference");
+    const node = __XmlNode.of("HealthCheckNonce", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.HealthCheckConfig !== undefined) {
@@ -639,14 +639,14 @@ export const serializeAws_restXmlCreateHostedZoneCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzone";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("CreateHostedZoneRequest");
+  const bodyNode = new __XmlNode("CreateHostedZoneRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.CallerReference !== undefined) {
-    const node = XmlNode.of("Nonce", input.CallerReference).withName("CallerReference");
+    const node = __XmlNode.of("Nonce", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.DelegationSetId !== undefined) {
-    const node = XmlNode.of("ResourceId", input.DelegationSetId).withName("DelegationSetId");
+    const node = __XmlNode.of("ResourceId", input.DelegationSetId).withName("DelegationSetId");
     bodyNode.addChildNode(node);
   }
   if (input.HostedZoneConfig !== undefined) {
@@ -654,7 +654,7 @@ export const serializeAws_restXmlCreateHostedZoneCommand = async (
     bodyNode.addChildNode(node);
   }
   if (input.Name !== undefined) {
-    const node = XmlNode.of("DNSName", input.Name).withName("Name");
+    const node = __XmlNode.of("DNSName", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.VPC !== undefined) {
@@ -685,26 +685,26 @@ export const serializeAws_restXmlCreateKeySigningKeyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/keysigningkey";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("CreateKeySigningKeyRequest");
+  const bodyNode = new __XmlNode("CreateKeySigningKeyRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.CallerReference !== undefined) {
-    const node = XmlNode.of("Nonce", input.CallerReference).withName("CallerReference");
+    const node = __XmlNode.of("Nonce", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.HostedZoneId !== undefined) {
-    const node = XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
+    const node = __XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
     bodyNode.addChildNode(node);
   }
   if (input.KeyManagementServiceArn !== undefined) {
-    const node = XmlNode.of("SigningKeyString", input.KeyManagementServiceArn).withName("KeyManagementServiceArn");
+    const node = __XmlNode.of("SigningKeyString", input.KeyManagementServiceArn).withName("KeyManagementServiceArn");
     bodyNode.addChildNode(node);
   }
   if (input.Name !== undefined) {
-    const node = XmlNode.of("SigningKeyName", input.Name).withName("Name");
+    const node = __XmlNode.of("SigningKeyName", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.Status !== undefined) {
-    const node = XmlNode.of("SigningKeyStatus", input.Status).withName("Status");
+    const node = __XmlNode.of("SigningKeyStatus", input.Status).withName("Status");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -731,16 +731,16 @@ export const serializeAws_restXmlCreateQueryLoggingConfigCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/queryloggingconfig";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("CreateQueryLoggingConfigRequest");
+  const bodyNode = new __XmlNode("CreateQueryLoggingConfigRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.CloudWatchLogsLogGroupArn !== undefined) {
-    const node = XmlNode.of("CloudWatchLogsLogGroupArn", input.CloudWatchLogsLogGroupArn).withName(
-      "CloudWatchLogsLogGroupArn"
-    );
+    const node = __XmlNode
+      .of("CloudWatchLogsLogGroupArn", input.CloudWatchLogsLogGroupArn)
+      .withName("CloudWatchLogsLogGroupArn");
     bodyNode.addChildNode(node);
   }
   if (input.HostedZoneId !== undefined) {
-    const node = XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
+    const node = __XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -767,14 +767,14 @@ export const serializeAws_restXmlCreateReusableDelegationSetCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/delegationset";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("CreateReusableDelegationSetRequest");
+  const bodyNode = new __XmlNode("CreateReusableDelegationSetRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.CallerReference !== undefined) {
-    const node = XmlNode.of("Nonce", input.CallerReference).withName("CallerReference");
+    const node = __XmlNode.of("Nonce", input.CallerReference).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
   if (input.HostedZoneId !== undefined) {
-    const node = XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
+    const node = __XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -801,18 +801,18 @@ export const serializeAws_restXmlCreateTrafficPolicyCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicy";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("CreateTrafficPolicyRequest");
+  const bodyNode = new __XmlNode("CreateTrafficPolicyRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.Comment !== undefined) {
-    const node = XmlNode.of("TrafficPolicyComment", input.Comment).withName("Comment");
+    const node = __XmlNode.of("TrafficPolicyComment", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.Document !== undefined) {
-    const node = XmlNode.of("TrafficPolicyDocument", input.Document).withName("Document");
+    const node = __XmlNode.of("TrafficPolicyDocument", input.Document).withName("Document");
     bodyNode.addChildNode(node);
   }
   if (input.Name !== undefined) {
-    const node = XmlNode.of("TrafficPolicyName", input.Name).withName("Name");
+    const node = __XmlNode.of("TrafficPolicyName", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -839,28 +839,28 @@ export const serializeAws_restXmlCreateTrafficPolicyInstanceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicyinstance";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("CreateTrafficPolicyInstanceRequest");
+  const bodyNode = new __XmlNode("CreateTrafficPolicyInstanceRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.HostedZoneId !== undefined) {
-    const node = XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
+    const node = __XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
     bodyNode.addChildNode(node);
   }
   if (input.Name !== undefined) {
-    const node = XmlNode.of("DNSName", input.Name).withName("Name");
+    const node = __XmlNode.of("DNSName", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.TTL !== undefined) {
-    const node = XmlNode.of("TTL", String(input.TTL)).withName("TTL");
+    const node = __XmlNode.of("TTL", String(input.TTL)).withName("TTL");
     bodyNode.addChildNode(node);
   }
   if (input.TrafficPolicyId !== undefined) {
-    const node = XmlNode.of("TrafficPolicyId", input.TrafficPolicyId).withName("TrafficPolicyId");
+    const node = __XmlNode.of("TrafficPolicyId", input.TrafficPolicyId).withName("TrafficPolicyId");
     bodyNode.addChildNode(node);
   }
   if (input.TrafficPolicyVersion !== undefined) {
-    const node = XmlNode.of("TrafficPolicyVersion", String(input.TrafficPolicyVersion)).withName(
-      "TrafficPolicyVersion"
-    );
+    const node = __XmlNode
+      .of("TrafficPolicyVersion", String(input.TrafficPolicyVersion))
+      .withName("TrafficPolicyVersion");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -888,14 +888,14 @@ export const serializeAws_restXmlCreateTrafficPolicyVersionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("CreateTrafficPolicyVersionRequest");
+  const bodyNode = new __XmlNode("CreateTrafficPolicyVersionRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.Comment !== undefined) {
-    const node = XmlNode.of("TrafficPolicyComment", input.Comment).withName("Comment");
+    const node = __XmlNode.of("TrafficPolicyComment", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.Document !== undefined) {
-    const node = XmlNode.of("TrafficPolicyDocument", input.Document).withName("Document");
+    const node = __XmlNode.of("TrafficPolicyDocument", input.Document).withName("Document");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -931,7 +931,7 @@ export const serializeAws_restXmlCreateVPCAssociationAuthorizationCommand = asyn
   );
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("CreateVPCAssociationAuthorizationRequest");
+  const bodyNode = new __XmlNode("CreateVPCAssociationAuthorizationRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.VPC !== undefined) {
     const node = serializeAws_restXmlVPC(input.VPC, context).withName("VPC");
@@ -1185,7 +1185,7 @@ export const serializeAws_restXmlDeleteVPCAssociationAuthorizationCommand = asyn
   );
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("DeleteVPCAssociationAuthorizationRequest");
+  const bodyNode = new __XmlNode("DeleteVPCAssociationAuthorizationRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.VPC !== undefined) {
     const node = serializeAws_restXmlVPC(input.VPC, context).withName("VPC");
@@ -1253,10 +1253,10 @@ export const serializeAws_restXmlDisassociateVPCFromHostedZoneCommand = async (
   );
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("DisassociateVPCFromHostedZoneRequest");
+  const bodyNode = new __XmlNode("DisassociateVPCFromHostedZoneRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.Comment !== undefined) {
-    const node = XmlNode.of("DisassociateVPCComment", input.Comment).withName("Comment");
+    const node = __XmlNode.of("DisassociateVPCComment", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.VPC !== undefined) {
@@ -2104,11 +2104,11 @@ export const serializeAws_restXmlListTagsForResourcesCommand = async (
   );
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("ListTagsForResourcesRequest");
+  const bodyNode = new __XmlNode("ListTagsForResourcesRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.ResourceIds !== undefined) {
     const nodes = serializeAws_restXmlTagResourceIdList(input.ResourceIds, context);
-    const containerNode = new XmlNode("ResourceIds");
+    const containerNode = new __XmlNode("ResourceIds");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -2345,7 +2345,7 @@ export const serializeAws_restXmlUpdateHealthCheckCommand = async (
   );
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("UpdateHealthCheckRequest");
+  const bodyNode = new __XmlNode("UpdateHealthCheckRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.AlarmIdentifier !== undefined) {
     const node = serializeAws_restXmlAlarmIdentifier(input.AlarmIdentifier, context).withName("AlarmIdentifier");
@@ -2353,59 +2353,59 @@ export const serializeAws_restXmlUpdateHealthCheckCommand = async (
   }
   if (input.ChildHealthChecks !== undefined) {
     const nodes = serializeAws_restXmlChildHealthCheckList(input.ChildHealthChecks, context);
-    const containerNode = new XmlNode("ChildHealthChecks");
+    const containerNode = new __XmlNode("ChildHealthChecks");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
     bodyNode.addChildNode(containerNode);
   }
   if (input.Disabled !== undefined) {
-    const node = XmlNode.of("Disabled", String(input.Disabled)).withName("Disabled");
+    const node = __XmlNode.of("Disabled", String(input.Disabled)).withName("Disabled");
     bodyNode.addChildNode(node);
   }
   if (input.EnableSNI !== undefined) {
-    const node = XmlNode.of("EnableSNI", String(input.EnableSNI)).withName("EnableSNI");
+    const node = __XmlNode.of("EnableSNI", String(input.EnableSNI)).withName("EnableSNI");
     bodyNode.addChildNode(node);
   }
   if (input.FailureThreshold !== undefined) {
-    const node = XmlNode.of("FailureThreshold", String(input.FailureThreshold)).withName("FailureThreshold");
+    const node = __XmlNode.of("FailureThreshold", String(input.FailureThreshold)).withName("FailureThreshold");
     bodyNode.addChildNode(node);
   }
   if (input.FullyQualifiedDomainName !== undefined) {
-    const node = XmlNode.of("FullyQualifiedDomainName", input.FullyQualifiedDomainName).withName(
-      "FullyQualifiedDomainName"
-    );
+    const node = __XmlNode
+      .of("FullyQualifiedDomainName", input.FullyQualifiedDomainName)
+      .withName("FullyQualifiedDomainName");
     bodyNode.addChildNode(node);
   }
   if (input.HealthCheckVersion !== undefined) {
-    const node = XmlNode.of("HealthCheckVersion", String(input.HealthCheckVersion)).withName("HealthCheckVersion");
+    const node = __XmlNode.of("HealthCheckVersion", String(input.HealthCheckVersion)).withName("HealthCheckVersion");
     bodyNode.addChildNode(node);
   }
   if (input.HealthThreshold !== undefined) {
-    const node = XmlNode.of("HealthThreshold", String(input.HealthThreshold)).withName("HealthThreshold");
+    const node = __XmlNode.of("HealthThreshold", String(input.HealthThreshold)).withName("HealthThreshold");
     bodyNode.addChildNode(node);
   }
   if (input.IPAddress !== undefined) {
-    const node = XmlNode.of("IPAddress", input.IPAddress).withName("IPAddress");
+    const node = __XmlNode.of("IPAddress", input.IPAddress).withName("IPAddress");
     bodyNode.addChildNode(node);
   }
   if (input.InsufficientDataHealthStatus !== undefined) {
-    const node = XmlNode.of("InsufficientDataHealthStatus", input.InsufficientDataHealthStatus).withName(
-      "InsufficientDataHealthStatus"
-    );
+    const node = __XmlNode
+      .of("InsufficientDataHealthStatus", input.InsufficientDataHealthStatus)
+      .withName("InsufficientDataHealthStatus");
     bodyNode.addChildNode(node);
   }
   if (input.Inverted !== undefined) {
-    const node = XmlNode.of("Inverted", String(input.Inverted)).withName("Inverted");
+    const node = __XmlNode.of("Inverted", String(input.Inverted)).withName("Inverted");
     bodyNode.addChildNode(node);
   }
   if (input.Port !== undefined) {
-    const node = XmlNode.of("Port", String(input.Port)).withName("Port");
+    const node = __XmlNode.of("Port", String(input.Port)).withName("Port");
     bodyNode.addChildNode(node);
   }
   if (input.Regions !== undefined) {
     const nodes = serializeAws_restXmlHealthCheckRegionList(input.Regions, context);
-    const containerNode = new XmlNode("Regions");
+    const containerNode = new __XmlNode("Regions");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -2413,18 +2413,18 @@ export const serializeAws_restXmlUpdateHealthCheckCommand = async (
   }
   if (input.ResetElements !== undefined) {
     const nodes = serializeAws_restXmlResettableElementNameList(input.ResetElements, context);
-    const containerNode = new XmlNode("ResetElements");
+    const containerNode = new __XmlNode("ResetElements");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
     bodyNode.addChildNode(containerNode);
   }
   if (input.ResourcePath !== undefined) {
-    const node = XmlNode.of("ResourcePath", input.ResourcePath).withName("ResourcePath");
+    const node = __XmlNode.of("ResourcePath", input.ResourcePath).withName("ResourcePath");
     bodyNode.addChildNode(node);
   }
   if (input.SearchString !== undefined) {
-    const node = XmlNode.of("SearchString", input.SearchString).withName("SearchString");
+    const node = __XmlNode.of("SearchString", input.SearchString).withName("SearchString");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -2452,10 +2452,10 @@ export const serializeAws_restXmlUpdateHostedZoneCommentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("UpdateHostedZoneCommentRequest");
+  const bodyNode = new __XmlNode("UpdateHostedZoneCommentRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.Comment !== undefined) {
-    const node = XmlNode.of("ResourceDescription", input.Comment).withName("Comment");
+    const node = __XmlNode.of("ResourceDescription", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -2484,10 +2484,10 @@ export const serializeAws_restXmlUpdateTrafficPolicyCommentCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Version", () => input.Version!.toString(), "{Version}", false);
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("UpdateTrafficPolicyCommentRequest");
+  const bodyNode = new __XmlNode("UpdateTrafficPolicyCommentRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.Comment !== undefined) {
-    const node = XmlNode.of("TrafficPolicyComment", input.Comment).withName("Comment");
+    const node = __XmlNode.of("TrafficPolicyComment", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -2515,20 +2515,20 @@ export const serializeAws_restXmlUpdateTrafficPolicyInstanceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("UpdateTrafficPolicyInstanceRequest");
+  const bodyNode = new __XmlNode("UpdateTrafficPolicyInstanceRequest");
   bodyNode.addAttribute("xmlns", "https://route53.amazonaws.com/doc/2013-04-01/");
   if (input.TTL !== undefined) {
-    const node = XmlNode.of("TTL", String(input.TTL)).withName("TTL");
+    const node = __XmlNode.of("TTL", String(input.TTL)).withName("TTL");
     bodyNode.addChildNode(node);
   }
   if (input.TrafficPolicyId !== undefined) {
-    const node = XmlNode.of("TrafficPolicyId", input.TrafficPolicyId).withName("TrafficPolicyId");
+    const node = __XmlNode.of("TrafficPolicyId", input.TrafficPolicyId).withName("TrafficPolicyId");
     bodyNode.addChildNode(node);
   }
   if (input.TrafficPolicyVersion !== undefined) {
-    const node = XmlNode.of("TrafficPolicyVersion", String(input.TrafficPolicyVersion)).withName(
-      "TrafficPolicyVersion"
-    );
+    const node = __XmlNode
+      .of("TrafficPolicyVersion", String(input.TrafficPolicyVersion))
+      .withName("TrafficPolicyVersion");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -7406,39 +7406,41 @@ const deserializeAws_restXmlVPCAssociationNotFoundResponse = async (
 };
 
 const serializeAws_restXmlAlarmIdentifier = (input: AlarmIdentifier, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("AlarmIdentifier");
+  const bodyNode = new __XmlNode("AlarmIdentifier");
   if (input.Region != null) {
-    const node = XmlNode.of("CloudWatchRegion", input.Region).withName("Region");
+    const node = __XmlNode.of("CloudWatchRegion", input.Region).withName("Region");
     bodyNode.addChildNode(node);
   }
   if (input.Name != null) {
-    const node = XmlNode.of("AlarmName", input.Name).withName("Name");
+    const node = __XmlNode.of("AlarmName", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
 
 const serializeAws_restXmlAliasTarget = (input: AliasTarget, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("AliasTarget");
+  const bodyNode = new __XmlNode("AliasTarget");
   if (input.HostedZoneId != null) {
-    const node = XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
+    const node = __XmlNode.of("ResourceId", input.HostedZoneId).withName("HostedZoneId");
     bodyNode.addChildNode(node);
   }
   if (input.DNSName != null) {
-    const node = XmlNode.of("DNSName", input.DNSName).withName("DNSName");
+    const node = __XmlNode.of("DNSName", input.DNSName).withName("DNSName");
     bodyNode.addChildNode(node);
   }
   if (input.EvaluateTargetHealth != null) {
-    const node = XmlNode.of("AliasHealthEnabled", String(input.EvaluateTargetHealth)).withName("EvaluateTargetHealth");
+    const node = __XmlNode
+      .of("AliasHealthEnabled", String(input.EvaluateTargetHealth))
+      .withName("EvaluateTargetHealth");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
 
 const serializeAws_restXmlChange = (input: Change, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("Change");
+  const bodyNode = new __XmlNode("Change");
   if (input.Action != null) {
-    const node = XmlNode.of("ChangeAction", input.Action).withName("Action");
+    const node = __XmlNode.of("ChangeAction", input.Action).withName("Action");
     bodyNode.addChildNode(node);
   }
   if (input.ResourceRecordSet != null) {
@@ -7449,14 +7451,14 @@ const serializeAws_restXmlChange = (input: Change, context: __SerdeContext): any
 };
 
 const serializeAws_restXmlChangeBatch = (input: ChangeBatch, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("ChangeBatch");
+  const bodyNode = new __XmlNode("ChangeBatch");
   if (input.Comment != null) {
-    const node = XmlNode.of("ResourceDescription", input.Comment).withName("Comment");
+    const node = __XmlNode.of("ResourceDescription", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.Changes != null) {
     const nodes = serializeAws_restXmlChanges(input.Changes, context);
-    const containerNode = new XmlNode("Changes");
+    const containerNode = new __XmlNode("Changes");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -7478,24 +7480,24 @@ const serializeAws_restXmlChildHealthCheckList = (input: string[], context: __Se
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("HealthCheckId", entry);
+      const node = __XmlNode.of("HealthCheckId", entry);
       return node.withName("ChildHealthCheck");
     });
 };
 
 const serializeAws_restXmlCidrCollectionChange = (input: CidrCollectionChange, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("CidrCollectionChange");
+  const bodyNode = new __XmlNode("CidrCollectionChange");
   if (input.LocationName != null) {
-    const node = XmlNode.of("CidrLocationNameDefaultNotAllowed", input.LocationName).withName("LocationName");
+    const node = __XmlNode.of("CidrLocationNameDefaultNotAllowed", input.LocationName).withName("LocationName");
     bodyNode.addChildNode(node);
   }
   if (input.Action != null) {
-    const node = XmlNode.of("CidrCollectionChangeAction", input.Action).withName("Action");
+    const node = __XmlNode.of("CidrCollectionChangeAction", input.Action).withName("Action");
     bodyNode.addChildNode(node);
   }
   if (input.CidrList != null) {
     const nodes = serializeAws_restXmlCidrList(input.CidrList, context);
-    const containerNode = new XmlNode("CidrList");
+    const containerNode = new __XmlNode("CidrList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -7517,108 +7519,108 @@ const serializeAws_restXmlCidrList = (input: string[], context: __SerdeContext):
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("Cidr", entry);
+      const node = __XmlNode.of("Cidr", entry);
       return node.withName("Cidr");
     });
 };
 
 const serializeAws_restXmlCidrRoutingConfig = (input: CidrRoutingConfig, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("CidrRoutingConfig");
+  const bodyNode = new __XmlNode("CidrRoutingConfig");
   if (input.CollectionId != null) {
-    const node = XmlNode.of("UUID", input.CollectionId).withName("CollectionId");
+    const node = __XmlNode.of("UUID", input.CollectionId).withName("CollectionId");
     bodyNode.addChildNode(node);
   }
   if (input.LocationName != null) {
-    const node = XmlNode.of("CidrLocationNameDefaultAllowed", input.LocationName).withName("LocationName");
+    const node = __XmlNode.of("CidrLocationNameDefaultAllowed", input.LocationName).withName("LocationName");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
 
 const serializeAws_restXmlGeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("GeoLocation");
+  const bodyNode = new __XmlNode("GeoLocation");
   if (input.ContinentCode != null) {
-    const node = XmlNode.of("GeoLocationContinentCode", input.ContinentCode).withName("ContinentCode");
+    const node = __XmlNode.of("GeoLocationContinentCode", input.ContinentCode).withName("ContinentCode");
     bodyNode.addChildNode(node);
   }
   if (input.CountryCode != null) {
-    const node = XmlNode.of("GeoLocationCountryCode", input.CountryCode).withName("CountryCode");
+    const node = __XmlNode.of("GeoLocationCountryCode", input.CountryCode).withName("CountryCode");
     bodyNode.addChildNode(node);
   }
   if (input.SubdivisionCode != null) {
-    const node = XmlNode.of("GeoLocationSubdivisionCode", input.SubdivisionCode).withName("SubdivisionCode");
+    const node = __XmlNode.of("GeoLocationSubdivisionCode", input.SubdivisionCode).withName("SubdivisionCode");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
 
 const serializeAws_restXmlHealthCheckConfig = (input: HealthCheckConfig, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("HealthCheckConfig");
+  const bodyNode = new __XmlNode("HealthCheckConfig");
   if (input.IPAddress != null) {
-    const node = XmlNode.of("IPAddress", input.IPAddress).withName("IPAddress");
+    const node = __XmlNode.of("IPAddress", input.IPAddress).withName("IPAddress");
     bodyNode.addChildNode(node);
   }
   if (input.Port != null) {
-    const node = XmlNode.of("Port", String(input.Port)).withName("Port");
+    const node = __XmlNode.of("Port", String(input.Port)).withName("Port");
     bodyNode.addChildNode(node);
   }
   if (input.Type != null) {
-    const node = XmlNode.of("HealthCheckType", input.Type).withName("Type");
+    const node = __XmlNode.of("HealthCheckType", input.Type).withName("Type");
     bodyNode.addChildNode(node);
   }
   if (input.ResourcePath != null) {
-    const node = XmlNode.of("ResourcePath", input.ResourcePath).withName("ResourcePath");
+    const node = __XmlNode.of("ResourcePath", input.ResourcePath).withName("ResourcePath");
     bodyNode.addChildNode(node);
   }
   if (input.FullyQualifiedDomainName != null) {
-    const node = XmlNode.of("FullyQualifiedDomainName", input.FullyQualifiedDomainName).withName(
-      "FullyQualifiedDomainName"
-    );
+    const node = __XmlNode
+      .of("FullyQualifiedDomainName", input.FullyQualifiedDomainName)
+      .withName("FullyQualifiedDomainName");
     bodyNode.addChildNode(node);
   }
   if (input.SearchString != null) {
-    const node = XmlNode.of("SearchString", input.SearchString).withName("SearchString");
+    const node = __XmlNode.of("SearchString", input.SearchString).withName("SearchString");
     bodyNode.addChildNode(node);
   }
   if (input.RequestInterval != null) {
-    const node = XmlNode.of("RequestInterval", String(input.RequestInterval)).withName("RequestInterval");
+    const node = __XmlNode.of("RequestInterval", String(input.RequestInterval)).withName("RequestInterval");
     bodyNode.addChildNode(node);
   }
   if (input.FailureThreshold != null) {
-    const node = XmlNode.of("FailureThreshold", String(input.FailureThreshold)).withName("FailureThreshold");
+    const node = __XmlNode.of("FailureThreshold", String(input.FailureThreshold)).withName("FailureThreshold");
     bodyNode.addChildNode(node);
   }
   if (input.MeasureLatency != null) {
-    const node = XmlNode.of("MeasureLatency", String(input.MeasureLatency)).withName("MeasureLatency");
+    const node = __XmlNode.of("MeasureLatency", String(input.MeasureLatency)).withName("MeasureLatency");
     bodyNode.addChildNode(node);
   }
   if (input.Inverted != null) {
-    const node = XmlNode.of("Inverted", String(input.Inverted)).withName("Inverted");
+    const node = __XmlNode.of("Inverted", String(input.Inverted)).withName("Inverted");
     bodyNode.addChildNode(node);
   }
   if (input.Disabled != null) {
-    const node = XmlNode.of("Disabled", String(input.Disabled)).withName("Disabled");
+    const node = __XmlNode.of("Disabled", String(input.Disabled)).withName("Disabled");
     bodyNode.addChildNode(node);
   }
   if (input.HealthThreshold != null) {
-    const node = XmlNode.of("HealthThreshold", String(input.HealthThreshold)).withName("HealthThreshold");
+    const node = __XmlNode.of("HealthThreshold", String(input.HealthThreshold)).withName("HealthThreshold");
     bodyNode.addChildNode(node);
   }
   if (input.ChildHealthChecks != null) {
     const nodes = serializeAws_restXmlChildHealthCheckList(input.ChildHealthChecks, context);
-    const containerNode = new XmlNode("ChildHealthChecks");
+    const containerNode = new __XmlNode("ChildHealthChecks");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
     bodyNode.addChildNode(containerNode);
   }
   if (input.EnableSNI != null) {
-    const node = XmlNode.of("EnableSNI", String(input.EnableSNI)).withName("EnableSNI");
+    const node = __XmlNode.of("EnableSNI", String(input.EnableSNI)).withName("EnableSNI");
     bodyNode.addChildNode(node);
   }
   if (input.Regions != null) {
     const nodes = serializeAws_restXmlHealthCheckRegionList(input.Regions, context);
-    const containerNode = new XmlNode("Regions");
+    const containerNode = new __XmlNode("Regions");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -7629,13 +7631,13 @@ const serializeAws_restXmlHealthCheckConfig = (input: HealthCheckConfig, context
     bodyNode.addChildNode(node);
   }
   if (input.InsufficientDataHealthStatus != null) {
-    const node = XmlNode.of("InsufficientDataHealthStatus", input.InsufficientDataHealthStatus).withName(
-      "InsufficientDataHealthStatus"
-    );
+    const node = __XmlNode
+      .of("InsufficientDataHealthStatus", input.InsufficientDataHealthStatus)
+      .withName("InsufficientDataHealthStatus");
     bodyNode.addChildNode(node);
   }
   if (input.RoutingControlArn != null) {
-    const node = XmlNode.of("RoutingControlArn", input.RoutingControlArn).withName("RoutingControlArn");
+    const node = __XmlNode.of("RoutingControlArn", input.RoutingControlArn).withName("RoutingControlArn");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -7648,19 +7650,19 @@ const serializeAws_restXmlHealthCheckRegionList = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("HealthCheckRegion", entry);
+      const node = __XmlNode.of("HealthCheckRegion", entry);
       return node.withName("Region");
     });
 };
 
 const serializeAws_restXmlHostedZoneConfig = (input: HostedZoneConfig, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("HostedZoneConfig");
+  const bodyNode = new __XmlNode("HostedZoneConfig");
   if (input.Comment != null) {
-    const node = XmlNode.of("ResourceDescription", input.Comment).withName("Comment");
+    const node = __XmlNode.of("ResourceDescription", input.Comment).withName("Comment");
     bodyNode.addChildNode(node);
   }
   if (input.PrivateZone != null) {
-    const node = XmlNode.of("IsPrivateZone", String(input.PrivateZone)).withName("PrivateZone");
+    const node = __XmlNode.of("IsPrivateZone", String(input.PrivateZone)).withName("PrivateZone");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -7673,15 +7675,15 @@ const serializeAws_restXmlResettableElementNameList = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("ResettableElementName", entry);
+      const node = __XmlNode.of("ResettableElementName", entry);
       return node.withName("ResettableElementName");
     });
 };
 
 const serializeAws_restXmlResourceRecord = (input: ResourceRecord, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("ResourceRecord");
+  const bodyNode = new __XmlNode("ResourceRecord");
   if (input.Value != null) {
-    const node = XmlNode.of("RData", input.Value).withName("Value");
+    const node = __XmlNode.of("RData", input.Value).withName("Value");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -7697,25 +7699,25 @@ const serializeAws_restXmlResourceRecords = (input: ResourceRecord[], context: _
 };
 
 const serializeAws_restXmlResourceRecordSet = (input: ResourceRecordSet, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("ResourceRecordSet");
+  const bodyNode = new __XmlNode("ResourceRecordSet");
   if (input.Name != null) {
-    const node = XmlNode.of("DNSName", input.Name).withName("Name");
+    const node = __XmlNode.of("DNSName", input.Name).withName("Name");
     bodyNode.addChildNode(node);
   }
   if (input.Type != null) {
-    const node = XmlNode.of("RRType", input.Type).withName("Type");
+    const node = __XmlNode.of("RRType", input.Type).withName("Type");
     bodyNode.addChildNode(node);
   }
   if (input.SetIdentifier != null) {
-    const node = XmlNode.of("ResourceRecordSetIdentifier", input.SetIdentifier).withName("SetIdentifier");
+    const node = __XmlNode.of("ResourceRecordSetIdentifier", input.SetIdentifier).withName("SetIdentifier");
     bodyNode.addChildNode(node);
   }
   if (input.Weight != null) {
-    const node = XmlNode.of("ResourceRecordSetWeight", String(input.Weight)).withName("Weight");
+    const node = __XmlNode.of("ResourceRecordSetWeight", String(input.Weight)).withName("Weight");
     bodyNode.addChildNode(node);
   }
   if (input.Region != null) {
-    const node = XmlNode.of("ResourceRecordSetRegion", input.Region).withName("Region");
+    const node = __XmlNode.of("ResourceRecordSetRegion", input.Region).withName("Region");
     bodyNode.addChildNode(node);
   }
   if (input.GeoLocation != null) {
@@ -7723,22 +7725,22 @@ const serializeAws_restXmlResourceRecordSet = (input: ResourceRecordSet, context
     bodyNode.addChildNode(node);
   }
   if (input.Failover != null) {
-    const node = XmlNode.of("ResourceRecordSetFailover", input.Failover).withName("Failover");
+    const node = __XmlNode.of("ResourceRecordSetFailover", input.Failover).withName("Failover");
     bodyNode.addChildNode(node);
   }
   if (input.MultiValueAnswer != null) {
-    const node = XmlNode.of("ResourceRecordSetMultiValueAnswer", String(input.MultiValueAnswer)).withName(
-      "MultiValueAnswer"
-    );
+    const node = __XmlNode
+      .of("ResourceRecordSetMultiValueAnswer", String(input.MultiValueAnswer))
+      .withName("MultiValueAnswer");
     bodyNode.addChildNode(node);
   }
   if (input.TTL != null) {
-    const node = XmlNode.of("TTL", String(input.TTL)).withName("TTL");
+    const node = __XmlNode.of("TTL", String(input.TTL)).withName("TTL");
     bodyNode.addChildNode(node);
   }
   if (input.ResourceRecords != null) {
     const nodes = serializeAws_restXmlResourceRecords(input.ResourceRecords, context);
-    const containerNode = new XmlNode("ResourceRecords");
+    const containerNode = new __XmlNode("ResourceRecords");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -7749,13 +7751,13 @@ const serializeAws_restXmlResourceRecordSet = (input: ResourceRecordSet, context
     bodyNode.addChildNode(node);
   }
   if (input.HealthCheckId != null) {
-    const node = XmlNode.of("HealthCheckId", input.HealthCheckId).withName("HealthCheckId");
+    const node = __XmlNode.of("HealthCheckId", input.HealthCheckId).withName("HealthCheckId");
     bodyNode.addChildNode(node);
   }
   if (input.TrafficPolicyInstanceId != null) {
-    const node = XmlNode.of("TrafficPolicyInstanceId", input.TrafficPolicyInstanceId).withName(
-      "TrafficPolicyInstanceId"
-    );
+    const node = __XmlNode
+      .of("TrafficPolicyInstanceId", input.TrafficPolicyInstanceId)
+      .withName("TrafficPolicyInstanceId");
     bodyNode.addChildNode(node);
   }
   if (input.CidrRoutingConfig != null) {
@@ -7766,13 +7768,13 @@ const serializeAws_restXmlResourceRecordSet = (input: ResourceRecordSet, context
 };
 
 const serializeAws_restXmlTag = (input: Tag, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("Tag");
+  const bodyNode = new __XmlNode("Tag");
   if (input.Key != null) {
-    const node = XmlNode.of("TagKey", input.Key).withName("Key");
+    const node = __XmlNode.of("TagKey", input.Key).withName("Key");
     bodyNode.addChildNode(node);
   }
   if (input.Value != null) {
-    const node = XmlNode.of("TagValue", input.Value).withName("Value");
+    const node = __XmlNode.of("TagValue", input.Value).withName("Value");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -7782,7 +7784,7 @@ const serializeAws_restXmlTagKeyList = (input: string[], context: __SerdeContext
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("TagKey", entry);
+      const node = __XmlNode.of("TagKey", entry);
       return node.withName("Key");
     });
 };
@@ -7800,19 +7802,19 @@ const serializeAws_restXmlTagResourceIdList = (input: string[], context: __Serde
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("TagResourceId", entry);
+      const node = __XmlNode.of("TagResourceId", entry);
       return node.withName("ResourceId");
     });
 };
 
 const serializeAws_restXmlVPC = (input: VPC, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("VPC");
+  const bodyNode = new __XmlNode("VPC");
   if (input.VPCRegion != null) {
-    const node = XmlNode.of("VPCRegion", input.VPCRegion).withName("VPCRegion");
+    const node = __XmlNode.of("VPCRegion", input.VPCRegion).withName("VPCRegion");
     bodyNode.addChildNode(node);
   }
   if (input.VPCId != null) {
-    const node = XmlNode.of("VPCId", input.VPCId).withName("VPCId");
+    const node = __XmlNode.of("VPCId", input.VPCId).withName("VPCId");
     bodyNode.addChildNode(node);
   }
   return bodyNode;

@@ -102,6 +102,7 @@ export type Value = any;
  *
  * @see ObjectMappingInstructions for an example.
  * @private
+ * @internal
  */
 export function map(
   target: any,
@@ -167,6 +168,7 @@ export function map(arg0: any, arg1?: any, arg2?: any): any {
  * filter.
  * 
  * @private
+ * @internal
  */
 export const convertMap = (target: any): Record<string, any> => {
   const output: Record<string, any> = {};
@@ -184,6 +186,7 @@ export const convertMap = (target: any): Record<string, any> => {
  * @param instructions - map of keys and values/suppliers (will be evaluated)
  *
  * @private
+ * @internal
  */
 const mapWithFilter = (
   target: any,

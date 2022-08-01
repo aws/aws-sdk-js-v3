@@ -3006,9 +3006,6 @@ const serializeAws_json1_1ProtectedResourceTypeFilters = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3020,9 +3017,6 @@ const serializeAws_json1_1ProtectionGroupAggregationFilters = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3031,9 +3025,6 @@ const serializeAws_json1_1ProtectionGroupIdFilters = (input: string[], context: 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3053,9 +3044,6 @@ const serializeAws_json1_1ProtectionGroupPatternFilters = (
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3064,9 +3052,6 @@ const serializeAws_json1_1ProtectionNameFilters = (input: string[], context: __S
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };
@@ -3083,9 +3068,6 @@ const serializeAws_json1_1ResourceArnFilters = (input: string[], context: __Serd
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      if (entry === null) {
-        return null as any;
-      }
       return entry;
     });
 };

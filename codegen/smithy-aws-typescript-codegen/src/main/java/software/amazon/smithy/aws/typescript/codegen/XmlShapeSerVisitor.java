@@ -67,7 +67,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         TypeScriptWriter writer = context.getWriter();
         MemberShape memberShape = shape.getMember();
         Shape target = context.getModel().expectShape(memberShape.getTarget());
-        writer.addImport("XmlNode", "XmlNode", "@aws-sdk/xml-builder");
+        writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
 
         // Use the @xmlName trait if present on the member, otherwise use "member".
         String locationName = memberShape.getTrait(XmlNameTrait.class)
@@ -91,12 +91,12 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             writer.write("const node = $L;", target.accept(getMemberVisitor("entry")));
             // Handle proper unwrapping of target nodes.
             if (serializationReturnsArray(target)) {
-                writer.openBlock("return node.reduce((acc: XmlNode, workingNode: any) => {", "}", () -> {
+                writer.openBlock("return node.reduce((acc: __XmlNode, workingNode: any) => {", "}", () -> {
                     // Add @xmlNamespace value of the target member.
                     AwsProtocolUtils.writeXmlNamespace(context, memberShape, "workingNode");
                     writer.write("return acc.addChildNode(workingNode);");
                 });
-                writer.write(", new XmlNode($S));", locationName);
+                writer.write(", new __XmlNode($S));", locationName);
             } else {
                 // Add @xmlNamespace value of the target member.
                 AwsProtocolUtils.writeXmlNamespace(context, memberShape, "node");
@@ -115,7 +115,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     protected void serializeMap(GenerationContext context, MapShape shape) {
         TypeScriptWriter writer = context.getWriter();
         Model model = context.getModel();
-        writer.addImport("XmlNode", "XmlNode", "@aws-sdk/xml-builder");
+        writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
 
         // Filter out null entries if we don't have the sparse trait.
         String potentialFilter = "";
@@ -126,7 +126,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
         // Use the keys as an iteration point to dispatch to the input value providers.
         writer.openBlock("return Object.keys(input)$L.map(key => {", "});", potentialFilter, () -> {
             // Prepare a containing node for each entry's k/v pair.
-            writer.write("const entryNode = new XmlNode(\"entry\");");
+            writer.write("const entryNode = new __XmlNode(\"entry\");");
 
             // Prepare the key's node.
             // Use the @xmlName trait if present on the member, otherwise use "key".
@@ -154,7 +154,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             writer.write("var node;");
             if (shape.hasTrait(SparseTrait.ID)) {
                 writer.openBlock("if (value === null) {", "} else {", () ->
-                        writer.write("node = XmlNode.of($S, null);", valueName));
+                        writer.write("node = __XmlNode.of($S, null);", valueName));
                 writer.indent();
             }
 
@@ -169,12 +169,12 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Handle proper unwrapping of target nodes.
             if (serializationReturnsArray(valueTarget)) {
                 writer.openBlock("entryNode.addChildNode(", ");", () -> {
-                    writer.openBlock("node.reduce((acc: XmlNode, workingNode: any) => {", "}", () -> {
+                    writer.openBlock("node.reduce((acc: __XmlNode, workingNode: any) => {", "}", () -> {
                         // Add @xmlNamespace value of the value member.
                         AwsProtocolUtils.writeXmlNamespace(context, valueMember, "workingNode");
                         writer.write("return acc.addChildNode(workingNode);");
                     });
-                    writer.write(", new XmlNode($S))", valueName);
+                    writer.write(", new __XmlNode($S))", valueName);
                 });
             } else {
                 // Add @xmlNamespace value of the target member.
@@ -190,7 +190,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     protected void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
         ServiceShape serviceShape = context.getService();
-        writer.addImport("XmlNode", "XmlNode", "@aws-sdk/xml-builder");
+        writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
 
         // Handle the @xmlName trait for the structure itself.
         String nodeName = shape.getTrait(XmlNameTrait.class)
@@ -198,7 +198,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                 .orElse(shape.getId().getName(serviceShape));
 
         // Create the structure's node.
-        writer.write("const bodyNode = new XmlNode($S);", nodeName);
+        writer.write("const bodyNode = new __XmlNode($S);", nodeName);
 
         // Serialize every member of the structure if present.
         Map<String, MemberShape> members = shape.getAllMembers();
@@ -277,7 +277,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Prepare a containing node to hold the nodes if not flattened.
         if (!isFlattened) {
-            writer.write("const containerNode = new XmlNode($S);", locationName);
+            writer.write("const containerNode = new __XmlNode($S);", locationName);
             // Add @xmlNamespace value of the target member.
             AwsProtocolUtils.writeXmlNamespace(context, memberShape, "containerNode");
         }
@@ -306,8 +306,8 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     protected void serializeUnion(GenerationContext context, UnionShape shape) {
         TypeScriptWriter writer = context.getWriter();
         ServiceShape serviceShape = context.getService();
-        writer.addImport("XmlNode", "XmlNode", "@aws-sdk/xml-builder");
-        writer.addImport("XmlText", "XmlText", "@aws-sdk/xml-builder");
+        writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
+        writer.addImport("XmlText", "__XmlText", "@aws-sdk/xml-builder");
 
         // Handle the @xmlName trait for the union itself.
         String nodeName = shape.getTrait(XmlNameTrait.class)
@@ -315,7 +315,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                 .orElse(shape.getId().getName(serviceShape));
 
         // Create the union's node.
-        writer.write("const bodyNode = new XmlNode($S);", nodeName);
+        writer.write("const bodyNode = new __XmlNode($S);", nodeName);
 
         // Visit over the union type, then get the right serialization for the member.
         writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(serviceShape), () -> {
@@ -329,12 +329,12 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
             // Handle the unknown property.
             writer.openBlock("_: (name: string, value: any) => {", "}", () -> {
                 // Throw an exception if we're trying to serialize something that we wouldn't know how to.
-                writer.openBlock("if (!(value instanceof XmlNode || value instanceof XmlText)) {", "}", () -> {
+                writer.openBlock("if (!(value instanceof __XmlNode || value instanceof __XmlText)) {", "}", () -> {
                     writer.write("throw new Error(\"Unable to serialize unknown union members in XML.\");");
                 });
 
                 // Set the node explicitly for potentially correct cases.
-                writer.write("bodyNode.addChildNode(new XmlNode(name).addChildNode(value));");
+                writer.write("bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));");
             });
         });
 

@@ -35,7 +35,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
-import { XmlNode, XmlText } from "@aws-sdk/xml-builder";
+import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
@@ -282,7 +282,7 @@ export const serializeAws_restXmlBodyWithXmlNameCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BodyWithXmlName";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("Ahoy");
+  const bodyNode = new __XmlNode("Ahoy");
   if (input.nested !== undefined) {
     const node = serializeAws_restXmlPayloadWithXmlName(input.nested, context).withName("nested");
     bodyNode.addChildNode(node);
@@ -448,9 +448,9 @@ export const serializeAws_restXmlEndpointWithHostLabelOperationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointWithHostLabelOperation";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("HostLabelInput");
+  const bodyNode = new __XmlNode("HostLabelInput");
   if (input.label !== undefined) {
-    const node = XmlNode.of("String", input.label).withName("label");
+    const node = __XmlNode.of("String", input.label).withName("label");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -487,7 +487,7 @@ export const serializeAws_restXmlFlattenedXmlMapCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FlattenedXmlMap";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("FlattenedXmlMapInputOutput");
+  const bodyNode = new __XmlNode("FlattenedXmlMapInputOutput");
   if (input.myMap !== undefined) {
     const nodes = serializeAws_restXmlFooEnumMap(input.myMap, context);
     nodes.map((node: any) => {
@@ -519,7 +519,7 @@ export const serializeAws_restXmlFlattenedXmlMapWithXmlNameCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FlattenedXmlMapWithXmlName";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("FlattenedXmlMapWithXmlNameInputOutput");
+  const bodyNode = new __XmlNode("FlattenedXmlMapWithXmlNameInputOutput");
   if (input.myMap !== undefined) {
     const nodes = serializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap(input.myMap, context);
     nodes.map((node: any) => {
@@ -1135,7 +1135,7 @@ export const serializeAws_restXmlNestedXmlMapsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NestedXmlMaps";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("NestedXmlMapsInputOutput");
+  const bodyNode = new __XmlNode("NestedXmlMapsInputOutput");
   if (input.flatNestedMap !== undefined) {
     const nodes = serializeAws_restXmlNestedMap(input.flatNestedMap, context);
     nodes.map((node: any) => {
@@ -1145,7 +1145,7 @@ export const serializeAws_restXmlNestedXmlMapsCommand = async (
   }
   if (input.nestedMap !== undefined) {
     const nodes = serializeAws_restXmlNestedMap(input.nestedMap, context);
-    const containerNode = new XmlNode("nestedMap");
+    const containerNode = new __XmlNode("nestedMap");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1364,7 +1364,7 @@ export const serializeAws_restXmlRecursiveShapesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RecursiveShapes";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("RecursiveShapesInputOutput");
+  const bodyNode = new __XmlNode("RecursiveShapesInputOutput");
   if (input.nested !== undefined) {
     const node = serializeAws_restXmlRecursiveShapesInputOutputNested1(input.nested, context).withName("nested");
     bodyNode.addChildNode(node);
@@ -1394,41 +1394,41 @@ export const serializeAws_restXmlSimpleScalarPropertiesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SimpleScalarProperties";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("SimpleScalarPropertiesInputOutput");
+  const bodyNode = new __XmlNode("SimpleScalarPropertiesInputOutput");
   if (input.byteValue !== undefined) {
-    const node = XmlNode.of("Byte", String(input.byteValue)).withName("byteValue");
+    const node = __XmlNode.of("Byte", String(input.byteValue)).withName("byteValue");
     bodyNode.addChildNode(node);
   }
   if (input.doubleValue !== undefined) {
-    const node = XmlNode.of("Double", String(input.doubleValue)).withName("DoubleDribble");
+    const node = __XmlNode.of("Double", String(input.doubleValue)).withName("DoubleDribble");
     bodyNode.addChildNode(node);
   }
   if (input.falseBooleanValue !== undefined) {
-    const node = XmlNode.of("Boolean", String(input.falseBooleanValue)).withName("falseBooleanValue");
+    const node = __XmlNode.of("Boolean", String(input.falseBooleanValue)).withName("falseBooleanValue");
     bodyNode.addChildNode(node);
   }
   if (input.floatValue !== undefined) {
-    const node = XmlNode.of("Float", String(input.floatValue)).withName("floatValue");
+    const node = __XmlNode.of("Float", String(input.floatValue)).withName("floatValue");
     bodyNode.addChildNode(node);
   }
   if (input.integerValue !== undefined) {
-    const node = XmlNode.of("Integer", String(input.integerValue)).withName("integerValue");
+    const node = __XmlNode.of("Integer", String(input.integerValue)).withName("integerValue");
     bodyNode.addChildNode(node);
   }
   if (input.longValue !== undefined) {
-    const node = XmlNode.of("Long", String(input.longValue)).withName("longValue");
+    const node = __XmlNode.of("Long", String(input.longValue)).withName("longValue");
     bodyNode.addChildNode(node);
   }
   if (input.shortValue !== undefined) {
-    const node = XmlNode.of("Short", String(input.shortValue)).withName("shortValue");
+    const node = __XmlNode.of("Short", String(input.shortValue)).withName("shortValue");
     bodyNode.addChildNode(node);
   }
   if (input.stringValue !== undefined) {
-    const node = XmlNode.of("String", input.stringValue).withName("stringValue");
+    const node = __XmlNode.of("String", input.stringValue).withName("stringValue");
     bodyNode.addChildNode(node);
   }
   if (input.trueBooleanValue !== undefined) {
-    const node = XmlNode.of("Boolean", String(input.trueBooleanValue)).withName("trueBooleanValue");
+    const node = __XmlNode.of("Boolean", String(input.trueBooleanValue)).withName("trueBooleanValue");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -1503,12 +1503,12 @@ export const serializeAws_restXmlXmlAttributesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlAttributes";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlAttributesInputOutput");
+  const bodyNode = new __XmlNode("XmlAttributesInputOutput");
   if (input.attr !== undefined) {
     bodyNode.addAttribute("test", input.attr);
   }
   if (input.foo !== undefined) {
-    const node = XmlNode.of("String", input.foo).withName("foo");
+    const node = __XmlNode.of("String", input.foo).withName("foo");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -1565,9 +1565,9 @@ export const serializeAws_restXmlXmlBlobsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlBlobs";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlBlobsInputOutput");
+  const bodyNode = new __XmlNode("XmlBlobsInputOutput");
   if (input.data !== undefined) {
-    const node = XmlNode.of("Blob", context.base64Encoder(input.data)).withName("data");
+    const node = __XmlNode.of("Blob", context.base64Encoder(input.data)).withName("data");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -1593,9 +1593,9 @@ export const serializeAws_restXmlXmlEmptyBlobsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyBlobs";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlBlobsInputOutput");
+  const bodyNode = new __XmlNode("XmlBlobsInputOutput");
   if (input.data !== undefined) {
-    const node = XmlNode.of("Blob", context.base64Encoder(input.data)).withName("data");
+    const node = __XmlNode.of("Blob", context.base64Encoder(input.data)).withName("data");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -1621,10 +1621,10 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyLists";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlListsInputOutput");
+  const bodyNode = new __XmlNode("XmlListsInputOutput");
   if (input.booleanList !== undefined) {
     const nodes = serializeAws_restXmlBooleanList(input.booleanList, context);
-    const containerNode = new XmlNode("booleanList");
+    const containerNode = new __XmlNode("booleanList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1632,7 +1632,7 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (input.enumList !== undefined) {
     const nodes = serializeAws_restXmlFooEnumList(input.enumList, context);
-    const containerNode = new XmlNode("enumList");
+    const containerNode = new __XmlNode("enumList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1675,7 +1675,7 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (input.integerList !== undefined) {
     const nodes = serializeAws_restXmlIntegerList(input.integerList, context);
-    const containerNode = new XmlNode("integerList");
+    const containerNode = new __XmlNode("integerList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1683,7 +1683,7 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (input.nestedStringList !== undefined) {
     const nodes = serializeAws_restXmlNestedStringList(input.nestedStringList, context);
-    const containerNode = new XmlNode("nestedStringList");
+    const containerNode = new __XmlNode("nestedStringList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1691,7 +1691,7 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (input.renamedListMembers !== undefined) {
     const nodes = serializeAws_restXmlRenamedListMembers(input.renamedListMembers, context);
-    const containerNode = new XmlNode("renamed");
+    const containerNode = new __XmlNode("renamed");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1699,7 +1699,7 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (input.stringList !== undefined) {
     const nodes = serializeAws_restXmlStringList(input.stringList, context);
-    const containerNode = new XmlNode("stringList");
+    const containerNode = new __XmlNode("stringList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1707,7 +1707,7 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (input.stringSet !== undefined) {
     const nodes = serializeAws_restXmlStringSet(input.stringSet, context);
-    const containerNode = new XmlNode("stringSet");
+    const containerNode = new __XmlNode("stringSet");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1715,7 +1715,7 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (input.structureList !== undefined) {
     const nodes = serializeAws_restXmlStructureList(input.structureList, context);
-    const containerNode = new XmlNode("myStructureList");
+    const containerNode = new __XmlNode("myStructureList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1723,7 +1723,7 @@ export const serializeAws_restXmlXmlEmptyListsCommand = async (
   }
   if (input.timestampList !== undefined) {
     const nodes = serializeAws_restXmlTimestampList(input.timestampList, context);
-    const containerNode = new XmlNode("timestampList");
+    const containerNode = new __XmlNode("timestampList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1752,10 +1752,10 @@ export const serializeAws_restXmlXmlEmptyMapsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyMaps";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlMapsInputOutput");
+  const bodyNode = new __XmlNode("XmlMapsInputOutput");
   if (input.myMap !== undefined) {
     const nodes = serializeAws_restXmlXmlMapsInputOutputMap(input.myMap, context);
-    const containerNode = new XmlNode("myMap");
+    const containerNode = new __XmlNode("myMap");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1784,9 +1784,9 @@ export const serializeAws_restXmlXmlEmptyStringsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyStrings";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlEmptyStringsInputOutput");
+  const bodyNode = new __XmlNode("XmlEmptyStringsInputOutput");
   if (input.emptyString !== undefined) {
-    const node = XmlNode.of("String", input.emptyString).withName("emptyString");
+    const node = __XmlNode.of("String", input.emptyString).withName("emptyString");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -1812,22 +1812,22 @@ export const serializeAws_restXmlXmlEnumsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEnums";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlEnumsInputOutput");
+  const bodyNode = new __XmlNode("XmlEnumsInputOutput");
   if (input.fooEnum1 !== undefined) {
-    const node = XmlNode.of("FooEnum", input.fooEnum1).withName("fooEnum1");
+    const node = __XmlNode.of("FooEnum", input.fooEnum1).withName("fooEnum1");
     bodyNode.addChildNode(node);
   }
   if (input.fooEnum2 !== undefined) {
-    const node = XmlNode.of("FooEnum", input.fooEnum2).withName("fooEnum2");
+    const node = __XmlNode.of("FooEnum", input.fooEnum2).withName("fooEnum2");
     bodyNode.addChildNode(node);
   }
   if (input.fooEnum3 !== undefined) {
-    const node = XmlNode.of("FooEnum", input.fooEnum3).withName("fooEnum3");
+    const node = __XmlNode.of("FooEnum", input.fooEnum3).withName("fooEnum3");
     bodyNode.addChildNode(node);
   }
   if (input.fooEnumList !== undefined) {
     const nodes = serializeAws_restXmlFooEnumList(input.fooEnumList, context);
-    const containerNode = new XmlNode("fooEnumList");
+    const containerNode = new __XmlNode("fooEnumList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1835,7 +1835,7 @@ export const serializeAws_restXmlXmlEnumsCommand = async (
   }
   if (input.fooEnumMap !== undefined) {
     const nodes = serializeAws_restXmlFooEnumMap(input.fooEnumMap, context);
-    const containerNode = new XmlNode("fooEnumMap");
+    const containerNode = new __XmlNode("fooEnumMap");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1843,7 +1843,7 @@ export const serializeAws_restXmlXmlEnumsCommand = async (
   }
   if (input.fooEnumSet !== undefined) {
     const nodes = serializeAws_restXmlFooEnumSet(input.fooEnumSet, context);
-    const containerNode = new XmlNode("fooEnumSet");
+    const containerNode = new __XmlNode("fooEnumSet");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1872,10 +1872,10 @@ export const serializeAws_restXmlXmlListsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlLists";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlListsInputOutput");
+  const bodyNode = new __XmlNode("XmlListsInputOutput");
   if (input.booleanList !== undefined) {
     const nodes = serializeAws_restXmlBooleanList(input.booleanList, context);
-    const containerNode = new XmlNode("booleanList");
+    const containerNode = new __XmlNode("booleanList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1883,7 +1883,7 @@ export const serializeAws_restXmlXmlListsCommand = async (
   }
   if (input.enumList !== undefined) {
     const nodes = serializeAws_restXmlFooEnumList(input.enumList, context);
-    const containerNode = new XmlNode("enumList");
+    const containerNode = new __XmlNode("enumList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1926,7 +1926,7 @@ export const serializeAws_restXmlXmlListsCommand = async (
   }
   if (input.integerList !== undefined) {
     const nodes = serializeAws_restXmlIntegerList(input.integerList, context);
-    const containerNode = new XmlNode("integerList");
+    const containerNode = new __XmlNode("integerList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1934,7 +1934,7 @@ export const serializeAws_restXmlXmlListsCommand = async (
   }
   if (input.nestedStringList !== undefined) {
     const nodes = serializeAws_restXmlNestedStringList(input.nestedStringList, context);
-    const containerNode = new XmlNode("nestedStringList");
+    const containerNode = new __XmlNode("nestedStringList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1942,7 +1942,7 @@ export const serializeAws_restXmlXmlListsCommand = async (
   }
   if (input.renamedListMembers !== undefined) {
     const nodes = serializeAws_restXmlRenamedListMembers(input.renamedListMembers, context);
-    const containerNode = new XmlNode("renamed");
+    const containerNode = new __XmlNode("renamed");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1950,7 +1950,7 @@ export const serializeAws_restXmlXmlListsCommand = async (
   }
   if (input.stringList !== undefined) {
     const nodes = serializeAws_restXmlStringList(input.stringList, context);
-    const containerNode = new XmlNode("stringList");
+    const containerNode = new __XmlNode("stringList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1958,7 +1958,7 @@ export const serializeAws_restXmlXmlListsCommand = async (
   }
   if (input.stringSet !== undefined) {
     const nodes = serializeAws_restXmlStringSet(input.stringSet, context);
-    const containerNode = new XmlNode("stringSet");
+    const containerNode = new __XmlNode("stringSet");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1966,7 +1966,7 @@ export const serializeAws_restXmlXmlListsCommand = async (
   }
   if (input.structureList !== undefined) {
     const nodes = serializeAws_restXmlStructureList(input.structureList, context);
-    const containerNode = new XmlNode("myStructureList");
+    const containerNode = new __XmlNode("myStructureList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -1974,7 +1974,7 @@ export const serializeAws_restXmlXmlListsCommand = async (
   }
   if (input.timestampList !== undefined) {
     const nodes = serializeAws_restXmlTimestampList(input.timestampList, context);
-    const containerNode = new XmlNode("timestampList");
+    const containerNode = new __XmlNode("timestampList");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -2003,10 +2003,10 @@ export const serializeAws_restXmlXmlMapsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlMaps";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlMapsInputOutput");
+  const bodyNode = new __XmlNode("XmlMapsInputOutput");
   if (input.myMap !== undefined) {
     const nodes = serializeAws_restXmlXmlMapsInputOutputMap(input.myMap, context);
-    const containerNode = new XmlNode("myMap");
+    const containerNode = new __XmlNode("myMap");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -2035,10 +2035,10 @@ export const serializeAws_restXmlXmlMapsXmlNameCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlMapsXmlName";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlMapsXmlNameInputOutput");
+  const bodyNode = new __XmlNode("XmlMapsXmlNameInputOutput");
   if (input.myMap !== undefined) {
     const nodes = serializeAws_restXmlXmlMapsXmlNameInputOutputMap(input.myMap, context);
-    const containerNode = new XmlNode("myMap");
+    const containerNode = new __XmlNode("myMap");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
     });
@@ -2067,7 +2067,7 @@ export const serializeAws_restXmlXmlNamespacesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlNamespaces";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlNamespacesInputOutput");
+  const bodyNode = new __XmlNode("XmlNamespacesInputOutput");
   bodyNode.addAttribute("xmlns", "http://foo.com");
   if (input.nested !== undefined) {
     const node = serializeAws_restXmlXmlNamespaceNested(input.nested, context).withName("nested");
@@ -2096,25 +2096,25 @@ export const serializeAws_restXmlXmlTimestampsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlTimestamps";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlTimestampsInputOutput");
+  const bodyNode = new __XmlNode("XmlTimestampsInputOutput");
   if (input.dateTime !== undefined) {
-    const node = XmlNode.of("Timestamp", (input.dateTime.toISOString().split(".")[0] + "Z").toString()).withName(
-      "dateTime"
-    );
+    const node = __XmlNode
+      .of("Timestamp", (input.dateTime.toISOString().split(".")[0] + "Z").toString())
+      .withName("dateTime");
     bodyNode.addChildNode(node);
   }
   if (input.epochSeconds !== undefined) {
-    const node = XmlNode.of("Timestamp", Math.round(input.epochSeconds.getTime() / 1000).toString()).withName(
-      "epochSeconds"
-    );
+    const node = __XmlNode
+      .of("Timestamp", Math.round(input.epochSeconds.getTime() / 1000).toString())
+      .withName("epochSeconds");
     bodyNode.addChildNode(node);
   }
   if (input.httpDate !== undefined) {
-    const node = XmlNode.of("Timestamp", __dateToUtcString(input.httpDate).toString()).withName("httpDate");
+    const node = __XmlNode.of("Timestamp", __dateToUtcString(input.httpDate).toString()).withName("httpDate");
     bodyNode.addChildNode(node);
   }
   if (input.normal !== undefined) {
-    const node = XmlNode.of("Timestamp", input.normal.toISOString().split(".")[0] + "Z").withName("normal");
+    const node = __XmlNode.of("Timestamp", input.normal.toISOString().split(".")[0] + "Z").withName("normal");
     bodyNode.addChildNode(node);
   }
   body += bodyNode.toString();
@@ -2140,7 +2140,7 @@ export const serializeAws_restXmlXmlUnionsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlUnions";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new XmlNode("XmlUnionsInputOutput");
+  const bodyNode = new __XmlNode("XmlUnionsInputOutput");
   if (input.unionValue !== undefined) {
     const node = serializeAws_restXmlXmlUnionShape(input.unionValue, context).withName("unionValue");
     bodyNode.addChildNode(node);
@@ -4387,11 +4387,11 @@ const serializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
   return Object.keys(input)
     .filter((key) => input[key] != null)
     .map((key) => {
-      const entryNode = new XmlNode("entry");
-      const keyNode = XmlNode.of("String", key).withName("K");
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of("String", key).withName("K");
       entryNode.addChildNode(keyNode);
       let node;
-      node = XmlNode.of("String", input[key]);
+      node = __XmlNode.of("String", input[key]);
       entryNode.addChildNode(node.withName("V"));
       return entryNode;
     });
@@ -4401,7 +4401,7 @@ const serializeAws_restXmlListWithMemberNamespace = (input: string[], context: _
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("String", entry);
+      const node = __XmlNode.of("String", entry);
       node.addAttribute("xmlns", "https://xml-member.example.com");
       return node.withName("member");
     });
@@ -4411,7 +4411,7 @@ const serializeAws_restXmlListWithNamespace = (input: string[], context: __Serde
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("String", entry);
+      const node = __XmlNode.of("String", entry);
       return node.withName("member");
     });
 };
@@ -4423,46 +4423,46 @@ const serializeAws_restXmlNestedMap = (
   return Object.keys(input)
     .filter((key) => input[key] != null)
     .map((key) => {
-      const entryNode = new XmlNode("entry");
-      const keyNode = XmlNode.of("String", key).withName("key");
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of("String", key).withName("key");
       entryNode.addChildNode(keyNode);
       let node;
       node = serializeAws_restXmlFooEnumMap(input[key], context);
       entryNode.addChildNode(
-        node.reduce((acc: XmlNode, workingNode: any) => {
+        node.reduce((acc: __XmlNode, workingNode: any) => {
           return acc.addChildNode(workingNode);
-        }, new XmlNode("value"))
+        }, new __XmlNode("value"))
       );
       return entryNode;
     });
 };
 
 const serializeAws_restXmlNestedPayload = (input: NestedPayload, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("NestedPayload");
+  const bodyNode = new __XmlNode("NestedPayload");
   if (input.greeting != null) {
-    const node = XmlNode.of("String", input.greeting).withName("greeting");
+    const node = __XmlNode.of("String", input.greeting).withName("greeting");
     bodyNode.addChildNode(node);
   }
   if (input.name != null) {
-    const node = XmlNode.of("String", input.name).withName("name");
+    const node = __XmlNode.of("String", input.name).withName("name");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
 
 const serializeAws_restXmlPayloadWithXmlName = (input: PayloadWithXmlName, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("Hello");
+  const bodyNode = new __XmlNode("Hello");
   if (input.name != null) {
-    const node = XmlNode.of("String", input.name).withName("name");
+    const node = __XmlNode.of("String", input.name).withName("name");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
 
 const serializeAws_restXmlPayloadWithXmlNamespace = (input: PayloadWithXmlNamespace, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("PayloadWithXmlNamespace");
+  const bodyNode = new __XmlNode("PayloadWithXmlNamespace");
   if (input.name != null) {
-    const node = XmlNode.of("String", input.name).withName("name");
+    const node = __XmlNode.of("String", input.name).withName("name");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -4472,9 +4472,9 @@ const serializeAws_restXmlPayloadWithXmlNamespaceAndPrefix = (
   input: PayloadWithXmlNamespaceAndPrefix,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new XmlNode("PayloadWithXmlNamespaceAndPrefix");
+  const bodyNode = new __XmlNode("PayloadWithXmlNamespaceAndPrefix");
   if (input.name != null) {
-    const node = XmlNode.of("String", input.name).withName("name");
+    const node = __XmlNode.of("String", input.name).withName("name");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -4484,9 +4484,9 @@ const serializeAws_restXmlRecursiveShapesInputOutputNested1 = (
   input: RecursiveShapesInputOutputNested1,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new XmlNode("RecursiveShapesInputOutputNested1");
+  const bodyNode = new __XmlNode("RecursiveShapesInputOutputNested1");
   if (input.foo != null) {
-    const node = XmlNode.of("String", input.foo).withName("foo");
+    const node = __XmlNode.of("String", input.foo).withName("foo");
     bodyNode.addChildNode(node);
   }
   if (input.nested != null) {
@@ -4500,9 +4500,9 @@ const serializeAws_restXmlRecursiveShapesInputOutputNested2 = (
   input: RecursiveShapesInputOutputNested2,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new XmlNode("RecursiveShapesInputOutputNested2");
+  const bodyNode = new __XmlNode("RecursiveShapesInputOutputNested2");
   if (input.bar != null) {
-    const node = XmlNode.of("String", input.bar).withName("bar");
+    const node = __XmlNode.of("String", input.bar).withName("bar");
     bodyNode.addChildNode(node);
   }
   if (input.recursiveMember != null) {
@@ -4518,7 +4518,7 @@ const serializeAws_restXmlRenamedListMembers = (input: string[], context: __Serd
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("String", entry);
+      const node = __XmlNode.of("String", entry);
       return node.withName("item");
     });
 };
@@ -4533,13 +4533,13 @@ const serializeAws_restXmlStructureList = (input: StructureListMember[], context
 };
 
 const serializeAws_restXmlStructureListMember = (input: StructureListMember, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("StructureListMember");
+  const bodyNode = new __XmlNode("StructureListMember");
   if (input.a != null) {
-    const node = XmlNode.of("String", input.a).withName("value");
+    const node = __XmlNode.of("String", input.a).withName("value");
     bodyNode.addChildNode(node);
   }
   if (input.b != null) {
-    const node = XmlNode.of("String", input.b).withName("other");
+    const node = __XmlNode.of("String", input.b).withName("other");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -4549,9 +4549,9 @@ const serializeAws_restXmlXmlAttributesInputOutput = (
   input: XmlAttributesInputOutput,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new XmlNode("XmlAttributesInputOutput");
+  const bodyNode = new __XmlNode("XmlAttributesInputOutput");
   if (input.foo != null) {
-    const node = XmlNode.of("String", input.foo).withName("foo");
+    const node = __XmlNode.of("String", input.foo).withName("foo");
     bodyNode.addChildNode(node);
   }
   if (input.attr != null) {
@@ -4567,8 +4567,8 @@ const serializeAws_restXmlXmlMapsInputOutputMap = (
   return Object.keys(input)
     .filter((key) => input[key] != null)
     .map((key) => {
-      const entryNode = new XmlNode("entry");
-      const keyNode = XmlNode.of("String", key).withName("key");
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of("String", key).withName("key");
       entryNode.addChildNode(keyNode);
       let node;
       node = serializeAws_restXmlGreetingStruct(input[key], context);
@@ -4584,8 +4584,8 @@ const serializeAws_restXmlXmlMapsXmlNameInputOutputMap = (
   return Object.keys(input)
     .filter((key) => input[key] != null)
     .map((key) => {
-      const entryNode = new XmlNode("entry");
-      const keyNode = XmlNode.of("String", key).withName("Attribute");
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of("String", key).withName("Attribute");
       entryNode.addChildNode(keyNode);
       let node;
       node = serializeAws_restXmlGreetingStruct(input[key], context);
@@ -4598,22 +4598,22 @@ const serializeAws_restXmlXmlNamespacedList = (input: string[], context: __Serde
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("String", entry);
+      const node = __XmlNode.of("String", entry);
       node.addAttribute("xmlns", "http://bux.com");
       return node.withName("member");
     });
 };
 
 const serializeAws_restXmlXmlNamespaceNested = (input: XmlNamespaceNested, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("XmlNamespaceNested");
+  const bodyNode = new __XmlNode("XmlNamespaceNested");
   if (input.foo != null) {
-    const node = XmlNode.of("String", input.foo).withName("foo");
+    const node = __XmlNode.of("String", input.foo).withName("foo");
     node.addAttribute("xmlns:baz", "http://baz.com");
     bodyNode.addChildNode(node);
   }
   if (input.values != null) {
     const nodes = serializeAws_restXmlXmlNamespacedList(input.values, context);
-    const containerNode = new XmlNode("values");
+    const containerNode = new __XmlNode("values");
     containerNode.addAttribute("xmlns", "http://qux.com");
     nodes.map((node: any) => {
       containerNode.addChildNode(node);
@@ -4624,75 +4624,75 @@ const serializeAws_restXmlXmlNamespaceNested = (input: XmlNamespaceNested, conte
 };
 
 const serializeAws_restXmlXmlNestedUnionStruct = (input: XmlNestedUnionStruct, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("XmlNestedUnionStruct");
+  const bodyNode = new __XmlNode("XmlNestedUnionStruct");
   if (input.stringValue != null) {
-    const node = XmlNode.of("String", input.stringValue).withName("stringValue");
+    const node = __XmlNode.of("String", input.stringValue).withName("stringValue");
     bodyNode.addChildNode(node);
   }
   if (input.booleanValue != null) {
-    const node = XmlNode.of("Boolean", String(input.booleanValue)).withName("booleanValue");
+    const node = __XmlNode.of("Boolean", String(input.booleanValue)).withName("booleanValue");
     bodyNode.addChildNode(node);
   }
   if (input.byteValue != null) {
-    const node = XmlNode.of("Byte", String(input.byteValue)).withName("byteValue");
+    const node = __XmlNode.of("Byte", String(input.byteValue)).withName("byteValue");
     bodyNode.addChildNode(node);
   }
   if (input.shortValue != null) {
-    const node = XmlNode.of("Short", String(input.shortValue)).withName("shortValue");
+    const node = __XmlNode.of("Short", String(input.shortValue)).withName("shortValue");
     bodyNode.addChildNode(node);
   }
   if (input.integerValue != null) {
-    const node = XmlNode.of("Integer", String(input.integerValue)).withName("integerValue");
+    const node = __XmlNode.of("Integer", String(input.integerValue)).withName("integerValue");
     bodyNode.addChildNode(node);
   }
   if (input.longValue != null) {
-    const node = XmlNode.of("Long", String(input.longValue)).withName("longValue");
+    const node = __XmlNode.of("Long", String(input.longValue)).withName("longValue");
     bodyNode.addChildNode(node);
   }
   if (input.floatValue != null) {
-    const node = XmlNode.of("Float", String(input.floatValue)).withName("floatValue");
+    const node = __XmlNode.of("Float", String(input.floatValue)).withName("floatValue");
     bodyNode.addChildNode(node);
   }
   if (input.doubleValue != null) {
-    const node = XmlNode.of("Double", String(input.doubleValue)).withName("doubleValue");
+    const node = __XmlNode.of("Double", String(input.doubleValue)).withName("doubleValue");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
 
 const serializeAws_restXmlXmlUnionShape = (input: XmlUnionShape, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("XmlUnionShape");
+  const bodyNode = new __XmlNode("XmlUnionShape");
   XmlUnionShape.visit(input, {
     stringValue: (value) => {
-      const node = XmlNode.of("String", value).withName("stringValue");
+      const node = __XmlNode.of("String", value).withName("stringValue");
       bodyNode.addChildNode(node);
     },
     booleanValue: (value) => {
-      const node = XmlNode.of("Boolean", String(value)).withName("booleanValue");
+      const node = __XmlNode.of("Boolean", String(value)).withName("booleanValue");
       bodyNode.addChildNode(node);
     },
     byteValue: (value) => {
-      const node = XmlNode.of("Byte", String(value)).withName("byteValue");
+      const node = __XmlNode.of("Byte", String(value)).withName("byteValue");
       bodyNode.addChildNode(node);
     },
     shortValue: (value) => {
-      const node = XmlNode.of("Short", String(value)).withName("shortValue");
+      const node = __XmlNode.of("Short", String(value)).withName("shortValue");
       bodyNode.addChildNode(node);
     },
     integerValue: (value) => {
-      const node = XmlNode.of("Integer", String(value)).withName("integerValue");
+      const node = __XmlNode.of("Integer", String(value)).withName("integerValue");
       bodyNode.addChildNode(node);
     },
     longValue: (value) => {
-      const node = XmlNode.of("Long", String(value)).withName("longValue");
+      const node = __XmlNode.of("Long", String(value)).withName("longValue");
       bodyNode.addChildNode(node);
     },
     floatValue: (value) => {
-      const node = XmlNode.of("Float", String(value)).withName("floatValue");
+      const node = __XmlNode.of("Float", String(value)).withName("floatValue");
       bodyNode.addChildNode(node);
     },
     doubleValue: (value) => {
-      const node = XmlNode.of("Double", String(value)).withName("doubleValue");
+      const node = __XmlNode.of("Double", String(value)).withName("doubleValue");
       bodyNode.addChildNode(node);
     },
     unionValue: (value) => {
@@ -4704,10 +4704,10 @@ const serializeAws_restXmlXmlUnionShape = (input: XmlUnionShape, context: __Serd
       bodyNode.addChildNode(node);
     },
     _: (name: string, value: any) => {
-      if (!(value instanceof XmlNode || value instanceof XmlText)) {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new XmlNode(name).addChildNode(value));
+      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
     },
   });
   return bodyNode;
@@ -4717,7 +4717,7 @@ const serializeAws_restXmlBooleanList = (input: boolean[], context: __SerdeConte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("PrimitiveBoolean", String(entry));
+      const node = __XmlNode.of("PrimitiveBoolean", String(entry));
       return node.withName("member");
     });
 };
@@ -4726,7 +4726,7 @@ const serializeAws_restXmlFooEnumList = (input: (FooEnum | string)[], context: _
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("FooEnum", entry);
+      const node = __XmlNode.of("FooEnum", entry);
       return node.withName("member");
     });
 };
@@ -4735,11 +4735,11 @@ const serializeAws_restXmlFooEnumMap = (input: Record<string, FooEnum | string>,
   return Object.keys(input)
     .filter((key) => input[key] != null)
     .map((key) => {
-      const entryNode = new XmlNode("entry");
-      const keyNode = XmlNode.of("String", key).withName("key");
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of("String", key).withName("key");
       entryNode.addChildNode(keyNode);
       let node;
-      node = XmlNode.of("FooEnum", input[key]);
+      node = __XmlNode.of("FooEnum", input[key]);
       entryNode.addChildNode(node.withName("value"));
       return entryNode;
     });
@@ -4749,15 +4749,15 @@ const serializeAws_restXmlFooEnumSet = (input: (FooEnum | string)[], context: __
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("FooEnum", entry);
+      const node = __XmlNode.of("FooEnum", entry);
       return node.withName("member");
     });
 };
 
 const serializeAws_restXmlGreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
-  const bodyNode = new XmlNode("GreetingStruct");
+  const bodyNode = new __XmlNode("GreetingStruct");
   if (input.hi != null) {
-    const node = XmlNode.of("String", input.hi).withName("hi");
+    const node = __XmlNode.of("String", input.hi).withName("hi");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -4767,7 +4767,7 @@ const serializeAws_restXmlIntegerList = (input: number[], context: __SerdeContex
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("Integer", String(entry));
+      const node = __XmlNode.of("Integer", String(entry));
       return node.withName("member");
     });
 };
@@ -4777,9 +4777,9 @@ const serializeAws_restXmlNestedStringList = (input: string[][], context: __Serd
     .filter((e: any) => e != null)
     .map((entry) => {
       const node = serializeAws_restXmlStringList(entry, context);
-      return node.reduce((acc: XmlNode, workingNode: any) => {
+      return node.reduce((acc: __XmlNode, workingNode: any) => {
         return acc.addChildNode(workingNode);
-      }, new XmlNode("member"));
+      }, new __XmlNode("member"));
     });
 };
 
@@ -4787,7 +4787,7 @@ const serializeAws_restXmlStringList = (input: string[], context: __SerdeContext
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("String", entry);
+      const node = __XmlNode.of("String", entry);
       return node.withName("member");
     });
 };
@@ -4796,7 +4796,7 @@ const serializeAws_restXmlStringSet = (input: string[], context: __SerdeContext)
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("String", entry);
+      const node = __XmlNode.of("String", entry);
       return node.withName("member");
     });
 };
@@ -4805,7 +4805,7 @@ const serializeAws_restXmlTimestampList = (input: Date[], context: __SerdeContex
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = XmlNode.of("Timestamp", entry.toISOString().split(".")[0] + "Z");
+      const node = __XmlNode.of("Timestamp", entry.toISOString().split(".")[0] + "Z");
       return node.withName("member");
     });
 };
