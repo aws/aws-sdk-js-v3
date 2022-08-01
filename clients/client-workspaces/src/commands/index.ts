@@ -43,6 +43,7 @@ export * from "./ListAvailableManagementCidrRangesCommand";
 export * from "./MigrateWorkspaceCommand";
 export * from "./ModifyAccountCommand";
 export * from "./ModifyClientPropertiesCommand";
+export * from "./ModifySamlPropertiesCommand";
 export * from "./ModifySelfservicePermissionsCommand";
 export * from "./ModifyWorkspaceAccessPropertiesCommand";
 export * from "./ModifyWorkspaceCreationPropertiesCommand";

@@ -214,6 +214,11 @@ import {
   ModifyClientPropertiesCommandOutput,
 } from "./commands/ModifyClientPropertiesCommand";
 import {
+  ModifySamlPropertiesCommand,
+  ModifySamlPropertiesCommandInput,
+  ModifySamlPropertiesCommandOutput,
+} from "./commands/ModifySamlPropertiesCommand";
+import {
   ModifySelfservicePermissionsCommand,
   ModifySelfservicePermissionsCommandInput,
   ModifySelfservicePermissionsCommandOutput,
@@ -1875,6 +1880,40 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: ModifyClientPropertiesCommandOutput) => void
   ): Promise<ModifyClientPropertiesCommandOutput> | void {
     const command = new ModifyClientPropertiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies multiple properties related to SAML 2.0 authentication, including the enablement status,
+   *          user access URL, and relay state parameter name that are used for configuring federation with an
+   *          SAML 2.0 identity provider.</p>
+   */
+  public modifySamlProperties(
+    args: ModifySamlPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifySamlPropertiesCommandOutput>;
+  public modifySamlProperties(
+    args: ModifySamlPropertiesCommandInput,
+    cb: (err: any, data?: ModifySamlPropertiesCommandOutput) => void
+  ): void;
+  public modifySamlProperties(
+    args: ModifySamlPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifySamlPropertiesCommandOutput) => void
+  ): void;
+  public modifySamlProperties(
+    args: ModifySamlPropertiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifySamlPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: ModifySamlPropertiesCommandOutput) => void
+  ): Promise<ModifySamlPropertiesCommandOutput> | void {
+    const command = new ModifySamlPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

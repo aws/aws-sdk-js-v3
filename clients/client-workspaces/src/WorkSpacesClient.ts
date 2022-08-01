@@ -188,6 +188,10 @@ import {
   ModifyClientPropertiesCommandOutput,
 } from "./commands/ModifyClientPropertiesCommand";
 import {
+  ModifySamlPropertiesCommandInput,
+  ModifySamlPropertiesCommandOutput,
+} from "./commands/ModifySamlPropertiesCommand";
+import {
   ModifySelfservicePermissionsCommandInput,
   ModifySelfservicePermissionsCommandOutput,
 } from "./commands/ModifySelfservicePermissionsCommand";
@@ -288,6 +292,7 @@ export type ServiceInputTypes =
   | MigrateWorkspaceCommandInput
   | ModifyAccountCommandInput
   | ModifyClientPropertiesCommandInput
+  | ModifySamlPropertiesCommandInput
   | ModifySelfservicePermissionsCommandInput
   | ModifyWorkspaceAccessPropertiesCommandInput
   | ModifyWorkspaceCreationPropertiesCommandInput
@@ -352,6 +357,7 @@ export type ServiceOutputTypes =
   | MigrateWorkspaceCommandOutput
   | ModifyAccountCommandOutput
   | ModifyClientPropertiesCommandOutput
+  | ModifySamlPropertiesCommandOutput
   | ModifySelfservicePermissionsCommandOutput
   | ModifyWorkspaceAccessPropertiesCommandOutput
   | ModifyWorkspaceCreationPropertiesCommandOutput

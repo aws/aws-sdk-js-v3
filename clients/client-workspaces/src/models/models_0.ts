@@ -1373,6 +1373,11 @@ export interface DefaultWorkspaceCreationProperties {
   EnableMaintenanceMode?: boolean;
 }
 
+export enum DeletableSamlProperty {
+  SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME = "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
+  SAML_PROPERTIES_USER_ACCESS_URL = "SAML_PROPERTIES_USER_ACCESS_URL",
+}
+
 export interface DeleteClientBrandingRequest {
   /**
    * <p>The directory identifier of the WorkSpace for which you want to delete client
@@ -1879,6 +1884,55 @@ export enum WorkspaceDirectoryType {
   SIMPLE_AD = "SIMPLE_AD",
 }
 
+export enum SamlStatusEnum {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK = "ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK",
+}
+
+/**
+ * <p>Describes the enablement status, user access URL, and relay state parameter name that
+ *          are used for configuring federation with an SAML 2.0 identity provider.</p>
+ */
+export interface SamlProperties {
+  /**
+   * <p>Indicates the status of SAML 2.0 authentication. These statuses include the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the setting is <code>DISABLED</code>, end users will be directed to login with their directory credentials.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the setting is <code>ENABLED</code>, end users will be directed to login via the user access URL. Users attempting
+   *                to connect to WorkSpaces from a client application that does not support SAML 2.0 authentication will not be able to
+   *                connect.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the setting is <code>ENABLED_WITH_DIRECTORY_LOGIN_FALLBACK</code>, end users will be directed to login via the user
+   *                access URL on supported client applications, but will not prevent clients that do not support SAML 2.0 authentication
+   *                from connecting as if SAML 2.0 authentication was disabled.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: SamlStatusEnum | string;
+
+  /**
+   * <p>The SAML 2.0 identity provider (IdP) user access URL is the URL a user would navigate to in their web browser in
+   *          order to federate from the IdP and directly access the application, without any SAML 2.0 service provider (SP)
+   *          bindings.</p>
+   */
+  UserAccessUrl?: string;
+
+  /**
+   * <p>The relay state parameter name supported by the SAML 2.0 identity provider (IdP). When the end user is redirected to
+   *          the user access URL from the WorkSpaces client application, this relay state parameter name is appended as a query
+   *          parameter to the URL along with the relay state endpoint to return the user to the client application session.</p>
+   *
+   *          <p>To use SAML 2.0 authentication with WorkSpaces, the IdP must support IdP-initiated deep linking for the relay state
+   *          URL. Consult your IdP documentation for more information.</p>
+   */
+  RelayStateParameterName?: string;
+}
+
 /**
  * <p>Describes the self-service permissions for a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
  */
@@ -2064,6 +2118,12 @@ export interface WorkspaceDirectory {
    * <p>The default self-service permissions for WorkSpaces in the directory.</p>
    */
   SelfservicePermissions?: SelfservicePermissions;
+
+  /**
+   * <p>Describes the enablement status, user access URL, and relay state parameter name that are used for configuring
+   *          federation with an SAML 2.0 identity provider.</p>
+   */
+  SamlProperties?: SamlProperties;
 }
 
 export interface DescribeWorkspaceDirectoriesResult {
@@ -2763,6 +2823,37 @@ export interface ModifyClientPropertiesRequest {
 }
 
 export interface ModifyClientPropertiesResult {}
+
+export interface ModifySamlPropertiesRequest {
+  /**
+   * <p>The directory identifier for which you want to configure SAML properties.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The properties for configuring SAML 2.0 authentication.</p>
+   */
+  SamlProperties?: SamlProperties;
+
+  /**
+   * <p>The SAML properties to delete as part of your request.</p>
+   *          <p>Specify one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SAML_PROPERTIES_USER_ACCESS_URL</code> to delete the user access URL.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME</code> to delete the
+   *                relay state parameter name.</p>
+   *             </li>
+   *          </ul>
+   */
+  PropertiesToDelete?: (DeletableSamlProperty | string)[];
+}
+
+export interface ModifySamlPropertiesResult {}
 
 export interface ModifySelfservicePermissionsRequest {
   /**
@@ -3862,6 +3953,13 @@ export const DescribeWorkspaceDirectoriesRequestFilterSensitiveLog = (
 /**
  * @internal
  */
+export const SamlPropertiesFilterSensitiveLog = (obj: SamlProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const SelfservicePermissionsFilterSensitiveLog = (obj: SelfservicePermissions): any => ({
   ...obj,
 });
@@ -4127,6 +4225,20 @@ export const ModifyClientPropertiesRequestFilterSensitiveLog = (obj: ModifyClien
  * @internal
  */
 export const ModifyClientPropertiesResultFilterSensitiveLog = (obj: ModifyClientPropertiesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifySamlPropertiesRequestFilterSensitiveLog = (obj: ModifySamlPropertiesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifySamlPropertiesResultFilterSensitiveLog = (obj: ModifySamlPropertiesResult): any => ({
   ...obj,
 });
 

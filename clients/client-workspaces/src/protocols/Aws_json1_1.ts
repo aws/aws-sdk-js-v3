@@ -151,6 +151,10 @@ import {
   ModifyClientPropertiesCommandOutput,
 } from "../commands/ModifyClientPropertiesCommand";
 import {
+  ModifySamlPropertiesCommandInput,
+  ModifySamlPropertiesCommandOutput,
+} from "../commands/ModifySamlPropertiesCommand";
+import {
   ModifySelfservicePermissionsCommandInput,
   ModifySelfservicePermissionsCommandOutput,
 } from "../commands/ModifySelfservicePermissionsCommand";
@@ -243,6 +247,7 @@ import {
   DefaultClientBrandingAttributes,
   DefaultImportClientBrandingAttributes,
   DefaultWorkspaceCreationProperties,
+  DeletableSamlProperty,
   DeleteClientBrandingRequest,
   DeleteClientBrandingResult,
   DeleteConnectClientAddInRequest,
@@ -316,6 +321,8 @@ import {
   ModifyAccountResult,
   ModifyClientPropertiesRequest,
   ModifyClientPropertiesResult,
+  ModifySamlPropertiesRequest,
+  ModifySamlPropertiesResult,
   ModifySelfservicePermissionsRequest,
   ModifySelfservicePermissionsResult,
   ModifyWorkspaceAccessPropertiesRequest,
@@ -348,6 +355,7 @@ import {
   RevokeIpRulesRequest,
   RevokeIpRulesResult,
   RootStorage,
+  SamlProperties,
   SelfservicePermissions,
   Snapshot,
   StartRequest,
@@ -957,6 +965,19 @@ export const serializeAws_json1_1ModifyClientPropertiesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ModifyClientPropertiesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ModifySamlPropertiesCommand = async (
+  input: ModifySamlPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.ModifySamlProperties",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ModifySamlPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3487,6 +3508,59 @@ const deserializeAws_json1_1ModifyClientPropertiesCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ModifySamlPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifySamlPropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ModifySamlPropertiesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ModifySamlPropertiesResult(data, context);
+  const response: ModifySamlPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ModifySamlPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifySamlPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __BaseException;
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      const $metadata = deserializeMetadata(output);
+      const statusCode = $metadata.httpStatusCode ? $metadata.httpStatusCode + "" : undefined;
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode || statusCode || "UnknowError",
+        $fault: "client",
+        $metadata,
+      });
+      throw __decorateServiceException(response, parsedBody);
+  }
+};
+
 export const deserializeAws_json1_1ModifySelfservicePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4787,6 +4861,20 @@ const serializeAws_json1_1DefaultImportClientBrandingAttributes = (
   };
 };
 
+const serializeAws_json1_1DeletableSamlPropertiesList = (
+  input: (DeletableSamlProperty | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1DeleteClientBrandingRequest = (
   input: DeleteClientBrandingRequest,
   context: __SerdeContext
@@ -5200,6 +5288,21 @@ const serializeAws_json1_1ModifyClientPropertiesRequest = (
   };
 };
 
+const serializeAws_json1_1ModifySamlPropertiesRequest = (
+  input: ModifySamlPropertiesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PropertiesToDelete != null && {
+      PropertiesToDelete: serializeAws_json1_1DeletableSamlPropertiesList(input.PropertiesToDelete, context),
+    }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
+    ...(input.SamlProperties != null && {
+      SamlProperties: serializeAws_json1_1SamlProperties(input.SamlProperties, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1ModifySelfservicePermissionsRequest = (
   input: ModifySelfservicePermissionsRequest,
   context: __SerdeContext
@@ -5358,6 +5461,14 @@ const serializeAws_json1_1RevokeIpRulesRequest = (input: RevokeIpRulesRequest, c
 const serializeAws_json1_1RootStorage = (input: RootStorage, context: __SerdeContext): any => {
   return {
     ...(input.Capacity != null && { Capacity: input.Capacity }),
+  };
+};
+
+const serializeAws_json1_1SamlProperties = (input: SamlProperties, context: __SerdeContext): any => {
+  return {
+    ...(input.RelayStateParameterName != null && { RelayStateParameterName: input.RelayStateParameterName }),
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.UserAccessUrl != null && { UserAccessUrl: input.UserAccessUrl }),
   };
 };
 
@@ -6562,6 +6673,13 @@ const deserializeAws_json1_1ModifyClientPropertiesResult = (
   return {} as any;
 };
 
+const deserializeAws_json1_1ModifySamlPropertiesResult = (
+  output: any,
+  context: __SerdeContext
+): ModifySamlPropertiesResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1ModifySelfservicePermissionsResult = (
   output: any,
   context: __SerdeContext
@@ -6717,6 +6835,14 @@ const deserializeAws_json1_1RevokeIpRulesResult = (output: any, context: __Serde
 const deserializeAws_json1_1RootStorage = (output: any, context: __SerdeContext): RootStorage => {
   return {
     Capacity: __expectString(output.Capacity),
+  } as any;
+};
+
+const deserializeAws_json1_1SamlProperties = (output: any, context: __SerdeContext): SamlProperties => {
+  return {
+    RelayStateParameterName: __expectString(output.RelayStateParameterName),
+    Status: __expectString(output.Status),
+    UserAccessUrl: __expectString(output.UserAccessUrl),
   } as any;
 };
 
@@ -6988,6 +7114,8 @@ const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeC
       output.DnsIpAddresses != null ? deserializeAws_json1_1DnsIpAddresses(output.DnsIpAddresses, context) : undefined,
     IamRoleId: __expectString(output.IamRoleId),
     RegistrationCode: __expectString(output.RegistrationCode),
+    SamlProperties:
+      output.SamlProperties != null ? deserializeAws_json1_1SamlProperties(output.SamlProperties, context) : undefined,
     SelfservicePermissions:
       output.SelfservicePermissions != null
         ? deserializeAws_json1_1SelfservicePermissions(output.SelfservicePermissions, context)
