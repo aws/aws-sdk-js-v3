@@ -47,11 +47,12 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   public readonly middlewareStack: MiddlewareStack<
     BatchExecuteStatementCommandInput | __BatchExecuteStatementCommandInput,
     BatchExecuteStatementCommandOutput | __BatchExecuteStatementCommandOutput
-  > = this.clientCommand.middlewareStack;
+  >;
 
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     super();
     this.clientCommand = new __BatchExecuteStatementCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**

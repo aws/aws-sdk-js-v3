@@ -60,11 +60,12 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
   public readonly middlewareStack: MiddlewareStack<
     ScanCommandInput | __ScanCommandInput,
     ScanCommandOutput | __ScanCommandOutput
-  > = this.clientCommand.middlewareStack;
+  >;
 
   constructor(readonly input: ScanCommandInput) {
     super();
     this.clientCommand = new __ScanCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**

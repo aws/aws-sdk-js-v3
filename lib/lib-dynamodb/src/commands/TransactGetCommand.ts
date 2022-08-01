@@ -52,11 +52,12 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
   public readonly middlewareStack: MiddlewareStack<
     TransactGetCommandInput | __TransactGetItemsCommandInput,
     TransactGetCommandOutput | __TransactGetItemsCommandOutput
-  > = this.clientCommand.middlewareStack;
+  >;
 
   constructor(readonly input: TransactGetCommandInput) {
     super();
     this.clientCommand = new __TransactGetItemsCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**

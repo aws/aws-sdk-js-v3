@@ -86,11 +86,12 @@ export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
   public readonly middlewareStack: MiddlewareStack<
     TransactWriteCommandInput | __TransactWriteItemsCommandInput,
     TransactWriteCommandOutput | __TransactWriteItemsCommandOutput
-  > = this.clientCommand.middlewareStack;
+  >;
 
   constructor(readonly input: TransactWriteCommandInput) {
     super();
     this.clientCommand = new __TransactWriteItemsCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**

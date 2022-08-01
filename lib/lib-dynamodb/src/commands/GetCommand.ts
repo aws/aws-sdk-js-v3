@@ -39,11 +39,12 @@ export class GetCommand extends DynamoDBDocumentClientCommand<
   public readonly middlewareStack: MiddlewareStack<
     GetCommandInput | __GetItemCommandInput,
     GetCommandOutput | __GetItemCommandOutput
-  > = this.clientCommand.middlewareStack;
+  >;
 
   constructor(readonly input: GetCommandInput) {
     super();
     this.clientCommand = new __GetItemCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**

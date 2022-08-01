@@ -72,11 +72,12 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
   public readonly middlewareStack: MiddlewareStack<
     QueryCommandInput | __QueryCommandInput,
     QueryCommandOutput | __QueryCommandOutput
-  > = this.clientCommand.middlewareStack;
+  >;
 
   constructor(readonly input: QueryCommandInput) {
     super();
     this.clientCommand = new __QueryCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**

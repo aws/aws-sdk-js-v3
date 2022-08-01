@@ -80,11 +80,12 @@ export class UpdateCommand extends DynamoDBDocumentClientCommand<
   public readonly middlewareStack: MiddlewareStack<
     UpdateCommandInput | __UpdateItemCommandInput,
     UpdateCommandOutput | __UpdateItemCommandOutput
-  > = this.clientCommand.middlewareStack;
+  >;
 
   constructor(readonly input: UpdateCommandInput) {
     super();
     this.clientCommand = new __UpdateItemCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**

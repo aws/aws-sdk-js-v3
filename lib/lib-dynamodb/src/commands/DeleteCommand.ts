@@ -64,11 +64,12 @@ export class DeleteCommand extends DynamoDBDocumentClientCommand<
   public readonly middlewareStack: MiddlewareStack<
     DeleteCommandInput | __DeleteItemCommandInput,
     DeleteCommandOutput | __DeleteItemCommandOutput
-  > = this.clientCommand.middlewareStack;
+  >;
 
   constructor(readonly input: DeleteCommandInput) {
     super();
     this.clientCommand = new __DeleteItemCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**

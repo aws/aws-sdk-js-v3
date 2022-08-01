@@ -64,11 +64,12 @@ export class PutCommand extends DynamoDBDocumentClientCommand<
   public readonly middlewareStack: MiddlewareStack<
     PutCommandInput | __PutItemCommandInput,
     PutCommandOutput | __PutItemCommandOutput
-  > = this.clientCommand.middlewareStack;
+  >;
 
   constructor(readonly input: PutCommandInput) {
     super();
     this.clientCommand = new __PutItemCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**

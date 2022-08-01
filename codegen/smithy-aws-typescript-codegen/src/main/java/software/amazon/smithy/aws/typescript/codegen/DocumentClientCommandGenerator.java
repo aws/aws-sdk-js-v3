@@ -137,7 +137,7 @@ final class DocumentClientCommandGenerator implements Runnable {
 
                 writer.write("protected readonly clientCommand: $L;", clientCommandLocalName);
                 writer.write(
-                    "public readonly middlewareStack: MiddlewareStack<$L> = this.clientCommand.middlewareStack;",
+                    "public readonly middlewareStack: MiddlewareStack<$L>;",
                     inputTypeName + " | __" + originalInputTypeName
                         + ", \n" + outputTypeName + " | __" + originalOutputTypeName
                 );
@@ -159,6 +159,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             writer.pushState(COMMAND_CONSTRUCTOR_SECTION)
                     .write("super();")
                     .write("this.clientCommand = new $L(this.input as any);", clientCommandLocalName)
+                    .write("this.middlewareStack = this.clientCommand.middlewareStack;")
                     .popState();
         });
     }

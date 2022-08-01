@@ -47,11 +47,12 @@ export class ExecuteTransactionCommand extends DynamoDBDocumentClientCommand<
   public readonly middlewareStack: MiddlewareStack<
     ExecuteTransactionCommandInput | __ExecuteTransactionCommandInput,
     ExecuteTransactionCommandOutput | __ExecuteTransactionCommandOutput
-  > = this.clientCommand.middlewareStack;
+  >;
 
   constructor(readonly input: ExecuteTransactionCommandInput) {
     super();
     this.clientCommand = new __ExecuteTransactionCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**
