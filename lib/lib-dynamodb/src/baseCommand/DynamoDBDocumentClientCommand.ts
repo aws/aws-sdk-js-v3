@@ -26,7 +26,6 @@ export abstract class DynamoDBDocumentClientCommand<
   protected abstract readonly inputKeyNodes: KeyNode[];
   protected abstract readonly outputKeyNodes: KeyNode[];
   protected abstract clientCommand: $Command<Input | BaseInput, Output | BaseOutput, ResolvedClientConfiguration>;
-  protected abstract clientCommandName: string;
 
   public abstract middlewareStack: MiddlewareStack<Input | BaseInput, Output | BaseOutput>;
 
