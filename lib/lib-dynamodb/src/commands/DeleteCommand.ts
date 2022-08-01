@@ -6,11 +6,10 @@ import {
   ExpectedAttributeValue,
   ItemCollectionMetrics,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type DeleteCommandInput = Omit<__DeleteItemCommandInput, "Key" | "Expected" | "ExpressionAttributeValues"> & {
@@ -39,12 +38,14 @@ export type DeleteCommandOutput = Omit<__DeleteItemCommandOutput, "Attributes" |
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
  */
-export class DeleteCommand extends $Command<
+export class DeleteCommand extends DynamoDBDocumentClientCommand<
   DeleteCommandInput,
   DeleteCommandOutput,
+  __DeleteItemCommandInput,
+  __DeleteItemCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  private readonly inputKeyNodes = [
+  protected readonly inputKeyNodes = [
     { key: "Key" },
     {
       key: "Expected",
@@ -54,13 +55,21 @@ export class DeleteCommand extends $Command<
     },
     { key: "ExpressionAttributeValues" },
   ];
-  private readonly outputKeyNodes = [
+  protected readonly outputKeyNodes = [
     { key: "Attributes" },
     { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
   ];
 
+  protected readonly clientCommand: __DeleteItemCommand;
+  public readonly middlewareStack: MiddlewareStack<
+    DeleteCommandInput | __DeleteItemCommandInput,
+    DeleteCommandOutput | __DeleteItemCommandOutput
+  >;
+
   constructor(readonly input: DeleteCommandInput) {
     super();
+    this.clientCommand = new __DeleteItemCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**
@@ -71,16 +80,10 @@ export class DeleteCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCommandInput, DeleteCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __DeleteItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    this.addMarshallingMiddleware(configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(this.clientCommand);
   }
 }

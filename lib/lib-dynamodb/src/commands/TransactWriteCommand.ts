@@ -10,11 +10,10 @@ import {
   TransactWriteItemsCommandOutput as __TransactWriteItemsCommandOutput,
   Update,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type TransactWriteCommandInput = Omit<__TransactWriteItemsCommandInput, "TransactItems"> & {
@@ -56,12 +55,14 @@ export type TransactWriteCommandOutput = Omit<__TransactWriteItemsCommandOutput,
  * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
  * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
  */
-export class TransactWriteCommand extends $Command<
+export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
   TransactWriteCommandInput,
   TransactWriteCommandOutput,
+  __TransactWriteItemsCommandInput,
+  __TransactWriteItemsCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  private readonly inputKeyNodes = [
+  protected readonly inputKeyNodes = [
     {
       key: "TransactItems",
       children: [
@@ -72,7 +73,7 @@ export class TransactWriteCommand extends $Command<
       ],
     },
   ];
-  private readonly outputKeyNodes = [
+  protected readonly outputKeyNodes = [
     {
       key: "ItemCollectionMetrics",
       children: {
@@ -81,8 +82,16 @@ export class TransactWriteCommand extends $Command<
     },
   ];
 
+  protected readonly clientCommand: __TransactWriteItemsCommand;
+  public readonly middlewareStack: MiddlewareStack<
+    TransactWriteCommandInput | __TransactWriteItemsCommandInput,
+    TransactWriteCommandOutput | __TransactWriteItemsCommandOutput
+  >;
+
   constructor(readonly input: TransactWriteCommandInput) {
     super();
+    this.clientCommand = new __TransactWriteItemsCommand(this.input as any);
+    this.middlewareStack = this.clientCommand.middlewareStack;
   }
 
   /**
@@ -93,16 +102,10 @@ export class TransactWriteCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TransactWriteCommandInput, TransactWriteCommandOutput> {
-    const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const command = new __TransactWriteItemsCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
-    const handler = command.resolveMiddleware(clientStack, configuration, options);
+    this.addMarshallingMiddleware(configuration);
+    const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
+    const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => {
-      const data = await handler(command);
-      return {
-        ...data,
-        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
-      };
-    };
+    return async () => handler(this.clientCommand);
   }
 }
